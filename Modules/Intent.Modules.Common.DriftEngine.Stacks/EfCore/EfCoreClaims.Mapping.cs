@@ -38,6 +38,8 @@ internal sealed partial class EfCoreClaims
     /// Whether EF Core maps an attribute's member to a column: <c>Ignore(o =&gt; o.Total)</c> or <c>[NotMapped]</c> says it
     /// doesn't. A field is mapped only when the configuration names it (<c>Property("_cardNumber")</c>), as EF Core never maps
     /// a field by convention; a property is mapped by convention unless the code says otherwise, so its silence is <c>true</c>.
+    /// An unmapped property can't be an attribute of a persisted class at all (<see cref="CodeGraph.Unmodellable"/>), so the
+    /// code settles it: the correction removes the attribute.
     /// </summary>
     private static ClaimReading? Mapped(ClaimContext context, EfCoreModel model)
     {
@@ -52,14 +54,15 @@ internal sealed partial class EfCoreClaims
             return ambiguous;
         }
 
+        var remove = new ModelCorrection(ModelCorrection.RemoveElement, context.Element.Id);
         if (entity?.Calls.LastOrDefault(x => x.Name == "Ignore" && x.Selected.Contains(member.Name)) is { } ignored)
         {
-            return ClaimReading.Stated("false", ignored.At);
+            return ClaimReading.Stated("false", ignored.At).Correcting(remove);
         }
 
         if (member.Attributes.FirstOrDefault(x => x.Name == "NotMapped") is { } notMapped)
         {
-            return ClaimReading.Stated("false", notMapped.At);
+            return ClaimReading.Stated("false", notMapped.At).Correcting(remove);
         }
 
         var configured = entity?.Properties.GetValueOrDefault(member.Name);

@@ -90,7 +90,7 @@ internal sealed class AspNetCoreDetector : ICodeReader
         // A router that maps a group, but no endpoint yet, is still ASP.NET Core's: an Operation it no longer maps is missing.
         if (graph.Get<MinimalApiModel>() is { Endpoints.Count: > 0 } or { Routers.Count: > 0 }
             || graph.Types.Any(x => x.Kind != "component" && x.Attributes.Concat(x.Members.SelectMany(m => m.Attributes)).Any(a => Attributes.Contains(a.Name))
-                                    || graph.Supertypes(x).Any(s => s is "ControllerBase" or "Controller" or "ApiController")))
+                                    || graph.Supertypes(x).Any(s => s is "ControllerBase" or "Controller" or "ApiController" or "ODataController")))
         {
             graph.Set(new AspNetCoreCode());
         }
@@ -163,6 +163,14 @@ internal sealed class AspNetCoreClaims : IClaimReader
                 var member = context.Member!;
                 var owner = context.TypeOf(context.Owner(context.Element)!)!;
                 var route = Route(context.Code, owner, member);
+                // Under a controller with no route of its own, a conventional route's absolute form is its relative one too:
+                // OData's ~/odata/RequestPacks is odata/RequestPacks, as a migrated application's model states it.
+                if (route.Route is ['~', '/', .. var relative] && !new[] { owner }.Concat(context.Code.Bases(owner)).Any(x => x.Attributes.Any(a => a.Name is "Route" or "RoutePrefix" && a.Arguments.Count > 0))
+                    && Binding.Normal(context.Expected) == Binding.Normal(relative))
+                {
+                    return ClaimReading.Compared(relative, route.At, true);
+                }
+
                 return Value(route.Route, route.At);
             }
             case "parameter.source":
@@ -232,7 +240,7 @@ internal sealed class AspNetCoreClaims : IClaimReader
         type.Kind == "class"
         && (type.Name.EndsWith("Controller", StringComparison.Ordinal)
             || new[] { type }.Concat(code.Bases(type)).Any(x => x.Attributes.Any(a => a.Name is "ApiController" or "Controller"))
-            || code.Supertypes(type).Any(x => x is "ControllerBase" or "Controller" or "ApiController"));
+            || code.Supertypes(type).Any(x => x is "ControllerBase" or "Controller" or "ApiController" or "ODataController"));
 
     /// <summary>
     /// A Service that serves HTTP, whose name no type of the code has, is the controller named for it as Spring MVC's is:
@@ -332,7 +340,8 @@ internal sealed class AspNetCoreClaims : IClaimReader
             return (accept.Arguments[0].ToUpperInvariant(), accept.At);
         }
 
-        return owner is not null && Binding.WebApi2(code, owner)
+        // OData routes an unattributed action by the same convention.
+        return owner is not null && (Binding.WebApi2(code, owner) || Binding.OData(code, owner))
             ? (ConventionVerbs.FirstOrDefault(x => member.Name.StartsWith(x, StringComparison.OrdinalIgnoreCase))?.ToUpperInvariant() ?? "POST", member.At)
             : null;
     }

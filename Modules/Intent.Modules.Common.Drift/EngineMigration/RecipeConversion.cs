@@ -26,6 +26,13 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         public List<ExceptionRowSpec> Exceptions { get; } = new();
         public List<string> Notes { get; } = new();
 
+        /// <summary>
+        /// The globs v1 read code through, normalised as v1 read them: each recipe's files (every C# file when it gives none),
+        /// and the files its facts and <c>own</c> entries name. With the contract files, which v1 compared wherever they were,
+        /// that is all the code v1 read.
+        /// </summary>
+        public List<string> V1Read { get; } = new();
+
         public bool HasRows => Scope.Count > 0 || OptIn.Count > 0 || Exceptions.Count > 0;
     }
 
@@ -54,6 +61,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             var contextRows = new List<ScopeRowSpec>();
             var optIn = new List<OptInRowSpec>();
             var exceptions = new List<(string Rule, string Match, string Reason)>();
+            var read = new List<string>();
 
             foreach (var recipe in recipes.OrderBy(x => x.FileName, StringComparer.OrdinalIgnoreCase))
             {
@@ -67,6 +75,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 // A recipe's files only said where its facts and conventions were read, so they bound its opt-in rows.
                 sources.Add(source);
                 var inGlobs = file.Files ?? Globs(new[] { "**/*.cs" });
+                read.AddRange(inGlobs.Concat(file.FactFiles).Concat(file.Own.SelectMany(x => x.Files ?? Array.Empty<string>())));
 
                 var excludedOwn = new HashSet<OwnEntry>();
                 foreach (var exception in file.Exceptions)
@@ -115,7 +124,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
             // Everything is in scope (user decision, 2026-11-23): v1 compared each contract file wherever it was, and each own
             // entry read its own files, so a recipe's top-level files left most modelled code out. The Context rows come after
-            // it: within a folder, the last matching row decides a file.
+            // it: within a folder, the last matching row decides a file. The migration adds an Out row last for the projects v1
+            // never read (V1Coverage.UnreadProjects), which needs the code.
             if (sources.Count > 0)
             {
                 result.Scope.Add(new ScopeRowSpec(new[] { "**" }, "In", $"From {string.Join(", ", sources)}: v1 checked code wherever it was"));
@@ -134,6 +144,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 .GroupBy(x => (x.Rule, x.Reason))
                 .Select(x => new ExceptionRowSpec(x.Key.Rule, x.Select(e => e.Match).Distinct(StringComparer.Ordinal).ToList(), x.Key.Reason)));
 
+            result.V1Read.AddRange(read.Distinct(StringComparer.Ordinal));
             return result;
         }
 
@@ -235,7 +246,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             if (string.IsNullOrWhiteSpace(Comments.Replace(recipe.Json ?? string.Empty, string.Empty)))
             {
                 // Only comments: the file turned v1's check on with nothing in it, as {} does.
-                return new RecipeContent(null, new List<OwnEntry>(), new List<ExceptionEntry>());
+                return new RecipeContent(null, new List<string>(), new List<OwnEntry>(), new List<ExceptionEntry>());
             }
 
             try
@@ -250,6 +261,11 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 var root = document.RootElement;
                 return new RecipeContent(
                     root.TryGetProperty("files", out var files) ? Globs(Strings(files)) is { Count: > 0 } globs ? globs : null : null,
+                    // A fact read its own files when it named them, else its recipe's.
+                    root.TryGetProperty("facts", out var facts) && facts.ValueKind == JsonValueKind.Object
+                        ? Globs(facts.EnumerateObject().Where(x => x.Value.ValueKind == JsonValueKind.Object && x.Value.TryGetProperty("files", out _))
+                            .SelectMany(x => Strings(x.Value.GetProperty("files"))))
+                        : new List<string>(),
                     root.TryGetProperty("own", out var own) && own.ValueKind == JsonValueKind.Array
                         ? own.EnumerateArray().Where(x => x.ValueKind == JsonValueKind.Object).Select(ReadOwn).Where(x => x != null).ToList()
                         : new List<OwnEntry>(),
@@ -300,7 +316,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             _ => Array.Empty<string>()
         };
 
-        private sealed record RecipeContent(IReadOnlyList<string> Files, List<OwnEntry> Own, List<ExceptionEntry> Exceptions);
+        private sealed record RecipeContent(IReadOnlyList<string> Files, IReadOnlyList<string> FactFiles, List<OwnEntry> Own, List<ExceptionEntry> Exceptions);
 
         private sealed record OwnEntry(string Kind, IReadOnlyList<string> Files, string Name);
 

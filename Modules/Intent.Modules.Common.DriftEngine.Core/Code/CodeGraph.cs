@@ -906,6 +906,14 @@ public sealed class CodeGraph
     public Dictionary<string, string> UngovernedFiles { get; } = new(StringComparer.Ordinal);
 
     /// <summary>
+    /// The members a framework's reader knows no designer can state, each with why: a property EF doesn't map
+    /// (<c>[NotMapped]</c>, <c>Ignore</c>) of a type it does, which an attribute of a persisted class can't be, since the model
+    /// persists every attribute of one. The <c>unmodelled.member</c> rule passes over them: if the diagram can't reflect it,
+    /// it isn't drift (user, 2026-11-14).
+    /// </summary>
+    public Dictionary<MemberNode, string> Unmodellable { get; } = [];
+
+    /// <summary>
     /// What a file's code can name without qualifying it: its own imports, those of the files it has imports from
     /// (<see cref="FileNode.ImportsFrom"/>), and the global ones of its project.
     /// </summary>

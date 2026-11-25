@@ -328,6 +328,230 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
             V1Coverage.NeverUnmodelled(new CodeFiles(code), Model).ShouldNotContain("OrderDto");
         }
 
+        /// <summary>
+        /// A ClientB application keeps a legacy copy of its host project that its recipe never read. Under the ** In row the
+        /// engine read both copies of each class as one type, and the v1-clean model had 44 errors; the copy goes out.
+        /// </summary>
+        [Fact]
+        public void A_project_no_recipe_file_reached_and_no_contract_file_is_in_is_out()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["Host/Host.csproj"] = "<Project />",
+                ["Host/Handlers/OrderHandler.cs"] = "public class OrderHandler { }",
+                ["Host.Legacy/Host.Legacy.csproj"] = "<Project />",
+                ["Host.Legacy/Handlers/OrderHandler.cs"] = "public class OrderHandler { }",
+                ["Api/Api.csproj"] = "<Project />",
+                ["Api/Controllers/OrdersController.cs"] = "public class OrdersController { }",
+                ["Contracts/Contracts.csproj"] = "<Project />",
+                ["Contracts/OrderDto.cs"] = "public class OrderDto { }",
+                ["Database/Database.sqlproj"] = "<Project />",
+                ["Database/Tables/Order.sql"] = "CREATE TABLE [Order] ([Id] INT)"
+            };
+            var rows = RecipeConversion.Convert(new[]
+            {
+                new RecipeSource("services.drift.json", """
+                    {
+                      "files": "Api/Controllers/**/*.cs",
+                      "facts": { "intent.invokes": { "files": ["Host/Handlers/**/*.cs"], "find": "class:{Service}" } }
+                    }
+                    """)
+            });
+
+            var row = V1Coverage.UnreadProjects(new CodeFiles(code), rows.V1Read, new[] { "Contracts/OrderDto.cs" });
+
+            row.Scope.ShouldBe("Out");
+            row.Globs.ShouldBe(new[] { "Host.Legacy/**" });
+            row.Reason.ShouldBe(V1Coverage.UnreadReason);
+        }
+
+        [Fact]
+        public void A_recipe_without_files_read_every_project_so_none_is_out()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["Host/Host.csproj"] = "<Project />",
+                ["Host/OrderHandler.cs"] = "public class OrderHandler { }",
+                ["Tests/Tests.csproj"] = "<Project />",
+                ["Tests/OrderHandlerTests.cs"] = "public class OrderHandlerTests { }"
+            };
+            var rows = RecipeConversion.Convert(new[] { new RecipeSource("domain.drift.json", "{}") });
+
+            V1Coverage.UnreadProjects(new CodeFiles(code), rows.V1Read, new string[0]).ShouldBeNull();
+        }
+
+        [Fact]
+        public void A_project_inside_an_unread_one_is_not_listed_again_and_one_inside_a_read_one_is()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["Legacy/Legacy.csproj"] = "<Project />",
+                ["Legacy/Old.cs"] = "public class Old { }",
+                ["Legacy/Plugins/Plugins.csproj"] = "<Project />",
+                ["Legacy/Plugins/Plugin.cs"] = "public class Plugin { }",
+                ["Api/Api.csproj"] = "<Project />",
+                ["Api/Controllers/OrdersController.cs"] = "public class OrdersController { }",
+                ["Api/Tools/Tools.csproj"] = "<Project />",
+                ["Api/Tools/Seed.cs"] = "public class Seed { }"
+            };
+            var rows = RecipeConversion.Convert(new[] { new RecipeSource("services.drift.json", """{ "files": "Api/Controllers/**/*.cs" }""") });
+
+            V1Coverage.UnreadProjects(new CodeFiles(code), rows.V1Read, new string[0]).Globs.ShouldBe(new[] { "Api/Tools/**", "Legacy/**" });
+        }
+
+        /// <summary>The engine never reads a copy in a project out of scope, so the modelled type is still declared once to it.</summary>
+        [Fact]
+        public void A_copy_in_a_project_out_of_scope_is_never_located()
+        {
+            var code = new Dictionary<string, string>(Code) { ["Legacy/OrderDto.cs"] = "namespace Legacy { public class OrderDto { } }" };
+            var scope = new[] { new ScopeRowSpec(new[] { "**" }, "In", "All"), new ScopeRowSpec(new[] { "Legacy/**" }, "Out", V1Coverage.UnreadReason) };
+
+            V1Coverage.NeverUnmodelled(new CodeFiles(code), Model).ShouldNotContain("OrderDto");
+            V1Coverage.NeverUnmodelled(new CodeFiles(code), Model, scope).ShouldContain("OrderDto");
+        }
+
+        /// <summary>
+        /// A migrated EF6 application keeps legacy copies of its entities in Data/Models, beside the Data/Contracts its recipe
+        /// read. In scope, each entity had two types and none could be verified; the folder goes out. A copy beside files v1
+        /// read goes out on its own, and a folder v1 didn't read that holds no copy stays in.
+        /// </summary>
+        [Fact]
+        public void Code_v1_never_read_that_copies_a_modelled_type_is_out()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["Data/Data.csproj"] = "<Project />",
+                ["Data/Contracts/Order.cs"] = "namespace Data.Contracts { public partial class Order { } }",
+                ["Data/Contracts/Old/Order.cs"] = "namespace Data.Contracts.Old { public class Order { } }",
+                ["Data/Contracts/Line.cs"] = "namespace Data.Contracts { public class Line { } }",
+                ["Data/Models/Order.cs"] = "namespace Data.Models { public class Order { } }",
+                ["Data/Models/Sub/Line.cs"] = "namespace Data.Models.Sub { public class Line { } }",
+                ["Data/Migrations/Initial.cs"] = "namespace Data.Migrations { public class Initial { } }",
+                ["Data/Context.cs"] = "namespace Data { public class Context { } }"
+            };
+            var rows = RecipeConversion.Convert(new[]
+            {
+                new RecipeSource("domain.drift.json", """{ "files": ["Data/Contracts/*.cs", "Data/Context.cs"] }""")
+            });
+            var model = new[] { new ModelledType("Order", "Class", new string[0]), new ModelledType("Line", "Class", new string[0]) };
+
+            var row = V1Coverage.UnreadCopies(new CodeFiles(code), rows.V1Read, new string[0], model, rows.Scope);
+
+            row.Scope.ShouldBe("Out");
+            row.Globs.ShouldBe(new[] { "Data/Contracts/Old/**", "Data/Models/**" });
+            row.Reason.ShouldBe(V1Coverage.CopiesReason);
+        }
+
+        [Fact]
+        public void A_type_only_code_v1_never_read_declares_is_no_copy()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["Data/Data.csproj"] = "<Project />",
+                ["Data/Contracts/Order.cs"] = "namespace Data.Contracts { public class Order { } }",
+                ["Data/Models/Line.cs"] = "namespace Data.Models { public class Line { } }"
+            };
+            var rows = RecipeConversion.Convert(new[] { new RecipeSource("domain.drift.json", """{ "files": "Data/Contracts/*.cs" }""") });
+            var model = new[] { new ModelledType("Order", "Class", new string[0]), new ModelledType("Line", "Class", new string[0]) };
+
+            V1Coverage.UnreadCopies(new CodeFiles(code), rows.V1Read, new string[0], model, rows.Scope).ShouldBeNull();
+        }
+
+        /// <summary>
+        /// A migrated application models the commands it sends to and takes from a shared library project its recipes never
+        /// reached, which the Out row takes out: those files are read back in for context, so the types can be located.
+        /// </summary>
+        [Fact]
+        public void A_file_out_of_scope_declaring_a_modelled_type_no_file_in_scope_declares_is_read_for_context()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["Host/Host.csproj"] = "<Project />",
+                ["Host/Handlers/Relay.cs"] = "public class Relay { }",
+                ["Shared/Shared.csproj"] = "<Project />",
+                ["Shared/Commands/SubmitApplication.cs"] = "namespace Shared.Commands { public class SubmitApplication { } }",
+                ["Shared/Commands/Relay.cs"] = "namespace Shared.Commands { public class Relay { } }",
+                ["Shared/Commands/Unmodelled.cs"] = "namespace Shared.Commands { public class Unmodelled { } }"
+            };
+            var scope = new[] { new ScopeRowSpec(new[] { "**" }, "In", "All"), new ScopeRowSpec(new[] { "Shared/**" }, "Out", V1Coverage.UnreadReason) };
+            var model = new[] { new ModelledType("SubmitApplication", "Integration Command", new string[0]), new ModelledType("Relay", "Integration Command", new string[0]) };
+
+            var row = V1Coverage.UnreadModelled(new CodeFiles(code), model, scope);
+
+            row.Scope.ShouldBe("Context");
+            row.Globs.ShouldBe(new[] { "Shared/Commands/SubmitApplication.cs" });
+            row.Reason.ShouldBe(V1Coverage.ModelledUnreadReason);
+        }
+
+        /// <summary>
+        /// v1 compared a modelled type's members only in the contract file it generated for it, so a migrated EF6 application's
+        /// T4-generated entities had none reported: their unmodelled public members are excepted, of the kinds the element
+        /// states, its attributes and association ends aside. Where v1 compared them, a constructor counted only when the model
+        /// stated one for the type.
+        /// </summary>
+        [Fact]
+        public void A_modelled_types_members_v1_never_compared_are_excepted_and_a_compared_types_constructor_when_the_model_has_none()
+        {
+            var model = new[]
+            {
+                new ModelledType("Order", "Class", new[] { "Id", "Lines" }),
+                new ModelledType("Invoice", "Class", new[] { "Id" }),
+                new ModelledType("Receipt", "Class", new[] { "Id", "Receipt" }, HasConstructors: true),
+                new ModelledType("Orders", "Service", new[] { "Get" })
+            };
+            var code = new Dictionary<string, string>
+            {
+                ["Data/Order.cs"] = """
+                    public class Order
+                    {
+                        public Order() { }
+                        public int Id { get; set; }
+                        public List<Line> Lines { get; set; }
+                        public string Note { get; set; }
+                        public void Touch() { }
+                        public override string ToString() => "";
+                        private void Hidden() { }
+                    }
+                    """,
+                ["Data/Invoice.cs"] = "public class Invoice { public Invoice() { } public int Id { get; set; } }",
+                ["Data/Receipt.cs"] = "public class Receipt { public Receipt() { } public int Id { get; set; } }",
+                ["Data/Orders.cs"] = "public class Orders { public Orders(object db) { } public void Get() { } }"
+            };
+            var recipes = new[] { new RecipeSource("domain.drift.json", "{}") };
+            var rows = RecipeConversion.Convert(recipes);
+            rows.OptIn.Add(new OptInRowSpec(RecipeConversion.UnmodelledMember, new[] { "**/*.cs" }, "Public members of modelled types"));
+
+            var result = V1Coverage.Exceptions(new CodeFiles(code), recipes, rows, new[] { "Data/Invoice.cs", "Data/Receipt.cs", "Data/Orders.cs" }, model, new List<string>());
+
+            result.Single(x => x.Reason == V1Coverage.UncomparedReason).Matches.ShouldBe(new[] { "Order.Order", "Order.Note", "Order.Touch" });
+            result.Single(x => x.Reason == V1Coverage.ConstructorReason).Matches.ShouldBe(new[] { "Invoice.Invoice" });
+            result.ShouldAllBe(x => x.Rule == RecipeConversion.UnmodelledMember);
+        }
+
+        /// <summary>
+        /// A queue consumer makes the message it handles from the body it receives (an Azure Service Bus processor's
+        /// <c>JsonConvert.DeserializeObject&lt;ApplicationPack&gt;(json)</c>): that method is the subscription's, which the engine
+        /// locates, so it isn't excepted.
+        /// </summary>
+        [Fact]
+        public void A_handlers_method_making_a_modelled_message_from_what_it_receives_is_not_excepted()
+        {
+            var model = Model.Append(new ModelledType("OrderConsumer", "Integration Event Handler", new string[0]))
+                .Append(new ModelledType("PlaceOrder", "Integration Command", new string[0])).ToArray();
+            var code = new Dictionary<string, string>(Code)
+            {
+                ["Api/OrderConsumer.cs"] = """
+                    public class OrderConsumer
+                    {
+                        public Task HandleOrder(ProcessMessageEventArgs args) { var order = JsonConvert.DeserializeObject<Contracts.PlaceOrder>(args.Body); return Task.CompletedTask; }
+                        public Task StartAsync(CancellationToken token) => Task.CompletedTask;
+                    }
+                    """
+            };
+
+            Exceptions(Services, code, model).Single(x => x.Reason == V1Coverage.HandlerMethodReason).Matches.ShouldBe(new[] { "OrderConsumer.StartAsync" });
+        }
+
         private static IReadOnlyList<ExceptionRowSpec> Exceptions(string services, Dictionary<string, string> code, ModelledType[] model, string[] contractFiles = null)
         {
             var recipes = new[] { new RecipeSource("services.drift.json", services) };

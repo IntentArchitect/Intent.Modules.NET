@@ -59,9 +59,31 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             var outputFolder = OutputFolder(application);
             var code = new CodeFiles(outputFolder);
             var contractFiles = ContractFiles(application, solution, outputFolder);
+
+            // The ** In row brings in everything; the projects v1 never read go out again, last, so they win within the row's
+            // folder, and so does the code it never read that copies modelled types. A modelled type only that code declares is
+            // read back in for context. Before the exceptions, which count only what the engine will read.
             var modelledTypes = ModelledTypes(model);
-            DropUnmatched(rows, V1Coverage.NeverUnmodelled(code, modelledTypes),
-                V1Coverage.NeverUnmodelledMembers(code, rows.Exceptions.Where(x => x.Rule == RecipeConversion.UnmodelledMember).SelectMany(x => x.Matches)), log);
+            if (rows.Scope.Any(x => x.Scope == "In"))
+            {
+                if (V1Coverage.UnreadProjects(code, rows.V1Read, contractFiles) is { } unread)
+                {
+                    rows.Scope.Add(unread);
+                }
+
+                if (V1Coverage.UnreadCopies(code, rows.V1Read, contractFiles, modelledTypes, rows.Scope) is { } copies)
+                {
+                    rows.Scope.Add(copies);
+                }
+
+                if (V1Coverage.UnreadModelled(code, modelledTypes, rows.Scope) is { } modelledUnread)
+                {
+                    rows.Scope.Add(modelledUnread);
+                }
+            }
+
+            DropUnmatched(rows, V1Coverage.NeverUnmodelled(code, modelledTypes, rows.Scope),
+                V1Coverage.NeverUnmodelledMembers(code, rows.Exceptions.Where(x => x.Rule == RecipeConversion.UnmodelledMember).SelectMany(x => x.Matches), rows.Scope), log);
             var converted = new HashSet<string>(rows.Exceptions.SelectMany(x => x.Matches), StringComparer.Ordinal);
             foreach (var row in V1Coverage.Exceptions(code, recipes, rows, contractFiles, modelledTypes, log))
             {
@@ -171,14 +193,25 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             }
         }
 
-        /// <summary>The application's type elements, which the drift engine locates in the code by name.</summary>
-        private static IReadOnlyList<ModelledType> ModelledTypes(ApplicationPersistable model) =>
-            model.GetDesigners()
-                .SelectMany(x => GuardrailsModelCleanup.Owned(model, x))
+        /// <summary>
+        /// The application's type elements, which the drift engine locates in the code by name, each with its children's names
+        /// and the names of the association ends it navigates by (an entity's <c>Result</c> collection).
+        /// </summary>
+        private static IReadOnlyList<ModelledType> ModelledTypes(ApplicationPersistable model)
+        {
+            var packages = model.GetDesigners().SelectMany(x => GuardrailsModelCleanup.Owned(model, x)).ToList();
+            var ends = packages.SelectMany(GuardrailsModelCleanup.AllAssociations)
+                .SelectMany(x => new[] { (Holder: x.SourceEnd?.TypeReference?.TypeId, End: x.TargetEnd?.Name), (Holder: x.TargetEnd?.TypeReference?.TypeId, End: x.SourceEnd?.Name) })
+                .Where(x => x.Holder != null && !string.IsNullOrEmpty(x.End))
+                .ToLookup(x => x.Holder, x => x.End, StringComparer.OrdinalIgnoreCase);
+            return packages
                 .SelectMany(x => x.FindAllChildElements().OfType<ElementPersistable>())
                 .Where(x => V1Coverage.TypeElements.Contains(x.SpecializationType))
-                .Select(x => new ModelledType(x.Name, x.SpecializationType, x.ChildElements?.Select(c => c.Name).ToList() ?? new List<string>()))
+                .Select(x => new ModelledType(x.Name, x.SpecializationType,
+                    (x.ChildElements?.Select(c => c.Name) ?? Enumerable.Empty<string>()).Concat(ends[x.Id]).ToList(),
+                    x.ChildElements?.Any(c => c.SpecializationType == "Constructor") == true))
                 .ToList();
+        }
 
         private static void ReleaseContractFiles(string outputFolder, IReadOnlyList<string> files, IApplicationConfig application, ICollection<string> log)
         {

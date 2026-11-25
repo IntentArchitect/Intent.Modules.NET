@@ -436,6 +436,117 @@ public class SearchRequest
 }
 ```
 
+## web-api-2-response-message
+
+A Web API 2 action returns `ResponseMessage(response)`, the controller's factory for a `ResponseMessageResult`, of the request's `CreateResponse(HttpStatusCode.OK)` kept in a local. It fails with `Content((HttpStatusCode)result.StatusCode, result.Message)`, a status the code doesn't give as a value, and a `catch` throws another response. The success status is the 200 the response is created with, so the unreadable error status doesn't make it can't verify.
+
+```json case
+{ "phase": 4, "kinds": ["operation.status"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Documents",
+        "elements": [
+          { "id": "document-controller", "type": "Service", "name": "DocumentController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/documents" } },
+            "children": [
+              { "id": "get-protected-document", "type": "Operation", "name": "GetProtectedDocumentAsync",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "secure/{documentId}", "Success Response Code": "200 (Ok)" } },
+                "children": [
+                  { "id": "get-protected-document-id", "type": "Parameter", "name": "documentId", "typeRef": { "type": "string" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Documents", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Documents/Controllers/DocumentController.cs
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Web.Http;
+using Documents.Services;
+
+namespace Documents.Controllers;
+
+[RoutePrefix("api/documents")]
+public class DocumentController : ApiController
+{
+    private readonly IDocumentStore _documents;
+
+    public DocumentController(IDocumentStore documents)
+    {
+        _documents = documents;
+    }
+
+    [HttpGet]
+    [Route("secure/{documentId}")]
+    public async Task<IHttpActionResult> GetProtectedDocumentAsync(string documentId)
+    {
+        try
+        {
+            var result = await _documents.GetAsync(documentId);
+            if (!result.Success)
+            {
+                return Content((HttpStatusCode)result.StatusCode, result.Message);
+            }
+
+            var response = Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new ByteArrayContent(result.Data);
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+            return ResponseMessage(response);
+        }
+        catch (Exception e)
+        {
+            var response = Request.CreateResponse(HttpStatusCode.InternalServerError);
+            response.ReasonPhrase = e.Message;
+            throw new HttpResponseException(response);
+        }
+    }
+}
+```
+
+```csharp file src/Documents/Services/DocumentStore.cs
+using System.Threading.Tasks;
+
+namespace Documents.Services;
+
+public interface IDocumentStore
+{
+    Task<DocumentResult> GetAsync(string documentId);
+}
+
+public class DocumentResult
+{
+    public bool Success { get; set; }
+    public int StatusCode { get; set; }
+    public string Message { get; set; } = "";
+    public byte[] Data { get; set; } = [];
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.status", "element": "get-protected-document", "outcome": "verified", "expected": "200", "actual": "200",
+      "at": "src/Documents/Controllers/DocumentController.cs:36" }
+  ]
+}
+```
+
 ## web-api-2-content-error-status
 
 A Web API 2 action succeeds with `Content(HttpStatusCode.Created, model)` and fails with `Content(HttpStatusCode.ExpectationFailed, ex.Message)`. Any status .NET's `HttpStatusCode` names is read, so the 417 is an error, not the success status, and isn't taken for ASP.NET Core's `Content(text)`, a 200: the success status is the 201 alone.

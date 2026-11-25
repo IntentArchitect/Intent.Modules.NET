@@ -1397,11 +1397,12 @@ public sealed partial class DriftEngine
                 _types[claim] = candidates[0];
                 Verify(claim, new Reading { Value = "present", From = "code", At = candidates[0].At });
                 break;
-            case 0 when !_files.Any(x => !x.Decision.In && names.Any(stem => IsNamedFor(x.Path, stem))) && !CodeLivesWhere(element)
-                         && UseOf(names) is { } use:
+            case 0 when !_files.Any(x => !x.Decision.In && names.Any(stem => IsNamedFor(x.Path, stem)))
+                         && LibraryUseOf(names, PlacedNamespaces(element)) is { } use:
                 // A type the code uses and doesn't declare is a library's it references, as a message from a contracts
                 // package is (IHandleMessages<Ping>): it exists, and what the model says of its shape can't be read. Not
-                // when the code's own types live where the model places it: a deleted entity its configuration still names.
+                // when a use can name the code's own types where the model places it: a deleted entity its configuration
+                // still names.
                 _referenced.Add(claim);
                 Verify(claim, new Reading { Value = "present", From = "code", At = use });
                 break;
@@ -1769,11 +1770,11 @@ public sealed partial class DriftEngine
     }
 
     /// <summary>
-    /// In-scope code lives where the model places the element: a type's namespace ends with the last two segments of its
-    /// package's and folders' names (all, when fewer). A reverse-engineered model files a contracts package's messages under
-    /// folders named for their namespace, which no in-scope code declares; a deleted entity's siblings still live in its own.
+    /// The in-scope namespaces where the model places the element: those ending with the last two segments of its package's
+    /// and folders' names (all, when fewer). A reverse-engineered model files a contracts package's messages under folders
+    /// named for their namespace, which no in-scope code declares; a deleted entity's siblings still live in its own.
     /// </summary>
-    private bool CodeLivesWhere(IElement element)
+    private HashSet<string> PlacedNamespaces(IElement element)
     {
         var place = (element.Package?.Name ?? "").Split('.', StringSplitOptions.RemoveEmptyEntries).ToList();
         var folders = new List<string>();
@@ -1786,28 +1787,91 @@ public sealed partial class DriftEngine
         }
 
         var tail = place.Concat(folders).TakeLast(2).ToList();
-        return tail.Count > 0 && _graph.Types.Any(x => x.Namespace.Split('.') is { } segments && segments.Length >= tail.Count
-                                                       && segments.TakeLast(tail.Count).SequenceEqual(tail, StringComparer.OrdinalIgnoreCase));
+        return tail.Count == 0
+            ? []
+            : _graph.Types.Select(x => x.Namespace)
+                .Where(x => x.Split('.') is { } segments && segments.Length >= tail.Count && segments.TakeLast(tail.Count).SequenceEqual(tail, StringComparer.OrdinalIgnoreCase))
+                .ToHashSet(StringComparer.Ordinal);
     }
 
-    private Span? UseOf(IReadOnlyCollection<string> names)
+    /// <summary>
+    /// Where the code uses a library's type of one of the names: in a base type, a member's or parameter's type, a creation or
+    /// a call's type argument, nested type arguments included. Null when it uses none, or when a use can name a type in
+    /// <paramref name="placed"/>, where the code's own types live where the model places the element: that use names the
+    /// code's own type, deleted, as a configuration importing its entity's namespace still names a removed entity. A use that
+    /// can't is a library's, whatever namespaces the code's own types repeat: local copies of some of a contracts package's
+    /// messages in <c>Acme.Finance.Contracts.Internal.Commands.Workflow</c>, beside handlers importing the package's
+    /// <c>Acme.Internal.Commands.Workflow</c>.
+    /// </summary>
+    private Span? LibraryUseOf(IReadOnlyCollection<string> names, IReadOnlySet<string> placed)
     {
-        bool Named(TypeRefNode? type) => type is not null && (names.Contains(type.Name) || type.Arguments.Any(Named));
-        foreach (var type in _graph.Types.Where(x => MayUseLibrary(x.At.File)))
+        IEnumerable<TypeRefNode> Named(TypeRefNode? type) =>
+            type is null ? [] : (names.Contains(type.Name) ? [type] : Enumerable.Empty<TypeRefNode>()).Concat(type.Arguments.SelectMany(Named));
+
+        IEnumerable<(TypeRefNode Type, IReadOnlyList<string> Files, Span At)> Uses(TypeNode type) =>
+            type.BaseTypes.SelectMany(Named).Select(x => (x, (IReadOnlyList<string>)type.Files, type.At))
+                .Concat(type.Members.SelectMany(member => Named(member.Type)
+                    .Concat(member.Parameters.SelectMany(p => Named(p.Type)))
+                    .Concat(member.Creations.SelectMany(c => Named(c.Type)))
+                    .Concat(member.Calls.SelectMany(c => c.TypeArguments.SelectMany(Named)))
+                    .Select(x => (x, (IReadOnlyList<string>)[member.At.File], member.At))));
+
+        Span? first = null;
+        foreach (var (type, files, at) in _graph.Types.Where(x => MayUseLibrary(x.At.File)).SelectMany(Uses))
         {
-            if (type.BaseTypes.Any(Named))
+            if (placed.Count == 0)
             {
-                return type.At;
+                return at;
             }
 
-            if (type.Members.FirstOrDefault(x => Named(x.Type) || x.Parameters.Any(p => Named(p.Type)) || x.Creations.Any(c => Named(c.Type))
-                                                 || x.Calls.Any(c => c.TypeArguments.Any(Named))) is { } member)
+            if (files.Any(file => CanName(file, type, placed)))
             {
-                return member.At;
+                return null;
             }
+
+            first ??= at;
         }
 
-        return null;
+        return first;
+    }
+
+    /// <summary>
+    /// The use of <paramref name="type"/> in <paramref name="path"/> can name a type of its name in one of the namespaces.
+    /// Qualified, the namespace qualifying it is one: what an alias names, or the qualifier inside a namespace the file
+    /// declares or one around it, or the global one, as C# looks its first name up (<c>Internal.Commands.Workflow.X</c> in
+    /// <c>Acme.Finance.Services</c> is <c>Acme.Internal.Commands.Workflow.X</c>). Unqualified, the file imports one,
+    /// declares it or is inside it, or imports the type itself (Java's single-type import). A file the graph doesn't hold
+    /// can, as nothing says otherwise.
+    /// </summary>
+    private bool CanName(string path, TypeRefNode type, IReadOnlySet<string> namespaces)
+    {
+        if (_graph.Files.FirstOrDefault(x => x.Path == path) is not { } file)
+        {
+            return true;
+        }
+
+        var imports = _graph.ImportsOf(file).ToList();
+        if (type.QualifiedName.EndsWith("." + type.Name, StringComparison.Ordinal))
+        {
+            var qualifier = type.QualifiedName[..^(type.Name.Length + 1)];
+            var head = qualifier.Split('.')[0];
+            if (imports.FirstOrDefault(x => x.Alias == head) is { } aliased)
+            {
+                return namespaces.Contains(aliased.Target + qualifier[head.Length..]);
+            }
+
+            static IEnumerable<string> Around(string ns)
+            {
+                for (var at = ns.Length; at > 0; at = ns.LastIndexOf('.', at - 1))
+                {
+                    yield return ns[..at];
+                }
+            }
+
+            return file.Namespaces.SelectMany(Around).Select(x => $"{x}.{qualifier}").Append(qualifier).Any(namespaces.Contains);
+        }
+
+        return namespaces.Any(x => _graph.Reaches(file, x) || imports.Any(i => !i.Static && i.Target == $"{x}.{type.Name}"));
     }
 
     /// <summary>
@@ -1910,9 +1974,12 @@ public sealed partial class DriftEngine
                 break;
             default:
                 Compare(claim, Canonical(claim, reading.Value!), reading.At!, reading.From, Same(claim, reading.Value!));
-                if (reading.Detail is { } unstated)
+                if (reading.Detail is not null || reading.Corrections.Count > 0)
                 {
-                    claim.Reading = new Reading { Value = claim.Reading!.Value, From = claim.Reading.From, At = claim.Reading.At, Detail = unstated };
+                    claim.Reading = new Reading
+                    {
+                        Value = claim.Reading!.Value, From = claim.Reading.From, At = claim.Reading.At, Detail = reading.Detail ?? claim.Reading.Detail, Corrections = reading.Corrections
+                    };
                 }
 
                 break;

@@ -801,3 +801,123 @@ app.Run();
   ]
 }
 ```
+
+## odata-conventional-route
+
+OData routes an `ODataController` by convention: under the prefix its route is mapped with, `MapODataServiceRoute("requestpacks", "odata", model)`, at the entity set the EDM model names after the controller, `EntitySet<RequestPack>("RequestPacks")` for `RequestPacksController`, and with the key in brackets for an action that takes one. A migrated Web API 2 application's model states `GetRequestPacks` at `odata/RequestPacks`, under a controller with no route of its own, where it is the absolute route too; `Get(key)` is stated absolute.
+
+```json case
+{ "phase": 4, "kinds": ["operation.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Packs.Api",
+        "elements": [
+          { "id": "request-pack", "type": "DTO", "name": "RequestPack" },
+          { "id": "request-packs", "type": "Service", "name": "RequestPacksController",
+            "children": [
+              { "id": "get-all", "type": "Operation", "name": "GetRequestPacks", "typeRef": { "element": "request-pack", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "odata/RequestPacks" } } },
+              { "id": "get-one", "type": "Operation", "name": "Get", "typeRef": { "element": "request-pack" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "~/odata/RequestPacks({key})" } },
+                "children": [{ "id": "get-one-key", "type": "Parameter", "name": "key", "typeRef": { "type": "int" } }] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Packs", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Packs.Api/Startup.cs
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
+
+namespace Packs.Api;
+
+public class Startup
+{
+    public void Configuration(HttpConfiguration config)
+    {
+        var modelBuilder = new ODataConventionModelBuilder();
+        modelBuilder.EntitySet<RequestPack>("RequestPacks");
+        config.MapODataServiceRoute("requestpacks", "odata", modelBuilder.GetEdmModel());
+    }
+}
+```
+
+```csharp file src/Packs.Api/Controllers/RequestPacksController.cs
+using Microsoft.AspNet.OData;
+
+namespace Packs.Api.Controllers;
+
+public class RequestPack
+{
+    public int Id { get; set; }
+}
+
+public class RequestPacksController : ODataController
+{
+    [EnableQuery]
+    public IQueryable<RequestPack> GetRequestPacks() => Enumerable.Empty<RequestPack>().AsQueryable();
+
+    [EnableQuery]
+    public SingleResult<RequestPack> Get([FromODataUri] int key) => SingleResult.Create(Enumerable.Empty<RequestPack>().AsQueryable());
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "get-all", "outcome": "verified", "expected": "odata/RequestPacks", "actual": "odata/RequestPacks" },
+    { "kind": "operation.route", "element": "get-one", "outcome": "verified", "expected": "~/odata/RequestPacks({key})", "actual": "~/odata/RequestPacks({key})" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.route", "count": 0 }
+  ]
+}
+```
+
+## odata-controller-no-entity-set-names
+
+The EDM model names the entity set `Packs`, so OData routes no `RequestPacksController`, and the code doesn't state the route the model gives.
+
+```json case
+{ "phase": 4, "base": "odata-conventional-route", "kinds": ["operation.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Packs.Api/Startup.cs
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
+
+namespace Packs.Api;
+
+public class Startup
+{
+    public void Configuration(HttpConfiguration config)
+    {
+        var modelBuilder = new ODataConventionModelBuilder();
+        modelBuilder.EntitySet<RequestPack>("Packs");
+        config.MapODataServiceRoute("requestpacks", "odata", modelBuilder.GetEdmModel());
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "get-all", "outcome": "contradicted", "expected": "odata/RequestPacks" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.route", "severity": "error", "subject": "get-all" }
+  ]
+}
+```

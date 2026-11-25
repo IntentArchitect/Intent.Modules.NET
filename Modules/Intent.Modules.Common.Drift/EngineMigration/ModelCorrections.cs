@@ -103,6 +103,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         {
             ModelCorrection.AddLink => AddLink(model, correction),
             ModelCorrection.RemoveLink => RemoveLink(model, correction),
+            ModelCorrection.RemoveElement => RemoveElement(model, correction),
             ModelCorrection.SetStereotype => SetStereotype(model, correction),
             ModelCorrection.RemoveException => RemoveException(model, correction),
             _ => null
@@ -199,6 +200,84 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             }
 
             return $"Removed the {end.Association.AssociationType} link from {source} to {target}";
+        }
+
+        /// <summary>
+        /// Removes an element no designer could state as the code has it: an attribute of a persisted class for a property EF
+        /// doesn't map (a migrated EF6 application's <c>[NotMapped]</c> enum wrappers of int columns). Not when it has children,
+        /// or anything else in the application's model names it (a mapping, a type reference, an index), which would be left
+        /// pointing at nothing: that stays a finding.
+        /// </summary>
+        private static string RemoveElement(PersistedModel model, ModelCorrection correction)
+        {
+            if (model.Element(correction.Element) is not { } element || element.ChildElements?.Count > 0)
+            {
+                return null;
+            }
+
+            var parent = model.Packages.Select(x => x.Package).SelectMany(x => x.FindAllChildElements()).FirstOrDefault(x => x.ChildElements?.Contains(element) == true);
+            if (parent == null || model.Packages.Any(x => Names(x.Package, element.Id, element)))
+            {
+                return null;
+            }
+
+            parent.ChildElements.Remove(element);
+            return $"Removed the {element.SpecializationType} {parent.Name}.{element.Name}";
+        }
+
+        /// <summary>
+        /// Whether anything in the package's persisted model other than <paramref name="except"/> holds <paramref name="id"/>: a
+        /// type reference, a mapping's path, a stereotype property. Read by walking its persistence objects, so a reference of a
+        /// kind this module doesn't know of still counts.
+        /// </summary>
+        private static bool Names(object root, string id, object except)
+        {
+            var seen = new HashSet<object>(ReferenceEqualityComparer.Instance);
+            var pending = new Stack<object>();
+            pending.Push(root);
+            while (pending.TryPop(out var current))
+            {
+                if (current == null || ReferenceEquals(current, except) || !seen.Add(current))
+                {
+                    continue;
+                }
+
+                if (current is string text)
+                {
+                    if (text.Contains(id, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return true;
+                    }
+
+                    continue;
+                }
+
+                if (current is System.Collections.IEnumerable items)
+                {
+                    foreach (var item in items)
+                    {
+                        pending.Push(item);
+                    }
+
+                    continue;
+                }
+
+                var type = current.GetType();
+                if (type.IsPrimitive || type.IsEnum || type.Namespace?.StartsWith("Intent.", StringComparison.Ordinal) != true)
+                {
+                    continue;
+                }
+
+                foreach (var property in type.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
+                {
+                    if (property.GetIndexParameters().Length == 0 && property.CanRead && property.CanWrite)
+                    {
+                        pending.Push(property.GetValue(current));
+                    }
+                }
+            }
+
+            return false;
         }
 
         /// <summary>

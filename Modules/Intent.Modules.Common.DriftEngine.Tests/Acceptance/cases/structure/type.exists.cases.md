@@ -399,6 +399,140 @@ public class PingHandler
 }
 ```
 
+## library-type-beside-local-copies
+
+The application keeps its own copies of some of a contracts package's commands, in `Acme.Finance.Contracts.Internal.Commands.Workflow`, and handles the others from the package itself, `Acme.Internal.Commands.Workflow`. The model files them all in the package's `Commands/Workflow` folders, so the application's own namespace ends where the model places `OperationComplete`, but the handler that uses it imports only the package's namespace and can't name the application's own types there. `OperationComplete` is the library's, read from its use; `BulkAllocation` is the application's copy. A migrated application, clean on v1, reported every command it took from its contracts package this way as missing.
+
+```json case
+{ "phase": 1, "kinds": ["type.exists"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "internal", "name": "Acme.Internal", "type": "Eventing Package",
+        "elements": [
+          { "id": "commands", "type": "Folder", "name": "Commands",
+            "children": [
+              { "id": "workflow", "type": "Folder", "name": "Workflow",
+                "children": [
+                  { "id": "operation-complete", "type": "Integration Command", "name": "OperationComplete" },
+                  { "id": "bulk-allocation", "type": "Integration Command", "name": "BulkAllocation" }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Acme.Finance.Contracts.Internal/Workflow/BulkAllocation.cs
+namespace Acme.Finance.Contracts.Internal.Commands.Workflow;
+
+public class BulkAllocation
+{
+}
+```
+
+```csharp file src/Acme.Finance/Workflow/OperationCompleteHandler.cs
+using Acme.Internal.Commands.Workflow;
+
+namespace Acme.Finance.Workflow;
+
+public class OperationCompleteHandler : IHandleMessages<OperationComplete>
+{
+    public Task Handle(OperationComplete message, IMessageHandlerContext context) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "operation-complete", "outcome": "verified", "at": "src/Acme.Finance/Workflow/OperationCompleteHandler.cs:5" },
+    { "kind": "type.exists", "element": "bulk-allocation", "outcome": "verified", "at": "src/Acme.Finance.Contracts.Internal/Workflow/BulkAllocation.cs:3" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 }
+  ]
+}
+```
+
+## library-type-qualified-beside-local-copies
+
+The same command, qualified instead of imported: once in full, and once as `Internal.Commands.Workflow.OperationComplete`, which C# looks up from the namespaces around the handler's, `Acme.Finance.Workflow`, so it is `Acme.Internal.Commands.Workflow`'s. The application's own `Acme.Finance.Contracts.Internal.Commands.Workflow` ends with the same names but isn't one of those, so the command is still the library's.
+
+```json case
+{ "phase": 1, "base": "library-type-beside-local-copies", "kinds": ["type.exists"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```csharp file src/Acme.Finance/Workflow/OperationCompleteHandler.cs
+namespace Acme.Finance.Workflow;
+
+public class OperationCompleteHandler : IHandleMessages<Acme.Internal.Commands.Workflow.OperationComplete>
+{
+    public Task Handle(Internal.Commands.Workflow.OperationComplete message, IMessageHandlerContext context) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "operation-complete", "outcome": "verified", "at": "src/Acme.Finance/Workflow/OperationCompleteHandler.cs:3" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 }
+  ]
+}
+```
+
+## local-copy-deleted
+
+The application deletes its own copy of `OperationComplete`, and a handler that imports its own contracts namespace still names it. That use can name a type where the application's own commands live, so it isn't the library's: the command is missing, as a deleted entity its configuration still names is (persistence/table.name#blocked-when-type-missing). One such use is enough, whatever the others name.
+
+```json case
+{ "phase": 1, "base": "library-type-beside-local-copies", "kinds": ["type.exists"], "requirements": ["R8"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```csharp file src/Acme.Finance/Workflow/OperationCompleteHandler.cs
+using Acme.Finance.Contracts.Internal.Commands.Workflow;
+
+namespace Acme.Finance.Workflow;
+
+public class OperationCompleteHandler : IHandleMessages<OperationComplete>
+{
+    public Task Handle(OperationComplete message, IMessageHandlerContext context) => Task.CompletedTask;
+}
+```
+
+```csharp file src/Acme.Finance/Workflow/WorkflowLog.cs
+using Acme.Internal.Commands.Workflow;
+
+namespace Acme.Finance.Workflow;
+
+public class WorkflowLog
+{
+    public OperationComplete? Last { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "operation-complete", "outcome": "contradicted", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "operation-complete", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
 ## out-of-scope
 
 The only `Order` is in a folder a scope row excludes. The file's name matches the type's, so the claim is can't verify, `outOfScope`, naming the file and the row, rather than contradicted (R25). The excluded file is never read.

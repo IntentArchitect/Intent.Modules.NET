@@ -40,6 +40,32 @@ internal sealed class EfCoreReader : ICodeReader
         if (model.Entities.Count > 0 || graph.Types.Any(x => graph.Supertypes(x).Any(s => s.EndsWith("DbContext", StringComparison.Ordinal))))
         {
             graph.Set(model);
+            Unmapped(graph, model);
+        }
+    }
+
+    /// <summary>
+    /// The properties EF doesn't map, <c>[NotMapped]</c> or <c>Ignore(e =&gt; e.X)</c>d by their entity's configuration, which no
+    /// designer can state: the model persists every attribute of a persisted class, so one of these is <c>column.mapped</c>'s
+    /// finding as an attribute, and must not be <c>unmodelled.member</c>'s without one. A migrated EF6 application's entities
+    /// wrap an int column in a <c>[NotMapped]</c> enum property.
+    /// </summary>
+    private static void Unmapped(CodeGraph graph, EfCoreModel model)
+    {
+        foreach (var type in graph.Types.Where(x => x.Kind is "class" or "record"))
+        {
+            var ignored = model.Of(type, graph)?.Calls.Where(x => x.Name == "Ignore").SelectMany(x => x.Selected).ToHashSet(StringComparer.Ordinal) ?? [];
+            foreach (var member in type.Members.Where(x => x.Kind == "property"))
+            {
+                if (member.Attributes.Any(x => x.Name == "NotMapped"))
+                {
+                    graph.Unmodellable[member] = "EF doesn't map it ([NotMapped])";
+                }
+                else if (ignored.Contains(member.Name))
+                {
+                    graph.Unmodellable[member] = "EF doesn't map it (its entity's configuration Ignores it)";
+                }
+            }
         }
     }
 

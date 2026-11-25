@@ -146,7 +146,7 @@ public sealed record Finding(
 /// brings a model drawn from unchanged code into line (Intent.Common.Drift's move from v1 applies them). Elements are named
 /// by id; stereotypes, properties and association types by name, as the designer shows them.
 /// </summary>
-/// <param name="Kind"><see cref="AddLink"/>, <see cref="RemoveLink"/>, <see cref="SetStereotype"/> or <see cref="RemoveException"/>.</param>
+/// <param name="Kind"><see cref="AddLink"/>, <see cref="RemoveLink"/>, <see cref="RemoveElement"/>, <see cref="SetStereotype"/> or <see cref="RemoveException"/>.</param>
 /// <param name="Element">
 /// The element changed: a link's source (an operation, constructor, command or a handler's subscription end), the target end of
 /// a link to remove, the element a stereotype goes on, or the Drift Check's host.
@@ -158,6 +158,12 @@ public sealed record ModelCorrection(string Kind, string Element)
 
     /// <summary>Remove the link whose target end is <see cref="ModelCorrection.Element"/>.</summary>
     public const string RemoveLink = "removeLink";
+
+    /// <summary>
+    /// Remove <see cref="ModelCorrection.Element"/>, which no designer could state as the code has it: an attribute of a
+    /// persisted class for a property EF doesn't map.
+    /// </summary>
+    public const string RemoveElement = "removeElement";
 
     /// <summary>Apply <see cref="Stereotype"/> to the element, if it hasn't it, and set each of <see cref="Properties"/>.</summary>
     public const string SetStereotype = "setStereotype";

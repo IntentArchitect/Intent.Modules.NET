@@ -431,6 +431,96 @@ class OrderEntityTypeConfiguration : IEntityTypeConfiguration<Order>
 }
 ```
 
+## ef-unmapped-property
+
+A property EF doesn't map can't be an attribute of a persisted class, since the model persists every attribute of one (`column.mapped`), so it isn't reported as unmodelled either: if the diagram can't reflect it, it isn't drift. `Status` is a `[NotMapped]` enum over the `StatusId` column, as a migrated EF6 application's entities have, and the configuration `Ignore`s `Total`. `Notes` is mapped and unmodelled, so it is still reported.
+
+```json case
+{ "phase": 4, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-status-id", "type": "Attribute", "name": "StatusId", "typeRef": { "type": "int" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/OrderAggregate/Order.cs
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Ordering.Domain.OrderAggregate;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    public int StatusId { get; set; }
+
+    [NotMapped]
+    public OrderStatus Status
+    {
+        get => (OrderStatus)StatusId;
+        set => StatusId = (int)value;
+    }
+
+    public decimal Total => 0m;
+
+    public string Notes { get; set; }
+}
+
+public enum OrderStatus
+{
+    Submitted = 1,
+    Paid = 2
+}
+```
+
+```csharp file src/Infrastructure/EntityConfigurations/OrderEntityTypeConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ordering.Domain.OrderAggregate;
+
+namespace Ordering.Infrastructure.EntityConfigurations;
+
+class OrderEntityTypeConfiguration : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> orderConfiguration)
+    {
+        orderConfiguration.Ignore(o => o.Total);
+    }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.member", "count": 1 },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Domain/OrderAggregate/Order.cs:20", "messageContains": "Order.Notes" }
+  ]
+}
+```
+
 ## endpoint-in-router
 
 An endpoint mapped inside a modelled router that no Operation describes (`services.operation.unmodelled` in eShopCustom; the unmodelled router itself is [unmodelled.type](unmodelled.type.cases.md)'s). The house convention finds each `Map<Verb>` call in a router. `/cancel` is located by `CancelOrder`'s verb and route claims; `/ship` isn't modelled.

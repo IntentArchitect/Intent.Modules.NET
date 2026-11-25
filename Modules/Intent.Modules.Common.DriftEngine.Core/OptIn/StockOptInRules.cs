@@ -102,7 +102,8 @@ internal sealed class UnmodelledType : IOptInRule
 /// <c>unmodelled.member</c>: inside a type an element's <c>type.exists</c> claim located, a public member of a kind its
 /// element type can state (its convention's <c>states</c>) that no claim located; and whatever a designer's <c>members</c>
 /// conventions find inside located types. Overrides, the members every type has, and a record's primary constructor (its
-/// declaration) are never reported; nor, where the language profile names <c>accessors</c>, a located field's accessors.
+/// declaration) are never reported; nor, where the language profile names <c>accessors</c>, a located field's accessors; nor
+/// a member a framework reader knows no designer can state (<see cref="CodeGraph.Unmodellable"/>).
 /// </summary>
 internal sealed class UnmodelledMember : IOptInRule
 {
@@ -134,7 +135,7 @@ internal sealed class UnmodelledMember : IOptInRule
             {
                 if (!states.Contains(member.Kind) || member.Access != "public" || modelledBase && member.Modifiers.Contains("override") || EveryTypeHas.Contains(member.Name) ||
                     member is { Kind: "constructor", IsPrimary: true } && type.Kind == "record" || member.Kind == "method" && located.Contains(member.Name) ||
-                    context.IsLocated(member) || !reported.Add(member))
+                    context.IsLocated(member) || context.Code.Unmodellable.ContainsKey(member) || !reported.Add(member))
                 {
                     continue;
                 }

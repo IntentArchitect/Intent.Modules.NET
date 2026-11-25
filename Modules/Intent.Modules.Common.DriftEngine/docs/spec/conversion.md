@@ -9,7 +9,7 @@ The conversion is Intent.Common.Drift 2.0's migration (user decision, 2026-11-23
 | Common.Drift                          | DriftEngine                                                                                                                                                                               |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `guardrails/<designer>.drift.json`    | Nothing of its own: its facts, `own` entries and exceptions each go as below. The migration deletes it                                                                                    |
-| The code v1 checked                   | One scope `In` row for `**`: v1 checked code wherever its recipes' finds reached, so top-level `files` don't bound it (user decision, 2026-11-23)                                         |
+| The code v1 checked                   | One scope `In` row for `**`: v1 checked code wherever its recipes' finds reached, so top-level `files` don't bound it (user decision, 2026-11-23). Last, one `Out` row for each project (a folder with a `.csproj`) no recipe's `files`, fact's `files`, `own` entry's `files` or contract file reached, which v1 never read (2026-11-25); one `Out` row for the code inside projects v1 read that it never read and that copies a modelled type (the highest such folder holding no file v1 read, else the file); and one `Context` row for the files those rows take out that declare a modelled type nothing in scope declares |
 | `facts.<kind>`                        | Nothing: the kind's stock reader reads it by name, or, where none does, it is `noRule` until the house's module reads it                                                                  |
 | `own` entries                         | An `optin/unmodelled.type` Opt-in Rules row each, over the entry's `files` (else its recipe file's, else `**/*.cs`), with its `kind` as the Description. Rows with the same globs merge. Exceptions keep each to what its find matched (below) |
 | v1's always-on unmodelled members     | One `optin/unmodelled.member` row over `**/*.cs`, where there is a Domain or Services recipe                                                                                               |
@@ -100,14 +100,14 @@ The engine's decisions change some verdicts on the same model and code. Phase 6'
 The first Software Factory run after the migration shows these as findings, for the developer to resolve:
 
 - **A model element the code lacks.** v1's contract templates would have written it, so v1 showed it as a pending change; nothing generates it now, so it is drift (change 4).
-- **Code v1 never read.** The `**` In row brings in everything under the output folder that isn't always out; the developer narrows it with Out rows, or models what it finds.
+- **Code v1 never read, in a project v1 read.** The `**` In row brings in everything under the output folder that isn't always out, and the migration's Out rows take out only whole projects v1 never read and the code that copies modelled types; within a project v1 read, other files no recipe reached are in, and the developer narrows them with Out rows, or models what they find.
 - **Globs the engine's matcher can't take.** Braces are expanded; anything else is written as it is, so the run reports it as `config/glob` rather than the migration changing its meaning.
 - **Exceptions that hide claims.** None of the 25 do; Common.Drift never let them. A converted exception that matches no opt-in finding is removed by the migration (above).
 - **A finding whose fix is a judgement.** Modelling an unmodelled message or operation, or choosing between registering a `[Table]` class and removing its Table stereotype, carries no correction, so it stays a finding.
 
 ## The migration's output
 
-1. Rows on the first Codebase Structure package's Root Folder: a Drift Scope with the `**` In row and the Context rows, and a Drift Check with the opt-in rows and exceptions.
+1. Rows on the first Codebase Structure package's Root Folder: a Drift Scope with the `**` In row, the Context rows, the Out rows for projects v1 never read and for code that copies modelled types, and the Context row for modelled types only that code declares, and a Drift Check with the opt-in rows and exceptions.
 2. The model corrections the engine's reading settles.
 3. A line in the install's output for each row, each correction with the finding behind it, each note (an `own` entry dropped for an exception naming its finding, a recipe file that won't parse), and each contract file it released.
 

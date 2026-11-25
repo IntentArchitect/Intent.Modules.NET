@@ -509,7 +509,10 @@ internal static class CSharpReader
             case QualifiedNameSyntax qualified:
             {
                 var right = TypeRef(qualified.Right);
-                return new TypeRefNode { Text = text, Name = right.Name, QualifiedName = text.Split('<')[0], Arguments = right.Arguments, Language = CSharpLanguage.LanguageName };
+                // global:: names the global namespace, so global::Shop.IOrders is Shop.IOrders, as a using's target is.
+                var qualifiedName = text.Split('<')[0];
+                qualifiedName = qualifiedName.StartsWith("global::", StringComparison.Ordinal) ? qualifiedName["global::".Length..] : qualifiedName;
+                return new TypeRefNode { Text = text, Name = right.Name, QualifiedName = qualifiedName, Arguments = right.Arguments, Language = CSharpLanguage.LanguageName };
             }
             case AliasQualifiedNameSyntax alias:
                 return TypeRef(alias.Name);

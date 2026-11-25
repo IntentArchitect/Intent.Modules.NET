@@ -173,6 +173,14 @@ internal sealed class SubscriptionReader : IClaimReader
             }
         }
 
+        // A consumer of a queue the framework hands only the raw message (an Azure Service Bus processor's
+        // ProcessMessageEventArgs) makes the message from its body, so the methods doing that handle it.
+        var making = type.Members.Where(x => MessageCode.Makes(x, t => Is(t, type))).ToList();
+        if (making.Count > 0)
+        {
+            return ClaimReading.Found(making, making[0].At);
+        }
+
         var association = end.Association?.SpecializationType ?? "subscription";
         return ClaimReading.Compared("absent", type.At, false,
             $"The model says `{handler.Name}` handles `{message.Name}`, but the code doesn't: `{type.Name}` ({type.At.File}) neither implements a handler of `{message.Name}` nor has a method that takes one. Remove the {association} link if the code is right.");
@@ -642,10 +650,20 @@ internal static class MessageCode
 
     /// <summary>
     /// The methods that take a message: in the handler's type the model's handler located, else in a type of its name (several
-    /// services may each have an OrderStatusChangedToPaidIntegrationEventHandler), otherwise anywhere.
+    /// services may each have an OrderStatusChangedToPaidIntegrationEventHandler), otherwise anywhere. A located handler's
+    /// code is its own type: with no method there taking the message, the ones that make it from what the handler receives
+    /// (<see cref="Makes"/>), and none elsewhere. A method elsewhere that takes a type of the message's name is other code: a
+    /// migrated application's data service took its entity of a library message's name, and the move removed the handler's
+    /// true sends as missing from it.
     /// </summary>
     private static IReadOnlyList<(TypeNode Type, MemberNode Member)> Handlers(CodeGraph code, TypeNode? located, string? handler, string message)
     {
+        if (located is not null)
+        {
+            var taking = located.Members.Where(m => m.Kind == "method" && m.Parameters.Any(p => p.Type is { } x && Mentions(x, message))).ToList();
+            return (taking.Count > 0 ? taking : located.Members.Where(m => Makes(m, x => x.Name == message)).ToList()).Select(m => (located, m)).ToList();
+        }
+
         var all = code.Types
             .SelectMany(t => t.Members.Where(m => m.Kind == "method" && m.Parameters.Any(p => p.Type is { } x && Mentions(x, message))).Select(m => (Type: t, Member: m)))
             .ToList();
@@ -659,6 +677,14 @@ internal static class MessageCode
     }
 
     private static bool Mentions(TypeRefNode type, string name) => type.Name == name || type.Arguments.Any(x => Mentions(x, name));
+
+    /// <summary>
+    /// A method that makes the message from what it receives, by a call given it as a type argument: a deserializer's
+    /// (<c>JsonConvert.DeserializeObject&lt;ApplicationPack&gt;(json)</c>, <c>args.Message.Body.ToObjectFromJson&lt;T&gt;()</c>), as a
+    /// queue consumer that the framework hands only the raw message does.
+    /// </summary>
+    public static bool Makes(MemberNode member, Func<TypeRefNode, bool> isMessage) =>
+        member.Kind == "method" && member.Calls.Any(c => c.TypeArguments.Any(isMessage));
 
     private static TypeNode? Declaring(CodeGraph code, MemberNode member) => code.Types.FirstOrDefault(x => x.Members.Contains(member));
 

@@ -40,6 +40,25 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
         }
 
         [Fact]
+        public void What_v1_read_is_each_recipes_files_and_the_files_its_facts_and_own_entries_name()
+        {
+            var result = Convert(
+                ("services.drift.json", """
+                    {
+                      "files": "Api/Controllers/**/*.cs",
+                      "facts": {
+                        "intent.invokes": { "files": ["Host/Handlers/**/*.cs", "Api/Controllers/**/*.cs"], "find": "class:{Service}" },
+                        "service.route": { "find": "class:{Service}" }
+                      },
+                      "own": [{ "kind": "DTO", "find": "class with \\[DataContract\\]", "files": "Contracts/**/*.cs" }]
+                    }
+                    """),
+                ("domain.drift.json", """{ "own": [{ "kind": "Entity", "find": "class with :Entity" }] }"""));
+
+            result.V1Read.ShouldBe(new[] { "**/*.cs", "Api/Controllers/**/*.cs", "Host/Handlers/**/*.cs", "Contracts/**/*.cs" });
+        }
+
+        [Fact]
         public void A_recipe_file_with_only_comments_turned_the_check_on_with_nothing_in_it()
         {
             var result = Convert(("domain.drift.json", "// set up later\n/* nothing yet */\n"));

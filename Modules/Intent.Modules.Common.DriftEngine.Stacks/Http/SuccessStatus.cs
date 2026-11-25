@@ -193,6 +193,13 @@ internal static class SuccessStatus
                 return;
             }
 
+            // Web API 2's ResponseMessage(response) sends the response it is given, as new ResponseMessageResult(response) does.
+            if (call is { Name: "ResponseMessage", Arguments: [var message] } && IsFramework(call))
+            {
+                Value(code, type, body, message, at, depth + 1, found, ref unreadable);
+                return;
+            }
+
             if (GivenStatus.Contains(call.Name) && (IsFramework(call) || call.Name == "CreateResponse"))
             {
                 if (call.Name == "Content" && StatusIn(call.Arguments.FirstOrDefault()) is { Known: false } && !IsStatusCode(call.Arguments.FirstOrDefault()))

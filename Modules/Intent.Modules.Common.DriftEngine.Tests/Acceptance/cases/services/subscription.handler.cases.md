@@ -276,3 +276,177 @@ public partial class ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandl
   ]
 }
 ```
+
+## queue-consumer-makes-message-from-body
+
+An Azure Service Bus consumer the framework hands only the raw message (`ProcessMessageEventArgs`): `OrderQueueConsumer`, an `IHostedService`, subscribes to `PlaceOrder`, a contracts package's message, by deserializing the body into it, and relays it as `OrderRelay`. The method that makes the message is the subscription's code, so the subscription is verified there and its send is read from it. A data class elsewhere takes a type of the message's name, a local `PlaceOrder` entity, and sends nothing: it isn't the handler's code. A migrated application's three consumers were contradicted, and the move removed their true sends as missing from its data service.
+
+```json case
+{ "phase": 4, "kinds": ["subscription.handler", "intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [
+        {
+          "id": "services", "name": "Shop.Worker",
+          "elements": [
+            { "id": "order-consumer", "type": "Integration Event Handler", "name": "OrderQueueConsumer" }
+          ]
+        },
+        {
+          "id": "eventing", "name": "Shop.Worker.Eventing", "type": "Eventing Package",
+          "elements": [
+            { "id": "place-order", "type": "Integration Command", "name": "PlaceOrder" },
+            { "id": "order-relay", "type": "Integration Command", "name": "OrderRelay" }
+          ]
+        }
+      ],
+      "associations": [
+        { "id": "consumer-subscribes-place-order", "type": "Subscribe Integration Command",
+          "source": { "element": "order-consumer" }, "target": { "element": "place-order" } },
+        { "id": "subscription-sends-relay", "type": "Send Integration Command",
+          "source": { "element": "consumer-subscribes-place-order" }, "target": { "element": "order-relay" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Shop.Worker/Handlers/OrderQueueConsumer.cs
+using Azure.Messaging.ServiceBus;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
+using Shop.Worker.Messages;
+
+namespace Shop.Worker.Handlers;
+
+public class OrderQueueConsumer : IHostedService
+{
+    private readonly IRelaySender _sender;
+    private ServiceBusProcessor _processor;
+
+    public OrderQueueConsumer(IRelaySender sender) => _sender = sender;
+
+    public async Task StartAsync(CancellationToken cancellationToken)
+    {
+        _processor = new ServiceBusClient("connection").CreateProcessor("orders");
+        _processor.ProcessMessageAsync += HandleOrder;
+        await _processor.StartProcessingAsync(cancellationToken);
+    }
+
+    public Task StopAsync(CancellationToken cancellationToken) => _processor.StopProcessingAsync(cancellationToken);
+
+    public async Task HandleOrder(ProcessMessageEventArgs args)
+    {
+        var order = JsonConvert.DeserializeObject<Shop.Contracts.Pricing.PlaceOrder>(args.Message.Body.ToString());
+        await _sender.Send(new OrderRelay { Body = order });
+        await args.CompleteMessageAsync(args.Message);
+    }
+}
+```
+
+```csharp file src/Shop.Worker/Messages/OrderRelay.cs
+using Shop.Contracts.Pricing;
+
+namespace Shop.Worker.Messages;
+
+public class OrderRelay
+{
+    public PlaceOrder Body { get; set; }
+}
+
+public interface IRelaySender
+{
+    Task Send(OrderRelay message);
+}
+```
+
+```csharp file src/Shop.Data/OrderData.cs
+namespace Shop.Data;
+
+public class PlaceOrder
+{
+    public int Id { get; set; }
+}
+
+public class OrderData
+{
+    public void Save(PlaceOrder order)
+    {
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "subscription.handler", "element": "consumer-subscribes-place-order", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Shop.Worker/Handlers/OrderQueueConsumer.cs:24" },
+    { "kind": "intent.sends", "element": "subscription-sends-relay", "outcome": "verified", "actual": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.sends", "count": 0 },
+    { "rule": "claim/subscription.handler", "count": 0 }
+  ]
+}
+```
+
+## queue-consumer-not-making-the-message
+
+The same consumer deserializing the body into another message: nothing in its own class takes or makes `PlaceOrder`, so the subscription is contradicted. Its send can't be read, since the handler's code isn't found, rather than read from the data class that takes a local `PlaceOrder`.
+
+```json case
+{ "phase": 4, "base": "queue-consumer-makes-message-from-body", "kinds": ["subscription.handler", "intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Shop.Worker/Handlers/OrderQueueConsumer.cs
+using Azure.Messaging.ServiceBus;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
+using Shop.Worker.Messages;
+
+namespace Shop.Worker.Handlers;
+
+public class OrderQueueConsumer : IHostedService
+{
+    private readonly IRelaySender _sender;
+    private ServiceBusProcessor _processor;
+
+    public OrderQueueConsumer(IRelaySender sender) => _sender = sender;
+
+    public async Task StartAsync(CancellationToken cancellationToken)
+    {
+        _processor = new ServiceBusClient("connection").CreateProcessor("orders");
+        _processor.ProcessMessageAsync += HandleOrder;
+        await _processor.StartProcessingAsync(cancellationToken);
+    }
+
+    public Task StopAsync(CancellationToken cancellationToken) => _processor.StopProcessingAsync(cancellationToken);
+
+    public async Task HandleOrder(ProcessMessageEventArgs args)
+    {
+        var order = JsonConvert.DeserializeObject<Shop.Contracts.Pricing.CancelOrder>(args.Message.Body.ToString());
+        await _sender.Send(new OrderRelay());
+        await args.CompleteMessageAsync(args.Message);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "subscription.handler", "element": "consumer-subscribes-place-order", "outcome": "contradicted", "expected": "present", "actual": "absent" },
+    { "kind": "intent.sends", "element": "subscription-sends-relay", "outcome": "cantVerify", "reason": "notFound" }
+  ],
+  "findings": [
+    { "rule": "claim/subscription.handler", "severity": "error", "subject": "consumer-subscribes-place-order" }
+  ]
+}
+```

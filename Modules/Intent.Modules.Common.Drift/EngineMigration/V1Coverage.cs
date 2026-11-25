@@ -8,8 +8,11 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Intent.Modules.Common.Drift.EngineMigration
 {
-    /// <summary>A type element of the model, with the names of its children, as the drift engine locates it in the code: by name.</summary>
-    internal sealed record ModelledType(string Name, string ElementType, IReadOnlyCollection<string> Members);
+    /// <summary>
+    /// A type element of the model, with the names of its children, as the drift engine locates it in the code: by name. And
+    /// whether it has a constructor among them, as v1 compared a type's constructors only then.
+    /// </summary>
+    internal sealed record ModelledType(string Name, string ElementType, IReadOnlyCollection<string> Members, bool HasConstructors = false);
 
     /// <summary>
     /// The Exceptions rows that keep the converted opt-in rows to what v1 reported (user decision, 2026-11-24: "Except what v1
@@ -40,6 +43,24 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         };
 
         /// <summary>
+        /// The member kinds each element type's convention states, as the stock packs give them (<c>intent.domain</c>,
+        /// <c>intent.services</c>): the engine's <c>unmodelled.member</c> reports only those.
+        /// </summary>
+        private static readonly IReadOnlyDictionary<string, string[]> States = new Dictionary<string, string[]>(StringComparer.Ordinal)
+        {
+            ["Class"] = new[] { "property", "field", "constructor", "method" },
+            ["Enum"] = new[] { "enumMember" },
+            ["Repository"] = new[] { "method" },
+            ["Domain Service"] = new[] { "method" },
+            ["Service"] = new[] { "method" },
+            ["Service Proxy"] = new[] { "method" },
+            ["Integration Event Handler"] = new[] { "method" },
+            ["Domain Event Handler"] = new[] { "method" }
+        };
+
+        private static readonly string[] Fields = { "property", "field" };
+
+        /// <summary>
         /// The element types that may be a class or an interface: with no type of its name, the element is the interface the
         /// language names it (<c>I{Name}</c>).
         /// </summary>
@@ -55,6 +76,131 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         public const string FieldReason = "A public field, which v1 never reported";
         public const string CopyReason = "Another declaration of a modelled type's name, which v1 counted as modelled";
         public const string HandlerMethodReason = "A public method of a handler, whose methods v1 never compared";
+        public const string UnreadReason = "Projects v1 never read: none of its recipes' files reach them, and it generated no contract file into them";
+        public const string CopiesReason = "Code v1 never read that declares copies of modelled types: none of its recipes' files reach it, and in scope each copy would be another type of the modelled name";
+        public const string ModelledUnreadReason = "Code v1 never read that declares a modelled type, read for the model's claims only: v1 never checked it, and out of scope the type couldn't be located";
+        public const string UncomparedReason = "A public member of a modelled type v1 generated no contract for, so it never compared its members";
+        public const string ConstructorReason = "A public constructor of a type the model states none for, which v1 never reported";
+
+        /// <summary>
+        /// One Out row for the projects v1 never read, or <see langword="null"/>: a folder with a <c>.csproj</c> and C# code, where
+        /// no file is one a recipe's globs reach (<see cref="ConvertedRecipes.V1Read"/>) or a contract file. The <c>**</c> In row
+        /// would bring them in, and the engine would report code v1 never checked against a model never drawn from it. A ClientB
+        /// application keeps a legacy copy of its host project, the same classes in the same namespaces, which its recipe left
+        /// out on purpose: read with the real project, each pair of copies was one type to the engine, and its v1-clean model had
+        /// 44 errors. A project inside one already out isn't listed again; a project at the output folder's root never is.
+        /// </summary>
+        public static ScopeRowSpec UnreadProjects(CodeFiles code, IReadOnlyCollection<string> v1Read, IReadOnlyCollection<string> contractFiles)
+        {
+            var read = v1Read.Select(x => new Glob(x)).ToList();
+            var contracts = new HashSet<string>(contractFiles, StringComparer.OrdinalIgnoreCase);
+            var files = code.AllFiles();
+            var projects = files.Where(x => x.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase) && x.Contains('/'))
+                .Select(x => x[..x.LastIndexOf('/')])
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(x => x, StringComparer.Ordinal);
+            var unread = new List<string>();
+            foreach (var project in projects)
+            {
+                if (unread.Any(x => project.StartsWith(x + "/", StringComparison.OrdinalIgnoreCase)))
+                {
+                    continue;
+                }
+
+                var inside = files.Where(x => x.StartsWith(project + "/", StringComparison.OrdinalIgnoreCase)).ToList();
+                if (inside.Any(CodeFiles.IsCSharp) && !inside.Any(x => contracts.Contains(x) || read.Any(g => g.IsMatch(x))))
+                {
+                    unread.Add(project);
+                }
+            }
+
+            return unread.Count == 0 ? null : new ScopeRowSpec(unread.Select(x => $"{x}/**").ToList(), "Out", UnreadReason);
+        }
+
+        /// <summary>
+        /// One Out row for the code v1 never read, inside projects it did, that declares another type of a modelled name the code
+        /// it read declares, or <see langword="null"/>. Each is the highest folder holding no file v1 read, else the file. A
+        /// migrated EF6 application keeps legacy copies of its entities in a <c>Data/Models</c> folder beside the
+        /// <c>Data/Contracts</c> its recipe read, which its recipe's note says were left out on purpose: in scope, each entity had
+        /// two types, so none could be verified and the real ones read as unmodelled. Only copies go: a folder v1 didn't read
+        /// may hold code the engine's readers need (a project's <c>Startup.cs</c>), and a modelled type declared only there is
+        /// left in, so it can still be located.
+        /// </summary>
+        public static ScopeRowSpec UnreadCopies(CodeFiles code, IReadOnlyCollection<string> v1Read, IReadOnlyCollection<string> contractFiles,
+            IReadOnlyList<ModelledType> model, IEnumerable<ScopeRowSpec> scope)
+        {
+            var read = v1Read.Select(x => new Glob(x)).ToList();
+            var contracts = new HashSet<string>(contractFiles, StringComparer.OrdinalIgnoreCase);
+            bool ReadByV1(string file) => contracts.Contains(file) || read.Any(g => g.IsMatch(file));
+
+            var files = EngineRead(code, scope).ToList();
+            var readFiles = files.Where(ReadByV1).ToList();
+            var declared = readFiles.SelectMany(x => Declarations(code, x)).ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
+            var modelled = Modelled(model, declared);
+
+            var copies = files.Where(x => !ReadByV1(x) && Declarations(code, x).Any(d => modelled.Contains(d.Identifier.Text) && declared.Contains(d.Identifier.Text))).ToList();
+            if (copies.Count == 0)
+            {
+                return null;
+            }
+
+            // A folder holds a file v1 read when one is in it or below it.
+            var readFolders = new HashSet<string>(readFiles.SelectMany(Folders), StringComparer.OrdinalIgnoreCase);
+            var globs = new List<string>();
+            foreach (var file in copies)
+            {
+                var folder = Folders(file).TakeWhile(x => !readFolders.Contains(x)).LastOrDefault();
+                globs.Add(folder is null ? file : $"{folder}/**");
+            }
+
+            var distinct = globs.Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x, StringComparer.Ordinal).ToList();
+            return new ScopeRowSpec(distinct, "Out", CopiesReason);
+        }
+
+        /// <summary>
+        /// One Context row for the files an Out row takes out that declare a type the model names and no file in scope declares,
+        /// or <see langword="null"/>. v1 never read them, so it never checked those types; out of scope the engine couldn't
+        /// locate them and would say so for each. A migrated application's Eventing package models the commands it sends to and
+        /// takes from a shared library project its recipes never reached. Read for context, the types are located and the
+        /// model's claims on them checked, and nothing else in those files is reported, as v1 reported nothing there.
+        /// </summary>
+        public static ScopeRowSpec UnreadModelled(CodeFiles code, IReadOnlyList<ModelledType> model, IEnumerable<ScopeRowSpec> scope)
+        {
+            var inScope = new HashSet<string>(EngineRead(code, scope), StringComparer.OrdinalIgnoreCase);
+            var all = code.AllFiles().Where(CodeFiles.IsCSharp)
+                .SelectMany(file => Declarations(code, file).Select(x => (File: file, Declaration: x)))
+                .ToList();
+            var inScopeDeclarations = all.Where(x => inScope.Contains(x.File)).Select(x => x.Declaration).ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
+            var allDeclarations = all.Select(x => x.Declaration).ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
+
+            // The names the engine would locate with every file read, that no file in scope declares.
+            var wanted = Modelled(model, allDeclarations).Where(x => !inScopeDeclarations.Contains(x)).ToHashSet(StringComparer.Ordinal);
+            var files = all.Where(x => !inScope.Contains(x.File) && wanted.Contains(x.Declaration.Identifier.Text))
+                .Select(x => x.File)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(x => x, StringComparer.Ordinal)
+                .ToList();
+            return files.Count == 0 ? null : new ScopeRowSpec(files, "Context", ModelledUnreadReason);
+        }
+
+        /// <summary>The folders a file is in, innermost first, the output folder's root aside.</summary>
+        private static IEnumerable<string> Folders(string file)
+        {
+            for (var slash = file.LastIndexOf('/'); slash > 0; slash = file.LastIndexOf('/', slash - 1))
+            {
+                yield return file[..slash];
+            }
+        }
+
+        private static IEnumerable<BaseTypeDeclarationSyntax> Declarations(CodeFiles code, string file) =>
+            code.Get(file)?.Syntax?.DescendantNodes().OfType<BaseTypeDeclarationSyntax>() ?? Enumerable.Empty<BaseTypeDeclarationSyntax>();
+
+        /// <summary>The C# files the drift engine reads: those no Out row takes out of scope.</summary>
+        private static IEnumerable<string> EngineRead(CodeFiles code, IEnumerable<ScopeRowSpec> scope)
+        {
+            var outGlobs = (scope ?? Enumerable.Empty<ScopeRowSpec>()).Where(x => x.Scope == "Out").SelectMany(x => x.Globs).Select(x => new Glob(x)).ToList();
+            return code.AllFiles().Where(x => CodeFiles.IsCSharp(x) && !outGlobs.Any(g => g.IsMatch(x)));
+        }
 
         /// <param name="code">The application's code, as v1 read it.</param>
         /// <param name="contractFiles">The contract files, relative to the code's root with <c>/</c> separators.</param>
@@ -67,7 +213,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             var outGlobs = rows.Scope.Where(x => x.Scope is "Out" or "Context").SelectMany(x => x.Globs).Select(x => new Glob(x)).ToList();
             bool Checked(string file) => CodeFiles.IsCSharp(file) && !outGlobs.Any(x => x.IsMatch(file));
 
-            var declarations = code.AllFiles().Where(CodeFiles.IsCSharp)
+            var declarations = EngineRead(code, rows.Scope)
                 .SelectMany(x => code.Get(x)?.Syntax?.DescendantNodes().OfType<BaseTypeDeclarationSyntax>() ?? Enumerable.Empty<BaseTypeDeclarationSyntax>())
                 .ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
             var modelled = Modelled(model, declarations);
@@ -129,6 +275,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 var stateFields = model.Where(x => FieldElements.Contains(x.ElementType)).ToLookup(x => x.Name, StringComparer.Ordinal);
                 var handlers = model.Where(x => HandlerElements.Contains(x.ElementType)).ToLookup(x => x.Name, StringComparer.Ordinal);
                 var typeNames = new HashSet<string>(model.Select(x => x.Name), StringComparer.Ordinal);
+                var byName = model.ToLookup(x => x.Name, StringComparer.Ordinal);
+                var compared = new HashSet<string>(contractFiles.Where(CodeFiles.IsCSharp).SelectMany(x => Declarations(code, x)).Select(x => x.Identifier.Text), StringComparer.Ordinal);
                 foreach (var file in code.Matching(members.Globs.Select(x => new Glob(x)).ToList()).Where(Checked))
                 {
                     var syntax = code.Get(file)?.Syntax;
@@ -145,29 +293,63 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                             Except(FieldReason, $"{type.Identifier.Text}.{field}");
                         }
 
-                        // A handler's method that takes a modelled message is its subscription's, which the engine locates.
+                        // A handler's method that takes a modelled message is its subscription's, which the engine locates, and so is
+                        // one that makes it from what a queue hands it (JsonConvert.DeserializeObject<ApplicationPack>(json)).
                         var handler = handlers[type.Identifier.Text].ToList();
                         foreach (var method in PublicMethods(type).Where(x => handler.Count > 0 && !handler.Any(e => e.Members.Contains(x.Identifier.Text))
-                                     && !x.ParameterList.Parameters.Any(p => p.Type != null && typeNames.Contains(LastName(p.Type)))))
+                                     && !x.ParameterList.Parameters.Any(p => p.Type != null && typeNames.Contains(LastName(p.Type)))
+                                     && !x.DescendantNodes().OfType<GenericNameSyntax>().Any(g => g.TypeArgumentList.Arguments.Any(a => typeNames.Contains(LastName(a))))))
                         {
                             Except(HandlerMethodReason, $"{type.Identifier.Text}.{method.Identifier.Text}");
+                        }
+                    }
+
+                    // v1 compared a modelled type's members only in the contract file it generated for it, so one it generated
+                    // none for (a migrated EF6 application's T4-generated entities) had none reported. Where it compared them,
+                    // a constructor counted only when the model stated one for the type. Members the engine locates match
+                    // nothing, and the move's correction pass drops them as stale.
+                    foreach (var type in syntax?.DescendantNodes().OfType<BaseTypeDeclarationSyntax>() ?? Enumerable.Empty<BaseTypeDeclarationSyntax>())
+                    {
+                        var name = type.Identifier.Text;
+                        // A handler's methods are excepted above, whether v1 compared it or not.
+                        var elements = byName[name].Where(x => TypeElements.Contains(x.ElementType) && !HandlerElements.Contains(x.ElementType)).ToList();
+                        if (type is InterfaceDeclarationSyntax || elements.Count == 0)
+                        {
+                            continue;
+                        }
+
+                        if (!compared.Contains(name))
+                        {
+                            var kinds = elements.SelectMany(x => States.TryGetValue(x.ElementType, out var stated) ? stated : Fields).ToHashSet(StringComparer.Ordinal);
+                            foreach (var member in PublicMembers(type, kinds).Where(x => !elements.Any(e => e.Members.Contains(x))))
+                            {
+                                Except(UncomparedReason, $"{name}.{member}");
+                            }
+                        }
+                        else if (type is TypeDeclarationSyntax declared && !elements.Any(x => x.HasConstructors)
+                                 && elements.Any(x => States.TryGetValue(x.ElementType, out var stated) && stated.Contains("constructor"))
+                                 && declared.Members.OfType<ConstructorDeclarationSyntax>().Any(x => x.Modifiers.Any(SyntaxKind.PublicKeyword)))
+                        {
+                            Except(ConstructorReason, $"{name}.{name}");
                         }
                     }
                 }
             }
 
-            return byReason.Select(x => new ExceptionRowSpec(x.Key is FieldReason or HandlerMethodReason ? RecipeConversion.UnmodelledMember : RecipeConversion.UnmodelledType, x.Value, x.Key)).ToList();
+            return byReason.Select(x => new ExceptionRowSpec(x.Key is FieldReason or HandlerMethodReason or UncomparedReason or ConstructorReason
+                ? RecipeConversion.UnmodelledMember
+                : RecipeConversion.UnmodelledType, x.Value, x.Key)).ToList();
         }
 
         /// <summary>
         /// The modelled type names the drift engine never reports as unmodelled: each element of the name has a type to locate,
         /// and the code declares no further one. A converted exception naming one matches nothing (ClientB's v1 exceptions for
         /// <c>Container</c>, which covered a relationship its conventions found, and <c>Applicant</c>, which covered a
-        /// generation filter).
+        /// generation filter). Only the files the engine reads count: a copy in a project out of scope is never located.
         /// </summary>
-        public static IReadOnlyCollection<string> NeverUnmodelled(CodeFiles code, IReadOnlyList<ModelledType> model)
+        public static IReadOnlyCollection<string> NeverUnmodelled(CodeFiles code, IReadOnlyList<ModelledType> model, IEnumerable<ScopeRowSpec> scope = null)
         {
-            var declarations = code.AllFiles().Where(CodeFiles.IsCSharp)
+            var declarations = EngineRead(code, scope)
                 .SelectMany(x => code.Get(x)?.Syntax?.DescendantNodes().OfType<BaseTypeDeclarationSyntax>() ?? Enumerable.Empty<BaseTypeDeclarationSyntax>())
                 .ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
             return Modelled(model, declarations)
@@ -185,9 +367,9 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         /// (<c>Equals</c>, <c>GetHashCode</c>, <c>ToString</c>), and one the code declares only as overrides. A converted v1
         /// exception naming one (an entity's identity comparison) would match nothing and warn on the first run.
         /// </summary>
-        public static IReadOnlyCollection<string> NeverUnmodelledMembers(CodeFiles code, IEnumerable<string> matches)
+        public static IReadOnlyCollection<string> NeverUnmodelledMembers(CodeFiles code, IEnumerable<string> matches, IEnumerable<ScopeRowSpec> scope = null)
         {
-            var members = code.AllFiles().Where(CodeFiles.IsCSharp)
+            var members = EngineRead(code, scope)
                 .SelectMany(x => code.Get(x)?.Syntax?.DescendantNodes().OfType<TypeDeclarationSyntax>() ?? Enumerable.Empty<TypeDeclarationSyntax>())
                 .SelectMany(type => type.Members.Select(member => (Key: $"{type.Identifier.Text}.{MemberName(member)}", Override: member.Modifiers.Any(SyntaxKind.OverrideKeyword))))
                 .ToLookup(x => x.Key, x => x.Override, StringComparer.Ordinal);
@@ -317,6 +499,31 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             type.Members.OfType<FieldDeclarationSyntax>()
                 .Where(x => x.Modifiers.Any(SyntaxKind.PublicKeyword))
                 .SelectMany(x => x.Declaration.Variables.Select(v => v.Identifier.Text));
+
+        /// <summary>
+        /// The names of its own public members of the kinds its element states, which the engine's <c>unmodelled.member</c> may
+        /// report: an enum's members, or a type's constructors (by the type's name), methods, properties and fields, overrides
+        /// aside.
+        /// </summary>
+        private static IEnumerable<string> PublicMembers(BaseTypeDeclarationSyntax type, IReadOnlyCollection<string> kinds)
+        {
+            if (type is EnumDeclarationSyntax @enum)
+            {
+                return kinds.Contains("enumMember") ? @enum.Members.Select(x => x.Identifier.Text) : Enumerable.Empty<string>();
+            }
+
+            return ((TypeDeclarationSyntax)type).Members
+                .Where(x => x.Modifiers.Any(SyntaxKind.PublicKeyword) && !x.Modifiers.Any(SyntaxKind.OverrideKeyword))
+                .SelectMany(x => x switch
+                {
+                    ConstructorDeclarationSyntax when kinds.Contains("constructor") => new[] { type.Identifier.Text },
+                    MethodDeclarationSyntax method when kinds.Contains("method") => new[] { method.Identifier.Text },
+                    PropertyDeclarationSyntax property when kinds.Contains("property") => new[] { property.Identifier.Text },
+                    FieldDeclarationSyntax field when kinds.Contains("field") => field.Declaration.Variables.Select(v => v.Identifier.Text).ToArray(),
+                    _ => Array.Empty<string>()
+                })
+                .Distinct(StringComparer.Ordinal);
+        }
 
         /// <summary>Its public methods, overrides aside, as the engine's <c>unmodelled.member</c> leaves them out.</summary>
         private static IEnumerable<MethodDeclarationSyntax> PublicMethods(TypeDeclarationSyntax type) =>

@@ -596,6 +596,47 @@ public class OrderPaidHandler(IWebhooksSender sender) : IHandleMessages<OrderSta
 }
 ```
 
+## from-handler-subscription-through-a-global-qualified-factory
+
+The handler gets the sender from a factory whose method returns `global::Webhooks.API.Services.IWebhooksSender`, as generated code often writes it. `global::` names the global namespace, so the call is made on `IWebhooksSender`, which `WebhooksSender` implements. A migrated application's v1-clean model invoked each of its file processors this way, and all eight read as missing while the qualifier stayed in the type's name.
+
+```json case
+{ "phase": 6, "base": "from-handler-subscription", "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Webhooks.API/Services/IWebhooksSenderFactory.cs
+namespace Webhooks.API.Services;
+
+public interface IWebhooksSenderFactory
+{
+    global::Webhooks.API.Services.IWebhooksSender Create(int orderId);
+}
+```
+
+```csharp file src/Webhooks.API/IntegrationEvents/OrderPaidHandler.cs
+using Webhooks.API.Services;
+
+namespace Webhooks.API.IntegrationEvents;
+
+public class OrderPaidHandler(IWebhooksSenderFactory senders) : IHandleMessages<OrderStatusChangedToPaidIntegrationEvent>
+{
+    public async Task Handle(OrderStatusChangedToPaidIntegrationEvent message, IMessageHandlerContext context)
+    {
+        var sender = senders.Create(message.OrderId);
+        await sender.SendAll(message.OrderId);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "subscription-invokes-send-all", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Webhooks.API/IntegrationEvents/OrderPaidHandler.cs:10" }
+  ]
+}
+```
+
 ## minimal-api-lambda
 
 `CreateSubscription` is a Minimal API endpoint whose handler is a lambda, so it is no method of the router class. Its invocation of `GrantUrlTesterService.TestGrantUrl` is read in the lambda's body.

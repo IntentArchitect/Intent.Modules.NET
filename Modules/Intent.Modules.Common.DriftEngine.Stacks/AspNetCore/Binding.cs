@@ -93,6 +93,9 @@ internal static class Binding
     /// <summary>A Web API 2 controller: one deriving from <c>System.Web.Http</c>'s <c>ApiController</c>.</summary>
     public static bool WebApi2(CodeGraph code, TypeNode owner) => code.Supertypes(owner).Contains("ApiController");
 
+    /// <summary>An OData controller, Web API 2's or ASP.NET Core's, which OData routes by convention (<see cref="ODataRoute"/>).</summary>
+    public static bool OData(CodeGraph code, TypeNode owner) => code.Supertypes(owner).Contains("ODataController");
+
     /// <summary>The action has a route template of its own: a <c>[Route]</c>, or a verb attribute that names one.</summary>
     public static bool HasOwnRoute(MemberNode member) => member.Attributes.Any(x => (x.Name == "Route" || Verbs.Contains(x.Name)) && x.Arguments.Count > 0);
 
@@ -118,6 +121,11 @@ internal static class Binding
         if (HasOwnRoute(member))
         {
             return null;
+        }
+
+        if (OData(code, owner))
+        {
+            return ODataRoute(code, owner, member);
         }
 
         var webApi2 = WebApi2(code, owner);
@@ -171,6 +179,41 @@ internal static class Binding
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// The route OData's conventional routing serves an <c>ODataController</c>'s action on: the prefix its route is mapped
+    /// under (Web API 2's <c>MapODataServiceRoute("odata", "odata", model)</c> or <c>MapODataRoute</c>, ASP.NET Core's
+    /// <c>AddRouteComponents("odata", model)</c>), then the entity set or singleton the EDM model names after the controller
+    /// (<c>EntitySet&lt;RequestPack&gt;("RequestPacks")</c> for <c>RequestPacksController</c>), with <c>({key})</c> for an action
+    /// that takes the key. So <c>RequestPacksController.GetRequestPacks()</c> is <c>~/odata/RequestPacks</c>, which a migrated
+    /// Web API 2 application's v1 recipe read by convention. Null for an attribute-routed action (<c>[ODataRoute]</c>), or a
+    /// controller no entity set or singleton names, which OData doesn't route.
+    /// </summary>
+    private static string? ODataRoute(CodeGraph code, TypeNode owner, MemberNode member)
+    {
+        if (member.Attributes.Any(x => x.Name == "ODataRoute"))
+        {
+            return null;
+        }
+
+        var calls = MinimalApiClaims.AllCalls(code).ToList();
+        string? Text(CallNode call, int index) => call.Arguments.Count > index && code.StringOf(call.Arguments[index]) is { Kind: "string" } literal ? literal.Value : null;
+        var name = owner.Name.EndsWith("Controller", StringComparison.Ordinal) ? owner.Name[..^"Controller".Length] : owner.Name;
+        if (!calls.Any(x => x.Name is "EntitySet" or "Singleton" && Text(x, 0) == name))
+        {
+            return null;
+        }
+
+        var prefix = calls.Select(x => x.Name switch
+            {
+                "MapODataServiceRoute" or "MapODataRoute" => Text(x, 1),
+                "AddRouteComponents" when x.Arguments.Count > 1 => Text(x, 0),
+                _ => null
+            })
+            .FirstOrDefault(x => x is not null) ?? "";
+        var key = member.Parameters.Any(x => x.Name == "key" || x.Attributes.Any(a => a.Name == "FromODataUri")) ? "({key})" : "";
+        return "~/" + string.Join("/", new[] { prefix.Trim('/'), name + key }.Where(x => x.Length > 0));
     }
 
     /// <summary>A route value the defaults make optional: <c>id = RouteParameter.Optional</c>.</summary>
