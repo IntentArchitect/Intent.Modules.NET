@@ -146,10 +146,13 @@ public sealed record Finding(
 /// brings a model drawn from unchanged code into line (Intent.Common.Drift's move from v1 applies them). Elements are named
 /// by id; stereotypes, properties and association types by name, as the designer shows them.
 /// </summary>
-/// <param name="Kind"><see cref="AddLink"/>, <see cref="RemoveLink"/>, <see cref="RemoveElement"/>, <see cref="SetStereotype"/> or <see cref="RemoveException"/>.</param>
+/// <param name="Kind">
+/// <see cref="AddLink"/>, <see cref="RemoveLink"/>, <see cref="AddAttribute"/>, <see cref="RemoveElement"/>,
+/// <see cref="SetStereotype"/> or <see cref="RemoveException"/>.
+/// </param>
 /// <param name="Element">
 /// The element changed: a link's source (an operation, constructor, command or a handler's subscription end), the target end of
-/// a link to remove, the element a stereotype goes on, or the Drift Check's host.
+/// a link to remove, the class an attribute is added to, the element a stereotype goes on, or the Drift Check's host.
 /// </param>
 public sealed record ModelCorrection(string Kind, string Element)
 {
@@ -160,8 +163,14 @@ public sealed record ModelCorrection(string Kind, string Element)
     public const string RemoveLink = "removeLink";
 
     /// <summary>
+    /// Add an attribute named <see cref="Name"/> of the model's type <see cref="Type"/> to <see cref="ModelCorrection.Element"/>,
+    /// with <see cref="Stereotype"/> at its defaults when one is given: a key the code has that the model's class leaves out.
+    /// </summary>
+    public const string AddAttribute = "addAttribute";
+
+    /// <summary>
     /// Remove <see cref="ModelCorrection.Element"/>, which no designer could state as the code has it: an attribute of a
-    /// persisted class for a property EF doesn't map.
+    /// persisted class for a property EF doesn't map, or a type element nothing in the code declares.
     /// </summary>
     public const string RemoveElement = "removeElement";
 
@@ -177,8 +186,14 @@ public sealed record ModelCorrection(string Kind, string Element)
     /// <summary>For <see cref="AddLink"/>: the element the link points at, such as the message.</summary>
     public string? Target { get; init; }
 
-    /// <summary>For <see cref="SetStereotype"/>: the stereotype, as <c>Http Settings</c>.</summary>
+    /// <summary>For <see cref="SetStereotype"/> and <see cref="AddAttribute"/>: the stereotype, as <c>Http Settings</c>.</summary>
     public string? Stereotype { get; init; }
+
+    /// <summary>For <see cref="AddAttribute"/>: the attribute's name, as the code names its member.</summary>
+    public string? Name { get; init; }
+
+    /// <summary>For <see cref="AddAttribute"/>: the model's name for the member's type, as <c>int</c> or <c>guid</c>.</summary>
+    public string? Type { get; init; }
 
     /// <summary>For <see cref="SetStereotype"/>: each property's name and the value the code states.</summary>
     public IReadOnlyDictionary<string, string>? Properties { get; init; }

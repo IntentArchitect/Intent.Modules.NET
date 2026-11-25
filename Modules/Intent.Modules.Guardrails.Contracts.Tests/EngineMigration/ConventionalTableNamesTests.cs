@@ -81,6 +81,42 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
             notes.ShouldHaveSingleItem().ShouldContain("builder.ToTable(\"Orders\")");
         }
 
+        [Fact]
+        public void A_migrations_snapshot_states_no_table_name()
+        {
+            var notes = new List<string>();
+            var code = new CodeFiles(new Dictionary<string, string>
+            {
+                ["Data/ShopContext.cs"] = Context,
+                ["Migrations/ShopContextModelSnapshot.cs"] = """
+                    [DbContext(typeof(ShopContext))]
+                    partial class ShopContextModelSnapshot : ModelSnapshot
+                    {
+                        protected override void BuildModel(ModelBuilder modelBuilder)
+                        {
+                            modelBuilder.Entity("Shop.Order", b =>
+                            {
+                                b.Property<int>("Id");
+                                b.HasKey("Id");
+                                b.ToTable("Orders");
+                            });
+
+                            modelBuilder.Entity("Shop.Order", b =>
+                            {
+                                b.OwnsOne("Shop.Address", "Address", b1 =>
+                                {
+                                    b1.ToTable("Orders");
+                                });
+                            });
+                        }
+                    }
+                    """
+            });
+
+            ConventionalTableNames.Find(code, new[] { ("Order", "Orders") }, notes).ShouldBe(new[] { "Order" });
+            notes.ShouldBeEmpty();
+        }
+
         private static IReadOnlyList<string> Find(params (string Entity, string Table)[] modelled)
         {
             var notes = new List<string>();

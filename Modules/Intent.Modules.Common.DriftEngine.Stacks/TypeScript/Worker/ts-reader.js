@@ -3,7 +3,9 @@
 //
 //   node ts-reader.js <request.json> <response.json>
 //
-// Request:  { "files": [{ "path": "src/api/client.ts", "text": "...", "kind": "ts" }] }, kind one of ts, tsx, js or jsx.
+// Request:  { "maxDepth": 1000, "files": [{ "path": "src/api/client.ts", "text": "...", "kind": "ts" }] }, kind one of ts, tsx,
+//           js or jsx. A file whose tree nests deeper than maxDepth nodes is that file's error, so the reader's JSON stays within
+//           the depth it parses.
 // Response: { "version": "6.0.2", "kinds": ["Unknown", ...], "files": [{ "path", "tree", "tokens", "diagnostics" }] },
 //           or { "error": "..." } when the request couldn't be read.
 //   kinds:  each SyntaxKind's name, by its number.
@@ -32,11 +34,16 @@ const skipped = new Set(['parent', 'original', 'symbol', 'localSymbol', 'flowNod
     'endFlowNode', 'returnFlowNode', 'jsDoc', 'jsDocCache', 'id', 'modifierFlagsCache', 'transformFlags', 'pos', 'end',
     'kind', 'flags', 'text', 'escapedText', 'rawText', 'operator', 'keywordToken', 'token']);
 
-function read(file) {
+function read(file, maxDepth) {
     const source = ts.createSourceFile(file.path, file.text,
         { languageVersion: ts.ScriptTarget.Latest, jsDocParsingMode: ts.JSDocParsingMode.ParseNone }, true, scriptKinds[file.kind] ?? ts.ScriptKind.TS);
 
-    function node(n) {
+    function node(n, depth = 0) {
+        if (depth > maxDepth) {
+            throw new Error(`Its syntax nests more than ${maxDepth} levels deep, too deep to read.`);
+        }
+
+        const child = c => node(c, depth + 1);
         const o = { k: n.kind, s: n.getStart(source), e: n.end };
         if (ts.isIdentifier(n) || ts.isPrivateIdentifier(n)) {
             o.t = ts.idText(n);
@@ -60,7 +67,7 @@ function read(file) {
         }
 
         if (n.kind === ts.SyntaxKind.SourceFile) {
-            o.c = { statements: n.statements.map(node) };
+            o.c = { statements: n.statements.map(child) };
             return o;
         }
 
@@ -74,9 +81,9 @@ function read(file) {
                 (o.b || (o.b = [])).push(key);
             } else if (v && typeof v === 'object' && typeof v.pos === 'number') {
                 if (Array.isArray(v)) {
-                    (o.c || (o.c = {}))[key] = v.map(node);
+                    (o.c || (o.c = {}))[key] = v.map(child);
                 } else if (typeof v.kind === 'number') {
-                    (o.c || (o.c = {}))[key] = node(v);
+                    (o.c || (o.c = {}))[key] = child(v);
                 }
             }
         }
@@ -116,7 +123,7 @@ try {
     const request = JSON.parse(fs.readFileSync(requestPath, 'utf8'));
     const files = request.files.map(file => {
         try {
-            return read(file);
+            return read(file, request.maxDepth ?? Infinity);
         } catch (e) {
             return { path: file.path, error: String(e && e.stack || e) };
         }

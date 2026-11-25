@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
@@ -28,7 +29,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
     /// <item>A type a find matched elsewhere stays reported, as v1 reported it: the move doesn't hide v1's own findings.</item>
     /// <item>A public field of a modelled type whose element states fields, which the model doesn't name, is an exception.</item>
     /// </list>
-    /// A type added later is still reported, as the row's glob says. Only C# is read: v1's code index is C# only.
+    /// A type added later is still reported, as the row's glob says. Types are read from C#, v1's code index; a Razor or Vue
+    /// file is the one component of its file's name (<see cref="ComponentName"/>), as v1's file finds and the engine both see it.
     /// </summary>
     internal static class V1Coverage
     {
@@ -209,8 +211,9 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         /// <param name="code">The application's code, as v1 read it.</param>
         /// <param name="contractFiles">The contract files, relative to the code's root with <c>/</c> separators.</param>
         /// <param name="notes">Gets a line for each recipe file whose finds couldn't run, whose rows then get no exceptions.</param>
+        /// <param name="components">The names of the User Interface designer's components (<see cref="ComponentElements"/>).</param>
         public static IReadOnlyList<ExceptionRowSpec> Exceptions(CodeFiles code, IEnumerable<RecipeSource> recipes, ConvertedRecipes rows,
-            IReadOnlyCollection<string> contractFiles, IReadOnlyList<ModelledType> model, ICollection<string> notes)
+            IReadOnlyCollection<string> contractFiles, IReadOnlyList<ModelledType> model, ICollection<string> notes, IReadOnlyCollection<string> components = null)
         {
             var contracts = new HashSet<string>(contractFiles, StringComparer.OrdinalIgnoreCase);
             // The engine never reports code a Context row decides as unmodelled, as it doesn't an Out row's.
@@ -245,9 +248,24 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 .Select(x => (x.File, x.Covering, Types: TopLevel(code, x.File)))
                 .ToList();
             var coveredDeclarations = covered.SelectMany(x => x.Types).ToLookup(x => x.Identifier.Text, StringComparer.Ordinal);
+            string Reason(IEnumerable<string> covering) => $"v1's conventions over these files ({string.Join(", ", covering)}) didn't report it";
+
+            // A Razor or Vue file is one component of its file's name to the engine. v1 found it by a file find, so only its name
+            // can be matched: a component the model names is located, and one no find matched v1 never reported (eShop10's UI
+            // conventions left out App.razor and Routes.razor, the files holding <html> and <Router>).
+            foreach (var file in code.AllFiles().Where(x => ComponentName(x) != null && !outGlobs.Any(g => g.IsMatch(x))))
+            {
+                var covering = typeRows.Where(x => x.Globs.Any(g => g.IsMatch(file))).Select(x => x.Row.Description).Distinct().ToList();
+                var name = ComponentName(file);
+                if (covering.Count > 0 && !modelled.Contains(name) && !(components?.Contains(name) ?? false) && !found.Contains(name))
+                {
+                    Except(Reason(covering), name);
+                }
+            }
+
             foreach (var (file, covering, types) in covered)
             {
-                var reason = $"v1's conventions over these files ({string.Join(", ", covering)}) didn't report it";
+                var reason = Reason(covering);
                 // By name, as an exception matches: a partial type a find matched in one of its files was found.
                 foreach (var type in types)
                 {
@@ -479,7 +497,9 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                         foreach (var hit in engine.Own(own))
                         {
                             var type = hit.Hit.Node?.AncestorsAndSelf().OfType<BaseTypeDeclarationSyntax>().LastOrDefault();
-                            found.UnionWith(type != null ? new[] { type.Identifier.Text } : TopLevelTypes(code, hit.Hit.File.RelativePath));
+                            found.UnionWith(type != null ? new[] { type.Identifier.Text }
+                                : ComponentName(hit.Hit.File.RelativePath) is { } component ? new[] { component }
+                                : TopLevelTypes(code, hit.Hit.File.RelativePath));
                         }
                     }
                     catch (Exception e) when (e is RegexMatchTimeoutException or ArgumentException or InvalidOperationException)
@@ -492,6 +512,31 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             }
 
             return (found, failed);
+        }
+
+        /// <summary>The User Interface designer's element types the drift engine locates as a component (<c>intent.ui</c>).</summary>
+        public static readonly IReadOnlyCollection<string> ComponentElements = new HashSet<string>(StringComparer.Ordinal) { "Page", "Dialog", "Component", "Layout" };
+
+        /// <summary>
+        /// The component a Razor or Vue file is to the drift engine, named for its file; null for any other file, and for an
+        /// <c>_Imports.razor</c>, which declares none. A Razor name is the identifier Razor's compiler gives the class: anything
+        /// an identifier can't hold becomes <c>_</c>, and a name that can't start one gets a leading <c>_</c>.
+        /// </summary>
+        public static string ComponentName(string file)
+        {
+            var name = Path.GetFileNameWithoutExtension(file);
+            if (file.EndsWith(".vue", StringComparison.OrdinalIgnoreCase))
+            {
+                return name;
+            }
+
+            if (!file.EndsWith(".razor", StringComparison.OrdinalIgnoreCase) || string.Equals(name, "_Imports", StringComparison.OrdinalIgnoreCase))
+            {
+                return null;
+            }
+
+            var identifier = new string(name.Select(x => SyntaxFacts.IsIdentifierPartCharacter(x) ? x : '_').ToArray());
+            return identifier.Length > 0 && SyntaxFacts.IsIdentifierStartCharacter(identifier[0]) ? identifier : "_" + identifier;
         }
 
         private static IReadOnlyList<string> TopLevelTypes(CodeFiles code, string file) =>

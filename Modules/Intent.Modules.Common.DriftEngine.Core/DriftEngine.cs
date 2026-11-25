@@ -468,6 +468,29 @@ public sealed partial class DriftEngine
     /// <summary>The profile of the language a type reference is written in, as its reader says.</summary>
     internal JsonNode ProfileOf(TypeRefNode type) => type.Language is { } language && _profiles.TryGetValue(language, out var profile) ? profile : _profile;
 
+    /// <summary>
+    /// The model's name for a type the code writes, when its language's profile maps it (a primitive: <c>int</c> for C#'s
+    /// <c>int</c> or <c>Int32</c>, <c>guid</c> for <c>Guid</c>); null for any other type, a generic or an array.
+    /// </summary>
+    internal string? ModelTypeName(TypeRefNode code)
+    {
+        if (code.IsArray || code.Arguments.Count > 0 || code.Union.Count > 0)
+        {
+            return null;
+        }
+
+        var written = code.Text.TrimEnd('?');
+        foreach (var (name, spellings) in ProfileOf(code)["types"] as JsonObject ?? [])
+        {
+            if (spellings is JsonArray names && names.Any(x => x?.GetValue<string>() is { } spelling && (spelling == written || spelling == code.Name || spelling == code.QualifiedName)))
+            {
+                return name;
+            }
+        }
+
+        return null;
+    }
+
     /// <summary>The profiles of the languages that read files, the primary one first; the primary alone when none did.</summary>
     private IEnumerable<JsonNode> ReadProfiles() => _read.Count == 0 ? [_profile] : _read.Select(x => _profiles.GetValueOrDefault(x)).OfType<JsonNode>();
 
@@ -1408,6 +1431,18 @@ public sealed partial class DriftEngine
                 break;
             case 0:
                 Missing(claim, names, $"a {string.Join(" or ", TypeKinds(claim.Designer, element))} named `{name}`");
+                // An element that states nothing but its name, where no in-scope code declares a type of the name at all, is
+                // corrected by removing it: eShop10's User Interface held an empty Model Definition, ModelType, that no code
+                // has, which v1 never checked. Not one with members, nor one whose name a type has outside its locations.
+                if (claim is { Outcome: "contradicted", Reading: { } missing } && !element.ChildElements.Any() && TypesNamedIn(NameIn).Count == 0)
+                {
+                    claim.Reading = new Reading
+                    {
+                        Value = missing.Value, At = missing.At, Searched = missing.Searched, Detail = missing.Detail,
+                        Corrections = [new ModelCorrection(ModelCorrection.RemoveElement, element.Id)]
+                    };
+                }
+
                 break;
             default:
                 Cant(claim, "ambiguous", new Reading { Candidates = candidates.Select(x => x.At).ToList() });

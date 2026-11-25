@@ -639,6 +639,48 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
             messages["pack-handler"].ShouldBe(new[] { "PackGenerated" });
         }
 
+        /// <summary>
+        /// A Razor or Vue file is one component of its file's name to the engine, and v1 found it with a file find. eShop10's UI
+        /// conventions left out the files holding &lt;html&gt; and &lt;Router&gt;, so its App and Routes were reported after
+        /// the move. A modelled component is located, so it needs no exception, nor does an _Imports.razor.
+        /// </summary>
+        [Fact]
+        public void A_component_file_no_convention_found_is_excepted_by_its_component_name()
+        {
+            const string ui = """
+                {
+                  "files": ["src/*/Components/**/*.razor", "src/*/Components/**/*.vue"],
+                  "own": [
+                    { "kind": "page", "find": "file with @page\"", "files": ["src/*/Components/**/*.razor"] },
+                    { "kind": "component", "find": "file with ^(?!.*(?:@page\"|<Router\\b|<html\\b)).*<\\w", "files": ["src/*/Components/**/*.razor", "src/*/Components/**/*.vue"] }
+                  ]
+                }
+                """;
+            var code = new Dictionary<string, string>
+            {
+                ["src/Web/Components/App.razor"] = "<!DOCTYPE html>\n<html>\n<body><Routes /></body>\n</html>",
+                ["src/Web/Components/Routes.razor"] = "<Router AppAssembly=\"typeof(Program).Assembly\" />",
+                ["src/Web/Components/_Imports.razor"] = "@using Web",
+                ["src/Web/Components/Pages/Catalog.razor"] = "@page \"/\"\n<div>Catalog</div>",
+                ["src/Web/Components/Layout/MainLayout.razor"] = "@inherits LayoutComponentBase\n@Body",
+                ["src/Web/Components/Item-Card.razor"] = "@Item.Name",
+                ["src/Web/Components/Cart.vue"] = "<template><div /></template>",
+                ["src/Web/Components/Shell.vue"] = "<template><Router /></template>"
+            };
+            var recipes = new[] { new RecipeSource("ui.drift.json", ui) };
+            var rows = RecipeConversion.Convert(recipes);
+            var notes = new List<string>();
+
+            var result = V1Coverage.Exceptions(new CodeFiles(code), recipes, rows, new string[0], new ModelledType[0], notes, new[] { "MainLayout" });
+
+            notes.ShouldBeEmpty();
+            result.ShouldAllBe(x => x.Rule == RecipeConversion.UnmodelledType);
+            result.Single(x => x.Reason == "v1's conventions over these files (page, component) didn't report it").Matches
+                .ShouldBe(new[] { "App", "Routes", "Item_Card" }, ignoreOrder: true);
+            // Only the component convention covers .vue files.
+            result.Single(x => x.Reason == "v1's conventions over these files (component) didn't report it").Matches.ShouldBe(new[] { "Shell" });
+        }
+
         private static IReadOnlyList<ExceptionRowSpec> Exceptions(string services, Dictionary<string, string> code, ModelledType[] model, string[] contractFiles = null)
         {
             var recipes = new[] { new RecipeSource("services.drift.json", services) };

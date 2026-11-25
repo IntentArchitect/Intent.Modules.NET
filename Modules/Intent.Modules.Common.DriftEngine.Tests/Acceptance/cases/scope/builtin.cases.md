@@ -161,6 +161,51 @@ public class Order
 }
 ```
 
+## libman-libraries
+
+LibMan installs client libraries where its `libman.json` says: each library's `destination`, else the file's `defaultDestination`, relative to the `libman.json`. Those are third-party copies, as `node_modules` holds, never code to check, though the row takes everything. eShop10's Identity.API keeps jQuery, jQuery Validation and Bootstrap in `wwwroot/lib`, whose bundles nest too deeply for the TypeScript reader's response to parse at its old depth. A library folder holding a class named `Order` would make the claim on `Order` ambiguous; it is verified from `src/Domain/Order.cs` alone, and the listing counts both folders. A `\` in a destination is a folder separator, as LibMan reads it on Windows.
+
+```json case
+{ "phase": 1, "base": "build-output-and-tooling", "without": ["src/Domain/obj/Debug/net8.0/Generated/Order.g.cs", "src/Domain/bin/Debug/net8.0/Shop.Domain.deps.json", "src/Web/node_modules/bootstrap/dist/js/bootstrap.js", "src/Domain/.backup/Order.cs", ".github/workflows/build.yml"], "cases": ["scope/builtin", "scope/coverage"], "requirements": ["R22", "R15"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json file src/Web/libman.json
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "wwwroot/lib/",
+  "libraries": [
+    { "library": "jquery@3.6.3", "destination": "wwwroot/lib/jquery/" },
+    { "library": "ordering-client@1.0.0", "destination": "Scripts\\vendor" }
+  ]
+}
+```
+
+```csharp file src/Web/Scripts/vendor/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```text file src/Web/wwwroot/lib/jquery/jquery.js
+/*! jQuery v3.6.3 */
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "verified", "at": "src/Domain/Order.cs:3" }
+  ],
+  "findings": [
+    { "rule": "scope/coverage", "severity": "info", "messageContains": "LibMan libraries, 2 folders" }
+  ],
+  "filesRead": { "include": ["src/Domain/Order.cs"], "exclude": ["src/Web/Scripts/vendor/**", "src/Web/wwwroot/lib/**"] }
+}
+```
+
 ## packages-folder-of-source
 
 A JavaScript or TypeScript monorepo keeps its own code in `packages/`, a folder per package. No folder in it holds a `.nupkg`, so it isn't NuGet's: its code is read and checked like any other.

@@ -95,7 +95,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         }
 
         private static string Key(ModelCorrection correction) =>
-            $"{correction.Kind}|{correction.Element}|{correction.Association}|{correction.Target}|{correction.Stereotype}|{correction.Row}|{correction.Entry}|" +
+            $"{correction.Kind}|{correction.Element}|{correction.Association}|{correction.Target}|{correction.Stereotype}|{correction.Name}|{correction.Type}|{correction.Row}|{correction.Entry}|" +
             string.Join(",", (correction.Properties ?? new Dictionary<string, string>()).OrderBy(x => x.Key, StringComparer.Ordinal).Select(x => $"{x.Key}={x.Value}"));
 
         /// <returns>What was changed, for the log; null when the correction couldn't be made.</returns>
@@ -103,6 +103,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         {
             ModelCorrection.AddLink => AddLink(model, correction),
             ModelCorrection.RemoveLink => RemoveLink(model, correction),
+            ModelCorrection.AddAttribute => AddAttribute(model, correction),
             ModelCorrection.RemoveElement => RemoveElement(model, correction),
             ModelCorrection.SetStereotype => SetStereotype(model, correction),
             ModelCorrection.RemoveException => RemoveException(model, correction),
@@ -203,26 +204,93 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         }
 
         /// <summary>
+        /// Adds an attribute to a class as the designer writes one, first among its children: of the specialization the
+        /// application's attributes have, typed by the type definition of the model's type name (one a package of the class's
+        /// references, else any), with the stereotype at its defaults. eShop10's Ordering entities had no Primary Key in the
+        /// model, though the code keys each on the <c>int Id</c> its SeedWork base declares. Not when no attribute or type
+        /// definition is there to copy, which leaves the finding; already added by an earlier pass, it is reported done.
+        /// </summary>
+        private static string AddAttribute(PersistedModel model, ModelCorrection correction)
+        {
+            if (model.Element(correction.Element) is not { } owner || model.PackageOf(owner) is not { } package
+                || string.IsNullOrEmpty(correction.Name) || string.IsNullOrEmpty(correction.Type))
+            {
+                return null;
+            }
+
+            if (owner.ChildElements.FirstOrDefault(x => x.SpecializationType == "Attribute" && x.Name == correction.Name) is { } added)
+            {
+                return $"Found the attribute {owner.Name}.{added.Name} already added";
+            }
+
+            var elements = model.Packages.SelectMany(x => x.Package.FindAllChildElements().Select(e => (Element: e, x.Package))).ToList();
+            var template = elements.Select(x => x.Element).FirstOrDefault(x => x.SpecializationType == "Attribute" && !string.IsNullOrEmpty(x.SpecializationTypeId));
+            var referenced = new HashSet<string>((package.References ?? new List<PackageReferenceModel>()).Select(x => x.PackageId).Where(x => x != null), StringComparer.OrdinalIgnoreCase);
+            var type = elements.Where(x => x.Element.SpecializationType == "Type-Definition" && x.Element.Name == correction.Type)
+                .OrderByDescending(x => referenced.Contains(x.Package.Id))
+                .FirstOrDefault();
+            if (template == null || type.Element == null)
+            {
+                return null;
+            }
+
+            var attribute = new ElementPersistable
+            {
+                Id = Guid.NewGuid().ToString(),
+                SpecializationType = template.SpecializationType,
+                SpecializationTypeId = template.SpecializationTypeId,
+                Name = correction.Name,
+                Display = $"{correction.Name}: {type.Element.Name}",
+                ParentFolderId = owner.Id,
+                PackageId = package.Id,
+                PackageName = package.Name,
+                TypeReference = new TypeReferencePersistable
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    TypeId = type.Element.Id,
+                    TypeName = type.Element.Name,
+                    TypePackageId = type.Package.Id,
+                    TypePackageName = type.Package.Name
+                }
+            };
+            if (correction.Stereotype != null && ApplyStereotype(model, attribute, correction.Stereotype, package) == null)
+            {
+                return null;
+            }
+
+            owner.ChildElements.Insert(0, attribute);
+            return $"Added the attribute {owner.Name}.{correction.Name}: {type.Element.Name}{(correction.Stereotype == null ? "" : $" with {correction.Stereotype}")}";
+        }
+
+        /// <summary>
         /// Removes an element no designer could state as the code has it: an attribute of a persisted class for a property EF
-        /// doesn't map (a migrated EF6 application's <c>[NotMapped]</c> enum wrappers of int columns). Not when it has children,
-        /// or anything else in the application's model names it (a mapping, a type reference, an index), which would be left
-        /// pointing at nothing: that stays a finding.
+        /// doesn't map (a migrated EF6 application's <c>[NotMapped]</c> enum wrappers of int columns), or a type element no code
+        /// declares (eShop10's empty Model Definition <c>ModelType</c>). Not when it has children, or anything else in the
+        /// application's model names it (a mapping, a type reference, an index, a diagram showing it), which would be left
+        /// pointing at nothing: that stays a finding. An element of its own file is deleted with its file, as the designer does.
         /// </summary>
         private static string RemoveElement(PersistedModel model, ModelCorrection correction)
         {
-            if (model.Element(correction.Element) is not { } element || element.ChildElements?.Count > 0)
+            if (model.Element(correction.Element) is not { } element || element.ChildElements?.Count > 0
+                || model.Packages.Any(x => Names(x.Package, element.Id, element)))
             {
                 return null;
             }
 
             var parent = model.Packages.Select(x => x.Package).SelectMany(x => x.FindAllChildElements()).FirstOrDefault(x => x.ChildElements?.Contains(element) == true);
-            if (parent == null || model.Packages.Any(x => Names(x.Package, element.Id, element)))
+            if (parent != null)
+            {
+                parent.ChildElements.Remove(element);
+                return $"Removed the {element.SpecializationType} {parent.Name}.{element.Name}";
+            }
+
+            if (model.PackageOf(element) is not { } package)
             {
                 return null;
             }
 
-            parent.ChildElements.Remove(element);
-            return $"Removed the {element.SpecializationType} {parent.Name}.{element.Name}";
+            element.Delete();
+            return $"Removed the {element.SpecializationType} {element.Name} from {package.Name}";
         }
 
         /// <summary>
@@ -286,55 +354,73 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         /// </summary>
         private static string SetStereotype(PersistedModel model, ModelCorrection correction)
         {
-            if (model.Element(correction.Element) is not { } element || correction.Stereotype == null || correction.Properties == null)
+            if (model.Element(correction.Element) is not { } element || correction.Stereotype == null || correction.Properties == null
+                || ApplyStereotype(model, element, correction.Stereotype) is not { } applied)
             {
                 return null;
             }
 
-            var stereotype = element.Stereotypes.FirstOrDefault(x => x.Name == correction.Stereotype);
-            var definition = model.Packages
-                .SelectMany(x => (x.Package.StereotypeDefinitions ?? new List<StereotypeDefinitionPersistable>()).Select(d => (Definition: d, x.Package)))
-                .FirstOrDefault(x => stereotype != null ? x.Definition.Id == stereotype.DefinitionId : x.Definition.Name == correction.Stereotype);
-            if (stereotype == null)
-            {
-                if (definition.Definition == null)
-                {
-                    return null;
-                }
-
-                stereotype = new StereotypePersistable
-                {
-                    DefinitionId = definition.Definition.Id,
-                    Name = definition.Definition.Name,
-                    DefinitionPackageId = definition.Package.Id,
-                    DefinitionPackageName = definition.Package.Name,
-                    Properties = (definition.Definition.Properties ?? new List<StereotypePropertyDefinitionPersistable>())
-                        .Select(x => new StereotypePropertyPersistable { DefinitionId = x.Id, Name = x.Name, Value = x.DefaultValue })
-                        .ToList()
-                };
-                element.Stereotypes.Add(stereotype);
-            }
-
             foreach (var (name, value) in correction.Properties)
             {
-                var property = stereotype.Properties.FirstOrDefault(x => x.Name == name);
+                var property = applied.Stereotype.Properties.FirstOrDefault(x => x.Name == name);
                 if (property == null)
                 {
-                    var known = definition.Definition?.Properties?.FirstOrDefault(x => x.Name == name);
+                    var known = applied.Definition?.Properties?.FirstOrDefault(x => x.Name == name);
                     if (known == null)
                     {
                         return null;
                     }
 
                     property = new StereotypePropertyPersistable { DefinitionId = known.Id, Name = known.Name };
-                    stereotype.Properties.Add(property);
+                    applied.Stereotype.Properties.Add(property);
                 }
 
                 property.Value = value;
             }
 
             var owner = ParentName(model, element);
-            return $"Set {correction.Stereotype} {string.Join(", ", correction.Properties.Select(x => $"{x.Key} `{x.Value}`"))} on {(owner == null ? "" : owner + ".")}{element.Name}";
+            var values = correction.Properties.Count == 0 ? "" : " " + string.Join(", ", correction.Properties.Select(x => $"{x.Key} `{x.Value}`"));
+            return $"Set {correction.Stereotype}{values} on {(owner == null ? "" : owner + ".")}{element.Name}";
+        }
+
+        /// <summary>
+        /// The element's stereotype of the name, applied as its definition gives it, each property at its default, when the
+        /// element hasn't it; null when it hasn't and no package read defines it. Of several definitions of the name (Primary Key
+        /// is both Intent.Metadata.RDBMS's and Intent.Metadata.DocumentDB's), one a package the element's package references.
+        /// </summary>
+        private static (StereotypePersistable Stereotype, StereotypeDefinitionPersistable Definition)? ApplyStereotype(PersistedModel model, ElementPersistable element, string name,
+            PackageModelPersistable package = null)
+        {
+            var referenced = new HashSet<string>(((package ?? model.PackageOf(element))?.References ?? new List<PackageReferenceModel>()).Select(x => x.PackageId).Where(x => x != null),
+                StringComparer.OrdinalIgnoreCase);
+            var stereotype = element.Stereotypes.FirstOrDefault(x => x.Name == name);
+            var definition = model.Packages
+                .SelectMany(x => (x.Package.StereotypeDefinitions ?? new List<StereotypeDefinitionPersistable>()).Select(d => (Definition: d, x.Package)))
+                .Where(x => stereotype != null ? x.Definition.Id == stereotype.DefinitionId : x.Definition.Name == name)
+                .OrderByDescending(x => referenced.Contains(x.Package.Id))
+                .FirstOrDefault();
+            if (stereotype != null)
+            {
+                return (stereotype, definition.Definition);
+            }
+
+            if (definition.Definition == null)
+            {
+                return null;
+            }
+
+            stereotype = new StereotypePersistable
+            {
+                DefinitionId = definition.Definition.Id,
+                Name = definition.Definition.Name,
+                DefinitionPackageId = definition.Package.Id,
+                DefinitionPackageName = definition.Package.Name,
+                Properties = (definition.Definition.Properties ?? new List<StereotypePropertyDefinitionPersistable>())
+                    .Select(x => new StereotypePropertyPersistable { DefinitionId = x.Id, Name = x.Name, Value = x.DefaultValue })
+                    .ToList()
+            };
+            element.Stereotypes.Add(stereotype);
+            return (stereotype, definition.Definition);
         }
 
         /// <summary>Removes an entry of a Drift Check exception row the engine says matches nothing, and the row when none is left.</summary>

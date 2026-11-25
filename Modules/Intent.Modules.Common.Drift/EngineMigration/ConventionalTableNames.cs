@@ -50,6 +50,11 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
                 foreach (var call in syntax.DescendantNodes().OfType<InvocationExpressionSyntax>().Where(x => TableCalls.Contains(CalledName(x) ?? "")))
                 {
+                    if (InMigration(call))
+                    {
+                        continue;
+                    }
+
                     if (EntityOf(call) is not { } entity)
                     {
                         notes.Add($"`{call}` names a table for an entity the migration can't tell, so no Table Name was cleared.");
@@ -109,6 +114,40 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
             return null;
         }
+
+        /// <summary>
+        /// Whether a table statement is in an entity EF Core's migrations name by string, as its snapshots and migration designer
+        /// files do (<c>modelBuilder.Entity("Shop.Order", b =&gt; { b.ToTable("Orders"); })</c>). They record the database the
+        /// migrations built, whatever names it got, and the drift engine reads only <c>Entity&lt;T&gt;</c>, so they state no
+        /// Table Name. eShop10's <c>WebhookSubscription</c> kept its <c>DbSet</c>'s name because its snapshot's call stopped every
+        /// name being cleared.
+        /// </summary>
+        private static bool InMigration(InvocationExpressionSyntax call)
+        {
+            for (var receiver = (call.Expression as MemberAccessExpressionSyntax)?.Expression; receiver != null;)
+            {
+                switch (receiver)
+                {
+                    case InvocationExpressionSyntax invocation when NamedByString(invocation):
+                        return true;
+                    case InvocationExpressionSyntax invocation:
+                        receiver = (invocation.Expression as MemberAccessExpressionSyntax)?.Expression;
+                        break;
+                    case MemberAccessExpressionSyntax access:
+                        receiver = access.Expression;
+                        break;
+                    default:
+                        receiver = null;
+                        break;
+                }
+            }
+
+            return call.Ancestors().OfType<InvocationExpressionSyntax>().Any(NamedByString);
+        }
+
+        private static bool NamedByString(InvocationExpressionSyntax invocation) =>
+            invocation.Expression is MemberAccessExpressionSyntax { Name: IdentifierNameSyntax { Identifier.Text: "Entity" } } or IdentifierNameSyntax { Identifier.Text: "Entity" }
+            && invocation.ArgumentList.Arguments.FirstOrDefault()?.Expression is LiteralExpressionSyntax { Token.Value: string };
 
         /// <summary><c>T</c> of an <c>Entity&lt;T&gt;(...)</c> call, however it's called on.</summary>
         private static string Entity(InvocationExpressionSyntax invocation) =>

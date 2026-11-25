@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using Intent.Metadata.Models;
@@ -114,15 +115,16 @@ internal sealed class ScopeModel
     /// Every file under the output folder that no built-in exclusion takes (scope.md, Built-in exclusions). The walk never
     /// enters an excluded folder, so a build's output or a package cache costs nothing however large it is: <c>.git</c>,
     /// <c>bin</c>, <c>obj</c>, <c>node_modules</c> and <c>Intent.Metadata</c>, hidden folders, Intent's own (a folder holding an
-    /// <c>.isln</c>, an <c>.application.config</c> or <c>Intent.Metadata</c>), and NuGet's packages folder, known by what it
-    /// holds: a folder of its own per package, with the package's <c>.nupkg</c> in it. A folder named <c>packages</c> is also
-    /// where a JavaScript or TypeScript monorepo keeps its source, so the name alone excludes nothing.
+    /// <c>.isln</c>, an <c>.application.config</c> or <c>Intent.Metadata</c>), NuGet's packages folder, known by what it
+    /// holds: a folder of its own per package, with the package's <c>.nupkg</c> in it, and the folders LibMan installs
+    /// libraries into, which its <c>libman.json</c> names. A folder named <c>packages</c> is also where a JavaScript or
+    /// TypeScript monorepo keeps its source, so the name alone excludes nothing.
     /// </summary>
     public static WalkedFolder Walk(string root)
     {
         var files = new List<WalkedFile>();
         var builtin = new Dictionary<string, int>(StringComparer.Ordinal);
-        var queue = new Queue<Folder>([Visit(new DirectoryInfo(root), "", null).Folder!]);
+        var queue = new Queue<Folder>([Visit(new DirectoryInfo(root), "", null, new HashSet<string>(StringComparer.OrdinalIgnoreCase)).Folder!]);
         while (queue.TryDequeue(out var folder))
         {
             files.AddRange(folder.Files);
@@ -143,13 +145,45 @@ internal sealed class ScopeModel
     /// <summary>A folder's own files, the folders under it that are walked, and the built-in exclusion of each that isn't.</summary>
     private sealed record Folder(List<WalkedFile> Files, List<Folder> Children, List<string> Excluded);
 
+    /// <summary>
+    /// The folders a <c>libman.json</c> installs libraries into, relative to its own folder with <c>/</c> separators: each
+    /// library's <c>destination</c>, else its <c>defaultDestination</c>. They hold third-party copies (eShop10's Identity.API
+    /// has jQuery, jQuery Validation and Bootstrap in <c>wwwroot/lib</c>) that no model describes, as <c>node_modules</c> does.
+    /// One that leaves its folder, or a file that won't parse, gives nothing.
+    /// </summary>
+    private static List<string> LibManDestinations(FileInfo libman)
+    {
+        JsonNode? json;
+        try
+        {
+            json = JsonNode.Parse(File.ReadAllText(libman.FullName), documentOptions: new JsonDocumentOptions { CommentHandling = JsonCommentHandling.Skip, AllowTrailingCommas = true });
+        }
+        catch (Exception e) when (e is JsonException or IOException or UnauthorizedAccessException or InvalidOperationException)
+        {
+            return [];
+        }
+
+        string? Text(JsonNode? node) => node is JsonValue value && value.TryGetValue<string>(out var text) ? text : null;
+        var fallback = Text(json?["defaultDestination"]);
+        return (json?["libraries"] as JsonArray ?? [])
+            .Select(x => (Text(x?["destination"]) ?? fallback)?.Replace('\\', '/').Trim('/'))
+            .OfType<string>()
+            .Where(x => x.Length > 0 && !x.Split('/').Any(s => s is "" or "." or ".."))
+            .ToList();
+    }
+
     /// <summary>A folder walked, or the built-in exclusion that takes it, or a package's own folder in NuGet's packages folder.</summary>
     private sealed record Visited(Folder? Folder, string? Excluded = null, bool Package = false);
 
     /// <param name="parent">The folder above, by its path; null for the output folder, which no built-in exclusion takes.</param>
-    private static Visited Visit(DirectoryInfo directory, string path, string? parent)
+    /// <param name="libraries">The folders, by path, that a <c>libman.json</c> above or in this folder installs libraries into.</param>
+    private static Visited Visit(DirectoryInfo directory, string path, string? parent, HashSet<string> libraries)
     {
         var files = directory.EnumerateFiles().ToList();
+        if (files.FirstOrDefault(x => x.Name.Equals("libman.json", StringComparison.OrdinalIgnoreCase)) is { } libman)
+        {
+            libraries.UnionWith(LibManDestinations(libman).Select(x => Join(path, x)));
+        }
 
         // A package's own folder in NuGet's packages folder, which takes the folder above it; never the output folder's.
         if (parent is { Length: > 0 } && files.Any(x => x.Name.EndsWith(".nupkg", StringComparison.OrdinalIgnoreCase)))
@@ -177,10 +211,11 @@ internal sealed class ScopeModel
 
             var excluded = BuiltinFolders.Contains(child.Name, StringComparer.OrdinalIgnoreCase) ? child.Name
                 : child.Name.StartsWith('.') ? "hidden folders"
+                : libraries.Contains(Join(path, child.Name)) ? "LibMan libraries"
                 : null;
             if (excluded is null)
             {
-                var visited = Visit(child, Join(path, child.Name), path);
+                var visited = Visit(child, Join(path, child.Name), path, libraries);
                 if (visited.Package)
                 {
                     return new Visited(null, "NuGet packages");

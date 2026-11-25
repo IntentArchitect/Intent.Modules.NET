@@ -521,7 +521,7 @@ internal sealed partial class EfCoreClaims : IClaimReader
 
         if (columns.Count > 0)
         {
-            return ClaimReading.Stated(string.Join(", ", columns), at);
+            return MarkKey(context, type, ClaimReading.Stated(string.Join(", ", columns), at), columns);
         }
 
         // The Domain designer always marks a key, so unlike a Table Name it can't leave a conventional one unstated: with
@@ -529,10 +529,45 @@ internal sealed partial class EfCoreClaims : IClaimReader
         // Without one the entity has no key EF Core accepts, so there is nothing to read, not a key to compare.
         var conventional = context.Code.MembersOf(type).FirstOrDefault(x => x.Kind == "property" && x.Access == "public"
             && (string.Equals(x.Name, "Id", StringComparison.OrdinalIgnoreCase) || string.Equals(x.Name, $"{type.Name}Id", StringComparison.OrdinalIgnoreCase)));
-        return conventional is not null ? ClaimReading.Defaulted(conventional.Name, conventional.At)
+        return conventional is not null ? MarkKey(context, type, ClaimReading.Defaulted(conventional.Name, conventional.At), [conventional.Name])
             // A keyless entity the code doesn't declare keyless: EF Core would refuse it.
             : context.Expected == "none" ? ClaimReading.Absent(type.At)
             : ClaimReading.CantVerify("notFound", $"`{type.Name}` has no `HasKey`, `[Key]` or `[PrimaryKey]`, and no public `Id` or `{type.Name}Id` property EF Core would take as its key.", type.At);
+    }
+
+    /// <summary>
+    /// A key the code has where the model's class marks none: the model is corrected by marking it as the Domain designer
+    /// does, with Primary Key on the attribute of each key column's name, else on a new attribute of the column's name and
+    /// type. eShop10's Ordering entities inherit SeedWork's <c>int Id</c>, which its v1 model left out; Intent's own EF Core
+    /// module reads a class with no Primary Key as <c>HasNoKey()</c>. No correction when a column has neither an attribute nor
+    /// a property of a type the model can name (a shadow property, a value object), since only part of the key would be marked.
+    /// </summary>
+    private static ClaimReading MarkKey(ClaimContext context, TypeNode type, ClaimReading reading, IReadOnlyList<string> columns)
+    {
+        if (context.Expected != "none")
+        {
+            return reading;
+        }
+
+        var corrections = new List<ModelCorrection>();
+        foreach (var column in columns)
+        {
+            if (context.Element.ChildElements.FirstOrDefault(x => x.SpecializationType == "Attribute" && string.Equals(x.Name, column, StringComparison.OrdinalIgnoreCase)) is { } attribute)
+            {
+                corrections.Add(new ModelCorrection(ModelCorrection.SetStereotype, attribute.Id) { Stereotype = "Primary Key", Properties = new Dictionary<string, string>() });
+                continue;
+            }
+
+            if (context.Code.MembersOf(type).FirstOrDefault(x => x.Kind is "property" or "field" && x.Name == column)?.Type is not { } code
+                || context.ModelTypeName(code) is not { } modelType)
+            {
+                return reading;
+            }
+
+            corrections.Add(new ModelCorrection(ModelCorrection.AddAttribute, context.Element.Id) { Name = column, Type = modelType, Stereotype = "Primary Key" });
+        }
+
+        return reading.Correcting([.. corrections]);
     }
 
     /// <summary>

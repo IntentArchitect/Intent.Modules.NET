@@ -16,6 +16,19 @@ internal static class TypeScriptWorker
 
     private static readonly Lazy<string> Folder = new(FolderName);
 
+    /// <summary>
+    /// How deep a file's tree may nest, in syntax nodes; a deeper file is that file's error, read no further. Real code nests a
+    /// few dozen levels; a long chain of <c>+</c> or calls nests one level a link.
+    /// </summary>
+    private const int TreeDepth = 1000;
+
+    /// <summary>
+    /// The response's JSON nests up to three levels a syntax node (the node, its children, a list of them), under four of its
+    /// own. System.Text.Json's default of 64 failed every file's read on eShop10, whose jQuery, jQuery Validation and Bootstrap
+    /// bundles nest 107, 114 and 73 levels.
+    /// </summary>
+    private static readonly JsonDocumentOptions Response = new() { MaxDepth = 3 * TreeDepth + 8 };
+
     /// <param name="files">Each file's path, the text to parse and how (<c>ts</c>, <c>tsx</c>, <c>js</c> or <c>jsx</c>).</param>
     /// <returns>Each file the worker read; or, when it couldn't run, why.</returns>
     public static (IReadOnlyList<TypeScriptFile> Files, string? Failure) Parse(IReadOnlyList<(string Path, string Text, string Kind)> files, INodeRunner node)
@@ -27,7 +40,8 @@ internal static class TypeScriptWorker
             var response = Path.Combine(work, "response.json");
             File.WriteAllText(request, new JsonObject
             {
-                ["files"] = new JsonArray(files.Select(x => (JsonNode)new JsonObject { ["path"] = x.Path, ["text"] = x.Text, ["kind"] = x.Kind }).ToArray())
+                ["maxDepth"] = TreeDepth,
+                ["files"] =new JsonArray(files.Select(x => (JsonNode)new JsonObject { ["path"] = x.Path, ["text"] = x.Text, ["kind"] = x.Kind }).ToArray())
             }.ToJsonString());
 
             var run = node.Run(Path.Combine(Extract(), "ts-reader.js"), [request, response]);
@@ -37,7 +51,7 @@ internal static class TypeScriptWorker
             }
 
             // The worker writes why it failed into the response, as a host may not pass on its error output.
-            using var document = File.Exists(response) ? JsonDocument.Parse(File.ReadAllBytes(response)) : null;
+            using var document = File.Exists(response) ? JsonDocument.Parse(File.ReadAllBytes(response), Response) : null;
             if (run.ExitCode is not 0 || document is null || document.RootElement.TryGetProperty("error", out _))
             {
                 var why = document?.RootElement.TryGetProperty("error", out var error) == true ? error.GetString() : run.Errors;

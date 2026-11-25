@@ -20,7 +20,7 @@ Nothing is checked until the model says what code to read. Apply the **Drift Sco
 - **Scope**: In, Out or Context. In is read and checked; Out isn't read. Context is read, so claims verify from it and rules use what it says, but nothing is reported about its own code. Every Out and Context row needs a reason.
 - **Types**: optional, on an Out row, type names to leave out of otherwise in-scope files.
 
-The deepest element with a matching row decides, and its last matching row wins. `bin`, `obj`, `.git`, `node_modules`, hidden folders, Intent's own folders and NuGet's `packages` folder (known by the `.nupkg` files in it, so a monorepo's `packages` source folder is still read) are always out.
+The deepest element with a matching row decides, and its last matching row wins. `bin`, `obj`, `.git`, `node_modules`, hidden folders, Intent's own folders, NuGet's `packages` folder (known by the `.nupkg` files in it, so a monorepo's `packages` source folder is still read) and the folders a `libman.json` installs client libraries into are always out.
 
 ## Code the model doesn't describe
 

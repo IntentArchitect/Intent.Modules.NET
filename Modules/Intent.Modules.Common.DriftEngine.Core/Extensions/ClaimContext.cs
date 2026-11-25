@@ -70,6 +70,12 @@ public sealed class ClaimContext
     /// collection forms, without nullability.
     /// </summary>
     public bool TypeMatches(ITypeReference model, TypeRefNode code) => _engine.TypeMatches(model, code);
+
+    /// <summary>
+    /// The model's name for the code's type, through its language profile's type names (<c>int</c>, <c>guid</c>), for a
+    /// correction that adds a member of it; null for a type the profile doesn't map.
+    /// </summary>
+    public string? ModelTypeName(TypeRefNode code) => _engine.ModelTypeName(code);
 }
 
 /// <summary>What a claim reader found in the code (rules.md: every rule returns the same reading).</summary>

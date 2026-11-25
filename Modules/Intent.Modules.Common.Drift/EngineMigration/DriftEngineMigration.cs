@@ -86,7 +86,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             DropUnmatched(rows, V1Coverage.NeverUnmodelled(code, modelledTypes, rows.Scope),
                 V1Coverage.NeverUnmodelledMembers(code, rows.Exceptions.Where(x => x.Rule == RecipeConversion.UnmodelledMember).SelectMany(x => x.Matches), rows.Scope), log);
             var converted = new HashSet<string>(rows.Exceptions.SelectMany(x => x.Matches), StringComparer.Ordinal);
-            foreach (var row in V1Coverage.Exceptions(code, recipes, rows, contractFiles, modelledTypes, log))
+            foreach (var row in V1Coverage.Exceptions(code, recipes, rows, contractFiles, modelledTypes, log, ModelledComponents(model)))
             {
                 var matches = row.Matches.Where(x => !converted.Contains(x)).ToList();
                 if (matches.Count > 0)
@@ -218,6 +218,14 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 })
                 .ToList();
         }
+
+        /// <summary>The names of the application's User Interface components, which the drift engine locates as its Razor or Vue files.</summary>
+        private static IReadOnlyCollection<string> ModelledComponents(ApplicationPersistable model) =>
+            model.GetDesigners().SelectMany(x => GuardrailsModelCleanup.Owned(model, x))
+                .SelectMany(x => x.FindAllChildElements().OfType<ElementPersistable>())
+                .Where(x => V1Coverage.ComponentElements.Contains(x.SpecializationType))
+                .Select(x => x.Name)
+                .ToHashSet(StringComparer.Ordinal);
 
         /// <summary>
         /// The names of the messages each handler subscribes to, by the handler's id: the elements its subscription links in the
