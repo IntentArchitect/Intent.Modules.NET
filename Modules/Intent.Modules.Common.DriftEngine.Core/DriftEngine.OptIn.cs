@@ -330,7 +330,10 @@ public sealed partial class DriftEngine
                 foreach (var entry in exception.Entries.Where(x => !matched.Contains((exception, x))))
                 {
                     findings.Add(new Finding("optin/staleException", ScopeArea, "Code", "warning",
-                        $"Exception row {exception.Number} of the Drift Check ({id}, `{entry}`) matches nothing. Remove it, or correct its Match.", Root));
+                        $"Exception row {exception.Number} of the Drift Check ({id}, `{entry}`) matches nothing. Remove it, or correct its Match.", Root)
+                    {
+                        Corrections = _check.Host is { } host ? [new ModelCorrection(ModelCorrection.RemoveException, host) { Row = exception.Number, Entry = entry }] : []
+                    });
                 }
             }
         }

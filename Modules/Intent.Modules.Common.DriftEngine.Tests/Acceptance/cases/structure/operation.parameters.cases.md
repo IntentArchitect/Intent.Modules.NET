@@ -357,15 +357,15 @@ public interface IOrderRepository
 
 ## services-endpoint
 
-basislink5 models each controller as a Service named as the class is, with one Operation per action; its house pack says a Service is the class of its name. The action `GetSafex(string expDate, string commodity)` has the modelled Parameters. A controller takes its dependencies through its constructor, so the action's parameters are all bound from the request. A minimal API handler's injected parameters (`[AsParameters]` holders, services, a `CancellationToken`) would be compared too: nothing in the language profile or conventions leaves them out.
+ClientA models each controller as a Service named as the class is, with one Operation per action; its house pack says a Service is the class of its name. The action `GetPrice(string expDate, string product)` has the modelled Parameters. A controller takes its dependencies through its constructor, so the action's parameters are all bound from the request. A minimal API handler's injected parameters (`[AsParameters]` holders, services, a `CancellationToken`) would be compared too: nothing in the language profile or conventions leaves them out.
 
 ```json case
-{ "phase": 2, "kinds": ["operation.parameters"], "traces": ["ESC-SVC-26"], "requirements": ["R2", "R41", "R53"], "packs": ["intent.core", "intent.services", "house.basislink"], "language": "csharp" }
+{ "phase": 2, "kinds": ["operation.parameters"], "traces": ["ESC-SVC-26"], "requirements": ["R2", "R41", "R53"], "packs": ["intent.core", "intent.services", "house.acme"], "language": "csharp" }
 ```
 
 ```json pack
 {
-  "id": "house.basislink",
+  "id": "house.acme",
   "version": "1.0.0",
   "engine": "^1.0.0",
   "requires": [{ "id": "intent.services", "version": "^1.0.0" }],
@@ -374,7 +374,7 @@ basislink5 models each controller as a Service named as the class is, with one O
   "conventions": {
     "Services": {
       "types": {
-        "Service": { "typeKinds": ["class"], "locations": ["Service/**/Controllers/**"], "note": "basislink5: each controller is a Service named as the class is" }
+        "Service": { "typeKinds": ["class"], "locations": ["Service/**/Controllers/**"], "note": "Acme: each controller is a Service named as the class is" }
       }
     }
   }
@@ -386,48 +386,48 @@ basislink5 models each controller as a Service named as the class is, with one O
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "Basislink.API",
+        "id": "services", "name": "Acme.API",
         "elements": [
-          { "id": "futures-controller", "type": "Service", "name": "FuturesController",
+          { "id": "prices-controller", "type": "Service", "name": "PricesController",
             "children": [
-              { "id": "futures-controller-get-safex", "type": "Operation", "name": "GetSafex",
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Safex/Get/{expDate}/{commodity}" } },
+              { "id": "prices-controller-get-price", "type": "Operation", "name": "GetPrice",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Price/Get/{expDate}/{product}" } },
                 "children": [
-                  { "id": "futures-controller-get-safex-exp-date", "type": "Parameter", "name": "expDate", "typeRef": { "type": "string" } },
-                  { "id": "futures-controller-get-safex-commodity", "type": "Parameter", "name": "commodity", "typeRef": { "type": "string" } }
+                  { "id": "prices-controller-get-price-exp-date", "type": "Parameter", "name": "expDate", "typeRef": { "type": "string" } },
+                  { "id": "prices-controller-get-price-product", "type": "Parameter", "name": "product", "typeRef": { "type": "string" } }
                 ] }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Basislink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "Service/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file Service/BasislinkService/Basislink.API/Controllers/Grain/FuturesController.cs
+```csharp file Service/AcmeService/Acme.API/Controllers/Pricing/PricesController.cs
 using Microsoft.AspNetCore.Mvc;
 
-namespace Basislink.API.Controllers.Grain
+namespace Acme.API.Controllers.Pricing
 {
     [ApiController]
     [Route("v1/[controller]")]
-    public class FuturesController : ControllerBase
+    public class PricesController : ControllerBase
     {
-        private readonly FuturesProcess _futuresProcess;
+        private readonly PricesProcess _pricesProcess;
 
-        public FuturesController(FuturesProcess futuresProcess)
+        public PricesController(PricesProcess pricesProcess)
         {
-            _futuresProcess = futuresProcess;
+            _pricesProcess = pricesProcess;
         }
 
-        [HttpGet("Safex/Get/{expDate}/{commodity}")]
-        public IActionResult GetSafex(string expDate, string commodity)
+        [HttpGet("Price/Get/{expDate}/{product}")]
+        public IActionResult GetPrice(string expDate, string product)
         {
-            var data = _futuresProcess.GetSafex(expDate, commodity);
+            var data = _pricesProcess.GetPrice(expDate, product);
             return Ok(data);
         }
     }
@@ -437,7 +437,7 @@ namespace Basislink.API.Controllers.Grain
 ```json expect
 {
   "claims": [
-    { "kind": "operation.parameters", "element": "futures-controller-get-safex", "outcome": "verified" }
+    { "kind": "operation.parameters", "element": "prices-controller-get-price", "outcome": "verified" }
   ]
 }
 ```
@@ -447,7 +447,7 @@ namespace Basislink.API.Controllers.Grain
 The model adds a `month` Parameter that the action doesn't take: contradicted, `services.parameter.missing` in eShopCustom's terms.
 
 ```json case
-{ "phase": 2, "base": "services-endpoint", "kinds": ["operation.parameters"], "traces": ["ESC-SVC-26"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "house.basislink"], "language": "csharp" }
+{ "phase": 2, "base": "services-endpoint", "kinds": ["operation.parameters"], "traces": ["ESC-SVC-26"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "house.acme"], "language": "csharp" }
 ```
 
 ```json model
@@ -455,23 +455,23 @@ The model adds a `month` Parameter that the action doesn't take: contradicted, `
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "Basislink.API",
+        "id": "services", "name": "Acme.API",
         "elements": [
-          { "id": "futures-controller", "type": "Service", "name": "FuturesController",
+          { "id": "prices-controller", "type": "Service", "name": "PricesController",
             "children": [
-              { "id": "futures-controller-get-safex", "type": "Operation", "name": "GetSafex",
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Safex/Get/{expDate}/{commodity}" } },
+              { "id": "prices-controller-get-price", "type": "Operation", "name": "GetPrice",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Price/Get/{expDate}/{product}" } },
                 "children": [
-                  { "id": "futures-controller-get-safex-exp-date", "type": "Parameter", "name": "expDate", "typeRef": { "type": "string" } },
-                  { "id": "futures-controller-get-safex-commodity", "type": "Parameter", "name": "commodity", "typeRef": { "type": "string" } },
-                  { "id": "futures-controller-get-safex-month", "type": "Parameter", "name": "month", "typeRef": { "type": "int" } }
+                  { "id": "prices-controller-get-price-exp-date", "type": "Parameter", "name": "expDate", "typeRef": { "type": "string" } },
+                  { "id": "prices-controller-get-price-product", "type": "Parameter", "name": "product", "typeRef": { "type": "string" } },
+                  { "id": "prices-controller-get-price-month", "type": "Parameter", "name": "month", "typeRef": { "type": "int" } }
                 ] }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Basislink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "Service/**", "Scope": "In" } ] } } }]
     }
   }
@@ -481,10 +481,10 @@ The model adds a `month` Parameter that the action doesn't take: contradicted, `
 ```json expect
 {
   "claims": [
-    { "kind": "operation.parameters", "element": "futures-controller-get-safex", "outcome": "contradicted" }
+    { "kind": "operation.parameters", "element": "prices-controller-get-price", "outcome": "contradicted" }
   ],
   "findings": [
-    { "rule": "claim/operation.parameters", "severity": "error", "subject": "futures-controller-get-safex" }
+    { "rule": "claim/operation.parameters", "severity": "error", "subject": "prices-controller-get-price" }
   ]
 }
 ```

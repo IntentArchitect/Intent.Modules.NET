@@ -27,7 +27,7 @@ The schemas are [`schemas/pack.schema.json`](schemas/pack.schema.json) (the mani
 
 | Field       | Meaning                                                                                          |
 | ----------- | ------------------------------------------------------------------------------------------------ |
-| `id`        | Lower case, dotted: `intent.efcore`, `house.basislink`                                           |
+| `id`        | Lower case, dotted: `intent.efcore`, `house.acme`                                                |
 | `version`   | Semantic version. Any change to what the pack checks changes it.                                 |
 | `engine`    | The engine versions it works with, as a range                                                    |
 | `requires`  | Other packs it builds on, with version ranges: the EF Core pack requires the Domain and C# packs |

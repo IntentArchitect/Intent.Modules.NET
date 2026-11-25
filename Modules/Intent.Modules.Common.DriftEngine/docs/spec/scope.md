@@ -2,7 +2,7 @@
 
 Scope says which code the engine reads (block 5). It is part of the model, on the Codebase Structure designer (decision 1), so it is reviewed, versioned and changed like the rest of the model.
 
-Nothing is in scope until the model says so. Real codebases carry code nobody wants checked: test projects, scaffolds, generated clients, committed binaries, scripts, leftovers. basislink5 has a test project, test code in production folders, an EF Core database-first scaffold and a `Libs/` folder of binaries; listing what is in, with a reason for every exception, keeps that out without touching it.
+Nothing is in scope until the model says so. Real codebases carry code nobody wants checked: test projects, scaffolds, generated clients, committed binaries, scripts, leftovers. ClientA has a test project, test code in production folders, an EF Core database-first scaffold and a `Libs/` folder of binaries; listing what is in, with a reason for every exception, keeps that out without touching it.
 
 ## Why the Codebase Structure designer
 
@@ -65,7 +65,7 @@ An example, with the Root Folder and a `src/Api` project element:
 
 A row with `Types` excludes types inside files that are otherwise in scope ([R26](requirements.md)). Each line is a type's simple or qualified name, and `*` matches within a name. The row applies to the files its `Glob` matches; it must be `Out` (a `Types` row marked `In` is a `config/typesIn` error). An excluded type's declaration, members and bodies aren't read, and nothing in it locates a claim.
 
-basislink5 needs this: test helpers live in production files beside the code they test.
+ClientA needs this: test helpers live in production files beside the code they test.
 
 ## What scope decides
 

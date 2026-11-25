@@ -22,10 +22,11 @@ namespace Intent.Modules.Common.Drift.EngineMigration
     {
         private static readonly JsonSerializerOptions DisplayOptions = new() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
 
-        public static void Apply(ApplicationPersistable application, ConvertedRecipes rows, ICollection<string> log)
+        /// <returns>Whether it wrote the Drift Check, so its exceptions are the move's own.</returns>
+        public static bool Apply(ApplicationPersistable application, ConvertedRecipes rows, ICollection<string> log)
         {
             var designers = application.GetDesigners().ToList();
-            WriteRows(application, designers.FirstOrDefault(x => x.Id == V1Footprint.CodebaseStructureDesignerId), rows, log);
+            var wroteCheck = WriteRows(application, designers.FirstOrDefault(x => x.Id == V1Footprint.CodebaseStructureDesignerId), rows, log);
 
             foreach (var designer in designers)
             {
@@ -59,24 +60,25 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             }
 
             RemoveModules(application, designers, log);
+            return wroteCheck;
         }
 
         /// <summary>Whether a Guardrails module is installed in the application.</summary>
         public static bool HasGuardrails(ApplicationPersistable application) =>
             application.Modules.Any(x => V1Footprint.ModuleIds.Contains(x.ModuleId, StringComparer.OrdinalIgnoreCase));
 
-        private static void WriteRows(ApplicationPersistable application, ApplicationDesignerPersistable codebaseStructure, ConvertedRecipes rows, ICollection<string> log)
+        private static bool WriteRows(ApplicationPersistable application, ApplicationDesignerPersistable codebaseStructure, ConvertedRecipes rows, ICollection<string> log)
         {
             if (!rows.HasRows)
             {
-                return;
+                return false;
             }
 
             var packages = codebaseStructure == null ? new List<PackageModelPersistable>() : Owned(application, codebaseStructure).ToList();
             if (packages.Count == 0)
             {
                 log.Add("Warning: the application has no Codebase Structure package, so the recipe files' scope and conventions weren't written. Set up a Drift Scope on its Root Folder.");
-                return;
+                return false;
             }
 
             var hosts = packages.Select(x => (Name: x.Name, Stereotypes: x.Stereotypes))
@@ -85,7 +87,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             if (setUp.Stereotypes != null)
             {
                 log.Add($"The drift engine is already set up on '{setUp.Name}', so the recipe files' scope and conventions weren't written.");
-                return;
+                return false;
             }
 
             var root = packages[0];
@@ -128,7 +130,11 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 {
                     log.Add($"Drift Check exception on {root.Name}: {row.Rule} for {string.Join(", ", row.Matches)} ({row.Reason}).");
                 }
+
+                return true;
             }
+
+            return false;
         }
 
         private static void RemoveModules(ApplicationPersistable application, List<ApplicationDesignerPersistable> designers, ICollection<string> log)
@@ -193,7 +199,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         /// Every association of the package, those the nested formats store inside elements included. The client's persistence
         /// has <c>GetAllAssociations</c> and <c>RemoveAssociation</c> for them; the 3.7.4 package this compiles against doesn't.
         /// </summary>
-        private static List<AssociationPersistable> AllAssociations(PackageModelPersistable package)
+        internal static List<AssociationPersistable> AllAssociations(PackageModelPersistable package)
         {
             var method = package.GetType().GetMethod("GetAllAssociations", Type.EmptyTypes);
             return method == null
@@ -201,12 +207,28 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 : ((IEnumerable<AssociationPersistable>)method.Invoke(package, null)!).ToList();
         }
 
-        private static void RemoveAssociation(PackageModelPersistable package, AssociationPersistable association)
+        internal static void RemoveAssociation(PackageModelPersistable package, AssociationPersistable association)
         {
             var method = package.GetType().GetMethod("RemoveAssociation", new[] { typeof(AssociationPersistable) });
             if (method == null)
             {
                 package.Associations.Remove(association);
+                return;
+            }
+
+            method.Invoke(package, new object[] { association });
+        }
+
+        /// <summary>
+        /// Adds an association to its package: under its source element in the nested formats (<c>AddAssociation</c>, which the
+        /// 3.7.4 package this compiles against doesn't have), else to the package's list, which the client's save moves there.
+        /// </summary>
+        internal static void AddAssociation(PackageModelPersistable package, AssociationPersistable association)
+        {
+            var method = package.GetType().GetMethod("AddAssociation", new[] { typeof(AssociationPersistable) });
+            if (method == null)
+            {
+                package.Associations.Add(association);
                 return;
             }
 

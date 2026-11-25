@@ -62,7 +62,7 @@ internal sealed partial class EfCoreClaims : IClaimReader
             case "table.name" or "table.schema":
             {
                 // The fluent configuration, else the data annotation it overrides: [Table("Account", Schema = "crm")], which
-                // EF6 and EF Core both read (CrmBus's EF6 entities state their tables only this way).
+                // EF6 and EF Core both read (ClientB's EF6 entities state their tables only this way).
                 var type = context.Type!;
                 var toTable = EntityOf(context, model, type)?.Calls.FirstOrDefault(x => x.Name is "ToTable" or "ToView");
                 var annotation = toTable is null ? type.Attributes.FirstOrDefault(x => x.Name == "Table") : null;
@@ -141,6 +141,16 @@ internal sealed partial class EfCoreClaims : IClaimReader
 
                 var arguments = new Arguments(context);
                 var (value, at) = Column(context.Kind, calls, member, arguments);
+                if (value is null && at is null && member is not null && Convention(context, model, owner, member, calls, arguments) is { } convention)
+                {
+                    if (convention.Ambiguous is { } ambiguous)
+                    {
+                        return ambiguous;
+                    }
+
+                    (value, at) = (convention.Value, convention.At);
+                }
+
                 if (value is not null && at is { } given && StatedOtherwise(context, model, calls, value))
                 {
                     return ClaimReading.Defaulted(value, given);
@@ -275,6 +285,68 @@ internal sealed partial class EfCoreClaims : IClaimReader
             : ClaimReading.Absent(toTable?.At ?? contexts.FirstOrDefault(x => x.DefaultSchema is null)?.At ?? type.At);
     }
 
+    /// <summary>
+    /// What the DbContexts that map the entity configure for every property of the member's type, where the property states
+    /// nothing of its own: EF6's <c>modelBuilder.Properties&lt;string&gt;().Configure(x =&gt; x.HasMaxLength(50))</c> states
+    /// every string column's length, as EF Core's <c>ConfigureConventions</c> does. A
+    /// property's own configuration or annotation wins over it, in EF6 and EF Core alike, and so does an unbounded
+    /// <c>[MaxLength]</c> or <c>IsMaxLength()</c> for its length. <c>DateTime</c>'s convention configures <c>DateTime?</c> too.
+    /// A base class's members are its entities' columns, so its contexts are theirs. Contexts that map the entity and state
+    /// it differently make it ambiguous. Null when no convention states the kind.
+    /// </summary>
+    private static (string? Value, Span? At, ClaimReading? Ambiguous)? Convention(ClaimContext context, EfCoreModel model, TypeNode owner, MemberNode member,
+        IReadOnlyList<FluentCall> calls, Arguments arguments)
+    {
+        if (member.Type is not { } type || context.Kind is not ("column.type" or "column.textType" or "column.maxLength" or "column.precision" or "column.scale")
+            || context.Kind == "column.maxLength" && (calls.Any(x => x.Name == "IsMaxLength") || member.Attributes.Any(x => x.Name is "MaxLength" or "StringLength")))
+        {
+            return null;
+        }
+
+        var contexts = model.ContextsOf(owner.Name);
+        if (contexts.Count == 0)
+        {
+            var qualified = owner.Namespace.Length > 0 ? $"{owner.Namespace}.{owner.Name}" : owner.Name;
+            contexts = context.Code.Types.Where(x => context.Code.Supertypes(x).Contains(qualified)).SelectMany(x => model.ContextsOf(x.Name)).Distinct().ToList();
+        }
+
+        var stated = contexts.Select(x => Column(context.Kind, x.Conventions.Where(c => SameType(c.Type, type)).Select(c => c.Call).ToList(), null, arguments)).ToList();
+        var places = stated.Select(x => x.At).OfType<Span>().ToList();
+        if (places.Count == 0)
+        {
+            return null;
+        }
+
+        return stated.Select(x => x.Value).Distinct(StringComparer.Ordinal).Count() > 1
+            ? (null, null, ClaimReading.CantVerify("ambiguous", $"{contexts.Count} DbContexts map it, and their conventions for `{type.Name}` properties differ.", places[0], places))
+            : (stated[0].Value, places[0], null);
+    }
+
+    /// <summary>
+    /// Whether a convention's type is the property's: by name, a keyword as its .NET type (<c>string</c> is <c>String</c>), and
+    /// a nullable value type as the type it wraps (<c>DateTime?</c>, <c>Nullable&lt;DateTime&gt;</c>).
+    /// </summary>
+    private static bool SameType(TypeRefNode convention, TypeRefNode property)
+    {
+        static string Name(TypeRefNode type) => type is { Name: "Nullable", Arguments: [var wrapped] } ? Name(wrapped) : type.IsArray ? type.Name + "[]" : type.Name switch
+        {
+            "string" => "String",
+            "int" => "Int32",
+            "long" => "Int64",
+            "short" => "Int16",
+            "byte" => "Byte",
+            "bool" => "Boolean",
+            "decimal" => "Decimal",
+            "double" => "Double",
+            "float" => "Single",
+            "char" => "Char",
+            "object" => "Object",
+            var other => other
+        };
+
+        return Name(convention) == Name(property);
+    }
+
     /// <summary>The type of the class the claim's attribute belongs to.</summary>
     private static TypeNode Owner(ClaimContext context) => context.TypeOf(context.Owner(context.Element)!)!;
 
@@ -370,7 +442,7 @@ internal sealed partial class EfCoreClaims : IClaimReader
         }
 
         // [Table] says the class is a table's entity, but only a DbContext's registration maps it (user decision, 2026-11-24:
-        // the diagram shows a persisted class, so one EF never maps is an error). CrmBus's EF6 lookup classes (ActionType)
+        // the diagram shows a persisted class, so one EF never maps is an error). ClientB's EF6 lookup classes (ActionType)
         // carry it, and nothing names them.
         if (type.Attributes.FirstOrDefault(x => x.Name == "Table") is { } table)
         {
@@ -712,7 +784,7 @@ internal sealed partial class EfCoreClaims : IClaimReader
             .ToList();
         if (chains.Count > 1)
         {
-            // Configured from both ends, as CrmBus's EF6 context restates HasMany(e => e.Containers).WithRequired(e => e.Account)
+            // Configured from both ends, as ClientB's EF6 context restates HasMany(e => e.Containers).WithRequired(e => e.Account)
             // with HasRequired(e => e.Account) from Container: chains that state the same are one statement.
             var states = chains.Select(x => x.LastOrDefault(c => c.Name == "IsRequired")).ToList();
             return states.All(x => x is not null) && states.Select(x => x!.Arguments is ["false"]).Distinct().Count() == 1

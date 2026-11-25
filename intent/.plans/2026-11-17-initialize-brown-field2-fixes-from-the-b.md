@@ -1,23 +1,23 @@
-# initialize-brown-field2: fixes from the BasisLinkRNE1 run
+# initialize-brown-field2: fixes from the ClientA run
 
 ## Context
 
-You ran the new skill on `CleanBasisLink1`. I compared its model with the old skill's model of the same code in `D:\Dev\Temp\basislink5`, element by element, read-only from both solutions' metadata. I also read the run's conductor and all nine sub-agent transcripts. The new run's speed came mostly from what it didn't model.
+You ran the new skill on a clean copy of ClientA's codebase. I compared its model with the old skill's model of the same code in an earlier copy of ClientA's codebase, element by element, read-only from both solutions' metadata. I also read the run's conductor and all nine sub-agent transcripts. The new run's speed came mostly from what it didn't model.
 
-## Old skill vs new skill, same code (BasislinkService)
+## Old skill vs new skill, same code (ClientA's service)
 
 | Designer | Element | Old | New | What's missing in the new run |
 | --- | --- | --- | --- | --- |
-| Services | Service | 67 | 23 | **All 44 business-layer services:** `Bid` (66 ops), `BidProcess`, `BidMatchProcess`, `UserManagementProcess`, `Notification`, `Region`, `LookupValues`… The 23 controllers match exactly |
+| Services | Service | 67 | 23 | **All 44 business-layer services:** `Order` (66 ops), `OrderProcess`, `OrderMatchProcess`, `UserManagementProcess`, `Notification`, `Region`, `LookupValues`… The 23 controllers match exactly |
 | | Operation / Parameter | 439 / 577 | 158 / 176 | The business services' operations |
 | | Perform Invocation | 330 | 44 | Controller → business service and service → service calls |
 | | Query / Create / Update / Delete Entity Action | 190 / 25 / 17 / 6 | 81 / 18 / 15 / 1 | The new run hung them on controller operations instead, one intent per action |
-| | Enum (literals) | 19 (60) | 0 | Every enum: `BidTypesEnum`, `KCRoles`, `Notice`, `SignalRKey`, `TradeType`… |
-| | DTO | 144 | 97 | 48 DTOs: the SignalR payloads, SAP DTOs (`STOCKDTO`, `P_*DTO`), `LogDTO`, `FinanceBidContractDTO`, `ContractDefaultsDTO`, legends… |
+| | Enum (literals) | 19 (60) | 0 | Every enum: `OrderTypesEnum`, `Roles`, `Notice`, `SignalRKey`, `TradeType`… |
+| | DTO | 144 | 97 | 48 DTOs: the SignalR payloads, ERP DTOs (`STOCKDTO`, `P_*DTO`), `LogDTO`, `FinanceOrderContractDTO`, `ContractDefaultsDTO`, legends… |
 | | Type-Definition | 9 | 0 | `Stream`, `Uri`, `dynamic`, `IActionResult`… |
-| | Service Proxy | 7 | 6 | `AzureBlobStorage`, `BasislinkApi` (the new run added `SAP`) |
+| | Service Proxy | 7 | 6 | `AzureBlobStorage`, `AcmeApi` (the new run added `Erp`) |
 | | Diagrams | 15 | 9 | Fewer areas, because there's no business layer to draw |
-| Domain | Class | 68 | 59 | 3 logging tables and 6 unmapped classes (`contracts`, `contracts1`, `contracts2`, `contractTypes`, `preseasonNumbers`, `regionSources`): 215 attributes |
+| Domain | Class | 68 | 59 | 3 logging tables and 6 unmapped classes (`contracts`, `contracts1`, `contracts2`, `contractTypes`, `seasonNumbers`, `regionSources`): 215 attributes |
 | | Class Constructor | 15 | 0 | One per scaffolded class (13 classes differ by exactly 1 member) |
 | | Association | 37 | 29 | Associations to the 9 left-out classes |
 | Codebase Structure | Solution / C# Project / Project Reference | 1 / 6 / 7 | 0 / 0 / 0 | The whole solution mirror: projects with their `.NET Settings` and `C# Project Options`, and references |
@@ -32,8 +32,8 @@ Same DTO and controller shapes where both modelled them. The domain columns, key
    - The conductor's brief narrowed the layer to "the HTTP surface".
    - The Services agent read a business object, then **flattened**: it followed controller → BO → `Repo.*<T>` and put the Entity Actions on the controllers.
    - `modelling-services.md` never says what an application service is, and lost the old template's Public / Internal split (`ReverseEngineerServicesSkillTemplatePartial.cs:148-150, 226`).
-   - **Knock-on:** with `SAP` unmodelled as a service, the stock reader matched the SAP proxy to the BO class `SAP`. That misread is part of why a house module was built.
-2. **Enums, 48 DTOs and 2 proxies.** The Services agent modelled only what was reachable from the HTTP surface ("90 of 147 DTOs reachable … rest left out"). The Integration agent skipped `AzureBlobStorage` and `BasislinkApi`. Nothing forced completeness, because the skill keeps every opt-in rule off (`SKILL.md:139`, `drift-engine.md:7,48`, `modelling-domain.md:5`).
+   - **Knock-on:** with `Erp` unmodelled as a service, the stock reader matched the `Erp` proxy to the BO class `Erp`. That misread is part of why a house module was built.
+2. **Enums, 48 DTOs and 2 proxies.** The Services agent modelled only what was reachable from the HTTP surface ("90 of 147 DTOs reachable … rest left out"). The Integration agent skipped `AzureBlobStorage` and `AcmeApi`. Nothing forced completeness, because the skill keeps every opt-in rule off (`SKILL.md:139`, `drift-engine.md:7,48`, `modelling-domain.md:5`).
 3. **Domain's 9 classes and 15 constructors.** The plumbing user decision (logging tables) and the agent's own call ("unmapped, nothing uses them"; "collection-initialising constructors left out"). With the opt-in rules off, nothing reported them.
 4. **Codebase Structure.** The skill skips the mirror on purpose (Visual Studio `"false"`, `SKILL.md:111,126`), because I dropped the old skill's step 4.
 
@@ -150,4 +150,4 @@ SKILL.md and each `modelling-*.md` § Extract:
   - the log-line instruction;
   - internal names.
 - Every `optin/` id appears in the engine README.
-- **On your next run,** compare the new model with `basislink5` using the same per-type counts as the table above. The target is parity on Services (Service, Operation, Perform Invocation, Entity Actions, Enum, DTO), Domain (Class, Constructor, Association) and Codebase Structure (Solution, Projects, References), with every remaining difference an Exception with a reason.
+- **On your next run,** compare the new model with the old skill's model of ClientA's code using the same per-type counts as the table above. The target is parity on Services (Service, Operation, Perform Invocation, Entity Actions, Enum, DTO), Domain (Class, Constructor, Association) and Codebase Structure (Solution, Projects, References), with every remaining difference an Exception with a reason.

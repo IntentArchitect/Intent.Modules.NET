@@ -130,7 +130,10 @@ internal static class CSharpReader
                     (ns, name) = ("", Path.GetFileNameWithoutExtension(file));
                 }
 
-                var key = $"{ns}.{name}";
+                // A generic type is another type than the one of its name without type parameters: Result<T> : Result isn't
+                // a part of Result.
+                var arity = declaration is TypeDeclarationSyntax { TypeParameterList.Parameters.Count: > 0 and var count } ? count : 0;
+                var key = arity > 0 ? $"{ns}.{name}`{arity}" : $"{ns}.{name}";
                 if (!parts.TryGetValue(key, out var type))
                 {
                     type = new TypeNode

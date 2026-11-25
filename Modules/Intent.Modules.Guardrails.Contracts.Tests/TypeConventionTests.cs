@@ -43,14 +43,14 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         public void A_new_type_that_follows_a_convention_is_reported_and_a_helper_beside_it_is_not()
         {
             var code = Code(
-                ("src/Dtos/MillSummaryDTO.cs", "namespace Acme.Dtos\n{\n    public class MillSummaryDTO\n    {\n    }\n}\n"),
-                ("src/Dtos/Mills/MillDTO.cs", "namespace Acme.Dtos.Mills\n{\n    public class MillDTO\n    {\n    }\n}\n"),
+                ("src/Dtos/ItemSummaryDTO.cs", "namespace Acme.Dtos\n{\n    public class ItemSummaryDTO\n    {\n    }\n}\n"),
+                ("src/Dtos/Items/ItemDTO.cs", "namespace Acme.Dtos.Items\n{\n    public class ItemDTO\n    {\n    }\n}\n"),
                 ("src/Dtos/AutoMapperConfig.cs", "namespace Acme.Dtos\n{\n    public static class AutoMapperConfig\n    {\n    }\n\n    public class MappingProfile : Profile\n    {\n    }\n}\n"));
 
             Check("Services", DtoConvention, new List<ModelFact>(), code, Generated).WrongLines.ShouldBe(new[]
             {
-                "DTO `MillDTO`: not modelled. Location: `src/Dtos/Mills/MillDTO.cs:3`",
-                "DTO `MillSummaryDTO`: not modelled. Location: `src/Dtos/MillSummaryDTO.cs:3`"
+                "DTO `ItemDTO`: not modelled. Location: `src/Dtos/Items/ItemDTO.cs:3`",
+                "DTO `ItemSummaryDTO`: not modelled. Location: `src/Dtos/ItemSummaryDTO.cs:3`"
             });
         }
 
@@ -58,7 +58,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         public void Without_a_convention_new_types_are_not_reported()
         {
             var code = Code(
-                ("src/Dtos/MillSummaryDTO.cs", "namespace Acme.Dtos\n{\n    public class MillSummaryDTO\n    {\n    }\n}\n"),
+                ("src/Dtos/ItemSummaryDTO.cs", "namespace Acme.Dtos\n{\n    public class ItemSummaryDTO\n    {\n    }\n}\n"),
                 ("src/Dtos/IBlobStorage.cs", "namespace Acme.Dtos\n{\n    public interface IBlobStorage\n    {\n    }\n}\n"));
 
             Check("Services", "{}", new List<ModelFact>(), code, Generated).WrongLines.ShouldBeEmpty();
@@ -82,17 +82,17 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             const string recipe = """
             { "own": [{ "kind": "Service", "find": "class with :BaseBusinessObject\\b", "files": "src/Business/**/*.cs" }] }
             """;
-            const string mills = "namespace Acme.Business\n{\n    public class Mills : BaseBusinessObject\n    {\n    }\n}\n";
+            const string items = "namespace Acme.Business\n{\n    public class Items : BaseBusinessObject\n    {\n    }\n}\n";
             var code = new Dictionary<string, string>
             {
-                ["src/Business/Ssb/Mills.cs"] = mills,
-                ["src/Business/Reports/MillReport.cs"] = "namespace Acme.Business.Reports\n{\n    public class MillReport : BaseBusinessObject\n    {\n    }\n}\n",
+                ["src/Business/Sales/Items.cs"] = items,
+                ["src/Business/Reports/ItemReport.cs"] = "namespace Acme.Business.Reports\n{\n    public class ItemReport : BaseBusinessObject\n    {\n    }\n}\n",
                 ["src/Business/AutoMapperConfig.cs"] = "namespace Acme.Business\n{\n    public static class AutoMapperConfig\n    {\n    }\n}\n"
             };
 
-            var report = Check("Services", recipe, new List<ModelFact>(), code, new[] { new GeneratedFile { RelativePath = "src/Business/Ssb/Mills.cs", Text = mills } });
+            var report = Check("Services", recipe, new List<ModelFact>(), code, new[] { new GeneratedFile { RelativePath = "src/Business/Sales/Items.cs", Text = items } });
 
-            report.WrongLines.ShouldBe(new[] { "Service `MillReport`: not modelled. Location: `src/Business/Reports/MillReport.cs:3`" });
+            report.WrongLines.ShouldBe(new[] { "Service `ItemReport`: not modelled. Location: `src/Business/Reports/ItemReport.cs:3`" });
         }
 
         [Fact]

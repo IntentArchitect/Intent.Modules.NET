@@ -1,14 +1,14 @@
-// Excerpt of Basislink's database-first context (2026-10-19): the sapPlants block the authority audit found
-// wrong, and its neighbour sapPlantsMapping, whose name starts the same way.
-using Basislink.Data.Model.Entities;
+// Excerpt of ClientA's database-first context (2026-10-19), renamed Acme: the sapPlants block the authority audit
+// found wrong, and its neighbour sapPlantsMapping, whose name starts the same way.
+using Acme.Data.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace Basislink.Data.Model
+namespace Acme.Data.Model
 {
-    public partial class BasislinkContext : DbContext
+    public partial class AcmeContext : DbContext
     {
-        public BasislinkContext()
+        public AcmeContext()
         {
         }
 

@@ -1,6 +1,6 @@
-// The Domain recipes for BasislinkService (EF Core, database-first), written the way configure-drift-check asks.
+// The Domain recipes for ClientA's service, renamed Acme (EF Core, database-first), written the way configure-drift-check asks.
 {
-  "files": "Basislink.Data/Model/**/*.cs",
+  "files": "Acme.Data/Model/**/*.cs",
   "facts": {
     "table.name": {
       "find": "statement:Entity<{Entity}>",

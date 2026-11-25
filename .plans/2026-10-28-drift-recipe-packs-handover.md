@@ -21,10 +21,10 @@ The user asked whether an AI in the wild can configure the drift check reliably,
 | Facts (database, routes, binding, security, read through recipes) | Entirely: an AI writes regex recipes | Moderate on stacks like the skill's examples; poor elsewhere |
 | New types (`own` conventions) | Entirely: no convention means nothing is detected | Patchy |
 
-- **Evidence.** There are three codebases (Basislink, eShop3, eShop4), all .NET and EF Core, each run with a frontier model and with the author fixing the module between runs.
-  - The Basislink adversarial test missed 4 of 30 planted changes and gave one false contradiction.
+- **Evidence.** There are three codebases (ClientA, eShop3, eShop4), all .NET and EF Core, each run with a frontier model and with the author fixing the module between runs.
+  - The ClientA adversarial test missed 4 of 30 planted changes and gave one false contradiction.
   - The re-test had 3 failures caused by the agent's own recipes.
-  - Basislink ended with 26 Services exceptions, many for the wrong reasons.
+  - ClientA ended with 26 Services exceptions, many for the wrong reasons.
 - **What varies in the wild:**
   - Defaults that depend on context: nullable reference types decide whether `string` is required, and the database provider decides the default text type.
   - Global conventions, such as `configurationBuilder.Properties<string>().HaveMaxLength(256)`.
@@ -57,7 +57,7 @@ Candidate stacks:
   - a Mongo class map and a Cosmos container's partition key.
   
   `GuidanceTests.Every_JSON_example_in_configure_drift_check_is_a_valid_recipe` parses them all.
-- **Basislink's recipe files** (EF Core database-first, and controllers) were checked with a temporary harness against Basislink's real code. The Domain `CONTEXT.md` has more ("Basislink's recipes").
+- **ClientA's recipe files** (EF Core database-first, and controllers) were checked with a temporary harness against ClientA's real code. The Domain `CONTEXT.md` has more ("ClientA's recipes").
 - **The recipe format:**
   - find steps (`class`, `method`, `property`, `parameter`, `statement`, `chain`, `file`, `with <regex>`, `>`), and several find paths as an array;
   - read cases (`match`, `value`, `case`, `part`, `in`, `unreadable`);
@@ -67,7 +67,7 @@ Candidate stacks:
   
   There is one recipe per kind of fact per designer file (`guardrails/domain.drift.json`, `guardrails/services.drift.json`), and no include or merge mechanism today.
 - **Validation:** the `ValidateDriftRecipes` module task (probe, `wrongElementWarnings`, filters with full `readings`) and the `validate-drift-recipes` skill (§4 covers the targeted form).
-- **Test helpers:** `BasislinkRegressionTests`, `RecipeCheckTests`, the `Drift.cs` helpers (`Column`, `Table`, `Operation`, `Parameter`, `Fact`) and `Fakes.cs`.
+- **Test helpers:** `AcmeRegressionTests`, `RecipeCheckTests`, the `Drift.cs` helpers (`Column`, `Table`, `Operation`, `Parameter`, `Fact`) and `Fakes.cs`.
 
 ## Questions to unpack
 
@@ -75,7 +75,7 @@ Candidate stacks:
 2. **Selection.** Does the AI detect the stack (packages in the csproj, patterns in the code), or is it chosen explicitly? How are mixed stacks handled?
 3. **Composition.** A codebase mixing fluent configuration and annotations needs several find paths in one recipe. Are packs combinable, or pre-combined variants? Does the format need an include?
 4. **Variants that change defaults.** Nullable reference types on or off (`column.required`'s `unstated`), the provider (`column.textType`'s default), and EF Core version conventions.
-5. **Testing packs.** A reference codebase per stack, regression tests in the style of `BasislinkRegressionTests`, and who maintains them as frameworks change.
+5. **Testing packs.** A reference codebase per stack, regression tests in the style of `AcmeRegressionTests`, and who maintains them as frameworks change.
 6. **What stays AI-authored.** `own` conventions, exceptions, and house styles: base controllers, custom attributes, helpers.
 7. **Skill flow.** `configure-drift-check` would become: identify the stack, start from its pack, adapt it, then validate (no probe or wrong-element warnings, plus a targeted check of each adapted recipe).
 

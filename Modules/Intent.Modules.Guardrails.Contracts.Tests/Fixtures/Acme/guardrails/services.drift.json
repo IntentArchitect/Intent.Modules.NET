@@ -1,6 +1,6 @@
-// The Services recipes for BasislinkService (ASP.NET Core controllers), written the way configure-drift-check asks.
+// The Services recipes for ClientA's service, renamed Acme (ASP.NET Core controllers), written the way configure-drift-check asks.
 {
-  "files": "Basislink.API/Controllers/**/*.cs",
+  "files": "Acme.API/Controllers/**/*.cs",
   "facts": {
     "service.route": {
       "find": "class:{Service}",
@@ -48,6 +48,6 @@
     { "kind": "endpoint", "find": "class with \\[ApiController\\] > method with \\[Http(Get|Post|Put|Delete|Patch)\\b", "name": "{Class}.{Method}" }
   ],
   "exceptions": [
-    { "match": "Basislink.API/Controllers/HealthController.cs", "reason": "load-balancer probe" }
+    { "match": "Acme.API/Controllers/HealthController.cs", "reason": "load-balancer probe" }
   ]
 }

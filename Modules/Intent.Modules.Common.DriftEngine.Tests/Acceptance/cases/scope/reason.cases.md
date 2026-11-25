@@ -183,7 +183,7 @@ The unexplained row sits on the `src` Folder element rather than the Root Folder
 
 ## types-row-without-reason
 
-A row that excludes types is an `Out` row too, so it needs a reason as well. basislink5 keeps test helpers in production files; excluding them is fine, but the row must say so.
+A row that excludes types is an `Out` row too, so it needs a reason as well. ClientA keeps test helpers in production files; excluding them is fine, but the row must say so.
 
 ```json case
 { "phase": 1, "base": "out-row-without-reason", "cases": ["scope/reason", "scope/type"], "requirements": ["R23", "R26"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }

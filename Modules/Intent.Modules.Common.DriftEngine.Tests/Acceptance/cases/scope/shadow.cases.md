@@ -317,7 +317,7 @@ public class Order
 
 ## no-row-includes-it
 
-Nothing is in scope until a row says so, so a file no row matches is out of scope as much as one an Out row excludes. basislink5's first real run put only its data project in scope; every DTO in the model lives in the DTO project, which no row matched, and each was reported as missing. Here `src/Contracts/Order.cs` matches no row: the claim is `outOfScope` with no scope row, and the message says no row includes the file.
+Nothing is in scope until a row says so, so a file no row matches is out of scope as much as one an Out row excludes. ClientA's first real run put only its data project in scope; every DTO in the model lives in the DTO project, which no row matched, and each was reported as missing. Here `src/Contracts/Order.cs` matches no row: the claim is `outOfScope` with no scope row, and the message says no row includes the file.
 
 ```json case
 { "phase": 1, "cases": ["scope/shadow", "scope/notRead"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Common.Drift</id>
   <version>2.0.0-pre.0</version>
-  <supportedClientVersions>[5.4.2-a,6.0.0)</supportedClientVersions>
+  <supportedClientVersions>[5.4.4-a,6.0.0)</supportedClientVersions>
   <summary>The recipe-based drift check the Guardrails Contracts modules share, and the move onto Intent.Common.DriftEngine: updating to 2.0 converts the recipe files into the engine's scope and opt-in rows, removes the Guardrails Contracts modules and keeps the code they generated.</summary>
   <description>The recipe-based drift check the Guardrails Contracts modules share, and the move onto Intent.Common.DriftEngine: updating to 2.0 converts the recipe files into the engine's scope and opt-in rows, removes the Guardrails Contracts modules and keeps the code they generated.</description>
   <authors>Intent Architect</authors>

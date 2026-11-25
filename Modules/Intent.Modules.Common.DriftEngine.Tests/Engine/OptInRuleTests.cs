@@ -76,7 +76,10 @@ public class OptInRuleTests
             }
             """);
         result.Findings.Where(x => x.Rule == "optin/house.handler").Select(x => x.Subject.File).ShouldBe(["src/Domain/PlaceOrderHandler.cs"]);
-        result.Findings.Single(x => x.Rule == "optin/staleException").Message.ShouldContain("src/Domain/Gone/**");
+        var stale = result.Findings.Single(x => x.Rule == "optin/staleException");
+        stale.Message.ShouldContain("src/Domain/Gone/**");
+        // Its correction is the entry's removal from its row, for a tool that tidies the rows it wrote.
+        stale.Corrections.ShouldBe([new ModelCorrection(ModelCorrection.RemoveException, "root") { Row = 2, Entry = "src/Domain/Gone/**" }]);
     }
 
     [Fact]

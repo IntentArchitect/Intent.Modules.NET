@@ -153,7 +153,7 @@ public static class OrdersApi
 
 ## verified-plain-value
 
-BasisLink's test controller POSTs return a `string` and a `Task<string>` themselves, which ASP.NET Core sends with 200. Intent's controllers send 201 for a POST with no Success Response Code, so the model states `200 (OK)`, and it verifies. `Lookup` returns `ActionResult<string>` and gives it the `string` itself, which is sent with 200 too, so it verifies. `SendNothing` returns `Task` and sends no data, so its modelled 200 is contradicted as not stated.
+ClientA's test controller POSTs return a `string` and a `Task<string>` themselves, which ASP.NET Core sends with 200. Intent's controllers send 201 for a POST with no Success Response Code, so the model states `200 (OK)`, and it verifies. `Lookup` returns `ActionResult<string>` and gives it the `string` itself, which is sent with 200 too, so it verifies. `SendNothing` returns `Task` and sends no data, so its modelled 200 is contradicted as not stated.
 
 ```json case
 { "phase": 4, "kinds": ["operation.status"], "requirements": ["R4"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -164,7 +164,7 @@ BasisLink's test controller POSTs return a `string` and a `Task<string>` themsel
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "BasisLink.Api",
+        "id": "services", "name": "Acme.Api",
         "elements": [
           { "id": "test-controller", "type": "Service", "name": "TestController",
             "stereotypes": { "Http Service Settings": { "Route": "v1/Test" } },
@@ -182,17 +182,17 @@ BasisLink's test controller POSTs return a `string` and a `Task<string>` themsel
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/TestController.cs
+```csharp file src/Acme.Api/Controllers/TestController.cs
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
 [Route("v1/[controller]")]
@@ -449,7 +449,7 @@ A Web API 2 action succeeds with `Content(HttpStatusCode.Created, model)` and fa
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "CrmBus.Crm",
+        "id": "services", "name": "Acme.Crm",
         "elements": [
           { "id": "address-controller", "type": "Service", "name": "AddressController",
             "stereotypes": { "Http Service Settings": { "Route": "api/Address" } },
@@ -462,20 +462,20 @@ A Web API 2 action succeeds with `Content(HttpStatusCode.Created, model)` and fa
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 public interface IAddressLogic
 {

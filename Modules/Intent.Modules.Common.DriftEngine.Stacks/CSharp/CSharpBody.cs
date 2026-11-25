@@ -702,7 +702,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         value.Known && value.Types.Count > 0 ? value : ([CSharpReader.TypeRef(declared)], true);
 
     /// <summary>
-    /// A cast or <c>as</c> is the type it names: <c>(CrmDataEntities)_context</c> is a <c>CrmDataEntities</c>, so its calls reach
+    /// A cast or <c>as</c> is the type it names: <c>(AppDataEntities)_context</c> is an <c>AppDataEntities</c>, so its calls reach
     /// that class's methods. Not when it names <c>object</c>, or a type what it casts is or derives from: an upcast keeps what the
     /// value is, so <c>(IEvent)new OrderPlaced()</c> is still that creation.
     /// </summary>

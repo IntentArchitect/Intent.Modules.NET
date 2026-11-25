@@ -6,9 +6,29 @@ internal sealed record Codebase(string Name, string Root, string? RecipesFolder,
     public bool IsPresent => Directory.Exists(Root);
 
     /// <summary>The Common.Drift recipe files, <c>*.drift.json</c>; none when the codebase or its recipe folder is absent.</summary>
-    public IReadOnlyList<string> RecipeFiles => RecipesFolder is not null && Directory.Exists(Path.Combine(Root, RecipesFolder))
-        ? Directory.GetFiles(Path.Combine(Root, RecipesFolder), "*.drift.json").Order(StringComparer.Ordinal).ToList()
-        : [];
+    public IReadOnlyList<string> RecipeFiles => RecipeFolders().SelectMany(x => Directory.GetFiles(x, "*.drift.json")).Order(StringComparer.Ordinal).ToList();
+
+    /// <summary>
+    /// The folders <see cref="RecipesFolder"/> names under the root, a <c>*</c> segment standing for any one folder
+    /// (<c>intent/*/guardrails</c>), so the committed codebases.json needn't name a client's application.
+    /// </summary>
+    private IEnumerable<string> RecipeFolders()
+    {
+        if (RecipesFolder is null || !Directory.Exists(Root))
+        {
+            return [];
+        }
+
+        IEnumerable<string> folders = [Root];
+        foreach (var segment in RecipesFolder.Split('/', '\\'))
+        {
+            folders = segment == "*"
+                ? folders.SelectMany(Directory.GetDirectories)
+                : folders.Select(x => Path.Combine(x, segment)).Where(Directory.Exists);
+        }
+
+        return folders;
+    }
 
     public override string ToString() => Name;
 }

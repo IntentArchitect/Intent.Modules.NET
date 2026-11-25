@@ -231,6 +231,52 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 }
 ```
 
+## verified-by-ef6-properties-convention
+
+No configuration of `Order` states a column type; the EF6 context's `modelBuilder.Properties<DateTime>().Configure(x => x.HasColumnType("datetime2"))` states it for every `DateTime` property it maps, a `DateTime?` included.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["column.type"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    public DateTime? OrderDate { get; private set; }
+}
+```
+
+```csharp file src/Infrastructure/OrderingContext.cs
+using System.Data.Entity;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class OrderingContext : DbContext
+{
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.Properties<string>().Configure(x => x.HasMaxLength(50));
+        modelBuilder.Properties<DateTime>().Configure(x => x.HasColumnType("datetime2"));
+    }
+
+    public virtual DbSet<Order> Orders { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.type", "element": "order-order-date", "outcome": "verified", "expected": "datetime2", "actual": "datetime2",
+      "at": "src/Infrastructure/OrderingContext.cs:11" }
+  ]
+}
+```
+
 ## not-claimed-when-unset
 
 The attribute has no Column stereotype, and the code says `HasColumnType("datetime2")`. An unset `whenSet` value is no claim, so nothing is checked or reported (principle 1).

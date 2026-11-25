@@ -1,21 +1,21 @@
-// Excerpt of Basislink's WebCommon context (2026-10-19): three of the four entities the authority audit found
-// wrong. Their tables are named by convention, from the DbSet properties.
-using Basislink.Data.Model.WebCommonEntities;
+// Excerpt of ClientA's WebCommon context (2026-10-19), renamed Acme: three of the four entities the authority audit
+// found wrong. Their tables are named by convention, from the DbSet properties.
+using Acme.Data.Model.WebCommonEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Basislink.Data.Model;
+namespace Acme.Data.Model;
 
 public partial class WebCommonDBContext : DbContext
 {
-    public virtual DbSet<Application_Basislink_Document_Doc> Application_Basislink_Document_Docs { get; set; }
+    public virtual DbSet<Application_Acme_Document_Doc> Application_Acme_Document_Docs { get; set; }
 
-    public virtual DbSet<Application_Basislink_Document_Log> Application_Basislink_Document_Logs { get; set; }
+    public virtual DbSet<Application_Acme_Document_Log> Application_Acme_Document_Logs { get; set; }
 
     public virtual DbSet<IntegrationServices_Logs> IntegrationServices_Logs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Application_Basislink_Document_Doc>(entity =>
+        modelBuilder.Entity<Application_Acme_Document_Doc>(entity =>
         {
             entity.Property(e => e.DocumentLink).IsUnicode(false);
             entity.Property(e => e.DocumentName)
@@ -24,10 +24,10 @@ public partial class WebCommonDBContext : DbContext
             entity.Property(e => e.DocumentUpdated).HasColumnType("datetime");
         });
 
-        modelBuilder.Entity<Application_Basislink_Document_Log>(entity =>
+        modelBuilder.Entity<Application_Acme_Document_Log>(entity =>
         {
             entity.Property(e => e.DateAccesptedRead).HasColumnType("datetime");
-            entity.Property(e => e.MySenwesUser)
+            entity.Property(e => e.MyAcmeUser)
                 .HasMaxLength(50)
                 .IsUnicode(false);
         });

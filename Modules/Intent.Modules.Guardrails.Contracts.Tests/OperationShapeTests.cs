@@ -29,7 +29,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         [Fact]
         public void A_proxy_class_method_takes_the_modifiers_its_Operation_Configuration_declares()
         {
-            var proxy = Proxy("BasislinkApi");
+            var proxy = Proxy("AcmeApi");
             ProxyOperation(proxy, "InsertNewNotification", OperationConfiguration(("Static", "true")));
             ProxyOperation(proxy, "GetAccessToken", OperationConfiguration(("Access Modifier", "private")));
             ProxyOperation(proxy, "Send", OperationConfiguration(("Access Modifier", "protected"), ("Virtual", "true")));

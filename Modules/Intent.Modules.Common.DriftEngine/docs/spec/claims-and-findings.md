@@ -202,7 +202,7 @@ Messages name the element and the claim's label, never an id. Code goes in backt
 
 Info is logged, never reported. Every can't-verify is an error because the model makes a claim the run couldn't check (principle 2). Open question 2 asks to confirm this.
 
-The exception is a fact the code can't state at all. Outside a nullable context a C# reference type says nothing about nullability, so neither the model nor the code can be wrong about it, and it isn't drift. Each such claim is still can't verify, `unresolved`, in the run result, but it has no finding of its own: one `engine/notStated` note gives the count per designer and the files per top folder, and says that turning nullable reference types on makes them checkable. basislink5's first Software Factory run showed why: a codebase the recipe check reports clean came back with 753 errors, every one a `string` in a project with nullable off.
+The exception is a fact the code can't state at all. Outside a nullable context a C# reference type says nothing about nullability, so neither the model nor the code can be wrong about it, and it isn't drift. Each such claim is still can't verify, `unresolved`, in the run result, but it has no finding of its own: one `engine/notStated` note gives the count per designer and the files per top folder, and says that turning nullable reference types on makes them checkable. ClientA's first Software Factory run showed why: a codebase the recipe check reports clean came back with 753 errors, every one a `string` in a project with nullable off.
 
 ### Overrides
 

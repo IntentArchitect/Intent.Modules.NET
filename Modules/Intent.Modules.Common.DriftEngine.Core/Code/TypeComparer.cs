@@ -97,7 +97,7 @@ internal static class TypeComparer
 
     /// <summary>
     /// The code type is the element's by name: an element named for a library's type with its namespace
-    /// (<c>Just.Client.Service.Models.WebsiteClient</c>, which a client model types a DTO field with) is the type the code
+    /// (<c>Acme.Client.Service.Models.WebsiteClient</c>, which a model types a DTO field with) is the type the code
     /// writes qualified, or by its own name.
     /// </summary>
     private static bool Named(string name, TypeRefNode code) =>

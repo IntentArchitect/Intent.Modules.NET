@@ -184,7 +184,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
 
         /// <summary>
         /// A type nested in another is part of it, which the engine never reports on its own, so it gets no exception: one would
-        /// match nothing and warn (CrmBus's private response classes inside its handlers).
+        /// match nothing and warn (ClientB's private response classes inside its handlers).
         /// </summary>
         [Fact]
         public void A_type_declared_inside_another_gets_no_exception()
@@ -197,17 +197,17 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
                         [HttpGet]
                         public OrderDto Get() => new OrderDto();
 
-                        public enum QuoteTypes { Single, Joint }
+                        public enum ShippingTypes { Standard, Express }
                     }
                     """
             };
 
-            Exceptions(Services, code, Model).SelectMany(x => x.Matches).ShouldNotContain("QuoteTypes");
+            Exceptions(Services, code, Model).SelectMany(x => x.Matches).ShouldNotContain("ShippingTypes");
         }
 
         /// <summary>
         /// The engine locates one type per element, so a further declaration of a modelled type's name in a row's files is
-        /// unmodelled to it, where v1 counted it as modelled (CrmBus's second FtpHeartBeatPingRequest, in its API project).
+        /// unmodelled to it, where v1 counted it as modelled (ClientB's second HeartbeatPingRequest, in its API project).
         /// </summary>
         [Fact]
         public void Another_declaration_of_a_modelled_types_name_is_excepted_unless_an_element_has_each()
@@ -219,6 +219,69 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
 
             var both = Model.Append(new ModelledType("OrderDto", "DTO", new string[0])).ToArray();
             Exceptions(Services, code, both).ShouldNotContain(x => x.Reason == V1Coverage.CopyReason);
+        }
+
+        /// <summary>
+        /// The engine locates one interface per name a located class implements, so an unused interface of the same name in
+        /// another namespace is unmodelled to it, where v1 counted the name as modelled.
+        /// </summary>
+        [Fact]
+        public void Another_declaration_of_a_located_classs_interfaces_name_is_excepted()
+        {
+            var model = Model.Append(new ModelledType("OrderSender", "Service", new string[0])).ToArray();
+            var code = new Dictionary<string, string>(Code)
+            {
+                ["Api/Senders/OrderSender.cs"] = "namespace Api.Senders { public class OrderSender : IOrderSender { } public interface IOrderSender { } }",
+                ["Api/Logic/IOrderSender.cs"] = "namespace Api.Logic { internal interface IOrderSender { } }"
+            };
+
+            Exceptions(Services, code, model).Single(x => x.Reason == V1Coverage.CopyReason).Matches.ShouldBe(new[] { "IOrderSender" });
+
+            code.Remove("Api/Logic/IOrderSender.cs");
+            Exceptions(Services, code, model).ShouldNotContain(x => x.Reason == V1Coverage.CopyReason);
+        }
+
+        /// <summary>
+        /// The engine reads a generic type as another type than the one of its name without type parameters, so <c>Result&lt;T&gt;</c>
+        /// beside a modelled <c>Result</c> is unmodelled to it, where v1 counted it as modelled by name.
+        /// </summary>
+        [Fact]
+        public void A_generic_type_beside_a_modelled_type_of_its_name_is_another_declaration()
+        {
+            var model = Model.Append(new ModelledType("Result", "DTO", new[] { "Success" })).ToArray();
+            var code = new Dictionary<string, string>(Code)
+            {
+                ["Dto/Result.cs"] = "public class Result { public bool Success { get; set; } }",
+                ["Dto/Result`.cs"] = "public class Result<T> : Result { public T Value { get; set; } }"
+            };
+
+            Exceptions(Services, code, model).Single(x => x.Reason == V1Coverage.CopyReason).Matches.ShouldBe(new[] { "Result" });
+            V1Coverage.NeverUnmodelled(new CodeFiles(code), model).ShouldNotContain("Result");
+        }
+
+        /// <summary>
+        /// The engine never reports an override, nor a member every type has, as unmodelled, so v1's exceptions for an entity's
+        /// identity comparison would match nothing. A member it does report keeps its exception.
+        /// </summary>
+        [Fact]
+        public void Overrides_and_members_every_type_has_are_never_unmodelled()
+        {
+            var code = new Dictionary<string, string>
+            {
+                ["Domain/Provider.cs"] = """
+                    public class Provider
+                    {
+                        public static Provider[] Providers => new Provider[0];
+                        public override bool Equals(object obj) => obj is Provider;
+                        public override int GetHashCode() => 0;
+                        public void Refresh() { }
+                    }
+                    """
+            };
+
+            var never = V1Coverage.NeverUnmodelledMembers(new CodeFiles(code),
+                new[] { "Provider.Providers", "Provider.Equals", "Provider.GetHashCode", "Provider.ToString", "Provider.Refresh" });
+            never.ShouldBe(new[] { "Provider.Equals", "Provider.GetHashCode", "Provider.ToString" }, ignoreOrder: true);
         }
 
         /// <summary>
@@ -238,7 +301,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
                     public class PortalHandler
                     {
                         public Task Handle(PortalMessage message, object context) => Task.CompletedTask;
-                        public static string DeriveProduct(decimal escalation) => "";
+                        public static string DeriveCode(decimal rate) => "";
                         public override string ToString() => "";
                         private void Log() { }
                     }
@@ -247,11 +310,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
 
             var row = Exceptions(Services, code, model).Single(x => x.Reason == V1Coverage.HandlerMethodReason);
             row.Rule.ShouldBe(RecipeConversion.UnmodelledMember);
-            row.Matches.ShouldBe(new[] { "PortalHandler.DeriveProduct" });
+            row.Matches.ShouldBe(new[] { "PortalHandler.DeriveCode" });
         }
 
         /// <summary>
-        /// A modelled type declared once is never reported as unmodelled, so v1's exception naming it (CrmBus's `Container`,
+        /// A modelled type declared once is never reported as unmodelled, so v1's exception naming it (ClientB's `Container`,
         /// for a relationship its conventions found) would match nothing; one with another declaration may still be reported.
         /// </summary>
         [Fact]

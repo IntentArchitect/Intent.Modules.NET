@@ -14,7 +14,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
     /// </summary>
     public class PendingFactTests
     {
-        private const string Path = "src/Api/Controllers/MillsController.cs";
+        private const string Path = "src/Api/Controllers/ItemsController.cs";
 
         private const string Recipe = """
         {
@@ -49,19 +49,19 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
         """;
 
-        private const string Create = "public IActionResult Create(CreateMillDto dto) { }";
-        private const string GetMill = "public IActionResult GetMill(int id) { }";
+        private const string Create = "public IActionResult Create(CreateItemDto dto) { }";
+        private const string GetItem = "public IActionResult GetItem(int id) { }";
         private const string Ping = "public IActionResult Ping() { }";
 
         private static readonly Dictionary<string, string> Ids = new()
         {
-            ["MillsController"] = "mills-id",
-            ["MillsController.Create"] = "create-id",
-            ["MillsController.GetMill"] = "getmill-id",
-            ["MillsController.Ping"] = "ping-id"
+            ["ItemsController"] = "items-id",
+            ["ItemsController.Create"] = "create-id",
+            ["ItemsController.GetItem"] = "getitem-id",
+            ["ItemsController.Ping"] = "ping-id"
         };
 
-        /// <summary>The controller on disk: line 9 is Create's <c>[HttpPost]</c>, 10 its declaration, 12 GetMill's <c>[HttpGet]</c>.</summary>
+        /// <summary>The controller on disk: line 9 is Create's <c>[HttpPost]</c>, 10 its declaration, 12 GetItem's <c>[HttpGet]</c>.</summary>
         private static string Controller(string extra = "") => $$"""
             using Microsoft.AspNetCore.Mvc;
 
@@ -69,13 +69,13 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             {
                 [ApiController]
                 [Route("api/[controller]")]
-                public class MillsController : ControllerBase
+                public class ItemsController : ControllerBase
                 {
                     [HttpPost]
-                    public IActionResult Create([FromQuery] CreateMillDto dto) => Ok();
+                    public IActionResult Create([FromQuery] CreateItemDto dto) => Ok();
 
                     [HttpGet("{id}")]
-                    public IActionResult GetMill(int id) => Ok();
+                    public IActionResult GetItem(int id) => Ok();
             {{extra}}
                 }
             }
@@ -83,16 +83,16 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
         /// <summary>What the Services contract template writes for the controller.</summary>
         private static string Generated(params string[] members) =>
-            $"namespace Acme.Api.Controllers\n{{\n    public class MillsController\n    {{\n{string.Join("\n", members.Select(x => $"        {x}"))}\n    }}\n}}\n";
+            $"namespace Acme.Api.Controllers\n{{\n    public class ItemsController\n    {{\n{string.Join("\n", members.Select(x => $"        {x}"))}\n    }}\n}}\n";
 
         private static ModelFact Fact(FactKind kind, string element, string value, string operation = null, string parameter = null)
         {
-            var placeholders = new Dictionary<string, string> { ["Service"] = "MillsController", ["Folder"] = string.Empty };
-            var ids = new List<string> { "mills-id" };
+            var placeholders = new Dictionary<string, string> { ["Service"] = "ItemsController", ["Folder"] = string.Empty };
+            var ids = new List<string> { "items-id" };
             if (operation != null)
             {
                 placeholders["Operation"] = operation;
-                ids.Add(Ids[$"MillsController.{operation}"]);
+                ids.Add(Ids[$"ItemsController.{operation}"]);
             }
 
             if (parameter != null)
@@ -106,14 +106,14 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
         private static List<ModelFact> Facts(string createParameter = "dto", string createBinding = "From Query") => new()
         {
-            Fact(FactKinds.ServiceRoute, "MillsController", "api/Mills"),
-            Fact(FactKinds.OperationRoute, "MillsController.Create", "", "Create"),
-            Fact(FactKinds.ParameterSource, $"MillsController.Create({createParameter})", createBinding, "Create", createParameter),
-            Fact(FactKinds.OperationRoute, "MillsController.GetMill", "{id}", "GetMill"),
-            Fact(FactKinds.ParameterSource, "MillsController.GetMill(id)", "From Route", "GetMill", "id")
+            Fact(FactKinds.ServiceRoute, "ItemsController", "api/Items"),
+            Fact(FactKinds.OperationRoute, "ItemsController.Create", "", "Create"),
+            Fact(FactKinds.ParameterSource, $"ItemsController.Create({createParameter})", createBinding, "Create", createParameter),
+            Fact(FactKinds.OperationRoute, "ItemsController.GetItem", "{id}", "GetItem"),
+            Fact(FactKinds.ParameterSource, "ItemsController.GetItem(id)", "From Route", "GetItem", "id")
         };
 
-        private static ModelFact PingRoute => Fact(FactKinds.OperationRoute, "MillsController.Ping", "Ping", "Ping");
+        private static ModelFact PingRoute => Fact(FactKinds.OperationRoute, "ItemsController.Ping", "Ping", "Ping");
 
         private static DriftReport Run(string model, string code, ModelBaseline baseline, IReadOnlyList<ModelFact> facts)
         {
@@ -137,18 +137,18 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             });
         }
 
-        private static ModelBaseline Agreed() => Run(Generated(Create, GetMill), Controller(), baseline: null, Facts()).Baseline;
+        private static ModelBaseline Agreed() => Run(Generated(Create, GetItem), Controller(), baseline: null, Facts()).Baseline;
 
         [Fact]
         public void The_controller_agrees_with_the_model()
         {
-            Run(Generated(Create, GetMill), Controller(), baseline: null, Facts()).WrongLines.ShouldBeEmpty();
+            Run(Generated(Create, GetItem), Controller(), baseline: null, Facts()).WrongLines.ShouldBeEmpty();
         }
 
         [Fact]
         public void An_action_the_model_adds_is_checked_on_the_run_that_adds_it()
         {
-            var model = Generated(Create, GetMill, Ping);
+            var model = Generated(Create, GetItem, Ping);
             var facts = Facts().Append(PingRoute).ToList();
 
             // The action is the Software Factory's to write, so it isn't a row; the route it has no template for is. It is
@@ -158,15 +158,15 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             staging.PendingCount.ShouldBe(1);
             staging.WrongLines.ShouldBe(new[]
             {
-                $"`MillsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}`"
+                $"`ItemsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}`"
             });
             DriftFindings.Of(staging).ShouldContain(
-                $"Error Model/Code | text:`MillsController.Ping` | {Path} | `MillsController.Ping` route: model `Ping`, code (none) (no route template on the action)");
+                $"Error Model/Code | text:`ItemsController.Ping` | {Path} | `ItemsController.Ping` route: model `Ping`, code (none) (no route template on the action)");
 
             // Applied: the same gap, now with its line, until the code is fixed.
             Run(model, Controller($"\n        {Ping}"), staging.Baseline, facts).WrongLines.ShouldBe(new[]
             {
-                $"`MillsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}:15`"
+                $"`ItemsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}:15`"
             });
         }
 
@@ -180,11 +180,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             report.PendingCount.ShouldBe(1);
             report.WrongLines.ShouldBe(new[]
             {
-                $"`MillsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}`",
-                $"`MillsController` route: model `api/Mills`, code (none) (no [Route] on the controller). Location: `{Path}`"
+                $"`ItemsController.Ping` route: model `Ping`, code (none) (no route template on the action). Location: `{Path}`",
+                $"`ItemsController` route: model `api/Items`, code (none) (no [Route] on the controller). Location: `{Path}`"
             });
             // The file is one this run adds, so it is named rather than linked.
-            DriftFindings.Of(report).ShouldContain($"Error Model/Code | text:`MillsController` | text:`{Path}` | `MillsController` route: model `api/Mills`, code (none) (no [Route] on the controller)");
+            DriftFindings.Of(report).ShouldContain($"Error Model/Code | text:`ItemsController` | text:`{Path}` | `ItemsController` route: model `api/Items`, code (none) (no [Route] on the controller)");
         }
 
         [Fact]
@@ -193,7 +193,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             // On disk, Create has no parameter named command, so its binding couldn't be verified. RoslynWeaver matches
             // parameters by name, so applying the parameter list drops dto's [FromQuery]: command is bound from the body, as
             // modelled. Create, read from the view, still counts as modelled.
-            var report = Run(Generated(Create.Replace("dto", "command"), GetMill), Controller(), Agreed(), Facts("command", "From Body"));
+            var report = Run(Generated(Create.Replace("dto", "command"), GetItem), Controller(), Agreed(), Facts("command", "From Body"));
 
             report.PendingCount.ShouldBe(1);
             report.Wrong(DriftSection.Unverifiable).ShouldBeEmpty();
@@ -205,9 +205,9 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         {
             // The model adds notify to Create. RoslynWeaver matches parameters by name, so dto keeps [FromQuery].
             var facts = Facts();
-            facts.Add(Fact(FactKinds.ParameterSource, "MillsController.Create(notify)", "From Query", "Create", "notify"));
+            facts.Add(Fact(FactKinds.ParameterSource, "ItemsController.Create(notify)", "From Query", "Create", "notify"));
 
-            var report = Run(Generated(Create.Replace("dto)", "dto, bool notify)"), GetMill), Controller(), Agreed(), facts);
+            var report = Run(Generated(Create.Replace("dto)", "dto, bool notify)"), GetItem), Controller(), Agreed(), facts);
 
             report.PendingCount.ShouldBe(1);
             report.WrongLines.ShouldBeEmpty();
@@ -217,17 +217,17 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         public void A_row_keeps_its_line_when_its_code_is_on_disk()
         {
             // Create's parameter list (line 10) is pending. A fact about Create read before it keeps its line, and so does
-            // a fact about GetMill, which is read from the disk.
+            // a fact about GetItem, which is read from the disk.
             var facts = Facts("command", "From Body");
-            facts[1] = Fact(FactKinds.OperationRoute, "MillsController.Create", "new", "Create");
-            facts[3] = Fact(FactKinds.OperationRoute, "MillsController.GetMill", "mills/{id}", "GetMill");
+            facts[1] = Fact(FactKinds.OperationRoute, "ItemsController.Create", "new", "Create");
+            facts[3] = Fact(FactKinds.OperationRoute, "ItemsController.GetItem", "items/{id}", "GetItem");
 
-            var report = Run(Generated(Create.Replace("dto", "command"), GetMill), Controller(), Agreed(), facts);
+            var report = Run(Generated(Create.Replace("dto", "command"), GetItem), Controller(), Agreed(), facts);
 
             report.WrongLines.ShouldBe(new[]
             {
-                $"`MillsController.Create` route: model `new`, code (none) (no route template on the action). Location: `{Path}:9`",
-                $"`MillsController.GetMill` route: model `mills/{{id}}`, code `{{id}}`. Location: `{Path}:12`"
+                $"`ItemsController.Create` route: model `new`, code (none) (no route template on the action). Location: `{Path}:9`",
+                $"`ItemsController.GetItem` route: model `items/{{id}}`, code `{{id}}`. Location: `{Path}:12`"
             });
         }
     }

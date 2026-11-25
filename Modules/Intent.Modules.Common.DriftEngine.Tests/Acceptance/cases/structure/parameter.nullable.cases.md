@@ -121,15 +121,15 @@ public static class CatalogApi
 
 ## unresolved
 
-basislink5's API project turns nullable reference types off, so the action's `string expDate` says nothing about whether it may be null: can't verify, `unresolved`, never a guess either way (R35). Its `string commodity` is the same, so the one note counts both. basislink5's house pack says a Service is the controller class of its name.
+ClientA's API project turns nullable reference types off, so the action's `string expDate` says nothing about whether it may be null: can't verify, `unresolved`, never a guess either way (R35). Its `string product` is the same, so the one note counts both. ClientA's house pack says a Service is the controller class of its name.
 
 ```json case
-{ "phase": 2, "kinds": ["parameter.nullable"], "cases": ["engine/unresolved"], "traces": ["ESC-SVC-30"], "requirements": ["R1", "R5", "R35"], "packs": ["intent.core", "intent.services", "house.basislink"], "language": "csharp" }
+{ "phase": 2, "kinds": ["parameter.nullable"], "cases": ["engine/unresolved"], "traces": ["ESC-SVC-30"], "requirements": ["R1", "R5", "R35"], "packs": ["intent.core", "intent.services", "house.acme"], "language": "csharp" }
 ```
 
 ```json pack
 {
-  "id": "house.basislink",
+  "id": "house.acme",
   "version": "1.0.0",
   "engine": "^1.0.0",
   "requires": [{ "id": "intent.services", "version": "^1.0.0" }],
@@ -138,7 +138,7 @@ basislink5's API project turns nullable reference types off, so the action's `st
   "conventions": {
     "Services": {
       "types": {
-        "Service": { "typeKinds": ["class"], "locations": ["Service/**/Controllers/**"], "note": "basislink5: each controller is a Service named as the class is" }
+        "Service": { "typeKinds": ["class"], "locations": ["Service/**/Controllers/**"], "note": "Acme: each controller is a Service named as the class is" }
       }
     }
   }
@@ -150,29 +150,29 @@ basislink5's API project turns nullable reference types off, so the action's `st
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "Basislink.API",
+        "id": "services", "name": "Acme.API",
         "elements": [
-          { "id": "futures-controller", "type": "Service", "name": "FuturesController",
+          { "id": "prices-controller", "type": "Service", "name": "PricesController",
             "children": [
-              { "id": "futures-controller-get-safex", "type": "Operation", "name": "GetSafex",
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Safex/Get/{expDate}/{commodity}" } },
+              { "id": "prices-controller-get-price", "type": "Operation", "name": "GetPrice",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "Price/Get/{expDate}/{product}" } },
                 "children": [
-                  { "id": "futures-controller-get-safex-exp-date", "type": "Parameter", "name": "expDate", "typeRef": { "type": "string" } },
-                  { "id": "futures-controller-get-safex-commodity", "type": "Parameter", "name": "commodity", "typeRef": { "type": "string" } }
+                  { "id": "prices-controller-get-price-exp-date", "type": "Parameter", "name": "expDate", "typeRef": { "type": "string" } },
+                  { "id": "prices-controller-get-price-product", "type": "Parameter", "name": "product", "typeRef": { "type": "string" } }
                 ] }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Basislink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "Service/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```xml file Service/BasislinkService/Basislink.API/Basislink.API.csproj
+```xml file Service/AcmeService/Acme.API/Acme.API.csproj
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -183,26 +183,26 @@ basislink5's API project turns nullable reference types off, so the action's `st
 </Project>
 ```
 
-```csharp file Service/BasislinkService/Basislink.API/Controllers/Grain/FuturesController.cs
+```csharp file Service/AcmeService/Acme.API/Controllers/Pricing/PricesController.cs
 using Microsoft.AspNetCore.Mvc;
 
-namespace Basislink.API.Controllers.Grain
+namespace Acme.API.Controllers.Pricing
 {
     [ApiController]
     [Route("v1/[controller]")]
-    public class FuturesController : ControllerBase
+    public class PricesController : ControllerBase
     {
-        private readonly FuturesProcess _futuresProcess;
+        private readonly PricesProcess _pricesProcess;
 
-        public FuturesController(FuturesProcess futuresProcess)
+        public PricesController(PricesProcess pricesProcess)
         {
-            _futuresProcess = futuresProcess;
+            _pricesProcess = pricesProcess;
         }
 
-        [HttpGet("Safex/Get/{expDate}/{commodity}")]
-        public IActionResult GetSafex(string expDate, string commodity)
+        [HttpGet("Price/Get/{expDate}/{product}")]
+        public IActionResult GetPrice(string expDate, string product)
         {
-            var data = _futuresProcess.GetSafex(expDate, commodity);
+            var data = _pricesProcess.GetPrice(expDate, product);
             return Ok(data);
         }
     }
@@ -212,10 +212,10 @@ namespace Basislink.API.Controllers.Grain
 ```json expect
 {
   "claims": [
-    { "kind": "parameter.nullable", "element": "futures-controller-get-safex-exp-date", "outcome": "cantVerify", "reason": "unresolved" }
+    { "kind": "parameter.nullable", "element": "prices-controller-get-price-exp-date", "outcome": "cantVerify", "reason": "unresolved" }
   ],
   "findings": [
-    { "rule": "claim/parameter.nullable", "subject": "futures-controller-get-safex-exp-date", "count": 0 },
+    { "rule": "claim/parameter.nullable", "subject": "prices-controller-get-price-exp-date", "count": 0 },
     { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (Services 2)" }
   ]
 }

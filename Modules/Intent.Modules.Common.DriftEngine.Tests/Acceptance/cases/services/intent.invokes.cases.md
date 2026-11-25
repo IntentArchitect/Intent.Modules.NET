@@ -83,7 +83,7 @@ public static class BasketApi
 
 ## reached-through-a-method-passed-on
 
-The action never calls `UserRoles.GetUsersRoles` itself: it passes it to a cache helper, `GetCacheData(key, _members.GetUsersRoles)`, to run on a miss. A method passed on is one that runs, so the code's own methods the action reaches include it, and its call of `KeycloakServiceCaller.GetKeycloakUsersRole` bears the invocation out.
+The action never calls `UserRoles.GetUserRoles` itself: it passes it to a cache helper, `GetCacheData(key, _roles.GetUserRoles)`, to run on a miss. A method passed on is one that runs, so the code's own methods the action reaches include it, and its call of `IdentityServiceCaller.GetIdentityUserRoles` bears the invocation out.
 
 ```json case
 { "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -94,39 +94,39 @@ The action never calls `UserRoles.GetUsersRoles` itself: it passes it to a cache
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "Basislink.API",
+        "id": "services", "name": "Acme.API",
         "elements": [
-          { "id": "keycloak", "type": "Service", "name": "KeycloakServiceCaller",
+          { "id": "identity", "type": "Service", "name": "IdentityServiceCaller",
             "children": [
-              { "id": "keycloak-get-users-role", "type": "Operation", "name": "GetKeycloakUsersRole", "typeRef": { "type": "string", "collection": true } }
+              { "id": "identity-get-user-roles", "type": "Operation", "name": "GetIdentityUserRoles", "typeRef": { "type": "string", "collection": true } }
             ] },
           { "id": "bid-service", "type": "Service", "name": "BidService",
             "stereotypes": { "Http Service Settings": { "Route": "api/bid" } },
             "children": [
-              { "id": "bid-get-open-sell-bids", "type": "Operation", "name": "GetOpenSellBids", "typeRef": { "type": "string", "collection": true },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "sell" } } }
+              { "id": "bid-get-open-bids", "type": "Operation", "name": "GetOpenBids", "typeRef": { "type": "string", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "open" } } }
             ] }
         ]
       }],
       "associations": [
-        { "id": "open-sell-bids-invokes-keycloak", "type": "Perform Invocation",
-          "source": { "element": "bid-get-open-sell-bids" }, "target": { "element": "keycloak-get-users-role" } }
+        { "id": "open-bids-invokes-identity", "type": "Perform Invocation",
+          "source": { "element": "bid-get-open-bids" }, "target": { "element": "identity-get-user-roles" } }
       ]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Basislink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/Basislink.API/Business/UserRoles.cs
-namespace Basislink.API.Business;
+```csharp file src/Acme.API/Business/UserRoles.cs
+namespace Acme.API.Business;
 
-public static class KeycloakServiceCaller
+public static class IdentityServiceCaller
 {
-    public static List<string> GetKeycloakUsersRole() => new List<string>();
+    public static List<string> GetIdentityUserRoles() => new List<string>();
 }
 
 public interface ICache
@@ -136,32 +136,32 @@ public interface ICache
 
 public class UserRoles
 {
-    public List<string> GetUsersRoles() => KeycloakServiceCaller.GetKeycloakUsersRole();
+    public List<string> GetUserRoles() => IdentityServiceCaller.GetIdentityUserRoles();
 }
 ```
 
-```csharp file src/Basislink.API/Controllers/BidController.cs
-using Basislink.API.Business;
+```csharp file src/Acme.API/Controllers/BidController.cs
+using Acme.API.Business;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Basislink.API.Controllers;
+namespace Acme.API.Controllers;
 
 [ApiController]
 [Route("api/bid")]
 public class BidController : ControllerBase
 {
     private readonly ICache _cache;
-    private readonly UserRoles _members = new UserRoles();
+    private readonly UserRoles _roles = new UserRoles();
 
     public BidController(ICache cache)
     {
         _cache = cache;
     }
 
-    [HttpGet("sell")]
-    public IActionResult GetOpenSellBids()
+    [HttpGet("open")]
+    public IActionResult GetOpenBids()
     {
-        var roles = _cache.GetCacheData<List<string>>("users", 60, _members.GetUsersRoles);
+        var roles = _cache.GetCacheData<List<string>>("users", 60, _roles.GetUserRoles);
         return Ok(roles);
     }
 }
@@ -170,7 +170,7 @@ public class BidController : ControllerBase
 ```json expect
 {
   "claims": [
-    { "kind": "intent.invokes", "element": "open-sell-bids-invokes-keycloak", "outcome": "verified", "expected": "present", "actual": "present" }
+    { "kind": "intent.invokes", "element": "open-bids-invokes-identity", "outcome": "verified", "expected": "present", "actual": "present" }
   ]
 }
 ```
@@ -1008,7 +1008,7 @@ public class OrderService
 
 ## invoked-through-a-cast-local
 
-`GetQuote` invokes `CrmDataEntities.spGetQuote`, and the logic class reaches it through its `DbContext` field cast to the code's own EF6 context, `var context = (CrmDataEntities)_context;`. A downcast is the type it names, so `context.spGetQuote(id)` calls `CrmDataEntities`' method, not one of `DbContext`'s.
+`GetOrder` invokes `AcmeDataEntities.spGetOrder`, and the logic class reaches it through its `DbContext` field cast to the code's own EF6 context, `var context = (AcmeDataEntities)_context;`. A downcast is the type it names, so `context.spGetOrder(id)` calls `AcmeDataEntities`' method, not one of `DbContext`'s.
 
 ```json case
 { "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.interactions"], "language": "csharp" }
@@ -1019,74 +1019,74 @@ public class OrderService
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "CrmBus.Crm",
+        "id": "services", "name": "Acme.Crm",
         "elements": [
-          { "id": "crm-data-entities", "type": "Service", "name": "CrmDataEntities",
+          { "id": "acme-data-entities", "type": "Service", "name": "AcmeDataEntities",
             "children": [
-              { "id": "crm-data-entities-sp-get-quote", "type": "Operation", "name": "spGetQuote",
+              { "id": "acme-data-entities-sp-get-order", "type": "Operation", "name": "spGetOrder",
                 "children": [
-                  { "id": "crm-data-entities-sp-get-quote-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                  { "id": "acme-data-entities-sp-get-order-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
                 ] }
             ] },
-          { "id": "quote-logic", "type": "Service", "name": "QuoteLogic",
+          { "id": "order-logic", "type": "Service", "name": "OrderLogic",
             "children": [
-              { "id": "quote-logic-get-quote", "type": "Operation", "name": "GetQuote",
+              { "id": "order-logic-get-order", "type": "Operation", "name": "GetOrder",
                 "children": [
-                  { "id": "quote-logic-get-quote-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                  { "id": "order-logic-get-order-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
                 ] }
             ] }
         ]
       }],
       "associations": [
-        { "id": "get-quote-invokes-sp-get-quote", "type": "Perform Invocation",
-          "source": { "element": "quote-logic-get-quote" }, "target": { "element": "crm-data-entities-sp-get-quote" } }
+        { "id": "get-order-invokes-sp-get-order", "type": "Perform Invocation",
+          "source": { "element": "order-logic-get-order" }, "target": { "element": "acme-data-entities-sp-get-order" } }
       ]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/CrmBus.Crm/Data/CrmDataEntities.cs
+```csharp file src/Acme.Crm/Data/AcmeDataEntities.cs
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 
-namespace CrmBus.Crm.Data;
+namespace Acme.Crm.Data;
 
-public partial class CrmDataEntities : DbContext
+public partial class AcmeDataEntities : DbContext
 {
-    public virtual ObjectResult<spGetQuote_Result> spGetQuote(int id) => null!;
+    public virtual ObjectResult<spGetOrder_Result> spGetOrder(int id) => null!;
 }
 
-public class spGetQuote_Result
+public class spGetOrder_Result
 {
-    public decimal Premium { get; set; }
+    public decimal Total { get; set; }
 }
 ```
 
-```csharp file src/CrmBus.Crm/Logic/QuoteLogic.cs
+```csharp file src/Acme.Crm/Logic/OrderLogic.cs
 using System.Data.Entity;
 using System.Linq;
-using CrmBus.Crm.Data;
+using Acme.Crm.Data;
 
-namespace CrmBus.Crm.Logic;
+namespace Acme.Crm.Logic;
 
-public class QuoteLogic
+public class OrderLogic
 {
     private readonly DbContext _context;
 
-    public QuoteLogic(DbContext context)
+    public OrderLogic(DbContext context)
     {
         _context = context;
     }
 
-    public spGetQuote_Result GetQuote(int id)
+    public spGetOrder_Result GetOrder(int id)
     {
-        var context = (CrmDataEntities)_context;
-        return context.spGetQuote(id).FirstOrDefault();
+        var context = (AcmeDataEntities)_context;
+        return context.spGetOrder(id).FirstOrDefault();
     }
 }
 ```
@@ -1094,8 +1094,8 @@ public class QuoteLogic
 ```json expect
 {
   "claims": [
-    { "kind": "intent.invokes", "element": "get-quote-invokes-sp-get-quote", "outcome": "verified", "expected": "present", "actual": "present",
-      "at": "src/CrmBus.Crm/Logic/QuoteLogic.cs:19" }
+    { "kind": "intent.invokes", "element": "get-order-invokes-sp-get-order", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Acme.Crm/Logic/OrderLogic.cs:19" }
   ]
 }
 ```

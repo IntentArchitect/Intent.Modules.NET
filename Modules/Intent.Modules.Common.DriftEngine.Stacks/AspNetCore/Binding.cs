@@ -102,7 +102,7 @@ internal static class Binding
     /// reached through the first conventional route <c>MapHttpRoute</c> maps with a <c>{controller}</c>
     /// (<c>api/{controller}/{id}</c> by default). Its <c>{controller}</c> and <c>{action}</c> are the action's, and a value
     /// the route's defaults make optional (<c>id = RouteParameter.Optional</c>) is left out when the action doesn't take
-    /// it, so <c>EndowmentController.PostAsync(request)</c> is <c>~/api/Endowment</c>: absolute, as it isn't under the
+    /// it, so <c>PolicyController.PostAsync(request)</c> is <c>~/api/Policy</c>: absolute, as it isn't under the
     /// controller's route. Null for an action with its own route, or when no conventional route names a controller.
     /// <para>
     /// ASP.NET Core routes an action conventionally only when neither it nor its controller has an attribute route: a

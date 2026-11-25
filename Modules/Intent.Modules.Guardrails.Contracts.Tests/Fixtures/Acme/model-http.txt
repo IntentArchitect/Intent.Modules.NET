@@ -1,7 +1,7 @@
-# The BasislinkService Services model's HTTP and security facts for FeatureController, as the 2026-10-20 authority audit dumped them:
+# ClientA's Services model's HTTP and security facts, renamed Acme, for FeatureController, as the 2026-10-20 authority audit dumped them:
 # S|service|route|security and O|service|operation|verb|route|security|parameter:source,...
 S|FeatureController|v1/Feature|sec
-O|FeatureController|ApplyBasisLinkRoles|GET|Premiums/ApplyRole|-|
+O|FeatureController|ApplyAcmeRoles|GET|Premiums/ApplyRole|-|
 O|FeatureController|ApplyLimit|GET|Limits/Apply|-|
 O|FeatureController|ClearCache|DELETE|Cache/Clear/{CacheKey}/{cacheKey}|-|CacheKey:From Route
 O|FeatureController|GetEventLog|GET|EventLog/Get|-|

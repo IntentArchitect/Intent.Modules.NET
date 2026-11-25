@@ -1,18 +1,22 @@
 {
   // Where each real codebase is on this machine. DRIFTENGINE_CODEBASE_<NAME> (the name upper-cased) overrides a root.
   // A test whose codebase isn't present is skipped (acceptance-suite.md, Real codebases).
+  // A client's codebase is named here only as ClientA, ClientB, ...: its location is set on the machine that has it, with
+  // DRIFTENGINE_CODEBASE_CLIENTA and the like, and a * in "recipes" stands for its application's folder.
   "codebases": [
     {
-      "name": "basislink5",
-      "root": "D:/Dev/Temp/basislink5",
-      "recipes": "intent/Basislink/guardrails",
+      // Client code: read in place, never copied or quoted.
+      "name": "ClientA",
+      "root": "D:/Dev/Clients/ClientA",
+      "recipes": "intent/*/guardrails",
+      "client": true,
       "usedFor": ["phase1", "conversion"]
     },
     {
       // Client code: read in place, never copied or quoted.
-      "name": "CrmBus",
-      "root": "D:/Dev/Clients/CrmBus.DocumentManagement1",
-      "recipes": "intent/CrmBus.DocumentManagement/guardrails",
+      "name": "ClientB",
+      "root": "D:/Dev/Clients/ClientB",
+      "recipes": "intent/*/guardrails",
       "client": true,
       "usedFor": ["phase1", "conversion"]
     },

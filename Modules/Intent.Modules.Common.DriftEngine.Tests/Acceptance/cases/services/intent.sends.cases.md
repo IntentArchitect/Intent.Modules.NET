@@ -395,7 +395,7 @@ public class PaymentOutputs
 
 ## verified-own-parameter-handed-to-logic
 
-The endpoint takes the command as its request and hands it to the logic behind an interface, whose class sends it with `SendLocal(command)`, as CrmBus's `QuoteController.SubmitQuote` does through `IQuoteLogic`. The command comes from outside the code, so the endpoint's own parameter is the message it hands on, and the call that leads to the send is where it does: verified.
+The endpoint takes the command as its request and hands it to the logic behind an interface, whose class sends it with `SendLocal(command)`, as one of ClientB's controllers does through its logic interface. The command comes from outside the code, so the endpoint's own parameter is the message it hands on, and the call that leads to the send is where it does: verified.
 
 ```json case
 { "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }

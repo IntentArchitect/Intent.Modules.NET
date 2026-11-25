@@ -338,6 +338,23 @@ public class MessagingTests
             ]);
     }
 
+    /// <summary>
+    /// A finding the code settles carries the model change that settles it: an unshown publish from a modelled source to a
+    /// modelled message is that link, and a link the code never bears out is its removal. An unshown raise that first needs
+    /// a message or an operation modelled carries none, since what to model is a judgement.
+    /// </summary>
+    [Fact]
+    public void A_link_the_code_settles_is_its_correction_and_one_needing_something_modelled_first_has_none()
+    {
+        Finding("messaging/unmodelled.publish", "ArchivePublisher.PublishArchived").Corrections
+            .ShouldBe([new ModelCorrection(ModelCorrection.AddLink, "archive-order") { Association = "Publish Integration Event", Target = "order-archived-ie" }]);
+        Result.Findings.Single(x => x.Rule == "claim/intent.raises").Corrections
+            .ShouldBe([new ModelCorrection(ModelCorrection.RemoveLink, "pay-raises-paid")]);
+        Finding("messaging/unmodelled.raise", "Order.Cancel").Corrections.ShouldBeEmpty();
+        Finding("messaging/unmodelled.raise", "Order.Archive").Corrections.ShouldBeEmpty();
+        Finding("messaging/unmodelled.publish", "OrderPaidHandler.Handle").Corrections.ShouldBeEmpty();
+    }
+
     private static Claim Claim(string element) => Result.Claims.Single(x => x.Element == element);
 
     private static Finding Finding(string rule, string about) =>

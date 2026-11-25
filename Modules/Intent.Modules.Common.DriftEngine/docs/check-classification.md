@@ -435,7 +435,7 @@ To reuse the engine on another codebase, at least these would have to become dat
 - **Unreadable / can't be verified:** the module has an equivalent that is weaker. A code-side Unsupported warning turns off Wrongs, but it is a warning, not an error.
 - **Model-first baseline:** the module has no equivalent and takes the opposite stance. A modelled type that is missing from the code is Wrong, which is right for describe-only.
 - **AI skills and guides** (sync-model, configure-drift-check, validate-drift-recipes, technology guides, the always-on rule): the module lacks them. It has designer AI rules and GUARDRAILS.mdx, and the hub's agent rule is disabled.
-- **Adversarial (Basislink) and golden tests:** the module's equivalent is the GUARDRAILS "Test it yourself" table of about 49 breaks, each proven to bite, plus the unit tests.
+- **Adversarial (ClientA) and golden tests:** the module's equivalent is the GUARDRAILS "Test it yourself" table of about 49 breaks, each proven to bite, plus the unit tests.
 - **Exceptions:** the module's equivalent is Drift Scope Exclude, which works at file level only.
 - **`own` conventions:** the module's equivalent is hard-coded conventions per element kind.
 - **Entity-action and Send Integration Command facts** (`intent.creates`/`updates`/`deletes`/`queries`/`sends`): the module has no equivalent rule.

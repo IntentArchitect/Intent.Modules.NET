@@ -45,6 +45,10 @@ public sealed class Reading
     /// <summary>The finding's text as the claim reader worded it; null when the engine words it. The finding carries it, not the result.</summary>
     [System.Text.Json.Serialization.JsonIgnore]
     public string? Message { get; init; }
+
+    /// <summary>The model changes the claim reader gave for a contradiction (<c>ClaimReading.Correcting</c>); the finding carries them.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public IReadOnlyList<ModelCorrection> Corrections { get; init; } = [];
 }
 
 /// <summary>The claim a blocked claim waits on, by its identity.</summary>
@@ -127,7 +131,58 @@ public sealed record Finding(
     string Message,
     Anchor Subject,
     IReadOnlyList<string>? Claims = null,
-    IReadOnlyList<Anchor>? Against = null);
+    IReadOnlyList<Anchor>? Against = null)
+{
+    /// <summary>
+    /// The model changes that make the model state what the code does, when the code settles it (<see cref="ModelCorrection"/>);
+    /// empty when the fix is a judgement, such as modelling a type. Not part of the result's schema.
+    /// </summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public IReadOnlyList<ModelCorrection> Corrections { get; init; } = [];
+}
+
+/// <summary>
+/// One change to the model that makes it state what the code does, given with a finding the code settles, for a tool that
+/// brings a model drawn from unchanged code into line (Intent.Common.Drift's move from v1 applies them). Elements are named
+/// by id; stereotypes, properties and association types by name, as the designer shows them.
+/// </summary>
+/// <param name="Kind"><see cref="AddLink"/>, <see cref="RemoveLink"/>, <see cref="SetStereotype"/> or <see cref="RemoveException"/>.</param>
+/// <param name="Element">
+/// The element changed: a link's source (an operation, constructor, command or a handler's subscription end), the target end of
+/// a link to remove, the element a stereotype goes on, or the Drift Check's host.
+/// </param>
+public sealed record ModelCorrection(string Kind, string Element)
+{
+    /// <summary>Draw a link of <see cref="Association"/> from <see cref="ModelCorrection.Element"/> to <see cref="Target"/>.</summary>
+    public const string AddLink = "addLink";
+
+    /// <summary>Remove the link whose target end is <see cref="ModelCorrection.Element"/>.</summary>
+    public const string RemoveLink = "removeLink";
+
+    /// <summary>Apply <see cref="Stereotype"/> to the element, if it hasn't it, and set each of <see cref="Properties"/>.</summary>
+    public const string SetStereotype = "setStereotype";
+
+    /// <summary>Remove <see cref="Entry"/> from row <see cref="Row"/> of the Drift Check's Exceptions, which it matches nothing.</summary>
+    public const string RemoveException = "removeException";
+
+    /// <summary>For <see cref="AddLink"/>: the association type, as <c>Send Integration Command</c>.</summary>
+    public string? Association { get; init; }
+
+    /// <summary>For <see cref="AddLink"/>: the element the link points at, such as the message.</summary>
+    public string? Target { get; init; }
+
+    /// <summary>For <see cref="SetStereotype"/>: the stereotype, as <c>Http Settings</c>.</summary>
+    public string? Stereotype { get; init; }
+
+    /// <summary>For <see cref="SetStereotype"/>: each property's name and the value the code states.</summary>
+    public IReadOnlyDictionary<string, string>? Properties { get; init; }
+
+    /// <summary>For <see cref="RemoveException"/>: the row's number, counting from 1.</summary>
+    public int? Row { get; init; }
+
+    /// <summary>For <see cref="RemoveException"/>: the line of the row's Match to remove.</summary>
+    public string? Entry { get; init; }
+}
 
 /// <summary>Per scope row, how many files it decides (R15).</summary>
 public sealed record CoverageRow(string Host, int Row, IReadOnlyList<string>? Glob, IReadOnlyList<string>? Types, string Scope, string? Reason, int Files);

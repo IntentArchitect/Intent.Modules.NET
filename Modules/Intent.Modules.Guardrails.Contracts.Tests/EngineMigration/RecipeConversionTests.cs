@@ -50,14 +50,14 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
         }
 
         [Fact]
-        public void A_file_pattern_exception_is_an_Out_row_after_every_In_row_with_its_reason()
+        public void A_file_pattern_exception_is_a_Context_row_after_every_In_row_with_its_reason()
         {
             var result = Convert(
                 ("domain.drift.json", """{ "files": "src/**/*.cs", "exceptions": [{ "match": "src/Legacy/**", "reason": "Old code" }, { "match": "src/Tools/Seed.cs", "reason": "Old code" }] }"""),
                 ("services.drift.json", """{ "files": "api/**/*.cs" }"""));
 
-            result.Scope.Select(x => x.Scope).ShouldBe(new[] { "In", "Out" });
-            Text(result.Scope[1]).ShouldBe("Out src/Legacy/** | src/Tools/Seed.cs — Old code");
+            result.Scope.Select(x => x.Scope).ShouldBe(new[] { "In", "Context" });
+            Text(result.Scope[1]).ShouldBe("Context src/Legacy/** | src/Tools/Seed.cs — Old code");
         }
 
         [Fact]
@@ -214,23 +214,23 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
 
         /// <summary>Rows expected from each local codebase's recipe files, read in place. A codebase that isn't on this machine is skipped.</summary>
         [Theory]
-        [InlineData("basislink5", 1, 0, 6, 1, 0, 0, 0)]
-        [InlineData("CrmBus", 1, 0, 10, 1, 10, 12, 0)]
+        [InlineData("ClientA", 1, 0, 6, 1, 0, 0, 0)]
+        [InlineData("ClientB", 1, 0, 10, 1, 10, 12, 0)]
         [InlineData("eShop10", 1, 0, 9, 1, 3, 3, 6)]
         [InlineData("eShop13", 1, 1, 4, 1, 0, 0, 0)]
         [InlineData("eShop14", 1, 0, 9, 1, 2, 3, 0)]
-        public void Each_real_codebases_recipe_files_give_the_rows_expected(string codebase, int inRows, int outRows, int typeRows, int memberRows, int exceptionRows, int matches, int notes)
+        public void Each_real_codebases_recipe_files_give_the_rows_expected(string codebase, int inRows, int contextRows, int typeRows, int memberRows, int exceptionRows, int matches, int notes)
         {
-            var folder = RecipeFolder(codebase);
-            if (folder == null)
+            var folders = RecipeFolders(codebase);
+            if (folders.Count == 0)
             {
                 return;
             }
 
-            var result = RecipeConversion.Convert(Directory.GetFiles(folder, "*.drift.json").Select(x => new RecipeSource(Path.GetFileName(x), File.ReadAllText(x))));
+            var result = RecipeConversion.Convert(folders.SelectMany(x => Directory.GetFiles(x, "*.drift.json")).Select(x => new RecipeSource(Path.GetFileName(x), File.ReadAllText(x))));
 
             result.Scope.Count(x => x.Scope == "In").ShouldBe(inRows);
-            result.Scope.Count(x => x.Scope == "Out").ShouldBe(outRows);
+            result.Scope.Count(x => x.Scope == "Context").ShouldBe(contextRows);
             result.OptIn.Count(x => x.Rule == RecipeConversion.UnmodelledType).ShouldBe(typeRows);
             result.OptIn.Count(x => x.Rule == RecipeConversion.UnmodelledMember).ShouldBe(memberRows);
             result.Exceptions.Count.ShouldBe(exceptionRows);
@@ -239,11 +239,13 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
             result.OptIn.Where(x => x.Rule == RecipeConversion.UnmodelledType).ShouldAllBe(x => x.Globs.Count > 0 && !string.IsNullOrWhiteSpace(x.Description));
             result.Exceptions.ShouldAllBe(x => !string.IsNullOrWhiteSpace(x.Reason));
 
-            // The public samples' rows, by what they are (client code is checked by its counts only).
+            // The public samples' rows, by what they are (client code is checked by its counts, and by a row's shape without
+            // quoting it).
             switch (codebase)
             {
-                case "basislink5":
-                    result.OptIn.Select(Text).ShouldContain("optin/unmodelled.type Basislink.Data/**/*.cs — entity configuration, index");
+                case "ClientA":
+                    result.OptIn.ShouldContain(x => x.Rule == RecipeConversion.UnmodelledType && x.Description == "entity configuration, index"
+                        && x.Globs.Count == 1 && x.Globs.First().EndsWith(".Data/**/*.cs"));
                     break;
                 case "eShop10":
                     result.OptIn.ShouldNotContain(x => x.Description.Contains("endpoint"));
@@ -251,7 +253,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
                     result.Exceptions.ShouldContain(x => x.Rule == RecipeConversion.UnmodelledType && x.Matches.SequenceEqual(new[] { "IdentifiedCommand" }));
                     break;
                 case "eShop13":
-                    result.Scope.Single(x => x.Scope == "Out").Globs.ShouldBe(new[] { "src/IntegrationEventLogEF/**" });
+                    result.Scope.Single(x => x.Scope == "Context").Globs.ShouldBe(new[] { "src/IntegrationEventLogEF/**" });
                     break;
             }
         }
@@ -259,8 +261,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
         private static ConvertedRecipes Convert(params (string File, string Json)[] files) =>
             RecipeConversion.Convert(files.Select(x => new RecipeSource(x.File, x.Json)));
 
-        /// <summary>A codebase's recipe folder from the drift engine suite's <c>codebases.json</c>, or null when it isn't on this machine.</summary>
-        private static string RecipeFolder(string codebase)
+        /// <summary>
+        /// A codebase's recipe folders from the drift engine suite's <c>codebases.json</c>, a <c>*</c> segment standing for any one
+        /// folder (the file never names a client's application); none when it isn't on this machine.
+        /// </summary>
+        private static IReadOnlyList<string> RecipeFolders(string codebase)
         {
             for (var folder = new DirectoryInfo(AppContext.BaseDirectory); folder != null; folder = folder.Parent)
             {
@@ -275,11 +280,18 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
                 var root = Environment.GetEnvironmentVariable($"DRIFTENGINE_CODEBASE_{codebase.ToUpperInvariant()}") is { Length: > 0 } overridden
                     ? overridden
                     : entry.GetProperty("root").GetString();
-                var recipes = Path.Combine(root!, entry.GetProperty("recipes").GetString()!);
-                return Directory.Exists(recipes) ? recipes : null;
+                IEnumerable<string> folders = new[] { root! }.Where(Directory.Exists);
+                foreach (var segment in entry.GetProperty("recipes").GetString()!.Split('/', '\\'))
+                {
+                    folders = segment == "*"
+                        ? folders.SelectMany(x => Directory.GetDirectories(x))
+                        : folders.Select(x => Path.Combine(x, segment)).Where(Directory.Exists);
+                }
+
+                return folders.ToList();
             }
 
-            return null;
+            return new string[0];
         }
 
         // Rows hold lists, which compare by reference, so they are compared as text.

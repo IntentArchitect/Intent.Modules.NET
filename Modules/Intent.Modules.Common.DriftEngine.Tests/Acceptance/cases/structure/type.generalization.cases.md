@@ -241,6 +241,66 @@ public record CatalogItemsRequest(int PageSize, int PageIndex, string? Name);
 }
 ```
 
+## services-dto-beside-its-generic-type
+
+A contracts project declares `Result` and `Result<T> : Result` in one namespace. The DTO `Result`, with no generic types and no Generalization, is the non-generic class, which derives nothing: `Result<T>` is another type, not a part of `Result`, and the `Result` its base list names is the non-generic one.
+
+```json case
+{ "phase": 1, "kinds": ["type.generalization", "type.exists"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.DataContracts",
+        "elements": [
+          { "id": "result", "type": "DTO", "name": "Result",
+            "children": [
+              { "id": "result-success", "type": "DTO-Field", "name": "Success", "typeRef": { "type": "bool" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/DataContracts/Result.cs
+namespace Shop.DataContracts;
+
+public class Result
+{
+    public bool Success { get; set; }
+}
+```
+
+```csharp file src/DataContracts/Result`.cs
+namespace Shop.DataContracts;
+
+public class Result<T> : Result
+{
+    public T Value { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "result", "outcome": "verified", "at": "src/DataContracts/Result.cs:3" },
+    { "kind": "type.generalization", "element": "result", "outcome": "verified", "expected": null, "actual": null }
+  ],
+  "findings": [
+    { "rule": "claim/type.generalization", "count": 0 }
+  ]
+}
+```
+
 ## java-verified
 
 The same claim over Java: the Generalization is the class's `extends` (R33).

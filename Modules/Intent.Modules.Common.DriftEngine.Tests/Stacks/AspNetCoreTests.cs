@@ -277,14 +277,168 @@ public class AspNetCoreTests
         Claim("blob-repository", "type.exists").Outcome.ShouldBe("verified");
     }
 
+    /// <summary>
+    /// A Web API 2 action the model leaves without Http Settings, and an unrouted one the model puts at its controller's
+    /// RoutePrefix, carry the Http Settings the code states: two overloads of one name, told apart by type, each its own
+    /// verb and route; the unrouted one the conventional route Web API 2 serves it on.
+    /// </summary>
+    [Fact]
+    public void A_web_api_2_action_the_model_misplaces_carries_the_http_settings_the_code_states()
+    {
+        var model = JsonNode.Parse("""
+            {
+              "designers": {
+                "Services": {
+                  "packages": [{
+                    "id": "services", "name": "Crm.Api",
+                    "elements": [
+                      { "id": "check", "type": "DTO", "name": "CheckRequest" },
+                      { "id": "scheme", "type": "DTO", "name": "SchemeRequest" },
+                      { "id": "document", "type": "DTO", "name": "DocumentRequest" },
+                      { "id": "crm", "type": "Service", "name": "CrmController",
+                        "stereotypes": { "Http Service Settings": { "Route": "api" } },
+                        "children": [
+                          { "id": "post-check", "type": "Operation", "name": "Post",
+                            "children": [{ "id": "post-check-request", "type": "Parameter", "name": "request", "typeRef": { "element": "check" } }] },
+                          { "id": "post-scheme", "type": "Operation", "name": "Post",
+                            "children": [{ "id": "post-scheme-request", "type": "Parameter", "name": "request", "typeRef": { "element": "scheme" } }] }
+                        ] },
+                      { "id": "endowment", "type": "Service", "name": "EndowmentController",
+                        "stereotypes": { "Http Service Settings": { "Route": "api/microservices/endowment" } },
+                        "children": [
+                          { "id": "endowment-post", "type": "Operation", "name": "PostAsync",
+                            "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "" } },
+                            "children": [{ "id": "endowment-post-request", "type": "Parameter", "name": "request", "typeRef": { "element": "document" } }] }
+                        ] }
+                    ]
+                  }]
+                },
+                "Codebase Structure": {
+                  "packages": [{ "id": "root", "name": "Crm", "type": "Root Folder",
+                    "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+                }
+              }
+            }
+            """)!;
+        var code = new Dictionary<string, string>
+        {
+            ["src/Crm.Api/Startup.cs"] = """
+                public class Startup
+                {
+                    public void Configuration(HttpConfiguration config)
+                    {
+                        config.MapHttpAttributeRoutes();
+                        config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional });
+                    }
+                }
+                """,
+            ["src/Crm.Api/Requests.cs"] = """
+                public class CheckRequest { }
+                public class SchemeRequest { }
+                public class DocumentRequest { }
+                """,
+            ["src/Crm.Api/Controllers/CrmController.cs"] = """
+                [RoutePrefix("api")]
+                public class CrmController : ApiController
+                {
+                    [HttpPost]
+                    [Route("UnderwritingCheck")]
+                    public IHttpActionResult Post([FromBody] CheckRequest request) => Ok();
+
+                    [HttpPost]
+                    [Route("Scheme")]
+                    public IHttpActionResult Post([FromBody] SchemeRequest request) => Ok();
+                }
+                """,
+            ["src/Crm.Api/Controllers/EndowmentController.cs"] = """
+                [RoutePrefix("api/microservices/endowment")]
+                public class EndowmentController : ApiController
+                {
+                    [AcceptVerbs("POST")]
+                    public IHttpActionResult PostAsync([FromBody] DocumentRequest request) => Ok();
+                }
+                """
+        };
+
+        var result = Run(model, code);
+
+        Corrections(result, "claim/endpoint.exists", "post-check").ShouldBe(["setStereotype post-check Http Settings Route=UnderwritingCheck, Verb=POST"]);
+        Corrections(result, "claim/endpoint.exists", "post-scheme").ShouldBe(["setStereotype post-scheme Http Settings Route=Scheme, Verb=POST"]);
+        result.Findings.Single(x => x.Rule == "aspnetcore/conventional.route").Corrections
+            .Select(Text).ShouldBe(["setStereotype endowment-post Http Settings Route=~/api/Endowment"]);
+    }
+
+    /// <summary>
+    /// A Minimal API router maps its own routes, so an operation it maps at its group's route isn't reported as served on a
+    /// conventional route, even where the code maps one for MVC controllers elsewhere.
+    /// </summary>
+    [Fact]
+    public void A_minimal_api_router_is_never_served_on_a_conventional_route()
+    {
+        var model = JsonNode.Parse("""
+            {
+              "designers": {
+                "Services": {
+                  "packages": [{
+                    "id": "services", "name": "Ordering.Api",
+                    "elements": [
+                      { "id": "orders-api", "type": "Service", "name": "OrdersApi",
+                        "stereotypes": { "Http Service Settings": { "Route": "api/orders" } },
+                        "children": [
+                          { "id": "get-orders", "type": "Operation", "name": "GetOrdersByUserAsync",
+                            "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "" } } }
+                        ] }
+                    ]
+                  }]
+                },
+                "Codebase Structure": {
+                  "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+                    "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+                }
+              }
+            }
+            """)!;
+        var code = new Dictionary<string, string>
+        {
+            ["src/Ordering.Api/Apis/OrdersApi.cs"] = """
+                public static class OrdersApi
+                {
+                    public static RouteGroupBuilder MapOrdersApi(this IEndpointRouteBuilder app)
+                    {
+                        var api = app.MapGroup("api/orders");
+                        api.MapGet("/", GetOrdersByUserAsync);
+                        return api;
+                    }
+
+                    public static Task<string> GetOrdersByUserAsync() => Task.FromResult("orders");
+                }
+                """,
+            ["src/Identity.Api/Program.cs"] = """
+                var app = WebApplication.CreateBuilder(args).Build();
+                app.MapDefaultControllerRoute();
+                app.Run();
+                """
+        };
+
+        Run(model, code).Findings.ShouldNotContain(x => x.Rule == "aspnetcore/conventional.route");
+    }
+
+    private static IEnumerable<string> Corrections(RunResult result, string rule, string element) =>
+        result.Findings.Single(x => x.Rule == rule && x.Subject.Element == element).Corrections.Select(Text);
+
+    private static string Text(ModelCorrection correction) =>
+        $"{correction.Kind} {correction.Element} {correction.Stereotype} {string.Join(", ", correction.Properties!.OrderBy(x => x.Key, StringComparer.Ordinal).Select(x => $"{x.Key}={x.Value}"))}";
+
     private static Claim Claim(string element, string kind) => Result.Claims.Single(x => x.Element == element && x.Kind == kind);
 
-    private static RunResult Run()
+    private static RunResult Run() => Run(Model, Code);
+
+    private static RunResult Run(JsonNode model, IReadOnlyDictionary<string, string> code)
     {
         var root = Directory.CreateTempSubdirectory("driftengine-aspnetcore-").FullName;
         try
         {
-            foreach (var (path, source) in Code)
+            foreach (var (path, source) in code)
             {
                 var full = Path.Combine(root, path);
                 Directory.CreateDirectory(Path.GetDirectoryName(full)!);
@@ -292,7 +446,7 @@ public class AspNetCoreTests
             }
 
             var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any()).Append(StockExtensions.Find("intent.aspnetcore")!).ToList();
-            return DriftEngine.Run(new DriftInput(FixtureModel.Build(Model), root, [Pack.Stock("intent.domain")!, Pack.Stock("intent.services")!], extensions));
+            return DriftEngine.Run(new DriftInput(FixtureModel.Build(model), root, [Pack.Stock("intent.domain")!, Pack.Stock("intent.services")!], extensions));
         }
         finally
         {

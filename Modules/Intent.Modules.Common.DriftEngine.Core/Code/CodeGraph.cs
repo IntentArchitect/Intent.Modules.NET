@@ -1230,6 +1230,13 @@ public sealed class CodeGraph
         var candidates = (Index.TypesByName.GetValueOrDefault(reference.Name) ?? [])
             .Where(x => reference.QualifiedName == reference.Name || $".{x.Namespace}.{x.Name}".EndsWith("." + reference.QualifiedName, StringComparison.Ordinal))
             .ToList();
+
+        // Of a name's types, the one with as many type parameters as the reference gives arguments: Result<T> : Result names
+        // Result, not itself. Only a preference, as a language may leave arguments out (Java's raw types).
+        if (candidates.Count > 1 && candidates.Where(x => x.TypeParameters.Count == reference.Arguments.Count).ToList() is { Count: > 0 } sameArity)
+        {
+            candidates = sameArity;
+        }
         var imports = Index.ImportsOf(from);
         if (reference.QualifiedName != reference.Name)
         {

@@ -1337,6 +1337,13 @@ public sealed partial class DriftEngine
             candidates = [component];
         }
 
+        // A generic type and the type of its name without type parameters are two types (Result<T> : Result): the element's
+        // is the one with as many type parameters as it has generic types.
+        if (candidates.Count > 1 && candidates.Where(x => x.TypeParameters.Count == (element.GenericTypes?.Count() ?? 0)).ToList() is { Count: > 0 } sameArity)
+        {
+            candidates = sameArity;
+        }
+
         if (candidates.Count > 1)
         {
             var scored = candidates.Select(x => (Type: x, Score: Score(x))).ToList();
@@ -1346,8 +1353,8 @@ public sealed partial class DriftEngine
             // Projects repeat each other's folders (each service its own IntegrationEvents/Events, holding its copy of a
             // message): of the types its folders match equally, the one whose namespace or path names most of the element's
             // package's segments is it, as eShop's Catalog.API.Eventing package names src/Catalog.API. Equally when the folders
-            // match none, as for an element at its package's root: CrmBus's DTO ApiMessage in CrmBus.Api.DataContracts and its
-            // Eventing DTO ApiMessage in CrmBus.Api.Commands.Internal, each in the project of its package's name.
+            // match none, as for an element at its package's root: ClientB's DTO ApiMessage in Acme.Api.DataContracts and its
+            // Eventing DTO ApiMessage in Acme.Api.Commands.Internal, each in the project of its package's name.
             if (top.Count > 1)
             {
                 var package = (element.Package?.Name ?? "").Split('.', StringSplitOptions.RemoveEmptyEntries);
@@ -1879,7 +1886,7 @@ public sealed partial class DriftEngine
                 break;
             case "compared:same" or "compared:different":
                 Compare(claim, reading.Value!, reading.At!, "code", reading.From == "compared:same");
-                claim.Reading = new Reading { Value = Canonical(claim, reading.Value!), From = "code", At = reading.At, Message = reading.Message };
+                claim.Reading = new Reading { Value = Canonical(claim, reading.Value!), From = "code", At = reading.At, Message = reading.Message, Corrections = reading.Corrections };
                 break;
             case "missing":
                 claim.Outcome = "contradicted";
@@ -2089,7 +2096,10 @@ public sealed partial class DriftEngine
             _ => $"`{display}` {label} can't be verified ({claim.Reason}). {reading.Detail}"
         };
 
-        return new Finding($"claim/{claim.Kind}", $"{claim.Area} (DriftEngine)", "ModelCode", "error", message, new Anchor(Element: claim.Element), [claim.Kind]);
+        return new Finding($"claim/{claim.Kind}", $"{claim.Area} (DriftEngine)", "ModelCode", "error", message, new Anchor(Element: claim.Element), [claim.Kind])
+        {
+            Corrections = claim.Outcome == "contradicted" ? reading.Corrections : []
+        };
     }
 
     /// <summary>

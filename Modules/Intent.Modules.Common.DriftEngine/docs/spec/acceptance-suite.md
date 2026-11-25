@@ -162,8 +162,8 @@ While cases are being written, `DRIFTENGINE_ACCEPTANCE` points the suite at the 
 
 | Name                      | Used for                                                                                 |
 | ------------------------- | ---------------------------------------------------------------------------------------- |
-| basislink5                | Phase 1's gate; the conversion test                                                      |
-| CrmBus                    | Phase 1's gate; the conversion test. Client code: read in place, never copied or quoted. |
+| ClientA                   | Phase 1's gate; the conversion test                                                      |
+| ClientB                   | Phase 1's gate; the conversion test. Client code: read in place, never copied or quoted. |
 | eShop10, eShop13, eShop14 | The conversion test; phase 6                                                             |
 | eShopCustom               | Phases 2 and 3 (its Front End, Architecture and planted import break)                    |
 | Java spike                | Phase 4                                                                                  |
@@ -174,16 +174,16 @@ The real-codebase tests run the engine on each application's own model and code.
 
 | Phase                 | Must pass                                                                                                                                      |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Foundations        | Every case with `phase` 1. basislink5's and CrmBus's structure claims verified, no file changed, and their excluded files not read and listed. |
+| 1. Foundations        | Every case with `phase` 1. ClientA's and ClientB's structure claims verified, no file changed, and their excluded files not read and listed.   |
 | 2. Open vocabulary    | Every case with `phase` 2 or lower, including the Front End State Store and Architecture Layer cases, with no change to the engine's own code  |
 | 3. Rules beyond regex | Every case with `phase` 3 or lower, including eShopCustom's planted import break and the Java spike's                                          |
 | 4. Java and packs     | Every case with `phase` 4 or lower, and each stock pack's own cases                                                                            |
 | 5. Adoption           | Not in the suite: the plan's two-hour adoption, with no code changes                                                                           |
-| 6. Migration          | Every case. Both engines on basislink5 and CrmBus, with every difference explained by [conversion.md](conversion.md#semantic-changes).         |
+| 6. Migration          | Every case. Both engines on ClientA and ClientB, with every difference explained by [conversion.md](conversion.md#semantic-changes).           |
 
 ## Writing cases
 
 - One behaviour per case, with the smallest model and code that shows it, and prose saying what it shows and which check it traces.
 - Line numbers in `at` are exact; the integrity tests check them.
 - Prefer a `base` and one change over a new fixture.
-- Never copy CrmBus code into a case. Small adaptations of basislink5, eShop and Java spike code are fine.
+- Never copy ClientB code into a case. Small adaptations of ClientA, eShop and Java spike code are fine, with no client's names, paths or distinctive identifiers in them (user decision, 2026-11-25: "Dont put customers project details in our code base").

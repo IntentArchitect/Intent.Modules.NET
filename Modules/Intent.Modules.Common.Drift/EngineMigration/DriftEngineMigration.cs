@@ -60,7 +60,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             var code = new CodeFiles(outputFolder);
             var contractFiles = ContractFiles(application, solution, outputFolder);
             var modelledTypes = ModelledTypes(model);
-            DropUnmatched(rows, V1Coverage.NeverUnmodelled(code, modelledTypes), log);
+            DropUnmatched(rows, V1Coverage.NeverUnmodelled(code, modelledTypes),
+                V1Coverage.NeverUnmodelledMembers(code, rows.Exceptions.Where(x => x.Rule == RecipeConversion.UnmodelledMember).SelectMany(x => x.Matches)), log);
             var converted = new HashSet<string>(rows.Exceptions.SelectMany(x => x.Matches), StringComparer.Ordinal);
             foreach (var row in V1Coverage.Exceptions(code, recipes, rows, contractFiles, modelledTypes, log))
             {
@@ -75,7 +76,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
             ReleaseContractFiles(outputFolder, contractFiles, application, log);
 
-            GuardrailsModelCleanup.Apply(model, rows, log);
+            var wroteCheck = GuardrailsModelCleanup.Apply(model, rows, log);
+            CorrectModel(model, outputFolder, Path.Combine(solution.SolutionRootLocation, ".cache", "modules"), wroteCheck, log);
             model.SaveAllChanges();
 
             foreach (var file in recipeFiles)
@@ -112,16 +114,21 @@ namespace Intent.Modules.Common.Drift.EngineMigration
         }
 
         /// <summary>
-        /// Drops the converted type exceptions that name a type the drift engine never reports as unmodelled
-        /// (<see cref="V1Coverage.NeverUnmodelled"/>): v1's exception for a modelled type covered a finding of its own
-        /// conventions, and on the engine the row would match nothing and warn on the first run.
+        /// Drops the converted exceptions that name what the drift engine never reports as unmodelled: a modelled type
+        /// (<see cref="V1Coverage.NeverUnmodelled"/>), whose v1 exception covered a finding of its own conventions, and an
+        /// override or a member every type has (<see cref="V1Coverage.NeverUnmodelledMembers"/>), which v1 reported and the
+        /// engine doesn't. On the engine each row would match nothing and warn on the first run.
         /// </summary>
-        private static void DropUnmatched(ConvertedRecipes rows, IReadOnlyCollection<string> neverUnmodelled, ICollection<string> log)
+        private static void DropUnmatched(ConvertedRecipes rows, IReadOnlyCollection<string> neverUnmodelled, IReadOnlyCollection<string> neverUnmodelledMembers,
+            ICollection<string> log)
         {
             for (var i = rows.Exceptions.Count - 1; i >= 0; i--)
             {
                 var row = rows.Exceptions[i];
-                var dropped = row.Rule == RecipeConversion.UnmodelledType ? row.Matches.Where(neverUnmodelled.Contains).ToList() : new List<string>();
+                var never = row.Rule == RecipeConversion.UnmodelledType ? neverUnmodelled
+                    : row.Rule == RecipeConversion.UnmodelledMember ? neverUnmodelledMembers
+                    : new HashSet<string>();
+                var dropped = row.Matches.Where(never.Contains).ToList();
                 if (dropped.Count == 0)
                 {
                     continue;
@@ -129,7 +136,9 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
                 foreach (var match in dropped)
                 {
-                    log.Add($"Left out v1's exception for `{match}` ({row.Reason}): it names a modelled type, which the drift engine never reports as unmodelled.");
+                    log.Add(row.Rule == RecipeConversion.UnmodelledType
+                        ? $"Left out v1's exception for `{match}` ({row.Reason}): it names a modelled type, which the drift engine never reports as unmodelled."
+                        : $"Left out v1's exception for `{match}` ({row.Reason}): it names an override, or a member every type has, which the drift engine never reports as unmodelled.");
                 }
 
                 var kept = row.Matches.Where(x => !dropped.Contains(x)).ToList();
@@ -141,6 +150,24 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                 {
                     rows.Exceptions[i] = row with { Matches = kept };
                 }
+            }
+        }
+
+        /// <summary>
+        /// Brings the moved model into line with the unchanged code (<see cref="ModelCorrections"/>), before the one save. The
+        /// engine's assemblies are Intent.Common.DriftEngine's, which the task host loads from that module's <c>lib</c> folder;
+        /// if they won't load, or the pass fails, the move still completes and the first run reports what it would have corrected.
+        /// Each correction is a true statement on its own, so one made before a failure is kept.
+        /// </summary>
+        private static void CorrectModel(ApplicationPersistable model, string outputFolder, string moduleCache, bool tidyExceptions, ICollection<string> log)
+        {
+            try
+            {
+                ModelCorrections.Apply(model, outputFolder, moduleCache, tidyExceptions, log);
+            }
+            catch (Exception e)
+            {
+                log.Add($"Warning: the drift engine couldn't bring the model into line with the code ({e.GetType().Name}: {e.Message}), so the first Software Factory run may report drift v1 never did.");
             }
         }
 

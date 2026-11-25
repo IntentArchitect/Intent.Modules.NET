@@ -10,11 +10,17 @@
 
 
   <ItemGroup><!-- Supplied at run time by Intent.OutputManager.RoslynWeaver's lib folder (Roslyn 5.0), so it isn't shipped. Keep it at or below that version. -->
-  
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0">
+
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup><!-- The move runs the drift engine to bring the model into line with the code. Intent.Common.DriftEngine ships these assemblies, and the task host loads them from its lib folder, so they aren't shipped here or passed on to the Guardrails modules. -->
+
+    <ProjectReference Include="..\Intent.Modules.Common.DriftEngine.Core\Intent.Modules.Common.DriftEngine.Core.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Intent.Modules.Common.DriftEngine.Stacks\Intent.Modules.Common.DriftEngine.Stacks.csproj" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup><!-- The migration's persistence model. The client supplies both at run time; 3.7.4 is the first with item-list rows. -->
@@ -29,7 +35,8 @@
     </PackageReference>
     <PackageReference Include="Intent.Persistence.SDK" Version="1.0.3" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="3.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0-pre.1" />
+    <!-- 3.14.0 is the drift engine's. Private, so the Guardrails modules keep the 3.14.0-pre.1 they reference themselves. -->
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.14.0" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

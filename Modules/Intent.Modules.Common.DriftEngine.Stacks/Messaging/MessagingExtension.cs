@@ -338,7 +338,8 @@ internal sealed class MessageLinkReader : IClaimReader
         }
 
         return ClaimReading.Compared("absent", unit.Member.At, false,
-            $"{MessageCode.Describe(source)} {link.Verb} `{message.Name}` in the model, but it isn't in the code: no `{message.Name}`, new or typed as one, is handed on in {where} or the code's own methods it calls ({unit.Member.At.File}). Remove the {link.Link} link if the code is right.");
+                $"{MessageCode.Describe(source)} {link.Verb} `{message.Name}` in the model, but it isn't in the code: no `{message.Name}`, new or typed as one, is handed on in {where} or the code's own methods it calls ({unit.Member.At.File}). Remove the {link.Link} link if the code is right.")
+            .Correcting(new ModelCorrection(ModelCorrection.RemoveLink, end.Id));
     }
 }
 
@@ -405,7 +406,14 @@ internal sealed class UnmodelledMessages : IDriftRule
                 yield return new Finding(link.Rule, link.Designer, "ModelCode", "error",
                     $"`{MessageCode.Display(send.Type, send.Member)}` {link.Verb} `{name}` ({send.Call.At.File}:{send.Call.At.Line}), which the diagram doesn't show. {text}",
                     new Anchor(File: send.Call.At.File, Line: send.Call.At.Line),
-                    Against: fix.Against is { } against ? [new Anchor(Element: against.Id)] : null);
+                    Against: fix.Against is { } against ? [new Anchor(Element: against.Id)] : null)
+                {
+                    // Only the link from a source the diagram already has to a message it already has: modelling an operation or a
+                    // subscription first is a judgement of what the code is for.
+                    Corrections = fix.From is { } from && send.Modelled is { } message
+                        ? [new ModelCorrection(ModelCorrection.AddLink, from.Id) { Association = link.Association, Target = message.Id }]
+                        : []
+                };
             }
         }
 
@@ -458,8 +466,8 @@ internal sealed class UnmodelledMessages : IDriftRule
     }
 
     /// <summary>
-    /// Whether a call is a raise of the link's kind the diagram may not show (2026-11-24, from CrmBus.Api's move onto the
-    /// engine). Not when its message reaches a call a link covers: the diagram shows it at the method the link starts from,
+    /// Whether a call is a raise of the link's kind the diagram may not show (2026-11-24, from ClientB's API application's
+    /// move onto the engine). Not when its message reaches a call a link covers: the diagram shows it at the method the link starts from,
     /// as a modelled operation that calls the modelled one that publishes. For a publish or a send, only when what it ends in
     /// (<see cref="MessageCode.Ends"/>) hands the message to a transport, or it ends in the code's own keeping, as an
     /// outbox's entry: a serializer's <c>SerializeObject(message)</c>, a list's <c>Add</c> or a log line hands it to none.
@@ -549,28 +557,28 @@ internal sealed class UnmodelledMessages : IDriftRule
     }
 
     /// <summary>
-    /// Where the diagram would show the send: the fix, and the element it is against. Null when the code is nothing the
-    /// diagram can show, so the send is no drift.
+    /// Where the diagram would show the send: the fix, the element it is against, and the modelled source the link would start
+    /// from, when there is one. Null when the code is nothing the diagram can show, so the send is no drift.
     /// </summary>
-    private static (string Text, IElement? Against)? Fix(RuleContext context, MessageLink link, Send send, Dictionary<CallNode, (IElement Source, bool Own)> reach, IReadOnlyDictionary<TypeNode, IElement> modelled)
+    private static (string Text, IElement? Against, IElement? From)? Fix(RuleContext context, MessageLink link, Send send, Dictionary<CallNode, (IElement Source, bool Own)> reach, IReadOnlyDictionary<TypeNode, IElement> modelled)
     {
         var name = send.Message.Name;
         if (reach.TryGetValue(send.Call, out var reached))
         {
             return ($"Add a {link.Link} link to `{name}` from {Name(context, reached.Source)}{(reached.Own ? "" : ", whose code calls this")}.",
-                reached.Source is IAssociationEnd ? context.Model.Owner(reached.Source) : reached.Source);
+                reached.Source is IAssociationEnd ? context.Model.Owner(reached.Source) : reached.Source, reached.Source);
         }
 
         if (context.ElementOf(send.Type) is { } owner && owner.Designer == link.Designer && owner.Element.SpecializationType is "Class" or "Service")
         {
             var member = send.Member.Kind == "constructor" ? "the constructor" : $"`{send.Member.Name}`";
-            return ($"Model {member} on `{owner.Element.Name}`, then add a {link.Link} link from it to `{name}`.", owner.Element);
+            return ($"Model {member} on `{owner.Element.Name}`, then add a {link.Link} link from it to `{name}`.", owner.Element, null);
         }
 
         if (link.Designer == "Services"
             && send.Member.Parameters.Select(x => x.Type is { } type ? context.Code.TypeFor(type, send.Type) : null).FirstOrDefault(x => x is not null && modelled.ContainsKey(x)) is { } handled)
         {
-            return ($"Model `{send.Type.Name}` as a handler of `{handled.Name}`, then add a {link.Link} link to `{name}` from its subscription.", modelled[handled]);
+            return ($"Model `{send.Type.Name}` as a handler of `{handled.Name}`, then add a {link.Link} link to `{name}` from its subscription.", modelled[handled], null);
         }
 
         return null;
@@ -663,7 +671,7 @@ internal static class MessageCode
     /// each with the method's own call that leads to it: itself, or its call of the method that does. A method does what the
     /// methods it delegates to do, its type's and its collaborators' alike (<see cref="Bodies"/>): a handler that has a helper send.
     /// The method itself hands on a message it takes, as a parameter, from outside the code: an action's request body passed to
-    /// the logic that sends it (<c>_quoteLogic.SubmitQuoteAsync(quote)</c>). A method it calls doesn't: its caller handed it in,
+    /// the logic that sends it (<c>_orderLogic.SubmitOrderAsync(order)</c>). A method it calls doesn't: its caller handed it in,
     /// and the caller's call is the one that hands it on (<see cref="HandsOn(CodeGraph, TypeNode, MemberNode, CallNode, int, TypeRefNode)"/>).
     /// </summary>
     /// <returns>Each raising call, the call in the member that leads to it, and the type whose method makes it.</returns>
@@ -891,7 +899,7 @@ internal static class MessageCode
     /// <summary>
     /// Whether a raise is the other kind of link's, by the library calls it ends in (<see cref="Ends"/>): one named with the
     /// other link's word (<c>Publish</c> for a send) and none with this link's. A call through the code's own wrapper is what
-    /// the wrapper does: CrmBus's <c>_sender.SendAsync(message, session)</c> publishes, as its body is
+    /// the wrapper does: ClientB's <c>_sender.SendAsync(message, session)</c> publishes, as its body is
     /// <c>session.Publish(message)</c>.
     /// </summary>
     public static bool IsOther(CodeGraph code, TypeNode type, CallNode call, MessageLink link)

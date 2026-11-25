@@ -356,6 +356,180 @@ public class OrderConfiguration(Microsoft.Extensions.Options.IOptions<OrderLimit
 }
 ```
 
+## verified-by-ef6-properties-convention
+
+No configuration of `Order` states a length; the EF6 context's `modelBuilder.Properties<string>().Configure(x => x.HasMaxLength(200))` states it for every string property it maps.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["column.maxLength"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/OrderingContext.cs
+using System.Data.Entity;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class OrderingContext : DbContext
+{
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.Properties<string>().Configure(x => x.HasMaxLength(200));
+    }
+
+    public virtual DbSet<Order> Orders { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.maxLength", "element": "order-description", "outcome": "verified", "expected": "200", "actual": "200",
+      "at": "src/Infrastructure/OrderingContext.cs:10" }
+  ]
+}
+```
+
+## verified-by-ef-core-configure-conventions
+
+EF Core's form of the same convention: `ConfigureConventions` gives every string property the length with `HaveMaxLength(200)`.
+
+```json case
+{ "phase": 4, "base": "verified", "without": ["src/Infrastructure/Persistence/OrderConfiguration.cs"], "kinds": ["column.maxLength"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/OrderingContext.cs
+using Microsoft.EntityFrameworkCore;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class OrderingContext : DbContext
+{
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.Properties<string>().AreUnicode(false).HaveMaxLength(200);
+    }
+
+    public DbSet<Order> Orders => Set<Order>();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.maxLength", "element": "order-description", "outcome": "verified", "expected": "200", "actual": "200",
+      "at": "src/Infrastructure/OrderingContext.cs:10" }
+  ]
+}
+```
+
+## property-overrides-the-convention
+
+The context gives every string 50, and `Description`'s own `[MaxLength(200)]` overrides it, as a property's configuration does in EF6 and EF Core, so the column is 200 long.
+
+```json case
+{ "phase": 4, "base": "verified-by-ef6-properties-convention", "kinds": ["column.maxLength"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace Shop.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    [MaxLength(200)]
+    public string Description { get; private set; }
+}
+```
+
+```csharp file src/Infrastructure/OrderingContext.cs
+using System.Data.Entity;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class OrderingContext : DbContext
+{
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.Properties<string>().Configure(x => x.HasMaxLength(50));
+    }
+
+    public virtual DbSet<Order> Orders { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.maxLength", "element": "order-description", "outcome": "verified", "expected": "200", "actual": "200",
+      "at": "src/Domain/Order.cs:9" }
+  ]
+}
+```
+
+## unbounded-attribute-overrides-the-convention
+
+`Description`'s `[MaxLength]` with no length makes its column unbounded, which the context's convention for strings doesn't change, so the model's 200 is contradicted, not stated.
+
+```json case
+{ "phase": 4, "base": "verified-by-ef6-properties-convention", "kinds": ["column.maxLength"], "requirements": ["R4"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace Shop.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    [MaxLength]
+    public string Description { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.maxLength", "element": "order-description", "outcome": "contradicted", "expected": "200", "actual": null, "fromSilence": false }
+  ]
+}
+```
+
+## convention-contradicted
+
+The context's convention gives every string 50, and nothing on `Description` overrides it, so the model's 200 is contradicted, at the convention.
+
+```json case
+{ "phase": 4, "base": "property-overrides-the-convention", "kinds": ["column.maxLength"], "requirements": ["R1"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    public string Description { get; private set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.maxLength", "element": "order-description", "outcome": "contradicted", "expected": "200", "actual": "50",
+      "at": "src/Infrastructure/OrderingContext.cs:10" }
+  ]
+}
+```
+
 ## enum-verified
 
 eShopCustom stores `Order.OrderStatus` as text, with the Enum Storage stereotype from its own module: As `String`, Max Length 30. ESC-DOM-49 checks that length against `HasMaxLength(30)` too. No stock pack knows the module's stereotype, so a house pack gives the vocabulary: a `column.maxLength` entry for attributes with Enum Storage, valued from its Max Length. The stock EF Core rule reads the length as it does for a string.

@@ -478,7 +478,7 @@ public static class OrdersApi
 
 ## action-result-body
 
-A controller action returning `IActionResult`, or `Task<IActionResult>`, doesn't state what it succeeds with, so the ASP.NET Core stack reads each return for the success result it builds, and what that carries is what the action returns: `Ok(data)` is `data`'s type, here what `ICommodityService.GetAllAsync` gives once awaited, `CommodityDTO[]`. `commodity is null ? NotFound() : Ok(commodity)` is an error result, which the model doesn't state, or a `CommodityDTO`; `NoContent()` has no body, so `Delete` returns nothing.
+A controller action returning `IActionResult`, or `Task<IActionResult>`, doesn't state what it succeeds with, so the ASP.NET Core stack reads each return for the success result it builds, and what that carries is what the action returns: `Ok(data)` is `data`'s type, here what `IProductService.GetAllAsync` gives once awaited, `ProductDTO[]`. `product is null ? NotFound() : Ok(product)` is an error result, which the model doesn't state, or a `ProductDTO`; `NoContent()` has no body, so `Delete` returns nothing.
 
 ```json case
 { "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -489,92 +489,92 @@ A controller action returning `IActionResult`, or `Task<IActionResult>`, doesn't
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "BasisLink.Api",
+        "id": "services", "name": "Acme.Api",
         "elements": [
-          { "id": "commodity-dto", "type": "DTO", "name": "CommodityDTO",
+          { "id": "product-dto", "type": "DTO", "name": "ProductDTO",
             "children": [
-              { "id": "commodity-dto-code", "type": "DTO-Field", "name": "Code", "typeRef": { "type": "string" } }
+              { "id": "product-dto-code", "type": "DTO-Field", "name": "Code", "typeRef": { "type": "string" } }
             ] },
-          { "id": "commodity-material-service", "type": "Service", "name": "CommodityMaterialService",
-            "stereotypes": { "Http Service Settings": { "Route": "api/commodity-material" } },
+          { "id": "product-catalog-service", "type": "Service", "name": "ProductCatalogService",
+            "stereotypes": { "Http Service Settings": { "Route": "api/product-catalog" } },
             "children": [
-              { "id": "commodity-material-get-all", "type": "Operation", "name": "GetAll", "typeRef": { "element": "commodity-dto", "collection": true },
+              { "id": "product-catalog-get-all", "type": "Operation", "name": "GetAll", "typeRef": { "element": "product-dto", "collection": true },
                 "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "" } } },
-              { "id": "commodity-material-get", "type": "Operation", "name": "Get", "typeRef": { "element": "commodity-dto" },
+              { "id": "product-catalog-get", "type": "Operation", "name": "Get", "typeRef": { "element": "product-dto" },
                 "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{id}" } },
                 "children": [
-                  { "id": "commodity-material-get-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                  { "id": "product-catalog-get-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
                 ] },
-              { "id": "commodity-material-delete", "type": "Operation", "name": "Delete",
+              { "id": "product-catalog-delete", "type": "Operation", "name": "Delete",
                 "stereotypes": { "Http Settings": { "Verb": "DELETE", "Route": "{id}" } },
                 "children": [
-                  { "id": "commodity-material-delete-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                  { "id": "product-catalog-delete-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
                 ] }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/BasisLink.Api/Commodities/CommodityDTO.cs
-namespace BasisLink.Api.Commodities;
+```csharp file src/Acme.Api/Products/ProductDTO.cs
+namespace Acme.Api.Products;
 
-public class CommodityDTO
+public class ProductDTO
 {
     public string Code { get; set; } = "";
 }
 
-public interface ICommodityService
+public interface IProductService
 {
-    Task<CommodityDTO[]> GetAllAsync();
+    Task<ProductDTO[]> GetAllAsync();
 
-    Task<CommodityDTO?> FindAsync(int id);
+    Task<ProductDTO?> FindAsync(int id);
 
     Task DeleteAsync(int id);
 }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
-using BasisLink.Api.Commodities;
+```csharp file src/Acme.Api/Controllers/ProductCatalogController.cs
+using Acme.Api.Products;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
-[Route("api/commodity-material")]
-public class CommodityMaterialController : ControllerBase
+[Route("api/product-catalog")]
+public class ProductCatalogController : ControllerBase
 {
-    private readonly ICommodityService _commodities;
+    private readonly IProductService _products;
 
-    public CommodityMaterialController(ICommodityService commodities)
+    public ProductCatalogController(IProductService products)
     {
-        _commodities = commodities;
+        _products = products;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var data = await _commodities.GetAllAsync();
+        var data = await _products.GetAllAsync();
         return Ok(data);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {
-        var commodity = await _commodities.FindAsync(id);
-        return commodity is null ? NotFound() : Ok(commodity);
+        var product = await _products.FindAsync(id);
+        return product is null ? NotFound() : Ok(product);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        await _commodities.DeleteAsync(id);
+        await _products.DeleteAsync(id);
         return NoContent();
     }
 }
@@ -583,9 +583,9 @@ public class CommodityMaterialController : ControllerBase
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "verified", "expected": "CommodityDTO[]", "actual": "Task<IActionResult> with CommodityDTO[]" },
-    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "verified", "expected": "CommodityDTO", "actual": "Task<IActionResult> with CommodityDTO?" },
-    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "verified", "actual": "Task<IActionResult> with no body" }
+    { "kind": "operation.returns", "element": "product-catalog-get-all", "outcome": "verified", "expected": "ProductDTO[]", "actual": "Task<IActionResult> with ProductDTO[]" },
+    { "kind": "operation.returns", "element": "product-catalog-get", "outcome": "verified", "expected": "ProductDTO", "actual": "Task<IActionResult> with ProductDTO?" },
+    { "kind": "operation.returns", "element": "product-catalog-delete", "outcome": "verified", "actual": "Task<IActionResult> with no body" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -595,46 +595,46 @@ public class CommodityMaterialController : ControllerBase
 
 ## action-result-body-contradicted
 
-`Get` now succeeds with every commodity, `Ok(await _commodities.GetAllAsync())`, against the model's single `CommodityDTO`; `Delete` succeeds with `Ok(id)`, an `int`, against a model that returns nothing. Both are contradicted.
+`Get` now succeeds with every product, `Ok(await _products.GetAllAsync())`, against the model's single `ProductDTO`; `Delete` succeeds with `Ok(id)`, an `int`, against a model that returns nothing. Both are contradicted.
 
 ```json case
 { "phase": 4, "base": "action-result-body", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
-using BasisLink.Api.Commodities;
+```csharp file src/Acme.Api/Controllers/ProductCatalogController.cs
+using Acme.Api.Products;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
-[Route("api/commodity-material")]
-public class CommodityMaterialController : ControllerBase
+[Route("api/product-catalog")]
+public class ProductCatalogController : ControllerBase
 {
-    private readonly ICommodityService _commodities;
+    private readonly IProductService _products;
 
-    public CommodityMaterialController(ICommodityService commodities)
+    public ProductCatalogController(IProductService products)
     {
-        _commodities = commodities;
+        _products = products;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var data = await _commodities.GetAllAsync();
+        var data = await _products.GetAllAsync();
         return Ok(data);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {
-        return Ok(await _commodities.GetAllAsync());
+        return Ok(await _products.GetAllAsync());
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        await _commodities.DeleteAsync(id);
+        await _products.DeleteAsync(id);
         return Ok(id);
     }
 }
@@ -643,13 +643,13 @@ public class CommodityMaterialController : ControllerBase
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "verified", "expected": "CommodityDTO[]" },
-    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "contradicted", "expected": "CommodityDTO", "actual": "Task<IActionResult> with CommodityDTO[]" },
-    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "contradicted", "actual": "Task<IActionResult> with int" }
+    { "kind": "operation.returns", "element": "product-catalog-get-all", "outcome": "verified", "expected": "ProductDTO[]" },
+    { "kind": "operation.returns", "element": "product-catalog-get", "outcome": "contradicted", "expected": "ProductDTO", "actual": "Task<IActionResult> with ProductDTO[]" },
+    { "kind": "operation.returns", "element": "product-catalog-delete", "outcome": "contradicted", "actual": "Task<IActionResult> with int" }
   ],
   "findings": [
-    { "rule": "claim/operation.returns", "severity": "error", "subject": "commodity-material-get" },
-    { "rule": "claim/operation.returns", "severity": "error", "subject": "commodity-material-delete" }
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "product-catalog-get" },
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "product-catalog-delete" }
   ]
 }
 ```
@@ -662,20 +662,20 @@ public class CommodityMaterialController : ControllerBase
 { "phase": 4, "base": "action-result-body", "kinds": ["operation.returns"], "requirements": ["R2", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
-using BasisLink.Api.Commodities;
+```csharp file src/Acme.Api/Controllers/ProductCatalogController.cs
+using Acme.Api.Products;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
-[Route("api/commodity-material")]
-public class CommodityMaterialController : ControllerBase
+[Route("api/product-catalog")]
+public class ProductCatalogController : ControllerBase
 {
     private readonly Dictionary<int, object> _cache;
     private readonly IResultFactory _results;
 
-    public CommodityMaterialController(Dictionary<int, object> cache, IResultFactory results)
+    public ProductCatalogController(Dictionary<int, object> cache, IResultFactory results)
     {
         _cache = cache;
         _results = results;
@@ -704,9 +704,9 @@ public class CommodityMaterialController : ControllerBase
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "cantVerify", "reason": "unresolved" },
-    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "cantVerify", "reason": "unreadable" },
-    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "verified", "actual": "IActionResult with no body" }
+    { "kind": "operation.returns", "element": "product-catalog-get-all", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "operation.returns", "element": "product-catalog-get", "outcome": "cantVerify", "reason": "unreadable" },
+    { "kind": "operation.returns", "element": "product-catalog-delete", "outcome": "verified", "actual": "IActionResult with no body" }
   ]
 }
 ```
@@ -724,7 +724,7 @@ public class CommodityMaterialController : ControllerBase
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "BasisLink.Api",
+        "id": "services", "name": "Acme.Api",
         "elements": [
           { "id": "bid-import-service", "type": "Service", "name": "BidImportService",
             "stereotypes": { "Http Service Settings": { "Route": "api/bid-import" } },
@@ -736,17 +736,17 @@ public class CommodityMaterialController : ControllerBase
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/BidImportController.cs
+```csharp file src/Acme.Api/Controllers/BidImportController.cs
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 public interface ITemplateService
 {
@@ -796,7 +796,7 @@ The model says `GetTemplate` returns a collection of strings, which the file's `
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "BasisLink.Api",
+        "id": "services", "name": "Acme.Api",
         "elements": [
           { "id": "bid-import-service", "type": "Service", "name": "BidImportService",
             "stereotypes": { "Http Service Settings": { "Route": "api/bid-import" } },
@@ -808,7 +808,7 @@ The model says `GetTemplate` returns a collection of strings, which the file's `
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
@@ -839,7 +839,7 @@ What an action's success carries is read as the code types it. A literal is its 
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "BasisLink.Api",
+        "id": "services", "name": "Acme.Api",
         "elements": [
           { "id": "notification-dto", "type": "DTO", "name": "NotificationDTO",
             "children": [
@@ -872,15 +872,15 @@ What an action's success carries is read as the code types it. A literal is its 
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/BasisLink.Api/Business/Features.cs
-namespace BasisLink.Api.Business;
+```csharp file src/Acme.Api/Business/Features.cs
+namespace Acme.Api.Business;
 
 public enum BidTypeGroup
 {
@@ -918,11 +918,11 @@ public class Bids
 }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/FeatureController.cs
-using BasisLink.Api.Business;
+```csharp file src/Acme.Api/Controllers/FeatureController.cs
+using Acme.Api.Business;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
 [Route("api/feature")]
@@ -995,11 +995,11 @@ public class FeatureController : ControllerBase
 { "phase": 4, "base": "action-result-body-values", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/FeatureController.cs
-using BasisLink.Api.Business;
+```csharp file src/Acme.Api/Controllers/FeatureController.cs
+using Acme.Api.Business;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
 [Route("api/feature")]
@@ -1066,10 +1066,10 @@ public class FeatureController : ControllerBase
 More of what an action's success carries is read as the code types it:
 
 - An anonymous object is the modelled type of its shape, its members by name with case aside: `new { Id = id }` is `IdResult`'s one `Id`. Against the model's `object` it is any shape: `new { Success = success, Message = $"…" }`.
-- A `GroupBy(...).Select(x => new { x.Key.Silo }).ToList()` is a list of that anonymous shape, `SiloDTO`'s.
+- A `GroupBy(...).Select(x => new { x.Key.Region }).ToList()` is a list of that anonymous shape, `RegionDTO`'s.
 - A deserializer's or a mapper's type argument is what it gives: `JsonConvert.DeserializeObject<AnalysisDTO>(json)`, `Mapper.Map<BidDTO>(bid)`. The fallback `Ok()` beside a body returns nothing of its type, not another type.
 - A `DateTime`'s `ToLocalTime()` is a `DateTime`.
-- A query over what the code's own method gives keeps its element: `GetCacheData<IEnumerable<GradeDTO>>(...).ToList()`, then `Where(...).FirstOrDefault()`, is one `GradeDTO`.
+- A query over what the code's own method gives keeps its element: `GetCacheData<IEnumerable<CategoryDTO>>(...).ToList()`, then `Where(...).FirstOrDefault()`, is one `CategoryDTO`.
 - A file sent as bytes is the model's `Stream` as much as its `binary`.
 
 ```json case
@@ -1081,18 +1081,18 @@ More of what an action's success carries is read as the code types it:
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "Basislink.API",
+        "id": "services", "name": "Acme.API",
         "elements": [
           { "id": "id-result", "type": "DTO", "name": "IdResult",
             "children": [ { "id": "id-result-id", "type": "DTO-Field", "name": "Id", "typeRef": { "type": "int" } } ] },
-          { "id": "silo-dto", "type": "DTO", "name": "SiloDTO",
-            "children": [ { "id": "silo-dto-silo", "type": "DTO-Field", "name": "silo", "typeRef": { "type": "string" } } ] },
+          { "id": "region-dto", "type": "DTO", "name": "RegionDTO",
+            "children": [ { "id": "region-dto-region", "type": "DTO-Field", "name": "region", "typeRef": { "type": "string" } } ] },
           { "id": "analysis-dto", "type": "DTO", "name": "AnalysisDTO",
             "children": [ { "id": "analysis-dto-summary", "type": "DTO-Field", "name": "Summary", "typeRef": { "type": "string" } } ] },
           { "id": "bid-dto", "type": "DTO", "name": "BidDTO",
             "children": [ { "id": "bid-dto-number", "type": "DTO-Field", "name": "Number", "typeRef": { "type": "int" } } ] },
-          { "id": "grade-dto", "type": "DTO", "name": "GradeDTO",
-            "children": [ { "id": "grade-dto-link", "type": "DTO-Field", "name": "link", "typeRef": { "type": "string" } } ] },
+          { "id": "category-dto", "type": "DTO", "name": "CategoryDTO",
+            "children": [ { "id": "category-dto-link", "type": "DTO-Field", "name": "link", "typeRef": { "type": "string" } } ] },
           { "id": "shapes-service", "type": "Service", "name": "ShapesService",
             "stereotypes": { "Http Service Settings": { "Route": "api/shapes" } },
             "children": [
@@ -1100,17 +1100,17 @@ More of what an action's success carries is read as the code types it:
                 "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "member" } } },
               { "id": "shapes-add-role", "type": "Operation", "name": "AddRole", "typeRef": { "type": "object" },
                 "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "role" } } },
-              { "id": "shapes-get-silos", "type": "Operation", "name": "GetSilos", "typeRef": { "element": "silo-dto", "collection": true },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "silos" } } },
+              { "id": "shapes-get-regions", "type": "Operation", "name": "GetRegions", "typeRef": { "element": "region-dto", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "regions" } } },
               { "id": "shapes-analyze", "type": "Operation", "name": "Analyze", "typeRef": { "element": "analysis-dto" },
                 "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "analyze" } } },
               { "id": "shapes-create-bid", "type": "Operation", "name": "CreateBid", "typeRef": { "element": "bid-dto" },
                 "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "bid" } } },
               { "id": "shapes-get-expiry", "type": "Operation", "name": "GetExpiry", "typeRef": { "type": "datetime" },
                 "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "expiry" } } },
-              { "id": "shapes-get-grade", "type": "Operation", "name": "GetGrade", "typeRef": { "element": "grade-dto" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "grade/{material}" } },
-                "children": [ { "id": "shapes-get-grade-material", "type": "Parameter", "name": "material", "typeRef": { "type": "string" } } ] },
+              { "id": "shapes-get-category", "type": "Operation", "name": "GetCategory", "typeRef": { "element": "category-dto" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "category/{material}" } },
+                "children": [ { "id": "shapes-get-category-material", "type": "Parameter", "name": "material", "typeRef": { "type": "string" } } ] },
               { "id": "shapes-get-template", "type": "Operation", "name": "GetTemplate", "typeRef": { "element": "stream" },
                 "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "template" } } }
             ] }
@@ -1121,21 +1121,21 @@ More of what an action's success carries is read as the code types it:
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "Basislink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/Basislink.API/Business/Business.cs
-namespace Basislink.API.Business;
+```csharp file src/Acme.API/Business/Business.cs
+namespace Acme.API.Business;
 
 public class Bid
 {
     public int Number { get; set; }
 
-    public string silo { get; set; } = "";
+    public string region { get; set; } = "";
 }
 
 public class BidDTO
@@ -1148,7 +1148,7 @@ public class AnalysisDTO
     public string Summary { get; set; } = "";
 }
 
-public class GradeDTO
+public class CategoryDTO
 {
     public string link { get; set; } = "";
 }
@@ -1166,19 +1166,19 @@ public class Bids
 
     public int CreateMember() => 1;
 
-    public IEnumerable<GradeDTO> GetGrades() => new List<GradeDTO>();
+    public IEnumerable<CategoryDTO> GetCategories() => new List<CategoryDTO>();
 
     public byte[] BuildTemplate() => new byte[0];
 }
 ```
 
-```csharp file src/Basislink.API/Controllers/ShapesController.cs
+```csharp file src/Acme.API/Controllers/ShapesController.cs
 using AutoMapper;
-using Basislink.API.Business;
+using Acme.API.Business;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace Basislink.API.Controllers;
+namespace Acme.API.Controllers;
 
 [ApiController]
 [Route("api/shapes")]
@@ -1207,11 +1207,11 @@ public class ShapesController : ControllerBase
         return Ok(new { Success = success, Message = $"Role assigned {success}" });
     }
 
-    [HttpGet("silos")]
-    public IActionResult GetSilos()
+    [HttpGet("regions")]
+    public IActionResult GetRegions()
     {
-        var silos = _bids.GetBidSummary().GroupBy(x => new { x.silo }).Select(x => new { x.Key.silo }).ToList();
-        return Ok(silos);
+        var regions = _bids.GetBidSummary().GroupBy(x => new { x.region }).Select(x => new { x.Key.region }).ToList();
+        return Ok(regions);
     }
 
     [HttpPost("analyze")]
@@ -1240,12 +1240,12 @@ public class ShapesController : ControllerBase
         return Ok(_bids.GetDefaultBidExpiryDate().ToLocalTime());
     }
 
-    [HttpGet("grade/{material}")]
-    public IActionResult GetGrade(string material)
+    [HttpGet("category/{material}")]
+    public IActionResult GetCategory(string material)
     {
-        var all = _cache.GetCacheData<IEnumerable<GradeDTO>>("grades", 60, _bids.GetGrades).ToList();
-        var grade = all.Where(x => x.link == material).FirstOrDefault();
-        return Ok(grade);
+        var all = _cache.GetCacheData<IEnumerable<CategoryDTO>>("categories", 60, _bids.GetCategories).ToList();
+        var category = all.Where(x => x.link == material).FirstOrDefault();
+        return Ok(category);
     }
 
     [HttpGet("template")]
@@ -1262,11 +1262,11 @@ public class ShapesController : ControllerBase
   "claims": [
     { "kind": "operation.returns", "element": "shapes-add-member", "outcome": "verified", "actual": "IActionResult with new { Id }" },
     { "kind": "operation.returns", "element": "shapes-add-role", "outcome": "verified", "actual": "IActionResult with new { Success, Message }" },
-    { "kind": "operation.returns", "element": "shapes-get-silos", "outcome": "verified", "actual": "IActionResult with List<new { silo }>" },
+    { "kind": "operation.returns", "element": "shapes-get-regions", "outcome": "verified", "actual": "IActionResult with List<new { region }>" },
     { "kind": "operation.returns", "element": "shapes-analyze", "outcome": "verified", "actual": "IActionResult with AnalysisDTO" },
     { "kind": "operation.returns", "element": "shapes-create-bid", "outcome": "verified", "actual": "IActionResult with BidDTO" },
     { "kind": "operation.returns", "element": "shapes-get-expiry", "outcome": "verified", "actual": "IActionResult with DateTime" },
-    { "kind": "operation.returns", "element": "shapes-get-grade", "outcome": "verified", "actual": "IActionResult with GradeDTO" },
+    { "kind": "operation.returns", "element": "shapes-get-category", "outcome": "verified", "actual": "IActionResult with CategoryDTO" },
     { "kind": "operation.returns", "element": "shapes-get-template", "outcome": "verified", "actual": "IActionResult with byte[]" }
   ],
   "findings": [
@@ -1283,13 +1283,13 @@ public class ShapesController : ControllerBase
 { "phase": 4, "base": "action-result-body-shapes", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/Basislink.API/Controllers/ShapesController.cs
+```csharp file src/Acme.API/Controllers/ShapesController.cs
 using AutoMapper;
-using Basislink.API.Business;
+using Acme.API.Business;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace Basislink.API.Controllers;
+namespace Acme.API.Controllers;
 
 [ApiController]
 [Route("api/shapes")]
@@ -1318,11 +1318,11 @@ public class ShapesController : ControllerBase
         return Ok(new { Success = success, Message = $"Role assigned {success}" });
     }
 
-    [HttpGet("silos")]
-    public IActionResult GetSilos()
+    [HttpGet("regions")]
+    public IActionResult GetRegions()
     {
-        var silos = _bids.GetBidSummary().GroupBy(x => new { x.silo }).Select(x => new { x.Key.silo }).ToList();
-        return Ok(silos);
+        var regions = _bids.GetBidSummary().GroupBy(x => new { x.region }).Select(x => new { x.Key.region }).ToList();
+        return Ok(regions);
     }
 
     [HttpPost("analyze")]
@@ -1351,12 +1351,12 @@ public class ShapesController : ControllerBase
         return Ok(_bids.GetDefaultBidExpiryDate().ToLocalTime());
     }
 
-    [HttpGet("grade/{material}")]
-    public IActionResult GetGrade(string material)
+    [HttpGet("category/{material}")]
+    public IActionResult GetCategory(string material)
     {
-        var all = _cache.GetCacheData<IEnumerable<GradeDTO>>("grades", 60, _bids.GetGrades).ToList();
-        var grade = all.Where(x => x.link == material).FirstOrDefault();
-        return Ok(grade);
+        var all = _cache.GetCacheData<IEnumerable<CategoryDTO>>("categories", 60, _bids.GetCategories).ToList();
+        var category = all.Where(x => x.link == material).FirstOrDefault();
+        return Ok(category);
     }
 
     [HttpGet("template")]
@@ -1639,7 +1639,7 @@ public class HomeController : Controller
 
 ## action-result-declared-type
 
-A Common.Drift model states a controller action's own result type, as its contract was the action's signature: `GetSafex` returns `IActionResult` and `GetCommodities` `Task<IActionResult>`, each with `Ok(data)`, and the model states `IActionResult` for both. That is true of the signature, so both verify. `GetMaterials` states `CommodityDTO`, a body the code doesn't build, so its body is read and it is contradicted; `GetGrades` states `IActionResult` over an action that returns `GradesDTO` itself, which isn't its result type, and is contradicted too. Adapted from BasisLink's controllers.
+A Common.Drift model states a controller action's own result type, as its contract was the action's signature: `GetPrices` returns `IActionResult` and `GetProducts` `Task<IActionResult>`, each with `Ok(data)`, and the model states `IActionResult` for both. That is true of the signature, so both verify. `GetMaterials` states `ProductDTO`, a body the code doesn't build, so its body is read and it is contradicted; `GetCategories` states `IActionResult` over an action that returns `CategoriesDTO` itself, which isn't its result type, and is contradicted too. Adapted from ClientA's controllers.
 
 ```json case
 { "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -1650,91 +1650,91 @@ A Common.Drift model states a controller action's own result type, as its contra
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "BasisLink.Api",
+        "id": "services", "name": "Acme.Api",
         "elements": [
-          { "id": "commodity-dto", "type": "DTO", "name": "CommodityDTO" },
-          { "id": "grain-service", "type": "Service", "name": "GrainController",
-            "stereotypes": { "Http Service Settings": { "Route": "api/grain" } },
+          { "id": "product-dto", "type": "DTO", "name": "ProductDTO" },
+          { "id": "catalog-service", "type": "Service", "name": "CatalogController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/catalog" } },
             "children": [
-              { "id": "get-safex", "type": "Operation", "name": "GetSafex", "typeRef": { "type": "IActionResult" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "safex" } } },
-              { "id": "get-commodities", "type": "Operation", "name": "GetCommodities", "typeRef": { "type": "IActionResult" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "commodities" } } },
-              { "id": "get-materials", "type": "Operation", "name": "GetMaterials", "typeRef": { "element": "commodity-dto" },
+              { "id": "get-prices", "type": "Operation", "name": "GetPrices", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "prices" } } },
+              { "id": "get-products", "type": "Operation", "name": "GetProducts", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "products" } } },
+              { "id": "get-materials", "type": "Operation", "name": "GetMaterials", "typeRef": { "element": "product-dto" },
                 "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "materials" } } },
-              { "id": "get-grades", "type": "Operation", "name": "GetGrades", "typeRef": { "type": "IActionResult" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "grades" } } }
+              { "id": "get-categories", "type": "Operation", "name": "GetCategories", "typeRef": { "type": "IActionResult" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "categories" } } }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "BasisLink", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/GrainController.cs
+```csharp file src/Acme.Api/Controllers/CatalogController.cs
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
-public class CommodityDTO { public string Code { get; set; } = ""; }
+public class ProductDTO { public string Code { get; set; } = ""; }
 
-public class FuturesDTO { public decimal Price { get; set; } }
+public class PriceDTO { public decimal Price { get; set; } }
 
 public class MaterialDTO { public string Name { get; set; } = ""; }
 
-public class GradesDTO { public string Grade { get; set; } = ""; }
+public class CategoriesDTO { public string Category { get; set; } = ""; }
 
 [ApiController]
-[Route("api/grain")]
-public class GrainController : ControllerBase
+[Route("api/catalog")]
+public class CatalogController : ControllerBase
 {
-    [HttpGet("safex")]
-    public IActionResult GetSafex()
+    [HttpGet("prices")]
+    public IActionResult GetPrices()
     {
-        var futures = new FuturesDTO();
-        return Ok(futures);
+        var prices = new PriceDTO();
+        return Ok(prices);
     }
 
-    [HttpGet("commodities")]
-    public async Task<IActionResult> GetCommodities()
+    [HttpGet("products")]
+    public async Task<IActionResult> GetProducts()
     {
         await Task.Yield();
-        return Ok(new List<CommodityDTO>());
+        return Ok(new List<ProductDTO>());
     }
 
     [HttpGet("materials")]
     public IActionResult GetMaterials() => Ok(new List<MaterialDTO>());
 
-    [HttpGet("grades")]
-    public GradesDTO GetGrades() => new GradesDTO();
+    [HttpGet("categories")]
+    public CategoriesDTO GetCategories() => new CategoriesDTO();
 }
 ```
 
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-safex", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult" },
-    { "kind": "operation.returns", "element": "get-commodities", "outcome": "verified", "expected": "IActionResult", "actual": "Task<IActionResult>" },
-    { "kind": "operation.returns", "element": "get-materials", "outcome": "contradicted", "expected": "CommodityDTO", "actual": "IActionResult with List<MaterialDTO>" },
-    { "kind": "operation.returns", "element": "get-grades", "outcome": "contradicted", "expected": "IActionResult" }
+    { "kind": "operation.returns", "element": "get-prices", "outcome": "verified", "expected": "IActionResult", "actual": "IActionResult" },
+    { "kind": "operation.returns", "element": "get-products", "outcome": "verified", "expected": "IActionResult", "actual": "Task<IActionResult>" },
+    { "kind": "operation.returns", "element": "get-materials", "outcome": "contradicted", "expected": "ProductDTO", "actual": "IActionResult with List<MaterialDTO>" },
+    { "kind": "operation.returns", "element": "get-categories", "outcome": "contradicted", "expected": "IActionResult" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "severity": "error", "subject": "get-materials", "messageContains": "MaterialDTO" },
-    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-grades", "messageContains": "GradesDTO" },
-    { "rule": "claim/operation.returns", "subject": "get-safex", "count": 0 },
-    { "rule": "claim/operation.returns", "subject": "get-commodities", "count": 0 }
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-categories", "messageContains": "CategoriesDTO" },
+    { "rule": "claim/operation.returns", "subject": "get-prices", "count": 0 },
+    { "rule": "claim/operation.returns", "subject": "get-products", "count": 0 }
   ]
 }
 ```
 
 ## web-api-2-content-status
 
-A Web API 2 action gives its status first: `Content(HttpStatusCode.OK, model)` succeeds with `model`, and `Content(HttpStatusCode.ExpectationFailed, ex.Message)` is an error result, which the model doesn't state. Any status .NET's `HttpStatusCode` names is read, so the 417 isn't taken for ASP.NET Core's `Content(text)`, a `string` success: the action returns `List<CrmAddressModel>`, the model's collection.
+A Web API 2 action gives its status first: `Content(HttpStatusCode.OK, model)` succeeds with `model`, and `Content(HttpStatusCode.ExpectationFailed, ex.Message)` is an error result, which the model doesn't state. Any status .NET's `HttpStatusCode` names is read, so the 417 isn't taken for ASP.NET Core's `Content(text)`, a `string` success: the action returns `List<AcmeAddressModel>`, the model's collection.
 
 ```json case
 { "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -1745,14 +1745,14 @@ A Web API 2 action gives its status first: `Content(HttpStatusCode.OK, model)` s
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "CrmBus.Crm",
+        "id": "services", "name": "Acme.Crm",
         "elements": [
-          { "id": "crm-address-model", "type": "DTO", "name": "CrmAddressModel",
-            "children": [ { "id": "crm-address-model-line1", "type": "DTO-Field", "name": "Line1", "typeRef": { "type": "string" } } ] },
+          { "id": "acme-address-model", "type": "DTO", "name": "AcmeAddressModel",
+            "children": [ { "id": "acme-address-model-line1", "type": "DTO-Field", "name": "Line1", "typeRef": { "type": "string" } } ] },
           { "id": "address-controller", "type": "Service", "name": "AddressController",
             "stereotypes": { "Http Service Settings": { "Route": "api/Address" } },
             "children": [
-              { "id": "get-address-by-person-id", "type": "Operation", "name": "GetAddressByPersonId", "typeRef": { "element": "crm-address-model", "collection": true },
+              { "id": "get-address-by-person-id", "type": "Operation", "name": "GetAddressByPersonId", "typeRef": { "element": "acme-address-model", "collection": true },
                 "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetAddressByPersonId" } },
                 "children": [ { "id": "get-address-by-person-id-person-id", "type": "Parameter", "name": "personId", "typeRef": { "type": "int" } } ] }
             ] }
@@ -1760,38 +1760,38 @@ A Web API 2 action gives its status first: `Content(HttpStatusCode.OK, model)` s
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/CrmBus.Crm/Models/CrmAddressModel.cs
+```csharp file src/Acme.Crm/Models/AcmeAddressModel.cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CrmBus.Crm.Models;
+namespace Acme.Crm.Models;
 
-public class CrmAddressModel
+public class AcmeAddressModel
 {
     public string Line1 { get; set; } = "";
 }
 
 public interface IAddressLogic
 {
-    Task<List<CrmAddressModel>> GetAddressByPersonId(int personId);
+    Task<List<AcmeAddressModel>> GetAddressByPersonId(int personId);
 }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
@@ -1823,7 +1823,7 @@ public class AddressController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "AcmeAddressModel[]", "actual": "Task<IHttpActionResult> with List<AcmeAddressModel>" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -1839,14 +1839,14 @@ The action now succeeds with `Content(HttpStatusCode.OK, personId)`, an `int`, a
 { "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
@@ -1878,7 +1878,7 @@ public class AddressController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with int" }
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "AcmeAddressModel[]", "actual": "Task<IHttpActionResult> with int" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "severity": "error", "subject": "get-address-by-person-id" }
@@ -1894,14 +1894,14 @@ The action's error path gives its status as a field, `Content(_failure, ex.Messa
 { "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R5"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
@@ -1942,20 +1942,20 @@ public class AddressController : ApiController
 
 ## web-api-2-content-configure-await
 
-The action awaits the logic with `.ConfigureAwait(false)`, which changes only where it resumes: `model` is still what the task gives, `List<CrmAddressModel>`.
+The action awaits the logic with `.ConfigureAwait(false)`, which changes only where it resumes: `model` is still what the task gives, `List<AcmeAddressModel>`.
 
 ```json case
 { "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
@@ -1987,7 +1987,7 @@ public class AddressController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "AcmeAddressModel[]", "actual": "Task<IHttpActionResult> with List<AcmeAddressModel>" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -1997,20 +1997,20 @@ public class AddressController : ApiController
 
 ## web-api-2-task-from-result
 
-The action hands each result back through `await Task.FromResult(...)`, which is the result it wraps: `Content(HttpStatusCode.OK, model)` succeeds with `List<CrmAddressModel>`.
+The action hands each result back through `await Task.FromResult(...)`, which is the result it wraps: `Content(HttpStatusCode.OK, model)` succeeds with `List<AcmeAddressModel>`.
 
 ```json case
 { "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
@@ -2042,7 +2042,7 @@ public class AddressController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "AcmeAddressModel[]", "actual": "Task<IHttpActionResult> with List<AcmeAddressModel>" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -2052,28 +2052,28 @@ public class AddressController : ApiController
 
 ## web-api-2-response-type-stub
 
-The action is a stub that only throws, so its body builds no success result, and its `[ResponseType(typeof(List<CrmAddressModel>))]` says what it returns: the model's collection.
+The action is a stub that only throws, so its body builds no success result, and its `[ResponseType(typeof(List<AcmeAddressModel>))]` says what it returns: the model's collection.
 
 ```json case
 { "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
 {
     [HttpGet]
     [Route("GetAddressByPersonId")]
-    [ResponseType(typeof(List<CrmAddressModel>))]
+    [ResponseType(typeof(List<AcmeAddressModel>))]
     public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
     {
         throw new NotImplementedException();
@@ -2084,7 +2084,7 @@ public class AddressController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with List<CrmAddressModel>" }
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "verified", "expected": "AcmeAddressModel[]", "actual": "Task<IHttpActionResult> with List<AcmeAddressModel>" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -2094,28 +2094,28 @@ public class AddressController : ApiController
 
 ## web-api-2-response-type-stub-contradicted
 
-The stub's `[ResponseType]` now names one `CrmAddressModel`, against the model's collection: contradicted.
+The stub's `[ResponseType]` now names one `AcmeAddressModel`, against the model's collection: contradicted.
 
 ```json case
 { "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
 {
     [HttpGet]
     [Route("GetAddressByPersonId")]
-    [ResponseType(typeof(CrmAddressModel))]
+    [ResponseType(typeof(AcmeAddressModel))]
     public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
     {
         throw new NotImplementedException();
@@ -2126,7 +2126,7 @@ public class AddressController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with CrmAddressModel" }
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "AcmeAddressModel[]", "actual": "Task<IHttpActionResult> with AcmeAddressModel" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "severity": "error", "subject": "get-address-by-person-id" }
@@ -2142,23 +2142,23 @@ The action's body succeeds with `Content(HttpStatusCode.OK, personId)`, an `int`
 { "phase": 4, "base": "web-api-2-content-status", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/AddressController.cs
+```csharp file src/Acme.Crm/Controllers/AddressController.cs
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using CrmBus.Crm.Models;
+using Acme.Crm.Models;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
 [RoutePrefix("api/Address")]
 public class AddressController : ApiController
 {
     [HttpGet]
     [Route("GetAddressByPersonId")]
-    [ResponseType(typeof(List<CrmAddressModel>))]
+    [ResponseType(typeof(List<AcmeAddressModel>))]
     public async Task<IHttpActionResult> GetAddressByPersonId(int personId)
     {
         await Task.Yield();
@@ -2170,7 +2170,7 @@ public class AddressController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "CrmAddressModel[]", "actual": "Task<IHttpActionResult> with int" }
+    { "kind": "operation.returns", "element": "get-address-by-person-id", "outcome": "contradicted", "expected": "AcmeAddressModel[]", "actual": "Task<IHttpActionResult> with int" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "severity": "error", "subject": "get-address-by-person-id" }
@@ -2180,29 +2180,29 @@ public class AddressController : ApiController
 
 ## action-result-produces-response-type
 
-ASP.NET Core stubs that only throw state what they return with `[ProducesResponseType]`: `typeof(CommodityDTO[])` with a 200, the generic `ProducesResponseType<CommodityDTO>(200)` beside an error response, which the model doesn't state, and a 204 with no type, which has no body.
+ASP.NET Core stubs that only throw state what they return with `[ProducesResponseType]`: `typeof(ProductDTO[])` with a 200, the generic `ProducesResponseType<ProductDTO>(200)` beside an error response, which the model doesn't state, and a 204 with no type, which has no body.
 
 ```json case
 { "phase": 4, "base": "action-result-body", "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/BasisLink.Api/Controllers/CommodityMaterialController.cs
-using BasisLink.Api.Commodities;
+```csharp file src/Acme.Api/Controllers/ProductCatalogController.cs
+using Acme.Api.Products;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasisLink.Api.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
-[Route("api/commodity-material")]
-public class CommodityMaterialController : ControllerBase
+[Route("api/product-catalog")]
+public class ProductCatalogController : ControllerBase
 {
     [HttpGet]
-    [ProducesResponseType(typeof(CommodityDTO[]), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProductDTO[]), StatusCodes.Status200OK)]
     public IActionResult GetAll() => throw new NotSupportedException();
 
     [HttpGet("{id}")]
-    [ProducesResponseType<CommodityDTO>(200)]
+    [ProducesResponseType<ProductDTO>(200)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public IActionResult Get(int id) => throw new NotSupportedException();
 
@@ -2215,9 +2215,9 @@ public class CommodityMaterialController : ControllerBase
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "commodity-material-get-all", "outcome": "verified", "expected": "CommodityDTO[]", "actual": "IActionResult with CommodityDTO[]" },
-    { "kind": "operation.returns", "element": "commodity-material-get", "outcome": "verified", "expected": "CommodityDTO", "actual": "IActionResult with CommodityDTO" },
-    { "kind": "operation.returns", "element": "commodity-material-delete", "outcome": "verified", "actual": "IActionResult with no body" }
+    { "kind": "operation.returns", "element": "product-catalog-get-all", "outcome": "verified", "expected": "ProductDTO[]", "actual": "IActionResult with ProductDTO[]" },
+    { "kind": "operation.returns", "element": "product-catalog-get", "outcome": "verified", "expected": "ProductDTO", "actual": "IActionResult with ProductDTO" },
+    { "kind": "operation.returns", "element": "product-catalog-delete", "outcome": "verified", "actual": "IActionResult with no body" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -2943,7 +2943,7 @@ export const api = {
 
 ## web-api-2-untyped-body-declared
 
-A Web API 2 action succeeds with what a library gives, `LegacyStore.Lookup(quoteCode)`, whose type the code doesn't say, and declares its success with `[ResponseType(typeof(string))]`. The declaration is the code's own statement of the body, so the untyped success is a `string`, the model's return type: verified. The 417 is still an error result.
+A Web API 2 action succeeds with what a library gives, `LegacyStore.Lookup(orderCode)`, whose type the code doesn't say, and declares its success with `[ResponseType(typeof(string))]`. The declaration is the code's own statement of the body, so the untyped success is a `string`, the model's return type: verified. The 417 is still an error result.
 
 ```json case
 { "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -2954,46 +2954,46 @@ A Web API 2 action succeeds with what a library gives, `LegacyStore.Lookup(quote
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "CrmBus.Crm",
+        "id": "services", "name": "Acme.Crm",
         "elements": [
-          { "id": "crm-controller", "type": "Service", "name": "CrmController",
-            "stereotypes": { "Http Service Settings": { "Route": "api/Crm" } },
+          { "id": "acme-controller", "type": "Service", "name": "AcmeController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Acme" } },
             "children": [
-              { "id": "get-quote-acceptance", "type": "Operation", "name": "GetQuoteAcceptanceByQuoteCode", "typeRef": { "type": "string" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetQuoteAcceptanceByQuoteCode" } },
-                "children": [ { "id": "get-quote-acceptance-quote-code", "type": "Parameter", "name": "quoteCode", "typeRef": { "type": "string" } } ] }
+              { "id": "get-order-status", "type": "Operation", "name": "GetOrderStatusByOrderCode", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetOrderStatusByOrderCode" } },
+                "children": [ { "id": "get-order-status-order-code", "type": "Parameter", "name": "orderCode", "typeRef": { "type": "string" } } ] }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/CrmController.cs
+```csharp file src/Acme.Crm/Controllers/AcmeController.cs
 using System;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Legacy.Data;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
-[RoutePrefix("api/Crm")]
-public class CrmController : ApiController
+[RoutePrefix("api/Acme")]
+public class AcmeController : ApiController
 {
     [HttpGet]
     [ResponseType(typeof(string))]
-    [Route("GetQuoteAcceptanceByQuoteCode")]
-    public IHttpActionResult GetQuoteAcceptanceByQuoteCode(string quoteCode)
+    [Route("GetOrderStatusByOrderCode")]
+    public IHttpActionResult GetOrderStatusByOrderCode(string orderCode)
     {
         try
         {
-            return Content(HttpStatusCode.OK, LegacyStore.Lookup(quoteCode));
+            return Content(HttpStatusCode.OK, LegacyStore.Lookup(orderCode));
         }
         catch (Exception ex)
         {
@@ -3006,7 +3006,7 @@ public class CrmController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-quote-acceptance", "outcome": "verified", "expected": "string", "actual": "IHttpActionResult with string" }
+    { "kind": "operation.returns", "element": "get-order-status", "outcome": "verified", "expected": "string", "actual": "IHttpActionResult with string" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -3022,26 +3022,26 @@ The action now declares `[ResponseType(typeof(int))]`, so its untyped success is
 { "phase": 4, "base": "web-api-2-untyped-body-declared", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/CrmController.cs
+```csharp file src/Acme.Crm/Controllers/AcmeController.cs
 using System;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Legacy.Data;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
-[RoutePrefix("api/Crm")]
-public class CrmController : ApiController
+[RoutePrefix("api/Acme")]
+public class AcmeController : ApiController
 {
     [HttpGet]
     [ResponseType(typeof(int))]
-    [Route("GetQuoteAcceptanceByQuoteCode")]
-    public IHttpActionResult GetQuoteAcceptanceByQuoteCode(string quoteCode)
+    [Route("GetOrderStatusByOrderCode")]
+    public IHttpActionResult GetOrderStatusByOrderCode(string orderCode)
     {
         try
         {
-            return Content(HttpStatusCode.OK, LegacyStore.Lookup(quoteCode));
+            return Content(HttpStatusCode.OK, LegacyStore.Lookup(orderCode));
         }
         catch (Exception ex)
         {
@@ -3054,40 +3054,40 @@ public class CrmController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-quote-acceptance", "outcome": "contradicted", "expected": "string", "actual": "IHttpActionResult with int" }
+    { "kind": "operation.returns", "element": "get-order-status", "outcome": "contradicted", "expected": "string", "actual": "IHttpActionResult with int" }
   ],
   "findings": [
-    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-quote-acceptance" }
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-order-status" }
   ]
 }
 ```
 
 ## web-api-2-untyped-body-undeclared
 
-Without a `[ResponseType]`, nothing in the code says what `LegacyStore.Lookup(quoteCode)` is: can't verify, never a guess.
+Without a `[ResponseType]`, nothing in the code says what `LegacyStore.Lookup(orderCode)` is: can't verify, never a guess.
 
 ```json case
 { "phase": 4, "base": "web-api-2-untyped-body-declared", "kinds": ["operation.returns"], "requirements": ["R2", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/CrmController.cs
+```csharp file src/Acme.Crm/Controllers/AcmeController.cs
 using System;
 using System.Net;
 using System.Web.Http;
 using Legacy.Data;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
-[RoutePrefix("api/Crm")]
-public class CrmController : ApiController
+[RoutePrefix("api/Acme")]
+public class AcmeController : ApiController
 {
     [HttpGet]
-    [Route("GetQuoteAcceptanceByQuoteCode")]
-    public IHttpActionResult GetQuoteAcceptanceByQuoteCode(string quoteCode)
+    [Route("GetOrderStatusByOrderCode")]
+    public IHttpActionResult GetOrderStatusByOrderCode(string orderCode)
     {
         try
         {
-            return Content(HttpStatusCode.OK, LegacyStore.Lookup(quoteCode));
+            return Content(HttpStatusCode.OK, LegacyStore.Lookup(orderCode));
         }
         catch (Exception ex)
         {
@@ -3100,7 +3100,7 @@ public class CrmController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "get-quote-acceptance", "outcome": "cantVerify", "reason": "unresolved" }
+    { "kind": "operation.returns", "element": "get-order-status", "outcome": "cantVerify", "reason": "unresolved" }
   ]
 }
 ```
@@ -3118,50 +3118,50 @@ What C# itself says a value is, with no `[ResponseType]` to fall back on: a comp
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "CrmBus.Crm",
+        "id": "services", "name": "Acme.Crm",
         "elements": [
-          { "id": "scheme-controller", "type": "Service", "name": "SchemeController",
-            "stereotypes": { "Http Service Settings": { "Route": "api/Scheme" } },
+          { "id": "plan-controller", "type": "Service", "name": "PlanController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/Plan" } },
             "children": [
-              { "id": "scheme-is-combo", "type": "Operation", "name": "SchemeIsComboScheme", "typeRef": { "type": "bool" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "SchemeIsComboScheme/{schemeCode}" } },
-                "children": [ { "id": "scheme-is-combo-scheme-code", "type": "Parameter", "name": "schemeCode", "typeRef": { "type": "string" } } ] },
-              { "id": "apply-vat", "type": "Operation", "name": "ApplyVatForTpa", "typeRef": { "type": "decimal" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "VatForTpa/{referenceId}" } },
+              { "id": "plan-is-bundle", "type": "Operation", "name": "PlanIsBundlePlan", "typeRef": { "type": "bool" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "PlanIsBundlePlan/{planCode}" } },
+                "children": [ { "id": "plan-is-bundle-plan-code", "type": "Parameter", "name": "planCode", "typeRef": { "type": "string" } } ] },
+              { "id": "apply-vat", "type": "Operation", "name": "ApplyVatForPartner", "typeRef": { "type": "decimal" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "VatForPartner/{referenceId}" } },
                 "children": [ { "id": "apply-vat-reference-id", "type": "Parameter", "name": "referenceId", "typeRef": { "type": "int" } } ] },
-              { "id": "get-quote-code", "type": "Operation", "name": "GetQuoteCode", "typeRef": { "type": "string" },
-                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetQuoteCode" } },
-                "children": [ { "id": "get-quote-code-quote-code", "type": "Parameter", "name": "quoteCode", "typeRef": { "type": "string" } } ] }
+              { "id": "get-order-code", "type": "Operation", "name": "GetOrderCode", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "GetOrderCode" } },
+                "children": [ { "id": "get-order-code-order-code", "type": "Parameter", "name": "orderCode", "typeRef": { "type": "string" } } ] }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/CrmBus.Crm/Controllers/SchemeController.cs
+```csharp file src/Acme.Crm/Controllers/PlanController.cs
 using System;
 using System.Net;
 using System.Web.Http;
 using Legacy.Data;
 
-namespace CrmBus.Crm.Controllers;
+namespace Acme.Crm.Controllers;
 
-[RoutePrefix("api/Scheme")]
-public class SchemeController : ApiController
+[RoutePrefix("api/Plan")]
+public class PlanController : ApiController
 {
     [HttpGet]
-    [Route("SchemeIsComboScheme/{schemeCode}")]
-    public IHttpActionResult SchemeIsComboScheme(string schemeCode)
+    [Route("PlanIsBundlePlan/{planCode}")]
+    public IHttpActionResult PlanIsBundlePlan(string planCode)
     {
-        if (!string.IsNullOrWhiteSpace(schemeCode))
+        if (!string.IsNullOrWhiteSpace(planCode))
         {
-            var queryResult = LegacyStore.Flag(schemeCode).ToLowerInvariant() == "y";
+            var queryResult = LegacyStore.Flag(planCode).ToLowerInvariant() == "y";
             return Content(HttpStatusCode.OK, queryResult);
         }
 
@@ -3169,8 +3169,8 @@ public class SchemeController : ApiController
     }
 
     [HttpGet]
-    [Route("VatForTpa/{referenceId}")]
-    public IHttpActionResult ApplyVatForTpa(int referenceId)
+    [Route("VatForPartner/{referenceId}")]
+    public IHttpActionResult ApplyVatForPartner(int referenceId)
     {
         var vatRate = -1.00m;
         if (referenceId > 0)
@@ -3182,10 +3182,10 @@ public class SchemeController : ApiController
     }
 
     [HttpGet]
-    [Route("GetQuoteCode")]
-    public IHttpActionResult GetQuoteCode(string quoteCode)
+    [Route("GetOrderCode")]
+    public IHttpActionResult GetOrderCode(string orderCode)
     {
-        return Ok(string.IsNullOrEmpty(quoteCode) ? string.Empty : quoteCode);
+        return Ok(string.IsNullOrEmpty(orderCode) ? string.Empty : orderCode);
     }
 }
 ```
@@ -3193,9 +3193,9 @@ public class SchemeController : ApiController
 ```json expect
 {
   "claims": [
-    { "kind": "operation.returns", "element": "scheme-is-combo", "outcome": "verified", "expected": "bool", "actual": "IHttpActionResult with bool" },
+    { "kind": "operation.returns", "element": "plan-is-bundle", "outcome": "verified", "expected": "bool", "actual": "IHttpActionResult with bool" },
     { "kind": "operation.returns", "element": "apply-vat", "outcome": "verified", "expected": "decimal", "actual": "IHttpActionResult with decimal" },
-    { "kind": "operation.returns", "element": "get-quote-code", "outcome": "verified", "expected": "string", "actual": "IHttpActionResult with string" }
+    { "kind": "operation.returns", "element": "get-order-code", "outcome": "verified", "expected": "string", "actual": "IHttpActionResult with string" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }

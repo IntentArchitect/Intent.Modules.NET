@@ -147,6 +147,67 @@ internal sealed class EfCoreReader : ICodeReader
                     break;
             }
         }
+
+        foreach (var method in type.Members.OfType<MethodDeclarationSyntax>().Where(x => x.Identifier.Text is "OnModelCreating" or "ConfigureConventions"))
+        {
+            foreach (var invocation in method.DescendantNodes().OfType<InvocationExpressionSyntax>())
+            {
+                if (invocation.Expression is MemberAccessExpressionSyntax { Name: GenericNameSyntax { Identifier.Text: "Properties", TypeArgumentList.Arguments: [var propertyType] } })
+                {
+                    Convention(context, invocation, csharp.TypeOf(propertyType, file), file, csharp);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// What a context configures for every property of a type: EF6's <c>modelBuilder.Properties&lt;string&gt;().Configure(c =&gt;
+    /// c.HasMaxLength(50))</c>, and EF Core's <c>configurationBuilder.Properties&lt;string&gt;().HaveMaxLength(50)</c> or
+    /// <c>Properties&lt;string&gt;(b =&gt; b.HaveMaxLength(50))</c> in <c>ConfigureConventions</c>. EF Core's calls are named as a
+    /// property's own (<c>HaveMaxLength</c> is <c>HasMaxLength</c>, <c>AreUnicode</c> is <c>IsUnicode</c>), so one rule reads
+    /// both. One filtered by <c>Where</c> or <c>Having</c> configures only the properties its condition picks, which can't be
+    /// told without running it, so it isn't read.
+    /// </summary>
+    private static void Convention(ContextConfig context, InvocationExpressionSyntax properties, TypeRefNode type, string file, CSharpSyntax csharp)
+    {
+        var calls = new List<FluentCall>();
+        var builders = properties.ArgumentList.Arguments.Select(x => x.Expression).OfType<SimpleLambdaExpressionSyntax>().ToList();
+        ExpressionSyntax current = properties;
+        while (current.Parent is MemberAccessExpressionSyntax { Parent: InvocationExpressionSyntax next } member && member.Expression == current)
+        {
+            switch (member.Name.Identifier.Text)
+            {
+                case "Where" or "Having":
+                    return;
+                case "Configure":
+                    builders.AddRange(next.ArgumentList.Arguments.Select(x => x.Expression).OfType<SimpleLambdaExpressionSyntax>());
+                    break;
+                default:
+                    calls.Add(Calls(next, file, csharp)[^1]);
+                    break;
+            }
+
+            current = next;
+        }
+
+        foreach (var builder in builders)
+        {
+            foreach (var chain in builder.Body.DescendantNodesAndSelf().OfType<InvocationExpressionSyntax>().Where(x => x.Parent is not MemberAccessExpressionSyntax))
+            {
+                if (Calls(chain, file, csharp) is [{ } first, ..] chained && first.Receiver == builder.Parameter.Identifier.Text)
+                {
+                    calls.AddRange(chained);
+                }
+            }
+        }
+
+        foreach (var call in calls)
+        {
+            var name = call.Name.StartsWith("Have", StringComparison.Ordinal) ? "Has" + call.Name[4..]
+                : call.Name.StartsWith("Are", StringComparison.Ordinal) ? "Is" + call.Name[3..]
+                : call.Name;
+            context.Conventions.Add((type, call with { Name = name }));
+        }
     }
 
     /// <summary>
@@ -235,8 +296,8 @@ internal sealed class EfCoreReader : ICodeReader
     }
 
     /// <summary>
-    /// An EF6 relationship chain as EF Core writes it, so every relationship rule reads one API (CrmBus.Api's DataContext is
-    /// EF6): <c>HasRequired(e =&gt; e.X)</c> is <c>HasOne(e =&gt; e.X)</c>, <c>HasOptional</c> too, and the <c>WithRequired</c>
+    /// An EF6 relationship chain as EF Core writes it, so every relationship rule reads one API (ClientB's API application's
+    /// DataContext is EF6): <c>HasRequired(e =&gt; e.X)</c> is <c>HasOne(e =&gt; e.X)</c>, <c>HasOptional</c> too, and the <c>WithRequired</c>
     /// and <c>WithOptional</c> forms are <c>WithOne</c>. <c>IsRequired()</c> is added, at the call that states it, where EF
     /// Core's would mean the same: a required reference with many or no inverse (<c>HasRequired(e =&gt; e.Account)</c>), or a
     /// collection whose inverse is required (<c>HasMany(e =&gt; e.Items).WithRequired(e =&gt; e.Account)</c>). A one-to-one

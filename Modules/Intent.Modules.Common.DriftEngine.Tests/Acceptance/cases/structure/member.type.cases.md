@@ -438,7 +438,7 @@ public record OrderDto(int OrderNumber, string Date, List<OrderItemDto> OrderIte
 
 ## library-type-named-with-its-namespace
 
-A DTO's fields are typed with a library's `WebsiteClient`, which the model holds as a Type-Definition named with its namespace, `Just.Client.Service.Models.WebsiteClient`. The code writes it qualified in one field and by its own name in the other; both are the element's type. A client model types its REST client's responses this way.
+A DTO's fields are typed with a library's `WebsiteClient`, which the model holds as a Type-Definition named with its namespace, `Acme.Client.Service.Models.WebsiteClient`. The code writes it qualified in one field and by its own name in the other; both are the element's type. A client model types its REST client's responses this way.
 
 ```json case
 { "phase": 1, "kinds": ["member.type"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
@@ -451,7 +451,7 @@ A DTO's fields are typed with a library's `WebsiteClient`, which the model holds
       "packages": [{
         "id": "services", "name": "Crm.Services",
         "elements": [
-          { "id": "website-client", "type": "Type-Definition", "name": "Just.Client.Service.Models.WebsiteClient" },
+          { "id": "website-client", "type": "Type-Definition", "name": "Acme.Client.Service.Models.WebsiteClient" },
           { "id": "list-response", "type": "DTO", "name": "ClientListResponse",
             "children": [
               { "id": "list-response-clients", "type": "DTO-Field", "name": "clients", "typeRef": { "element": "website-client", "collection": true } }
@@ -472,13 +472,13 @@ A DTO's fields are typed with a library's `WebsiteClient`, which the model holds
 ```
 
 ```csharp file src/Crm/RestClients/ClientModels.cs
-using Just.Client.Service.Models;
+using Acme.Client.Service.Models;
 
 namespace Crm.RestClients;
 
 public class ClientListResponse
 {
-    public Just.Client.Service.Models.WebsiteClient[] clients { get; set; }
+    public Acme.Client.Service.Models.WebsiteClient[] clients { get; set; }
 }
 
 public class ClientResponse
@@ -498,7 +498,7 @@ public class ClientResponse
 
 ## binary-is-a-byte-array
 
-The C# profile writes the model's `binary` as `byte[]`, which is also an array's form. A field of type `binary` isn't a collection, so `byte[]` matches it as written, before the array is read as a collection of `byte`. basislink5's first Software Factory run reported a file upload's `byte[]` as contradicting `binary`.
+The C# profile writes the model's `binary` as `byte[]`, which is also an array's form. A field of type `binary` isn't a collection, so `byte[]` matches it as written, before the array is read as a collection of `byte`. ClientA's first Software Factory run reported a file upload's `byte[]` as contradicting `binary`.
 
 ```json case
 { "phase": 1, "kinds": ["member.type"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
@@ -1103,29 +1103,29 @@ A jagged array is an array of arrays: the code's `ValidationResult[][]` is a col
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "CrmBus.Crm",
+        "id": "services", "name": "Acme.Crm",
         "elements": [
-          { "id": "quote-validation", "type": "DTO", "name": "QuoteValidationModel",
+          { "id": "order-validation", "type": "DTO", "name": "OrderValidationModel",
             "children": [
-              { "id": "quote-validation-errors", "type": "DTO-Field", "name": "Errors", "typeRef": { "type": "ValidationResult[]", "collection": true } }
+              { "id": "order-validation-errors", "type": "DTO-Field", "name": "Errors", "typeRef": { "type": "ValidationResult[]", "collection": true } }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
 }
 ```
 
-```csharp file src/CrmBus.Crm/Models/QuoteValidationModel.cs
+```csharp file src/Acme.Crm/Models/OrderValidationModel.cs
 using System.ComponentModel.DataAnnotations;
 
-namespace CrmBus.Crm.Models;
+namespace Acme.Crm.Models;
 
-public class QuoteValidationModel
+public class OrderValidationModel
 {
     public ValidationResult[][] Errors { get; set; }
 }
@@ -1134,7 +1134,7 @@ public class QuoteValidationModel
 ```json expect
 {
   "claims": [
-    { "kind": "member.type", "element": "quote-validation-errors", "outcome": "verified", "at": "src/CrmBus.Crm/Models/QuoteValidationModel.cs:7" }
+    { "kind": "member.type", "element": "order-validation-errors", "outcome": "verified", "at": "src/Acme.Crm/Models/OrderValidationModel.cs:7" }
   ]
 }
 ```
@@ -1152,17 +1152,17 @@ The model says one level of collection, `ValidationResult[]`, and the code has t
   "designers": {
     "Services": {
       "packages": [{
-        "id": "services", "name": "CrmBus.Crm",
+        "id": "services", "name": "Acme.Crm",
         "elements": [
-          { "id": "quote-validation", "type": "DTO", "name": "QuoteValidationModel",
+          { "id": "order-validation", "type": "DTO", "name": "OrderValidationModel",
             "children": [
-              { "id": "quote-validation-errors", "type": "DTO-Field", "name": "Errors", "typeRef": { "type": "ValidationResult", "collection": true } }
+              { "id": "order-validation-errors", "type": "DTO-Field", "name": "Errors", "typeRef": { "type": "ValidationResult", "collection": true } }
             ] }
         ]
       }]
     },
     "Codebase Structure": {
-      "packages": [{ "id": "root", "name": "CrmBus", "type": "Root Folder",
+      "packages": [{ "id": "root", "name": "Acme", "type": "Root Folder",
         "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
     }
   }
@@ -1172,10 +1172,10 @@ The model says one level of collection, `ValidationResult[]`, and the code has t
 ```json expect
 {
   "claims": [
-    { "kind": "member.type", "element": "quote-validation-errors", "outcome": "contradicted", "at": "src/CrmBus.Crm/Models/QuoteValidationModel.cs:7" }
+    { "kind": "member.type", "element": "order-validation-errors", "outcome": "contradicted", "at": "src/Acme.Crm/Models/OrderValidationModel.cs:7" }
   ],
   "findings": [
-    { "rule": "claim/member.type", "severity": "error", "subject": "quote-validation-errors" }
+    { "rule": "claim/member.type", "severity": "error", "subject": "order-validation-errors" }
   ]
 }
 ```

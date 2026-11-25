@@ -1,6 +1,7 @@
 ### Version 2.0.0
 
 - New Feature: Updating to 2.0 moves the application onto Intent.Common.DriftEngine. The recipe files become Drift Scope and Drift Check rows on the Codebase Structure Root Folder, and the Guardrails Contracts modules and their stereotypes are removed. The contract files those modules generated stay as hand-written code, code v1 didn't report gets exceptions and Table Names v1 read from EF Core's convention are cleared, so a model clean under v1 starts clean. Installing 2.0 into a Guardrails 1.0.0 application does the same.
+- Improvement: The move runs the drift engine on the moved model and corrects the model where the unchanged code settles it. It adds the sends and publishes the diagram doesn't show, removes links the code never bears out, gives actions the Http Settings their code states, and drops exceptions that match nothing. A v1 file exception becomes a Context row, so a modelled type in that file is still checked.
 
 ### Version 1.0.0
 

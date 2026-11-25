@@ -49,6 +49,9 @@ internal sealed class ConventionalRoutes : IDriftRule
                 || context.Model.Owner(operation) is not { } service
                 || context.Model.Stereotype(service, "Http Service Settings", "Route") is not { Length: > 0 } serviceRoute
                 || context.TypeOf(Designer, service) is not { } owner
+                // Only a controller is served on a conventional route: a Minimal API router maps its own (2026-11-25, a migrated
+                // eShop's router read as served on another project's MapDefaultControllerRoute).
+                || !AspNetCoreClaims.IsController(context.Code, owner)
                 || context.MemberOf(Designer, operation) is not { } member
                 || !context.Scope.Checks(member.At.File)
                 || Binding.ConventionalRoute(context.Code, owner, member) is not { } conventional
@@ -61,7 +64,10 @@ internal sealed class ConventionalRoutes : IDriftRule
             yield return new Finding("aspnetcore/conventional.route", Designer, "ModelCode", "error",
                 $"`{owner.Name}.{member.Name}` ({member.At.File}:{member.At.Line}) has no route of its own, so {framework} doesn't serve it under its controller's route but on the conventional route `{conventional[2..]}`. The diagram puts Operation `{operation.Name}` at its service's Route, `{serviceRoute}`. Give the action a `[Route]`, or set the Operation's Route to `{conventional}`.",
                 new Anchor(File: member.At.File, Line: member.At.Line),
-                Against: [new Anchor(Element: operation.Id)]);
+                Against: [new Anchor(Element: operation.Id)])
+            {
+                Corrections = [new ModelCorrection(ModelCorrection.SetStereotype, operation.Id) { Stereotype = "Http Settings", Properties = new Dictionary<string, string> { ["Route"] = conventional } }]
+            };
         }
     }
 }
@@ -136,39 +142,28 @@ internal sealed class AspNetCoreClaims : IClaimReader
             case "operation.verb":
             {
                 var member = context.Member!;
-                var verb = member.Attributes.FirstOrDefault(x => HttpVerbs.Contains(x.Name));
-                var accept = member.Attributes.FirstOrDefault(x => x.Name == "AcceptVerbs" && x.Arguments.Count > 0);
-                var actual = verb is not null ? verb.Name[4..].ToUpperInvariant() : accept?.Arguments[0].ToUpperInvariant();
-                if (actual is null && context.Code.Types.FirstOrDefault(x => x.Members.Contains(member)) is { } owner && Binding.WebApi2(context.Code, owner))
+                var owner = context.Code.Types.FirstOrDefault(x => x.Members.Contains(member));
+                if (Verb(context.Code, owner, member) is { } stated)
                 {
-                    // Web API 2 takes an unattributed action's verb from its name (GetOrders is GET), and POST for any other name.
-                    return ClaimReading.Stated(ConventionVerbs.FirstOrDefault(x => member.Name.StartsWith(x, StringComparison.OrdinalIgnoreCase))?.ToUpperInvariant() ?? "POST", member.At);
+                    return ClaimReading.Stated(stated.Verb, stated.At);
                 }
 
-                if (actual is null && context.Expected is { Length: > 0 } modelled)
+                if (context.Expected is { Length: > 0 } modelled)
                 {
                     // An ASP.NET Core action with no verb attribute serves every verb, so it serves the one the model gives. That is the
                     // framework's convention, not a value the code states, so unmodelled.value doesn't report it.
                     return ClaimReading.Defaulted(modelled, member.At, "no verb attribute: it serves every verb");
                 }
 
-                return Value(actual, (verb ?? accept)?.At ?? member.At);
+                return ClaimReading.Absent(member.At);
             }
             case "operation.route":
             {
                 // The action's own template, from [Route] or the verb attribute; the controller's route is service.route.
                 var member = context.Member!;
                 var owner = context.TypeOf(context.Owner(context.Element)!)!;
-                var route = member.Attributes.FirstOrDefault(x => x.Name == "Route" && x.Arguments.Count > 0)
-                            ?? member.Attributes.FirstOrDefault(x => HttpVerbs.Contains(x.Name) && x.Arguments.Count > 0);
-                if (route is null && Binding.ConventionalRoute(context.Code, owner, member) is { } conventional)
-                {
-                    // Web API 2 serves an action with no route of its own on a conventional route, not under its controller's, and
-                    // ASP.NET Core one whose controller has no route either.
-                    return ClaimReading.Stated(conventional, member.At);
-                }
-
-                return Value(route is null ? null : Tokens(route.Arguments[0], owner.Name, member.Name), route?.At ?? member.At);
+                var route = Route(context.Code, owner, member);
+                return Value(route.Route, route.At);
             }
             case "parameter.source":
             {
@@ -296,10 +291,66 @@ internal sealed class AspNetCoreClaims : IClaimReader
                 $"`{type.Name}.{member.Name}` isn't in the code as an endpoint: it isn't a public instance method of the controller{(member.Attributes.Any(x => x.Name == "NonAction") ? ", as `[NonAction]` says" : "")}. The model states it in the operation's Http Settings. Make it an action, or remove its Http Settings.");
         }
 
-        return modelled
-            ? ClaimReading.Found(member)
-            : ClaimReading.Compared("present", member.At, false,
-                $"`{type.Name}.{member.Name}` is an action of the controller, and the Operation has no Http Settings, so the model says it isn't an endpoint. Give it Http Settings, or mark the method `[NonAction]`.");
+        if (modelled)
+        {
+            return ClaimReading.Found(member);
+        }
+
+        var reading = ClaimReading.Compared("present", member.At, false,
+            $"`{type.Name}.{member.Name}` is an action of the controller, and the Operation has no Http Settings, so the model says it isn't an endpoint. Give it Http Settings, or mark the method `[NonAction]`.");
+
+        // The Http Settings the code states, when it states the verb: an ASP.NET Core action with no verb attribute serves every
+        // verb, and which one the diagram should give it is a judgement.
+        if (Verb(context.Code, type, member) is not { } verb)
+        {
+            return reading;
+        }
+
+        return reading.Correcting(new ModelCorrection(ModelCorrection.SetStereotype, context.Element.Id)
+        {
+            Stereotype = "Http Settings",
+            Properties = new Dictionary<string, string> { ["Verb"] = verb.Verb, ["Route"] = Route(context.Code, type, member).Route ?? "" }
+        });
+    }
+
+    /// <summary>
+    /// The verb an action states: its verb attribute's, its <c>[AcceptVerbs]</c>' first, or Web API 2's convention for an
+    /// unattributed action, the verb its name starts with (<c>GetOrders</c> is GET), else POST. Null for an ASP.NET Core action
+    /// with no verb attribute, which serves every verb.
+    /// </summary>
+    private static (string Verb, Span At)? Verb(CodeGraph code, TypeNode? owner, MemberNode member)
+    {
+        var verb = member.Attributes.FirstOrDefault(x => HttpVerbs.Contains(x.Name));
+        var accept = member.Attributes.FirstOrDefault(x => x.Name == "AcceptVerbs" && x.Arguments.Count > 0);
+        if (verb is not null)
+        {
+            return (verb.Name[4..].ToUpperInvariant(), verb.At);
+        }
+
+        if (accept is not null)
+        {
+            return (accept.Arguments[0].ToUpperInvariant(), accept.At);
+        }
+
+        return owner is not null && Binding.WebApi2(code, owner)
+            ? (ConventionVerbs.FirstOrDefault(x => member.Name.StartsWith(x, StringComparison.OrdinalIgnoreCase))?.ToUpperInvariant() ?? "POST", member.At)
+            : null;
+    }
+
+    /// <summary>
+    /// The route an action states, relative to its controller's: its <c>[Route]</c> or verb attribute's template; with neither,
+    /// the conventional route Web API 2 serves it on, or ASP.NET Core one whose controller has no route either; else none.
+    /// </summary>
+    private static (string? Route, Span At) Route(CodeGraph code, TypeNode owner, MemberNode member)
+    {
+        var route = member.Attributes.FirstOrDefault(x => x.Name == "Route" && x.Arguments.Count > 0)
+                    ?? member.Attributes.FirstOrDefault(x => HttpVerbs.Contains(x.Name) && x.Arguments.Count > 0);
+        if (route is null && Binding.ConventionalRoute(code, owner, member) is { } conventional)
+        {
+            return (conventional, member.At);
+        }
+
+        return (route is null ? null : Tokens(route.Arguments[0], owner.Name, member.Name), route?.At ?? member.At);
     }
 
     private static ClaimReading Value(string? value, Span at) => value is null ? ClaimReading.Absent(at) : ClaimReading.Stated(value, at);

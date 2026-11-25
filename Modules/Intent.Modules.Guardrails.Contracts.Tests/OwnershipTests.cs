@@ -147,11 +147,11 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             // C8b: every minimal API endpoint is mapped inside one method, so exempting that method, or its type, must not
             // exempt the endpoints. Only their own name or a file pattern does.
             const string endpoints = """
-            public static class MillsEndpoints
+            public static class ItemsEndpoints
             {
-                public static void MapMillsEndpoints(IEndpointRouteBuilder app)
+                public static void MapItemsEndpoints(IEndpointRouteBuilder app)
                 {
-                    var group = app.MapGroup("v1/Mills");
+                    var group = app.MapGroup("v1/Items");
                     group.MapGet("Ping", Ping);
                     group.MapDelete("Cache", ClearCache).AllowAnonymous();
                 }
@@ -176,12 +176,12 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
               "exceptions": [{{exceptions}}]
             }
             """;
-            var code = new Dictionary<string, string> { ["src/Api/MillsEndpoints.cs"] = endpoints };
-            var model = new List<ModelFact> { Operation(FactKinds.OperationRoute, "MillsEndpoints", "Ping", "Ping") };
+            var code = new Dictionary<string, string> { ["src/Api/ItemsEndpoints.cs"] = endpoints };
+            var model = new List<ModelFact> { Operation(FactKinds.OperationRoute, "ItemsEndpoints", "Ping", "Ping") };
 
-            var byDeclaration = Check("Services", Recipe("\"MillsEndpoints.MapMillsEndpoints\", \"MillsEndpoints\""), model, code);
-            byDeclaration.WrongLines.ShouldBe(new[] { "endpoint (minimal API) `Cache`: not modelled. Location: `src/Api/MillsEndpoints.cs:7`" });
-            byDeclaration.UnusedExceptions.ShouldBe(new[] { "`MillsEndpoints.MapMillsEndpoints`", "`MillsEndpoints`" });
+            var byDeclaration = Check("Services", Recipe("\"ItemsEndpoints.MapItemsEndpoints\", \"ItemsEndpoints\""), model, code);
+            byDeclaration.WrongLines.ShouldBe(new[] { "endpoint (minimal API) `Cache`: not modelled. Location: `src/Api/ItemsEndpoints.cs:7`" });
+            byDeclaration.UnusedExceptions.ShouldBe(new[] { "`ItemsEndpoints.MapItemsEndpoints`", "`ItemsEndpoints`" });
 
             var byName = Check("Services", Recipe("\"Cache\""), model, code);
             byName.WrongLines.ShouldBeEmpty();

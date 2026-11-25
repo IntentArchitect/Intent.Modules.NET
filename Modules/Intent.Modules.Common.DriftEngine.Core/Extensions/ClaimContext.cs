@@ -117,13 +117,23 @@ public sealed class ClaimReading
 
     internal IReadOnlyList<Span> Code { get; private init; } = [];
 
+    internal IReadOnlyList<ModelCorrection> Corrections { get; private init; } = [];
+
     /// <summary>
     /// The reading with the other code it was read through, such as the <c>HasOne</c> and <c>WithMany</c> that pick out the
     /// relationship a <c>HasForeignKey</c> configures. A finding still points at the reading's own place; a verified claim's
     /// element is linked to both, for View Code and Changes Review.
     /// </summary>
     public ClaimReading Through(IEnumerable<Span> code) =>
-        new(From, Value, At, Reason, Detail, Candidates, Searched, Located, Message) { Code = [.. Code, .. code] };
+        new(From, Value, At, Reason, Detail, Candidates, Searched, Located, Message) { Code = [.. Code, .. code], Corrections = Corrections };
+
+    /// <summary>
+    /// The reading with the model changes that make the model state what the code does (<see cref="ModelCorrection"/>), for a
+    /// contradiction the code settles: the claim's finding carries them. Give them only when the reading is certain, never
+    /// for a value the reader had to guess.
+    /// </summary>
+    public ClaimReading Correcting(params ModelCorrection[] corrections) =>
+        new(From, Value, At, Reason, Detail, Candidates, Searched, Located, Message) { Code = Code, Corrections = [.. Corrections, .. corrections] };
 
     /// <summary>
     /// For <c>type.exists</c>: the type that realises the element, found where the engine's own rule wouldn't look. The

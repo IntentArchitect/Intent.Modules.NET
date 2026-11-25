@@ -36,7 +36,7 @@ internal sealed class UnmodelledType : IOptInRule
                     .Where(t => (x.Convention["typeKinds"] as JsonArray)?.Any(k => k!.GetValue<string>() == t.Kind) ?? true)
                     .ToHashSet()))
             .ToList();
-        // Every part of a partial type encloses what is nested in it: CrmBus's handler declares its QuoteTypes enum in its
+        // Every part of a partial type encloses what is nested in it: a ClientB handler declares a nested enum in its
         // second part, which isn't where the type is said to be (2026-11-24).
         var byFile = context.Code.Types.SelectMany(x => x.Declarations.Select(at => (Type: x, At: at))).ToLookup(x => x.At.File, StringComparer.Ordinal);
         var designers = context.Engine.LocatedTypes()

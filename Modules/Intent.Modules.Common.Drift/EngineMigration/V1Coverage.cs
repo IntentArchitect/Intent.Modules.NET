@@ -63,7 +63,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             IReadOnlyCollection<string> contractFiles, IReadOnlyList<ModelledType> model, ICollection<string> notes)
         {
             var contracts = new HashSet<string>(contractFiles, StringComparer.OrdinalIgnoreCase);
-            var outGlobs = rows.Scope.Where(x => x.Scope == "Out").SelectMany(x => x.Globs).Select(x => new Glob(x)).ToList();
+            // The engine never reports code a Context row decides as unmodelled, as it doesn't an Out row's.
+            var outGlobs = rows.Scope.Where(x => x.Scope is "Out" or "Context").SelectMany(x => x.Globs).Select(x => new Glob(x)).ToList();
             bool Checked(string file) => CodeFiles.IsCSharp(file) && !outGlobs.Any(x => x.IsMatch(file));
 
             var declarations = code.AllFiles().Where(CodeFiles.IsCSharp)
@@ -103,9 +104,11 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                     var name = type.Identifier.Text;
                     if (modelled.Contains(name))
                     {
-                        // The engine locates one type per element, so a further type of the name in these files is reported as
-                        // unmodelled (CrmBus's second FtpHeartBeatPingRequest, in the API project).
-                        if (model.Any(x => x.Name == name) && Copies(coveredDeclarations[name]) > model.Count(x => x.Name == name))
+                        // The engine locates one type per element, and one interface per name a located class implements, so a
+                        // further type of the name in these files is reported as unmodelled: a second DTO of a modelled DTO's
+                        // name in another project, an unused interface of a located class's interface's name, or Result<T>
+                        // beside a modelled Result.
+                        if (Copies(coveredDeclarations[name]) > Math.Max(1, model.Count(x => x.Name == name)))
                         {
                             Except(CopyReason, name);
                         }
@@ -158,8 +161,8 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
         /// <summary>
         /// The modelled type names the drift engine never reports as unmodelled: each element of the name has a type to locate,
-        /// and the code declares no further one. A converted exception naming one matches nothing (CrmBus's v1 exceptions for
-        /// <c>Container</c>, which covered a relationship its conventions found, and <c>JustApplicant</c>, which covered a
+        /// and the code declares no further one. A converted exception naming one matches nothing (ClientB's v1 exceptions for
+        /// <c>Container</c>, which covered a relationship its conventions found, and <c>Applicant</c>, which covered a
         /// generation filter).
         /// </summary>
         public static IReadOnlyCollection<string> NeverUnmodelled(CodeFiles code, IReadOnlyList<ModelledType> model)
@@ -177,11 +180,42 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             code.Get(file)?.Syntax?.DescendantNodes().OfType<BaseTypeDeclarationSyntax>().Where(x => x.Parent is not BaseTypeDeclarationSyntax).ToList()
             ?? new List<BaseTypeDeclarationSyntax>();
 
-        /// <summary>How many types the declarations are: a partial type's parts, in its namespace and enclosing types, are one.</summary>
+        /// <summary>
+        /// The <c>Type.Member</c> matches the drift engine never reports as unmodelled: a member every type has
+        /// (<c>Equals</c>, <c>GetHashCode</c>, <c>ToString</c>), and one the code declares only as overrides. A converted v1
+        /// exception naming one (an entity's identity comparison) would match nothing and warn on the first run.
+        /// </summary>
+        public static IReadOnlyCollection<string> NeverUnmodelledMembers(CodeFiles code, IEnumerable<string> matches)
+        {
+            var members = code.AllFiles().Where(CodeFiles.IsCSharp)
+                .SelectMany(x => code.Get(x)?.Syntax?.DescendantNodes().OfType<TypeDeclarationSyntax>() ?? Enumerable.Empty<TypeDeclarationSyntax>())
+                .SelectMany(type => type.Members.Select(member => (Key: $"{type.Identifier.Text}.{MemberName(member)}", Override: member.Modifiers.Any(SyntaxKind.OverrideKeyword))))
+                .ToLookup(x => x.Key, x => x.Override, StringComparer.Ordinal);
+            return matches
+                .Where(x => x.LastIndexOf('.') is var dot and > 0 && (EveryTypeHas.Contains(x.Substring(dot + 1)) || members.Contains(x) && members[x].All(o => o)))
+                .ToHashSet(StringComparer.Ordinal);
+        }
+
+        /// <summary>The members every type has, which the engine's <c>unmodelled.member</c> never reports.</summary>
+        private static readonly HashSet<string> EveryTypeHas = new(StringComparer.Ordinal) { "Equals", "GetHashCode", "ToString" };
+
+        private static string MemberName(MemberDeclarationSyntax member) => member switch
+        {
+            MethodDeclarationSyntax method => method.Identifier.Text,
+            PropertyDeclarationSyntax property => property.Identifier.Text,
+            EventDeclarationSyntax @event => @event.Identifier.Text,
+            _ => null
+        };
+
+        /// <summary>
+        /// How many types the declarations are: a partial type's parts, in its namespace and enclosing types, are one; a generic
+        /// type is another type than the one of its name without type parameters, as the engine reads them.
+        /// </summary>
         private static int Copies(IEnumerable<BaseTypeDeclarationSyntax> declarations) =>
             declarations.Select(x => string.Join(".", x.AncestorsAndSelf().Select(a => a switch
             {
                 BaseNamespaceDeclarationSyntax ns => ns.Name.ToString(),
+                TypeDeclarationSyntax { TypeParameterList.Parameters.Count: > 0 } generic => $"{generic.Identifier.Text}`{generic.TypeParameterList.Parameters.Count}",
                 BaseTypeDeclarationSyntax t => t.Identifier.Text,
                 _ => null
             }).Where(n => n != null).Reverse())).Distinct(StringComparer.Ordinal).Count();

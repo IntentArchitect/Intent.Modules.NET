@@ -9,7 +9,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
     /// <summary>A recipe file to convert: its file name (<c>domain.drift.json</c>) and its text.</summary>
     internal sealed record RecipeSource(string FileName, string Json);
 
-    /// <summary>A <c>Drift Scope</c> Entries row: its globs, one per line, <c>In</c> or <c>Out</c>, and its reason.</summary>
+    /// <summary>A <c>Drift Scope</c> Entries row: its globs, one per line, <c>In</c>, <c>Out</c> or <c>Context</c>, and its reason.</summary>
     internal sealed record ScopeRowSpec(IReadOnlyList<string> Globs, string Scope, string Reason);
 
     /// <summary>A <c>Drift Check</c> Opt-in Rules row.</summary>
@@ -31,7 +31,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
 
     /// <summary>
     /// Turns v1's recipe files into the drift engine's rows (docs/spec/conversion.md in Intent.Common.DriftEngine): one
-    /// <c>**</c> In row, an Out row per file-pattern exception's reason, an <c>unmodelled.type</c> row per <c>own</c> entry over its
+    /// <c>**</c> In row, a Context row per file-pattern exception's reason, an <c>unmodelled.type</c> row per <c>own</c> entry over its
     /// <c>files</c> or its recipe's, one <c>unmodelled.member</c> row over all the C# when there is a Domain or Services recipe,
     /// and an Exceptions row per rule and reason. A recipe file is read as v1 read it (<see cref="RecipeFile.JsonOptions"/>, <see cref="Glob"/>, <see cref="Glob.LooksLikeGlob"/>).
     /// Its facts are dropped, since the engine's stock readers read those kinds by name, and so are notes and comments.
@@ -51,7 +51,7 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             var result = new ConvertedRecipes();
             var sources = new List<string>();
             var structureChecked = false;
-            var outRows = new List<ScopeRowSpec>();
+            var contextRows = new List<ScopeRowSpec>();
             var optIn = new List<OptInRowSpec>();
             var exceptions = new List<(string Rule, string Match, string Reason)>();
 
@@ -74,7 +74,10 @@ namespace Intent.Modules.Common.Drift.EngineMigration
                     var reason = exception.Reason ?? $"From {source}, which gives no reason";
                     if (Glob.LooksLikeGlob(exception.Match))
                     {
-                        outRows.Add(new ScopeRowSpec(Globs(new[] { exception.Match }), "Out", reason));
+                        // A v1 exception covered only code the model doesn't describe: the file was still read for the model's
+                        // facts. A Context row is that (user decision, 2026-11-25); an Out row left a modelled type in the file
+                        // unverifiable.
+                        contextRows.Add(new ScopeRowSpec(Globs(new[] { exception.Match }), "Context", reason));
                     }
                     else if (TypeName.IsMatch(exception.Match))
                     {
@@ -111,16 +114,16 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             }
 
             // Everything is in scope (user decision, 2026-11-23): v1 compared each contract file wherever it was, and each own
-            // entry read its own files, so a recipe's top-level files left most modelled code out. The Out rows come after it:
-            // within a folder, the last matching row decides a file.
+            // entry read its own files, so a recipe's top-level files left most modelled code out. The Context rows come after
+            // it: within a folder, the last matching row decides a file.
             if (sources.Count > 0)
             {
                 result.Scope.Add(new ScopeRowSpec(new[] { "**" }, "In", $"From {string.Join(", ", sources)}: v1 checked code wherever it was"));
             }
 
-            result.Scope.AddRange(outRows
+            result.Scope.AddRange(contextRows
                 .GroupBy(x => x.Reason, StringComparer.Ordinal)
-                .Select(x => new ScopeRowSpec(x.SelectMany(r => r.Globs).Distinct(StringComparer.Ordinal).ToList(), "Out", x.Key)));
+                .Select(x => new ScopeRowSpec(x.SelectMany(r => r.Globs).Distinct(StringComparer.Ordinal).ToList(), "Context", x.Key)));
 
             // Conventions over the same globs are one row, named by each of their kinds.
             result.OptIn.AddRange(optIn

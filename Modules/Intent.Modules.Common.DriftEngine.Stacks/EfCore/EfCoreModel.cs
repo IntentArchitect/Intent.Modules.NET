@@ -58,6 +58,14 @@ public sealed class ContextConfig
     /// when it names none the rule reads: its own assembly.
     /// </summary>
     public (Span At, string? Of)? Assembly { get; set; }
+
+    /// <summary>
+    /// What it configures for every property of a type, in the order it does: EF6's
+    /// <c>modelBuilder.Properties&lt;string&gt;().Configure(c =&gt; c.HasMaxLength(50))</c> and EF Core's
+    /// <c>configurationBuilder.Properties&lt;string&gt;().HaveMaxLength(50)</c>, each call named as a property's own would be
+    /// (<c>HasMaxLength</c>).
+    /// </summary>
+    public List<(TypeRefNode Type, FluentCall Call)> Conventions { get; } = [];
 }
 
 /// <summary>One entity's fluent configuration.</summary>

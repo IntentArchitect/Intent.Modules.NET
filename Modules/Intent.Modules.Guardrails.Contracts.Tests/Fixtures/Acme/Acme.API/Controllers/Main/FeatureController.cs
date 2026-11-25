@@ -1,8 +1,8 @@
-// Basislink's FeatureController (2026-10-19) with its method bodies left out: two of its routes are the ones the
-// authority audit found wrong in the model.
+// ClientA's FeatureController (2026-10-19), renamed Acme, with its method bodies left out: two of its routes are the
+// ones the authority audit found wrong in the model.
 using System;
-using Basislink.API.ApiHelpers;
-using Basislink.DTO.Main;
+using Acme.API.ApiHelpers;
+using Acme.DTO.Main;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 [assembly: DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Attributes = Mode.Merge, Comments = Mode.Merge, Targets = Targets.Constructors | Targets.Methods)]
 [assembly: IntentTemplate("Intent.Services.Guardrails.Contracts.ServiceContract", Version = "1.0")]
 
-namespace Basislink.API.Controllers.Main
+namespace Acme.API.Controllers.Main
 {
     [Authorization]
     [Produces("application/json")]
@@ -25,7 +25,7 @@ namespace Basislink.API.Controllers.Main
         /// <summary>Determine if user roles should be applied.</summary>
         [Route("Premiums/ApplyRole")]
         [HttpGet]
-        public IActionResult ApplyBasisLinkRoles()
+        public IActionResult ApplyAcmeRoles()
         {
         }
 
@@ -61,13 +61,13 @@ namespace Basislink.API.Controllers.Main
 
         [Route("Documents/Log/Create")]
         [HttpPost]
-        public IActionResult CreateLogDocuments([FromBody] BasislinkDocumentsLogsDto logsDto)
+        public IActionResult CreateLogDocuments([FromBody] AcmeDocumentsLogsDto logsDto)
         {
         }
 
         [Route("Documents/Log/Update")]
         [HttpPut]
-        public IActionResult UpdateLogDocuments([FromBody] BasislinkDocumentsLogsDto logsDto)
+        public IActionResult UpdateLogDocuments([FromBody] AcmeDocumentsLogsDto logsDto)
         {
         }
     }

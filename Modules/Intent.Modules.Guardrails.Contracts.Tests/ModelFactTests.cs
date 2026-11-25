@@ -148,7 +148,7 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
             // Owned: a composition to a class with no table of its own.
             var owned = Association("assoc-2", order, "Order", sourceCollection: false, Element(package, "Class", "Address"), "ShippingAddress", targetNullable: false);
 
-            // A class nothing maps (Basislink's scaffolded contracts, with no DbSet or Entity<T>) has no relationship in the
+            // A class nothing maps (ClientA's scaffolded contracts, with no DbSet or Entity<T>) has no relationship in the
             // database, even to a mapped class; nor does a mapped class's reference to an unmapped class it doesn't own.
             var unmapped = Association("assoc-3", Element(package, "Class", "contracts"), "contracts", sourceCollection: true, customer, "membernoNavigation", targetNullable: true);
             var reference = Association("assoc-4", order, "Orders", sourceCollection: true, Element(package, "Class", "Draft"), "Draft", targetNullable: true);
@@ -200,19 +200,19 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
         }
 
         /// <summary>
-        /// Basislink's <c>basislinkLinkedMember.Username</c> is in two indexes, with two <c>Index</c> stereotypes. Reading
+        /// ClientA's <c>acmeLinkedMember.Username</c> (renamed) is in two indexes, with two <c>Index</c> stereotypes. Reading
         /// only the first left it out of the composite index, and the check contradicted a correct model.
         /// </summary>
         [Fact]
         public void Domain_an_attribute_in_several_indexes_is_in_each_of_them()
         {
             var package = Package();
-            var members = Element(package, "Class", "basislinkLinkedMember", Stereotype("Table", ("Name", "basislinkLinkedMembers")));
+            var members = Element(package, "Class", "acmeLinkedMember", Stereotype("Table", ("Name", "acmeLinkedMembers")));
             Element(members, "Attribute", "Username",
-                Stereotype("Index", ("UniqueKey", "IX_basislinkLinkedMembers_Username"), ("Order", ""), ("IsUnique", "false")),
-                Stereotype("Index", ("UniqueKey", "IX_basislinkLinkedMembers_UsernameClientNumber"), ("Order", "1"), ("IsUnique", "false"))).Typed("string");
+                Stereotype("Index", ("UniqueKey", "IX_acmeLinkedMembers_Username"), ("Order", ""), ("IsUnique", "false")),
+                Stereotype("Index", ("UniqueKey", "IX_acmeLinkedMembers_UsernameClientNumber"), ("Order", "1"), ("IsUnique", "false"))).Typed("string");
             Element(members, "Attribute", "ClientNumber",
-                Stereotype("Index", ("UniqueKey", "IX_basislinkLinkedMembers_UsernameClientNumber"), ("Order", "2"), ("IsUnique", "false"))).Typed("string");
+                Stereotype("Index", ("UniqueKey", "IX_acmeLinkedMembers_UsernameClientNumber"), ("Order", "2"), ("IsUnique", "false"))).Typed("string");
 
             var facts = Facts(DomainDrift.DriftModel.Read(Designer(new[] { package }), ApplicationId)
                 .Where(x => x.Kind.Key.StartsWith("index."))
@@ -220,10 +220,10 @@ namespace Intent.Modules.Guardrails.Contracts.Tests
 
             facts.ShouldBe(new[]
             {
-                "index.columns basislinkLinkedMember.IX_basislinkLinkedMembers_Username = Username",
-                "index.columns basislinkLinkedMember.IX_basislinkLinkedMembers_UsernameClientNumber = Username,ClientNumber",
-                "index.unique basislinkLinkedMember.IX_basislinkLinkedMembers_Username = false",
-                "index.unique basislinkLinkedMember.IX_basislinkLinkedMembers_UsernameClientNumber = false"
+                "index.columns acmeLinkedMember.IX_acmeLinkedMembers_Username = Username",
+                "index.columns acmeLinkedMember.IX_acmeLinkedMembers_UsernameClientNumber = Username,ClientNumber",
+                "index.unique acmeLinkedMember.IX_acmeLinkedMembers_Username = false",
+                "index.unique acmeLinkedMember.IX_acmeLinkedMembers_UsernameClientNumber = false"
             });
         }
 

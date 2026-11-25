@@ -2,9 +2,9 @@
 
 ## Context
 
-On CleanCrmBus the drift engine is about 95% of every Software Factory run: 30–89 s a pass, most of it in `code csharp` (reading 920 C# files). Your figures check out against the SF logs. Three more facts from the logs and the code change what to do first:
+On a clean copy of ClientB's codebase the drift engine is about 95% of every Software Factory run: 30–89 s a pass, most of it in `code csharp` (reading 920 C# files). Your figures check out against the SF logs. Three more facts from the logs and the code change what to do first:
 
-- **The cost per file grows with the codebase.** Basislink read 298 files at about 14 ms a file (CONTEXT.md, run timings decision). CleanCrmBus reads 920 files at 32 ms a file on a quiet machine (29.8 s at 13:28, with 0 claims). Parsing doesn't grow like that; name lookups that scan the whole graph do.
+- **The cost per file grows with the codebase.** ClientA read 298 files at about 14 ms a file (CONTEXT.md, run timings decision). ClientB reads 920 files at 32 ms a file on a quiet machine (29.8 s at 13:28, with 0 claims). Parsing doesn't grow like that; name lookups that scan the whole graph do.
 - **Every name lookup scans the whole graph.** `CodeGraph.Resolve` (`CodeGraph.cs:1098`) scans every type (`:1101`) and every file (`:1102`), then for each of the type's files `ImportsOf` (`:867`) scans every file again for its project's global usings. `TypeNamed` (`:1096`) scans every type again. There is no index by name, qualified name, path or project. The C# body pass calls `Resolve` for every call and value it types (`CSharpBody` → `Targets` / `TypeFor`), so this is most likely where the 30 s goes. The same scans are the claims' cost: repository.implementation runs `Bases()` of every type, for each repository (`DriftEngine.Repositories.cs:69`), and `Bases` calls `Resolve` for every base reference, with nothing memoised.
 - **Two of the seven passes repeated the one before, unchanged.** 13:47 repeated 13:46 (84 s), and 14:22 repeated 14:20 (62 s): same claim counts, same outcomes. A save restarted the run after it had staged, and no code had changed.
 
@@ -133,7 +133,7 @@ That's why this step comes last: steps 2 to 5 shrink the window it covers.
   - A cancelled token stops the read, and nothing is kept.
 - **Timings, before and after:**
   - The local harness over the test solution's code, after steps 1, 2 and 3.
-  - Your next SF run on CleanCrmBus: its timing line shows the read, repository.implementation and opt-in, and the second run over unchanged code shows `code cached`.
+  - Your next SF run on the ClientB copy: its timing line shows the read, repository.implementation and opt-in, and the second run over unchanged code shows `code cached`.
 - **Every module build or test reinstalls the `.imod` into the open solutions and reruns their SF.** I'll tell you each time I do one.
 
 ## Open questions resolved

@@ -104,6 +104,18 @@ namespace Intent.Modules.Common.Drift.EngineMigration
             public const string PackageId = "b4107910-4d30-42b3-a453-ccbfda74f7cc";
             public const string PackageName = "Intent.Common.DriftEngine";
 
+            /// <summary>The designers the engine's host reads, by id, with the names its packs give them (its <c>DriftEngineReport.DesignerIds</c>).</summary>
+            public static readonly IReadOnlyDictionary<string, string> DesignerNames = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["0701433c-36c0-4569-b1f4-9204986b587d"] = "Codebase Structure",
+                ["6ab29b31-27af-4f56-a67c-986d82097d63"] = "Domain",
+                ["81104ae6-2bc5-4bae-b05a-f987b0372d81"] = "Services",
+                ["f492faed-0665-4513-9853-5a230721786f"] = "User Interface"
+            };
+
+            /// <summary>The stock packs the engine's host runs (its <c>DriftEngineReport.StockPacks</c>).</summary>
+            public static readonly IReadOnlyList<string> StockPacks = new[] { "intent.domain", "intent.services", "intent.ui" };
+
             public static class DriftScope
             {
                 public const string Name = "Drift Scope";

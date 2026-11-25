@@ -174,6 +174,19 @@ namespace Intent.Modules.Guardrails.Contracts.Tests.EngineMigration
             }
         }
 
+        /// <summary>The move's run of the engine reads the designers and stock packs the engine's own host does.</summary>
+        [Fact]
+        public void The_designers_and_packs_the_move_runs_the_engine_with_are_its_hosts()
+        {
+            var host = File.ReadAllText(Path.Combine(ModulesFolder(), "Intent.Modules.Common.DriftEngine", "Reporting", "DriftEngineReport.cs"));
+            foreach (var (id, name) in V1Footprint.DriftEngine.DesignerNames)
+            {
+                host.ShouldContain($"[\"{name}\"] = \"{id}\"");
+            }
+
+            Regex.Match(host, @"StockPacks = \{ ([^}]*) \}").Groups[1].Value.ShouldBe(string.Join(", ", V1Footprint.DriftEngine.StockPacks.Select(x => $"\"{x}\"")));
+        }
+
         [Theory]
         [InlineData("Intent.Services.Guardrails.Contracts.DtoContract#3f1c", true)]
         [InlineData("Intent.Domain.Guardrails.Contracts.EntityContract", true)]
