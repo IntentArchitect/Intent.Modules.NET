@@ -106,3 +106,31 @@ Three things this suite taught the hard way, each of which cost a re-run:
 - **Repetition in the old text was sometimes load-bearing, and the fix is accuracy, not narration.** The old app-menu skill named only `Program.cs` for the auth registrations but repeated the check in four places, so agents kept searching until they found them in `Startup.cs`. Stated once, agents checked `Program.cs`, found nothing and concluded NoAuth — `01-auth-detected` fell to 1/3. The repair was to name both files and require the reply to say which was read.
 
 Judge scores are the noisiest layer: re-judging the same runs against slightly reworded expectations moved scores by a full point. Treat a one-point difference as noise and look at the deterministic checks first.
+
+**`compare` cannot read a judged arm against an unjudged one.** Running the batch without judging is a legitimate split — the runs are the slow part, judging is interactive the next day — but `compare` then reports every judge expectation as a full regression (`01-layout-matches-sample 3/3 → 0/3`), because it counts an expectation absent from the new arm's `grading.json` as zero passes. It is counting missing data as failure, and the `judge score` row is simultaneously _skipped_ (that comparison is guarded on both arms having scores), so nothing in the output says judging is what is missing. The tell is that every "regression" is a numbered grader filename rather than a check id. Either judge both arms before comparing, or compare only the expectations with `kind == "deterministic"`.
+
+## Invariant: a CRUD skill reads `ux-tokens.css` and nothing else of the design system (2026-11-25)
+
+The entity page and dialog skills' "Read first" list names only `ux-tokens.css`. It deliberately does **not** name `design.md`, `ux-base.css` or `ux-components.css`, and adding any of them back undoes the largest token saving these skills have.
+
+The reasoning, in the order it has to be checked before anyone changes it:
+
+- **Measured first.** In a generated app the old list cost ~42 KB per CRUD task (`design.md` 17.2, `ux-tokens.css` 8.9, `ux-base.css` 4.4, `ux-components.css` 11.9) against a skill text of 3.8–5.1 KB — about 60% of the whole payload, and far more than the samples. Cutting it takes a page task from ~69 KB to ~27 KB.
+- **`design.md` is not a CRUD input.** It is the theme-sync skills' input — they apply it — and documents rationale a CRUD task never acts on. What a CRUD task needs is real token _names_, which live in `ux-tokens.css`.
+- **The page and dialog skills differ, and the difference decides the stylesheets.** The 8 page skills carry §3's "grep each utility class name across `wwwroot/**/*.css`", so a grep already reaches `ux-base.css` and `ux-components.css` when a class is actually wanted. The 4 dialog skills carry no grep and name no utility class — their only styling rule is "inline `Style=` uses `var(--token)`" — so for them those two files supplied nothing but token names, which `ux-tokens.css` already does. That is why one identical replacement was correct for all 12 rather than two variants.
+- **The theme-sync skills were not touched.** `blazor-ux-theme-sync` still reads `design.md` in full, correctly.
+
+If a styling regression ever points here, the repair is to state the grep more firmly in §3 — not to restore a read. Restoring `design.md` to a CRUD skill puts 17 KB back on every page, dialog, view and search task to supply something the task does not use.
+
+**The frontmatter `paths:` globs are a separate mechanism and cost nothing.** They remain `**/design.md`, `**/ux-base.css`, `**/ux-components.css`. `paths` (and its aliases `applyTo` / `appliesTo` / `globs`) is an _inclusion gate_ — the skill is offered when a chat attachment matches one of them — not a preload list. Narrowing them would change which skills are offered, not how many tokens one costs.
+
+## A worktree cannot pick up a rebuilt module until its asset repository points inside the worktree (2026-11-25)
+
+`Tests/intent.repositories.config` had one entry, `..\..\.intent-modules`. Relative to `Tests/` that resolves to `D:\Dev\.intent-modules` in the main checkout and is correct there — but in a git worktree it resolves to a path that does not exist, and **nothing reports it**. The symptom is a Software Factory run returning _0 changes_ after a module change that is genuinely present: the module build succeeds, the `.imod` is written, `install_or_update_modules` even answers "Reinstalled", and the DLLs under `Tests/.intent/modules/**/lib/` keep their old timestamp because there was no newer source to read.
+
+Fixed by adding a second entry, `Worktree` → `..\Modules\Intent.Modules`, which is where this repository's packager drops and is therefore correct in a worktree and in the main checkout alike. `Modules/intent.repositories.config` already used exactly this pattern for the module solution; the Tests solution simply never got it.
+
+Two things worth keeping in mind when this shape recurs:
+
+- **The timestamp on the installed DLL is the quickest discriminator.** Compare it against the `.imod` the build just wrote. A stale DLL means the install found nothing newer, which is a repository-address problem, not a template problem — and no amount of re-installing or renumbering fixes it.
+- **A module version bump makes the failure loud.** Re-installing the _same_ version silently reuses the cache, so it looks like success. Asking for a version the cache does not hold turns a silent no-op into a visible update, which is how this was finally confirmed.

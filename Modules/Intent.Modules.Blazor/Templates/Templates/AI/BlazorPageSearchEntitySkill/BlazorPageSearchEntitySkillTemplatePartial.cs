@@ -46,7 +46,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
 
           1. `search-entity-sample.razor` and `search-entity-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
           2. The target `.razor` and `.razor.cs`, and the request models, DTOs, enums, lookups and services they use.
-          3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
+          3. `wwwroot/ux-tokens.css`, for the real token names. Missing it doesn't block.
 
           ## 2. The `.razor.cs` is the source of truth
 

@@ -56,6 +56,21 @@ Five things this suite taught the hard way, each of which cost a re-run:
 
 Judge scores are the noisiest layer: re-judging the same runs against slightly reworded expectations moved scores by a full point. Treat a one-point difference as noise and look at the deterministic checks first.
 
+## Invariant: a CRUD skill reads `ux-tokens.css` and nothing else of the design system (2026-11-25)
+
+The entity page and dialog skills' "Read first" list names only `ux-tokens.css`. It deliberately does **not** name `design.md`, `ux-base.css` or `ux-components.css`, and adding any of them back undoes the largest token saving these skills have. This module and `Intent.Blazor` were changed together and must stay in step — the same line, worded identically, sits in all 12 CRUD skill templates across the two.
+
+The reasoning, in the order it has to be checked before anyone changes it:
+
+- **Measured first.** In a generated app the old list cost ~42 KB per CRUD task (`design.md` 17.2, `ux-tokens.css` 8.9, `ux-base.css` 4.4, `ux-components.css` 11.9) against a skill text of 3.8–5.1 KB — about 60% of the whole payload, and far more than the samples. Cutting it takes a page task from ~69 KB to ~27 KB.
+- **`design.md` is not a CRUD input.** It is `mudblazor-ux-theme-sync`'s input — that skill applies it — and documents rationale a CRUD task never acts on. What a CRUD task needs is real token _names_, which live in `ux-tokens.css`. Note `design.md` is shipped by `Intent.Blazor`, not by this module, which is also why `evaltool.py tokens --module mud` cannot run.
+- **The page and dialog skills differ, and the difference decides the stylesheets.** The page skills carry §3's "grep each utility class name across `wwwroot/**/*.css`", so a grep already reaches `ux-base.css` and `ux-components.css` when a class is actually wanted. The dialog skills carry no grep and name no utility class — their only styling rule is "inline `Style=` uses `var(--token)`" — so for them those two files supplied nothing but token names. That is why one identical replacement was correct for all 12 rather than two variants.
+- **`mudblazor-ux-theme-sync` was not touched.** It still reads all five files in full, correctly.
+
+If a styling regression ever points here, the repair is to state the grep more firmly in §3 — not to restore a read.
+
+**The frontmatter `paths:` globs are a separate mechanism and cost nothing.** They still name `**/design.md`, `**/ux-base.css` and `**/ux-components.css`. `paths` (and its aliases `applyTo` / `appliesTo` / `globs`) is an _inclusion gate_ — the skill is offered when a chat attachment matches one of them — not a preload list.
+
 ## Module Interactions
 
 - **`Intent.Blazor`** — owns `ComponentRazorTemplateBase`, `HomeTemplateLookup` and `RazorComponentStyleTemplate`, and seeds a plain-HTML Home page of its own. Its `HomePageDefaultContentFactoryExtension` **stands down when a component library is installed** (`TemplateHelper.ComponentLibraryInstalled`), which is what lets this module's seed take over without the two fighting. If this module ever stops seeding Home, that gate is what needs revisiting.

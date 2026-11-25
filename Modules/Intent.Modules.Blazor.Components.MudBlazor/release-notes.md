@@ -1,6 +1,6 @@
 ### Version 2.1.1
 
-- Improvement: Reduced the size of the AI skills and their samples to improve token usage — the skill text is about half its previous size.
+- Improvement: Reduced the size of the AI skills and their samples to improve token usage — the skill text is about half its previous size. The entity page and dialog skills also read less of your project before they start: they no longer open `design.md`, `ux-base.css` and `ux-components.css`, taking token names from `ux-tokens.css` and finding utility classes by searching your stylesheets instead. The theme-sync skill still reads `design.md` in full, since it is what it applies.
 - Improvement: General improvements and bug fixes to how the skills detect certain conditions — authentication registered in `Startup.cs` rather than `Program.cs` (previously read as no authentication, so items you asked to gate rendered ungated), whether the layout has theming enabled, and every spelling of a colour when rebasing a theme (`#0EA5E9`, `rgb(14, 165, 233)`, `rgb(14,165,233)` and both spacings inside `rgba(...)`). Account actions in the Profile menu are now added only when the menu description asks for them.
 
 > **NOTE**
