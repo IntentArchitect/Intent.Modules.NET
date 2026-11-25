@@ -100,6 +100,13 @@ public sealed record MemberNode
     public IReadOnlyList<string> TypeParameters { get; init; } = [];
 
     /// <summary>
+    /// The interface an explicit implementation names, as written: <c>IProgress&lt;FileSyncProgress&gt;</c> for C#'s
+    /// <c>void IProgress&lt;FileSyncProgress&gt;.Report(FileSyncProgress value)</c>, which only code holding the type
+    /// as that interface can call. Null for any other member.
+    /// </summary>
+    public TypeRefNode? Implements { get; init; }
+
+    /// <summary>
     /// The value written with it: an enum member's (<c>Paid = 4</c>), a field's or property's initializer; null when none is.
     /// A language reader can set it again once it has read every type, as it does <see cref="Body"/>, so an initializer has
     /// what its names refer to (<see cref="ValueNode.Field"/>).
@@ -338,7 +345,8 @@ public sealed record CallTarget(TypeNode Type, MemberNode Member)
 /// <summary>
 /// A value in a body, such as a call's argument, and the types the code says it can be without running it: a creation is
 /// its type; a local is what it is given before it is used (its initializer and each assignment, one type each), or its
-/// declared type when one of those isn't known (C#'s <c>var</c>, its initializer's, when they disagree); a parameter, field
+/// declared type when one of those isn't known (C#'s <c>var</c>, its initializer's, when they disagree), and one a C# <c>out</c>
+/// argument declares is first the type it names there, or <c>out var</c>'s the parameter's it binds to; a parameter, field
 /// or property is its declared type; a cast is the type it
 /// names, unless that's <c>object</c> or a type what it casts derives from (an upcast), when it is what it casts; a
 /// conditional is both its branches, and a C# switch expression each of its arms.
@@ -698,6 +706,15 @@ public sealed class FileNode
     public IReadOnlyList<string> Namespaces { get; init; } = [];
 
     public IReadOnlyList<ImportNode> Imports { get; init; } = [];
+
+    /// <summary>
+    /// The graph holds every import its code has (<see cref="CodeGraph.ImportsOf"/>), so a type of the code it neither
+    /// imports nor is inside a namespace of is no type it can name unqualified: the name is a library's
+    /// (<see cref="CodeGraph.TypeFor"/>). The C# reader says so for a file whose project adds no imports of its own, no
+    /// <c>&lt;Using&gt;</c> item in its project file or the Directory.Build files around it. False where a reader can't say,
+    /// as a file no project governs, and a name then is the code's only type of it, whatever the file imports.
+    /// </summary>
+    public bool ImportsKnown { get; init; }
 
     /// <summary>
     /// The other files whose imports its code has too, by path: the <c>_Imports.razor</c> files in a Razor component's folder
@@ -1198,7 +1215,8 @@ public sealed class CodeGraph
 
     /// <summary>
     /// The in-scope type a reference names, seen from code in <paramref name="from"/>: of several with the name, the one in
-    /// its namespace or an enclosing one. Null for a library's type, which isn't in the graph.
+    /// its namespace or an enclosing one. The only one of its name, unless the code there can't name it
+    /// (<see cref="FileNode.ImportsKnown"/>). Null for a library's type, which isn't in the graph.
     /// </summary>
     public TypeNode? TypeFor(TypeRefNode reference, TypeNode from) => Resolve(reference, from);
 
@@ -1266,14 +1284,42 @@ public sealed class CodeGraph
             return TypeNamed(named.Target);
         }
 
-        // Of several, the one in its namespace or an enclosing one, then the one only a namespace it imports holds.
+        // The only one of its name, unless the code can't name it; of several, the one in its namespace or an enclosing one,
+        // then the one only a namespace it imports holds.
         if (candidates.Count == 1)
         {
-            return candidates[0];
+            return Nameable(candidates[0], from) ? candidates[0] : null;
         }
 
         return Nearest(candidates, from)
                ?? (candidates.Where(x => imports.Any(i => i is { Alias: null, Static: false, Wildcard: true } && i.Target == x.Namespace)).ToList() is [var only] ? only : null);
+    }
+
+    /// <summary>
+    /// Code in <paramref name="from"/> can name <paramref name="type"/> unqualified: a file of it is inside the type's
+    /// namespace or imports it, or the type is in the global namespace. A file whose imports the graph may not all hold
+    /// (<see cref="FileNode.ImportsKnown"/>) can, as nothing says otherwise. One that can't names a library's type of the
+    /// name: a migrated NServiceBus application, clean under Common.Drift v1, keeps an unwired handler of a contracts
+    /// package's <c>PlaceOrder</c> beside a <c>PlaceOrder</c> command of its own, in a namespace the handler's file doesn't
+    /// import, and the engine took the handler for one of its own command (2026-11-25).
+    /// </summary>
+    private bool Nameable(TypeNode type, TypeNode from)
+    {
+        if (type.Namespace.Length == 0 || type == from)
+        {
+            return true;
+        }
+
+        var key = (from, type.Namespace);
+        if (Index.Nameable.TryGetValue(key, out var known))
+        {
+            return known;
+        }
+
+        var files = Index.FilesAt(from.Files).ToList();
+        return Index.Nameable[key] = files.Count == 0
+                                     || files.Count < from.Files.Distinct(StringComparer.Ordinal).Count()
+                                     || files.Any(x => !x.ImportsKnown || Reaches(x, type.Namespace));
     }
 
     private static TypeNode? Nearest(IEnumerable<TypeNode> candidates, TypeNode from) =>
@@ -1347,6 +1393,9 @@ public sealed class CodeGraph
         public Dictionary<TypeNode, IReadOnlyList<string>> Supertypes { get; } = [];
 
         public Dictionary<TypeNode, IReadOnlyList<MemberNode>> LibraryMembers { get; } = [];
+
+        /// <summary>Whether code in a type can name a namespace's types unqualified (<see cref="CodeGraph.Nameable"/>).</summary>
+        public Dictionary<(TypeNode From, string Namespace), bool> Nameable { get; } = [];
 
         /// <summary>The types of each name, in the graph's order.</summary>
         public Dictionary<string, List<TypeNode>> TypesByName => _typesByName ??= graph.Types

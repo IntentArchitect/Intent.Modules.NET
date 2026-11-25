@@ -502,8 +502,8 @@ internal sealed class UnmodelledMessages : IDriftRule
 
     /// <summary>
     /// Which modelled source's code reaches each send, the nearest: a source's own method first, then the code's own methods
-    /// it calls, its class's and its collaborators' (<see cref="MessageCode.Bodies"/>), so a helper's send is the handler's
-    /// that calls it. Whether the source's own method makes the call.
+    /// it calls, its class's and its collaborators', and those a library calls back (<see cref="MessageCode.Runs"/>), so a
+    /// helper's send is the handler's that calls it. Whether the source's own method makes the call.
     /// </summary>
     private static Dictionary<CallNode, (IElement Source, bool Own)> Reach(RuleContext context, MessageLink link, HashSet<CallNode> sends)
     {
@@ -530,7 +530,7 @@ internal sealed class UnmodelledMessages : IDriftRule
                     reached.TryAdd(call, (current.Source, current.Own));
                 }
 
-                foreach (var body in MessageCode.Bodies(context.Code, current.Type, call).Where(x => seen.Add(x.Member)))
+                foreach (var body in MessageCode.Runs(context.Code, current.Type, call).Where(x => seen.Add(x.Member)))
                 {
                     queue.Enqueue((current.Source, body.Type, body.Member, false));
                 }
@@ -614,10 +614,15 @@ internal sealed class CoveredCalls
 /// </summary>
 internal sealed record MessageTypes(IReadOnlyDictionary<TypeNode, IElement?> Types, IReadOnlyCollection<string> Bases);
 
-/// <summary>The code's own methods each call reaches (<see cref="MessageCode.Bodies"/>), found once per run.</summary>
+/// <summary>
+/// The code's own methods each call reaches (<see cref="MessageCode.Bodies"/>) and runs (<see cref="MessageCode.Runs"/>),
+/// found once per run.
+/// </summary>
 internal sealed class BodiesOf
 {
     public Dictionary<CallNode, IReadOnlyList<(TypeNode Type, MemberNode Member)>> Calls { get; } = new(ReferenceEqualityComparer.Instance);
+
+    public Dictionary<CallNode, IReadOnlyList<(TypeNode Type, MemberNode Member)>> Runs { get; } = new(ReferenceEqualityComparer.Instance);
 }
 
 /// <summary>Reading the code for messages, shared by the claims and the rule.</summary>
@@ -695,7 +700,8 @@ internal static class MessageCode
     /// <summary>
     /// The calls in the method, or in the code's own methods it calls (transitively), that hand a message on (<see cref="MessagesOf"/>),
     /// each with the method's own call that leads to it: itself, or its call of the method that does. A method does what the
-    /// methods it delegates to do, its type's and its collaborators' alike (<see cref="Bodies"/>): a handler that has a helper send.
+    /// methods it delegates to do, its type's and its collaborators' alike, and those a library it hands an object to calls
+    /// back (<see cref="Runs"/>): a handler that has a helper send.
     /// The method itself hands on a message it takes, as a parameter, from outside the code: an action's request body passed to
     /// the logic that sends it (<c>_orderLogic.SubmitOrderAsync(order)</c>). A method it calls doesn't: its caller handed it in,
     /// and the caller's call is the one that hands it on (<see cref="HandsOn(CodeGraph, TypeNode, MemberNode, CallNode, int, TypeRefNode)"/>).
@@ -716,7 +722,7 @@ internal static class MessageCode
                     yield return (root, call, current.Type);
                 }
 
-                foreach (var body in Bodies(code, current.Type, call).Where(x => seen.Add(x.Member)))
+                foreach (var body in Runs(code, current.Type, call).Where(x => seen.Add(x.Member)))
                 {
                     queue.Enqueue((body.Type, body.Member, root));
                 }
@@ -892,6 +898,46 @@ internal static class MessageCode
         }
 
         return bodies;
+    }
+
+    /// <summary>
+    /// The code's own methods a call runs: the ones it reaches (<see cref="Bodies"/>), and for a library's call, the ones the
+    /// library can call back on what it is handed (2026-11-25, from a migrated NServiceBus application clean under
+    /// Common.Drift v1). A library calls back an object only through a type it knows, so of each code type an argument is,
+    /// those are its explicit implementations of an interface the code doesn't declare (<see cref="MemberNode.Implements"/>):
+    /// <c>sync.SyncDirectory(uri, path, this)</c> runs the class's <c>IProgress&lt;FileSyncProgress&gt;.Report</c>,
+    /// as <c>Task.Run(() =&gt; Download())</c> runs <c>Download</c>. For what a method does, not what a call gives back, so a
+    /// call's result (<see cref="Created"/>) and where it ends (<see cref="Ends"/>) stay with <see cref="Bodies"/>.
+    /// </summary>
+    public static IReadOnlyList<(TypeNode Type, MemberNode Member)> Runs(CodeGraph code, TypeNode from, CallNode call)
+    {
+        var bodies = Bodies(code, from, call);
+        if (bodies.Count > 0 || call.IsReference || call.Arguments.Count == 0)
+        {
+            return bodies;
+        }
+
+        var known = code.Get<BodiesOf>()!;
+        if (!known.Runs.TryGetValue(call, out var callbacks))
+        {
+            known.Runs[call] = callbacks = Callbacks(code, from, call).Distinct().ToList();
+        }
+
+        return callbacks;
+    }
+
+    private static IEnumerable<(TypeNode Type, MemberNode Member)> Callbacks(CodeGraph code, TypeNode from, CallNode call)
+    {
+        foreach (var handed in call.Arguments.SelectMany(x => x.Types).Select(x => code.TypeFor(x, from)).OfType<TypeNode>())
+        {
+            foreach (var type in new[] { handed }.Concat(code.Bases(handed)))
+            {
+                foreach (var member in type.Members.Where(x => x.Kind == "method" && x.Implements is { } implements && code.TypeFor(implements, type) is null && HasBody(type, x)))
+                {
+                    yield return (type, member);
+                }
+            }
+        }
     }
 
     private static IEnumerable<(TypeNode Type, MemberNode Member)> FindBodies(CodeGraph code, TypeNode from, CallNode call)

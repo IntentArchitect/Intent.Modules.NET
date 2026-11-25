@@ -19,7 +19,10 @@ public sealed class InteractionsExtension : IDriftExtension
     public IEnumerable<IClaimReader> ClaimReaders => [new InvocationReader(), new EntityActionReader()];
 }
 
-/// <summary>The code a link's source runs: its own methods, and every method of the code they call, transitively.</summary>
+/// <summary>
+/// The code a link's source runs: its own methods, and every method of the code they call or a library they hand an object
+/// to calls back (<see cref="MessageCode.Runs"/>), transitively.
+/// </summary>
 internal static class Reach
 {
     private sealed class Cache
@@ -53,7 +56,7 @@ internal static class Reach
             all.Add(current);
             foreach (var call in current.Member.Calls)
             {
-                foreach (var body in MessageCode.Bodies(context.Code, current.Type, call).Where(x => seen.Add(x.Member)))
+                foreach (var body in MessageCode.Runs(context.Code, current.Type, call).Where(x => seen.Add(x.Member)))
                 {
                     queue.Enqueue(body);
                 }

@@ -51,7 +51,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
     // Every node of the body in order, and its locals and plain assignments by name, found once: a name is looked up at each
     // use, and a scaffolded OnModelCreating makes thousands of calls on its lambdas' parameters.
     private IReadOnlyList<SyntaxNode>? _nodes;
-    private ILookup<string, VariableDeclaratorSyntax>? _locals;
+    private ILookup<string, SyntaxNode>? _locals;
     private ILookup<string, AssignmentExpressionSyntax>? _assignments;
 
     // The member whose body this is, and its parameters, which the values that name them are.
@@ -322,6 +322,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         // A change other than a plain = (filterQs += "&") is a way it is given whose text isn't known.
         IdentifierNameSyntax identifier when Local(identifier, before) is { } local =>
         [
+            ..OutDeclared(local) is { } argument ? [OutValue(argument)] : Array.Empty<ValueNode>(),
             ..LocalValues(local, identifier.Identifier.Text, before).Select(x => Value(x, x.SpanStart)),
             ..Nodes.Where(x => x.SpanStart > local.SpanStart && x.SpanStart < before)
                 .Where(x => Changed(x) is IdentifierNameSyntax changed && changed.Identifier.Text == identifier.Identifier.Text)
@@ -787,6 +788,13 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
 
             var given = LocalValues(local, name, before).Select(x => TypesOf(x, x.SpanStart, depth + 1)).ToList();
             (List<TypeRefNode> Types, bool Known) value = (given.SelectMany(x => x.Types).ToList(), given.Count > 0 && given.All(x => x.Known));
+            if (OutDeclared(local) is { } argument)
+            {
+                // What the call gives it through the out argument is one way it is given, as its later assignments are.
+                var declared = OutType(argument, depth + 1);
+                return ([..declared.Types, ..value.Types], declared.Known && given.All(x => x.Known));
+            }
+
             if (local.Parent is VariableDeclarationSyntax { Type.IsVar: false } declaration)
             {
                 return OrDeclared(value, declaration.Type);
@@ -794,7 +802,7 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
 
             // A var local whose values disagree, or aren't all known, is its initializer's type, which is C#'s own static type
             // for it: var model = new object(); model = "..."; is an object.
-            return local.Initializer is not null && given is [{ Known: true, Types: [var initial] }, _, ..] && !(value.Known && value.Types.All(x => x.Text == initial.Text))
+            return local is VariableDeclaratorSyntax { Initializer: not null } && given is [{ Known: true, Types: [var initial] }, _, ..] && !(value.Known && value.Types.All(x => x.Text == initial.Text))
                 ? ([initial], true)
                 : value;
         }
@@ -808,18 +816,73 @@ internal sealed class CSharpBody(IReadOnlyList<SyntaxNode> roots, TypeNode owner
         return FieldOf(owner, name);
     }
 
-    /// <summary>The local a name is: the last one of the name declared before the use.</summary>
-    private VariableDeclaratorSyntax? Local(IdentifierNameSyntax identifier, int before) =>
-        (_locals ??= Nodes.OfType<VariableDeclaratorSyntax>().ToLookup(x => x.Identifier.Text, StringComparer.Ordinal))[identifier.Identifier.Text]
+    /// <summary>
+    /// The local a name is: the last one of the name declared before the use, by a declaration statement
+    /// (<see cref="VariableDeclaratorSyntax"/>) or an <c>out</c> argument (<see cref="SingleVariableDesignationSyntax"/>).
+    /// </summary>
+    private SyntaxNode? Local(IdentifierNameSyntax identifier, int before) =>
+        (_locals ??= Nodes
+            .Select(x => (Name: x switch
+            {
+                VariableDeclaratorSyntax declarator => declarator.Identifier.Text,
+                SingleVariableDesignationSyntax designation when OutDeclared(designation) is not null => designation.Identifier.Text,
+                _ => null
+            }, Node: x))
+            .Where(x => x.Name is not null)
+            .ToLookup(x => x.Name!, x => x.Node, StringComparer.Ordinal))[identifier.Identifier.Text]
         .LastOrDefault(x => x.SpanStart < before);
+
+    /// <summary>The <c>out</c> argument that declares a local, <c>out var order</c> or <c>out Order order</c>; null for any other local.</summary>
+    private static ArgumentSyntax? OutDeclared(SyntaxNode local) =>
+        local is SingleVariableDesignationSyntax { Parent: DeclarationExpressionSyntax { Parent: ArgumentSyntax argument } } && argument.RefKindKeyword.IsKind(SyntaxKind.OutKeyword)
+            ? argument
+            : null;
+
+    /// <summary>What an <c>out</c> argument gives the local it declares, as a value of the type it declares it (<see cref="OutType"/>).</summary>
+    private ValueNode OutValue(ArgumentSyntax argument)
+    {
+        var (types, known) = OutType(argument, 0);
+        return new ValueNode { Text = Normalise(argument), Types = types, IsKnown = known && types.Count > 0, At = CSharpReader.SpanOf(argument, file) };
+    }
+
+    /// <summary>
+    /// The type an <c>out</c> argument declares its local as: the one it names, or for <c>out var</c> the type of the parameter it
+    /// binds to, of the code's own method the call reaches, when every overload its arguments fit agrees. A library's method's
+    /// isn't known, nor a type parameter's, which the call decides.
+    /// </summary>
+    private (List<TypeRefNode> Types, bool Known) OutType(ArgumentSyntax argument, int depth)
+    {
+        if (argument.Expression is DeclarationExpressionSyntax { Type.IsVar: false } declaration)
+        {
+            return ([CSharpReader.TypeRef(declaration.Type)], true);
+        }
+
+        if (depth >= MaxDepth || argument.Parent is not ArgumentListSyntax { Parent: InvocationExpressionSyntax invocation } list
+            || Resolve(invocation.Expression, list.Arguments.Count, invocation.SpanStart, depth) is not { Targets.Count: > 0 } call)
+        {
+            return Unknown;
+        }
+
+        var index = list.Arguments.IndexOf(argument);
+        var types = Fitting(call.Targets, invocation, depth)
+            .Select(target => (Target: target, Parameter: argument.NameColon is { } named
+                ? target.Member.Parameters.FirstOrDefault(x => x.Name == named.Name.Identifier.Text)
+                : index < target.Member.Parameters.Count ? target.Member.Parameters[index] : null))
+            .Select(x => x.Parameter?.Type is { } type && !x.Target.Member.TypeParameters.Contains(type.Name) && !x.Target.Type.TypeParameters.Contains(type.Name) ? type : null)
+            .ToList();
+        return types is [{ } first, ..] && types.All(x => x?.Text == first.Text) ? ([first], true) : Unknown;
+    }
 
     private IReadOnlyList<SyntaxNode> Nodes => _nodes ??= roots.SelectMany(x => x.DescendantNodes()).ToList();
 
-    /// <summary>What a local is given before the use: its initializer and every plain assignment to it (one in each branch of an if is both).</summary>
-    private List<ExpressionSyntax> LocalValues(VariableDeclaratorSyntax local, string name, int before)
+    /// <summary>
+    /// What a local is given before the use: its initializer and every plain assignment to it (one in each branch of an if is
+    /// both). What an <c>out</c> argument that declares it gives it is <see cref="OutValue"/>.
+    /// </summary>
+    private List<ExpressionSyntax> LocalValues(SyntaxNode local, string name, int before)
     {
         var values = new List<ExpressionSyntax>();
-        if (local.Initializer?.Value is { } initializer)
+        if (local is VariableDeclaratorSyntax { Initializer.Value: { } initializer })
         {
             values.Add(initializer);
         }

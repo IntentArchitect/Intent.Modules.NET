@@ -42,6 +42,13 @@ public class CSharpFactsTests
 
         [Index(nameof(Code), new[] { "a", "b" }, IsUnique = true)]
         public class Product { public string Code { get; set; } = ""; }
+
+        public class Downloads : IProgress<int>, IComparable<Downloads>
+        {
+            void IProgress<int>.Report(int value) { }
+
+            public int CompareTo(Downloads? other) => 0;
+        }
         """;
 
     private const string TargetSource = """
@@ -206,9 +213,17 @@ public class CSharpFactsTests
                 var count = 0;
                 count = Http.Count();
                 Audit(count);
+                Store(command, out OrderDto stored);
+                Audit(stored);
+                Store(command, out var kept);
+                Audit(kept);
+                int.TryParse("1", out var number);
+                Audit(number);
             }
 
             private void Audit(object value) { }
+
+            private void Store(PlaceOrder command, out OrderDto stored) => stored = null!;
         }
 
         public class OrderService
@@ -238,6 +253,16 @@ public class CSharpFactsTests
         Member(type, "_hidden").Access.ShouldBe("private");
         Member(type, "Label").Access.ShouldBe("protected");
         Member(Type("IOrders"), "Name").Access.ShouldBe("public");
+    }
+
+    [Fact]
+    public void An_explicit_implementation_names_the_interface_it_implements_and_an_implicit_one_none()
+    {
+        var report = Member(Type("Downloads"), "Report");
+        report.Implements.ShouldNotBeNull();
+        report.Implements.Name.ShouldBe("IProgress");
+        report.Implements.Text.ShouldBe("IProgress<int>");
+        Member(Type("Downloads"), "CompareTo").Implements.ShouldBeNull();
     }
 
     [Fact]
@@ -390,6 +415,18 @@ public class CSharpFactsTests
         audits[8].Arguments.Single().Types.Single().Name.ShouldBe("object");
         audits[9].Arguments.Single().IsKnown.ShouldBeTrue();
         audits[9].Arguments.Single().Types.Single().Name.ShouldBe("int");
+    }
+
+    [Fact]
+    public void A_local_an_out_argument_declares_is_the_type_it_names_or_for_out_var_the_parameter_s_it_binds_to()
+    {
+        var audits = ValueAudits();
+        audits[10].Arguments.Single().IsKnown.ShouldBeTrue();
+        audits[10].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
+        audits[11].Arguments.Single().IsKnown.ShouldBeTrue();
+        audits[11].Arguments.Single().Types.Single().Name.ShouldBe("OrderDto");
+        // A library's method states no out parameter the reader can see.
+        audits[12].Arguments.Single().IsKnown.ShouldBeFalse();
     }
 
     [Fact]
@@ -618,6 +655,55 @@ public class CSharpFactsTests
 
     private static MemberNode Member(TypeNode type, string name) => type.Members.Single(x => x.Name == name);
 
+    /// <summary>
+    /// The type <c>LegacyHandler.Handle</c>'s parameter, <c>PlaceOrder</c>, resolves to, where the code's only
+    /// <c>PlaceOrder</c> is in <c>Shop.Commands</c>, which the handler's file doesn't import, and <c>OrderHandler</c>'s, whose
+    /// file does.
+    /// </summary>
+    private static (TypeNode? Legacy, TypeNode? Imported, TypeNode Own) PlaceOrderSeen(string? project)
+    {
+        var files = new List<(string Path, string Source)>
+        {
+            ("Shop/Commands/PlaceOrder.cs", "namespace Shop.Commands; public class PlaceOrder { }"),
+            ("Shop/Legacy/LegacyHandler.cs", "using Contracts.Orders; namespace Shop.Legacy; public class LegacyHandler { public void Handle(PlaceOrder message) { } }"),
+            ("Shop/Orders/OrderHandler.cs", "using Shop.Commands; namespace Shop.Orders; public class OrderHandler { public void Handle(PlaceOrder message) { } }")
+        };
+        if (project is not null)
+        {
+            files.Add(("Shop/Shop.csproj", project));
+        }
+
+        var graph = ReadAll(files.ToArray());
+
+        TypeNode? Seen(string handler)
+        {
+            var type = graph.Types.Single(x => x.Name == handler);
+            return graph.TypeFor(type.Members.Single(x => x.Name == "Handle").Parameters.Single().Type!, type);
+        }
+
+        return (Seen("LegacyHandler"), Seen("OrderHandler"), graph.Types.Single(x => x.Name == "PlaceOrder"));
+    }
+
+    [Fact]
+    public void A_name_a_file_can_t_reach_the_code_s_only_type_of_is_a_library_s_when_its_project_adds_no_imports()
+    {
+        var (legacy, imported, own) = PlaceOrderSeen("""<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net8.0</TargetFramework></PropertyGroup></Project>""");
+        legacy.ShouldBeNull();
+        imported.ShouldBeSameAs(own);
+    }
+
+    [Fact]
+    public void A_name_is_the_code_s_only_type_of_it_where_the_file_s_imports_may_not_all_be_known()
+    {
+        // No project governs the files, so nothing says what else they import.
+        var ungoverned = PlaceOrderSeen(null);
+        ungoverned.Legacy.ShouldBeSameAs(ungoverned.Own);
+
+        // A project's <Using> items are imports the graph doesn't hold.
+        var usings = PlaceOrderSeen("""<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><Using Include="Shop.Commands" /></ItemGroup></Project>""");
+        usings.Legacy.ShouldBeSameAs(usings.Own);
+    }
+
     private static CodeGraph Read(string source) => ReadAll(("Shop.cs", source));
 
     private static CodeGraph ReadAll(params (string Path, string Source)[] files)
@@ -627,6 +713,7 @@ public class CSharpFactsTests
         {
             foreach (var (path, source) in files)
             {
+                Directory.CreateDirectory(Path.GetDirectoryName(Path.Combine(root, path))!);
                 File.WriteAllText(Path.Combine(root, path), source);
             }
 

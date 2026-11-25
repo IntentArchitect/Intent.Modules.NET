@@ -600,6 +600,80 @@ public class MessagingTests
             ]);
     }
 
+    /// <summary>
+    /// A library calls back what it is handed (2026-11-25, from a migrated NServiceBus application clean under Common.Drift
+    /// v1): a hosted service's <c>ExecuteAsync</c> hands itself to a file sync, which reports each file through the class's
+    /// explicit <c>IProgress&lt;FileSyncProgress&gt;.Report</c>, and that sends. The send is <c>ExecuteAsync</c>'s, so its
+    /// unshown send asks for the link from it and carries it as the correction, instead of asking for the private method
+    /// it sends from to be modelled. A class that never hands itself over isn't reached, so its send still asks for that.
+    /// </summary>
+    [Fact]
+    public void A_send_in_a_callback_a_library_makes_on_what_it_is_handed_is_the_handing_operations()
+    {
+        var model = JsonNode.Parse("""
+            {
+              "designers": {
+                "Services": {
+                  "packages": [{
+                    "id": "services", "name": "Prices.Host",
+                    "elements": [
+                      { "id": "downloads", "type": "Service", "name": "PriceFileDownloads",
+                        "children": [ { "id": "downloads-execute", "type": "Operation", "name": "ExecuteAsync" } ] },
+                      { "id": "uploads", "type": "Service", "name": "PriceFileUploads",
+                        "children": [ { "id": "uploads-execute", "type": "Operation", "name": "ExecuteAsync" } ] },
+                      { "id": "import-prices", "type": "Integration Command", "name": "ImportPrices" }
+                    ]
+                  }]
+                },
+                "Codebase Structure": {
+                  "packages": [{ "id": "root", "name": "Prices", "type": "Root Folder",
+                    "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+                }
+              }
+            }
+            """)!;
+        var code = new Dictionary<string, string>
+        {
+            ["src/Host/PriceFiles.cs"] = """
+                namespace Prices.Host;
+                public class ImportPrices { public string FileName { get; set; } }
+
+                public class PriceFileDownloads(IMessageSession session) : IProgress<FileSyncProgress>
+                {
+                    public Task ExecuteAsync(CancellationToken cancellationToken) => Task.Run(() => Sync(cancellationToken));
+
+                    private void Sync(CancellationToken cancellationToken)
+                    {
+                        var sync = new FileSync();
+                        sync.SyncDirectory(new Uri("ftp://prices"), "C:/prices", cancellationToken, this);
+                    }
+
+                    void IProgress<FileSyncProgress>.Report(FileSyncProgress value) => Task.Run(async () => await OnFileDownloaded(value.LocalFileName));
+
+                    private async Task OnFileDownloaded(string fileName) => await session.SendLocal(new ImportPrices { FileName = fileName });
+                }
+
+                public class PriceFileUploads(IMessageSession session) : IProgress<FileSyncProgress>
+                {
+                    public Task ExecuteAsync(CancellationToken cancellationToken) => Task.Run(() => new FileSync().SyncDirectory(new Uri("ftp://prices"), "C:/prices", cancellationToken, null));
+
+                    void IProgress<FileSyncProgress>.Report(FileSyncProgress value) => Task.Run(async () => await OnFileUploaded(value.LocalFileName));
+
+                    private async Task OnFileUploaded(string fileName) => await session.SendLocal(new ImportPrices { FileName = fileName });
+                }
+                """
+        };
+
+        var result = Run(model, code);
+
+        var downloaded = result.Findings.Single(x => x.Rule == "messaging/unmodelled.send" && x.Message.StartsWith("`PriceFileDownloads.OnFileDownloaded`", StringComparison.Ordinal));
+        downloaded.Message.ShouldContain("Add a Send Integration Command link to `ImportPrices` from `PriceFileDownloads.ExecuteAsync`, whose code calls this.");
+        downloaded.Corrections.ShouldBe([new ModelCorrection(ModelCorrection.AddLink, "downloads-execute") { Association = "Send Integration Command", Target = "import-prices" }]);
+        var uploaded = result.Findings.Single(x => x.Rule == "messaging/unmodelled.send" && x.Message.StartsWith("`PriceFileUploads.OnFileUploaded`", StringComparison.Ordinal));
+        uploaded.Message.ShouldContain("Model `OnFileUploaded` on `PriceFileUploads`");
+        uploaded.Corrections.ShouldBeEmpty();
+    }
+
     private static RunResult Run() => Run(Model, Code);
 
     private static RunResult Run(JsonNode model, IReadOnlyDictionary<string, string> code)

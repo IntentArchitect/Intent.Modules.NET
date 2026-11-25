@@ -42,16 +42,17 @@ internal static class CSharpReader
         {
             bool? nullable = null;
             string? rootNamespace = null;
+            var addsImports = true;
             try
             {
-                (nullable, rootNamespace) = ProjectSettings(Path.Combine(root, project));
+                (nullable, rootNamespace, addsImports) = ProjectSettings(Path.Combine(root, project));
             }
             catch (System.Xml.XmlException e)
             {
                 graph.Failures.Add((project, e.Message));
             }
 
-            projects[Path.GetDirectoryName(project)!.Replace('\\', '/')] = new Project(project, nullable, rootNamespace);
+            projects[Path.GetDirectoryName(project)!.Replace('\\', '/')] = new Project(project, nullable, rootNamespace, addsImports);
         }
 
         var parts = new Dictionary<string, TypeNode>(StringComparer.Ordinal);
@@ -107,7 +108,7 @@ internal static class CSharpReader
             }
 
             syntax.Trees[file] = tree;
-            var fileNode = FileOf(tree.GetRoot(), file, governing?.Path, razor);
+            var fileNode = FileOf(tree.GetRoot(), file, governing, razor);
             graph.Files.Add(fileNode);
             if (tree.GetRoot() is CompilationUnitSyntax unit && unit.Members.OfType<GlobalStatementSyntax>().ToList() is { Count: > 0 } statements)
             {
@@ -249,13 +250,15 @@ internal static class CSharpReader
     /// <summary>
     /// A file's declared namespaces and its <c>using</c> directives. A fully qualified name used inline isn't an import,
     /// so it isn't seen. A Razor file's are its own <c>@using</c>s; its <c>_Imports.razor</c> files' are theirs, which it
-    /// has imports from.
+    /// has imports from. Its imports are all known (<see cref="FileNode.ImportsKnown"/>) when a project governs it that adds
+    /// none of its own, unless it is Razor's, whose compiler adds its own and whose <c>_Imports.razor</c> may be out of scope.
     /// </summary>
-    private static FileNode FileOf(SyntaxNode root, string file, string? project, RazorFile? razor) => new()
+    private static FileNode FileOf(SyntaxNode root, string file, Project? project, RazorFile? razor) => new()
     {
         Path = file,
         Language = CSharpLanguage.LanguageName,
-        Project = project,
+        Project = project?.Path,
+        ImportsKnown = project is { AddsImports: false } && razor is null,
         Namespaces = razor is { IsImports: true } ? [] : root.DescendantNodes().OfType<BaseNamespaceDeclarationSyntax>().Select(x => Namespace(x.Name)).Distinct().ToList(),
         ImportsFrom = razor?.ImportsFrom ?? [],
         Markup = razor?.Markup ?? [],
@@ -332,7 +335,7 @@ internal static class CSharpReader
 
                     break;
                 case MethodDeclarationSyntax method:
-                    yield return (new MemberNode { Name = method.Identifier.Text, Kind = "method", Type = TypeRef(method.ReturnType), IsStatic = method.Modifiers.Any(SyntaxKind.StaticKeyword), Parameters = ParametersOf(method.ParameterList, file), Attributes = AttributesOf(method.AttributeLists, file), Access = AccessOf(method.Modifiers, type), Modifiers = ModifiersOf(method.Modifiers), TypeParameters = method.TypeParameterList?.Parameters.Select(x => x.Identifier.Text).ToList() ?? [], At = SpanOf(method, file), TextOf = () => Canonical(method) }, method);
+                    yield return (new MemberNode { Name = method.Identifier.Text, Kind = "method", Type = TypeRef(method.ReturnType), IsStatic = method.Modifiers.Any(SyntaxKind.StaticKeyword), Parameters = ParametersOf(method.ParameterList, file), Attributes = AttributesOf(method.AttributeLists, file), Access = AccessOf(method.Modifiers, type), Modifiers = ModifiersOf(method.Modifiers), TypeParameters = method.TypeParameterList?.Parameters.Select(x => x.Identifier.Text).ToList() ?? [], Implements = method.ExplicitInterfaceSpecifier is { } explicitly ? TypeRef(explicitly.Name) : null, At = SpanOf(method, file), TextOf = () => Canonical(method) }, method);
                     break;
                 case ConstructorDeclarationSyntax constructor:
                     yield return (new MemberNode { Name = constructor.Identifier.Text, Kind = "constructor", IsStatic = constructor.Modifiers.Any(SyntaxKind.StaticKeyword), Parameters = ParametersOf(constructor.ParameterList, file), Access = AccessOf(constructor.Modifiers, type), Modifiers = ModifiersOf(constructor.Modifiers), At = SpanOf(constructor, file), TextOf = () => Canonical(constructor) }, constructor);
@@ -574,8 +577,11 @@ internal static class CSharpReader
         return new Span(file, lines.StartLinePosition.Line + 1, lines.StartLinePosition.Character + 1, lines.EndLinePosition.Line + 1, lines.EndLinePosition.Character + 1);
     }
 
-    /// <summary>A project file, with its nullable context and root namespace; both null when it doesn't say or won't parse.</summary>
-    private sealed record Project(string Path, bool? Nullable, string? RootNamespace);
+    /// <summary>
+    /// A project file, with its nullable context and root namespace, both null when it doesn't say or won't parse, and whether
+    /// it may add imports the graph doesn't hold: true when it won't parse.
+    /// </summary>
+    private sealed record Project(string Path, bool? Nullable, string? RootNamespace, bool AddsImports);
 
     /// <summary>The nearest project file in the file's folder or above governs it.</summary>
     private static Project? Governing(string file, IReadOnlyDictionary<string, Project> projects)
@@ -597,12 +603,50 @@ internal static class CSharpReader
         }
     }
 
-    /// <summary>Whether the project turns nullable reference types on, and its root namespace when it sets one.</summary>
-    private static (bool Nullable, string? RootNamespace) ProjectSettings(string projectFile)
+    /// <summary>
+    /// Whether the project turns nullable reference types on, its root namespace when it sets one, and whether it adds global
+    /// imports of its own: a <c>&lt;Using&gt;</c> item in it, or in the Directory.Build.props or Directory.Build.targets
+    /// MSBuild brings in, the nearest of each in its folder or above. The SDK's implicit usings are only its libraries'
+    /// namespaces, so they make none of the code's types nameable.
+    /// </summary>
+    private static (bool Nullable, string? RootNamespace, bool AddsImports) ProjectSettings(string projectFile)
     {
         var elements = XDocument.Load(projectFile).Descendants().ToList();
         var nullable = elements.FirstOrDefault(x => x.Name.LocalName == "Nullable")?.Value.Trim();
         var rootNamespace = elements.FirstOrDefault(x => x.Name.LocalName == "RootNamespace")?.Value.Trim();
-        return (string.Equals(nullable, "enable", StringComparison.OrdinalIgnoreCase), string.IsNullOrEmpty(rootNamespace) ? null : rootNamespace);
+        var addsImports = AddsImports(elements) || DirectoryBuildFiles(Path.GetDirectoryName(Path.GetFullPath(projectFile))).Any(AddsImports);
+        return (string.Equals(nullable, "enable", StringComparison.OrdinalIgnoreCase), string.IsNullOrEmpty(rootNamespace) ? null : rootNamespace, addsImports);
+    }
+
+    private static bool AddsImports(IEnumerable<XElement> elements) => elements.Any(x => x.Name.LocalName == "Using" && x.Attribute("Include") is not null);
+
+    /// <summary>A Directory.Build file that won't parse may add imports, as far as the reader can tell.</summary>
+    private static bool AddsImports(string file)
+    {
+        try
+        {
+            return AddsImports(XDocument.Load(file).Descendants());
+        }
+        catch (Exception e) when (e is System.Xml.XmlException or IOException or UnauthorizedAccessException)
+        {
+            return true;
+        }
+    }
+
+    /// <summary>The nearest Directory.Build.props and Directory.Build.targets in the folder or above it, as MSBuild finds them.</summary>
+    private static IEnumerable<string> DirectoryBuildFiles(string? folder)
+    {
+        foreach (var name in new[] { "Directory.Build.props", "Directory.Build.targets" })
+        {
+            for (var current = folder; current is not null; current = Path.GetDirectoryName(current))
+            {
+                var file = Path.Combine(current, name);
+                if (File.Exists(file))
+                {
+                    yield return file;
+                    break;
+                }
+            }
+        }
     }
 }

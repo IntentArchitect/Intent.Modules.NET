@@ -265,6 +265,116 @@ public class PaymentOutputs
 }
 ```
 
+## verified-local-from-out-argument
+
+The endpoint sends a local that an `out` argument declares, `router.Prepare(..., out ChargePaymentCommand command)`, and no in-scope code implements the router. The argument types the local as the command, so the send is verified.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession, IPaymentRouter router)
+    {
+        var orderId = Guid.NewGuid();
+        router.Prepare(orderId, request.Total, out ChargePaymentCommand command);
+
+        await messageSession.Send(command);
+
+        return TypedResults.Ok(orderId);
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/IPaymentRouter.cs
+namespace Ordering.API.Apis;
+
+public interface IPaymentRouter
+{
+    void Prepare(Guid orderId, decimal total, out ChargePaymentCommand command);
+
+    bool TryRefund(Guid orderId, decimal total, out RefundPaymentCommand command);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:19" }
+  ]
+}
+```
+
+## contradicted-local-from-out-argument
+
+The endpoint sends a local that `out var` declares, `router.TryRefund(..., out var command)`. The router's parameter types it as `RefundPaymentCommand`, another command, so the modelled send isn't in the code.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["intent.sends"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "intent.aspnetcore", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Ordering.API/Apis/OrdersApi.cs
+namespace Ordering.API.Apis;
+
+public static class OrdersApi
+{
+    public static RouteGroupBuilder MapOrdersApiV1(this IEndpointRouteBuilder app)
+    {
+        var api = app.MapGroup("api/orders");
+
+        api.MapPost("/", CreateOrderAsync);
+
+        return api;
+    }
+
+    public static async Task<Ok<Guid>> CreateOrderAsync(CreateOrderRequest request, IMessageSession messageSession, IPaymentRouter router)
+    {
+        var orderId = Guid.NewGuid();
+        router.TryRefund(orderId, request.Total, out var command);
+
+        await messageSession.Send(command);
+
+        return TypedResults.Ok(orderId);
+    }
+}
+```
+
+```csharp file src/Ordering.API/Apis/IPaymentRouter.cs
+namespace Ordering.API.Apis;
+
+public interface IPaymentRouter
+{
+    void Prepare(Guid orderId, decimal total, out ChargePaymentCommand command);
+
+    bool TryRefund(Guid orderId, decimal total, out RefundPaymentCommand command);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "create-order-sends-charge-payment", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.sends", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
 ## verified-property-of-returned-object
 
 The endpoint sends a property of what the router returns, `outputs.Charge`, which `PaymentOutputs` declares as a `ChargePaymentCommand`: the send is verified.
@@ -485,6 +595,274 @@ public class OrderLogic : IOrderLogic
   ],
   "findings": [
     { "rule": "claim/intent.sends", "severity": "error", "subject": "create-order-sends-charge-payment", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
+## verified-in-callback-library-makes
+
+A hosted service's `ExecuteAsync` runs a file sync from a library and hands it the service itself as its progress, `sync.SyncDirectory(..., this)`. The library reports each file through the service's explicit `IProgress<FileSyncProgress>.Report`, and that sends `ImportPrices` for it. A library calls back what it is handed only through a type it knows, so the service's explicit implementation of a library interface runs from that call: the send is verified, where `ExecuteAsync` calls the method that hands the service over.
+
+```json case
+{ "phase": 4, "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [
+        {
+          "id": "services", "name": "Prices.Host",
+          "elements": [
+            { "id": "price-file-downloads", "type": "Service", "name": "PriceFileDownloads",
+              "children": [
+                { "id": "execute", "type": "Operation", "name": "ExecuteAsync" }
+              ] }
+          ]
+        },
+        {
+          "id": "eventing", "name": "Prices.Eventing", "type": "Eventing Package",
+          "elements": [
+            { "id": "import-prices", "type": "Integration Command", "name": "ImportPrices" }
+          ]
+        }
+      ],
+      "associations": [
+        { "id": "execute-sends-import-prices", "type": "Send Integration Command",
+          "source": { "element": "execute" }, "target": { "element": "import-prices" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Prices", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Prices.Host/PriceFileDownloads.cs
+namespace Prices.Host;
+
+public class PriceFileDownloads(IMessageSession session) : IProgress<FileSyncProgress>
+{
+    public Task ExecuteAsync(CancellationToken cancellationToken)
+    {
+        return Task.Run(() => Sync(cancellationToken));
+    }
+
+    private void Sync(CancellationToken cancellationToken)
+    {
+        var sync = new FileSync();
+        sync.SyncDirectory(new Uri("ftp://prices/daily"), "C:/prices", cancellationToken, this);
+    }
+
+    void IProgress<FileSyncProgress>.Report(FileSyncProgress value)
+    {
+        Task.Run(async () => await OnFileDownloaded(value.LocalFileName));
+    }
+
+    private async Task OnFileDownloaded(string fileName)
+    {
+        await session.SendLocal(new ImportPrices { FileName = fileName });
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "execute-sends-import-prices", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Prices.Host/PriceFileDownloads.cs:7" }
+  ]
+}
+```
+
+## contradicted-callback-never-handed-over
+
+The service now hands the sync no progress of its own (`null`), so nothing calls its `Report`: the send there isn't `ExecuteAsync`'s, and the modelled send isn't in the code.
+
+```json case
+{ "phase": 4, "base": "verified-in-callback-library-makes", "kinds": ["intent.sends"], "requirements": ["R8"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Prices.Host/PriceFileDownloads.cs
+namespace Prices.Host;
+
+public class PriceFileDownloads(IMessageSession session) : IProgress<FileSyncProgress>
+{
+    public Task ExecuteAsync(CancellationToken cancellationToken)
+    {
+        return Task.Run(() => Sync(cancellationToken));
+    }
+
+    private void Sync(CancellationToken cancellationToken)
+    {
+        var sync = new FileSync();
+        sync.SyncDirectory(new Uri("ftp://prices/daily"), "C:/prices", cancellationToken, null);
+    }
+
+    void IProgress<FileSyncProgress>.Report(FileSyncProgress value)
+    {
+        Task.Run(async () => await OnFileDownloaded(value.LocalFileName));
+    }
+
+    private async Task OnFileDownloaded(string fileName)
+    {
+        await session.SendLocal(new ImportPrices { FileName = fileName });
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "execute-sends-import-prices", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.sends", "severity": "error", "subject": "execute-sends-import-prices", "messageContains": "isn't in the code" }
+  ]
+}
+```
+
+## verified-library-message-of-an-own-commands-name
+
+The application owns and models `PlaceOrder`, which `OrderHandler` handles, sending `ChargePayment`. It also keeps an old, unwired handler of a contracts package's `PlaceOrder`, which sends `ChargePayment` too. That handler's file imports the package's namespace and not the application's commands namespace, and its project adds no imports of its own, so its `PlaceOrder` is the package's: it is no handler of the modelled command, and its send is nothing the diagram can show. A migrated NServiceBus application, clean under Common.Drift v1, had two sends reported, each asking for the old handler to be modelled as a handler of the application's own command.
+
+```json case
+{ "phase": 4, "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [
+        {
+          "id": "services", "name": "Shop.Pricing",
+          "elements": [
+            { "id": "order-handler", "type": "Integration Event Handler", "name": "OrderHandler" }
+          ]
+        },
+        {
+          "id": "eventing", "name": "Shop.Pricing.Eventing", "type": "Eventing Package",
+          "elements": [
+            { "id": "place-order", "type": "Integration Command", "name": "PlaceOrder" },
+            { "id": "charge-payment", "type": "Integration Command", "name": "ChargePayment" }
+          ]
+        }
+      ],
+      "associations": [
+        { "id": "handler-subscribes-place-order", "type": "Subscribe Integration Command",
+          "source": { "element": "order-handler" }, "target": { "element": "place-order" } },
+        { "id": "subscription-sends-charge-payment", "type": "Send Integration Command",
+          "source": { "element": "handler-subscribes-place-order" }, "target": { "element": "charge-payment" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop.Pricing/Shop.Pricing.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>
+```
+
+```csharp file src/Shop.Pricing/Commands/PlaceOrder.cs
+using NServiceBus;
+
+namespace Shop.Pricing.Commands;
+
+public class PlaceOrder : ICommand
+{
+    public string OrderCode { get; set; }
+}
+```
+
+```csharp file src/Shop.Pricing/Commands/ChargePayment.cs
+using NServiceBus;
+
+namespace Shop.Pricing.Commands;
+
+public class ChargePayment : ICommand
+{
+    public string OrderCode { get; set; }
+}
+```
+
+```csharp file src/Shop.Pricing/Orders/OrderHandler.cs
+using NServiceBus;
+using Shop.Pricing.Commands;
+
+namespace Shop.Pricing.Orders;
+
+public class OrderHandler : IHandleMessages<PlaceOrder>
+{
+    public Task Handle(PlaceOrder message, IMessageHandlerContext context) =>
+        context.Send(new ChargePayment { OrderCode = message.OrderCode });
+}
+```
+
+```csharp file src/Shop.Pricing/Orders/LegacyOrderHandler.cs
+using NServiceBus;
+using Shop.Contracts.Orders;
+
+namespace Shop.Pricing.Orders;
+
+public class LegacyOrderHandler
+{
+    public Task HandleImplementationAsync(PlaceOrder message, IMessageHandlerContext context) =>
+        context.Send(new Shop.Pricing.Commands.ChargePayment { OrderCode = message.OrderCode });
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "subscription-sends-charge-payment", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Shop.Pricing/Orders/OrderHandler.cs:9" }
+  ],
+  "findings": [
+    { "rule": "messaging/unmodelled.send", "count": 0 }
+  ]
+}
+```
+
+## unmodelled-handler-of-an-own-command
+
+The old handler's file now imports the application's commands namespace, so its `PlaceOrder` is the modelled command: it is a handler of it the diagram doesn't show, and its send is drift.
+
+```json case
+{ "phase": 4, "base": "verified-library-message-of-an-own-commands-name", "kinds": ["intent.sends"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Shop.Pricing/Orders/LegacyOrderHandler.cs
+using NServiceBus;
+using Shop.Pricing.Commands;
+
+namespace Shop.Pricing.Orders;
+
+public class LegacyOrderHandler
+{
+    public Task HandleImplementationAsync(PlaceOrder message, IMessageHandlerContext context) =>
+        context.Send(new ChargePayment { OrderCode = message.OrderCode });
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.sends", "element": "subscription-sends-charge-payment", "outcome": "verified", "expected": "present", "actual": "present" }
+  ],
+  "findings": [
+    { "rule": "messaging/unmodelled.send", "severity": "error", "messageContains": "Model `LegacyOrderHandler` as a handler of `PlaceOrder`, then add a Send Integration Command link to `ChargePayment` from its subscription." }
   ]
 }
 ```
