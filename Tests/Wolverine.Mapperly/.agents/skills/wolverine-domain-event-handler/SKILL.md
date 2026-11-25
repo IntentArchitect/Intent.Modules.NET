@@ -1,8 +1,8 @@
 ---
 name: wolverine-domain-event-handler
-description: implement or revise wolverine domain event handlers in clean architecture c# solutions. use when a domain event handler, outbox/integration-event reaction, projection update, notification side effect, audit side effect, or cross-aggregate follow-up is incomplete or incorrect and chatgpt should update the handler while preserving clean layer boundaries and existing codebase conventions.
+description: Implements or revises Wolverine domain event handlers in Clean Architecture C# solutions. MUST load before creating or editing a domain event handler, for example an integration-event reaction, projection update, notification, audit or cross-aggregate side effect.
 template-id: Intent.Application.Wolverine.DomainEvents.DomainEventHandlerSkill
-contentHash: B67C81C7B13440F2AFE571EEDCDBA7921154B5A9A261378487EE2F2BCDA21679
+contentHash: A6C3B72A8A2CA8F908326611188362BF304B4F059433EE8E0F611F30853BF6E3
 ---
 # Wolverine Domain Event Handler
 
