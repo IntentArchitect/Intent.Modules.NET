@@ -64,24 +64,22 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                 await Mediator.Send(new UpdateCustomerCommand(
                     id: Model.Id.Value,
                     name: Model.Name,
-                    surname: Model.Surname,
                     email: Model.Email,
                     isActive: Model.IsActive,
                     preference: new UpdateCustomerPreferenceDto
                     {
                         Id = Model.Preference.Id.Value,
-                        NewsLetter = Model.Preference.NewsLetter,
-                        Specials = Model.Preference.Specials
+                        NewsLetter = Model.Preference.NewsLetter
                     },
                     categoryId: Model.CategoryId.Value,
                     loyalty: Model?.Loyalty is not null
-                        ? new UpdateCustomerCommandLoyaltyDto
-                        {
-                            Id = Model.Loyalty.Id.Value,
-                            LoyaltyNo = Model.Loyalty.LoyaltyNo,
-                            Points = Model.Loyalty.Points.Value
-                        }
-                        : null,
+                    ? new UpdateCustomerCommandLoyaltyDto
+                    {
+                        Id = Model.Loyalty.Id.Value,
+                        LoyaltyNo = Model.Loyalty.LoyaltyNo,
+                        Points = Model.Loyalty.Points.Value
+                    }
+                    : null,
                     subCategoryId: Model.SubCategoryID.Value,
                     addresses: Model.Addresses
                         .Select(a => new UpdateCustomerCommandAddressesDto
@@ -89,8 +87,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                             Id = a.Id.Value,
                             Line1 = a.Line1,
                             Line2 = a.Line2,
-                            City = a.City,
-                            Postal = a.Postal,
                             AddressType = a.AddressType
                         })
                         .ToList()));
@@ -111,24 +107,22 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                 {
                     Id = customerDto.Id,
                     Name = customerDto.Name,
-                    Surname = customerDto.Surname,
                     Email = customerDto.Email,
                     IsActive = customerDto.IsActive,
                     Preference = new UpdateCustomerPreferenceModel
                     {
                         Id = customerDto.Preference.Id,
-                        NewsLetter = customerDto.Preference.NewsLetter,
-                        Specials = customerDto.Preference.Specials
+                        NewsLetter = customerDto.Preference.NewsLetter
                     },
                     CategoryId = customerDto.CategoryId,
                     Loyalty = customerDto.Loyalty is not null
-                        ? new UpdateCustomerCommandLoyaltyModel
-                        {
-                            Id = customerDto.Loyalty?.Id,
-                            LoyaltyNo = customerDto.Loyalty.LoyaltyNo,
-                            Points = customerDto.Loyalty?.Points
-                        }
-                        : null,
+                    ? new UpdateCustomerCommandLoyaltyModel
+                    {
+                        Id = customerDto.Loyalty?.Id,
+                        LoyaltyNo = customerDto.Loyalty.LoyaltyNo,
+                        Points = customerDto.Loyalty?.Points
+                    }
+                    : null,
                     SubCategoryID = customerDto.SubCategoryId,
                     Addresses = customerDto.Addresses
                         .Select(a => new UpdateCustomerCommandAddressesModel
@@ -136,8 +130,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                             Id = a.Id,
                             Line1 = a.Line1,
                             Line2 = a.Line2,
-                            City = a.City,
-                            Postal = a.Postal,
                             AddressType = a.AddressType
                         })
                         .ToList()
@@ -233,8 +225,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
                 Id = Guid.NewGuid(),
                 Line1 = string.Empty,
                 Line2 = string.Empty,
-                City = string.Empty,
-                Postal = string.Empty,
                 AddressType = Model.Addresses.Count(a => a.AddressType == AddressType.Deliver) == 0 ? AddressType.Deliver : AddressType.Billing
             });
         }
@@ -272,7 +262,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         {
             public Guid? Id { get; set; }
             public string Name { get; set; }
-            public string Surname { get; set; }
             public string Email { get; set; }
             public bool IsActive { get; set; }
             public UpdateCustomerPreferenceModel Preference { get; set; }
@@ -285,7 +274,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         {
             public Guid? Id { get; set; }
             public bool NewsLetter { get; set; }
-            public bool Specials { get; set; }
         }
         public class UpdateCustomerCommandLoyaltyModel
         {
@@ -298,8 +286,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             public Guid? Id { get; set; }
             public string Line1 { get; set; }
             public string? Line2 { get; set; }
-            public string City { get; set; }
-            public string Postal { get; set; }
             public AddressType AddressType { get; set; }
         }
     }

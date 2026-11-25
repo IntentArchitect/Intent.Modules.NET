@@ -2,210 +2,80 @@
 name: blazor-page-search-entity
 description: Implements Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: E43F7B80822887009DB16A3ED6C9F0E203C43908898BAA4D180DC1A25FE410A4
+contentHash: FE0CF3F289AF3A214482F3F568064B149C3C69231C3942722F74AF71A01819DC
 ---
-## MANDATORY: Read Samples Before Implementation
+# Search / list page (MudBlazor)
 
-STOP — you MUST read ALL of the following before writing ANY code:
+For search and list pages. Not for add or edit forms, or dialogs.
 
-**Samples** (in the SAME folder as this SKILL.md):
+## 1. Read first
 
-1. `search-entity-sample.razor`
-2. `search-entity-sample.razor.cs`
+1. `search-entity-sample.razor` and `search-entity-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
+2. The target `.razor` and `.razor.cs`, and the request models, DTOs, enums, lookups and services they use.
+3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
 
-**Target component and project files:**
+## 2. The `.razor.cs` is the source of truth
 
-3. The target `.razor` and `.razor.cs`
-4. Related project files: request models, DTOs, enums, lookups, services
+It defines the search criteria, paging, sorting, service calls, row actions and navigation.
 
-**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+- **Skeleton** (injections and empty or stub methods): fill in loading through the existing service, following the sample's `.razor.cs`.
+- **Implemented**: leave every existing method as it is. You may add UI-only fields, helpers that only call existing methods, and lifecycle wiring.
+- Never add CRUD or navigation methods that aren't there, and never change DTOs, request models or service signatures.
 
-5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+## 3. Pick one pattern
 
-If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
-If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
+| The code-behind has | Pattern |
+|---|---|
+| `LoadServerData(TableState, CancellationToken)`, paging or sorting fields, real filter properties | **Searchable**: `MudTable` with `ServerData`; sort labels only if sorting is supported, pager only if paging is |
+| a plain collection loaded directly, no paging, sorting or filters | **Simple grid**: `Items` bound to the collection; no `ServerData`, sort labels or pager |
 
----
+Don't mix them.
 
-## MANDATORY: Match Sample Layout (Visual Structure)
+## 4. Layout
 
-When a sample exists, you MUST match the sample’s visual structure, not only its data-loading behavior.
+Copy the sample's structure: hero header (`MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0"`), then a main card (`MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s"`). Don't replace the hero with `MudCardHeader`. Reuse the sample's utility classes when they exist: grep each name as a substring across `wwwroot/**/*.css`, since they are often compound selectors.
 
-Required process:
+Actions:
 
-1. Reuse the sample’s top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors (e.g. `.mud-paper.ux-gradient-primary`), so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
+- With filters: Search and Add sit inline with the filters in the card body.
+- Without filters: Add and Refresh go in `CardHeaderContent`, in a `MudStack Row="true" Justify="Justify.FlexStart"`. Never `CardHeaderActions`, which right-aligns.
+- Surface Refresh when a load method exists; in a simple grid it calls that load method.
 
-Required baseline layout (when supported by the target app):
+## 5. Filters
 
-- A hero header using `MudPaper` with `Class="pa-4 mb-4 ux-gradient-primary"` and `Elevation="0"`
-- A main content card using `MudCard` with `Class="ux-fade-in-up"` and `Style="animation-delay: 0.1s"`
+Render only properties of the request model the search method actually takes. Never invent filters, and never render paging or sorting fields (`pageNo`, `pageSize`, `orderBy`) as filters.
 
-Forbidden:
+| Type | Control |
+|---|---|
+| `string` named like search or keyword | one search `MudTextField`; Enter triggers the search |
+| other `string` | `MudTextField` |
+| `bool` / `bool?` | `MudSelect` with All, Yes and No |
+| enum or lookup | `MudSelect` with a placeholder, over real values only |
+| number | `MudNumericField` |
+| date | `MudDatePicker` with `Placeholder="Select date"` |
 
-- Replacing the hero header with a different structure (e.g. `MudCardHeader`) unless explicitly requested
-- Dropping the sample’s utility classes when they exist in the target project
+- The Search button calls the existing load or search method. Don't query on every keystroke unless the code already does.
+- Declare `T` on generic controls when it can't be inferred. With `ValueChanged`, bind `Value`, not `@bind-Value`.
+- Bind enums numerically, and give enum parameters (`Justify`, `Variant`, `Color`, ...) explicit enum values.
 
----
+## 6. Columns and row actions
 
-## Preserve Existing Implementation
+- Columns only for fields that exist on the returned DTO.
+- Look at every method on the code-behind, private ones included. Render View, Edit, Delete or similar actions only when a matching method exists; if the row has an id and an edit method exists, the Edit action is required. No placeholder buttons.
 
-Use for: Search or list entity pages in Blazor with MudBlazor\
-Do NOT use for: Add or edit forms, dialogs, or non-Blazor projects\
-Source of truth: Existing `.razor.cs` file defines search criteria, paging, sorting, service calls, row actions, and navigation
+## 7. Never
 
-### You MAY add:
-
-- UI-only fields and helper methods that only call existing methods
-- Lifecycle wiring such as `OnInitializedAsync()` calls
-- Table columns and row action buttons for existing backing methods
-
-### You MUST NOT:
-
-- Rewrite service-calling, routing, or dialog methods
-- Modify backend DTOs, request models, or service signatures
-- Invent filters that do not exist in the backing search model
-- Expose paging or sorting parameters as normal filter inputs
-- Add CRUD or navigation methods that do not already exist in `.razor.cs`
-
----
-
-## 1. Filters: Backend Contract Only
-
-All search criteria must come from the existing backing search model or request object.
-
-Required process:
-
-1. Identify the primary search or load method such as `LoadServerData`, `LoadEntities`, or `SearchEntities`
-2. Inspect the request DTO or backing search model used by that method
-3. Render only supported filter properties
-
-Forbidden:
-
-- Inventing filters
-- Modifying service signatures to support UI filters
-- Rendering paging or sorting fields like `pageNo`, `pageSize`, or `orderBy` as normal filter inputs
-
----
-
-## 2. Choose The Correct Pattern
-
-There are two list-page patterns and you must choose the one that matches the backing class.
-
-Use the searchable pattern when the component exposes:
-
-- `LoadServerData(TableState state, CancellationToken cancellationToken)`
-- Paging or sorting request fields
-- Real search or filter properties
-
-Use the simple grid pattern when the component:
-
-- Loads a plain collection directly
-- Has no paging or sorting request model
-- Has no real search or filter fields
-
-Do not mix the two patterns in one page.
-
----
-
-## 3. Map Criteria And Fields To MudBlazor Controls
-
-| Type                                  | Control                            |
-| -------------------------------------- | ----------------------------------- |
-| `string` named like search or keyword | Single search `MudTextField`       |
-| Other `string`                        | `MudTextField`                     |
-| `bool` or nullable bool               | `MudSelect` with All, Yes, and No  |
-| Enum or lookup                        | `MudSelect` with real options only |
-| Number                                 | `MudNumericField`                  |
-| Date                                   | `MudDatePicker`                    |
-
-MudBlazor rules:
-
-- Declare `T` explicitly for generic controls when required
-- Add placeholders to `MudSelect`
-- Every `MudDatePicker` must include `Placeholder="Select date"`
-- If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
-- Bind enum values numerically, not as string literals
-- Enum component properties such as `Justify`, `AlignItems`, `Direction`, `Variant`, and `Color` must use explicit enum values
-
----
-
-## 4. Search And Refresh Behavior
-
-Search behavior:
-
-- Search button must call the existing load or search method
-- Pressing Enter in the main search field should trigger the same search behavior
-- Do not auto-query on every keystroke unless that behavior already exists and must be preserved
-
-Button placement:
-
-- With filter fields, keep Search and Add actions inline in the card body with the filters
-- Without filter fields, place Add and Refresh actions in `CardHeaderContent` using `MudStack` with `Row="true"` and `Justify="Justify.FlexStart"`
-- Keep action buttons left-aligned
-- Never use `CardHeaderActions` — it right-aligns content by default
-
-Refresh behavior:
-
-- If a load or refresh method exists, surface a Refresh action
-- In simple grid pages, Refresh should call the direct load method
-
----
-
-## 5. Table Output And Row Actions
-
-Columns:
-
-- Render only fields that actually exist on the returned DTO or view model
-- Never invent columns
-
-Searchable pattern:
-
-- Use `MudTable` with `ServerData` when `LoadServerData` exists
-- Use sortable headers only when sorting is supported
-- Use pager content only when paging is supported
-
-Simple grid pattern:
-
-- Bind `Items` to the existing collection
-- Do not use `ServerData`, sortable headers, or pager content
-
-Row actions:
-
-- Inspect all existing methods on the backing component, not only public methods
-- Render View, Edit, Delete, Open, or similar row actions only when matching methods actually exist
-- If the row DTO exposes an ID field and a matching edit method exists, the Edit action is required
-- Never invent row action methods or placeholder buttons
-
----
-
-## 6. Styling
-
-- Prefer shared utility styles first
-- Keep component-specific styles minimal
-- Never modify existing shared styles or theme values
-- Match the sample layout without introducing unnecessary wrappers
-- If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app’s styles (usually under `wwwroot`) and reuse them
-
-**Design and styling context**
-
-Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
-
----
+- An `@code` block, or a service call, in the `.razor`.
+- Hardcoded colours: inline `Style=` uses `var(--token)`. Existing shared styles, tokens and theme values stay unchanged; keep component CSS minimal.
 
 ## Definition of Done
 
-- [ ] All filters come from the real backing search model or request DTO
-- [ ] The correct pattern was chosen: searchable table or simple grid
-- [ ] Columns represent only actual DTO fields
-- [ ] Search button calls an existing load or search method
-- [ ] Refresh is surfaced when a matching method exists
-- [ ] Row-level actions are rendered only for existing matching methods
-- [ ] No CRUD or navigation methods were invented in `.razor.cs`
-- [ ] Enum values and select options were verified against real types
-- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
-- [ ] Paging and sorting were kept in table flow rather than exposed as normal filter inputs
-- [ ] Shared styles were preserved and component styling remained minimal
-- [ ] Sample visual structure was matched (hero header + main card), not replaced with an alternative header structure unless explicitly requested
-- [ ] Sample utility classes were verified to exist in the target project and reused when available (e.g. grep for `ux-gradient-primary` and `ux-fade-in-up`)
+- [ ] Hero header + main card as in the sample, with its utility classes where they exist
+- [ ] One pattern, matching the code-behind
+- [ ] Filters only from the real request model; paging and sorting stay in the table
+- [ ] Search calls the existing method; Refresh is shown when a load method exists
+- [ ] Columns are real DTO fields; row actions only for existing methods
+- [ ] Every `MudSelect` has a `Placeholder`; every `MudDatePicker` has `Placeholder="Select date"`; enum values and options are real
+- [ ] No new CRUD or navigation methods; existing methods unchanged
+- [ ] Styles use tokens; shared styles unchanged
+- [ ] The project builds; `.razor` has an `@using` for every type it names, such as a DTO in `T="..."`

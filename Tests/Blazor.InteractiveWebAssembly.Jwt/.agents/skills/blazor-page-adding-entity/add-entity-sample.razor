@@ -27,16 +27,6 @@
                                   RequiredError="Name is required" />
                 </MudItem>
                 <MudItem xs="12" md="6">
-                    <MudTextField @bind-Value="Model.Surname"
-                                  Label="Surname"
-                                  Placeholder="Enter surname"
-                                  Adornment="Adornment.Start"
-                                  AdornmentIcon="@Icons.Material.Filled.Person"
-                                  Immediate
-                                  Required
-                                  RequiredError="Surname is required" />
-                </MudItem>
-                <MudItem xs="12" md="6">
                     <MudTextField @bind-Value="Model.Email"
                                   Label="Email"
                                   Placeholder="name@company.com"
@@ -95,9 +85,6 @@
                 </MudItem>
                 <MudItem xs="6" md="3">
                     <MudSwitch T="bool" @bind-Value="Model.Preference.NewsLetter" Color="Color.Primary" Label="Subscribe to Newsletter" />
-                </MudItem>
-                <MudItem xs="6" md="3">
-                    <MudSwitch T="bool" @bind-Value="Model.Preference.Specials" Color="Color.Primary" Label="Receive Specials" />
                 </MudItem>
 
                 <MudItem xs="12">
@@ -158,27 +145,6 @@
                                               Placeholder="Apartment / unit (optional)"
                                               Adornment="Adornment.Start"
                                               AdornmentIcon="@Icons.Material.Filled.HomeWork" Immediate />
-                            </MudItem>
-                            <MudItem xs="12" md="4">
-                                <MudTextField @bind-Value="t.addr.City"
-                                              Label="City"
-                                              Placeholder="City"
-                                              Adornment="Adornment.Start"
-                                              AdornmentIcon="@Icons.Material.Filled.LocationCity"
-                                              Required
-                                              RequiredError="City is required"
-                                              Immediate />
-                            </MudItem>
-                            <MudItem xs="12" md="4">
-                                <MudTextField @bind-Value="t.addr.Postal"
-                                              Label="Postal code"
-                                              Placeholder="e.g. 2196"
-                                              Adornment="Adornment.Start"
-                                              AdornmentIcon="@Icons.Material.Filled.LocalPostOffice"
-                                              Required
-                                              RequiredError="Postal code is required"
-                                              Immediate
-                                              Validation="@(new Func<string?, IEnumerable<string>>(v => string.IsNullOrWhiteSpace(v) || (v.Length >= 3 && v.Length <= 10) ? Array.Empty<string>() : new[] { "Postal code looks wrong" }))" />
                             </MudItem>
                             <MudItem xs="12" Class="mt-2 d-flex justify-end">
                                 <MudButton Variant="Variant.Outlined" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => RemoveAddress(t.index))">Remove</MudButton>

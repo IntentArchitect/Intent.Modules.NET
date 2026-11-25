@@ -2,180 +2,62 @@
 name: blazor-dialog-editing-entity
 description: Implements Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when creating or implementing edit or update entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: BAB31C5C6A760DED31041D794D7DC502C9211FD734707C5B2A7885A733854D61
+contentHash: 273F46BAE7AC8E04F6FE6582312F91CB1D9FF2915A590D784241F2278CC59983
 ---
-## MANDATORY: Read Samples Before Implementation
+# Edit-entity dialog (MudBlazor)
 
-STOP — you MUST read ALL of the following before writing ANY code:
+For edit or update dialogs. Not for pages or add dialogs. A dialog closes through the dialog instance, never by navigating.
 
-**Samples** (in the SAME folder as this SKILL.md):
+## 1. Read first
 
-1. `edit-entity-dialog-sample.razor`
-2. `edit-entity-dialog-sample.razor.cs`
+1. `edit-entity-dialog-sample.razor` and `edit-entity-dialog-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
+2. The target `.razor` and `.razor.cs`, and the models, enums, lookups and services they use.
+3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
 
-**Target component and project files:**
+## 2. Classify the `.razor.cs`
 
-3. The target `.razor` and `.razor.cs`
-4. Related project files: models, enums, lookups, services
+- **Skeleton** (injections, model classes, empty or stub methods): add what the dialog needs, following the sample's `.razor.cs`: the `[CascadingParameter] IMudDialogInstance`, the input `[Parameter]` (an id, or a model to prepopulate from), the form reference, a saving flag, loading the entity through the existing service in `OnInitializedAsync`, `Save`/`SaveAsync` and `Cancel`.
+- **Implemented** (has loading, service calls or save logic): wire the markup to the existing members and leave them exactly as they are. You may add a member beside them only to support the markup, such as a validity flag.
 
-**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+## 3. Dialog
 
-5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+- Markup: `<MudDialog>` with `TitleContent`, `DialogContent` and `DialogActions`; never the old `MudDialogTitle` / `MudDialogContent` / `MudDialogActions` tags.
+- Save validates the form, calls the existing update method, closes with `Close(DialogResult.Ok(true))` on success, and on error stays open and sets the existing error state.
+- Cancel only cancels the dialog: no service calls, no model reset.
 
-If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
-If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
+## 4. Form
 
----
+Use the sample's form pattern (`MudForm` with `@ref`) and bind only to members that exist on the model.
 
-## Assess The .razor.cs Before Writing
+| Property | Control |
+|---|---|
+| string | `MudTextField` |
+| bool | `MudSwitch` or `MudCheckBox` |
+| enum | `MudSelect` over the enum's real members: read its definition, never copy members from the sample |
+| lookup | `MudSelect` with a placeholder, over options loaded from an existing service |
+| date | `MudDatePicker` with `Placeholder="Select date"` |
+| collection | a repeated block per item |
 
-Use for: Edit or update entity dialogs in Blazor with MudBlazor
-Do NOT use for: Full pages, search pages, add dialogs, or non-Blazor projects
-This is a dialog: close or cancel through MudBlazor dialog APIs rather than navigation
+- Declare `T` on generic controls such as `MudSelect` when it can't be inferred. With `ValueChanged`, bind `Value`, not `@bind-Value`.
+- Required fields carry validation and show a message; an invalid form never reaches the service.
+- Save is disabled while the form is invalid and while a save is running.
+- Actions: Cancel is `Variant="Variant.Outlined" Color="Color.Secondary"`; Save is `Variant="Variant.Filled" Color="Color.Primary"`.
+- Collection add and remove buttons only when matching methods exist. In a `for` loop, declare `var index = i;` first and use `index`, never `i`.
 
-Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
+## 5. Never
 
-**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
-
-- Add `[Parameter]` properties needed for the dialog (e.g. entity ID)
-- Add a model field or property matching the sample pattern
-- Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
-- Add `Save()` / `SaveAsync()` that validates the form, calls the existing update service method, and closes the dialog with `MudDialog.Close(DialogResult.Ok(true))` on success
-- Add `Cancel()` that only calls `MudDialog.Cancel()`
-- Add supporting methods only when they exist in the sample and the relevant service methods exist in the project
-
-**If implemented** — preserve all existing logic exactly:
-
-- Do NOT modify existing methods, service calls, or payload construction
-- Do NOT add, rename, or remove model properties
-- Do NOT rewrite existing C# functionality
-
-**Always forbidden** (skeleton or implemented):
-
-- Inventing service classes or interfaces that don't exist in the project
-- Calling services directly from the `.razor` file
-- Adding navigation logic to the dialog flow
-- Putting C# logic in `.razor` using `@code`
-
----
-
-## 1. Dialog Structure And Data Loading
-
-This component is a MudBlazor dialog, not a page.
-
-Dialog rules:
-
-- In `.razor.cs`, use `IMudDialogInstance`
-- In `.razor`, use `TitleContent`, `DialogContent`, and `DialogActions`
-- Do not use old dialog tags such as `MudDialogTitle`, `MudDialogContent`, or `MudDialogActions`
-- For success, close with `MudDialog.Close(DialogResult.Ok(true))`
-- For cancel, use `MudDialog.Cancel()`
-
-Data loading:
-
-- Receive dialog input through `[Parameter]` properties — add them if absent in a skeleton
-- If an ID is passed, load the entity via the appropriate service method (implement `OnInitializedAsync()` if it is an empty stub)
-- If a model is passed, prepopulate from that input structure
-
----
-
-## 2. Save And Cancel Methods
-
-`Save()` or `SaveAsync()` — add if absent in a skeleton:
-
-1. Validate the form
-2. Call the existing update service method without modification
-3. On success, close the dialog with a success result
-4. On error, keep the dialog open and set existing error state such as `serviceErrors.*`
-
-`Cancel()` — add if absent in a skeleton:
-
-- Only cancel or close the dialog
-- Do not reset model state
-- Do not call services
-
-Template bindings:
-
-- Bind Save button to `Save()` or `SaveAsync()`
-- Bind Cancel button to `Cancel()`
-- Do not call backend methods directly from the Razor template
-
----
-
-## 3. Form Validation
-
-Use valid Blazor `EditForm` patterns with the project's existing validation approach.
-
-Required fields must have:
-
-- Existing validation annotations or validator wiring
-- Visible validation messages
-- No service call when invalid
-
-Save button state:
-
-- Disable Save when the form is invalid
-- Disable Save while saving
-
----
-
-## 4. Control Mapping
-
-| Property Type | Control |
-|---------------|---------|
-| String | `MudTextField` |
-| Boolean | `MudSwitch` or `MudCheckBox` |
-| Enum | `MudSelect` with verified numeric values |
-| Lookup | `MudSelect` from real option sources only |
-| Array | Repeatable MudBlazor blocks |
-| Date | `MudDatePicker` |
-
-MudBlazor rules:
-
-- Declare `T` explicitly for generic controls when required
-- Add placeholders to `MudSelect`
-- Every `MudDatePicker` must include `Placeholder="Select date"`
-- If using `ValueChanged`, pair it with `Value` rather than `@bind-Value`
-- Never assume enum members from sample code
-
----
-
-## 5. Child Collections
-
-- Add collection buttons only when matching backing methods exist
-- Remove collection buttons only when matching backing methods exist
-- In `for` loops, use `var index = i;` and never bind directly to `i`
-
----
-
-## 6. Styling
-
-- Prefer shared utilities first
-- Keep component-specific styles minimal
-- Never modify existing shared styles or theme values
-- Match the sample dialog layout closely
-- Cancel button in DialogActions must use `Variant="Variant.Outlined"` `Color="Color.Secondary"`
-- Save button must use `Variant="Variant.Filled"` `Color="Color.Primary"` with `Disabled` bound to the saving flag
-
-**Design and styling context**
-
-Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
-
----
+- An `@code` block, or a service call, in the `.razor`.
+- Navigation in the dialog flow.
+- Changing existing methods, payload shape or model properties; inventing services, enum members or option data.
+- Hardcoded colours: inline `Style=` uses `var(--token)`. Existing shared styles, tokens and theme values stay unchanged; keep component CSS minimal.
 
 ## Definition of Done
 
-- [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
-- [ ] No `@code` block was introduced in `.razor`
-- [ ] Dialog uses `IMudDialogInstance` and modern MudBlazor dialog sections
-- [ ] Entity data is loaded or prepopulated through lifecycle or backing methods (implemented or added if the skeleton had none)
-- [ ] Save closes with `DialogResult.Ok(true)` on success
-- [ ] Cancel only cancels the dialog
-- [ ] Existing update service methods were not modified
-- [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
-- [ ] No service classes or interfaces were invented that don't exist in the project
-- [ ] Enum options were verified against the real enum definition
-- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
-- [ ] Validation prevents service calls when invalid
-- [ ] Shared styles were preserved and component styling remained minimal
+- [ ] `IMudDialogInstance` and the `TitleContent` / `DialogContent` / `DialogActions` sections, laid out as in the sample
+- [ ] Every binding resolves to a `.razor.cs` member; no `@code`, no service calls in `.razor`
+- [ ] The entity loads (or prepopulates) through existing methods; Save validates, updates through the existing method, and closes with `DialogResult.Ok(true)`; Cancel only cancels
+- [ ] Save is disabled while invalid or saving; invalid input never reaches the service
+- [ ] Every `MudSelect` has a `Placeholder`; every `MudDatePicker` has `Placeholder="Select date"`; enum members, lookups and services are real
+- [ ] Implemented code-behind: existing members unchanged
+- [ ] Styles use tokens; shared styles unchanged
+- [ ] The project builds; `.razor` has an `@using` for every type it names, such as a DTO in `T="..."`

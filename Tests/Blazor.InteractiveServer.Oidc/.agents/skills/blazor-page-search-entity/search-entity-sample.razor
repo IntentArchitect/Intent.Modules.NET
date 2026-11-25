@@ -63,11 +63,6 @@
                             </MudTableSortLabel>
                         </MudTh>
                         <MudTh>
-                            <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Surname)">
-                                Surname
-                            </MudTableSortLabel>
-                        </MudTh>
-                        <MudTh>
                             <MudTableSortLabel T="CustomerSummaryDto" SortLabel="@nameof(CustomerSummaryDto.Email)">
                                 Email
                             </MudTableSortLabel>
@@ -77,7 +72,6 @@
                     </HeaderContent>
                     <RowTemplate>
                         <MudTd DataLabel="Name">@context.Name</MudTd>
-                        <MudTd DataLabel="Surname">@context.Surname</MudTd>
                         <MudTd DataLabel="Email">@context.Email</MudTd>
                         <MudTd DataLabel="Status">
                             @if (context.IsActive)

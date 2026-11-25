@@ -23,12 +23,6 @@
                                           Required="true"
                                           Immediate
                                           Variant="Variant.Text" />
-                            <MudTextField Label="Surname"
-                                          @bind-Value="Model.Surname"
-                                          For="@(() => Model.Surname)"
-                                          Required="true"
-                                          Immediate
-                                          Variant="Variant.Text" />
                         </MudStack>
                         <MudTextField Label="Email"
                                       @bind-Value="Model.Email"
@@ -42,7 +36,6 @@
                             <MudText Typo="Typo.subtitle2" Class="mb-1">Preferences</MudText>
                             <MudStack Row Spacing="2">
                                 <MudSwitch T="bool" @bind-Checked="Model.Preference.NewsLetter" Color="Color.Primary">Newsletter</MudSwitch>
-                                <MudSwitch T="bool" @bind-Checked="Model.Preference.Specials" Color="Color.Secondary">Specials</MudSwitch>
                             </MudStack>
                         </MudPaper>
                         @if (Model.Loyalty != null)
@@ -84,8 +77,6 @@
                                 <HeaderContent>
                                     <MudTh>Line 1</MudTh>
                                     <MudTh>Line 2</MudTh>
-                                    <MudTh>City</MudTh>
-                                    <MudTh>Postal</MudTh>
                                     <MudTh>Type</MudTh>
                                     <MudTh></MudTh>
                                 </HeaderContent>
@@ -95,12 +86,6 @@
                                     </MudTd>
                                     <MudTd>
                                         <MudTextField Class="pa-0" @bind-Value="context.Line2" Immediate Dense Variant="Variant.Text" />
-                                    </MudTd>
-                                    <MudTd>
-                                        <MudTextField Class="pa-0" @bind-Value="context.City" Immediate Dense Variant="Variant.Text" />
-                                    </MudTd>
-                                    <MudTd>
-                                        <MudTextField Class="pa-0" @bind-Value="context.Postal" Immediate Dense Variant="Variant.Text" />
                                     </MudTd>
                                     <MudTd>
                                         <MudSelect T="AddressType" @bind-Value="context.AddressType" Dense Class="pa-0">

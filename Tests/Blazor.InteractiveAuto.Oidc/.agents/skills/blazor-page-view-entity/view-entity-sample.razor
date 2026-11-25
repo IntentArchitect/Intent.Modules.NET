@@ -28,20 +28,12 @@
                     <MudText Typo="Typo.body1">@CustomerByIdModels.Name</MudText>
                 </MudItem>
                 <MudItem xs="12" md="6">
-                    <MudText Typo="Typo.overline">Surname</MudText>
-                    <MudText Typo="Typo.body1">@CustomerByIdModels.Surname</MudText>
-                </MudItem>
-                <MudItem xs="12" md="6">
                     <MudText Typo="Typo.overline">Email</MudText>
                     <MudText Typo="Typo.body1">@CustomerByIdModels.Email</MudText>
                 </MudItem>
                 <MudItem xs="12" md="6">
                     <MudText Typo="Typo.overline">Cateogry</MudText>
                     <MudText Typo="Typo.body1">@CustomerByIdModels.CategoryName</MudText>
-                </MudItem>
-                <MudItem xs="12" md="6">
-                    <MudText Typo="Typo.overline">Sub Category</MudText>
-                    <MudText Typo="Typo.body1">@CustomerByIdModels.SubCategoryName</MudText>
                 </MudItem>
                 <MudItem xs="12" md="6">
                     <MudText Typo="Typo.overline">Status</MudText>
@@ -63,9 +55,6 @@
                     <MudStack Row Spacing="1">
                         <MudChip T="string" Color="@(CustomerByIdModels.Preference.NewsLetter ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.NewsLetter ? Variant.Filled : Variant.Outlined)" Icon="@Icons.Material.Filled.MarkunreadMailbox">
                             Newsletter: @(CustomerByIdModels.Preference.NewsLetter ? "Yes" : "No")
-                        </MudChip>
-                        <MudChip T="string" Color="@(CustomerByIdModels.Preference.Specials ? Color.Primary : Color.Default)" Variant="@(CustomerByIdModels.Preference.Specials ? Variant.Filled : Variant.Outlined)" Icon="@Icons.Material.Filled.LocalOffer">
-                            Specials: @(CustomerByIdModels.Preference.Specials ? "Yes" : "No")
                         </MudChip>
                     </MudStack>
                 </MudItem>
@@ -112,14 +101,6 @@
                                     <MudItem xs="12" md="4">
                                         <MudText Typo="Typo.overline">Address line 2</MudText>
                                         <MudText Typo="Typo.body1">@a.Line2</MudText>
-                                    </MudItem>
-                                    <MudItem xs="12" md="4">
-                                        <MudText Typo="Typo.overline">City</MudText>
-                                        <MudText Typo="Typo.body1">@a.City</MudText>
-                                    </MudItem>
-                                    <MudItem xs="12" md="4">
-                                        <MudText Typo="Typo.overline">Postal code</MudText>
-                                        <MudText Typo="Typo.body1">@a.Postal</MudText>
                                     </MudItem>
                                 </MudGrid>
                             </MudPaper>

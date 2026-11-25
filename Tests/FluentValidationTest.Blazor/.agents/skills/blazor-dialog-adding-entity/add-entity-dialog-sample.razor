@@ -18,9 +18,6 @@
                     <MudTextField @bind-Value="Model.Name" Label="Name" Placeholder="Enter name" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Badge" Immediate Required RequiredError="Name is required" />
                 </MudItem>
                 <MudItem xs="12" md="6">
-                    <MudTextField @bind-Value="Model.Surname" Label="Surname" Placeholder="Enter surname" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Person" Immediate Required RequiredError="Surname is required" />
-                </MudItem>
-                <MudItem xs="12" md="6">
                     <MudTextField @bind-Value="Model.Email" Label="Email" InputType="InputType.Email" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Email" Required="true" RequiredError="Email is required" Validation="@EmailRule" Immediate DebounceInterval="250" />
                 </MudItem>
                 <MudItem xs="12" md="6">
@@ -42,7 +39,7 @@
                     </MudSelect>
                 </MudItem>
                 <MudItem xs="12" md="6">
-                    <MudSelect Guid T="Guid?"
+                    <MudSelect T="Guid?"
                                @bind-Value="Model.SubCategoryId"
                                Label="Sub Category"
                                Placeholder="Select..."
@@ -65,9 +62,6 @@
                     <MudText Typo="Typo.h6">Preferences</MudText>
                 </MudItem>
                 <MudItem xs="12" md="6">
-                    <MudSwitch T="bool" @bind-Value="Model.Preference.Specials" Color="Color.Primary" Label="Receive specials" />
-                </MudItem>
-                <MudItem xs="12" md="6">
                     <MudSwitch T="bool" @bind-Value="Model.Preference.NewsLetter" Color="Color.Primary" Label="Subscribe to newsletter" />
                 </MudItem>
                 <MudItem xs="12">
@@ -80,16 +74,12 @@
                             <MudTh>Type</MudTh>
                             <MudTh>Line 1</MudTh>
                             <MudTh>Line 2</MudTh>
-                            <MudTh>City</MudTh>
-                            <MudTh>Postal</MudTh>
                             <MudTh></MudTh>
                         </HeaderContent>
                         <RowTemplate>
                             <MudTd DataLabel="Type">@context.AddressType.ToString()</MudTd>
                             <MudTd DataLabel="Line 1">@context.Line1</MudTd>
                             <MudTd DataLabel="Line 2">@context.Line2</MudTd>
-                            <MudTd DataLabel="City">@context.City</MudTd>
-                            <MudTd DataLabel="Postal">@context.Postal</MudTd>
                             <MudTd>
                                 <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="@(() => RemoveAddress(context))" Size="Size.Small" Edge="Edge.End" Disabled="@_saving" />
                             </MudTd>
@@ -115,12 +105,6 @@
                                 </MudItem>
                                 <MudItem xs="12" md="6">
                                     <MudTextField @bind-Value="_newAddress.Line2" Label="Address line 2" />
-                                </MudItem>
-                                <MudItem xs="12" md="6">
-                                    <MudTextField @bind-Value="_newAddress.City" Label="City" Required RequiredError="Required" />
-                                </MudItem>
-                                <MudItem xs="12" md="6">
-                                    <MudTextField @bind-Value="_newAddress.Postal" Label="Postal code" Required RequiredError="Required" />
                                 </MudItem>
                                 <MudItem xs="12">
                                     <MudButton OnClick="AddAddress" Variant="Variant.Filled" Color="Color.Primary" Disabled="@_saving">

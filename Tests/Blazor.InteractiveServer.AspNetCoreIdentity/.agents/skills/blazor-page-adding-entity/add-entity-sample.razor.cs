@@ -146,30 +146,26 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
             {
                 await Mediator.Send(new CreateCustomerCommand(
                     name: Model.Name,
-                    surname: Model.Surname,
                     email: Model.Email,
                     categoryId: Model.CategoryId.Value,
                     subCategoryId: Model.SubCategoryId.Value,
                     isActive: Model.IsActive,
                     preference: new CreateCustomerPreferenceDto
                     {
-                        NewsLetter = Model.Preference.NewsLetter,
-                        Specials = Model.Preference.Specials
+                        NewsLetter = Model.Preference.NewsLetter
                     },
                     loyalty: Model.Loyalty is not null
-                        ? new CreateCustomerCommandLoyaltyDto
-                        {
-                            LoyaltyNo = Model.Loyalty.LoyaltyNo,
-                            Points = Model.Loyalty.Points.Value
-                        }
-                        : null,
+                    ? new CreateCustomerCommandLoyaltyDto
+                    {
+                        LoyaltyNo = Model.Loyalty.LoyaltyNo,
+                        Points = Model.Loyalty.Points.Value
+                    }
+                    : null,
                     addresses: Model.Addresses
                         .Select(a => new CreateCustomerCommandAddressesDto
                         {
                             Line1 = a.Line1,
                             Line2 = a.Line2,
-                            City = a.City,
-                            Postal = a.Postal,
                             AddressType = a.AddressType
                         })
                         .ToList()));
@@ -202,7 +198,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         public class CreateCustomerModel
         {
             public string Name { get; set; } = string.Empty;
-            public string Surname { get; set; } = string.Empty;
             public string Email { get; set; } = string.Empty;
             public Guid? CategoryId { get; set; }
             public Guid? SubCategoryId { get; set; }
@@ -214,7 +209,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         public class CreateCustomerPreferenceModel
         {
             public bool NewsLetter { get; set; }
-            public bool Specials { get; set; }
         }
         public class CreateCustomerCommandLoyaltyModel
         {
@@ -225,8 +219,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Templates.Pages
         {
             public string Line1 { get; set; } = string.Empty;
             public string? Line2 { get; set; }
-            public string City { get; set; } = string.Empty;
-            public string Postal { get; set; } = string.Empty;
             public AddressType AddressType { get; set; }
         }
     }

@@ -2,195 +2,66 @@
 name: blazor-page-adding-entity
 description: Implements Blazor add or create entity pages using MudBlazor forms, preserving existing .razor.cs service and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing add, create, new, insert, or register entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 0F6D298A8A651DD30F64698CCC18E407D6AB0005385F30170D8E63A7B282DF07
+contentHash: A286D26658DB2148E2D87EB6452BDD6EB4ABC4811C9CA36163EE744D00D76F4E
 ---
-## MANDATORY: Read Samples Before Implementation
+# Add-entity page (MudBlazor)
 
-STOP — you MUST read ALL of the following before writing ANY code:
+For add or create pages. Not for search, edit or view pages, or dialogs.
 
-**Samples** (in the SAME folder as this SKILL.md):
+## 1. Read first
 
-1. `add-entity-sample.razor`
-2. `add-entity-sample.razor.cs`
+1. `add-entity-sample.razor` and `add-entity-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
+2. The target `.razor` and `.razor.cs`, and the models, enums, lookups and services they use.
+3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
 
-**Target component and project files:**
+## 2. Classify the `.razor.cs`
 
-3. The target `.razor` and `.razor.cs`
-4. Related project files: models, enums, lookups, services
+- **Skeleton** (injections, model classes, empty or stub methods): add what the page needs, following the sample's `.razor.cs`: the form reference, a saving flag, lookup loading in `OnInitializedAsync`, and a save method that validates, calls the existing create service method, and navigates on success.
+- **Implemented** (has service calls or save logic): wire the markup to the existing members and leave them exactly as they are. You may add a member beside them only to support the markup, such as a validity flag.
 
-**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+## 3. Layout
 
-5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+Copy the sample's structure: hero header, then one main card holding the form, then right-aligned actions. Reuse the sample's utility classes (`ux-gradient-primary`, `ux-fade-in-up`, ...) when they exist: grep each name as a substring across `wwwroot/**/*.css`, since they are often compound selectors.
 
-If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
-If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
+## 4. Form
 
----
+Use the sample's form pattern (`MudForm` with `@ref`) and bind only to members that exist on the model.
 
-## MANDATORY: Match Sample Layout (Visual Structure)
+| Property | Control |
+|---|---|
+| string | `MudTextField` (`Lines` for long text) |
+| bool | `MudSwitch` or `MudCheckBox` |
+| enum | `MudSelect` over the enum's real members: read its definition, never copy members from the sample |
+| lookup | `MudSelect` over options loaded from an existing service |
+| date | `MudDatePicker` with `Placeholder="Select date"` |
+| collection | a repeated block per item |
 
-When a sample exists, you MUST match the sample's visual structure, not only its data behavior.
+- Declare `T` on generic controls such as `MudSelect` when it can't be inferred.
+- A nullable nested object goes behind a toggle: off sets it to `null`, on creates it if `null`, and its fields show only while it is on.
+- Required fields carry validation and show a message when invalid.
+- Save is disabled while the form is invalid and while a save is running.
 
-Required process:
+## 5. Collections
 
-1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-2. If the sample uses shared utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`), verify they exist by grepping for the class name as a **substring** across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors, so search for the class name alone. If the class name appears anywhere in any CSS file, it exists and must be used.
+- In a skeleton, add `AddX` / `RemoveX` methods for the model's collections, as the sample does. In an implemented code-behind, show an add or remove button only when the matching method already exists.
+- In a `for` loop, declare `var index = i;` first and use `index`, never `i`, for bindings, `@key` and callbacks.
 
-Forbidden:
+## 6. Never
 
-- Replacing the hero header with a different structure unless explicitly requested
-- Dropping the sample's utility classes when they exist in the target project
-
----
-
-## Assess The .razor.cs Before Writing
-
-Use for: Add or create entity pages in Blazor with MudBlazor
-Do NOT use for: Search or list pages, edit forms, dialogs, or non-Blazor projects
-
-Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real model construction, service calls, or save logic).
-
-**If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
-
-- Add a model field or property (initialized to a new instance) matching the sample pattern
-- Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing create service method, and navigates on success
-- Add supporting lookup loading in `OnInitializedAsync()` if lookups are required and the service exists in the project
-- Add add/remove collection item methods only when they exist in the sample and matching service methods exist
-
-**If implemented** — preserve all existing logic exactly:
-
-- Do NOT modify existing methods, service calls, or payload construction
-- Do NOT add, rename, or remove model properties
-- Do NOT rewrite existing C# functionality
-
-**Always forbidden** (skeleton or implemented):
-
-- Inventing service classes or interfaces that don't exist in the project
-- Inventing fake option data or hardcoded list values
-- Calling services directly from the `.razor` file
-- Putting C# logic in `.razor` using `@code`
-
----
-
-## 1. Form: Build From The Model
-
-Bind inputs only to properties that exist on `model` — adding the model field first if it does not yet exist in the skeleton.
-
-Nullable objects:
-
-- Render a toggle or checkbox section only when the target model supports that nullable object pattern
-- Toggle OFF should set the object to null
-- Toggle ON should initialize it if null
-- Do not render nested fields as always visible or required unless the existing backing model already requires that behavior
-
----
-
-## 2. Map Properties to MudBlazor Controls
-
-| Property Type | Control |
-|---------------|---------|
-| String | `MudTextField` or `MudTextField Lines="..."` |
-| Boolean | `MudSwitch` or `MudCheckBox` |
-| Enum | `MudSelect` with explicit numeric values |
-| Lookup | `MudSelect` using real service-loaded options only |
-| Array | Repeatable MudBlazor blocks |
-| Date | `MudDatePicker` |
-
-Enum rules:
-
-1. Locate the enum definition from imports or project search
-2. Read the enum file and verify exact member names and values
-3. Use only verified enum members
-4. For `MudSelect`, prefer numeric values with explicit casts such as `Value="@((int)AddressType.Delivery)"`
-5. Never invent enum members from samples
-
-MudBlazor rules:
-
-- For MudBlazor generic controls such as `MudSelect`, declare `T` explicitly when required
-- Every `MudDatePicker` must include `Placeholder="Select date"`
-
----
-
-## 3. Form Validation
-
-Use valid Blazor form patterns with `EditForm` and the component's existing validation conventions.
-
-Required fields must have:
-
-- Model validation attributes or existing validator wiring
-- Validation components such as `DataAnnotationsValidator` when the component pattern uses them
-- Visible validation messages when invalid
-
-Save button state:
-
-- Disable Save when the form is invalid
-- Disable Save when a save operation is already in progress, for example `isLoading`
-
----
-
-## 4. Save Flow
-
-The Save button must call `Save()` or `SaveAsync()`. If neither exists in `.razor.cs`, add it following the sample pattern.
-
-That save flow must:
-
-1. Validate before saving
-2. Call the existing create service method without modifying it
-3. Navigate on success using an existing or added navigation method
-
-Forbidden:
-
-- Calling service methods directly from the Razor template
-- Modifying existing service-calling methods
-- Changing payload construction
-
----
-
-## 5. Child Collections
-
-Render child collections in repeatable MudBlazor UI blocks.
-
-Buttons:
-
-- Add buttons only if a corresponding `AddX()` or `AddXAsync()` method already exists
-- Remove buttons only if a corresponding `RemoveX()` or `RemoveXAsync()` method already exists
-- Do not invent collection manipulation methods
-
-For `for` loops:
-
-- Declare `var index = i;` inside each iteration
-- Use `index` for bindings, `@key`, and callbacks
-- Never bind or pass `i` directly inside the loop body
-
----
-
-## 6. Styling
-
-- Prefer existing global or shared utility styles first
-- Keep component-specific styles minimal
-- You may add new shared utility styles only when a reusable pattern is missing
-- Never modify existing shared styles, variables, or theme values
-- Match the sample layout closely without introducing unnecessary wrappers
-
-**Design and styling context**
-
-Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
-
----
+- An `@code` block, or a service call, in the `.razor`.
+- Changing existing service calls, payload construction, or model properties.
+- Inventing services, interfaces, enum members or option data.
+- Hardcoded colours: inline `Style=` uses `var(--token)`. Existing shared styles, tokens and theme values stay unchanged; add a shared utility only for a reusable pattern that is missing, and keep component CSS minimal.
 
 ## Definition of Done
 
-- [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
-- [ ] No `@code` block was introduced in `.razor`
-- [ ] Save button calls `Save()` or `SaveAsync()` in `.razor.cs`, not a service directly
-- [ ] Existing create service methods were not modified
-- [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
-- [ ] No service classes or interfaces were invented that don't exist in the project
-- [ ] Child collection buttons exist only when backing methods exist
-- [ ] Enum options were verified against the real enum definition
-- [ ] Every `MudDatePicker` includes `Placeholder="Select date"`
-- [ ] Validation is wired and Save is disabled when invalid or loading
-- [ ] Shared styles were preserved and component styling remained minimal
-- [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested
-- [ ] Sample utility classes were verified to exist in the target project and reused when available
+- [ ] Hero header + main card as in the sample, with its utility classes where they exist
+- [ ] Every binding resolves to a `.razor.cs` member; no `@code`, no service calls in `.razor`
+- [ ] Save validates, creates through the existing service method, and navigates on success
+- [ ] Save is disabled while invalid or saving; required fields show validation
+- [ ] Every `MudDatePicker` has `Placeholder="Select date"`
+- [ ] Enum members, lookups and services are real
+- [ ] Collection buttons only with backing methods; loops use `var index = i`
+- [ ] Implemented code-behind: existing members unchanged
+- [ ] Styles use tokens; shared styles unchanged
+- [ ] The project builds; `.razor` has an `@using` for every type it names, such as a DTO in `T="..."`

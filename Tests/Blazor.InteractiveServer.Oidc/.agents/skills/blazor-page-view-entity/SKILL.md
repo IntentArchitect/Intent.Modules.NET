@@ -2,164 +2,56 @@
 name: blazor-page-view-entity
 description: Implements Blazor read-only view entity pages using MudBlazor layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when creating or implementing view, detail, inspect, or read-only display entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: E447F3D097887B076F43D01957A3D1C7B61BD7F34023DA7BF058A04C9BFA8AEB
+contentHash: F0F2459F6951E4B78D666D353E3622989C0986819D5EE67BFCF2CC7D25331709
 ---
-## MANDATORY: Read Samples Before Implementation
+# View-entity page (MudBlazor)
 
-STOP — you MUST read ALL of the following before writing ANY code:
+For read-only view or detail pages. Not for add or edit forms, search pages, or dialogs.
 
-**Samples** (in the SAME folder as this SKILL.md):
+## 1. Read first
 
-1. `view-entity-sample.razor`
-2. `view-entity-sample.cs`
+1. `view-entity-sample.razor` and `view-entity-sample.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
+2. The target `.razor` and `.razor.cs`, and the DTOs and enums they use.
+3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
 
-**Target component and project files:**
+## 2. The `.razor.cs` is the source of truth
 
-3. The target `.razor` and `.razor.cs`
-4. Related project files: DTOs, enums
+It defines loading, service calls, navigation and the DTO. If loading is an empty stub, fill it in through the existing service, following the sample; otherwise leave every existing method, service call and DTO property as it is. Never invent fields, services, routes or navigation methods.
 
-**Design and styling context** (search the project — these are NOT in the SKILL.md folder):
+## 3. Layout
 
-5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+Copy the sample's structure: hero header (`MudPaper Class="pa-4 mb-4 ux-gradient-primary" Elevation="0"`), then a main card (`MudCard Class="ux-fade-in-up" Style="animation-delay: 0.1s"`). Don't replace the hero with `MudCardHeader`. Reuse the sample's utility classes when they exist: grep each name as a substring across `wwwroot/**/*.css`, since they are often compound selectors.
 
-If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
-If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
+While the DTO is `null`, show only the sample's loading indicator (`MudProgressCircular` in a centred `MudStack`).
 
----
+## 4. Display
 
-## MANDATORY: Match Sample Layout (Visual Structure)
+Read-only: no `MudTextField`, `MudSelect` or other inputs.
 
-When a sample exists, you MUST match the sample's visual structure, not only its data-loading behavior.
+| Property | Display |
+|---|---|
+| string / number | `MudText Typo="Typo.body1"` under a `Typo.overline` label |
+| bool / status | `MudChip T="string"`: `Color.Success` + `Variant.Filled` for positive, `Color.Default` (or `Error`) + `Variant.Outlined` for negative |
+| enum | a display label, not the number, from the enum's real members (read its definition) |
+| nullable object | a section inside an `@if` matching the code-behind's null check |
+| collection | `@foreach` inside an `@if`; each item in `MudPaper Class="pa-3 ux-inner-panel" Elevation="0"` with a `MudGrid` (no `Outlined`, no inline border radius); when empty, a `MudText Color="Color.Secondary"` message |
 
-Required process:
+## 5. Actions
 
-1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors (e.g. `.mud-paper.ux-gradient-primary`), so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
+At the bottom of the card, a `MudStack Row="true" Spacing="2" Justify="Justify.FlexEnd" AlignItems="AlignItems.Center"`: Back always, calling the existing cancel or navigation method; Edit only when an edit route or method exists.
 
-Required baseline layout (when supported by the target app):
+## 6. Never
 
-- A hero header using `MudPaper` with `Class="pa-4 mb-4 ux-gradient-primary"` and `Elevation="0"`
-- A main content card using `MudCard` with `Class="ux-fade-in-up"` and `Style="animation-delay: 0.1s"`
-
-Forbidden:
-
-- Replacing the hero header with a different structure (e.g. `MudCardHeader`) unless explicitly requested
-- Dropping the sample's utility classes when they exist in the target project
-
----
-
-## Preserve Existing Implementation
-
-Use for: Read-only view or detail entity pages in Blazor with MudBlazor  
-Do NOT use for: Add or edit forms, search pages, dialogs, or non-Blazor projects  
-Source of truth: Existing `.razor.cs` file defines data loading, service calls, navigation, and the DTO structure
-
-### You MUST NOT:
-
-- Modify existing backend methods such as `LoadEntity()` or `LoadEntityAsync()`
-- Change service calls or their parameters
-- Add, rename, or remove DTO properties
-- Invent fields or services not present in the backing class
-- Rewrite existing C# functionality
-- Put C# logic in the `.razor` file using `@code`
-- Render editable inputs — this page is read-only
-
----
-
-## 1. Data Loading
-
-Load data through existing lifecycle methods and backing methods such as `OnInitializedAsync()`, `OnParametersSetAsync()`, or explicit load methods already present in `.razor.cs`.
-
-Show a loading indicator while the data object is null, using the same pattern as the sample (`MudProgressCircular` inside a centered `MudStack`).
-
-Do not display entity content until the data object is non-null.
-
----
-
-## 2. Map DTO Properties to Read-Only Display
-
-Render all scalar DTO properties as labeled read-only fields using `MudText`:
-
-| Property Type | Display |
-|---------------|---------|
-| String / number | `MudText Typo="Typo.body1"` with `MudText Typo="Typo.overline"` label above |
-| Boolean / status | `MudChip` with conditional `Color` and `Variant` |
-| Enum | Resolved display label (not raw integer) in `MudChip` or `MudText` |
-| Nullable object | Conditional section rendered only when non-null |
-| Collection | Iterated with `@foreach`, each item in a `MudPaper` card |
-
-Chip rules:
-
-- Use `T="string"` on every `MudChip`
-- Match `Color` semantics: `Color.Success` for positive/active, `Color.Default` or `Color.Error` for inactive/negative
-- Match `Variant` semantics: `Variant.Filled` for active, `Variant.Outlined` for inactive or neutral
-
-Enum rules:
-
-- Locate the real enum definition before referencing it
-- Use verified member names only — never copy from sample code without confirming they match the target enum
-
----
-
-## 3. Nullable Object Sections
-
-Render optional nested objects inside an `@if` guard matching the existing null check in the backing class.
-
-Do not render nested fields outside their guard block.
-
----
-
-## 4. Child Collections
-
-Render child collections with `@foreach` inside a guarded `@if` block.
-
-- When the collection has items, render each in a `MudPaper` with `Class="pa-3 ux-inner-panel"` and `Elevation="0"` using `MudGrid` — do not use `Outlined="true"` or hardcode a `Style` border-radius
-- When the collection is empty or null, render a `MudText` fallback message using `Color.Secondary`
-- Never use `for` loops with index variables for read-only collections — `@foreach` is correct here
-
----
-
-## 5. Navigation Actions
-
-Render navigation buttons at the bottom of the card in a right-aligned `MudStack`:
-
-- Render an **Edit** button only when a matching edit route or method exists in `.razor.cs`
-- Always render a **Back** button that calls the existing `Cancel()` or equivalent navigation method
-- Never invent navigation methods or routes
-
-Button placement:
-
-- Use `Justify="Justify.FlexEnd"` on `MudStack`
-- `Row="true"`, `Spacing="2"`, `AlignItems="AlignItems.Center"`
-
----
-
-## 6. Styling
-
-- Prefer shared utility styles first
-- Keep component-specific styles minimal
-- Never modify existing shared styles, variables, or theme values
-- Match the sample layout without introducing unnecessary wrappers
-- If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (usually under `wwwroot`) and reuse them
-
-**Design and styling context**
-
-Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
-
----
+- An `@code` block, or a service call, in the `.razor`.
+- Hardcoded colours: inline `Style=` uses `var(--token)`. Existing shared styles, tokens and theme values stay unchanged; keep component CSS minimal.
 
 ## Definition of Done
 
-- [ ] All properties displayed in `.razor` exist on the DTO returned by the backing class
-- [ ] No `@code` block was introduced in `.razor`
-- [ ] No editable inputs (e.g. `MudTextField`, `MudSelect`) were rendered
-- [ ] Data is loaded through existing lifecycle or backing methods only
-- [ ] A loading state is shown while the data object is null
-- [ ] Nullable object sections are guarded by `@if` matching existing backing logic
-- [ ] Child collections use `@foreach` with an empty-state fallback message
-- [ ] Enum values were verified against the real enum definition before use
-- [ ] Navigation buttons call only existing methods or use existing routes
-- [ ] Shared styles were preserved and component styling remained minimal
-- [ ] Sample visual structure was matched (hero header + main card)
-- [ ] Sample utility classes were verified to exist in the target project and reused when available
+- [ ] Hero header + main card as in the sample, with its utility classes where they exist
+- [ ] Every displayed property exists on the DTO; no inputs; no `@code`
+- [ ] Loading state while the DTO is `null`; data loads through existing methods
+- [ ] Nullable sections guarded; collections use `@foreach` with an empty message
+- [ ] Enum labels from real members
+- [ ] Back and Edit call only existing methods or routes
+- [ ] Styles use tokens; shared styles unchanged
+- [ ] The project builds; `.razor` has an `@using` for every type it names, such as a DTO in `T="..."`
