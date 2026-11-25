@@ -38,6 +38,24 @@ if (onDisk is null || Normalize(onDisk) == Normalize(templateOutput))
 
 The hook is not modelled on the `HomePageDefaultHtmlExtension` Factory Extension element (it carries no stereotypes and no child elements), so deleting the method was sufficient — the Software Factory does not regenerate an empty override.
 
+## Invariant: a change to any skill's text must be re-benchmarked before it ships (2026-11-24)
+
+The agent skills this module emits are benchmarked by the eval suite in `evals/`, which runs each case twice — once against the frozen baseline (`old_skill`, materialised from the git ref pinned in `evals/baseline/manifest.json`) and once against the working tree (`new_skill`) — then compares the two. `evals/README.md` holds the procedure; `evals/results/` holds the committed reports.
+
+**Parity is the gate, not size.** Per case and model, over 3 runs per arm: no assertion may pass in more than one fewer run than baseline, the build must pass at least as often, and the new arm's mean judge score must be at least the baseline's lowest. Shortening a skill is only finished when that passes.
+
+**A release that changes a sample owes its consumers a note.** The 2.1.1 reduction was planned as skill text only, on the reasoning that `SkillSampleOverwritePolicy` ties sample overwrites to the `SKILL.md` hash and so samples needed no thought. The samples then changed anyway (the ~10% sample cut, and the unrendered-`ErrorMessage` fix), which makes a consumer-facing consequence live: the policy keys the protection on the **skill**, never on the sample, so a consumer who edited a sample but not its `SKILL.md` loses that edit silently, while one who edited a `SKILL.md` receives nothing at all for that skill — neither the reduction nor the behaviour fixes — until they delete its `contentHash` line. State both halves in the release notes of any version that touches a sample. Reversing the policy to key on the sample's own hash would be more correct, but it changes a shared mechanism and must not ship in the same version as the content it protects.
+
+Five things this suite taught the hard way, each of which cost a re-run:
+
+- **A case must fail on an untouched fixture.** `menu-rerun-idempotent` originally asserted only _at most once_, _still present_ and _unchanged_ — all true before any agent ran, so it scored full marks on an untouched app and measured nothing. Step 0 of the README is now that gate. An idempotence case needs at least one genuinely new item in its prompt so that doing nothing fails.
+- **A case that passes everything in both arms is unproven, not settled.** `general-styling-handoff` scored 7/7 in both arms for days. Its fixture installed only `updating-styling` and not the `*-ux-theme-sync` it hands off to — `prepare` strips every skill and installs only what `run.json` names — so every run dead-ended at the hand-off, and its checks and graders had been written to match that dead end. Once `run.json`'s `skills` installed both, a correct run failed three checks for doing its job. Full marks in both arms is the signal to go and look.
+- **A grader written against behaviour you have never observed encodes your guess, not the rule.** The same case failed every run on "the agent chose the palette itself", which is the intake step `updating-styling` prescribes when no design is supplied and there is nobody to ask. The rule forbids translating design intent _into CSS_; writing design intent into `design.md` is the skill working. Calibrate a grader against real runs before trusting its score.
+- **Editing a skill invalidates every case that loads it, not just the one that regressed.** Changing three lines of `blazor-app-menu` made the new arm stale for all seven of its cases at once.
+- **Repetition in the old text was sometimes load-bearing, and the fix is accuracy, not narration.** The old app-menu skill named only `Program.cs` for the auth registrations but repeated the check in four places, so agents kept searching until they found them in `Startup.cs`. Stated once, agents checked `Program.cs`, found nothing and concluded NoAuth. The repair was to name both files and require the reply to say which was read — not to restore the repetition.
+
+Judge scores are the noisiest layer: re-judging the same runs against slightly reworded expectations moved scores by a full point. Treat a one-point difference as noise and look at the deterministic checks first.
+
 ## Module Interactions
 
 - **`Intent.Blazor`** — owns `ComponentRazorTemplateBase`, `HomeTemplateLookup` and `RazorComponentStyleTemplate`, and seeds a plain-HTML Home page of its own. Its `HomePageDefaultContentFactoryExtension` **stands down when a component library is installed** (`TemplateHelper.ComponentLibraryInstalled`), which is what lets this module's seed take over without the two fighting. If this module ever stops seeding Home, that gate is what needs revisiting.

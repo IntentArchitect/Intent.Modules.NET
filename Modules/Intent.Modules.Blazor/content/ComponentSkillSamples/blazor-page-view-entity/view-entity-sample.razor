@@ -8,7 +8,11 @@
 
 <div class="card ux-fade-in-up">
     <div class="card-body">
-        @if (CustomerByIdModels is null)
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="alert alert-danger">@ErrorMessage</div>
+        }
+        else if (CustomerByIdModels is null)
         {
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
                 <div class="spinner-border" role="status" aria-hidden="true"></div>
@@ -23,20 +27,8 @@
                     <div>@CustomerByIdModels.Name</div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="form-label text-uppercase small">Surname</div>
-                    <div>@CustomerByIdModels.Surname</div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="form-label text-uppercase small">Email</div>
-                    <div>@CustomerByIdModels.Email</div>
-                </div>
-                <div class="col-12 col-md-6">
                     <div class="form-label text-uppercase small">Category</div>
                     <div>@CustomerByIdModels.CategoryName</div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="form-label text-uppercase small">Sub Category</div>
-                    <div>@CustomerByIdModels.SubCategoryName</div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-label text-uppercase small">Status</div>
@@ -55,9 +47,6 @@
                     <h2 class="h6">Preferences</h2>
                 </div>
                 <div class="col-12">
-                    <span class="@(CustomerByIdModels.Preference.NewsLetter ? "badge-success" : "badge-neutral") me-2">
-                        Newsletter: @(CustomerByIdModels.Preference.NewsLetter ? "Yes" : "No")
-                    </span>
                     <span class="@(CustomerByIdModels.Preference.Specials ? "badge-success" : "badge-neutral")">
                         Specials: @(CustomerByIdModels.Preference.Specials ? "Yes" : "No")
                     </span>
@@ -101,18 +90,6 @@
                                     <div class="col-12 col-md-9">
                                         <div class="form-label text-uppercase small">Address line 1</div>
                                         <div>@a.Line1</div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-label text-uppercase small">Address line 2</div>
-                                        <div>@a.Line2</div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-label text-uppercase small">City</div>
-                                        <div>@a.City</div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <div class="form-label text-uppercase small">Postal code</div>
-                                        <div>@a.Postal</div>
                                     </div>
                                 </div>
                             </div>

@@ -21,16 +21,6 @@
                             <ValidationMessage For="@(() => Model.Name)" />
                         </div>
                         <div class="col-12 col-md-6">
-                            <label class="form-label">Surname</label>
-                            <InputText class="form-control" @bind-Value="Model.Surname" placeholder="Enter surname" />
-                            <ValidationMessage For="@(() => Model.Surname)" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label">Email</label>
-                            <InputText class="form-control" @bind-Value="Model.Email" placeholder="name@company.com" />
-                            <ValidationMessage For="@(() => Model.Email)" />
-                        </div>
-                        <div class="col-12 col-md-6">
                             <label class="form-label">Category</label>
                             <InputSelect class="form-select" Value="Model.CategoryId" ValueChanged="OnCategoryChanged" ValueExpression="@(() => Model.CategoryId)">
                                 <option value="">Select...</option>
@@ -74,12 +64,6 @@
                                 <label class="form-check-label">Receive specials</label>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <div class="form-check form-switch">
-                                <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.NewsLetter" />
-                                <label class="form-check-label">Subscribe to newsletter</label>
-                            </div>
-                        </div>
                         <div class="col-12">
                             <hr class="my-4" />
                             <h6>Addresses</h6>
@@ -90,9 +74,6 @@
                                     <tr>
                                         <th>Type</th>
                                         <th>Line 1</th>
-                                        <th>Line 2</th>
-                                        <th>City</th>
-                                        <th>Postal</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -102,9 +83,6 @@
                                         <tr>
                                             <td>@context.AddressType.ToString()</td>
                                             <td>@context.Line1</td>
-                                            <td>@context.Line2</td>
-                                            <td>@context.City</td>
-                                            <td>@context.Postal</td>
                                             <td>
                                                 <button type="button" class="btn-icon" disabled="@_saving" @onclick="@(() => RemoveAddress(context))">&times;</button>
                                             </td>
@@ -130,18 +108,6 @@
                             <div class="col-12 col-md-6">
                                 <label class="form-label">Address line 1</label>
                                 <InputText class="form-control" @bind-Value="_newAddress.Line1" />
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <label class="form-label">Address line 2</label>
-                                <InputText class="form-control" @bind-Value="_newAddress.Line2" />
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <label class="form-label">City</label>
-                                <InputText class="form-control" @bind-Value="_newAddress.City" />
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <label class="form-label">Postal code</label>
-                                <InputText class="form-control" @bind-Value="_newAddress.Postal" />
                             </div>
                             <div class="col-12">
                                 <button type="button" class="btn btn-primary" disabled="@_saving" @onclick="AddAddress">Add address</button>

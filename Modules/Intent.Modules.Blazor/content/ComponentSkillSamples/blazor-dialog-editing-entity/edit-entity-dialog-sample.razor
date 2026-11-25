@@ -9,13 +9,18 @@
                 <button type="button" class="btn-icon" aria-label="Close" @onclick="OnCancel">&times;</button>
             </div>
             <div class="modal-body">
-                @if (Model == null)
+                @if (!string.IsNullOrEmpty(ErrorMessage))
+                {
+                    <div class="alert alert-danger">@ErrorMessage</div>
+                }
+
+                @if (Model == null && string.IsNullOrEmpty(ErrorMessage))
                 {
                     <div class="d-flex justify-content-center">
                         <div class="spinner-border" role="status" aria-hidden="true"></div>
                     </div>
                 }
-                else
+                else if (Model != null)
                 {
                     <EditForm Model="Model">
                         <DataAnnotationsValidator />
@@ -25,16 +30,6 @@
                                 <InputText class="form-control" @bind-Value="Model.Name" />
                                 <ValidationMessage For="@(() => Model.Name)" />
                             </div>
-                            <div class="col-6">
-                                <label class="form-label">Surname</label>
-                                <InputText class="form-control" @bind-Value="Model.Surname" />
-                                <ValidationMessage For="@(() => Model.Surname)" />
-                            </div>
-                        </div>
-                        <div class="mt-2">
-                            <label class="form-label">Email</label>
-                            <InputText class="form-control" @bind-Value="Model.Email" />
-                            <ValidationMessage For="@(() => Model.Email)" />
                         </div>
                         <div class="form-check form-switch mt-2">
                             <InputCheckbox class="form-check-input" @bind-Value="Model.IsActive" />
@@ -43,10 +38,6 @@
                         <div class="ux-inner-panel p-2 my-2">
                             <div class="fw-semibold mb-1">Preferences</div>
                             <div class="d-flex gap-3">
-                                <div class="form-check form-switch">
-                                    <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.NewsLetter" />
-                                    <label class="form-check-label">Newsletter</label>
-                                </div>
                                 <div class="form-check form-switch">
                                     <InputCheckbox class="form-check-input" @bind-Value="Model.Preference.Specials" />
                                     <label class="form-check-label">Specials</label>
@@ -85,9 +76,6 @@
                                 <thead>
                                     <tr>
                                         <th>Line 1</th>
-                                        <th>Line 2</th>
-                                        <th>City</th>
-                                        <th>Postal</th>
                                         <th>Type</th>
                                         <th></th>
                                     </tr>
@@ -97,9 +85,6 @@
                                     {
                                         <tr>
                                             <td><input class="form-control" @bind="context.Line1" /></td>
-                                            <td><input class="form-control" @bind="context.Line2" /></td>
-                                            <td><input class="form-control" @bind="context.City" /></td>
-                                            <td><input class="form-control" @bind="context.Postal" /></td>
                                             <td>
                                                 <select class="form-select" @bind="context.AddressType">
                                                     <option value="@AddressType.Deliver">Delivery</option>

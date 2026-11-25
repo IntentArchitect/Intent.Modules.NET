@@ -1,3 +1,16 @@
+### Version 2.1.1
+
+- Improvement: Reduced the size of the AI skills and their samples to improve token usage — the skill text is about half its previous size.
+- Improvement: General improvements and bug fixes to how the skills detect certain conditions — authentication registered in `Startup.cs` rather than `Program.cs` (previously read as no authentication, so items you asked to gate rendered ungated), whether the layout has theming enabled, and every spelling of a colour when rebasing a theme (`#0EA5E9`, `rgb(14, 165, 233)`, `rgb(14,165,233)` and both spacings inside `rgba(...)`). Account actions in the Profile menu are now added only when the menu description asks for them.
+
+> **NOTE**
+>
+> This version changes the skills' **sample files** as well as their `SKILL.md`. Those two are updated on different conditions, so what you receive depends on what you have edited:
+>
+> - **You edited neither** — everything updates. Nothing to do.
+> - **You edited a sample but not its `SKILL.md`** — the sample is replaced and your change is lost, because sample overwrites are disabled by a hand-edited `SKILL.md` (see 2.0.3), not by a hand-edited sample. Back the file up, or mark it as ignored, before upgrading.
+> - **You edited a `SKILL.md`** — that skill and its samples are both left alone, so you receive **none** of this version's reductions or fixes for it. To take them, delete the `contentHash` line from that file's frontmatter and re-run the Software Factory, then re-apply your changes on top.
+
 ### Version 2.1.0
 
 - Improvement: Updated NuGet package versions:
@@ -100,7 +113,7 @@
 - Improvement: Updated NuGet package versions.
 - Improvement: Removed MudAppBar Elevation
 - Improvement: Updated NuGet package versions.
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 - Improvement: Updated NuGet package versions.
 - Initial release.
 - Improvement : Support for sub menu items.

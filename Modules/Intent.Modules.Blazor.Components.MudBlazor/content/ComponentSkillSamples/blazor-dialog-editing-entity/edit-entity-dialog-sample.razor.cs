@@ -42,14 +42,12 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
                 await Mediator.Send(new UpdateCustomerCommand(
                     id: Model.Id,
                     name: Model.Name,
-                    surname: Model.Surname,
                     email: Model.Email,
                     isActive: Model.IsActive,
                     preference: new UpdateCustomerPreferenceDto
                     {
                         Id = Model.Preference.Id,
-                        NewsLetter = Model.Preference.NewsLetter,
-                        Specials = Model.Preference.Specials
+                        NewsLetter = Model.Preference.NewsLetter
                     },
                     loyalty: Model?.Loyalty is not null
                     ? new UpdateCustomerCommandLoyaltyDto
@@ -65,8 +63,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
                             Id = a.Id,
                             Line1 = a.Line1,
                             Line2 = a.Line2,
-                            City = a.City,
-                            Postal = a.Postal,
                             AddressType = a.AddressType
                         })
                         .ToList()));
@@ -96,7 +92,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
         {
             public Guid Id { get; set; }
             public string Name { get; set; }
-            public string Surname { get; set; }
             public string Email { get; set; }
             public bool IsActive { get; set; }
             public UpdateCustomerPreferenceModel Preference { get; set; }
@@ -107,7 +102,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
         {
             public Guid Id { get; set; }
             public bool NewsLetter { get; set; }
-            public bool Specials { get; set; }
         }
         public class UpdateCustomerCommandLoyaltyModel
         {
@@ -120,8 +114,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
             public Guid Id { get; set; }
             public string Line1 { get; set; }
             public string? Line2 { get; set; }
-            public string City { get; set; }
-            public string Postal { get; set; }
             public AddressType AddressType { get; set; }
         }
 
@@ -186,8 +178,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
                 Id = Guid.Empty,
                 Line1 = string.Empty,
                 Line2 = string.Empty,
-                City = string.Empty,
-                Postal = string.Empty,
                 AddressType = addressType
             });
         }

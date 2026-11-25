@@ -32,64 +32,49 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorUpdatingStylingSkil
 
                     # Updating Styling
 
-                    You are the **intake** step for a styling/theme change. Your only job is to get `design.md` into the state the user wants and then hand off to the project's own theme-sync skill — **never** translate design intent into CSS yourself; that belongs to the sync skill and is out of scope here.
+                    You are the intake step for a styling change: get `design.md` into the state the user wants, then hand off to the project's theme-sync skill. Never turn design intent into CSS or edit a CSS file yourself; that is the sync skill's job.
 
-                    ## Find the pieces first
+                    ## 1. Find the pieces
 
-                    1. Locate the project's `design.md` (or equivalent design specification file) — typically `.agents/design.md` in an Intent Architect project, but confirm with `glob`/`list_directory` rather than assuming the path.
-                    2. Locate the project's theme-sync skill — search for a `SKILL.md` whose name matches `*-ux-theme-sync` (e.g. `mudblazor-ux-theme-sync`). Read it in full so you know exactly which CSS file(s) it owns and which categories it extracts from `design.md` (palette, typography, spacing, radius, motion, component-level rules) — you reuse this same checklist below, both to check for drift and to structure a freshly-authored `design.md`.
-                    3. If no `*-ux-theme-sync` skill exists in the project, **stop and tell the user** — this skill only orchestrates intake and hand-off; it does not itself know how to turn design intent into CSS.
+                    1. `design.md` (or the equivalent design spec), typically `.agents/design.md`. Confirm the path with `glob` or `list_directory`; don't assume it.
+                    2. The theme-sync skill: a `SKILL.md` named `*-ux-theme-sync` (e.g. `mudblazor-ux-theme-sync`). Read it in full for the CSS files it owns and the categories it extracts (palette, typography, spacing, radius, motion, component rules). Those categories are your checklist below.
+                    3. No such skill: stop and tell the user.
 
-                    ## Preserve design.md's metadata block across every write
+                    ## 2. Writing design.md
 
-                    `design.md` may carry a leading YAML frontmatter block (`---` ... `---` at the very top) with fields like `name`, `paths`, `contentHash`. That block is not part of the design content — it's bookkeeping used elsewhere (e.g. `contentHash` decides whether the file gets treated as changed) — and it is easy to lose by accident: if you construct the new file purely from the supplied/authored content, the old frontmatter never enters the picture and silently disappears. Do not rely on remembering to "carry it over" while composing the new content — follow this as a literal, mandatory sequence instead, in every path that writes `design.md`:
+                    `design.md` may start with a YAML frontmatter block (`name`, `paths`, `contentHash`, ...). It is bookkeeping, not design content (`contentHash` decides whether the file counts as changed), and it is lost whenever the new file is built only from new content. Every time you write `design.md`:
 
-                    1. **Before writing anything**, if `design.md` already exists on disk, read the file as it currently is — even in Path 1, even though you already have the replacement content in hand. Do this read as its own explicit step, not from memory of an earlier read in the conversation.
-                    2. Check whether that on-disk content starts with a frontmatter block. If it does, copy that block out **verbatim** (byte-for-byte, including the `contentHash` value) — this is the block you will reuse, not one you reconstruct from memory.
-                    3. Build the final file content as: `[verbatim old frontmatter block, if one existed]` + `[the new/supplied body]`. Never write the new body as a standalone file and never regenerate, recompute, or omit the frontmatter block as a side effect of pasting in new content.
-                    4. If the on-disk file had **no** frontmatter block (or didn't exist yet), write the new body with no frontmatter block — do not invent one.
-                    5. After writing, re-open the file you just wrote and confirm the frontmatter block (if any) is present and byte-identical to what you copied in step 2. Treat a missing or altered `contentHash` as a failed write — redo it.
+                    1. If it exists, re-read it from disk now, as its own step: in Path 1 too, never from memory.
+                    2. If it starts with frontmatter, copy that block byte for byte, `contentHash` included.
+                    3. Write that block followed by the new body. With no old block, or no file, write the body alone. Never invent, recompute or drop a block.
+                    4. Re-open the written file and check the block is byte-identical. A missing or altered `contentHash` is a failed write: redo it.
 
-                    ## Decide which of the three intake paths applies
+                    ## 3. Pick the intake path
 
-                    ### Path 1 — A new design.md was supplied in the conversation
+                    **Path 1: the user supplied a design this turn** (a pasted or attached design.md, brand guide, Figma export). Replace `design.md` in full with it: no merge, append or diff. If none exists, create it at the location from step 1, asking the user only if that can't be inferred. Then dispatch.
 
-                    The user pasted, attached, or dragged in a full replacement this turn — new design.md content, a brand guide, a Figma export, etc. — directly in the chat.
+                    **Path 2: nothing supplied, and `design.md` exists.** Compare the values it states (palette, typography, spacing and radius, component rules) with what the sync skill's CSS files implement.
+                    - They differ: `design.md` was edited directly and is authoritative, so ask nothing. Report the deltas (e.g. "design.md now specifies #FF5733 as primary; ux-tokens.css still has #0EA5E9"), then dispatch.
+                    - They match, or there is no `design.md`: go to Path 3.
 
-                    - Overwrite the existing `design.md` **in full** with the supplied content. Do not merge, append, or diff against the old version — but do follow the metadata-preservation procedure above so the old frontmatter block (if any) survives the overwrite.
-                    - If no `design.md` exists yet, create it at the location found in step 1 (or confirm the location with the user if it genuinely can't be inferred).
-                    - Then go straight to **Dispatch**.
+                    **Path 3: nothing supplied, nothing changed.** Use `ask_user_question` to ask how they want to supply the styling:
+                    - **Paste it as text:** write their next message into `design.md`, using the sync skill's categories to spot what's missing.
+                    - **A few high-level questions:** primary brand colour(s), mood or tone, light or dark default, font preference (or none). Fill every category with internally consistent defaults derived from the answers, and record each filled gap as an assumption in `design.md`.
+                    - **A detailed set of questions:** every category the sync skill extracts. Full palette (primary, secondary, accent, with hover and pressed), semantic colours per surface layer, status colours, typography (families, scale, weights, line heights), spacing, radius tiers, motion, and component rules (buttons, cards, dialogs, tables, forms, navigation). Batch related questions into focused rounds. Use `ask_user_question` where the answers are a small set, free text only for open-ended ones.
 
-                    ### Path 2 — No new content supplied, but design.md may have been edited out-of-band
+                    Fold the answers into `design.md`, keeping an existing version's structure and tone so the sync skill sees a legible diff. Then dispatch.
 
-                    Nothing was pasted this turn, but a `design.md` already exists on disk. Check whether it has drifted from what the CSS currently expresses:
+                    ## 4. Dispatch
 
-                    - Read `design.md` and the CSS file(s) the theme-sync skill owns (from step 2 above).
-                    - Compare the values `design.md` states — palette, typography, spacing/radius, component rules — against what the CSS tokens actually implement.
-                    - **If they differ**, someone edited `design.md` directly without syncing the CSS yet. Treat the on-disk `design.md` as authoritative — it already reflects the desired end state, so no further user input is needed. Report the specific deltas you found (e.g. `"design.md now specifies #FF5733 as primary; ux-tokens.css still has #0EA5E9"`) so the user can see what's about to change, then go straight to **Dispatch**.
-                    - **If they match** (or `design.md` doesn't exist at all), nothing has actually changed — fall through to Path 3.
+                    Dispatch a coding sub-agent to run the theme-sync skill end to end: read every file it requires, extract, map, apply, and work through its own Definition of Done. Don't re-derive the CSS mapping yourself. Give it the `design.md` path, the skill's name and location, and this invariant:
 
-                    ### Path 3 — Nothing supplied, nothing changed
+                    > Unless the user asked for it this turn, or `design.md` calls for asymmetry (e.g. a header that stays dark as an accent), each theme variant must be internally consistent: light theme, light header, nav and surfaces; dark theme, dark ones. After a polarity flip, renaming `[data-theme]` selectors is not enough: check header, nav and toolbar rules for hardcoded colour literals (a header gradient, a hero overlay) that don't go through `var(...)` and so won't follow the flip.
 
-                    Ask the user how they want to supply the styling information. Use `ask_user_question` with these options:
+                    Wait for it to finish.
 
-                    - **Paste it in as text** — the user supplies the design directly (prose, a brand guide, hex values, whatever they have) in their next message; write it into `design.md`, using the theme-sync skill's extraction categories as a checklist for what's missing.
-                    - **A few high-level questions** — a short, focused round covering the essentials only: primary brand colour(s), overall mood/tone, light vs dark default, and font preference (or "no preference"). Fill every category the theme-sync skill extracts with sensible, internally-consistent defaults derived from those answers, and record each filled-in gap as an assumption in `design.md` so the user can correct it later.
-                    - **A detailed set of questions** — a thorough interview across every category the theme-sync skill extracts: full palette (primary/secondary/accent plus hover/pressed variants), semantic colours per surface layer, status colours, typography (families, full type scale, weights, line-heights), spacing scale, border-radius tiers, motion (durations/easing), and component-level rules (buttons, cards, dialogs, tables, forms, navigation, etc.). Prefer `ask_user_question` whenever a question has a small set of plausible answers; use free text only for genuinely open-ended ones (e.g. "describe the overall aesthetic in your own words"). Batch related questions into focused rounds rather than asking one at a time.
+                    ## 5. Report
 
-                    Whichever option the user picks, fold the answers into `design.md` — reusing its existing structure/tone if a prior version exists, so the diff the sync skill sees stays legible. Follow the metadata-preservation procedure above when writing it to disk, then go straight to **Dispatch**.
-
-                    ## Dispatch
-
-                    Once `design.md` reflects the desired end state (via whichever path applied), dispatch a coding sub-agent to execute the `*-ux-theme-sync` skill you found in step 2. Give it the `design.md` path, the theme-sync skill's name/location, and instruct it to run that skill's process end-to-end (read every file it requires, extract intent, map to tokens, apply changes, work through its own Definition of Done) rather than re-deriving the CSS mapping yourself. Do not hand-edit any CSS file in this skill — that translation is entirely the sync skill's responsibility.
-
-                    **Theme consistency invariant — always pass this to the sub-agent:** unless the user explicitly asked for it this turn, or `design.md` itself explicitly calls for asymmetric treatment (e.g. a header that deliberately stays dark as an accent regardless of theme), each theme variant must come out internally consistent — light theme → light header/nav/surfaces, dark theme → dark header/nav/surfaces. This matters most whenever a design.md swap flips the default polarity (dark-default ↔ light-default): mechanically renaming `[data-theme="..."]` selectors and swapping token values is not sufficient on its own, because component-level rules that bake in a hardcoded colour literal (a header gradient, a hero overlay) instead of resolving through `var(...)` tokens won't track the flip, and can leave the header showing the *previous* theme's polarity even though the rest of the page flipped correctly. Tell the sub-agent to explicitly check header/nav/toolbar rules for this after any polarity change, not just rename selectors and stop.
-
-                    Wait for the sub-agent to finish before reporting back.
-
-                    ## Then stop
-
-                    Tell the user: which path you took (supplied replacement / detected drift / interviewed them), the deltas or answers that drove the change, and the sync sub-agent's summary of what it actually touched. If the sub-agent reported anything it couldn't resolve (e.g. a missing CSS file, a conflicting value), surface that too instead of silently accepting a partial result.
+                    Say which path you took (supplied, drift, or interview), the deltas or answers behind the change, and the sub-agent's summary of what it touched. Surface anything it couldn't resolve (a missing CSS file, a conflicting value) rather than accepting a partial result.
                     """);
         }
 

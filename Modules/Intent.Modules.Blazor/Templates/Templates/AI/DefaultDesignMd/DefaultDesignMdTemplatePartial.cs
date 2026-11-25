@@ -28,10 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                 .FromMarkdown("""
                     # UX Design System
 
-                    Design tokens and component rules for the AI-themed shell.
-                    All values are expressed as CSS custom properties.
-
-                    ---
+                    Design tokens and component rules for the AI-themed shell, as CSS custom properties.
 
                     ## Brand Palette
 
@@ -43,16 +40,14 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `--brand-cobalt` | `#6366F1` | Gradient endpoint (indigo) |
                     | `--brand-cobalt-dim` | `#4F46E5` | Gradient endpoint hover |
 
-                    **Signature gradient** — sky → cobalt at 135°:
+                    Signature gradient — sky to cobalt:
 
                     ```css
                     --gradient-brand:      linear-gradient(135deg, var(--brand-sky) 0%, var(--brand-cobalt) 100%);
                     --gradient-brand-soft: linear-gradient(135deg, rgba(14,165,233,0.14) 0%, rgba(99,102,241,0.10) 100%);
                     ```
 
-                    Legacy aliases (`--brand-blue`, `--brand-violet`, `--brand-cyan`) exist for backward compatibility and resolve to the sky/cobalt tokens.
-
-                    ---
+                    Legacy aliases `--brand-blue`, `--brand-violet` and `--brand-cyan` resolve to the sky/cobalt tokens.
 
                     ## Semantic Colour Tokens
 
@@ -108,7 +103,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `--glow-primary` | `0 0 20px rgba(2,132,199,0.28), 0 0 6px rgba(2,132,199,0.16)` |
                     | `--glow-cyan` | `0 0 20px rgba(79,70,229,0.22), 0 0 6px rgba(79,70,229,0.12)` |
 
-                    In dark mode the root element carries a fixed ambient radial gradient (sky top-left, cobalt bottom-right, `background-attachment: fixed`). Light mode removes this gradient and shows a subtle dot-grid on the body, using cyan lines at `rgba(2,132,199,0.06)` and `opacity: 0.55`.
+                    In dark mode the root element carries a fixed ambient radial gradient (sky top-left, cobalt bottom-right, `background-attachment: fixed`). Light mode drops it for a subtle body dot-grid: cyan lines at `rgba(2,132,199,0.06)`, `opacity: 0.55`.
 
                     ### Status Colours
 
@@ -119,7 +114,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `--danger` | `#F06080` | `#DC2626` |
                     | `--info` | `var(--brand-sky)` | `#0369A1` |
 
-                    Each status colour has a matching `*-subtle` variant used for badge/notification backgrounds:
+                    `*-subtle` variants, for badge/notification backgrounds:
 
                     | Token | Dark | Light |
                     |---|---|---|
@@ -127,8 +122,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `--warning-subtle` | `rgba(245,197,66,0.14)` | `rgba(202,138,4,0.10)` |
                     | `--danger-subtle` | `rgba(240,96,128,0.14)` | `rgba(220,38,38,0.10)` |
                     | `--info-subtle` | `rgba(14,165,233,0.12)` | `rgba(3,105,161,0.10)` |
-
-                    ---
 
                     ## Typography
 
@@ -150,8 +143,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
 
                     Links: `color: var(--primary)`, `text-decoration: none`; hover uses `var(--primary-dark)`.
 
-                    ---
-
                     ## Spacing
 
                     | Token | Value |
@@ -164,8 +155,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `--space-6` | `2rem` |
                     | `--space-7` | `3rem` |
 
-                    ---
-
                     ## Border Radius
 
                     | Token | Value | Usage |
@@ -175,8 +164,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `--radius-lg` | `1rem` | Cards, tables |
                     | `--radius-xl` | `1.375rem` | Dialogs, date pickers |
                     | `--radius-full` | `9999px` | Pills, tags, badges, scrollbar |
-
-                    ---
 
                     ## Motion
 
@@ -194,8 +181,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     Additional keyframes used by page-specific CSS: `orb-float` · `shimmer` · `pulse-dot`.
                     Utility classes: `.ux-fade-in-up` (`--dur-slow`) · `.ux-fade-in` (`--dur-med`).
 
-                    ---
-
                     ## Shadows
 
                     | Token | Usage |
@@ -208,11 +193,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `--glow-primary` | Button/icon CTA glow (sky) |
                     | `--glow-cyan` | Counter-accent glow (cobalt) |
 
-                    ---
-
                     ## Standard HTML Components
 
-                    These CSS classes are defined in `ux-components.css` and apply to raw HTML elements (no MudBlazor dependency).
+                    Classes in `ux-components.css`, applying to raw HTML elements (no MudBlazor dependency).
 
                     ### Form Controls
 
@@ -261,18 +244,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     - `tbody td`: `var(--text)`, `--border-light` bottom divider.
                     - Row hover: `background: var(--hover-overlay)`.
 
-                    ---
-
                     ## Component Patterns
 
-                    The following describe design intent for MudBlazor component overrides (implemented in `ux-mudblazor.css`).
+                    Design intent for the MudBlazor component overrides in `ux-mudblazor.css`.
 
                     ### Top Bar
                     Glassmorphism: `rgba(12,18,32,0.82)` + `backdrop-filter: blur(20px) saturate(1.4)` with a 1 px `--border` bottom edge. Light mode uses `rgba(255,255,255,0.82)`. Icon buttons are muted (`--text-muted`) and highlight to `--primary` on hover; no borders or backgrounds at rest.
 
                     ### Sidebar / Nav Drawer
 
-                    `--surface` fill with `--border` right edge. Anatomy:
+                    `--surface` fill with `--border` right edge.
                     - **Brand strip** — 32 × 32 gradient icon (`--gradient-brand` + `--glow-primary`), gradient clip text name.
                     - **Section labels** — 0.65 rem, 600 weight, 0.08 em tracking, uppercase, `--text-secondary`.
                     - **Nav links** — `--radius-sm`, fast colour/bg transition. Active state uses `--gradient-brand-soft` fill, `--primary` text, and a 3 px left-edge pill in `--gradient-brand`.
@@ -308,7 +289,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     - Focus: border becomes `--primary`; box-shadow `0 0 0 3px var(--focus), 0 0 12px var(--primary-glow)`.
                     - Focused label: `--primary`, 0.75 rem, 500 weight.
                     - Numeric spin buttons: minimal 24 px column, no borders, dimmed primary colour, subtle fill on hover.
-                    - Autofill (Chrome/Edge): overrides browser autofill styling so the field keeps its themed surface background and text colour instead of the native highlight.
+                    - Autofill (Chrome/Edge): overridden so the field keeps its themed surface background and text colour.
 
                     ### Dialogs / Modals
 
@@ -337,17 +318,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     ### Tooltips
                     `--surface-3`; `--border`; `--radius-sm`; 12 px text; `--shadow-2`.
 
-                    ---
-
                     ## Page Header
 
-                    A full-bleed transparent band that bleeds edge-to-edge across the main content area, compensating for sidebar and content padding via negative margins.
+                    A transparent band bleeding edge-to-edge across the main content area, negative-margined to compensate for sidebar and content padding.
 
                     - Title: `clamp(1.5rem, 3vw, 1.875rem)`, 700 weight, −0.03em tracking, `--gradient-brand` clip text.
                     - Icon badge: `--gradient-brand` background, white icon, `--radius-md`, `0 2px 14px rgba(14,165,233,0.40)` shadow.
                     - Subtitle: `--text-muted`, 1 rem, `margin-top: 0.375rem`.
-
-                    ---
 
                     ## Home Page Components
 
@@ -364,8 +341,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     - Shell: `--surface`, `--border`, `--radius-lg`, flex column.
                     - Hover: border brightens to `--tc` (per-tile colour custom property), gradient top-line + tint overlay appear, `translateY(-3px)`, glow shadow.
                     - Icon: 36 × 36, `--radius-sm`, 13 % tinted fill, glow on hover.
-
-                    ---
 
                     ## Utility Classes
 
@@ -388,19 +363,14 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.DefaultDesignMd
                     | `.nav-brand` / `.nav-brand-icon` / `.nav-brand-name` | Sidebar branding strip |
                     | `.nav-section-label` | Nav section group label |
 
-                    ---
-
                     ## Accessibility
 
                     - `:focus-visible`: 2 px `--primary` outline, 2 px offset, `--radius-sm`.
                     - Heading elements suppress the focus ring when programmatic focus is applied during navigation.
-                    - `prefers-reduced-motion` disables all transitions and animations globally.
-
-                    ---
 
                     ## Backward-Compatible Aliases (`--ux-*`)
 
-                    A full set of `--ux-*` tokens maps old naming conventions to the current semantic tokens. Use the semantic tokens (`--primary`, `--surface`, `--text`, etc.) in new code; `--ux-*` aliases exist only to avoid breaking existing components.
+                    A full set of `--ux-*` tokens maps old naming conventions onto the semantic tokens. Use the semantic tokens (`--primary`, `--surface`, `--text`, etc.) in new code.
 
                     """);
         }

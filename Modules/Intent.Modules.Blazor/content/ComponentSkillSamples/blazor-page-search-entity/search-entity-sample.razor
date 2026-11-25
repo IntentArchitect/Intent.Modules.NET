@@ -30,8 +30,6 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Surname</th>
-                            <th>Email</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -43,8 +41,6 @@
                             {
                                 <tr>
                                     <td>@context.Name</td>
-                                    <td>@context.Surname</td>
-                                    <td>@context.Email</td>
                                     <td>
                                         @if (context.IsActive)
                                         {
@@ -66,7 +62,7 @@
                         else
                         {
                             <tr>
-                                <td colspan="5" class="text-center text-muted">No customers found.</td>
+                                <td colspan="3" class="text-center text-muted">No customers found.</td>
                             </tr>
                         }
                     </tbody>

@@ -34,241 +34,84 @@ paths:
   - "**/design.md"
 ---
 
-## Purpose
+# Blazor theme sync
 
-Translate a design specification (`design.md`) into the standard Blazor CSS theme (`ux-tokens.css`). The design may use any structure or naming convention. Work from design intent and express it through the existing token and control styling system without introducing a component library dependency or changing stylesheet wiring.
+Express a changed `design.md` in the standard Blazor app's existing CSS theme, changing only what the design addresses. Creating a theme from scratch is out of scope.
 
-This skill is for standard Blazor apps. It may style Bootstrap-compatible selectors such as `.btn`, `.form-control`, and `.alert` because generated standard Blazor pages use those classes and sample-page apps may load Bootstrap before the UX theme files. Do not use MudBlazor components, MudBlazor CSS selectors, or `--mud-*` CSS variables.
+No component library. Bootstrap-compatible selectors (`.btn`, `.form-control`, `.alert`) are fine, because generated pages use them and sample-page apps may load Bootstrap first. MudBlazor components, `.mud-*` selectors and `--mud-*` variables are not. If the app has `ux-mudblazor.css`, stop and use `mudblazor-ux-theme-sync` instead.
 
-If `ux-mudblazor.css` exists in the target app, stop and use the `mudblazor-ux-theme-sync` skill instead.
+## 1. Read first
 
----
+Read in full: `design.md`, `ux-tokens.css`, and `ux-base.css` and `ux-components.css` where the app has them. If `design.md` or `ux-tokens.css` is missing, stop and say which.
 
-## MANDATORY: Read Both Files Before Changing Anything
+## 2. Extract the design intent
 
-STOP - you MUST read both files in full before writing a single line:
+`design.md` can be in any form: a token table, prose, a brand guide, a Figma export. Read it for intent, not for matching names. Pull out what it states for:
 
-1. `design.md` - the source of truth for the new design intent
-2. `ux-tokens.css` - design tokens, base styles, utility classes, standard Blazor/native control styles, aliases, and theme polarity
+- **Colour:** brand and accent (with hover and pressed), backgrounds and surfaces, text, borders, status (success, warning, error, info), gradients.
+- **Typography:** font families, type scale, weights, line heights.
+- **Shape and motion:** spacing scale, radius tiers, durations and easing.
+- **Controls:** any explicit rules for buttons, links, cards or panels, inputs, selects, checkboxes, alerts, tables, badges, navigation, page headers, focus or loading states, utility classes.
 
-If any file is missing or unreadable: stop, report which file is missing, and do not proceed.
+A category the design doesn't mention keeps its current values. If the design contradicts itself, use the most prominent (or last) value and leave a CSS comment beside the token noting the conflict.
 
----
+## 3. Where each value goes
 
-## Step 1 - Extract Design Intent from design.md
+| Design concept | File → section |
+|---|---|
+| Raw brand palette | `ux-tokens.css` → 1 Brand Palette |
+| Fonts and type scale | `ux-tokens.css` → 2 Typography Scale |
+| Spacing, radius, motion | `ux-tokens.css` → 3 Spacing, Radius & Motion |
+| Semantic colours, default theme | `ux-tokens.css` → 4 Semantic Tokens (`:root`) |
+| Semantic colours, other theme | `ux-tokens.css` → 5 Semantic Tokens override (`[data-theme="..."]`) |
+| Legacy `--ux-*` aliases | `ux-tokens.css` → 6 Backward-compat Aliases |
+| Page background, base HTML elements | `ux-base.css` → 1 Global Reset & Base Elements |
+| Focus ring, reduced motion | `ux-base.css` → 2 Accessibility & Motion |
+| Keyframes | `ux-base.css` → 3 Global Animations |
+| Forms and inputs | `ux-components.css` → 1 Standard Form Controls |
+| Buttons and links | `ux-components.css` → 2 Buttons |
+| Alerts, tables, status messages | `ux-components.css` → 3 Feedback & Data Display |
+| Utility classes, badges | `ux-components.css` → 4 Utility Classes |
+| Layout helper classes | wherever they already exist, scoped CSS included; never new ones |
 
-The design may be a reference table, a prose brief, a Figma export, a brand guide, or another format. Extract the intent before touching CSS.
+Without numbered sections, or where a file is absent, map by token name and selector. Each value is one of: a token value to replace in place; a new token, added to the right section in the existing naming style; a control property to change in place; or no change.
 
-Extract the following where present:
+## 4. Theme polarity
 
-**Colours**
-- Primary or brand colours and hover/pressed variants
-- Secondary or accent colours
-- Background and surface colours
-- Text colours
-- Border colours
-- Status colours: success, warning, error/danger, info
-- Any gradient definitions
+The default theme is whichever `:root` holds: dark surfaces mean dark-default, usually with a `:root[data-theme="light"]` override; light surfaces mean light-default, with `[data-theme="dark"]`. The design's default is what it states; if it's silent, keep the current one.
 
-**Typography**
-- Font family
-- Type scale
-- Font weights
-- Line heights
+- **Same polarity:** update only the affected values in each block. If the design gives both palettes, update each block from its own palette.
+- **Flip:** put the design's default palette in `:root`, then rename the override selector everywhere it appears, in every theme CSS file (`ux-base.css` has `:root[data-theme="..."]` rules too). Dark to light renames every `[data-theme="light"]` to `[data-theme="dark"]`, and the reverse. Give the renamed block the opposite-polarity values. A partial rename leaves the toggled theme without its overrides.
 
-**Spacing**
-- Spacing scale tokens if defined
+## 5. Keep the plumbing working
 
-**Shape**
-- Border-radius values at each tier
+- `--ux-*` aliases map old names to semantic tokens through `var()`. They stay, and still resolve; re-point one only when its target was renamed or removed. New or updated rules use semantic tokens (`--primary`, `--surface`, `--text`, `--border`).
+- Control styles (`.form-control`, `.form-select`, `.form-floating`, `.form-check`, `.input-group`, `.btn`, `.btn-primary`, `.btn-danger`, `.btn-link`, `.alert`, `.alert-danger`, `.alert-success`, `.alert-warning`, `.table`, and existing utilities) reference semantic tokens and stay compatible with plain HTML and Blazor's `EditForm`, `InputText`, `InputSelect`, `InputNumber` and `InputDate`. Keep focus-visible and validation states readable, and keep them working in static SSR and form-post account pages: no JavaScript-only or interactive-only assumptions.
+- Bootstrap may or may not be linked. When it is, the theme loads after it and overrides its visual values while keeping its class names; when it isn't, the theme alone must make these classes render. Never add, remove or edit Bootstrap assets or stylesheet links, and never recreate or vendor Bootstrap in the theme.
 
-**Motion**
-- Duration and easing values if defined
+## 6. Edit minimally
 
-**Control-level rules**
-- Buttons, links, cards or panels, inputs, selects, checkboxes, alerts, tables, badges, navigation, page headers, focus states, loading states, or utility classes
+One colour is written several ways, and a value you rebase in one spelling stays on the old palette in
+the others. Before calling a colour done, search for every form of it — `#0EA5E9` and `#0ea5e9`,
+`rgb(14, 165, 233)` and `rgb(14,165,233)`, and the same two spacings inside `rgba(...)` — across every
+stylesheet, not just the token file. Missing the spaced variant is the usual way a theme is left with
+most of its borders, hovers, focus rings and tints still on the previous brand.
 
-If the design omits a category entirely, treat the existing values in the CSS file as correct and leave them unchanged.
-
----
-
-## Step 2 - Map Design Intent to ux-tokens.css
-
-The standard Blazor theme lives in `ux-tokens.css`. Update only the sections affected by the design change.
-
-| Design concept | File | Typical section |
-|---|---|---|
-| Brand palette / raw colour values | `ux-tokens.css` | Brand Palette |
-| Typography scale and fonts | `ux-tokens.css` | Typography Scale |
-| Spacing, radius, motion | `ux-tokens.css` | Spacing, Radius & Motion |
-| Semantic colours for the default theme | `ux-tokens.css` | Semantic Tokens |
-| Semantic colours for the alternate theme | `ux-tokens.css` | `[data-theme="..."]` override |
-| Backward-compatible aliases | `ux-tokens.css` | Backward-compat Aliases |
-| Base HTML styles | `ux-tokens.css` | Global Base Styles |
-| Utility classes and animations | `ux-tokens.css` | Utility Classes / Motion |
-| Forms and inputs | `ux-tokens.css` | Standard Form Controls |
-| Buttons and links | `ux-tokens.css` | Buttons |
-| Alerts and status messages | `ux-tokens.css` | Feedback & Data Display |
-| Tables | `ux-tokens.css` | Feedback & Data Display |
-| Layout helper classes | `ux-tokens.css` or scoped CSS | Only when already present |
-
-If a file does not use numbered sections, map by token name, selector, and existing naming conventions.
-
----
-
-## Step 3 - Determine Change Scope
-
-Classify every extracted design value as one of:
-
-- **Token update** - a raw token value changes. Update the custom property value in place.
-- **New token** - the design introduces a concept that has no existing token. Add it in the appropriate section following existing naming conventions.
-- **Control rule update** - a selector/property in `ux-tokens.css` needs a different value. Update the property in place.
-- **No change** - the design is silent on this area. Leave the existing CSS untouched.
-
-Do not restructure sections, reorder rules, or clean up unrelated CSS.
-
----
-
-## Step 4 - Detect Theme Polarity and Handle Dual Theme
-
-### 4a - Detect Polarity
-
-Before updating tokens, determine the default theme polarity of the existing CSS and the incoming design.
-
-**Existing CSS polarity** - inspect the `:root` block in `ux-tokens.css`:
-- If `:root` has dark surface values, the existing default is dark. Its override selector is usually `:root[data-theme="light"]`.
-- If `:root` has light surface values, the existing default is light. Its override selector is usually `:root[data-theme="dark"]`.
-
-**Incoming design polarity** - read `design.md`:
-- If the design states a light default, the new default is light.
-- If the design states a dark default, the new default is dark.
-- If the design is silent, preserve the existing polarity.
-
-### 4b - Polarity Flip
-
-If the polarities differ, a polarity flip is required:
-
-1. Apply the new design's default palette to `:root`.
-2. Rename the existing override selector globally in `ux-tokens.css`:
-   - Flipping dark to light: rename every `[data-theme="light"]` selector to `[data-theme="dark"]`
-   - Flipping light to dark: rename every `[data-theme="dark"]` selector to `[data-theme="light"]`
-3. Update the renamed override block with opposite-polarity token values.
-4. Check all control rules in `ux-tokens.css` that use `[data-theme="..."]` selectors.
-
-The rename must be global across the file.
-
-### 4c - No Polarity Flip
-
-If the polarities match, update only the affected token values in each block. Do not rename selectors.
-
-If the design specifies both dark and light variants, update both blocks independently.
-
----
-
-## Step 5 - Preserve Backward-Compatible Aliases
-
-The `--ux-*` alias block in `ux-tokens.css` maps older names to current semantic tokens via `var(...)`.
-
-After updating semantic tokens:
-
-- Verify aliases still resolve.
-- Only edit aliases if a referenced token was renamed or removed.
-- Do not remove aliases.
-- Prefer semantic tokens such as `--primary`, `--surface`, `--text`, and `--border` in new or updated rules.
-
----
-
-## Step 6 - Update Standard Control Styles
-
-Use the standard control sections in `ux-tokens.css` for app-wide native/control styling. These selectors support standard Blazor account pages and generated standard Blazor pages.
-
-Standard Blazor apps may or may not load `bootstrap/bootstrap.min.css` depending on generated settings and content. When Bootstrap is already linked, `ux-tokens.css` is loaded after it and acts as the app's design-system override. When Bootstrap is not linked, `ux-tokens.css` must still provide enough styling for these control classes to render correctly.
-
-Supported control families include:
-
-- `.form-control`
-- `.form-select`
-- `.form-floating`
-- `.form-check`
-- `.input-group`
-- `.btn`
-- `.btn-primary`
-- `.btn-danger`
-- `.btn-link`
-- `.alert`
-- `.alert-danger`
-- `.alert-success`
-- `.alert-warning`
-- `.table`
-- utility classes already present in the file
-
-When updating controls:
-
-- Keep selectors compatible with plain HTML and Blazor built-in components such as `InputText`, `InputSelect`, `InputNumber`, `InputDate`, and `EditForm`.
-- Use semantic token references from the token sections.
-- Preserve focus-visible and validation readability.
-- Keep form controls usable in static SSR and form-post account pages.
-- Do not rely on Bootstrap being loaded. Treat these as standard Blazor compatibility classes and make them work with or without Bootstrap present.
-- If Bootstrap is already present, preserve compatibility with its class names and override its visual values through `ux-tokens.css`.
-
-Forbidden:
-
-- Adding MudBlazor selectors such as `.mud-*`
-- Adding `--mud-*` variables
-- Adding, removing, or editing Bootstrap assets or stylesheet links
-- Replacing standard controls with MudBlazor components
-- Introducing JavaScript-only or interactive-only styling assumptions
-
----
-
-## Step 7 - Apply Changes
-
-Apply the minimum edits needed to express the new design intent.
-
-Use in-place value replacement wherever possible.
-
-Forbidden:
-
-- Deleting CSS rules or properties that the design does not address
-- Reordering declarations or sections as cleanup
-- Reformatting unrelated rules
-- Changing selectors except for required `[data-theme="..."]` polarity flips
-- Introducing new component-library dependencies
-- Recreating or vendoring Bootstrap in `ux-tokens.css`
-
----
-
-## Handling Ambiguity
-
-**Incomplete design spec** - if the design defines colours but no typography, update colours only.
-
-**Conflicting values** - if the design contains contradictory values, use the most prominent or last-defined value and note the conflict in a short comment adjacent to the token.
-
-**Unknown design format** - if the structure is unrecognised, carefully extract colours, font names, sizing, and component intent before editing.
-
-**Missing files** - if the target project has no `ux-tokens.css`, stop and report the missing file rather than creating a theme from scratch.
-
----
+Never:
+- delete rules or properties the design doesn't address;
+- change selectors, other than the polarity rename;
+- restructure or reorder sections or declarations, or reformat unrelated rules;
+- replace standard controls with component-library components, or add a component-library dependency.
 
 ## Definition of Done
 
-- [ ] `design.md` was read in full before any edits were made
-- [ ] `ux-tokens.css` was read in full before any edits were made
-- [ ] Existing CSS polarity was identified before editing
-- [ ] If polarity flipped, every `[data-theme="..."]` selector in `ux-tokens.css` was renamed globally
-- [ ] If polarity flipped, the renamed override block has opposite-polarity token values
-- [ ] Brand palette tokens reflect the new design where specified
-- [ ] Semantic colour tokens are updated for affected theme variants
-- [ ] Typography tokens are updated if the design specifies fonts or a type scale
-- [ ] Spacing, radius, and motion tokens are updated if the design specifies them
-- [ ] `--ux-*` aliases still resolve
-- [ ] Standard control styles reference semantic tokens
-- [ ] Standard control styles remain compatible with built-in Blazor inputs and plain HTML
-- [ ] Standard control styles work whether Bootstrap is present or absent
-- [ ] No Bootstrap assets or stylesheet links were added, removed, or edited
-- [ ] No MudBlazor selectors, `--mud-*` variables, or component-library dependencies were introduced
-- [ ] No unrelated CSS rules or sections were modified
-- [ ] Changes are limited to what the new `design.md` specifies
+- [ ] `design.md` and every theme CSS file read before any edit; current and target polarity identified
+- [ ] Palette, semantic, typography, spacing, radius and motion tokens reflect what the design specifies, and only that
+- [ ] On a flip: every `[data-theme]` selector renamed in every theme file, and the override block holds opposite-polarity values
+- [ ] `--ux-*` aliases resolve; control rules use semantic tokens
+- [ ] Controls work with built-in Blazor inputs and plain HTML, with or without Bootstrap
+- [ ] No Bootstrap asset or link changed; no `.mud-*`, `--mud-*` or component-library dependency added
+- [ ] Unrelated CSS unchanged
 """);
         }
 

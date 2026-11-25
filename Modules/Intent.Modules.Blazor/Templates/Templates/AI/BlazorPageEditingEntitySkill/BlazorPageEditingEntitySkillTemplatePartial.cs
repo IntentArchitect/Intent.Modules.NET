@@ -38,174 +38,67 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageEditingEntitySk
           - "**/ux-components.css"
           ---
 
-          ## MANDATORY: Read Samples Before Implementation
+          # Edit-entity page (Bootstrap)
 
-          STOP — you MUST read ALL of the following before writing ANY code:
+          For edit or update pages. Not for search, add or view pages, or dialogs.
 
-          **Samples** (in the SAME folder as this SKILL.md):
-          1. `edit-entity-sample.razor`
-          2. `edit-entity-sample.razor.cs`
+          ## 1. Read first
 
-          **Target component and project files:**
-          3. The target `.razor` and `.razor.cs`
-          4. Related project files: models, enums, lookups, services
+          1. `edit-entity-sample.razor` and `edit-entity-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
+          2. The target `.razor` and `.razor.cs`, and the models, enums, lookups and services they use.
+          3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
 
-          **Design and styling context** (search the project — these are NOT in the SKILL.md folder):
-          5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-          6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+          ## 2. Classify the `.razor.cs`
 
-          If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
-          If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
+          - **Skeleton** (injections, model classes, empty or stub methods): add what the page needs, following the sample's `.razor.cs`: the id `[Parameter]`, the model property, a saving flag, loading the entity (and any lookups) through the existing service in `OnInitializedAsync`, and a `Save`/`SaveAsync` that calls the existing update service method and navigates on success.
+          - **Implemented** (has loading, service calls or save logic): wire the markup to the existing members and leave them, the model's properties and the conditional logic exactly as they are. A lifecycle method that already has a body stays unchanged.
 
-          ---
+          ## 3. Layout
 
-          ## MANDATORY: Match Sample Layout (Visual Structure)
+          Copy the sample's structure: hero header, then one main card holding the form, then right-aligned actions, with no extra wrappers. While the model is `null`, the card shows only the sample's loading spinner. Keep it unless the user asks otherwise; `design.md` informs styling, not layout. Reuse the sample's utility classes (`ux-gradient-primary`, `ux-fade-in-up`, ...) when they exist: grep each name as a substring across `wwwroot/**/*.css`, since they are often compound selectors.
 
-          When a sample exists, you MUST match the sample's visual structure, not only its data behavior.
+          ## 4. Form
 
-          Required process:
+          Use the sample's form pattern (`EditForm` with `OnValidSubmit` and `DataAnnotationsValidator`), never nested inside another form, and bind only to members that exist on the model.
 
-          1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-          2. If the sample uses shared utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`), verify they exist by grepping for the class name as a **substring** across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors, so search for the class name alone. If the class name appears anywhere in any CSS file, it exists and must be used.
+          | Property | Control |
+          |---|---|
+          | string | `InputText` |
+          | bool | `InputCheckbox` inside a `form-check form-switch` wrapper |
+          | enum | `InputSelect` with `<option value="@EnumType.Member">` entries, no numeric casting, from the enum's real definition, never the sample's members |
+          | lookup | `InputSelect` over options loaded from an existing service |
+          | date | `InputDate`, or `<input type="date">` bound with `@bind` |
+          | collection | a repeated Bootstrap block per item, keyed with `@key` |
 
-          Forbidden:
+          - With `ValueChanged` on an `InputSelect`, also set `Value` and `ValueExpression`, not `@bind-Value`.
+          - A nullable nested object goes behind a toggle, only when the model supports it: off sets it to `null`, on creates it if `null`, and its fields show only while it is on.
+          - Required fields carry validation attributes (or the existing validator wiring) and show a `ValidationMessage` when invalid.
+          - Save is a submit button, so `OnValidSubmit` keeps invalid input from the service; it is disabled while a save is running.
 
-          - Replacing the hero header with a different structure unless explicitly requested
-          - Dropping the sample's utility classes when they exist in the target project
+          ## 5. Collections
 
-          ---
+          - In a skeleton, add `AddX` / `RemoveX` methods for the model's collections, as the sample does. In an implemented code-behind, show an add or remove button only when the matching method already exists.
+          - In a `for` loop, declare `var index = i;` first and use `index`, never `i`, for bindings, `@key` and callbacks.
 
-          ## Assess The .razor.cs Before Writing
+          ## 6. Never
 
-          Use for: Edit or update entity pages in Blazor
-          Do NOT use for: Search pages, add pages, dialogs, or non-Blazor projects
-
-          Read the existing `.razor.cs` in full. Determine whether it is a **skeleton** (constructor, injections, and empty or stub methods only) or **implemented** (contains real data loading, model construction, or service calls).
-
-          **If skeleton** — scaffold the missing members modelled on the sample `.razor.cs`:
-          - Add `[Parameter]` properties needed for the page (e.g. entity ID)
-          - Add a model field or property matching the sample pattern
-          - Implement `OnInitializedAsync()` or `OnParametersSetAsync()` to load the entity via the appropriate service (search the project for a matching service interface)
-          - Add a `Save()` / `SaveAsync()` method that validates the form, calls the existing update service method, and navigates on success using an existing or added navigation method
-          - Add supporting methods (cancel, add/remove collection items) only when they exist in the sample and the relevant service methods exist in the project
-
-          **If implemented** — preserve all existing logic exactly:
-          - Do NOT modify existing methods, service calls, or payload construction
-          - Do NOT add, rename, or remove model properties
-          - Do NOT rewrite existing C# functionality
-
-          **Always forbidden** (skeleton or implemented):
-          - Inventing service classes or interfaces that don't exist in the project
-          - Calling services directly from the `.razor` file
-          - Putting C# logic in `.razor` using `@code`
-
-          ---
-
-          ## 1. Data Loading And Form
-
-          If `OnInitializedAsync()` is empty or a stub, implement it to load the entity via the appropriate service method. If the method already has a body, leave it unchanged.
-
-          Build the form from the model structure — adding the model field if it does not yet exist in the skeleton.
-
-          Nullable objects:
-          - Render conditional sections only when supported by the existing model and state
-          - Toggle OFF should set the object to null when that pattern already exists
-          - Toggle ON should initialize it if null
-          - Keep the exact conditional logic from `.razor.cs`
-
-          ---
-
-          ## 2. Map Properties To Controls
-
-          | Property Type | Control |
-          |---------------|---------|
-          | String | `InputText` |
-          | Boolean | `InputCheckbox` rendered inside a `form-check form-switch` wrapper |
-          | Enum | `InputSelect` with verified members as literal `<option value="@EnumType.Member">` entries |
-          | Lookup | `InputSelect` using real loaded options |
-          | Array | Repeatable Bootstrap blocks |
-          | Date | `InputDate`, or a plain `<input type="date">` bound with `@bind` |
-
-          Rules:
-          - Bind directly to the enum member as the `<option value="@EnumType.Member">` value — no numeric casting needed
-          - If multiple forms are used, they must not be nested
-
-          Enum rules:
-          - Locate and read the real enum definition before using it
-          - Use only verified enum members and values
-          - Never copy enum members from sample code without verification
-
-          ---
-
-          ## 3. Validation
-
-          Use valid Blazor `EditForm` patterns with the project's existing validation approach.
-
-          Required fields must have:
-          - Validation wiring from model annotations or existing validators
-          - Visible validation messages when invalid
-          - Save disabled when invalid
-
-          ---
-
-          ## 4. Save Flow
-
-          The Save button must call `Save()` or `SaveAsync()`. If neither exists in `.razor.cs`, add it following the sample pattern.
-
-          That flow must:
-          1. Validate the form
-          2. Call the existing update service method without modifying it
-          3. Navigate on success using an existing or added navigation method
-
-          Forbidden:
-          - Calling services directly from the Razor template
-          - Modifying existing update service methods
-          - Changing request payloads
-
-          ---
-
-          ## 5. Child Collections
-
-          Render child collections in repeatable Bootstrap UI blocks.
-
-          Buttons:
-          - Add buttons only if matching `AddX()` or `AddXAsync()` methods exist
-          - Remove buttons only if matching `RemoveX()` or `RemoveXAsync()` methods exist
-
-          Indexed bindings:
-          - Use `for` loops with `var index = i;`
-          - Never reference `i` directly in bindings, `@key`, or callbacks
-
-          ---
-
-          ## 6. Styling
-
-          - Prefer shared utility styles first
-          - Keep component-specific styles minimal
-          - Never modify existing shared styles, variables, or theme values
-          - Match the sample layout closely
-
-          **Design and styling context**
-
-          Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
-
-          ---
+          - An `@code` block, or a service call, in the `.razor`.
+          - Changing existing loading or service calls, or request payloads.
+          - Inventing services, interfaces, enum members or option data.
+          - Hardcoded colours: inline `Style=` uses `var(--token)`. Existing shared styles, tokens and theme values stay unchanged; keep component CSS minimal.
 
           ## Definition of Done
 
-          - [ ] All bindings used in `.razor` resolve to members in `.razor.cs` (including any members just scaffolded)
-          - [ ] No `@code` block was introduced in `.razor`
-          - [ ] Data is loaded through lifecycle or backing methods (implemented or added if the skeleton had none)
-          - [ ] Save button calls `Save()` or `SaveAsync()` in `.razor.cs`, not a service directly
-          - [ ] Existing update service methods were not modified
-          - [ ] Model properties were not arbitrarily renamed or removed — additions are allowed only when scaffolding a skeleton
-          - [ ] No service classes or interfaces were invented that don't exist in the project
-          - [ ] Conditional sections follow the backing logic
-          - [ ] Child collection buttons exist only when backing methods exist
-          - [ ] Enum options were verified against the real enum definition
-          - [ ] Validation is wired and Save is disabled when invalid or loading
-          - [ ] Sample visual structure was matched (hero header + main card), not replaced unless explicitly requested
-          - [ ] Sample utility classes were verified to exist in the target project and reused when available
+          - [ ] Hero header + main card as in the sample, with its utility classes where they exist; spinner while loading
+          - [ ] Every binding resolves to a `.razor.cs` member; no `@code`, no service calls in `.razor`
+          - [ ] The entity loads through the existing service; Save submits through `OnValidSubmit`, updates through the existing service method, and navigates on success
+          - [ ] Save is disabled while saving; required fields show a `ValidationMessage`
+          - [ ] Enum options are verified `@EnumType.Member` values; lookups and services are real
+          - [ ] Conditional sections follow the code-behind's logic
+          - [ ] Collection buttons only with backing methods; item blocks keyed with `@key`; loops use `var index = i`
+          - [ ] Implemented code-behind: existing members and model properties unchanged
+          - [ ] Styles use tokens; shared styles unchanged
+          - [ ] The project builds; `.razor` has an `@using` for every type it names
 
           """);
     }

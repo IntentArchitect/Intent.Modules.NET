@@ -91,15 +91,13 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
             {
                 await Mediator.Send(new CreateCustomerCommand(
                     name: Model.Name,
-                    surname: Model.Surname,
                     email: Model.Email,
                     categoryId: Model.CategoryId.Value,
                     subCategoryId: Model.SubCategoryId.Value,
                     isActive: Model.IsActive,
                     preference: new CreateCustomerPreferenceDto
                     {
-                        NewsLetter = Model.Preference.NewsLetter,
-                        Specials = Model.Preference.Specials
+                        NewsLetter = Model.Preference.NewsLetter
                     },
                     loyalty: Model.Loyalty is not null
                     ? new CreateCustomerCommandLoyaltyDto
@@ -113,8 +111,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
                         {
                             Line1 = a.Line1,
                             Line2 = a.Line2,
-                            City = a.City,
-                            Postal = a.Postal,
                             AddressType = a.AddressType
                         })
                         .ToList()));
@@ -192,8 +188,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
             {
                 Line1 = _newAddress.Line1,
                 Line2 = _newAddress.Line2,
-                City = _newAddress.City,
-                Postal = _newAddress.Postal,
                 AddressType = _newAddress.AddressType
             });
             _newAddress = new CreateCustomerCommandAddressesModel1();
@@ -206,54 +200,12 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
             Model.Addresses.Remove(addr);
         }
 
-        public class CreateCustomerModel
-        {
-            public string Name { get; set; }
-            public string Surname { get; set; }
-            public string Email { get; set; }
-            public Guid? CategoryId { get; set; }
-            public Guid? SubCategoryId { get; set; }
-            public bool IsActive { get; set; }
-            public CreateCustomerPreferenceModel Preference { get; set; }
-        }
-        public class CreateCustomerPreferenceModel
-        {
-            public bool NewsLetter { get; set; }
-            public bool Specials { get; set; }
-        }
-        public class CreateCustomerModel1
-        {
-            public string Name { get; set; }
-            public string Surname { get; set; }
-            public string Email { get; set; }
-            public bool IsActive { get; set; }
-            public CreateCustomerPreferenceModel1 Preference { get; set; }
-            public CreateCustomerCommandLoyaltyModel? Loyalty { get; set; }
-            public List<CreateCustomerCommandAddressesModel> Addresses { get; set; }
-        }
-        public class CreateCustomerPreferenceModel1
-        {
-            public bool NewsLetter { get; set; }
-            public bool Specials { get; set; }
-        }
-        public class CreateCustomerCommandLoyaltyModel
-        {
-            public string LoyaltyNo { get; set; }
-            public int Points { get; set; }
-        }
-        public class CreateCustomerCommandAddressesModel
-        {
-            public string Line1 { get; set; }
-            public string? Line2 { get; set; }
-            public string City { get; set; }
-            public string Postal { get; set; }
-            public string AddressType { get; set; }
-        }
         public class CreateCustomerModel2
         {
             public string Name { get; set; } = string.Empty;
-            public string Surname { get; set; } = string.Empty;
             public string Email { get; set; } = string.Empty;
+            public Guid? CategoryId { get; set; }
+            public Guid? SubCategoryId { get; set; }
             public bool IsActive { get; set; }
             public CreateCustomerPreferenceModel2 Preference { get; set; } = new();
             public CreateCustomerCommandLoyaltyModel1? Loyalty { get; set; }
@@ -262,7 +214,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
         public class CreateCustomerPreferenceModel2
         {
             public bool NewsLetter { get; set; }
-            public bool Specials { get; set; }
         }
         public class CreateCustomerCommandLoyaltyModel1
         {
@@ -273,8 +224,6 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
         {
             public string Line1 { get; set; } = string.Empty;
             public string? Line2 { get; set; } = string.Empty;
-            public string City { get; set; } = string.Empty;
-            public string Postal { get; set; } = string.Empty;
             public AddressType AddressType { get; set; }
         }
     }

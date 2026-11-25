@@ -38,200 +38,75 @@ namespace Intent.Modules.Blazor.Templates.Templates.AI.BlazorPageSearchEntitySki
           - "**/ux-components.css"
           ---
 
-          ## MANDATORY: Read Samples Before Implementation
+          # Search / list page (Bootstrap)
 
-          STOP — you MUST read ALL of the following before writing ANY code:
+          For search and list pages. Not for add or edit forms, or dialogs.
 
-          **Samples** (in the SAME folder as this SKILL.md):
-          1. `search-entity-sample.razor`
-          2. `search-entity-sample.razor.cs`
+          ## 1. Read first
 
-          **Target component and project files:**
-          3. The target `.razor` and `.razor.cs`
-          4. Related project files: request models, DTOs, enums, lookups, services
+          1. `search-entity-sample.razor` and `search-entity-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
+          2. The target `.razor` and `.razor.cs`, and the request models, DTOs, enums, lookups and services they use.
+          3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
 
-          **Design and styling context** (search the project — these are NOT in the SKILL.md folder):
-          5. `design.md` — search for this file anywhere in the project; read it in full if found; if absent, note the absence and continue without design context
-          6. `ux-tokens.css`, `ux-base.css`, `ux-components.css` — read from the project's `wwwroot` folder if present; note any that are absent
+          ## 2. The `.razor.cs` is the source of truth
 
-          If any sample file (items 1–2) cannot be accessed: stop immediately, confirm the SKILL.md folder location, retry from that location, and if still inaccessible report which file is missing. Do not proceed with partial implementation or approximation.
-          If items 5–6 are not found: note the absence and continue — they are reference context, not blocking.
+          It defines the search criteria, paging, sorting, service calls, row actions and navigation.
 
-          ---
+          - **Skeleton** (injections and empty or stub methods): fill in loading through the existing service, following the sample's `.razor.cs`.
+          - **Implemented**: leave every existing method as it is, service-calling, routing and dialog methods included. You may add UI-only fields, helpers that only call existing methods, and lifecycle wiring.
+          - Never add missing CRUD or navigation methods, or change DTOs, request models or service signatures.
 
-          ## MANDATORY: Match Sample Layout (Visual Structure)
+          ## 3. Pick one pattern, never a mix
 
-          When a sample exists, you MUST match the sample's visual structure, not only its data-loading behavior.
+          | The code-behind has | Pattern |
+          |---|---|
+          | `PageNo` / `PageSize`, a paged result (such as `PagedResult<T>`), real filters | **Searchable**: `<table class="table">`, Previous/Next bound to `PageNo` / `PageSize` and disabled at the bounds; sortable columns only if the load method sorts |
+          | a plain collection, no paging or filters | **Simple grid**: rows straight from the collection; no paging controls |
 
-          Required process:
+          ## 4. Layout
 
-          1. Reuse the sample's top-level component layout (hero header + main card) unless the user explicitly requests otherwise.
-          2. If the sample uses shared utility classes (e.g. `ux-gradient-primary`, `ux-fade-in-up`), verify they exist by grepping for the class name as a **substring** (e.g. `ux-gradient-primary`) across all CSS files under `wwwroot` (including `ux-tokens.css`, `ux-base.css`, and `ux-components.css`). CSS utility classes are often defined as compound selectors, so search for the class name alone, not the full selector. If the class name appears anywhere in any CSS file, it exists and must be used.
+          Copy the sample's structure: hero header (`<div class="ux-gradient-primary ux-rounded-lg p-4 mb-4">` with `<h1>` and `<p>`), then a main card (`<div class="card ux-fade-in-up">` with `card-body`), with no extra wrappers. Keep it unless the user asks otherwise; `design.md` informs styling, not layout. Reuse the sample's utility classes when they exist: grep each name as a substring across `wwwroot/**/*.css`, since they are often compound selectors.
 
-          Required baseline layout (when supported by the target app):
+          Actions:
+          - Add (`btn btn-primary`) and Search (`btn btn-outline-primary`) sit inline in the card body, left-aligned.
+          - Show Refresh, calling the load method, when one exists.
 
-          - A hero header `<div class="ux-gradient-primary ux-rounded-lg p-4 mb-4">` with an `<h1>`/`<p>`
-          - A main content card `<div class="card ux-fade-in-up">` with a `<div class="card-body">`
+          ## 5. Filters
 
-          Forbidden:
-
-          - Replacing the hero header with a different structure unless explicitly requested
-          - Dropping the sample's utility classes when they exist in the target project
-
-          ---
-
-          ## Preserve Existing Implementation
-
-          Use for: Search or list entity pages in Blazor\
-          Do NOT use for: Add or edit forms, dialogs, or non-Blazor projects\
-          Source of truth: Existing `.razor.cs` file defines search criteria, paging, sorting, service calls, row actions, and navigation
-
-          ### You MAY add:
-
-          - UI-only fields and helper methods that only call existing methods
-          - Lifecycle wiring such as `OnInitializedAsync()` calls
-          - Table columns and row action buttons for existing backing methods
-
-          ### You MUST NOT:
-
-          - Rewrite service-calling, routing, or dialog methods
-          - Modify backend DTOs, request models, or service signatures
-          - Invent filters that do not exist in the backing search model
-          - Expose paging or sorting parameters as normal filter inputs
-          - Add CRUD or navigation methods that do not already exist in `.razor.cs`
-
-          ---
-
-          ## 1. Filters: Backend Contract Only
-
-          All search criteria must come from the existing backing search model or request object.
-
-          Required process:
-
-          1. Identify the primary search or load method such as `LoadEntities` or `SearchEntities`
-          2. Inspect the request DTO or backing search model used by that method
-          3. Render only supported filter properties
-
-          Forbidden:
-
-          - Inventing filters
-          - Modifying service signatures to support UI filters
-          - Rendering paging fields like `pageNo` or `pageSize` as normal filter inputs
-
-          ---
-
-          ## 2. Choose The Correct Pattern
-
-          There are two list-page patterns and you must choose the one that matches the backing class.
-
-          Use the searchable/paged pattern when the component exposes:
-
-          - `PageNo`/`PageSize` backing properties and a load method that requests a paged result (e.g. returns a `PagedResult<T>`)
-          - Real search or filter properties
-
-          Use the simple grid pattern when the component:
-
-          - Loads a plain collection directly
-          - Has no paging request model
-          - Has no real search or filter fields
-
-          Do not mix the two patterns in one page.
-
-          ---
-
-          ## 3. Map Criteria And Fields To Controls
+          Render only properties of the request model the search method takes; never invent filters, and never render paging or sorting fields (`pageNo`, `pageSize`, `orderBy`).
 
           | Type | Control |
-          |------|---------|
-          | `string` named like search or keyword | Single search `<input class="form-control">` bound with `@bind`/`@bind:event="oninput"`, with `@onkeydown` triggering search on Enter |
-          | Other `string` | Plain `<input class="form-control">` |
-          | `bool` or nullable bool | `<select class="form-select">` with All, Yes, and No options |
-          | Enum or lookup | `<select class="form-select">` with real options only |
-          | Number | `<input type="number" class="form-control">` |
-          | Date | `<input type="date" class="form-control">` |
+          |---|---|
+          | `string` named like search or keyword | one search `<input class="form-control">` with `@bind` and `@bind:event="oninput"`; `@onkeydown` runs the search on Enter |
+          | other `string` | `<input class="form-control">` |
+          | `bool` / `bool?` | `<select class="form-select">` with All (empty), true and false, bound through a string property like the sample's `IsActiveText` |
+          | enum or lookup | `<select class="form-select">` over the real enum members or ids, never guessed strings |
+          | number | `<input type="number" class="form-control">` |
+          | date | `<input type="date" class="form-control">` |
 
-          Rules:
-          - Bind filters directly to their backing properties
-          - Bind enum/lookup `<option>` values to the real member or id, never a string literal guess
+          - Search calls the existing load method (the sample's `ReloadAsync`); no query per keystroke unless the code already does it.
 
-          ---
+          ## 6. Columns and row actions
 
-          ## 4. Search And Refresh Behavior
+          - Columns only for real DTO fields.
+          - Check all code-behind methods, private included. Render View (`btn btn-outline`), Edit (`btn btn-outline-primary`), Delete (`btn btn-outline-danger`) or similar only when a matching method exists; with a row id and an edit method, Edit is required. No placeholder buttons.
+          - Delete confirms first with the sample's inline `alert alert-warning` and Confirm/Cancel buttons (not a modal) unless the project has its own convention.
 
-          Search behavior:
+          ## 7. Never
 
-          - Search button must call the existing load or search method (e.g. `ReloadAsync()`)
-          - Pressing Enter in the main search field should trigger the same search behavior via `@onkeydown`
-          - Do not auto-query on every keystroke unless that behavior already exists and must be preserved
-
-          Button placement:
-
-          - Keep Search and Add actions inline in the card body, left-aligned, using plain buttons (e.g. `btn btn-primary` for Add, `btn btn-outline-primary` for Search)
-          - Keep action buttons left-aligned; do not right-align them
-
-          Refresh behavior:
-
-          - If a load or refresh method exists, surface a Refresh action
-          - In simple grid pages, Refresh should call the direct load method
-
-          ---
-
-          ## 5. Table Output And Row Actions
-
-          Columns:
-
-          - Render only fields that actually exist on the returned DTO or view model
-          - Never invent columns
-
-          Searchable/paged pattern:
-
-          - Render results in a plain `<table class="table">` with `<thead>`/`<tbody>`
-          - Use manual Previous/Next paging buttons (`btn btn-outline`, disabled at the bounds) bound to `PageNo`/`PageSize` when paging is supported
-          - Only add sortable columns if the backing method actually supports sorting — there is no built-in sortable-header convention in this pattern
-
-          Simple grid pattern:
-
-          - Bind rows from the existing collection directly
-          - Do not add paging controls
-
-          Row actions:
-
-          - Inspect all existing methods on the backing component, not only public methods
-          - Render View, Edit, Delete, Open, or similar row actions only when matching methods actually exist, using plain buttons (e.g. `btn btn-outline` for View, `btn btn-outline-primary` for Edit, `btn btn-outline-danger` for Delete)
-          - If the row DTO exposes an ID field and a matching edit method exists, the Edit action is required
-          - Never invent row action methods or placeholder buttons
-          - A destructive action such as Delete should confirm before calling the backing method — follow the sample's inline confirmation pattern (an `alert alert-warning` with Confirm/Cancel buttons) rather than a modal dialog, unless the project already has a different confirmation convention
-
-          ---
-
-          ## 6. Styling
-
-          - Prefer shared utility styles first
-          - Keep component-specific styles minimal
-          - Never modify existing shared styles or theme values
-          - Match the sample layout without introducing unnecessary wrappers
-          - If the sample uses shared utility classes (for example `ux-gradient-primary`, `ux-fade-in-up`), verify they exist in the target app's styles (usually under `wwwroot`) and reuse them
-
-          **Design and styling context**
-
-          Apply the design token and CSS utility context from the files you read in the mandatory phase. Use `var(--token)` for all inline `Style=` attributes — never hardcode hex values. Verify utility classes (e.g. `ux-fade-in-up`, `ux-gradient-primary`) exist before applying. The design context informs styling choices only — it does not override layout structure.
-
-          ---
+          - An `@code` block, or a service call, in the `.razor`.
+          - Hardcoded colours: inline `Style=` uses `var(--token)`. Existing shared styles, tokens and theme values stay unchanged; keep component CSS minimal.
 
           ## Definition of Done
 
-          - [ ] All filters come from the real backing search model or request DTO
-          - [ ] The correct pattern was chosen: searchable/paged table or simple grid
-          - [ ] Columns represent only actual DTO fields
-          - [ ] Search button calls an existing load or search method
-          - [ ] Refresh is surfaced when a matching method exists
-          - [ ] Row-level actions are rendered only for existing matching methods
-          - [ ] No CRUD or navigation methods were invented in `.razor.cs`
-          - [ ] Enum values and select options were verified against real types
-          - [ ] Paging was kept as Previous/Next controls bound to `PageNo`/`PageSize` rather than exposed as normal filter inputs
-          - [ ] Shared styles were preserved and component styling remained minimal
-          - [ ] Sample visual structure was matched (hero header + main card), not replaced with an alternative header structure unless explicitly requested
-          - [ ] Sample utility classes were verified to exist in the target project and reused when available (e.g. grep for `ux-gradient-primary` and `ux-fade-in-up`)
+          - [ ] Hero header + main card as in the sample, with its utility classes where they exist
+          - [ ] One pattern, matching the code-behind
+          - [ ] Filters only from the real request model, with real enum and lookup values; paging fields are never filters
+          - [ ] Search and Enter in the search field call the existing method; Refresh shown when a load method exists
+          - [ ] Columns are real DTO fields; row actions only for existing methods; Delete confirms inline
+          - [ ] No new CRUD or navigation methods; existing methods unchanged
+          - [ ] Styles use tokens; shared styles unchanged
+          - [ ] The project builds; `.razor` has an `@using` for every type it names
 
           """);
     }

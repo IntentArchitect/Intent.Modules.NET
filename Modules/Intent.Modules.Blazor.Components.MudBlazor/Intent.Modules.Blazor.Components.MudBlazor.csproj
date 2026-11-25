@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <Version>2.1.0</Version>
+        <Version>2.1.1-pre.0</Version>
         <Authors>Intent Architect</Authors>
         <Description>MudBlazor components module for Intent Architect.</Description>
         <Copyright>Copyright 2024</Copyright>
@@ -38,6 +38,14 @@
     <ItemGroup>
         <Compile Remove="content\**\*.cs" />
         <None Include="content\**\*.cs" />
+    </ItemGroup>
+
+    <!-- evals/ is the skill eval suite (fixtures, graders, baseline), not part of this module's build or package. -->
+
+    <ItemGroup>
+        <Compile Remove="evals\**" />
+        <None Remove="evals\**" />
+        <Content Remove="evals\**" />
     </ItemGroup>
 
     <ItemGroup>
