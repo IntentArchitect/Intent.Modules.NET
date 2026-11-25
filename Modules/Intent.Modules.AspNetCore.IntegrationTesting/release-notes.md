@@ -1,6 +1,7 @@
 ### Version 2.1.1
 
 - Improvement: Removed the unused registration for the deprecated `IdentityModel.AspNetCore` NuGet package. No generated project referenced it.
+- Improvement: The `integration-test` skill is shorter, keeping the rules for this test project and its database fixture.
 
 ### Version 2.1.0
 

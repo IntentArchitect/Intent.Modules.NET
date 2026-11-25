@@ -124,10 +124,10 @@
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#81f3bc7d-12ec-49c7-bf71-93cb77df0972</correlationId>
       <path>Templates/IntegrationTestSkill/IntegrationTestSkillTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-08-05T11:35:39.8273252Z</updatedAt>
-      <deviationsHash>FD082DADEAF2702030B25E690294C2474C4F492BD83F0B37A5CA4E003D197F30</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-25T13:43:20.0264803Z</updatedAt>
+      <deviationsHash>F12C859B7427834B09BB5A35838ACEB7AC3883374C0650C6C99A272D5115D5C9</deviationsHash>
       <fileHash>9528E936AA0CA1919620FAD6D831F9EE6E475C80361ACD7B55705DC0BA94EC32</fileHash>
     </file>
     <file>
@@ -229,14 +229,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e0586df8-b1e3-4f5d-b2f1-3632fdd9fcd3</correlationId>
       <path>Templates/ServiceEndpointTest/ServiceEndpointTestTemplatePartial.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:22:00.245754Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:03:28.2930385Z</approvedAt>
-      <deviationsHash>759645E2C00BBD30803FC611836F4BE40EB922D2B143945A7C1DBE3A21CE190F</deviationsHash>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-25T13:43:20.0264356Z</updatedAt>
+      <deviationsHash>1022149201EAD5C256B41A23180C1493EC2CB929F46769B5CAA4698DFB422694</deviationsHash>
       <fileHash>570E620500A650FF3864DB81375116A53ACAF297ABDD415001900D5FEDF3AEFF</fileHash>
     </file>
     <file>

@@ -1,6 +1,7 @@
 ### Version 5.3.6
 
 - Fixed: `UpdateHelper` no longer generates a redundant null-forgiving operator (`!`) that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
+- Improvement: The `domain-entity` skill is shorter, keeping the Intent-specific rules for filling in a modelled constructor or operation, and its description names the situation it covers.
 
 ### Version 5.3.5
 

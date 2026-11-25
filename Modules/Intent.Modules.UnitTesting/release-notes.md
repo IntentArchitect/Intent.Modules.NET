@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Changes how agents receive the unit test guidance. `unit-test-guidelines` is now a skill, loaded on demand from `.agents/skills/`, in place of the instruction that was always in context. Upgrading moves the skill's output and removes the old `.agents/instructions/unit-test-guidelines.md`. The text is shorter, keeps the Intent-specific rules, and no longer asks domain-service tests to verify `SaveChangesAsync`.
+
 ### Version 1.2.0
 
 - Improvement: Updated NuGet package versions:

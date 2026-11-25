@@ -1,3 +1,8 @@
+### Version 3.14.0
+
+- Improvement: The `fluent-validation-custom-validation` skill is shorter, keeping the Intent-specific rules.
+- Fixed: The module declared `Intent.Common` 3.11.0 but is built against 3.11.2, so installing it beside an older `Intent.Common` could fail at run time; the dependency is now 3.11.2.
+
 ### Version 3.13.0
 
 - Improvement: Updated NuGet package versions:

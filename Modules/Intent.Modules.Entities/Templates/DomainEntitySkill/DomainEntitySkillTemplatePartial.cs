@@ -28,85 +28,22 @@ namespace Intent.Modules.Entities.Templates.DomainEntitySkill
                 .FromMarkdown($"""
 ---
 name: domain-entity
-description: Implements domain behaviour, invariants, and constructors on entities and aggregates. MUST load before creating or editing any entity, aggregate, or value object.
+description: Use when writing or changing the body of a constructor or operation on a domain entity or aggregate in the Domain project, including the generated stubs that throw NotImplementedException.
 template-id: {TemplateId}
 ---
 
 # Domain Entity
 
-Implement or improve business behaviour on a single C# domain class.
+Fill in a constructor or operation on a domain entity. The class, its properties, and its constructor and operation signatures come from the Domain designer; only the bodies are yours.
 
-Treat the class as part of a clean architecture domain model first and an persistence type second. Preserve domain intent, protect invariants, and avoid pushing business rules into application services unless the rule genuinely spans multiple aggregates or external systems.
+## Rules
 
-## Default workflow
-
-1. Read the entity or aggregate carefully.
-2. Identify missing behaviour, especially methods throwing `NotImplementedException`, empty methods, placeholder guards, or constructors that do not fully establish a valid object.
-3. Infer the domain intent from names, fields, properties, comments, existing guards, and related methods.
-4. Implement the smallest coherent set of domain rules needed to make the type useful and internally consistent.
-5. Explain assumptions briefly when the domain intent is uncertain.
-
-## What to optimise for
-
-- Keep business rules on the entity, aggregate root, or value object when they protect that type's own invariants.
-- Prefer explicit domain operations over exposing setters.
-- Make invalid states hard to create.
-- Keep code usable in a domain-only project with no infrastructure dependencies.
-- Align with the style already present in the user's codebase unless it is clearly harmful.
-
-## Constructor guidance
-
-When constructors are incomplete or missing, use these rules:
-
-- Ensure a public constructor or factory establishes a valid domain object.
-- Validate mandatory arguments.
-- Normalise values only when the model already suggests it or when it is clearly required.
-
-## Operation guidance
-
-When implementing methods on the class:
-
-- Enforce invariants at the point of state change.
-- Check whether the method should be idempotent.
-- Update all related fields together so the object cannot drift into a partially valid state.
-- Prefer meaningful domain exceptions only if the codebase already uses them. Otherwise use standard argument or invalid operation exceptions.
-- Return values only when the domain operation naturally produces one.
-- Avoid side effects that belong to infrastructure.
-
-## How to infer missing behaviour
-
-When a method body is missing, infer intent from:
-
-- method name and parameters
-- property names and existing state
-- nearby guard clauses
-- comments, XML docs, or tests if provided
-- common domain patterns already used in the class
-
-If the intent is still ambiguous, choose the safest low-surprise implementation and state the assumption clearly.
-
-## Implementation rules
-
-- Preserve existing naming and coding style where reasonable.
-- Do not introduce unnecessary abstractions.
-- Do not add MediatR, repositories, domain services, or events unless the user already uses them or asks for them.
-- Do not rewrite the entire model into a more opinionated DDD style unless the user requests that.
-- Do not convert behaviour into extension methods.
-- Do not expose mutable internals just to make the implementation easier.
-
-## Review checklist
-
-- Kept the business behaviour on the entity, aggregate root, or value object where it belongs.
-- Implemented the missing methods, guards, or constructors that were clearly incomplete.
-- Preserved or strengthened invariants so invalid state is harder to create.
-- Validated mandatory inputs and rejected impossible state transitions.
-- Updated related fields together so the object stays internally consistent.
-- Avoided introducing infrastructure concerns into the domain model.
-- Avoided adding unnecessary abstractions, patterns, or dependencies.
-- Preserved the existing naming and coding style unless it was clearly harmful.
-- Chosen standard exceptions unless the codebase already uses domain-specific ones.
-- Stated any important assumptions briefly where domain intent was ambiguous.
-- Returned only the code and explanation needed to complete the domain behaviour cleanly.
+- Properties belong to the model. To add or change a property, constructor or operation, or a signature, change it in the Domain designer and regenerate.
+- A modelled constructor or operation is generated with `[IntentManaged(Mode.Fully, Body = Mode.Merge)]` and a stub: `// IntentInitialGen`, a TODO, and `throw new NotImplementedException(...)`. When you write the body, replace the stub and change the attribute to `Body = Mode.Ignore`, so the next run leaves it alone.
+- A constructor leaves the entity valid. An operation enforces the invariants it touches and updates related state together.
+- Depend only on Domain types. No Application, infrastructure or framework type belongs in an entity.
+- For a rule violation, throw the exception type the codebase already uses for domain rules.
+- Private helper methods you add to the entity are kept.
 """);
         }
 

@@ -64,7 +64,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
                     .WithAISummary("Integration testing class for the " + Model.Name + " service end point.")
                     .WithAIContext(
                                 $"""
-                                Use the `{IntegrationTestSkillTemplate.SkillName}` skill when modifying this handler.
+                                Use the `{IntegrationTestSkillTemplate.SkillName}` skill when you add or change tests in this class.
                                 """);
             ;
         }

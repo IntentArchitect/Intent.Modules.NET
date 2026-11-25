@@ -20,6 +20,15 @@
       <deviationsHash>40729170448AC02ACECB626218DB33B565B35B6A7CEC118B732F999857927625</deviationsHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#74de0ac7-6519-4de7-9979-597b307fab69</correlationId>
+      <path>Migrations/Migration_01_02_01_Pre_00.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-25T14:02:38.057639Z</updatedAt>
+      <deviationsHash>02F7B18C0BD2F913AB4279A0493A13BD4BF66E3D25572CC0048F13084E847104</deviationsHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#3260a798-7dc8-470e-ab25-93d9f9a8bd5c</correlationId>
       <path>Migrations/OnInstallMigration.cs</path>
       <count>3</count>
@@ -27,6 +36,15 @@
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2026-09-02T13:57:51.7136929Z</updatedAt>
       <deviationsHash>91ECAE7B31815BF7E34FDC21AC2656BFB4E16DE3466A456B58A94B9FAF13C125</deviationsHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#07be41e1-8dd0-4e65-8b0f-4b1e9edb8585</correlationId>
+      <path>Templates/UnitTestInstruction/UnitTestInstructionTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-25T13:52:52.2909857Z</updatedAt>
+      <deviationsHash>CE985ADE42362B57E28061FF29EF9ABBDA3611C352CEC93F24CBB6990F27CB6B</deviationsHash>
     </file>
   </files>
   <customFiles>
