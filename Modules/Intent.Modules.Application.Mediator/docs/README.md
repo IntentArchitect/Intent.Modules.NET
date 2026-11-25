@@ -99,12 +99,11 @@ The module generates these skills into the application's AI context.
 
 | Skill | Purpose |
 |---|---|
-| `mediator-command-handler` | How to implement a command handler: read the associations from the designer in order, what each interaction type means, `return Unit.Value;` for commands with no response, no flushing the message bus from a handler, when `SaveChangesAsync` is and is not needed, never change the signature, and mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`. When `Intent.Application.Mediator.FluentValidation` is installed, that module adds a Validator section covering the command's validation rules. |
-| `mediator-query-handler` | The same for queries: read-only handling, no saving. |
+| `mediator-command-handler` | How to implement a command handler: find the stubs still to write, read the associations from the designer in order and what each interaction type means, `return Unit.Value;` for commands with no response, no flushing the message bus from a handler, never change the signature, and mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`. When `Intent.Application.Mediator.FluentValidation` is installed, that module adds a Validator section covering the command's validation rules. |
+| `mediator-query-handler` | The same for queries: filter and page in the repository query, and change no state. |
 | `mediator-integration-event-handler` | Generated only when the application has integration event handlers (from `Intent.Eventing.Contracts`). See [Integration event handlers](#integration-event-handlers). |
 
-Each handler skill ends with an "Output expectations" section so that guidance contributed by other modules (for example EF Core Repositories, AutoMapper and Mapperly) is injected there.
-
+Other installed modules add their own sections after the core's, for example "Persistence (EF Core)" from EF Core and EF Core Repositories (including when `SaveChangesAsync` is and is not needed), and "Mapping (AutoMapper)" or "Mapping (Mapperly)".
 ### Designer rules and model drift
 
 Adding or changing an association on an already-implemented command does not change any generated file, so nothing in the Software Factory output flags it. To cover this, the module adds an AI rule to the **Command**, **Query** and **Integration Event Handler** elements in the Services designer. It tells any agent editing that element that the handler is AI-written, and that when the element is created, or an association is added, removed, reordered or changed, the handler body must be written or revisited in the same piece of work using the matching skill. The handler skills carry the same rule from the other side: re-read the associations whenever you implement or revisit a handler.
@@ -128,7 +127,7 @@ After that takeover, Publish and Send changes on that handler no longer regenera
 
 ### What the agent is told not to do
 
-Handlers inject only Domain and Application layer dependencies, never infrastructure types; data access goes through repositories; Publish and Send only buffer messages on the bus (the pipeline flushes them), so the handler never flushes; and the handler does not call `SaveChangesAsync` just to persist (the unit of work does).
+Handlers inject only Domain and Application layer dependencies, never infrastructure types; data access goes through repositories; Publish and Send only buffer messages on the bus (the pipeline flushes them), so the handler never flushes; and, through the EF Core Repositories section, the handler does not call `SaveChangesAsync` just to persist (the unit of work does).
 
 ## Authorization and `Intent.Application.Identity`
 

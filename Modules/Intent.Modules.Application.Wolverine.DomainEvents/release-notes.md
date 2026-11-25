@@ -1,3 +1,7 @@
+### Version 1.0.1
+
+- Fixed: The `wolverine-domain-event-handler` skill's description was written for ChatGPT in lower case; it now says when an agent must load the skill.
+
 ### Version 1.0.0
 
 - Fixed: Corrected the declared `Intent.Common`/`Intent.Common.CSharp` module dependency versions to match what this module actually requires.

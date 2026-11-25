@@ -7,7 +7,7 @@
   <file path="Api/RepositoryExtensionsModel.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel" />
   <file path="Api/StoredProcedureModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/StoredProcedureParameterModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/AISkillsExtension.cs" deviationsHash="CCE275AEAC91660F8F1A277A1E8AAC308B0EA2B60EAD90A444287A2C82DFD92A" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/AISkillsExtension.cs" deviationsHash="4FC73ED84658F5BC18827D291DA7E8A9062CF412B12BFD2DA3B9B39485A89AFA" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/CustomRepositoryMethodsExtension.cs" deviationsHash="88744283C308AF309A30FCB3C55D89E3AC7588E8EA49E4657A4351B72206B7B0" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/DbContextInterfaceExtension.cs" deviationsHash="F363E80ED7F7BB827460FACDA9F6A4BCCB4FF42BBE0218ADFFA21AAA3137594C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/EntityRepositoryInterfaceSyncExtension.cs" deviationsHash="FA9C932719CE6188351A6A43C2E372E48B10A5EA06D80F62A2B4F3CC5D9FFA5C" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

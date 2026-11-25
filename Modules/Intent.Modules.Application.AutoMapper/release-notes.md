@@ -1,3 +1,7 @@
+### Version 5.4.1
+
+- Improvement: The mapping guidance added to the handler and service skills is condensed into a two-rule "Mapping (AutoMapper)" section.
+
 ### Version 5.4.0
 
 - Improvement: Updated NuGet package versions:

@@ -87,8 +87,17 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   installed (developer decision, 2026-10-20). Rejected: unconditional text in the core ("when the command has a
   validator"), which tells an agent in an app without validation about files that do not exist. The skill is generated
   once per AI harness, so a satellite must use `FindTemplateInstances`, not `FindTemplateInstance` (which throws on the
-  duplicates). The core's section titles (`Workflow`, `Output expectations`) are anchors for these injections; renaming
-  one silently moves injected sections to the end of the file.
+  duplicates).
+  - Since `1.2.0` the skills have no `Workflow` or `Output expectations` sections (trimmed to the evaluated text; see
+    `Intent.Application.MediatR`'s `CONTEXT.md`, "Handler skills: trimmed text, no pointer rule"). FluentValidation's
+    `BeforeSection("Workflow", ...)` therefore falls back to appending, so its Validator section now follows "Read the
+    model first" and precedes the persistence and mapping sections, which register later. That order reads correctly
+    and was accepted rather than changing the satellite. A satellite added later should anchor on a section that
+    exists (`Rules`, `Read the model first`) or append.
+- **No pointer rule; the description follows the consolidation setting.** The handler skills' descriptions name the
+  handler file through `{{handlerExample}}`: `*Command.cs` / `*Query.cs` when **Consolidate Command/Query associated
+  files into single file** is on, `*CommandHandler.cs` / `*QueryHandler.cs` when off. Why there is no glob-scoped
+  pointer rule is recorded in `Intent.Application.MediatR`'s `CONTEXT.md` (evaluation §17 of the skills inventory).
 - **The Integration Event Handler rule is back.** It was first removed to keep the core free of the EventInteractions
   modeler, but the Software Factory re-adds that modeler to the imodspec from `modules.config` regardless, and with
   the Finish task gone the rule is the only model-side carrier of the takeover check.

@@ -517,6 +517,10 @@ This automatically:
 - **Deserializes** JSON when loading from the database
 - **Stores** in each database's native or optimized JSON type
 
+## AI skill guidance
+
+The module adds a "Persistence (EF Core)" section to the handler and service skills that other modules generate (for example `mediatr-command-handler` or `application-service-implementation`). Its rule says `Include` and `ThenInclude` stay in Infrastructure and how related data loads, following the `Lazy loading with proxies` setting: with it on, navigation properties load when accessed; with it off, related data is loaded explicitly in a repository method. `Intent.EntityFrameworkCore.Repositories` adds its rules to the same section.
+
 ## Mediator dispatch
 
 When the application dispatches through `Intent.Application.Mediator`, its `UnitOfWorkBehaviour` receives the same existing-transaction guard as the MediatR `UnitOfWorkBehaviour` and the Wolverine `UnitOfWorkMiddleware`: if an external party has already started an EF transaction (`HasDbTransaction()` is `true`), the behaviour runs the handler and saves without opening a `TransactionScope`, which avoids MSDTC escalation. No setting is involved; the guard is only added when the behaviour is generated and a primary `ApplicationDbContext` provides the unit of work.

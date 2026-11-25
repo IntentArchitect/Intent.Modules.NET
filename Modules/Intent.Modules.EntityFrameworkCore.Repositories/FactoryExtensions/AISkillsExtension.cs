@@ -18,8 +18,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
     {
         public override string Id => "Intent.EntityFrameworkCore.Repositories.AISkillsExtension";
 
+        private const string PersistenceSectionTitle = "Persistence (EF Core)";
+
+        // Runs after Intent.EntityFrameworkCore's AISkillGuidanceForServiceImplementations (Order 0), so its
+        // loading rule leads the shared "Persistence (EF Core)" section.
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        public override int Order => 1;
 
         /// <summary>
         /// This is an example override which would extend the
@@ -35,37 +39,35 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             // guidance doesn't pollute unrelated skill files (domain-entity, fluent-validation, etc.).
             foreach (var skill in application.FindTemplateInstances<IMarkdownFileBuilderTemplate>(TemplateRoles.AI.Context.SkillsHandler))
             {
-                skill.MarkdownFile.OnBuild(f => AddEFRepoGuidance(application, f));
+                // A query changes no state, so the save and Update rules only go to skills that write.
+                if (skill.Id.Contains("QueryHandler", StringComparison.Ordinal))
+                {
+                    continue;
+                }
+
+                var saveChangesRule = skill.Id.Contains("DomainEventHandler", StringComparison.Ordinal)
+                    ? "Do not call `SaveChangesAsync`: the handler runs inside the unit of work that raised the event."
+                    : skill.Id.Contains("ServiceImplementation", StringComparison.Ordinal)
+                        ? "Do not call `SaveChangesAsync`: the unit of work commits after the operation returns. Call it only when the operation returns a value the database generates, such as a new Id."
+                        : "Do not call `SaveChangesAsync`: the pipeline's unit of work commits after the handler. Call it only when the handler returns a value the database generates, such as a new Id.";
+                skill.MarkdownFile.OnBuild(f => AddEFRepoGuidance(application, f, saveChangesRule));
             }
         }
 
-        private static void AddEFRepoGuidance(IApplication application, IMarkdownFile file)
+        private static void AddEFRepoGuidance(IApplication application, IMarkdownFile file, string saveChangesRule)
         {
             var automaticallyPersistUnitOfWork =
                 application.GetSettings().GetUnitOfWorkSettings()?.AutomaticallyPersistUnitOfWork() ?? true;
 
-            if (automaticallyPersistUnitOfWork)
+            // Shares "Persistence (EF Core)" with Intent.EntityFrameworkCore's loading rule, which comes first.
+            file.WithSection(PersistenceSectionTitle, section =>
             {
-                file.BeforeSection("Output expectations", "Unit of Work guidance", section =>
+                if (automaticallyPersistUnitOfWork)
                 {
-                    section.WithListItems("""
-                        - SaveChanges rule (STRICT): Do not call UnitOfWork.SaveChangesAsync(...) / SaveChangesAsync(...) in a handler/service method unless the operation returns a payload that requires DB-generated values, such as a generated Id, surrogate key, RowVersion/concurrency token, DB-generated timestamp, or computed column.
-                        - If the operation returns Unit, void, Task, or IRequest with no result: do not call SaveChangesAsync.
-                        - If the operation returns an identifier or DTO that needs generated fields: call SaveChangesAsync before returning.
-                        - If unsure, omit SaveChangesAsync and assume an outer unit-of-work/pipeline commit.
-                        - When reviewing code, remove SaveChangesAsync unless there is a clear generated-value or immediate-commit requirement.
-                        """);
-                });
-            }
+                    section.WithListItem(saveChangesRule);
+                }
 
-            file.BeforeSection("Output expectations", "Entity Framework repository guidance", section =>
-            {
-                section.WithListItems("""
-                    - Repository update rule (STRICT): Do not call repository.Update(...) / repo.Update(...) when using EF repositories.
-                    - EF tracks loaded entities automatically. Modify the entity properties directly and let the Unit of Work persist the tracked changes.
-                    - Only call Add/Create/Delete operations when inserting or removing entities.
-                    - When reviewing code, remove unnecessary Update calls for entities loaded from an EF repository.
-                    """);
+                section.WithListItem("Do not call the repository's `Update`. EF tracks the entities it loaded, so changing their properties is enough. Call `Add` or `Remove` only to insert or delete.");
             });
         }
     }

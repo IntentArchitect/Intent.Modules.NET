@@ -1,3 +1,7 @@
+### Version 4.8.0
+
+- Improvement: The `application-service-implementation` skill is shorter, keeping only the rules shown to change what an agent writes, and its description names the files it covers (`*Service.cs` under `Implementation`).
+
 ### Version 4.7.6
 
 - Improvement: Service operation methods are now generated with `Body = Mode.Ignore` when `Intent.Application.ServiceImplementations.Conventions.CRUD` is not installed, as nothing can implement them.

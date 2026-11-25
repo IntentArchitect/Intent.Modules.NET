@@ -117,9 +117,9 @@ no `.imodspec` dependency on either CRUD module is needed or wanted (CRUD depend
 the other way round).
 
 **The AI only needs one rule.** `mediatr-command-handler`/`mediatr-query-handler` keep the published
-rule, "ALWAYS if you modify `Handle`, make the body `Mode.Ignore`". A Merge stub is just "not Ignore
-yet", the same as a Fully body, so the AI never has to reason about Merge semantics. Without a CRUD
-module the rule is already satisfied.
+rule, now worded "Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write
+its body" (4.8.0). A Merge stub is just "not Ignore yet", the same as a Fully body, so the AI never has
+to reason about Merge semantics. Without a CRUD module the rule is already satisfied.
 
 **Why Merge stays on unimplemented handlers when a CRUD module is installed** (decided 2026-10-14 with
 the module owner, after trying the alternatives below on this branch, none published):
@@ -161,6 +161,41 @@ the module owner, after trying the alternatives below on this branch, none publi
 **Adding a new handler-implementing module?** Add its module id to
 `HandlerBodyModeExtensions.CrudImplementationModuleIds`. Otherwise its handlers will be generated
 with `Body = Mode.Ignore` in apps without a CRUD module, and Ignore is sticky.
+
+---
+
+## Handler skills: trimmed text, no pointer rule (4.8.0)
+
+Shared by the handler-skill family: this module, `Intent.Application.Mediator`,
+`Intent.Application.Mediator.DomainEvents`, `Intent.Application.ServiceImplementations` and
+`Intent.Application.Wolverine`. The other modules' `CONTEXT.md` files point here.
+
+- **The skill text is the evaluated text, not a summary of it.** In November 2026 the handler skills
+  were cut to the shape that held up in an evaluation of agent output, and only that shape is
+  generated. Kept: the `Mode.Ignore` line, Domain/Application-only dependencies, load through
+  repositories and change aggregates through domain behaviour, follow the nearest similar handler,
+  no in-memory aggregation, the repository-method rule, the `cancellationToken`, helper methods are
+  fine, and for queries "filter and page in the query" and "a query changes no state". Removed: text
+  that restated those rules, the GPT-era "chatgpt should update the handler" descriptions, and the
+  unit-of-work save note in the query skill (a query never saves). Before adding a rule back,
+  evaluate it: length was measured to cost attention without changing what agents wrote.
+- **The repository-method rule distinguishes modelled from hand-written methods.** "If a designer will
+  use the method, for example mapped from a command or query, model it as a repository operation.
+  Otherwise add it by hand to the repository interface and the repository." An unmodelled method the
+  designer needs is invisible to mapping; a modelled method nothing maps to is model noise.
+- **Persistence and mapping sections come from the modules that own them**, through `WithSection`, in
+  factory-extension order: `Intent.EntityFrameworkCore` (Order 0) writes the loading rule,
+  `Intent.EntityFrameworkCore.Repositories` (Order 1) adds the save and `Update` rules to the same
+  "Persistence (EF Core)" section, and AutoMapper or Mapperly (Order 2) add "Mapping (…)". The core
+  skills hold no anchor sections for them any more; `WithSection` appends at the end.
+- **No pointer rule; standard skills only (developer decision, November 2026).** A glob-scoped
+  instruction whose only job was to name the skill to load was built and then removed before release.
+  In the evaluation (skills inventory report, §17) the trimmed skills loaded in every run without it:
+  agents loaded them from the skill names `get_applications` lists, before the first handler write,
+  with the same rubric score. Moving the skill bodies into glob-scoped instructions instead was rejected:
+  no measurable saving, Codex reads no scoped instructions, OpenCode loads every instruction file each
+  turn, and every consumer would need a migration for outputs it has already placed. So the skill's
+  description carries the trigger: it says when to use the skill and names the file kind.
 
 ---
 

@@ -7,7 +7,7 @@
   <file path="Api/Extensions/ClassModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/Extensions/DomainPackageModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="Api/Extensions/FolderModelStereotypeExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
-  <file path="FactoryExtensions/AISkillGuidanceForServiceImplementations.cs" deviationsHash="8813D666D66F253F8E12F13424E1FC8D23EE4F5DEA61D84505793E85E0F35458" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/AISkillGuidanceForServiceImplementations.cs" deviationsHash="64DFFB960D7CC30801F22A4D7F7E0BF4A328347D1922CFD7BF26D8B5215A885B" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/ConfigureConventionsExtension.cs" deviationsHash="D6EC8D162DE9D2B3AB7574EEE73ACAC81B4FF427CFD2848CF06D16213606B841" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/DependencyInjectionExtension.cs" deviationsHash="81455CDB35D45E32EA9D911E57E5C65F82EDAFA6D70B73ACF601912977CE8236" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/EnsureParameterlessConstructorsExtension.cs" deviationsHash="F3131A22B9D77AB676A4E06C0B3CAE435001FE5802F5C7B3BF44A5655253F695" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

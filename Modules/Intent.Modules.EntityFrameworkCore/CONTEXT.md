@@ -336,6 +336,16 @@ otherwise — mirroring exactly how `WithForeignKey` picks the end it reads the 
 Keep the two in step; they must agree or the generic argument names a type that does not own the
 key.
 
+## AI Skill Guidance — the "Persistence (EF Core)" Section Is Shared
+
+`AISkillGuidanceForServiceImplementations` (Order 0) adds the loading rule to every
+`AI.Context.Skills.Handler` skill under `WithSection("Persistence (EF Core)", ...)`, worded by the
+`Lazy loading with proxies` setting. `Intent.EntityFrameworkCore.Repositories` adds its save and
+`Update` rules to the same section at Order 1, so this rule leads it. Keep the section title
+identical in both modules (each has a `PersistenceSectionTitle` constant); a mismatch splits the
+guidance into two sections. The wording is the condensed, evaluated text (5.3.1); the reasoning is in
+`Intent.Application.MediatR`'s `CONTEXT.md`, "Handler skills: trimmed text, no pointer rule".
+
 ## NuGet Package Versions — New Framework Entries Come From Fetch Latest
 
 The `NuGet Packages` entries (and so `NugetPackages.cs`) come only from Module Builder's "Get latest from

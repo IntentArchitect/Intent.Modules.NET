@@ -17,7 +17,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
         public override string Id => "Intent.Application.AutoMapper.AISkillsExtension";
 
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 1; // Made this 1 so this runs after the UOWs (just for backs compatibility)
+        public override int Order => 2; // After the EF Core and EF repository guidance (Orders 0 and 1), so "Mapping" follows "Persistence"
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -29,46 +29,10 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
 
         private static void AddAutoMapperGuidanceSection(IMarkdownFile file)
         {
-            file.BeforeSection("Output expectations", "AutoMapper guidance", section =>
+            file.WithSection("Mapping (AutoMapper)", section =>
             {
-                section.WithListItems("""
-            - Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use AutoMapper.
-                - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
-            - **AutoMapper gate (absolute):** If you use any `ProjectTo*`, `Find*ProjectTo*`, `FindAllProjectTo*`, or `*ProjectToAsync*` method anywhere in the call chain, you **MUST**:
-                - **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
-                - if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
-                - **No assumptions allowed** (a generic projection method or other feature usage is not verification).
-            - **Registration assumption (do not block on DI):**
-                - Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
-                - Therefore, **do not delay profile creation** because DI registration details are not currently visible.
-                - Do not modify DI registration as part of this guidance unless the user explicitly asks.
-            - Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
-                - This must include an inline code comment explaining why AutoMapper is not reasonable.
-                - “Mapping doesn’t exist yet” is not a valid exception.
-            - If you can't find any existing mappings, create them in the same project as the services under:
-                - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-                - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
-            """);
-
-                section.WithCodeBlock("""
-
-            public class CustomerDtoProfile : Profile
-            {
-                public CustomerDtoProfile()
-                {
-                    CreateMap<Customer, CustomerDto>();
-                }
-            }
-
-            public static class CustomerDtoMappingExtensions
-            {
-                public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
-                    mapper.Map<CustomerDto>(projectFrom);
-
-                public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
-                    projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
-            }
-            """, "csharp", "Example:");
+                section.WithListItem("Return entity-shaped `*Dto` types through AutoMapper (`Map` or `ProjectTo`), not `new XxxDto { … }`. Before you use one, find its `CreateMap<TEntity, TDto>()` in a `Profile`. If there is none, add the profile, nested mappings included, as `Mappings/<Aggregate>/<Entity>DtoProfile.cs` in the Application project. Profiles are found by assembly scanning, so leave the AutoMapper registration alone.");
+                section.WithListItem("Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment.");
             });
         }
     }

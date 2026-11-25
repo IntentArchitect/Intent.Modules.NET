@@ -1,3 +1,7 @@
+### Version 5.3.1
+
+- Improvement: The loading rule added to the handler and service skills is condensed into a shared "Persistence (EF Core)" section and still follows the lazy-loading setting.
+
 ### Version 5.3.0
 
 - Improvement: Updated NuGet package versions:

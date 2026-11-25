@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+- Improvement: The `mediator-domain-event-handler` skill is shorter, keeping only the rules shown to change what an agent writes.
+
 ### Version 1.1.0
 
 - Fixed: The handler skill told agents to search for a `// IntentInitialGen` marker that generated stubs never contain; it now looks for bodies that still throw `NotImplementedException`.

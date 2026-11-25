@@ -26,5 +26,8 @@ Generates [Mapperly](https://mapperly.riok.app) mapping classes and extension me
 - Override or add mapping in extension methods for bespoke projection logic.
 - Combine with cross-aggregate module to handle relationships not directly navigable in entity model.
 
+## AI skill guidance
+The module adds a "Mapping (Mapperly)" section to the handler and service skills that other modules generate. It tells an agent to return entity-shaped DTOs through a Mapperly mapper rather than `new XxxDto { … }`, to add a missing `[Mapper]` class under `Mappings/<Aggregate>/` and register it the way existing mappers are, and to build a DTO by hand only when it is not entity-shaped, with a comment saying why.
+
 ## Related Modules
 - `Intent.Application.Dtos`

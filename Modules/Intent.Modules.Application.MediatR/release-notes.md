@@ -1,3 +1,8 @@
+### Version 4.8.0
+
+- Improvement: The `mediatr-command-handler` and `mediatr-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
+- Fixed: The module declared `Intent.Common` 3.11.0 but uses its Markdown file builder, which needs 3.11.1, so installing it beside `Intent.Common` 3.11.0 could fail at run time; the dependency is now 3.11.1.
+
 ### Version 4.7.6
 
 - Improvement: Command and Query handler `Handle` methods are now generated with `Body = Mode.Ignore` when neither `Intent.Application.MediatR.CRUD` nor `Intent.Application.CQRS.CRUD` is installed, as nothing can implement them.
