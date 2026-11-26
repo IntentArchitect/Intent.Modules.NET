@@ -45,29 +45,45 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     continue;
                 }
 
-                var saveChangesRule = skill.Id.Contains("DomainEventHandler", StringComparison.Ordinal)
-                    ? "Do not call `SaveChangesAsync`: the handler runs inside the unit of work that raised the event."
-                    : skill.Id.Contains("ServiceImplementation", StringComparison.Ordinal)
-                        ? "Do not call `SaveChangesAsync`: the unit of work commits after the operation returns. Call it only when the operation returns a value the database generates, such as a new Id."
-                        : "Do not call `SaveChangesAsync`: the pipeline's unit of work commits after the handler. Call it only when the handler returns a value the database generates, such as a new Id.";
-                skill.MarkdownFile.OnBuild(f => AddEFRepoGuidance(application, f, saveChangesRule));
+                var saveChangesRule = GetSaveChangesRule(application, skill.Id);
+                skill.MarkdownFile.OnBuild(f => AddEFRepoGuidance(f, saveChangesRule));
             }
         }
 
-        private static void AddEFRepoGuidance(IApplication application, IMarkdownFile file, string saveChangesRule)
+        private static string GetSaveChangesRule(IApplication application, string skillId)
         {
+            // The DbContext dispatches domain events inside SaveChangesAsync, before it writes, so a domain event
+            // handler's changes are saved by the save that raised the event whatever the setting says.
+            if (skillId.Contains("DomainEventHandler", StringComparison.Ordinal))
+            {
+                return "Do not call `SaveChangesAsync`: the handler runs inside the save that raised the event, and that save writes your changes too. Remove any such call you find in a handler you review.";
+            }
+
             var automaticallyPersistUnitOfWork =
                 application.GetSettings().GetUnitOfWorkSettings()?.AutomaticallyPersistUnitOfWork() ?? true;
+            var isService = skillId.Contains("ServiceImplementation", StringComparison.Ordinal);
+            var caller = isService ? "operation" : "handler";
 
+            // With the setting off nothing commits after the handler, and the generated CRUD code saves in the
+            // handler itself, so the rule flips rather than disappearing.
+            if (!automaticallyPersistUnitOfWork)
+            {
+                return $"Call `SaveChangesAsync` yourself, once, after the {caller}'s last change: automatic unit-of-work saving is off in this application, so nothing else saves. Follow the generated {caller}s, which do the same.";
+            }
+
+            return isService
+                ? "Do not call `SaveChangesAsync`: the unit of work commits after the operation returns. Call it, once and before returning, only when the operation returns a value the database generates, such as a new Id, a row version or a computed column. If unsure, leave it out, and remove any call you find that isn't needed."
+                : "Do not call `SaveChangesAsync`: the pipeline's unit of work commits after the handler. Call it, once and before returning, only when the handler returns a value the database generates, such as a new Id, a row version or a computed column. If unsure, leave it out, and remove any call you find that isn't needed.";
+        }
+
+        private static void AddEFRepoGuidance(IMarkdownFile file, string saveChangesRule)
+        {
             // Shares "Persistence (EF Core)" with Intent.EntityFrameworkCore's loading rule, which comes first.
             file.WithSection(PersistenceSectionTitle, section =>
             {
-                if (automaticallyPersistUnitOfWork)
-                {
-                    section.WithListItem(saveChangesRule);
-                }
+                section.WithListItem(saveChangesRule);
 
-                section.WithListItem("Do not call the repository's `Update`. EF tracks the entities it loaded, so changing their properties is enough. Call `Add` or `Remove` only to insert or delete.");
+                section.WithListItem("Do not call the repository's `Update`. EF tracks the entities it loaded, so changing their properties is enough. Call `Add` or `Remove` only to insert or delete, and remove any `Update` call you find on an entity loaded from a repository.");
             });
         }
     }

@@ -1,6 +1,6 @@
 ### Version 1.2.1
 
-- Improvement: The `wolverine-command-handler` and `wolverine-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
+- Improvement: The `wolverine-command-handler` and `wolverine-query-handler` skills are shorter: repeated sections are gone and each rule is stated once. They keep the rules on scope (change only what the task needs), domain language, following similar handlers, checking existence and permission before a command changes state, and applying the same filters and visibility rules in queries. They also still tell the agent to read the handler, its request and the domain types it touches before writing, and to review its code against every rule before finishing.
 
 ### Version 1.2.0
 

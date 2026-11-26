@@ -21,9 +21,15 @@ interfaces describe. It also adds repository guidance to the AI handler skills t
   ("the pipeline's unit of work commits after the handler"). The operation and command-handler wording allow a call
   when a database-generated value such as a new Id must be returned. Rejected: one sentence for all kinds, which told
   domain-event handlers they could save and told service operations about a "handler".
-- **The save rule depends on the unit-of-work setting.** It is written only when the application's
-  `Automatically persist unit of work` setting (from `Intent.Common.UnitOfWork`) is on, or absent; when it is off, the
-  developer owns saving and the rule would be wrong. The `Update` rule is written either way, because tracked entities are saved without it.
+- **The save rule depends on the unit-of-work setting.** With the application's `Automatically persist unit of work`
+  setting (from `Intent.Common.UnitOfWork`) on, or absent, command handlers and services are told not to save. With it
+  off, nothing commits after the handler and the generated CRUD code calls `SaveChangesAsync` in the handler itself
+  (`DomainInteractions`' Update and Delete strategies), so since 2026-11-26 those skills are told to call it once after
+  the last change, following the generated handlers. Previously the rule was simply left out when off ("the developer
+  owns saving"), which left an agent with no save guidance at all where it most needed some. Domain event handlers are
+  told not to save either way: the DbContext dispatches domain events inside `SaveChangesAsync`, before it writes, so
+  the save that raised the event writes the handler's changes. The `Update` rule is written either way, because
+  tracked entities are saved without it.
 - **The condensed text is the evaluated text (4.8.7).** The earlier "cite the file path and an excerpt" procedure and
   the restatements around it were removed. The reasoning is recorded in `Intent.Application.MediatR`'s `CONTEXT.md`,
   "Handler skills: trimmed text, no pointer rule".

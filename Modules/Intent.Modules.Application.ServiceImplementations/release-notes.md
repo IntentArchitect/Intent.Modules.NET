@@ -1,6 +1,6 @@
 ### Version 4.7.7
 
-- Improvement: The `application-service-implementation` skill is shorter, keeping only the rules shown to change what an agent writes, and its description names the files it covers (`*Service.cs` under `Implementation`).
+- Improvement: The `application-service-implementation` skill is shorter: repeated sections are gone and each rule is stated once. It keeps the rules on scope (change only what the task needs), domain language, following similar services, checking existence and permission before changing state, and applying the same filters and visibility rules in reads. It also still tells the agent to read the service, its interface, DTOs and the domain types it touches before writing, and to review its code against every rule before finishing. Its description names the files it covers (`*Service.cs` under `Implementation`).
 
 ### Version 4.7.6
 

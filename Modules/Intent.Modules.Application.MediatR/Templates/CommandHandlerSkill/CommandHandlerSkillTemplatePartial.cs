@@ -43,13 +43,18 @@ Fill in the `Handle` method of an existing command handler. Its signature is gen
 ## Rules
 
 - Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write its body.
+- Change only what the task needs. Leave the rest of the file as it is, and keep unrelated refactors out.
+- Start by reading the handler, its command, response and validator, the repository interfaces and the domain types it touches, and work out the intended flow from their names and from nearby features.
 - Inject only Domain and Application types. No Entity Framework, Dapper, `DbContext`, SQL client or other infrastructure type belongs in a handler.
+- Let the domain model drive the code: use its aggregates, value objects, statuses and business terms rather than names of your own.
 - Load aggregates through their repository interface and change them through their domain behaviour, not by setting state ad hoc. Put durable business rules on the entity or a domain service when nearby code does that.
-- Follow the nearest similar handler for result types, error handling and events. Publish an event only where nearby code already does.
+- Before changing state, check what nearby handlers check: that the entity exists, and that the caller may act on it (ownership, eligibility, status).
+- Look for similar handlers, repository methods and domain operations before writing, and follow the nearest similar handler for result types, error handling and events. Don't invent a new result or exception style where one exists. Publish an event only where nearby code already does.
 - Never aggregate in memory (Count, Sum, GroupBy and the like). Call a repository method that returns the result.
 - When a repository method is missing: if a designer will use it, for example mapped from a command or query, model it as a repository operation; otherwise add it by hand to the repository interface and the repository. Name it for the domain intent (`GetForUpdateAsync`, `ExistsBy…Async`), not for storage, and keep storage details such as includes, joins and SQL out of the handler.
 - Pass the `cancellationToken` to every async call.
 - Private helper methods in the handler are fine when they make the flow easier to read.
+- Before finishing, review your code against every rule in this skill, the sections below included.
 """);
 
         }

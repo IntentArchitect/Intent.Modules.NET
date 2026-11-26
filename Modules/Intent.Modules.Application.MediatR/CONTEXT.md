@@ -179,6 +179,32 @@ Shared by the handler-skill family: this module, `Intent.Application.Mediator`,
   that restated those rules, the GPT-era "chatgpt should update the handler" descriptions, and the
   unit-of-work save note in the query skill (a query never saves). Before adding a rule back,
   evaluate it: length was measured to cost attention without changing what agents wrote.
+- **Rules the trim dropped and the developer restored (developer decision, 2026-11-26).** The trim
+  also dropped rules that were not repetition, and the evaluation could not have caught their loss:
+  its rubric scores repository and domain use, no infrastructure, no unneeded save, mapping and code
+  management on one command and one query, and none of these. Restored, one line each, without an
+  evaluation, across the MediatR, Mediator, Mediator.DomainEvents, Wolverine and service-implementation
+  skills: change only what the task needs and keep unrelated refactors out; let the domain model's
+  terms drive the code; look for similar handlers, repository methods and domain operations before
+  writing, and don't invent a new result or exception style; for commands and service writes, check
+  existence and whether the caller may act (ownership, eligibility, status) the way nearby handlers
+  do; for queries and service reads, apply nearby handlers' business filters and visibility rules and
+  load only what the response needs. Mediator also got back "check a similar handler before asking"
+  for ambiguous field mappings. The EF Repositories save rule got back "if unsure, leave it out",
+  "once and before returning", the row-version and computed-column examples, and removing unneeded
+  `SaveChangesAsync` and `Update` calls in code under review; AutoMapper and Mapperly got back "a
+  projection that compiles, or a mapping for another type, is not proof" and "a missing mapping is
+  not a reason to build a DTO by hand". A second pass, same day, put back the old Workflow and
+  review sections as one line each: "Start by reading the handler, its request, … and the domain
+  types it touches" (plus "work out the intended flow from their names and nearby features" where no
+  model is the specification, so not in Mediator), and "Before finishing, review your code against
+  every rule in this skill, the sections below included" (Mediator adds checking every modelled
+  association). AutoMapper and Mapperly each got one short example block instead of the old long
+  ones, and the AutoMapper rule now names the generated DTO's own `Mapping(Profile)` (`IMapFrom<T>`)
+  and the generated `MapToXxxDto(_mapper)` extensions: before, it said only "in a `Profile`", which
+  invited a duplicate profile beside the generated mapping. Still out on purpose: the repeated
+  sections, the "cite file path + excerpt" gates and the long code examples. The "evaluate first"
+  rule above applies to rules beyond these.
 - **The repository-method rule distinguishes modelled from hand-written methods.** "If a designer will
   use the method, for example mapped from a command or query, model it as a repository operation.
   Otherwise add it by hand to the repository interface and the repository." An unmodelled method the

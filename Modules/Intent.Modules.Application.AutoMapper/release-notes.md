@@ -1,6 +1,7 @@
 ### Version 5.4.1
 
-- Improvement: The mapping guidance added to the handler and service skills is condensed into a two-rule "Mapping (AutoMapper)" section.
+- Improvement: The mapping guidance added to the handler and service skills is condensed into a two-rule "Mapping (AutoMapper)" section with one short example. It still says a `ProjectTo` call that compiles does not prove the mapping exists, and that a missing mapping is no reason to build a DTO by hand.
+- Fixed: The mapping guidance only told agents to look for a mapping in a `Profile` class, so an agent could miss the mapping a generated DTO declares in its own `Mapping(Profile)` and add a duplicate. It now names both places, and tells agents to use the generated `MapToXxxDto(_mapper)` extensions where they exist.
 
 ### Version 5.4.0
 

@@ -1,6 +1,6 @@
 ### Version 1.1.1
 
-- Improvement: The `mediator-command-handler` and `mediator-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
+- Improvement: The `mediator-command-handler` and `mediator-query-handler` skills are shorter: repeated sections are gone and each rule is stated once. They keep the rules on scope (change only what the task needs), domain language, following similar handlers, checking existence and permission before a command changes state, and applying the same filters and visibility rules in queries. They also still tell the agent to read the handler, its request and the domain types it touches before writing, and before finishing to check that every modelled association is implemented and review its code against every rule.
 
 ### Version 1.1.0
 

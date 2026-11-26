@@ -1,6 +1,7 @@
 ### Version 4.8.7
 
-- Improvement: The handler and service skill guidance is condensed into the "Persistence (EF Core)" section, and query skills no longer get the `SaveChangesAsync` and `Update` rules, which only apply to code that writes.
+- Improvement: The handler and service skill guidance is condensed into the "Persistence (EF Core)" section, and query skills no longer get the `SaveChangesAsync` and `Update` rules, which only apply to code that writes. The save rule still says to leave `SaveChangesAsync` out when unsure and to remove unneeded `SaveChangesAsync` and `Update` calls found in existing code.
+- Fixed: With the Unit of Work setting **Automatically persist unit of work** turned off, the command handler and service skills had no save rule at all, although nothing saves for the handler; they now say to call `SaveChangesAsync` once after the last change. Domain event handler skills now always say not to save, since the save that raised the event writes the handler's changes whatever the setting.
 - Improvement: The `ef-repository` skill is shorter, keeping the Intent-specific rules.
 
 ### Version 4.8.6

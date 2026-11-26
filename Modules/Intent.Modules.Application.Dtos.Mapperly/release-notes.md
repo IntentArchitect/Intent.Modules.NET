@@ -1,6 +1,6 @@
 ### Version 1.1.7
 
-- Improvement: The mapping guidance added to the handler and service skills is condensed into a two-rule "Mapping (Mapperly)" section.
+- Improvement: The mapping guidance added to the handler and service skills is condensed into a two-rule "Mapping (Mapperly)" section with one short example. It still says a mapper for another entity does not count, and that a missing mapper is no reason to build a DTO by hand.
 - Fixed: The module declared `Intent.Common` 3.7.2 but uses its Markdown file builder, which needs 3.11.1, so installing it beside an older `Intent.Common` could fail at run time; the dependency is now 3.11.1.
 
 ### Version 1.1.6

@@ -1,6 +1,6 @@
 ### Version 1.1.1
 
-- Improvement: The `mediator-domain-event-handler` skill is shorter, keeping only the rules shown to change what an agent writes.
+- Improvement: The `mediator-domain-event-handler` skill is shorter: repeated sections are gone and each rule is stated once. It keeps the rules on scope (change only what the task needs), domain language and following similar handlers. It also still tells the agent to read the handler, its events and the domain types it touches before writing, and before finishing to check that every modelled association is implemented and review its code against every rule.
 
 ### Version 1.1.0
 
