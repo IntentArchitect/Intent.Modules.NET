@@ -2,7 +2,7 @@
 name: mediator-command-handler
 description: Implements the whole body of a Mediator command handler from the interactions modelled on the command. MUST load before creating, editing or revisiting any command handler e.g. the *CommandHandler class inside a *Command.cs file, and after any Software Factory run that generates a new command handler stub.
 template-id: Intent.Application.Mediator.CommandHandlerSkill
-contentHash: AEDFFF6CC11F64937FC98DC5732F827B9B8B2FA5DE1B318C2E22E9B702726717
+contentHash: DF1121E2DB5F84B926F90A4D0771D36F9C006E1FB504664E19BBD59974F2EB2E
 ---
 # Mediator Command Handler
 
@@ -18,20 +18,25 @@ Write the `Handle` body of a command handler. The generator only emits a stub th
 - Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write its body. Never change its name, return type or parameters, and keep it `async` even when it awaits nothing.
 - Each command, its handler and its validator share one file, the command's own `*Command.cs`. Keep them there: never move the handler or validator into a file of its own.
 - The handler implements `ICommandHandler<TCommand, TResponse>` from the `Mediator` library and returns `ValueTask<TResponse>`. A command with no response returns `ValueTask<Unit>` and ends every normal path with `return Unit.Value;`.
+- Change only what the task needs. Leave the rest of the file as it is, and keep unrelated refactors out.
+- Start by reading the handler, its command, response and validator, the repository interfaces and the domain types it touches.
 - Inject only Domain and Application types. No Entity Framework, Dapper, `DbContext`, SQL client or other infrastructure type belongs in a handler.
-- Load aggregates through their repository interface and change them through their domain behaviour, not by setting state ad hoc. Let entities raise domain events themselves; never dispatch one by hand.
-- Follow the nearest similar handler for result types, error handling and the not-found pattern.
+- Let the domain model drive the code: use its aggregates, value objects, statuses and business terms rather than names of your own.
+- Load aggregates through their repository interface and change them through their domain behaviour, not by setting state ad hoc. Put durable business rules on the entity or a domain service when nearby code does that. Let entities raise domain events themselves; never dispatch one by hand.
+- Before changing state, check what nearby handlers check: that the entity exists, and that the caller may act on it (ownership, eligibility, status).
+- Look for similar handlers, repository methods and domain operations before writing, and follow the nearest similar handler for result types, error handling and the not-found pattern. Don't invent a new result or exception style where one exists.
 - Never aggregate in memory (Count, Sum, GroupBy and the like). Call a repository method that returns the result.
 - When a repository method is missing: if a designer will use it, for example mapped from a command or query, model it as a repository operation; otherwise add it by hand to the repository interface and the repository. Name it for the domain intent (`FindByIdAsync`, `ExistsBy…Async`), not for storage, and keep storage details such as includes, joins and SQL out of the handler.
 - Publish or send messages only through the message bus (usually `IMessageBus`). The pipeline flushes it after the unit of work commits, so never flush it yourself and add no transaction or outbox code.
 - Pass the `cancellationToken` to every async call.
 - Private helper methods in the handler are fine when they make the flow easier to read.
+- Before finishing, check that every association modelled on the command is implemented and a command with no response returns `Unit.Value`, and review your code against every rule in this skill, the sections below included.
 
 ## Read the model first
 
 Load the `exploring-the-model` skill and call `run_designer_query` with `getElementDetails` on the command. Implement its associations in the order the designer shows them; later steps may use what earlier ones loaded or created. Re-read them whenever you revisit the handler.
 
-Field mappings are not modelled. Ignore any minimal mapping or missing-mapping warning on an association, and add none: decide which command field fills which attribute, constructor argument or message property by name and meaning.
+Field mappings are not modelled. Ignore any minimal mapping or missing-mapping warning on an association, and add none: decide which command field fills which attribute, constructor argument or message property by name and meaning. When a name or meaning is ambiguous, check a similar handler before asking.
 
 - Create Entity: construct the entity through its constructor or factory with the matching command fields, and add it through its repository.
 - Update Entity: load it by the identity on the command, fail with the not-found pattern when it is missing, then apply the command's fields, through domain methods where they exist.
@@ -56,5 +61,5 @@ Every command has a generated validator (the `*CommandValidator` class in the co
 ## Persistence (EF Core)
 
 - `Include` and `ThenInclude` are Infrastructure-only. Owned children load with their parent, and lazy loading with proxies is enabled, so navigation properties load when accessed. If that would mean many lazy loads, move the loading into a repository method.
-- Do not call `SaveChangesAsync`: the pipeline's unit of work commits after the handler. Call it only when the handler returns a value the database generates, such as a new Id.
-- Do not call the repository's `Update`. EF tracks the entities it loaded, so changing their properties is enough. Call `Add` or `Remove` only to insert or delete.
+- Do not call `SaveChangesAsync`: the pipeline's unit of work commits after the handler. Call it, once and before returning, only when the handler returns a value the database generates, such as a new Id, a row version or a computed column. If unsure, leave it out, and remove any call you find that isn't needed.
+- Do not call the repository's `Update`. EF tracks the entities it loaded, so changing their properties is enough. Call `Add` or `Remove` only to insert or delete, and remove any `Update` call you find on an entity loaded from a repository.

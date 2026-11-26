@@ -2,7 +2,7 @@
 name: mediatr-command-handler
 description: Implements business logic in MediatR command handler Handle methods. MUST load before creating or editing any command handler e.g. *CommandHandler.cs.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 20B80DD19559CB59EFE70937FC4AA393C8A85E4EEE3968DB976B6566AF59F448
+contentHash: FD4892B3184926707288555F6ED1586577EF7775CC2CB70B256418AA37554B42
 ---
 # MediatR Command Handler
 
@@ -11,21 +11,43 @@ Fill in the `Handle` method of an existing command handler. Its signature is gen
 ## Rules
 
 - Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write its body.
+- Change only what the task needs. Leave the rest of the file as it is, and keep unrelated refactors out.
+- Start by reading the handler, its command, response and validator, the repository interfaces and the domain types it touches, and work out the intended flow from their names and from nearby features.
 - Inject only Domain and Application types. No Entity Framework, Dapper, `DbContext`, SQL client or other infrastructure type belongs in a handler.
+- Let the domain model drive the code: use its aggregates, value objects, statuses and business terms rather than names of your own.
 - Load aggregates through their repository interface and change them through their domain behaviour, not by setting state ad hoc. Put durable business rules on the entity or a domain service when nearby code does that.
-- Follow the nearest similar handler for result types, error handling and events. Publish an event only where nearby code already does.
+- Before changing state, check what nearby handlers check: that the entity exists, and that the caller may act on it (ownership, eligibility, status).
+- Look for similar handlers, repository methods and domain operations before writing, and follow the nearest similar handler for result types, error handling and events. Don't invent a new result or exception style where one exists. Publish an event only where nearby code already does.
 - Never aggregate in memory (Count, Sum, GroupBy and the like). Call a repository method that returns the result.
 - When a repository method is missing: if a designer will use it, for example mapped from a command or query, model it as a repository operation; otherwise add it by hand to the repository interface and the repository. Name it for the domain intent (`GetForUpdateAsync`, `ExistsBy…Async`), not for storage, and keep storage details such as includes, joins and SQL out of the handler.
 - Pass the `cancellationToken` to every async call.
 - Private helper methods in the handler are fine when they make the flow easier to read.
+- Before finishing, review your code against every rule in this skill, the sections below included.
 
 ## Persistence (EF Core)
 
 - `Include` and `ThenInclude` are Infrastructure-only. Owned children load with their parent, but lazy loading is off, so explicitly load any other related data in a repository method.
-- Do not call `SaveChangesAsync`: the pipeline's unit of work commits after the handler. Call it only when the handler returns a value the database generates, such as a new Id.
-- Do not call the repository's `Update`. EF tracks the entities it loaded, so changing their properties is enough. Call `Add` or `Remove` only to insert or delete.
+- Do not call `SaveChangesAsync`: the pipeline's unit of work commits after the handler. Call it, once and before returning, only when the handler returns a value the database generates, such as a new Id, a row version or a computed column. If unsure, leave it out, and remove any call you find that isn't needed.
+- Do not call the repository's `Update`. EF tracks the entities it loaded, so changing their properties is enough. Call `Add` or `Remove` only to insert or delete, and remove any `Update` call you find on an entity loaded from a repository.
 
 ## Mapping (AutoMapper)
 
-- Return entity-shaped `*Dto` types through AutoMapper (`Map` or `ProjectTo`), not `new XxxDto { … }`. Before you use one, find its `CreateMap<TEntity, TDto>()` in a `Profile`. If there is none, add the profile, nested mappings included, as `Mappings/<Aggregate>/<Entity>DtoProfile.cs` in the Application project. Profiles are found by assembly scanning, so leave the AutoMapper registration alone.
-- Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment.
+- Return entity-shaped `*Dto` types through AutoMapper, not `new XxxDto { … }`: use the generated `MapToXxxDto(_mapper)` and `MapToXxxDtoList(_mapper)` extensions where they exist, otherwise `Map` or `ProjectTo`. Before you use a mapping, find its `CreateMap<TEntity, TDto>()`: a generated DTO declares it in its own `Mapping(Profile)` (`IMapFrom<TEntity>`), anything else in a `Profile` class. A `ProjectTo` call that compiles, or a mapping for another type, does not prove it exists. If there is none, add a profile, nested mappings included, as `Mappings/<Aggregate>/<Entity>DtoProfile.cs` in the Application project, and never map a DTO a second time. Profiles are found by assembly scanning, so leave the AutoMapper registration alone.
+- Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment. A missing mapping is not a reason: add it.
+
+**Example**
+```csharp
+// Generated DTO: the mapping is on the DTO, and MapToCustomerDto is generated with it
+public class CustomerDto : IMapFrom<Customer>
+{
+    public void Mapping(Profile profile) => profile.CreateMap<Customer, CustomerDto>();
+}
+
+return customer.MapToCustomerDto(_mapper);
+
+// No mapping yet: Mappings/Customers/CustomerSummaryDtoProfile.cs
+public class CustomerSummaryDtoProfile : Profile
+{
+    public CustomerSummaryDtoProfile() => CreateMap<Customer, CustomerSummaryDto>();
+}
+```

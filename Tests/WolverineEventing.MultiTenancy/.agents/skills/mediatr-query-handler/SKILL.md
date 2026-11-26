@@ -2,7 +2,7 @@
 name: mediatr-query-handler
 description: Implements business logic in MediatR query handler Handle methods. MUST load before creating or editing any query handler e.g. *QueryHandler.cs.
 template-id: Intent.Application.MediatR.QueryHandlerSkillTemplate
-contentHash: 4164F341736EB2B6CC2A1F755094E20F89FD8F8C7FBE5815C3E2A38408E2E0FF
+contentHash: 0FF7E615741BBCA880EA203014E8CF9DE407F875895FC57A5C4E43064790F033
 ---
 # MediatR Query Handler
 
@@ -11,14 +11,19 @@ Fill in the `Handle` method of an existing query handler. Its signature is gener
 ## Rules
 
 - Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write its body.
+- Change only what the task needs. Leave the rest of the file as it is, and keep unrelated refactors out.
+- Start by reading the handler, its query and response, the repository interfaces and the domain types it reads, and work out the intended result from their names and from nearby features.
 - Inject only Domain and Application types. No Entity Framework, Dapper, `DbContext`, SQL client or other infrastructure type belongs in a handler.
+- Let the domain model drive the code: use its statuses, identities and business terms rather than names of your own.
 - Read through repository interfaces. Filter, sort and page in the query the repository runs, never in memory after loading everything.
+- Apply the same business filters and visibility rules as nearby handlers (for example ownership, tenant, status or soft-delete), and load only what the response needs.
 - Never aggregate in memory (Count, Sum, GroupBy and the like). Call a repository method that returns the result.
 - When a repository method is missing: if a designer will use it, for example mapped from a command or query, model it as a repository operation; otherwise add it by hand to the repository interface and the repository. Name it for the domain intent (`ListByCriteriaAsync`, `GetSummaryAsync`), not for storage, and keep storage details such as includes, joins and SQL out of the handler.
-- Follow the nearest similar query handler for paging, sorting and the response shape.
+- Look for similar query handlers, repository methods and projections before writing, and follow the nearest one for paging, sorting, mapping and the response shape. Don't invent a new approach where one exists.
 - A query changes no state.
 - Pass the `cancellationToken` to every async call.
 - Private helper methods in the handler are fine when they make filtering or mapping easier to read.
+- Before finishing, review your code against every rule in this skill, the sections below included.
 
 ## Persistence (EF Core)
 
@@ -26,5 +31,22 @@ Fill in the `Handle` method of an existing query handler. Its signature is gener
 
 ## Mapping (AutoMapper)
 
-- Return entity-shaped `*Dto` types through AutoMapper (`Map` or `ProjectTo`), not `new XxxDto { … }`. Before you use one, find its `CreateMap<TEntity, TDto>()` in a `Profile`. If there is none, add the profile, nested mappings included, as `Mappings/<Aggregate>/<Entity>DtoProfile.cs` in the Application project. Profiles are found by assembly scanning, so leave the AutoMapper registration alone.
-- Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment.
+- Return entity-shaped `*Dto` types through AutoMapper, not `new XxxDto { … }`: use the generated `MapToXxxDto(_mapper)` and `MapToXxxDtoList(_mapper)` extensions where they exist, otherwise `Map` or `ProjectTo`. Before you use a mapping, find its `CreateMap<TEntity, TDto>()`: a generated DTO declares it in its own `Mapping(Profile)` (`IMapFrom<TEntity>`), anything else in a `Profile` class. A `ProjectTo` call that compiles, or a mapping for another type, does not prove it exists. If there is none, add a profile, nested mappings included, as `Mappings/<Aggregate>/<Entity>DtoProfile.cs` in the Application project, and never map a DTO a second time. Profiles are found by assembly scanning, so leave the AutoMapper registration alone.
+- Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment. A missing mapping is not a reason: add it.
+
+**Example**
+```csharp
+// Generated DTO: the mapping is on the DTO, and MapToCustomerDto is generated with it
+public class CustomerDto : IMapFrom<Customer>
+{
+    public void Mapping(Profile profile) => profile.CreateMap<Customer, CustomerDto>();
+}
+
+return customer.MapToCustomerDto(_mapper);
+
+// No mapping yet: Mappings/Customers/CustomerSummaryDtoProfile.cs
+public class CustomerSummaryDtoProfile : Profile
+{
+    public CustomerSummaryDtoProfile() => CreateMap<Customer, CustomerSummaryDto>();
+}
+```
