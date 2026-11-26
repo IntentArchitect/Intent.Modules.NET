@@ -88,7 +88,7 @@ The design source is `intent/.plans/2026-10-13-mediator-dispatch-modules.mdx` (d
   validator"), which tells an agent in an app without validation about files that do not exist. The skill is generated
   once per AI harness, so a satellite must use `FindTemplateInstances`, not `FindTemplateInstance` (which throws on the
   duplicates).
-  - Since `1.2.0` the skills have no `Workflow` or `Output expectations` sections (trimmed to the evaluated text; see
+  - Since `1.1.1` the skills have no `Workflow` or `Output expectations` sections (trimmed to the evaluated text; see
     `Intent.Application.MediatR`'s `CONTEXT.md`, "Handler skills: trimmed text, no pointer rule"). FluentValidation's
     `BeforeSection("Workflow", ...)` therefore falls back to appending, so its Validator section now follows "Read the
     model first" and precedes the persistence and mapping sections, which register later. That order reads correctly

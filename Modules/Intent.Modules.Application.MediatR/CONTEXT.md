@@ -118,7 +118,7 @@ the other way round).
 
 **The AI only needs one rule.** `mediatr-command-handler`/`mediatr-query-handler` keep the published
 rule, now worded "Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write
-its body" (4.8.0). A Merge stub is just "not Ignore yet", the same as a Fully body, so the AI never has
+its body" (4.7.7). A Merge stub is just "not Ignore yet", the same as a Fully body, so the AI never has
 to reason about Merge semantics. Without a CRUD module the rule is already satisfied.
 
 **Why Merge stays on unimplemented handlers when a CRUD module is installed** (decided 2026-10-14 with
@@ -164,7 +164,7 @@ with `Body = Mode.Ignore` in apps without a CRUD module, and Ignore is sticky.
 
 ---
 
-## Handler skills: trimmed text, no pointer rule (4.8.0)
+## Handler skills: trimmed text, no pointer rule (4.7.7)
 
 Shared by the handler-skill family: this module, `Intent.Application.Mediator`,
 `Intent.Application.Mediator.DomainEvents`, `Intent.Application.ServiceImplementations` and

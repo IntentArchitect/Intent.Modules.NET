@@ -7,7 +7,11 @@ Generates xUnit unit-test stubs for commands, queries, services and operations. 
 
 ## Architectural Decisions
 
-- **`unit-test-guidelines` is a skill, not an instruction (1.2.1).** Developer decision, November 2026. Before 1.2.1
+- **The line is 1.3.0, a minor version (developer decision, 2026-11-26).** It began as 1.2.1; the developer then
+  ruled the move to a skill a minor change, because agents now receive the guidance a different way. The migrations
+  keep their 1.2.1-pre.0 and 1.2.1-pre.1 versions: the test apps had already run them, and an application upgrading
+  from 1.2.0 to 1.3.0 still runs both, since both lie between the two versions.
+- **`unit-test-guidelines` is a skill, not an instruction (1.3.0).** Developer decision, November 2026. Before 1.3.0
   it was an always-loaded instruction, so every agent session carried about 1,300 words of unit-test guidance
   whether or not it touched a test. Now it is a skill: an agent loads it only when it works on a test. It was
   briefly kept as a trimmed instruction in this same line before the developer chose to convert it. The trim keeps
@@ -47,7 +51,7 @@ Generates xUnit unit-test stubs for commands, queries, services and operations. 
   upgrades past its version, so the fix is a new migration at 1.2.1-pre.1 rather than an edit to `Pre_00`. `Pre_01`
   keeps the first output in each skills folder, moves each extra one to a skills folder that has none, and removes any
   left over. The outputs are identical apart from their folder, so which output goes to which harness does not matter.
-  A 1.2.0 application upgrading to 1.2.1 runs `Pre_00` and then `Pre_01`. Tested in a scratch copy of
+  A 1.2.0 application upgrading to 1.3.0 runs `Pre_00` and then `Pre_01`. Tested in a scratch copy of
   `TestMediator.NoEventing` (four harnesses): from 1.2.0 to 1.2.1-pre.1, and from a stacked 1.2.1-pre.0 state to
   1.2.1-pre.1. Both ended with one output in each of the four skills folders.
 - **A migration's version is the module version it shipped in.** Once a version has been installed anywhere, its
@@ -74,6 +78,6 @@ Generates xUnit unit-test stubs for commands, queries, services and operations. 
 
 ## Superseded
 
-- **"Trimmed but stays an instruction" (earlier in the 1.2.1 line).** This was replaced by the conversion to a skill.
-- **"A skill plus a pointer rule" (earlier in the 1.2.1 line).** The pointer rule was removed before release; see
+- **"Trimmed but stays an instruction" (earlier in this line, as 1.2.1).** This was replaced by the conversion to a skill.
+- **"A skill plus a pointer rule" (earlier in this line, as 1.2.1).** The pointer rule was removed before release; see
   Architectural Decisions.

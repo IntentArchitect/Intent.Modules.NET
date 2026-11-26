@@ -25,10 +25,10 @@ into dispatchers to per-operation handler classes.
 - **The check is a soft `InstalledModules.Any(...)` lookup.** Conventions.CRUD depends on this module,
   not the other way round, so there is no `.imodspec` dependency on it. MediatR.CRUD and CQRS.CRUD never
   touch service templates, so they do not count.
-- **The skill keeps the published rule**, worded since 4.8.0 as "Mark each operation you write with
+- **The skill keeps the published rule**, worded since 4.7.7 as "Mark each operation you write with
   `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`", which holds whether or not CRUD is installed. The
   AI only sees Fully/Merge ("not Ignore yet") or Ignore (yours).
-- **Trimmed to the evaluated text, no pointer rule (4.8.0).** Shared with the handler skills; the
+- **Trimmed to the evaluated text, no pointer rule (4.7.7).** Shared with the handler skills; the
   reasoning is in `Intent.Application.MediatR`'s `CONTEXT.md`, "Handler skills: trimmed text, no
   pointer rule". The description names `*Service.cs` under `Implementation`, the folder
   `ServiceImplementationTemplate` writes to, so it carries the trigger. EF Core

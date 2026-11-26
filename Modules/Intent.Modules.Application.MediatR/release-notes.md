@@ -1,4 +1,4 @@
-### Version 4.8.0
+### Version 4.7.7
 
 - Improvement: The `mediatr-command-handler` and `mediatr-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
 - Fixed: The module declared `Intent.Common` 3.11.0 but uses its Markdown file builder, which needs 3.11.1, so installing it beside `Intent.Common` 3.11.0 could fail at run time; the dependency is now 3.11.1.

@@ -1,4 +1,4 @@
-### Version 1.2.0
+### Version 1.1.1
 
 - Improvement: The `mediator-domain-event-handler` skill is shorter, keeping only the rules shown to change what an agent writes.
 

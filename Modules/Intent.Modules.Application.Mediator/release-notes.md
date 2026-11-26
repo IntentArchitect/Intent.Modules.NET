@@ -1,4 +1,4 @@
-### Version 1.2.0
+### Version 1.1.1
 
 - Improvement: The `mediator-command-handler` and `mediator-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
 

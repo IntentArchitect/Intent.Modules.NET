@@ -1,4 +1,4 @@
-### Version 1.2.1
+### Version 1.3.0
 
 - Improvement: Changes how agents receive the unit test guidance. `unit-test-guidelines` is now a skill, loaded on demand from `.agents/skills/`, in place of the instruction that was always in context. Upgrading moves the skill's output and removes the old `.agents/instructions/unit-test-guidelines.md`. An application that targets several agent harnesses (for example `.claude`, `.codex` and `.github`) gets the skill in each harness's own skills folder. The text is shorter, keeps the Intent-specific rules, and no longer asks domain-service tests to verify `SaveChangesAsync`.
 

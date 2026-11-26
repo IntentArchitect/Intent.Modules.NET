@@ -1,4 +1,4 @@
-### Version 1.3.0
+### Version 1.2.1
 
 - Improvement: The `wolverine-command-handler` and `wolverine-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
 

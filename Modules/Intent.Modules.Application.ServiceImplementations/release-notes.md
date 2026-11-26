@@ -1,4 +1,4 @@
-### Version 4.8.0
+### Version 4.7.7
 
 - Improvement: The `application-service-implementation` skill is shorter, keeping only the rules shown to change what an agent writes, and its description names the files it covers (`*Service.cs` under `Implementation`).
 
