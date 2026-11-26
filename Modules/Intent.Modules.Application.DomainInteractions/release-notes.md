@@ -1,3 +1,7 @@
+### Version 1.3.1
+
+- Fixed: A "No mapping strategy matched" warning was logged for every query in an application with no mapping module installed, and it printed the whole method instead of its name. The warning is gone; the ProjectTo check still reports a missing mapping module as before.
+
 ### Version 1.3.0
 
 - Improvement: The CRUD accelerators moved here from `Intent.Modelers.Services.DomainInteractions` 2.5.0: `Create CRUD CQRS Operations` and `Create CRUD Traditional Service` (basic and advanced) on the Services package, folders and diagrams, the Domain-designer CRUD suggestions, and the `Create CQRS Operation` / `Create Service Operation` suggestions on a Repository. They behave as before. This module now depends on `Intent.Modelers.Services.DomainInteractions` 2.5.0, and requires Intent Architect 4.6.0 or later.
