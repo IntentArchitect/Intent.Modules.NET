@@ -1,134 +1,206 @@
+// Gateway routes for OcelotTest (hand comment at the top)
 {
   "Routes": [
-      {
-          "UpstreamPathTemplate": "/api/aggregate-root-longs",
-          "UpstreamHttpMethod": [
-              "Post"
-            ],
-          "DownstreamPathTemplate": "/api/aggregate-root-longs",
-          "DownstreamHttpMethod": "POST",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{CleanArchitecture.Comprehensive.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/invoices",
-          "UpstreamHttpMethod": [
-              "Post"
-            ],
-          "DownstreamPathTemplate": "/api/invoices",
-          "DownstreamHttpMethod": "POST",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
-          "UpstreamHttpMethod": [
-              "Delete"
-            ],
-          "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
-          "DownstreamHttpMethod": "DELETE",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{CleanArchitecture.Comprehensive.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/invoices/{id}",
-          "UpstreamHttpMethod": [
-              "Delete"
-            ],
-          "DownstreamPathTemplate": "/api/invoices/{id}",
-          "DownstreamHttpMethod": "DELETE",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/invoices/{id}",
-          "UpstreamHttpMethod": [
-              "Get"
-            ],
-          "DownstreamPathTemplate": "/api/invoices/{id}",
-          "DownstreamHttpMethod": "GET",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/invoices",
-          "UpstreamHttpMethod": [
-              "Get"
-            ],
-          "DownstreamPathTemplate": "/api/invoices",
-          "DownstreamHttpMethod": "GET",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
-          "UpstreamHttpMethod": [
-              "Get"
-            ],
-          "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
-          "DownstreamHttpMethod": "GET",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{CleanArchitecture.Comprehensive.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/aggregate-root-longs",
-          "UpstreamHttpMethod": [
-              "Get"
-            ],
-          "DownstreamPathTemplate": "/api/aggregate-root-longs",
-          "DownstreamHttpMethod": "GET",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{CleanArchitecture.Comprehensive.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
-          "UpstreamHttpMethod": [
-              "Put"
-            ],
-          "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
-          "DownstreamHttpMethod": "PUT",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{CleanArchitecture.Comprehensive.Services}"
-                }
-            ]
-        },
-      {
-          "UpstreamPathTemplate": "/api/invoices/{id}",
-          "UpstreamHttpMethod": [
-              "Put"
-            ],
-          "DownstreamPathTemplate": "/api/invoices/{id}",
-          "DownstreamHttpMethod": "PUT",
-          "DownstreamHostAndPorts": [
-              {
-                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
-                }
-            ]
+    {
+      // HAND: create route comment
+      "Key": "CreateAggregateRootLongCommandGatewayRoute",
+      "UpstreamPathTemplate": "/api/aggregate-root-longs",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "DownstreamPathTemplate": "/api/aggregate-root-longs",
+      "DownstreamHttpMethod": "POST",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{CleanArchitecture.Comprehensive.Services}"
         }
-    ]
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }, // HAND: same-line comment
+      /* HAND: block comment */
+      "QoSOptions": {
+        "TimeoutValue": 5000
+      }
+    },
+    {
+      "Key": "CreateInvoiceGatewayRoute",
+      "UpstreamPathTemplate": "/api/invoices",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "DownstreamPathTemplate": "/api/invoices",
+      "DownstreamHttpMethod": "POST",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{Standard.AspNetCore.TestApplication.Services}"
+        }
+      ]
+    },
+    {
+      "Key": "DeleteAggregateRootLongCommandGatewayRoute",
+      "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+      "UpstreamHttpMethod": [
+        "Delete"
+      ],
+      "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+      "DownstreamHttpMethod": "DELETE",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{CleanArchitecture.Comprehensive.Services}"
+        }
+      ]
+    },
+    {
+      "Key": "DeleteInvoiceGatewayRoute",
+      "UpstreamPathTemplate": "/api/invoices/{id}",
+      "UpstreamHttpMethod": [
+        "Delete"
+      ],
+      "DownstreamPathTemplate": "/api/invoices/{id}",
+      "DownstreamHttpMethod": "DELETE",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{Standard.AspNetCore.TestApplication.Services}"
+        }
+      ]
+    },
+    {
+      "Key": "FindInvoiceByIdGatewayRoute",
+      "UpstreamPathTemplate": "/api/invoices/{id}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/api/invoices/{id}",
+      "DownstreamHttpMethod": "GET",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{Standard.AspNetCore.TestApplication.Services}"
+        }
+      ]
+    },
+    {
+      "Key": "FindInvoicesGatewayRoute",
+      "UpstreamPathTemplate": "/api/invoices",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/api/invoices",
+      "DownstreamHttpMethod": "GET",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{Standard.AspNetCore.TestApplication.Services}"
+        }
+      ],
+      // IntentIgnore
+      "Priority": 3
+    },
+    {
+      "Key": "GetAggregateRootLongByIdQueryGatewayRoute",
+      "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+      "DownstreamHttpMethod": "GET",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{CleanArchitecture.Comprehensive.Services}"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AllowAnonymous": true,
+        "AllowedScopes": [
+          "read"
+        ]
+      }
+    },
+    {
+      "Key": "GetAggregateRootLongsQueryGatewayRoute",
+      "UpstreamPathTemplate": "/api/aggregate-root-longs",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/api/aggregate-root-longs",
+      "DownstreamHttpMethod": "GET",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{CleanArchitecture.Comprehensive.Services}"
+        }
+      ],
+      "Priority": 2
+    },
+    {
+      "Key": "UpdateAggregateRootLongCommandGatewayRoute",
+      "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+      "UpstreamHttpMethod": [
+        "Put"
+      ],
+      "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+      "DownstreamHttpMethod": "PUT",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{CleanArchitecture.Comprehensive.Services}"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AllowedScopes": [
+          "write"
+        ]
+      }
+    },
+    {
+      "Key": "UpdateInvoiceGatewayRoute",
+      "UpstreamPathTemplate": "/api/invoices/{id}",
+      "UpstreamHttpMethod": [
+        "Put"
+      ],
+      "DownstreamPathTemplate": "/api/invoices/{id}",
+      "DownstreamHttpMethod": "PUT",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "{Standard.AspNetCore.TestApplication.Services}"
+        }
+      ]
+    },
+    // IntentIgnore
+    {
+      "Key": "HandHealthRoute",
+      "UpstreamPathTemplate": "/health",
+      "DownstreamPathTemplate": "/health",
+      "DownstreamHttpMethod": "GET",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ]
+    }
+    // HAND: comment at the end of Routes
+  ],
+  "GlobalConfiguration": {
+    // HAND: the public address
+    "BaseUrl": "https://gateway.example.com",
+    "AuthenticationOptions": {
+      "AuthenticationProviderKeys": [
+        "Bearer"
+      ]
+    },
+    "RateLimitOptions": {
+      "EnableRateLimiting": true,
+      "RouteKeys": [
+        "GetAggregateRootLongsQueryGatewayRoute"
+      ],
+      "Limit": 2,
+      "Period": "10s",
+      "Wait": "5s",
+      "ClientIdHeader": "Oc-Client",
+      "ClientWhitelist": [
+        "vip",
+        "ops"
+      ]
+    }
+  },
+  // HAND: a section the template does not write
+  "Aggregates": []
 }
