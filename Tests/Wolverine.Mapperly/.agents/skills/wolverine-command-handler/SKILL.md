@@ -2,7 +2,7 @@
 name: wolverine-command-handler
 description: Implements business logic in Wolverine command handler Handle methods. MUST load before creating or editing any command handler e.g. *CommandHandler.cs.
 template-id: Intent.Application.Wolverine.CommandHandlerSkillTemplate
-contentHash: 03D833D4A1F5E8D7334F28C16BE5D046B42218AB7931CD0215AC5A4EB5D68377
+contentHash: B212AD941BE96CE1B5945F81CDAA3AFADA2819AE944C3EBD8FBF4F7AF8929B67
 ---
 # Wolverine Command Handler
 
@@ -33,5 +33,19 @@ Fill in the `Handle` method of an existing command handler. Its signature is gen
 
 ## Mapping (Mapperly)
 
-- Return entity-shaped `*Dto` types through a Mapperly mapper, not `new XxxDto { … }`. Before you use one, find the `[Mapper]` partial class with its mapping method, for example `CustomerToCustomerDto(Customer customer)`. If there is none, add it, nested mappers (`[UseMapper]`) and list overloads included, as `Mappings/<Aggregate>/<Entity>DtoMapper.cs` in the Application project, and register a new mapper the way the existing ones are, usually `services.AddSingleton<CustomerDtoMapper>()`.
-- Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment.
+- Return entity-shaped `*Dto` types through a Mapperly mapper, not `new XxxDto { … }`. Before you use one, find the `[Mapper]` partial class with its mapping method, for example `CustomerToCustomerDto(Customer customer)`; a mapper for a different entity does not count. If there is none, add it, nested mappers (`[UseMapper]`) and list overloads included, as `Mappings/<Aggregate>/<Entity>DtoMapper.cs` in the Application project, and register a new mapper the way the existing ones are, usually `services.AddSingleton<CustomerDtoMapper>()`.
+- Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment. A missing mapper is not a reason, not even for now: add it first.
+
+**Example**
+```csharp
+// Mappings/Customers/CustomerDtoMapper.cs
+[Mapper]
+public partial class CustomerDtoMapper
+{
+    public partial CustomerDto CustomerToCustomerDto(Customer customer);
+    public partial List<CustomerDto> CustomerToCustomerDtoList(IEnumerable<Customer> customers);
+}
+
+// In the handler or service, with CustomerDtoMapper injected
+return _mapper.CustomerToCustomerDto(customer);
+```
