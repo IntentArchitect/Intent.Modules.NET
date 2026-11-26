@@ -275,12 +275,14 @@ internal static class SuccessStatus
             return number;
         }
 
-        if (Regex.Match(text, @"\bStatus(\d{3})[A-Za-z]*$") is { Success: true } constant)
+        // ASP.NET Core's StatusCodes.Status201Created, and Starlette's status.HTTP_201_CREATED (FastAPI's).
+        if (Regex.Match(text, @"\b(Status|HTTP_)(\d{3})[A-Za-z_]*$") is { Success: true } constant)
         {
-            return int.Parse(constant.Groups[1].Value);
+            return int.Parse(constant.Groups[2].Value);
         }
 
-        if (!Regex.IsMatch(text, @"^(System\.Net\.|org\.springframework\.http\.)?(HttpStatusCode|HttpStatus)\."))
+        // .NET's HttpStatusCode, Spring's HttpStatus, Python's http.HTTPStatus.
+        if (!Regex.IsMatch(text, @"^(System\.Net\.|org\.springframework\.http\.|http\.)?(HttpStatusCode|HttpStatus|HTTPStatus)\."))
         {
             return null;
         }

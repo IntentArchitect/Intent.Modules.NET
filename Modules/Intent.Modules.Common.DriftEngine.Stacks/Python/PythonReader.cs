@@ -45,6 +45,21 @@ internal static class PythonReader
         }
 
         var project = new PythonProject(graph, ModuleNames(root, parsed));
+
+        // What each module's imports bind, and its Annotated aliases (ProjectServiceDep = Annotated[ProjectService,
+        // Depends(...)]), which stand for their type wherever they annotate, are known before any module's declarations are read.
+        foreach (var file in parsed)
+        {
+            Bind(file);
+            foreach (var statement in file.Tree.Body)
+            {
+                if (statement is PythonAssign { Targets: [PythonName name], Value: PythonSubscript value } && PythonTypes.TypeRef(value.Value).Name == "Annotated")
+                {
+                    project.Aliases.TryAdd($"{file.Module}.{name.Id}", (value, file));
+                }
+            }
+        }
+
         foreach (var file in parsed)
         {
             syntax.Modules[file.Path] = file.Module;
@@ -85,6 +100,36 @@ internal static class PythonReader
             if (file.TopLevel.Count > 0)
             {
                 nodes[file.Path].TopLevel = new PythonBody(file, file.ModuleOwner, project, file.TopLevel, null, []).TopLevel();
+            }
+        }
+    }
+
+    /// <summary>Imports bind names in the module, wherever they are written: under <c>if TYPE_CHECKING:</c>, in a try, in a function.</summary>
+    private static void Bind(PythonFile file)
+    {
+        foreach (var node in file.Tree.Descendants())
+        {
+            switch (node)
+            {
+                case PythonImport import:
+                    foreach (var name in import.Names)
+                    {
+                        file.Bindings.TryAdd(name.AsName ?? name.Name.Split('.')[0], name.AsName is null ? name.Name.Split('.')[0] : name.Name);
+                    }
+
+                    break;
+                case PythonImportFrom importFrom when file.Absolute(importFrom) is { } origin:
+                    if (importFrom.IsWildcard)
+                    {
+                        file.Wildcards.Add(origin);
+                    }
+
+                    foreach (var name in importFrom.Names)
+                    {
+                        file.Bindings.TryAdd(name.AsName ?? name.Name, $"{origin}.{name.Name}");
+                    }
+
+                    break;
             }
         }
     }
@@ -259,34 +304,72 @@ internal static class PythonReader
             {
                 Graph.Types.Add(module);
                 file.ModuleType = module;
+                Protocol(module);
             }
+        }
 
-            // Imports bind names in the module, wherever they are written: under if TYPE_CHECKING:, in a try, in a function.
-            foreach (var node in file.Tree.Descendants())
+        /// <summary>
+        /// A dunder (<c>__repr__</c>, <c>__eq__</c>, <c>__tablename__</c>, <c>__all__</c>) is the language's or a framework's
+        /// protocol, which no designer states, as C#'s <c>ToString</c> override isn't: <c>unmodelled.member</c> passes over it.
+        /// <c>__init__</c> is the constructor, which a designer does state.
+        /// </summary>
+        private void Protocol(TypeNode type)
+        {
+            foreach (var member in type.Members.Where(x => x.Kind != "constructor" && x.Name.Length > 4 && x.Name.StartsWith("__", StringComparison.Ordinal) && x.Name.EndsWith("__", StringComparison.Ordinal)))
             {
-                switch (node)
-                {
-                    case PythonImport import:
-                        foreach (var name in import.Names)
-                        {
-                            file.Bindings.TryAdd(name.AsName ?? name.Name.Split('.')[0], name.AsName is null ? name.Name.Split('.')[0] : name.Name);
-                        }
-
-                        break;
-                    case PythonImportFrom importFrom when file.Absolute(importFrom) is { } origin:
-                        if (importFrom.IsWildcard)
-                        {
-                            file.Wildcards.Add(origin);
-                        }
-
-                        foreach (var name in importFrom.Names)
-                        {
-                            file.Bindings.TryAdd(name.AsName ?? name.Name, $"{origin}.{name.Name}");
-                        }
-
-                        break;
-                }
+                Graph.Unmodellable.TryAdd(member, $"`{member.Name}` is a Python dunder: the language's or a framework's protocol, not a member a designer states");
             }
+        }
+
+        /// <summary>
+        /// What an annotation stands for: an <c>Annotated</c> alias (<c>service: ProjectServiceDep</c>) is the alias's value,
+        /// <c>Annotated[ProjectService, Depends(get_project_service)]</c>, with its names as the alias's module binds them, so
+        /// its type is <c>ProjectService</c> and its metadata the member's attributes. Any other annotation is itself.
+        /// </summary>
+        private (PythonExpression? Annotation, PythonFile Origin) Effective(PythonExpression? annotation)
+        {
+            var origin = file;
+            for (var depth = 0; depth < 3 && annotation is PythonName or PythonAttribute; depth++)
+            {
+                var written = Dotted(annotation);
+                var head = written.Split('.')[0];
+                var qualified = origin.Bindings.TryGetValue(head, out var bound) ? bound + written[head.Length..] : $"{origin.Module}.{written}";
+                if (!project.Aliases.TryGetValue(qualified, out var alias))
+                {
+                    break;
+                }
+
+                (annotation, origin) = alias;
+            }
+
+            return (annotation, origin);
+        }
+
+        /// <summary>An annotation as the graph's type, read through an alias: a name the alias's module imports is qualified as it binds it.</summary>
+        private TypeRefNode TypeOf((PythonExpression? Annotation, PythonFile Origin) effective)
+        {
+            var type = PythonTypes.TypeRef(effective.Annotation!);
+            if (ReferenceEquals(effective.Origin, file))
+            {
+                return type;
+            }
+
+            var head = type.QualifiedName.Split('.')[0];
+            var qualified = effective.Origin.Bindings.TryGetValue(head, out var bound) ? bound + type.QualifiedName[head.Length..]
+                : effective.Origin.Tree.Body.Any(x => x is PythonClass declared && declared.Name == head) ? $"{effective.Origin.Module}.{type.QualifiedName}"
+                : type.QualifiedName;
+            return new TypeRefNode
+            {
+                Text = type.Text,
+                Name = type.Name,
+                QualifiedName = qualified,
+                Arguments = type.Arguments,
+                Union = type.Union,
+                IsArray = type.IsArray,
+                Literal = type.Literal,
+                Language = type.Language,
+                Nullable = type.Nullable
+            };
         }
 
         private void Alias(string name, IReadOnlyList<string> typeParameters, PythonExpression value, PythonStatement statement)
@@ -370,6 +453,7 @@ internal static class PythonReader
                 type.Members.AddRange(SelfAttributes(init, type));
             }
 
+            Protocol(type);
             return type;
         }
 
@@ -414,7 +498,9 @@ internal static class PythonReader
                 _ => ([], (PythonExpression?)null, (PythonExpression?)null)
             };
 
-            var declared = annotation is null ? null : PythonTypes.TypeRef(annotation);
+            var effective = Effective(annotation);
+            annotation = effective.Annotation;
+            var declared = annotation is null ? null : TypeOf(effective);
             var classVar = declared?.Name == "ClassVar";
             var final = declared?.Name == "Final";
             if (declared is { Name: "ClassVar" or "Final" })
@@ -499,9 +585,30 @@ internal static class PythonReader
             }
         }
 
-        /// <summary>The class a value is created as, when it is a call to a class's name: <c>APIRouter(prefix="/orders")</c>.</summary>
-        private static TypeRefNode? Created(PythonExpression? value) =>
-            value is PythonCall { Function: PythonName or PythonAttribute } call && PythonTypes.TypeRef(call.Function) is var type && IsClassName(type.Name) ? type : null;
+        /// <summary>
+        /// The type an unannotated value has, as a type checker infers it: the class it is created as, when it is a call to a class's
+        /// name (<c>APIRouter(prefix="/orders")</c>), or a literal's builtin type (<c>status_code = 409</c> is an <c>int</c>).
+        /// </summary>
+        private static TypeRefNode? Created(PythonExpression? value)
+        {
+            if (value is PythonCall { Function: PythonName or PythonAttribute } call && PythonTypes.TypeRef(call.Function) is var type && IsClassName(type.Name))
+            {
+                return type;
+            }
+
+            var number = value is PythonUnary { Operator: "-" or "+", Operand: PythonNumber signed } ? signed : value as PythonNumber;
+            var builtin = value switch
+            {
+                PythonString { IsBytes: true } => "bytes",
+                PythonString => "str",
+                PythonConstant { Value: "True" or "False" } => "bool",
+                _ when number?.Text is { } text => text.EndsWith('j') || text.EndsWith('J') ? null
+                    : text.StartsWith("0x", StringComparison.OrdinalIgnoreCase) || text.StartsWith("0o", StringComparison.OrdinalIgnoreCase) || text.StartsWith("0b", StringComparison.OrdinalIgnoreCase) || !text.Any(x => x is '.' or 'e' or 'E') ? "int"
+                    : "float",
+                _ => null
+            };
+            return builtin is null ? null : new TypeRefNode { Text = builtin, Name = builtin, QualifiedName = builtin, Nullable = "false", Language = PythonLanguage.LanguageName };
+        }
 
         /// <param name="owner">The class, or the module.</param>
         /// <param name="inClass">The owner is a class.</param>
@@ -527,7 +634,7 @@ internal static class PythonReader
             }
 
             var parameters = kind == "property" ? [] : written.Select(Parameter).ToList();
-            var returns = function.Returns is null || kind == "constructor" ? null : PythonTypes.TypeRef(function.Returns);
+            var returns = function.Returns is null || kind == "constructor" ? null : TypeOf(Effective(function.Returns));
             if (returns is not null && kind == "property")
             {
                 returns.Nullable = PythonTypes.Nullability(returns);
@@ -561,7 +668,8 @@ internal static class PythonReader
 
         private ParameterNode Parameter(PythonParameter parameter)
         {
-            var type = parameter.Annotation is null ? null : PythonTypes.TypeRef(parameter.Annotation);
+            var effective = Effective(parameter.Annotation);
+            var type = effective.Annotation is null ? null : TypeOf(effective);
             if (type is not null)
             {
                 type.Nullable = PythonTypes.Nullability(type);
@@ -574,7 +682,7 @@ internal static class PythonReader
                 Type = parameter.Kind == PythonParameterKind.VarPositional && type is not null
                     ? new TypeRefNode { Text = $"tuple[{type.Text}, ...]", Name = type.Name, QualifiedName = type.QualifiedName, Arguments = [type], IsArray = true, Nullable = "false", Language = PythonLanguage.LanguageName }
                     : type,
-                Attributes = PythonTypes.Metadata(parameter.Annotation).Select(x => Attribute(x, x)).ToList(),
+                Attributes = PythonTypes.Metadata(effective.Annotation).Select(x => Attribute(x, x)).ToList(),
                 Default = parameter.Default is null ? null : TextOf(file.Source, parameter.Default),
                 IsOptional = parameter.Kind is PythonParameterKind.VarPositional or PythonParameterKind.VarKeyword,
                 At = SpanOf(parameter, file.Path),
@@ -800,6 +908,9 @@ internal sealed class PythonProject(CodeGraph graph, Dictionary<PythonFile, stri
         .ToDictionary(x => x.Key, x => x.First().Key, StringComparer.Ordinal);
 
     public CodeGraph Graph { get; } = graph;
+
+    /// <summary>Each module's <c>Annotated</c> aliases, by qualified name: what the alias stands for, and the module that declares it.</summary>
+    public Dictionary<string, (PythonExpression Value, PythonFile File)> Aliases { get; } = new(StringComparer.Ordinal);
 
     public PythonFile? FileOf(string module) => _byModule.GetValueOrDefault(module);
 

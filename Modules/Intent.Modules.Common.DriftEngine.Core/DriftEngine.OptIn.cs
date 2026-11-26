@@ -293,7 +293,7 @@ public sealed partial class DriftEngine
             }
             catch (Exception e)
             {
-                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                Failed(extension, rule, e);
                 continue;
             }
 

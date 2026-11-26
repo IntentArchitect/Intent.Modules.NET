@@ -27,6 +27,7 @@
         }
       }
     },
+    "void": { "type": "array", "items": { "type": "string" }, "description": "Return types meaning a function returns nothing, as Python's None" },
     "nullable": {
       "type": "object",
       "additionalProperties": false,

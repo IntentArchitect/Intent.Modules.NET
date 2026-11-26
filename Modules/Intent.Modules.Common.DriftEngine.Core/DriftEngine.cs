@@ -57,6 +57,16 @@ public sealed partial class DriftEngine
     private readonly Dictionary<Claim, object> _located = [];
     private readonly List<(string Extension, string Error)> _extensionFailures = [];
 
+    /// <summary>
+    /// An extension's part failed: the part (a reader, rule or claim source) and the code that threw are named, so a house
+    /// reader's bug is found from the finding alone.
+    /// </summary>
+    private void Failed(string extension, object part, Exception e)
+    {
+        var frame = e.StackTrace?.Split('\n', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
+        _extensionFailures.Add((extension, $"{part.GetType().Name} threw {e.GetType().Name}: {e.Message}{(frame is null ? "" : $" ({frame})")}"));
+    }
+
     /// <summary>What the packs get wrong that is found without the code: an entry for a kind nothing defines.</summary>
     private readonly List<Finding> _packFindings = [];
     private CodeGraph _graph = new();
@@ -187,7 +197,7 @@ public sealed partial class DriftEngine
         findings.AddRange(_graph.Failures.Select(x => new Finding("engine/readerFailed", ScopeArea, "Code", "error",
             $"The {LanguageOf(x.File)?.Title ?? "code"} reader can't read {x.File}: {x.Error} Claims that need it can't be verified.", new Anchor(File: x.File, Line: 1))));
         findings.AddRange(_extensionFailures.GroupBy(x => x.Extension).Select(x => new Finding("config/pluginFailed", ScopeArea, "Code", "error",
-            $"The {x.Key} extension failed: {x.First().Error} Claims it reads can't be verified.", new Anchor(Text: x.Key))));
+            $"The {x.Key} extension failed: {x.First().Error}{(x.Count() > 1 ? $" ({x.Count() - 1} more failures)" : "")} Claims it reads can't be verified.", new Anchor(Text: x.Key))));
         findings.AddRange(_packFindings.DistinctBy(x => x.Message));
         var reported = Overridden(findings);
         List<CodeLink> links = [];
@@ -240,7 +250,7 @@ public sealed partial class DriftEngine
             }
             catch (Exception e)
             {
-                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                Failed(extension, rule, e);
             }
         }
 
@@ -399,7 +409,7 @@ public sealed partial class DriftEngine
             }
             catch (Exception e) when (e is not OperationCanceledException)
             {
-                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                Failed(extension, language, e);
             }
 
             TimedParts($"code {language.Name}");
@@ -429,7 +439,7 @@ public sealed partial class DriftEngine
                 }
                 catch (Exception e) when (e is not OperationCanceledException)
                 {
-                    _extensionFailures.Add((extension.Id, $"{e.GetType().Name}: {e.Message}"));
+                    Failed(extension.Id, reader, e);
                 }
 
                 TimedParts($"code {extension.Id} {reader.GetType().Name}");
@@ -624,7 +634,7 @@ public sealed partial class DriftEngine
                 }
                 catch (Exception e)
                 {
-                    _extensionFailures.Add((extension.Id, $"{e.GetType().Name}: {e.Message}"));
+                    Failed(extension.Id, source, e);
                 }
             }
         }
@@ -1047,7 +1057,7 @@ public sealed partial class DriftEngine
             }
             catch (Exception e)
             {
-                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                Failed(extension, reader, e);
                 return ClaimReading.CantVerify("ruleFailed", $"The {extension} extension failed reading it.");
             }
         }
@@ -1072,7 +1082,7 @@ public sealed partial class DriftEngine
                 }
                 catch (Exception e)
                 {
-                    _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                    Failed(extension, reader, e);
                     Cant(claim, "ruleFailed", new Reading { Detail = $"The {extension} extension failed reading it." });
                     return;
                 }
@@ -1113,7 +1123,7 @@ public sealed partial class DriftEngine
             }
             catch (Exception e)
             {
-                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                Failed(extension, refiner, e);
                 Cant(claim, "ruleFailed", new Reading { Detail = $"The {extension} extension failed refining it." });
                 return;
             }
@@ -1134,7 +1144,7 @@ public sealed partial class DriftEngine
             }
             catch (Exception e)
             {
-                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                Failed(extension, reader, e);
                 Cant(claim, "ruleFailed", new Reading { Detail = $"The {extension} extension failed reading it." });
                 return;
             }
@@ -1700,6 +1710,20 @@ public sealed partial class DriftEngine
             return;
         }
 
+        // A string member (Python's TODO = "todo", TypeScript's Todo = "todo") is its string, which the model may write with or
+        // without its quotes; a number is compared as one.
+        if (literal.Value.Literal is { Kind: "string", Value: { } text })
+        {
+            var expected = claim.Expected.Trim();
+            if (expected.Length >= 2 && expected[0] is '"' or '\'' && expected[^1] == expected[0])
+            {
+                expected = expected[1..^1];
+            }
+
+            Compare(claim, text, literal.At, "code", expected == text);
+            return;
+        }
+
         Compare(claim, literal.Value.Text, literal.At, "code", Same(claim, literal.Value.Text));
     }
 
@@ -1949,11 +1973,17 @@ public sealed partial class DriftEngine
 
     /// <summary>
     /// A return type without the profile's async wrapper (rules.md, Language profiles): <c>Task&lt;T&gt;</c> is <c>T</c>, and
-    /// a <c>void</c> wrapper without its argument, <c>Task</c>, is null, as no result.
+    /// a <c>void</c> wrapper without its argument, <c>Task</c>, is null, as no result. So is a type the profile's <c>void</c>
+    /// names, Python's <c>-&gt; None</c>.
     /// </summary>
     private TypeRefNode? Unwrapped(MemberNode member)
     {
         var type = member.Type;
+        if (type is not null && (ProfileOf(member)["void"] as JsonArray ?? []).Any(x => x?.GetValue<string>() == type.Text))
+        {
+            return null;
+        }
+
         foreach (var wrapper in ProfileOf(member)["async"] as JsonArray ?? [])
         {
             if (type is null || wrapper?["wrapper"]?.GetValue<string>().Split('<')[0] != type.Name)

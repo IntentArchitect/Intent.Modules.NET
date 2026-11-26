@@ -9,9 +9,11 @@ using Intent.Modules.Common.DriftEngine.Stacks.Cqrs;
 using Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 using Intent.Modules.Common.DriftEngine.Stacks.DataAnnotations;
 using Intent.Modules.Common.DriftEngine.Stacks.EfCore;
+using Intent.Modules.Common.DriftEngine.Stacks.FastApi;
 using Intent.Modules.Common.DriftEngine.Stacks.Http;
 using Intent.Modules.Common.DriftEngine.Stacks.Interactions;
 using Intent.Modules.Common.DriftEngine.Stacks.Java;
+using Intent.Modules.Common.DriftEngine.Stacks.Jinja;
 using Intent.Modules.Common.DriftEngine.Stacks.Jpa;
 using Intent.Modules.Common.DriftEngine.Stacks.Maui;
 using Intent.Modules.Common.DriftEngine.Stacks.Mediator;
@@ -25,6 +27,7 @@ using Intent.Modules.Common.DriftEngine.Stacks.React;
 using Intent.Modules.Common.DriftEngine.Stacks.Proxies;
 using Intent.Modules.Common.DriftEngine.Stacks.Relational;
 using Intent.Modules.Common.DriftEngine.Stacks.Serialization;
+using Intent.Modules.Common.DriftEngine.Stacks.SqlAlchemy;
 using Intent.Modules.Common.DriftEngine.Stacks.SpringMvc;
 using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 using Intent.Modules.Common.DriftEngine.Stacks.TypeScriptUi;
@@ -37,8 +40,9 @@ namespace Intent.Modules.Common.DriftEngine.Stacks;
 /// <summary>
 /// The extensions shipped with the engine. A language is one (CSharp, XAML, Java, Python, TypeScript): the engine reads no code itself. What the model
 /// states is technology-neutral (Relational, Http, Constraints, Cqrs); how one framework's code states it is a separate extension
-/// (EfCore and Jpa, AspNetCore and SpringMvc, DataAnnotations and BeanValidation, MediatR, Mediator and Wolverine; Blazor, MVC views, .NET MAUI,
-/// the MVVM Toolkit, Vue and React for the User Interface designer), each reading the same claims with no change to the others. A framework's extension answers only when its framework is in the code; otherwise it leaves the claim to another,
+/// (EfCore, Jpa and SqlAlchemy, AspNetCore, SpringMvc and FastApi, DataAnnotations and BeanValidation, MediatR, Mediator and Wolverine; Blazor,
+/// MVC views, Jinja templates, .NET MAUI, the MVVM Toolkit, Vue and React for the User Interface designer), each reading the same claims with no
+/// change to the others. A framework's extension answers only when its framework is in the code; otherwise it leaves the claim to another,
 /// or can't verify.
 /// </summary>
 public static class StockExtensions
@@ -71,9 +75,12 @@ public static class StockExtensions
         new WolverineExtension(),
         new MessagingExtension(),
         new InteractionsExtension(),
+        new SqlAlchemyExtension(),
+        new FastApiExtension(),
         new SerializationExtension(),
         new BlazorExtension(),
         new MvcExtension(),
+        new JinjaExtension(),
         new MvvmToolkitExtension(),
         new MauiExtension(),
         new TypeScriptUiExtension(),

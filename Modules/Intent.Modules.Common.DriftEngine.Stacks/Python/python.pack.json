@@ -27,6 +27,7 @@
       },
       "collections": ["list<T>", "List<T>", "set<T>", "Set<T>", "frozenset<T>", "FrozenSet<T>", "Sequence<T>", "MutableSequence<T>", "Collection<T>", "Iterable<T>", "AbstractSet<T>", "MutableSet<T>"],
       "async": [{ "wrapper": "Awaitable<T>" }],
+      "void": ["None"],
       "nullable": {
         "wrappers": ["Optional<T>"],
         "unionMembers": ["None"],

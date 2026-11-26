@@ -355,8 +355,6 @@ internal sealed class Requests : IClaimReader
         }
     }
 
-    private sealed record Sent(string? Verb, LiteralNode? Url, Span At);
-
     /// <summary>The first request the method sends, nearest first, following the code's own functions with the calls that lead into them.</summary>
     private static Sent? Request(CodeGraph code, TypeNode type, MemberNode method)
     {
@@ -394,7 +392,10 @@ internal sealed class Requests : IClaimReader
         return sent is null || through.Count == 0 ? sent : sent with { At = through[0].At };
     }
 
-    private static Sent? Sends(CodeGraph code, CallNode call, IReadOnlyList<CallNode> through)
+    /// <summary>A request a call sends, read through the calls that lead to it: its verb and URL, and where it is.</summary>
+    internal sealed record Sent(string? Verb, LiteralNode? Url, Span At);
+
+    internal static Sent? Sends(CodeGraph code, CallNode call, IReadOnlyList<CallNode> through)
     {
         string? Literal(ValueNode value) => code.StringOf(value, through) is { Kind: "string", Value: { } text } ? text : null;
 
@@ -440,7 +441,7 @@ internal sealed class Requests : IClaimReader
     /// A URL as a route: from its first <c>/</c> after a base URL (a value before the path, or a scheme and host), without its
     /// query string, its values as parameters.
     /// </summary>
-    private static (string Path, string Shown)? Route(LiteralNode url)
+    internal static (string Path, string Shown)? Route(LiteralNode url)
     {
         var text = UiCode.Text(url);
         if (text is null)

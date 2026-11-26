@@ -97,11 +97,26 @@ internal sealed class PythonBody(
         }
     }
 
-    /// <summary>Each plain <c>=</c>, annotated assignment with a value and <c>:=</c>; unpacking several targets assigns no one value.</summary>
+    /// <summary>
+    /// Each plain <c>=</c>, annotated assignment with a value and <c>:=</c>; unpacking several targets assigns no one value.
+    /// <c>setattr(task, field, value)</c> is an assignment of <c>task</c>'s attribute, named by its string, or by the code
+    /// that gives it.
+    /// </summary>
     private IEnumerable<AssignmentNode> Assignments(IEnumerable<PythonNode> inside)
     {
         foreach (var node in inside)
         {
+            if (node is PythonCall { Function: PythonName { Id: "setattr" }, Arguments: [{ Stars: 0, Name: null } on, { Stars: 0, Name: null } field, { Stars: 0, Name: null } set] } setattr
+                && !IsLocal(setattr.Function, setattr.First.Start))
+            {
+                var name = field.Value is PythonString { Value: { } literal } ? literal : PythonReader.TextOf(file.Source, field.Value);
+                yield return new AssignmentNode(IsSelf(on.Value) ? name : $"{PythonReader.TextOf(file.Source, on.Value)}.{name}", Value(set.Value), PythonReader.SpanOf(setattr, file.Path))
+                {
+                    Receiver = IsSelf(on.Value) ? null : Value(on.Value)
+                };
+                continue;
+            }
+
             var (targets, value) = node switch
             {
                 PythonAssign assign => (assign.Targets, assign.Value),

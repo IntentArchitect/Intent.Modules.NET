@@ -100,8 +100,55 @@ internal abstract class ScriptLinks : IClaimReader
             case "intent.target":
                 return Target(context, code, file, type, markup, units, target);
             default:
-                return Invocation(context, code, file, markup, units, target) is { } call ? ClaimReading.Found(call.Value, call.At) : ClaimReading.Absent(start);
+                return Invocation(context, code, file, markup, units, target) is { } call ? ClaimReading.Found(call.Value, call.At)
+                    : Request(context, code, units, target) is { } request ? ClaimReading.Found(request.Call, request.At)
+                    : ClaimReading.Absent(start);
         }
+    }
+
+    /// <summary>
+    /// A request the code sends straight to the target operation's endpoint, with no proxy in between: a <c>fetch</c> or an HTTP
+    /// client's call (<see cref="Requests.Sends"/>) of the operation's verb, to its route (its Http Settings Route under its
+    /// service's Http Service Settings Route, unless it starts with <c>/</c> or <c>~/</c>). A board script's
+    /// <c>fetch(`/api/tasks/${id}`, { method: "PATCH" })</c> calls the Services operation answering <c>PATCH api/tasks/{id}</c>.
+    /// </summary>
+    private static (CallNode Call, Span At)? Request(ClaimContext context, CodeGraph code, IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> units, IElement operation)
+    {
+        if (context.Model.Stereotype(operation, "Http Settings", "Verb") is not { Length: > 0 } verb
+            || context.Model.Stereotype(operation, "Http Settings", "Route") is not { } route)
+        {
+            return null;
+        }
+
+        var service = operation.ParentElement is { } parent ? context.Model.Stereotype(parent, "Http Service Settings", "Route") : null;
+        var full = route.StartsWith('/') || route.StartsWith("~/", StringComparison.Ordinal) || string.IsNullOrEmpty(service)
+            ? route.TrimStart('~')
+            : $"{service.TrimEnd('/')}/{route}";
+
+        var seen = new HashSet<FunctionNode>();
+        var queue = new Queue<(TypeNode Type, FunctionNode Unit, IReadOnlyList<CallNode> Through)>(units.Where(x => seen.Add(x.Unit)).Select(x => (x.Type, x.Unit, (IReadOnlyList<CallNode>)[])));
+        while (queue.TryDequeue(out var current))
+        {
+            foreach (var call in current.Unit.Calls)
+            {
+                if (Requests.Sends(code, call, current.Through) is { Verb: { } sent, Url: { } url }
+                    && string.Equals(sent, verb, StringComparison.OrdinalIgnoreCase)
+                    && Requests.Route(url) is { } path && UiCode.Matches(path.Path, full))
+                {
+                    return (current.Through.Count > 0 ? current.Through[0] : call, current.Through.Count > 0 ? current.Through[0].At : call.At);
+                }
+
+                foreach (var (type, member) in UiCode.Reached(code, current.Type, call))
+                {
+                    if (member.Body is { } body && seen.Add(body))
+                    {
+                        queue.Enqueue((type, body, [.. current.Through, call]));
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 
     /// <summary>A component the code doesn't render is used, though not composed or opened, when its file is imported for its value (a route's element, a prop).</summary>
@@ -135,7 +182,10 @@ internal abstract class ScriptLinks : IClaimReader
 
         if (Invocation(context, code, file, markup, units, target) is not { Value: CallNode call })
         {
-            return null;
+            // A request straight to the operation's endpoint reaches the operation's own service.
+            return Invocation(context, code, file, markup, units, target) is null && Request(context, code, units, target) is { } request
+                ? ClaimReading.Compared(located?.Name ?? expected.Name, request.At, true)
+                : null;
         }
 
         var on = call.Target?.Type;
