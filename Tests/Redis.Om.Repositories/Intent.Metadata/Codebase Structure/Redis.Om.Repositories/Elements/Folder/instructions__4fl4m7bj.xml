@@ -10,22 +10,5 @@
   <packageName>Redis.Om.Repositories</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="67ea8a29-bdb3-44b4-bc23-63ccf41c90f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f4b03740-7b96-4adc-b4f1-07e78af1cfc6</parentFolderId>
-      <packageId>abf2f944-ff01-4ba4-aadd-386844042c82</packageId>
-      <packageName>Redis.Om.Repositories</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

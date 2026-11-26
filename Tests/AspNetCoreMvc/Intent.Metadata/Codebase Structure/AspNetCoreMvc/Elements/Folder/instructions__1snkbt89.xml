@@ -10,22 +10,5 @@
   <packageName>AspNetCoreMvc</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="c553a47e-8f79-47f2-8b16-648e28372f0b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>af09fb19-b191-4a39-bfaf-51fbc594c731</parentFolderId>
-      <packageId>a6f3be8b-db13-47fa-9df8-a1a2a7f5124c</packageId>
-      <packageName>AspNetCoreMvc</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

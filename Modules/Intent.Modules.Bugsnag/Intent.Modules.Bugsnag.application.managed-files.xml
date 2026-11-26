@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="b5fc2084-b1b4-49d0-bae3-af9b5256b54a">
-  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
-  <file path="FactoryExtensions/BugSnagQuartzJobListenerExtension.cs" deviationsHash="D5CB3EA51804839EDF4B54F8362E9B1E94630DA4151392C1FE7354D70804A191" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
+  <file path="FactoryExtensions/BugSnagQuartzJobListenerExtension.cs" deviationsHash="081E6D3D5A6478DDA01283CAEDA1DFE37B99E9E70F5E805F62A8DE64EB614017" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/ExceptionFilterExtension.cs" deviationsHash="D3F3206DA418DA2973B3E4BBCBD89E761642BB2F6A120ED4CA489A7E945A05C4" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Bugsnag.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
   <file path="Intent.Modules.Bugsnag.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
-  <file path="Templates/BugSnagQuartzJobListener/BugSnagQuartzJobListenerTemplatePartial.cs" deviationsHash="13DC6E777C3B1ABE072170213A4A752F0B4F1D89FD52447E2AE8E961470016F9" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
+  <file path="Templates/BugSnagQuartzJobListener/BugSnagQuartzJobListenerTemplatePartial.cs" deviationsHash="6B5DBF4974A8C0B95BBE299AF6D2858F2B3A352E9DDC59A6B82FF37E0291782F" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/BugSnagQuartzJobListener/BugSnagQuartzJobListenerTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/BugsnagConfiguration/BugsnagConfigurationTemplatePartial.cs" deviationsHash="360BA8D1670D5C08A3F33AE62C125FEA2C75295D350E0044142C13FBB60E19B0" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/BugsnagConfiguration/BugsnagConfigurationTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />

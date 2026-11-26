@@ -2,7 +2,13 @@
 name: blazor-page-view-entity
 description: Implements Blazor read-only view entity pages using MudBlazor layout, preserving existing .razor.cs data loading, service, and navigation behavior while rendering a structured non-editable detail view. Use when creating or implementing view, detail, inspect, or read-only display entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: F0F2459F6951E4B78D666D353E3622989C0986819D5EE67BFCF2CC7D25331709
+- "**/*.razor"
+- "**/*.razor.cs"
+- "**/design.md"
+- "**/ux-tokens.css"
+- "**/ux-base.css"
+- "**/ux-components.css"
+contentHash: AF05EE3DE4CB25D6B1B6399B78C4A2E3837911C49BE79E9573135DD50DA3196C
 ---
 # View-entity page (MudBlazor)
 

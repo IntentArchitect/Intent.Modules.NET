@@ -10,22 +10,5 @@
   <packageName>Blazor.ProductService</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="ee856f4e-3066-49e0-bd56-e830c3a440de" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>660bf644-4aac-4325-9b44-fb2f57b3fc07</parentFolderId>
-      <packageId>893c768b-cf88-4565-91c0-8fa84157713a</packageId>
-      <packageName>Blazor.ProductService</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

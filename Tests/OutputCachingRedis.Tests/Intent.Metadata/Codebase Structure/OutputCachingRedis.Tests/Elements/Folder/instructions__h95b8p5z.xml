@@ -10,22 +10,5 @@
   <packageName>OutputCachingRedis.Tests</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="5f0632e2-f317-4b89-9876-d48803984f84" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>717351dd-8ec3-4fee-9621-9ccf6890433e</parentFolderId>
-      <packageId>e7e70ce9-e318-4d61-bd4a-9e517fc4116c</packageId>
-      <packageName>OutputCachingRedis.Tests</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

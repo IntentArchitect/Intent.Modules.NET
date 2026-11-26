@@ -2,119 +2,24 @@
 name: mediatr-command-handler
 description: Implements business logic in MediatR command handler Handle methods. MUST load before creating or editing any command handler e.g. *CommandHandler.cs.
 template-id: Intent.Application.MediatR.CommandHandlerSkillTemplate
-contentHash: 7A5A55E6CC1BB3C9760C39D9F7535F1C776FDF3E346F7D628C8546CBB806FF42
+contentHash: A20ED23367DDFF4F6A037CD6B2F6EDD408517FBC5E586D7DB6E4354BD123DED0
 ---
 # MediatR Command Handler
 
-Implement command handler business logic inside an existing handler file. Favor domain intent, existing code patterns, and clean layer boundaries over convenience shortcuts.
+Fill in the `Handle` method of an existing command handler. Its signature is generated; only the body is yours.
 
-## Core rules
+## Rules
 
-- Treat the existing handler file as the starting point. Update the `Handle` method rather than rewriting unrelated parts.
-- NEVER modify the method signature of the Handle method.
-- ALWAYS if you modify the `Handle` method, ensure that the `IntentManaged` attribute indicates that the body of the method must be in `Mode.Ignore` (e.g. `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`).
-- Inject only dependencies from the Domain or Application layers.
-- Never introduce direct dependencies on infrastructure packages or infrastructure types in the handler, including Entity Framework, Dapper, concrete DbContexts, SQL clients, or vendor-specific data access abstractions.
-- If data access is required, favor using an existing repository abstraction from the Domain or Application layers, but extend them if required .
-- ALWAYS if the response requires any aggregation (Count/Sum/Average/Min/Max/First/Last/GroupBy), the service MUST NOT compute it in memory. The handler MUST call a Domain/Application abstraction that returns an aggregated result/summary/shaped dataset. If no suitable method exists, the assistant must extend the appropriate repository/read abstraction (contract first, then implementation) and then call it. No temporary in-service aggregation is allowed.
-- Follow the modeled domain language already present in the codebase: aggregates, entities, value objects, policies, invariants, statuses, and business terms should drive the implementation.
-- Search the codebase for similar handlers, repository methods, domain services, validation flows, and result patterns before introducing a new approach.
-- Add private helper methods inside the handler when they improve clarity, keep business flow readable, or encapsulate repeated branching logic.
-- Keep orchestration in the handler and place durable business rules in domain entities, value objects, specifications, or domain/application services when those patterns already exist nearby.
+- Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write its body.
+- Inject only Domain and Application types. No Entity Framework, Dapper, `DbContext`, SQL client or other infrastructure type belongs in a handler.
+- Load aggregates through their repository interface and change them through their domain behaviour, not by setting state ad hoc. Put durable business rules on the entity or a domain service when nearby code does that.
+- Follow the nearest similar handler for result types, error handling and events. Publish an event only where nearby code already does.
+- Never aggregate in memory (Count, Sum, GroupBy and the like). Call a repository method that returns the result.
+- When a repository method is missing: if a designer will use it, for example mapped from a command or query, model it as a repository operation; otherwise add it by hand to the repository interface and the repository. Name it for the domain intent (`GetForUpdateAsync`, `ExistsBy…Async`), not for storage, and keep storage details such as includes, joins and SQL out of the handler.
+- Pass the `cancellationToken` to every async call.
+- Private helper methods in the handler are fine when they make the flow easier to read.
 
-## Workflow
+## Mapping (AutoMapper)
 
-1. Inspect the existing handler, request, response, validator, repository interfaces, and related domain types.
-2. Search for code usages of:
-  - similar command handlers
-  - repository interfaces and existing repository methods
-  - domain operations on the target aggregate or entity
-  - result and error patterns used in the solution
-3. Infer the intended business flow from the request shape, naming, surrounding domain model, and nearby feature implementations.
-4. Implement the `Handle` method using existing patterns first.
-5. If the handler needs missing DAL capabilities, extend the relevant repository abstraction in an allowed layer instead of pulling infrastructure into the handler.
-6. Add focused private helper methods when the flow becomes easier to read or test.
-7. Ensure cancellation tokens are threaded through async calls where applicable.
-8. Verify the final code preserves layer boundaries and does not introduce infrastructure leakage.
-
-## Command-specific guidance
-
-Commands usually change state. Prefer patterns like these when supported by the surrounding codebase:
-
-- load aggregate or entity through a repository
-- validate existence and ownership/eligibility rules
-- invoke domain behavior rather than mutating state ad hoc
-- persist through the repository abstraction
-- return the established command result type used by the solution
-- publish or coordinate domain/application events only if existing nearby patterns already do so
-
-## Repository extension guidance
-
-When a needed repository capability is missing:
-
-- Extend the existing repository abstraction closest to the aggregate or read/write concern.
-- Keep the new method shaped around domain intent, not storage mechanics.
-- Prefer expressive methods such as `GetForUpdateAsync`, `ExistsBy...Async`, `FindActive...Async`, or `SaveAsync` over storage-oriented names.
-- Do not add infrastructure comments or instructions to the handler.
-- Do not reference how the repository will be implemented in EF, Dapper, SQL, or similar.
-
-## AutoMapper guidance
-
-- Any read/query method, including MediatR query handlers and application services, that returns Application-layer DTOs (`*Dto`) derived from Domain entities **MUST** use AutoMapper.
-    - Do not manually construct DTOs (`new XxxDto { ... }`) on read/query paths.
-- **AutoMapper gate (absolute):** If you use any `ProjectTo*`, `Find*ProjectTo*`, `FindAllProjectTo*`, or `*ProjectToAsync*` method anywhere in the call chain, you **MUST**:
-    - **verify mapping exists** by locating `CreateMap<TDomain, TDto>()` in a `Profile` **and cite file path + excerpt**, **OR**
-    - if verification fails, **immediately create** the required AutoMapper `Profile`(s) (including **all required nested mappings**).
-    - **No assumptions allowed** (a generic projection method or other feature usage is not verification).
-- **Registration assumption (do not block on DI):**
-    - Assume AutoMapper is registered via assembly scanning, e.g.:services.AddAutoMapper(Assembly.GetExecutingAssembly());
-    - Therefore, **do not delay profile creation** because DI registration details are not currently visible.
-    - Do not modify DI registration as part of this guidance unless the user explicitly asks.
-- Manual DTO construction is allowed only when the DTO is a non-entity-shaped view model/aggregation and AutoMapper is not reasonable.
-    - This must include an inline code comment explaining why AutoMapper is not reasonable.
-    - “Mapping doesn’t exist yet” is not a valid exception.
-- If you can't find any existing mappings, create them in the same project as the services under:
-    - `./Mappings/<FeatureOrAggregate>/<Entity>DtoProfile.cs`
-    - Example: `MyApp.Application/Mappings/Invoices/InvoiceDtoProfile.cs`            
-
-**Example:**
-```csharp
-
-public class CustomerDtoProfile : Profile
-{
-    public CustomerDtoProfile()
-    {
-        CreateMap<Customer, CustomerDto>();
-    }
-}
-
-public static class CustomerDtoMappingExtensions
-{
-    public static CustomerDto MapToCustomerDto(this Customer projectFrom, IMapper mapper) =>
-        mapper.Map<CustomerDto>(projectFrom);
-
-    public static List<CustomerDto> MapToCustomerDtoList(this IEnumerable<Customer> projectFrom, IMapper mapper) =>
-        projectFrom.Select(x => x.MapToCustomerDto(mapper)).ToList();
-}
-```
-
-## Output expectations
-
-Produce a concrete code update that:
-
-- fills in or corrects the `Handle` method
-- adds private helper methods in the handler if useful
-- extends allowed-layer abstractions when needed for the handler to be correct
-- preserves the existing feature style and naming
-- keeps unrelated refactors out of scope
-
-## Review checklist
-
-Before finishing, check that:
-
-- every injected dependency belongs to the Domain or Application layers
-- the handler imports no infrastructure package namespaces
-- repository changes, if any, are expressed as abstractions only
-- the implementation follows existing code usage patterns rather than inventing a novel style without reason
-- business language matches the surrounding domain model
-- the code path is cancellation-aware and async-safe where relevant
+- Return entity-shaped `*Dto` types through AutoMapper (`Map` or `ProjectTo`), not `new XxxDto { … }`. Before you use one, find its `CreateMap<TEntity, TDto>()` in a `Profile`. If there is none, add the profile, nested mappings included, as `Mappings/<Aggregate>/<Entity>DtoProfile.cs` in the Application project. Profiles are found by assembly scanning, so leave the AutoMapper registration alone.
+- Build a DTO by hand only when it is not entity-shaped, an aggregation for example, and say why in a comment.

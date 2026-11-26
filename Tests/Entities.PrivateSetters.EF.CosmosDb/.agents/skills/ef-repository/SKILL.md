@@ -1,34 +1,19 @@
 ---
 name: ef-repository
-description: Extends EF repository contracts and implementations with new query or persistence methods. MUST load before creating or editing any I*Repository.cs or its Infrastructure implementation.
+description: Use when adding or changing a query or persistence method on a repository, in an I*Repository.cs interface in the Domain project or its EF Core implementation in Infrastructure.
 template-id: Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate
-contentHash: FC1FA73E0BAD6BF8D08450482469AC12E5C47798B8891B12CF6F1A01F52D15BB
+contentHash: 368B28933AAB845DDACC25BF0FD33C4D0253D19417104B5BBE4D66EAA9DD55D6
 ---
 # EF Repository Extension
 
-- Repositories should encapsulate all logic for retrieving and persisting entities. This includes any necessary joins, filtering, or other data access logic.
-- Aggregations of data should be handled by the repository layer, not by services or other layers. This ensures that all data access logic is centralized and can be optimized as needed.
-- Only add additional methods to the repository for querying aggregations or complex queries. Otherwise just use the existing methods.
+Add a query or persistence method to a repository: its interface in the Domain project and its EF Core implementation in Infrastructure.
 
-## Repository Interface
+## Rules
 
-### Instructions
-
-- Only add additional methods to the repository for querying aggregations or complex queries. Otherwise just use the existing methods.
-- Always read the base repository interface to understand what is already provided and available before adding new methods.
-- If you add a new method to the repository interface, do not put any [IntentManaged] attributes on it, especially not [IntentManaged(Mode.Fully)].
-
-### Rules when adding methods
-
-- Always add the method signature to the repository interface contract first, then implement it in the repository implementation.
-- Never return tuples. If a complex return type is required, create a new Contract record in this file (below this interface) and add a `[IntentIgnore]` attribute over it.
-
-## Repository Implementation (Concrete)
-
-### Rules when adding methods
-
-- Always add the method signature to the repository interface contract first, then implement it in the repository implementation.
-- Always add the `[IntentIgnore]` attribute to any method added.
-- Always read the base repository methods to understand what is already provided and available before adding new methods.
-- Optimize for query performance and maintainability when adding new methods.
-- Never return tuples. If a complex return type is required, create a new Contract record in the Application layer and return that instead.
+- Read the base repository interface first, and use an existing method when one fits. Add a method for an aggregate result or a query the base methods can't express.
+- If a designer will use the method, for example mapped from a command or query, model it as a repository operation in the Domain designer and regenerate, so the designer can map to it. Otherwise add it by hand to the interface, then to the implementation.
+- Put no `[IntentManaged]` attribute on a method you add to the interface. The generated methods are `Mode.Fully`, and a `Mode.Fully` method the model doesn't produce is deleted on the next run.
+- Mark a method you add to the implementation with `[IntentIgnore]`.
+- Do the joins, filtering and aggregation in the repository, so callers get the result rather than data to finish in memory.
+- Never return a tuple. For a composite result, declare a record in the interface's file, below the interface, so it stays in the Domain layer, and mark it `[IntentIgnore]` or the next run removes it.
+- Name the method for the domain intent (`GetForUpdateAsync`, `ExistsBy…Async`) and take a `CancellationToken`.

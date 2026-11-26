@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="f2ff474a-74a0-4594-8e15-91ab2099d335">
-  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
   <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
   <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />

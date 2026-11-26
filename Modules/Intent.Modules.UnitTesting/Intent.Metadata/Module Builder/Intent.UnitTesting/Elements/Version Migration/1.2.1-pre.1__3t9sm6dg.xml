@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="853b3937-11e9-41e9-9aa5-7361dd658ca5" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>1.2.1-pre.1</name>
+  <display>1.2.1-pre.1</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>37886284-997b-4abb-b113-c0059e246040</parentFolderId>
+  <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+  <packageName>Intent.UnitTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

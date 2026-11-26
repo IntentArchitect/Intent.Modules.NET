@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="2442638e-5601-4d9a-a9bc-493024ec6e4e">
-  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path=".agents/skills/mediatr-command-handler/SKILL.md" templateId="Intent.Application.MediatR.CommandHandlerSkillTemplate" />
   <file path=".agents/skills/mediatr-query-handler/SKILL.md" templateId="Intent.Application.MediatR.QueryHandlerSkillTemplate" />
   <file path="WindowsServiceHost.Tests.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="7c2d5f57-d8c5-4d02-b418-e053f2fa199f">
-  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/NuGetInstallFactoryExtension.cs" deviationsHash="067CA9E378F5EAF96F87935761630493AE56A2EA9CFF8E83116CC2A478360997" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/UnitTestingAITasksFactoryExtension.cs" deviationsHash="40729170448AC02ACECB626218DB33B565B35B6A7CEC118B732F999857927625" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Modules.UnitTesting.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Intent.UnitTesting.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
-  <file path="Migrations/Migration_01_02_01_Pre_00.cs" deviationsHash="02F7B18C0BD2F913AB4279A0493A13BD4BF66E3D25572CC0048F13084E847104" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_01_02_01_Pre_00.cs" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
+  <file path="Migrations/Migration_01_02_01_Pre_01.cs" deviationsHash="7FDF7B18F843EBF85FC8F1FD47110B2FBFB9A6B5A9243635B5D9EA6C3B149F18" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
   <file path="Migrations/OnInstallMigration.cs" deviationsHash="91ECAE7B31815BF7E34FDC21AC2656BFB4E16DE3466A456B58A94B9FAF13C125" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="c3880144-3cc1-4e70-8bc2-f48be644b8d9">
-  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/MigrationsReadMeExtension.cs" deviationsHash="A60D6D67280A3745BF41257F3D0207892BCDA0ADEA70044BA391954770E227D7" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.EntityFrameworkCore.DesignTimeDbContextFactory.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />

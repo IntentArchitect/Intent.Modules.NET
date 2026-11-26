@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="237847a3-71e6-4ce0-8df3-cedfa16aeb5f">
-  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/CrudUnitOfWorkSaveExtension.cs" deviationsHash="0BD0755A9A50CF4115966BC70CE6E13F02269BA17BE9187F0F4E88C291CC2FB3" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/MassTransitConfigurationExtension.cs" deviationsHash="87D7433A76DEC915B4AC492B9B7F2EB95F90CC8DB0658C5209C2EF49FF9AE641" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

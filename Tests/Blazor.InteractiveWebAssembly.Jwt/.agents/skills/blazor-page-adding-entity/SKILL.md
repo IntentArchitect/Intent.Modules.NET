@@ -2,7 +2,13 @@
 name: blazor-page-adding-entity
 description: Implements Blazor add or create entity pages using MudBlazor forms, preserving existing .razor.cs service and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing add, create, new, insert, or register entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: A286D26658DB2148E2D87EB6452BDD6EB4ABC4811C9CA36163EE744D00D76F4E
+- "**/*.razor"
+- "**/*.razor.cs"
+- "**/design.md"
+- "**/ux-tokens.css"
+- "**/ux-base.css"
+- "**/ux-components.css"
+contentHash: D8F1B6017C713FFAEB3B9670FAAC765B919711AF9228D111DC64271D1A5ACD60
 ---
 # Add-entity page (MudBlazor)
 

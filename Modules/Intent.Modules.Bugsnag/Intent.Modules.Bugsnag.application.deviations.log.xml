@@ -5,10 +5,10 @@
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#e3a7b993-3652-40f7-afed-4eb9e6cdb85a</correlationId>
       <path>FactoryExtensions/BugSnagQuartzJobListenerExtension.cs</path>
       <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-11-18T08:00:14.0874058Z</updatedAt>
-      <deviationsHash>D5CB3EA51804839EDF4B54F8362E9B1E94630DA4151392C1FE7354D70804A191</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-26T12:28:00.2088521Z</updatedAt>
+      <deviationsHash>081E6D3D5A6478DDA01283CAEDA1DFE37B99E9E70F5E805F62A8DE64EB614017</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#72fadaca-79ee-48d6-9ca8-bbc43d2a7da3</correlationId>
@@ -32,10 +32,10 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#255e1f6b-56b3-455e-aa4e-ac8ece699116</correlationId>
       <path>Templates/BugSnagQuartzJobListener/BugSnagQuartzJobListenerTemplatePartial.cs</path>
       <count>1</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2026-11-18T08:00:14.0875246Z</updatedAt>
-      <deviationsHash>13DC6E777C3B1ABE072170213A4A752F0B4F1D89FD52447E2AE8E961470016F9</deviationsHash>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-26T12:28:00.2089573Z</updatedAt>
+      <deviationsHash>6B5DBF4974A8C0B95BBE299AF6D2858F2B3A352E9DDC59A6B82FF37E0291782F</deviationsHash>
     </file>
   </files>
   <customFiles>

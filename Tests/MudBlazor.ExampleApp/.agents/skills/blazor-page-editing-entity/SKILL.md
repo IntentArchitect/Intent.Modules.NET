@@ -2,7 +2,13 @@
 name: blazor-page-editing-entity
 description: Implements Blazor edit or update entity pages using MudBlazor forms, preserving existing .razor.cs loading, service, and navigation behavior while wiring a valid save flow and model-bound UI. Use when creating or implementing edit, update, or modify entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: FDA93621C811B4321CC92A8987AC628FA4E1A1580CA8AAE3E6A62E5D11B01E47
+- "**/*.razor"
+- "**/*.razor.cs"
+- "**/design.md"
+- "**/ux-tokens.css"
+- "**/ux-base.css"
+- "**/ux-components.css"
+contentHash: 1CDCB98D4321848B57637C4AD4774A4134B937FD0EEAEA1A65AF2F6C85089575
 ---
 # Edit-entity page (MudBlazor)
 

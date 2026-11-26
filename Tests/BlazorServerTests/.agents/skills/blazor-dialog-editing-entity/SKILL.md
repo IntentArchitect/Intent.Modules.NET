@@ -2,7 +2,13 @@
 name: blazor-dialog-editing-entity
 description: Implements Blazor edit or update entity dialogs using MudBlazor dialog patterns and valid form submission, preserving existing .razor.cs loading and service behavior while wiring save and cancel correctly. Use when creating or implementing edit or update entity dialogs in Blazor, including when an empty or skeleton dialog already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: 273F46BAE7AC8E04F6FE6582312F91CB1D9FF2915A590D784241F2278CC59983
+- "**/*.razor"
+- "**/*.razor.cs"
+- "**/design.md"
+- "**/ux-tokens.css"
+- "**/ux-base.css"
+- "**/ux-components.css"
+contentHash: CF4D1BF29B29CBE75EEF174DC9FBE71DC57C929C4E879F179EF3487A79137A80
 ---
 # Edit-entity dialog (MudBlazor)
 

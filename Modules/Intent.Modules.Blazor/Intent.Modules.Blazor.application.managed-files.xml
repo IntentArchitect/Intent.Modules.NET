@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="35c4a2b4-99d9-4ac0-bfa2-8aa8d3a00040">
-  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="Api/ComponentModelStereotypeExtensions.cs" deviationsHash="99D4C3D73F72D5D07B1330A0EB24AABF1C072AE16D6686F0E5F5CE3FA52167C2" templateId="Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions" />
   <file path="FactoryExtensions/AITasksFactoryExtension.cs" deviationsHash="2A537AE6514EEE904CE54557E91CB104495F3B239083D14CA738F54256FE91F9" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
@@ -34,7 +32,7 @@
   <file path="Templates/Templates/AI/BlazorUpdatingStylingSkill/BlazorUpdatingStylingSkillTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/Templates/AI/BlazorUxThemeSyncSkill/BlazorUxThemeSyncSkillTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/Templates/AI/BlazorUxThemeSyncSkill/BlazorUxThemeSyncSkillTemplateRegistration.cs" deviationsHash="A07946C71726A6D81D913C610CC56E7AFF130C38D99600F1D4E0F2F1C8F128A4" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
-  <file path="Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplatePartial.cs" deviationsHash="A4F5136A30731788357B9A86C069F7A7A0ABBD3F765C948E38BB30EBF50EF3D6" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplatePartial.cs" deviationsHash="CF4180B48451C27D9A2B76AD7C6AA2A1AC6EDF50B86A3F9649B9E18491645CC9" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/Templates/AI/DefaultDesignMd/DefaultDesignMdTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorDialogAddingEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="F34DBDAD81532FBDC0CF4AE430828C81ECA235F1EED9E2F0A50EFCCF16FD0D93" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />
   <file path="Templates/Templates/AI/StaticContentTemplateRegistrations/BlazorDialogEditingEntitySkillSampleFilesStaticContentTemplateRegistration.cs" deviationsHash="105FF421675C567C90C5D06825519851EAB8C9BE57B112F53A13EFFD803141F1" templateId="Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration" />

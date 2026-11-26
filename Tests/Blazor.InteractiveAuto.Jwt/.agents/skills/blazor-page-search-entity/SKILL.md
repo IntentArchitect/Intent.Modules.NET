@@ -2,7 +2,13 @@
 name: blazor-page-search-entity
 description: Implements Blazor search and list entity pages using MudBlazor tables with optional filtering, preserving existing .razor.cs search, paging, sorting, service, and navigation behavior. Use when creating or implementing search, list, filter, lookup, or query entity pages in Blazor, including when an empty or skeleton page already exists and needs its razor markup or code-behind filled in.
 paths:
-contentHash: FE0CF3F289AF3A214482F3F568064B149C3C69231C3942722F74AF71A01819DC
+- "**/*.razor"
+- "**/*.razor.cs"
+- "**/design.md"
+- "**/ux-tokens.css"
+- "**/ux-base.css"
+- "**/ux-components.css"
+contentHash: DDD99E43146ECB929776FC186BF15BA40A1F0F9B5A8407F1BFDF638B45CB7239
 ---
 # Search / list page (MudBlazor)
 

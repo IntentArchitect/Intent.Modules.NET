@@ -10,22 +10,5 @@
   <packageName>TrainingModel.Tests</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="d3992722-66ed-40cc-997e-f95d9f6086ea" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2e97f319-6f3c-4269-8b6a-c409fa5cf09a</parentFolderId>
-      <packageId>03dfcf89-fa98-4579-9621-18a31591ba25</packageId>
-      <packageName>TrainingModel.Tests</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

@@ -10,22 +10,5 @@
   <packageName>CleanArchitecture.QueueStorage</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="e84d3c29-8274-4e47-a574-77e5c65a123e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1770d6e7-5fd1-4156-ac21-ffc7a8474f79</parentFolderId>
-      <packageId>56c3f032-f07d-4fc1-af0f-55c23c5308e4</packageId>
-      <packageName>CleanArchitecture.QueueStorage</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

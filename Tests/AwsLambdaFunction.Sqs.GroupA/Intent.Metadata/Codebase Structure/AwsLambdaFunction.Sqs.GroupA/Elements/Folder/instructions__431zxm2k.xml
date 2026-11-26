@@ -10,22 +10,5 @@
   <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="e13e0a44-a41a-4fb5-a468-e53f5c68a8a3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a8904e3b-6451-4665-bbb6-90c276134d52</parentFolderId>
-      <packageId>a56c5206-e08c-4777-9e62-abbaf860b673</packageId>
-      <packageName>AwsLambdaFunction.Sqs.GroupA</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

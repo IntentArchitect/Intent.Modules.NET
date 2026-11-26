@@ -10,22 +10,5 @@
   <packageName>Application.Identity.Jwt.TestApplication</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="65dbc27d-f5d2-4627-adb3-9dd39f7cdb60" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>2aee4d4a-6389-4751-8645-44f8cf35ba7f</parentFolderId>
-      <packageId>c2b4a780-047f-4f48-bf01-0c021ce8721d</packageId>
-      <packageName>Application.Identity.Jwt.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

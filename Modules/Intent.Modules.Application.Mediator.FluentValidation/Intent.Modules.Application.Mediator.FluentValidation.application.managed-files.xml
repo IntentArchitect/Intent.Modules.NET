@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="9dec0d3e-91c3-4fdd-845e-e5f80176f4d5">
-  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.codex/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.cursor/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.github/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/AISkillsExtension.cs" deviationsHash="D99ACB927C0736DFC8EFB8BC86BB73D683B1096317007B8AAF0FF8A078599429" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/CombineWithModelsExtension.cs" deviationsHash="22A3BF85F546CEEA43BBB75BC151D1CECD3256E1D2C3D0ED3CB845CC79882BFE" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="e74b3878-7b44-403c-a208-ec678c431940">
-  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path=".agents/instructions/unit-test-guidelines.md" templateId="Intent.UnitTesting.UnitTestInstructionTemplate" />
   <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
   <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
   <file path=".agents/skills/ef-repository/SKILL.md" templateId="Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate" />
   <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />
+  <file path=".agents/skills/unit-test-guidelines/SKILL.md" templateId="Intent.UnitTesting.UnitTestInstructionTemplate" />
   <file path=".agents/skills/wolverine-command-handler/SKILL.md" templateId="Intent.Application.Wolverine.CommandHandlerSkillTemplate" />
   <file path=".agents/skills/wolverine-query-handler/SKILL.md" templateId="Intent.Application.Wolverine.QueryHandlerSkillTemplate" />
   <file path=".gitignore" templateId="Intent.VisualStudio.Projects.GitIgnore" />

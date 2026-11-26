@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="24057b1c-2a88-4c71-b21a-74baaa302412">
-  <file path="../.claude/rules/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
-  <file path="../.opencode/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path="../Intent.Modules.NET.sln" templateId="Intent.VisualStudio.Projects.VisualStudioSolution" />
   <file path="FactoryExtensions/SwashbuckleStartupConfigurationExtension.cs" deviationsHash="FE789C815E0A98524AD8A44F4702046CE681759E96954229AB9A71C66433C677" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="FactoryExtensions/TypeSchemaFilterExtension.cs" deviationsHash="E2E11A5AF7BCE3F62CE6E948B60C5B960B21D88E8306A7628495DC47F7A05673" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />

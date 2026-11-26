@@ -10,22 +10,5 @@
   <packageName>ProxyServiceTests.Proxy.PTH</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="22c59328-31e6-41b6-8164-8f6ef4bf8aea" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>db0fd88a-0d92-4720-8051-cc452c6abfea</parentFolderId>
-      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
-      <packageName>ProxyServiceTests.Proxy.PTH</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

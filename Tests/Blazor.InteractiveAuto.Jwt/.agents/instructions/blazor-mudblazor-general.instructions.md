@@ -1,7 +1,10 @@
 ---
 description: Instructions for implementing Blazor components with MudBlazor and modern UI best practices.
 appliesTo:
-contentHash: 33603B445B6707A09F4B53C0C23608307AC5B52EDCE758EC47E90FDBCC0F898C
+- "**/*.razor"
+- "**/*.razor.cs"
+- "**/*.razor.css"
+contentHash: AD86326445FD0E3196E2F21A3D5C2688326093AD026CDB90FB17BB1CABDBFD89
 ---
 ## Role and Context
 

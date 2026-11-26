@@ -67,38 +67,6 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="36c27884-8602-45a8-8f03-1f0cf8779913" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.UnitTesting.UnitTestInstructionTemplate</name>
-          <display>Intent.UnitTesting.UnitTestInstructionTemplate</display>
-          <externalReference>Intent.UnitTesting</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>64cdc106-3160-45c7-a2e4-d07637ffffbf</parentFolderId>
-          <packageId>5946f23f-0573-4a01-b5ee-3948ec02ca6b</packageId>
-          <packageName>root</packageName>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="28282315-7a5f-4b70-9a5f-de325a83a6c3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-          <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-          <externalReference>Intent.Common.CSharp</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>64cdc106-3160-45c7-a2e4-d07637ffffbf</parentFolderId>
-          <packageId>5946f23f-0573-4a01-b5ee-3948ec02ca6b</packageId>
-          <packageName>root</packageName>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="aa2c9174-d7bc-4560-a856-396d22477d85" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
@@ -230,6 +198,22 @@
           <name>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</name>
           <display>Intent.EntityFrameworkCore.Repositories.EFRepositorySkillTemplate</display>
           <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>aa2c9174-d7bc-4560-a856-396d22477d85</parentFolderId>
+          <packageId>5946f23f-0573-4a01-b5ee-3948ec02ca6b</packageId>
+          <packageName>root</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="159ce0ae-d572-43ea-86ac-f0b3e0a34d98" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.UnitTestInstructionTemplate</name>
+          <display>Intent.UnitTesting.UnitTestInstructionTemplate</display>
+          <externalReference>Intent.UnitTesting</externalReference>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>false</isMapped>

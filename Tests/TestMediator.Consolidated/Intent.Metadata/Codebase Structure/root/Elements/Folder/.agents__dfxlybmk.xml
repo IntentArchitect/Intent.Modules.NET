@@ -54,17 +54,6 @@
             </stereotype>
           </stereotypes>
         </element>
-        <element id="813fab16-76db-4dae-a331-4abac7a95bbe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-          <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-          <externalReference>Intent.Common.CSharp</externalReference>
-          <parentFolderId>2e44adf0-e47c-4d0c-843d-a4554d78e712</parentFolderId>
-          <packageId>14caf2d6-418f-43fd-8ba8-b5624aa9e0b9</packageId>
-          <packageName>root</packageName>
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-        </element>
       </children>
     </element>
     <element id="1dd8c50f-140d-4d4b-96e0-5f8b2b1bb30b" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <managedFiles version="1" applicationId="c3933cb3-ca6e-48b1-ade1-334f665d89fe">
-  <file path=".agents/instructions/csharp-guidelines.md" templateId="Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration" />
   <file path=".agents/skills/application-service-implementation/SKILL.md" templateId="Intent.Application.ServiceImplementations.ServiceImplementationSkillTemplate" />
   <file path=".agents/skills/domain-entity/SKILL.md" templateId="Intent.Entities.DomainEntitySkill" />
   <file path=".agents/skills/fluent-validation-custom-validation/SKILL.md" templateId="Intent.Application.FluentValidation.CustomValidationSkillTemplate" />

@@ -173,5 +173,31 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="41e0bf97-0cbb-41b3-8b5d-c16ac9c0ae9d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.UnitTesting.UnitTestInstructionTemplate</name>
+      <display>Intent.UnitTesting.UnitTestInstructionTemplate</display>
+      <externalReference>Intent.UnitTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4ad9051a-865d-4ddd-9acd-54c2441f6a39</parentFolderId>
+      <packageId>7ec10013-9d9d-4710-beea-68262a98592f</packageId>
+      <packageName>EfCore.SecondLevelCaching</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
+          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
+          <properties>
+            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
+            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

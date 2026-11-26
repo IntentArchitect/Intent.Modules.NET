@@ -43,31 +43,5 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="46154204-d6fe-422f-b86b-ea18eefe5c84" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fc23f2be-e05a-4ed5-a8f5-0800d5bbd9f4</parentFolderId>
-      <packageId>314e8ec7-2882-4658-98be-5c3b43d9ce03</packageId>
-      <packageName>root</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="967ae6f6-cc06-4b67-a391-44ed1aac1959" name="Template Output Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.Modelers.CodebaseStructure</definitionPackageName>
-          <definitionPackageId>525868ff-adc0-4ab6-a90e-352288da941f</definitionPackageId>
-          <properties>
-            <property name="2ae1addc-b4dc-4cc8-94e1-56ef8a5420aa" display="Is Enabled" value="true" isActive="true" />
-            <property name="2d8e6d2c-785c-4708-9104-bd3e9781a86a" display="Registration Filter" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

@@ -67,22 +67,6 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f069aed2-d2cc-4282-996e-1dd0b880e1d7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-          <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-          <externalReference>Intent.Common.CSharp</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>fa491411-7395-49e2-8d81-971ac2adfeef</parentFolderId>
-          <packageId>25ea4d24-d45e-4eff-a349-d5cfc107ed55</packageId>
-          <packageName>root</packageName>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="b1822c4b-f74d-41a0-91a6-221d28657396" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">

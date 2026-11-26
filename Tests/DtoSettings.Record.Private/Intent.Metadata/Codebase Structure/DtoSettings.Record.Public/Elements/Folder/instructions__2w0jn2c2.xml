@@ -10,22 +10,5 @@
   <packageName>DtoSettings.Record.Public</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="b450c135-067a-49e8-96fc-fa498444675d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b66c8c29-a6ce-4335-bdc0-571796e25c82</parentFolderId>
-      <packageId>4798ea8f-ae0e-4294-8d05-645e74c54de5</packageId>
-      <packageName>DtoSettings.Record.Public</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

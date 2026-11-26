@@ -4,11 +4,11 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#7cd32a65-8260-40fe-83de-24a0d10a6277</correlationId>
       <path>FactoryExtensions/DomainDriftReporter.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2026-11-10T13:14:03.4203255Z</updatedAt>
-      <deviationsHash>5151A15DD84D48BA3FEFE8224CC2B2ABC2C433937AF75A7CC63D7ECCE7A6CDBB</deviationsHash>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2026-11-26T12:36:06.6165495Z</updatedAt>
+      <deviationsHash>31AC50023056C2F2E7AD43AA495BE78F1E8FDE80301EC83E9C19A88A2969F575</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.ModuleTask#efb4528d-8002-4da8-a218-b991dce8c371</correlationId>

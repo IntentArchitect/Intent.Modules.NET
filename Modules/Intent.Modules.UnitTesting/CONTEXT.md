@@ -33,13 +33,27 @@ Generates xUnit unit-test stubs for commands, queries, services and operations. 
 - **An upgrade has to move the placed output: `Migration_01_02_01_Pre_00`.** A consumer keeps a template output in the
   folder it was first placed in. Changing the role alone therefore left existing applications writing the skill to
   `.agents/instructions/unit-test-guidelines/SKILL.md`, where harnesses don't look for skills. Seen in
-  `IntegrationTesting.Tests` and `IntegrationTesting.SQLLite.Tests`. The version migration finds the
-  `AI.Context.Skills` output anchor in each Codebase Structure package. It moves the
+  `IntegrationTesting.Tests` and `IntegrationTesting.SQLLite.Tests`. The version migration finds the first
+  `AI.Context.Skills` output anchor in each Codebase Structure package. It moves every
   `Intent.UnitTesting.UnitTestInstructionTemplate` output into that anchor's folder, copying its stereotypes and
-  metadata. The persistence API has no move, so the migration removes the element and adds it again with the same
-  id. If a package has no skills anchor, the output stays where it is. Tested by upgrading 1.2.0 → 1.2.1-pre.0. The
-  migration's version is the module version: if the version changes before release, rename the Version Migration
-  element in the designer and its `<migration>` entry in the `.imodspec`.
+  metadata. The persistence API has no move, so the migration removes the element and adds it again; Intent gives the
+  re-added output a new id, which is harmless because nothing references a template output by id. If a package has
+  no skills anchor, the output stays where it is.
+- **An application with several agent harnesses has one output per skills folder: `Migration_01_02_01_Pre_01`.** An
+  app can target `.claude`, `.codex`, `.github` and `.opencode` at once, each with its own skills folder and its own
+  unit-test output. `Pre_00` stacks all of them in the first skills folder, and two outputs in one folder fail the
+  Software Factory with "Duplicate Template Output found at same location" (seen in `TestMediator.NoEventing`).
+  `Pre_00` had already been installed in the test apps at 1.2.1-pre.0, and a migration runs only when an application
+  upgrades past its version, so the fix is a new migration at 1.2.1-pre.1 rather than an edit to `Pre_00`. `Pre_01`
+  keeps the first output in each skills folder, moves each extra one to a skills folder that has none, and removes any
+  left over. The outputs are identical apart from their folder, so which output goes to which harness does not matter.
+  A 1.2.0 application upgrading to 1.2.1 runs `Pre_00` and then `Pre_01`. Tested in a scratch copy of
+  `TestMediator.NoEventing` (four harnesses): from 1.2.0 to 1.2.1-pre.1, and from a stacked 1.2.1-pre.0 state to
+  1.2.1-pre.1. Both ended with one output in each of the four skills folders.
+- **A migration's version is the module version it shipped in.** Once a version has been installed anywhere, its
+  migration must not change: applications already past it never run it again. A change to upgrade behaviour needs a
+  new module version and a new Version Migration element in the designer, plus its `<migration>` entry in the
+  `.imodspec`.
 - **The `.imodspec` is ignored in the Software Factory, so it is maintained by hand.** That covers its `<version>`,
   `<tags>`, `<templates>` (ids and roles) and `<migrations>`, and they must be kept in step with the Module Builder
   model. A Version Migration modelled in the designer runs only once the `.imodspec` lists it under `<migrations>`.

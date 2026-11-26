@@ -10,22 +10,5 @@
   <packageName>SharedKernel.Kernel.Tests</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="296abe5f-d33c-4890-96c2-f7a54c679b85" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</name>
-      <display>Intent.Modules.Common.CSharp.Templates.StaticContentTemplateRegistrations.AIInstructionsStaticContentTemplateRegistration</display>
-      <externalReference>Intent.Common.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>bd9c0a5c-c191-4078-8256-c47b1436b6a8</parentFolderId>
-      <packageId>f66565a4-8414-4e4b-87d5-adf99dbfb61e</packageId>
-      <packageName>SharedKernel.Kernel.Tests</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>
