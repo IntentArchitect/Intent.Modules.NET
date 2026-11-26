@@ -143,6 +143,57 @@ internal sealed partial class JpaClaims
     }
 
     /// <summary>
+    /// The foreign key a relationship's join column holds: the dependent's fields mapped to the column the owning side's
+    /// <c>@JoinColumn(name = "product_id")</c> names (the dependent's <c>@ManyToOne</c> or <c>@OneToOne</c> navigation, else the
+    /// principal's <c>@OneToMany</c> with its own join column). A field maps to the column its <c>@Column(name)</c> names, else
+    /// to its own name, which JPA's default naming keeps and Spring Boot's writes in snake case, so underscores and case are
+    /// set aside. A navigation with no <c>@JoinColumn</c> leaves the column to JPA's default, which isn't read (decision 4).
+    /// </summary>
+    private static ClaimReading? ForeignKey(ClaimContext context)
+    {
+        if (context.ExpectedValue is not ModelForeignKey key || context.TypeOf(key.Dependent) is not { } dependent)
+        {
+            return null;
+        }
+
+        var fields = context.Code.MembersOf(dependent).Where(x => x.Kind == "field" && !x.IsStatic).ToList();
+        var joinColumn = Navigation(fields, key.DependentNavigation, ["ManyToOne", "OneToOne"])?.Attributes.FirstOrDefault(x => x.Name == "JoinColumn");
+        if (joinColumn is null && key.Principal is not null && context.TypeOf(key.Principal) is { } principal)
+        {
+            var inverse = Navigation(context.Code.MembersOf(principal).Where(x => x.Kind == "field").ToList(), key.PrincipalNavigation, ["OneToMany", "OneToOne"]);
+            joinColumn = inverse?.Attributes.FirstOrDefault(x => x.Name == "JoinColumn");
+        }
+
+        if (joinColumn?.Values.FirstOrDefault(x => x.Name == "name") is not { } named)
+        {
+            return null;
+        }
+
+        var column = named.Literal ?? context.Code.LiteralOf(named.Text, dependent)?.Value;
+        if (column is null)
+        {
+            return ClaimReading.CantVerify("unreadable", $"The join column is stated as `{named.Text}`, which the rule can't read without running the code: it isn't a literal or a constant the code declares.", joinColumn.At);
+        }
+
+        var keys = fields.Where(x => !x.Attributes.Any(a => RelationshipAnnotations.Contains(a.Name)) && SameColumn(ColumnName(x) ?? x.Name, column))
+            .Select(x => key.Attributes.FirstOrDefault(a => string.Equals(a.Name, x.Name, StringComparison.OrdinalIgnoreCase))?.Name ?? x.Name)
+            .ToList();
+        if (keys.Count == 0)
+        {
+            return ClaimReading.Compared("none", joinColumn.At, false,
+                $"`{dependent.Name}` foreign key: model `{context.Expected}`, code none. No field of `{dependent.Name}` is mapped to its join column `{column}`. " +
+                $"Map the foreign key's field to `{column}` (`@Column(name = \"{column}\")`), or change the model's Foreign Key.");
+        }
+
+        return ClaimReading.Stated(string.Join(", ", keys), joinColumn.At);
+
+        static MemberNode? Navigation(IReadOnlyList<MemberNode> fields, string? name, string[] annotations) =>
+            name is null ? null : fields.FirstOrDefault(x => string.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase) && x.Attributes.Any(a => annotations.Contains(a.Name)));
+
+        static bool SameColumn(string a, string b) => string.Equals(a.Replace("_", ""), b.Replace("_", ""), StringComparison.OrdinalIgnoreCase);
+    }
+
+    /// <summary>
     /// The entity a class's own repository is for, where a house stereotype on the class states it: its <c>{Repository}</c>
     /// binding, else <c>{Name}Repository</c>, and the first type argument of the Spring Data repository it extends
     /// (<c>JpaRepository&lt;Order, UUID&gt;</c>). A Domain Repository element is the engine's own rule's.

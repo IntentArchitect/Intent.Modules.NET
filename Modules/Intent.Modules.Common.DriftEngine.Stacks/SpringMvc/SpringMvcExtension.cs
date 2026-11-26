@@ -314,41 +314,17 @@ internal sealed class SpringMvcClaims : IClaimReader
     /// <summary>
     /// What a handler builds its successful responses with, each a chain from a <c>ResponseEntity</c> factory: the body
     /// <c>ok(x)</c> and <c>.body(x)</c> are given, <c>of(x)</c>'s <c>Optional</c> holds, or none for <c>.build()</c>. A response
-    /// built by another method, such as a house helper, is a house extension's to read.
+    /// the code's own method builds and returns (<c>Http.created(x)</c>, whose body is <c>ResponseEntity.status(CREATED).body(body)</c>)
+    /// is read the same way inside it, its parameter given what the call passes it; a helper building an error response
+    /// (<c>Http.badRequest()</c>) isn't the operation's result.
     /// </summary>
     private static ClaimReading Built(ClaimContext context, MemberNode member, TypeRefNode returns)
     {
-        var chained = member.Calls.Select(x => x.On).OfType<CallNode>().ToHashSet();
         var bodies = new List<(CallNode Call, ValueNode? Body)>();
-        foreach (var call in member.Calls.Where(x => !chained.Contains(x)))
+        var controller = context.Owner(context.Element) is { } owner ? context.TypeOf(owner) : null;
+        if (Collect(context.Code, controller ?? context.Type, member, null, null, bodies, 0) is { } unreadable)
         {
-            var factory = call;
-            while (factory.On is { } on)
-            {
-                factory = on;
-            }
-
-            if (factory.Receiver?.Split('.')[^1] != "ResponseEntity" || !IsSuccess(factory))
-            {
-                continue;
-            }
-
-            if (factory is { Name: "ok" or "of", Arguments: [var given] } && call == factory)
-            {
-                bodies.Add((call, given));
-            }
-            else if (call is { Name: "body", Arguments: [var body] })
-            {
-                bodies.Add((call, body.Text == "null" ? null : body));
-            }
-            else if (call.Name == "build")
-            {
-                bodies.Add((call, null));
-            }
-            else
-            {
-                return ClaimReading.CantVerify("unreadable", $"`{call.Text}` builds a response this extension doesn't read.", call.At);
-            }
+            return unreadable;
         }
 
         if (bodies.Count == 0)
@@ -386,6 +362,83 @@ internal sealed class SpringMvcClaims : IClaimReader
         var same = types.All(x => context.ExpectedValue is ITypeReference model ? x is not null && context.TypeMatches(model, x) : x is null);
         var actual = string.Join(" or ", types.Select(x => x?.Text ?? "no body").Distinct());
         return ClaimReading.Compared($"{returns.Text} with {actual}", bodies[0].Call.At, same);
+    }
+
+    /// <summary>How deep the code's own response helpers are followed: a helper calling another is two.</summary>
+    private const int MaxHelperDepth = 3;
+
+    /// <summary>
+    /// The successful responses <paramref name="method"/> builds, each with its body, into <paramref name="bodies"/>; in a
+    /// helper (<paramref name="via"/> the handler's call to it), a body that is one of its parameters is what the call passes,
+    /// and the call is where it points. A response this can't read is returned as can't verify.
+    /// </summary>
+    private static ClaimReading? Collect(CodeGraph code, TypeNode? type, MemberNode method, IReadOnlyList<ValueNode>? arguments, CallNode? via,
+        List<(CallNode Call, ValueNode? Body)> bodies, int depth)
+    {
+        var chained = method.Calls.Select(x => x.On).OfType<CallNode>().ToHashSet();
+        foreach (var call in method.Calls.Where(x => !chained.Contains(x)))
+        {
+            var factory = call;
+            while (factory.On is { } on)
+            {
+                factory = on;
+            }
+
+            if (factory.Receiver?.Split('.')[^1] != "ResponseEntity")
+            {
+                if (type is not null && depth < MaxHelperDepth && call == factory)
+                {
+                    foreach (var (owner, helper) in Messaging.MessageCode.Bodies(code, type, call)
+                                 .Where(x => x.Member.Type is { Name: "ResponseEntity" or "HttpEntity" }))
+                    {
+                        if (Collect(code, owner, helper, call.Arguments.Select(x => Given(x, arguments, method)).ToList(), via ?? call, bodies, depth + 1) is { } unreadable)
+                        {
+                            return unreadable;
+                        }
+                    }
+                }
+
+                continue;
+            }
+
+            if (!IsSuccess(factory))
+            {
+                continue;
+            }
+
+            var at = via ?? call;
+            if (factory is { Name: "ok" or "of", Arguments: [var given] } && call == factory)
+            {
+                bodies.Add((at, Given(given, arguments, method)));
+            }
+            else if (call is { Name: "body", Arguments: [var body] })
+            {
+                var value = Given(body, arguments, method);
+                bodies.Add((at, value.Text == "null" ? null : value));
+            }
+            else if (call.Name == "build")
+            {
+                bodies.Add((at, null));
+            }
+            else
+            {
+                return ClaimReading.CantVerify("unreadable", $"`{call.Text}` builds a response this extension doesn't read.", at.At);
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>A value in a helper: one of its parameters, by name, is the argument its call passes; anything else is itself.</summary>
+    private static ValueNode Given(ValueNode value, IReadOnlyList<ValueNode>? arguments, MemberNode method)
+    {
+        if (arguments is null)
+        {
+            return value;
+        }
+
+        var index = method.Parameters.ToList().FindIndex(x => x.Name == value.Text);
+        return index >= 0 && index < arguments.Count ? arguments[index] : value;
     }
 
     /// <summary>A factory of a successful response: <c>ok</c>, <c>created</c>, ..., or <c>status(..)</c> of a 2xx status.</summary>

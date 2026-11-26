@@ -1901,6 +1901,14 @@ public sealed partial class DriftEngine
             member = _graph.MembersOf(owner).FirstOrDefault(x => x is { Kind: "property" } && x.Name == property || x is { Kind: "field" } && x.Name == field);
             searched = property == field ? $"a property named `{property}` in `{owner.Name}`" : $"a property `{property}` or a field `{field}` in `{owner.Name}`";
 
+            // A static attribute is a constant, which a language's naming leaves as modelled (Java's MAXIMUM_QUANTITY, not
+            // its camel case mAXIMUM_QUANTITY).
+            if (member is null && element.IsStatic && field != element.Name)
+            {
+                member = _graph.MembersOf(owner).FirstOrDefault(x => x is { Kind: "field" or "property", IsStatic: true } && x.Name == element.Name);
+                searched += $", or a static field `{element.Name}`";
+            }
+
             // An attribute persisted from a private field, with no property of its name, is the field its member.backingField
             // claim names (rules.md, Locating an element's code).
             if (member is null && ClaimOn(claim.Designer, element, "member.backingField") is { Expected.Length: > 0 } backing)

@@ -2087,3 +2087,87 @@ class StockItem:
   ]
 }
 ```
+
+## java-static-constant
+
+A static attribute is a constant, which Java writes as modelled, `MAXIMUM_QUANTITY`, not in the camel case Java's naming gives a field (`mAXIMUM_QUANTITY`). It is found as the static field of its own name, and its type and static are checked against it.
+
+```json case
+{ "phase": 1, "kinds": ["member.exists", "member.type", "member.static"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.java"], "language": "java" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "stock-item", "type": "Class", "name": "StockItem",
+            "children": [
+              { "id": "stock-item-maximum-quantity", "type": "Attribute", "name": "MAXIMUM_QUANTITY", "static": true, "typeRef": { "type": "int" } },
+              { "id": "stock-item-quantity", "type": "Attribute", "name": "Quantity", "typeRef": { "type": "int" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/main/java/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```java file src/main/java/com/shop/domain/StockItem.java
+package com.shop.domain;
+
+public class StockItem {
+    public static final int MAXIMUM_QUANTITY = 1_000_000;
+
+    private int quantity;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "stock-item-maximum-quantity", "outcome": "verified", "at": "src/main/java/com/shop/domain/StockItem.java:4" },
+    { "kind": "member.type", "element": "stock-item-maximum-quantity", "outcome": "verified" },
+    { "kind": "member.static", "element": "stock-item-maximum-quantity", "outcome": "verified" },
+    { "kind": "member.exists", "element": "stock-item-quantity", "outcome": "verified" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## java-static-constant-contradicted
+
+A planted drift: the constant is now a `long`, against the model's `int`. One finding, the type's.
+
+```json case
+{ "phase": 1, "base": "java-static-constant", "kinds": ["member.exists", "member.type"], "requirements": ["R1"], "packs": ["intent.core", "intent.domain", "intent.java"], "language": "java" }
+```
+
+```java file src/main/java/com/shop/domain/StockItem.java
+package com.shop.domain;
+
+public class StockItem {
+    public static final long MAXIMUM_QUANTITY = 1_000_000L;
+
+    private int quantity;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "stock-item-maximum-quantity", "outcome": "verified" },
+    { "kind": "member.type", "element": "stock-item-maximum-quantity", "outcome": "contradicted", "expected": "int", "actual": "long" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "stock-item-maximum-quantity" }
+  ],
+  "noOtherFindings": true
+}
+```

@@ -55,7 +55,7 @@ internal sealed partial class JpaClaims : IClaimReader
     {
         "entity.persisted", "table.name", "table.schema", "table.kind", "key", "index.columns", "index.unique", "index.filter", "index.name", "column.name", "column.type", "column.maxLength",
         "column.precision", "column.scale", "column.textType", "key.generated", "member.nullable", "relationship.multiplicity",
-        "column.mapped", "column.owned", "column.version", "column.enumStorage", "relationship.navigable", "relationship.joinColumn", "repository.entity",
+        "column.mapped", "column.owned", "column.version", "column.enumStorage", "relationship.navigable", "relationship.joinColumn", "relationship.foreignKey", "repository.entity",
         "repository.implementation"
     };
 
@@ -113,6 +113,8 @@ internal sealed partial class JpaClaims : IClaimReader
                 return Navigable(context);
             case "relationship.joinColumn":
                 return JoinColumn(context);
+            case "relationship.foreignKey":
+                return ForeignKey(context);
             case "repository.entity":
                 return RepositoryEntity(context);
             case "repository.implementation":

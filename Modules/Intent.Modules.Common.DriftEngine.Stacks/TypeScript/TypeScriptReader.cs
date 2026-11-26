@@ -371,6 +371,17 @@ internal static class TypeScriptReader
             }
             case "LiteralType":
                 return new TypeRefNode { Text = text, Name = text, QualifiedName = text, Literal = TypeScriptBody.LiteralOf(type["literal"]!, null), Nullable = text == "null" ? "true" : stated, Language = TypeScriptLanguage.LanguageName };
+            case "TypeOperator" when type.Operator == "KeyOfKeyword":
+                // keyof T is the names of T's properties, strings, which a designer states as string; it keeps its text.
+                return new TypeRefNode { Text = text, Name = "string", QualifiedName = "string", Nullable = stated, Language = TypeScriptLanguage.LanguageName };
+            case "TypeLiteral" when type.List("members") is var members && members.Count > 0 && members.All(x => x.Is("PropertySignature")):
+                // An object type written in place, { includeDeactivated: boolean }, is anonymous: the model's object, or a
+                // modelled type of its shape, as C#'s new { ... } is.
+                return new TypeRefNode
+                {
+                    Text = text, Name = text, QualifiedName = text, IsAnonymous = true, Nullable = stated, Language = TypeScriptLanguage.LanguageName,
+                    Members = members.Select(x => new TypeMemberNode(NameOf(x["name"]!), x["type"] is { } typed ? TypeRef(typed, strict) : null)).ToList()
+                };
             default:
                 // A keyword (string, number, unknown, ...), or a type written in place: an object type, a function type, a
                 // tuple, a mapped or conditional type. Each is as written.
@@ -602,7 +613,112 @@ internal static class TypeScriptReader
                     type.BaseTypes.Add(TypeRef(part, module.Strict));
                 }
             }
+
+            // A union of literals is an enum written as a type: each literal a member named by its value.
+            foreach (var literal in LiteralsOf(aliased, 0) ?? [])
+            {
+                type.Members.Add(new MemberNode { Name = literal.Value!, Kind = "enumMember", At = literal.Span, TextOf = () => literal.Canonical });
+            }
         }
+
+        /// <summary>
+        /// The string and number literals a type is a union of, each as written: <c>'light' | 'dark'</c>, or the values a
+        /// constant of the module holds, <c>(typeof SORT_ORDERS)[number]['value']</c> over
+        /// <c>const SORT_ORDERS = [{ value: 'name-asc', ... }] as const</c>. Null for any other type.
+        /// </summary>
+        private IReadOnlyList<TypeScriptNode>? LiteralsOf(TypeScriptNode type, int depth)
+        {
+            if (depth > 8)
+            {
+                return null;
+            }
+
+            switch (type.Kind)
+            {
+                case "ParenthesizedType":
+                    return LiteralsOf(type["type"]!, depth + 1);
+                case "LiteralType":
+                    return type["literal"] is { Kind: "StringLiteral" or "NumericLiteral" or "NoSubstitutionTemplateLiteral" } literal ? [literal] : null;
+                case "UnionType":
+                {
+                    var literals = new List<TypeScriptNode>();
+                    foreach (var part in type.List("types"))
+                    {
+                        if (LiteralsOf(part, depth + 1) is not { } found)
+                        {
+                            return null;
+                        }
+
+                        literals.AddRange(found);
+                    }
+
+                    return literals.Count > 0 ? literals : null;
+                }
+                case "IndexedAccessType":
+                    return ValuesOf(type, depth + 1) is { Count: > 0 } values && values.All(x => x.Kind is "StringLiteral" or "NumericLiteral" or "NoSubstitutionTemplateLiteral") ? values : null;
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// The values a type query of a module constant, and indexes into it, stand for: <c>typeof X</c> is the constant's
+        /// initializer, <c>[number]</c> an array's items and <c>['value']</c> each object's property of that name.
+        /// </summary>
+        private IReadOnlyList<TypeScriptNode>? ValuesOf(TypeScriptNode type, int depth)
+        {
+            if (depth > 8)
+            {
+                return null;
+            }
+
+            switch (type.Kind)
+            {
+                case "ParenthesizedType":
+                    return ValuesOf(type["type"]!, depth + 1);
+                case "TypeQuery" when type["exprName"] is { Kind: "Identifier", Value: { } name }:
+                    return ConstantOf(name) is { } initializer ? [initializer] : null;
+                case "IndexedAccessType":
+                {
+                    if (ValuesOf(type["objectType"]!, depth + 1) is not { } values)
+                    {
+                        return null;
+                    }
+
+                    var index = type["indexType"]!;
+                    if (index.Is("NumberKeyword"))
+                    {
+                        return values.All(x => x.Is("ArrayLiteralExpression")) ? values.SelectMany(x => x.List("elements")).Select(Unconst).ToList() : null;
+                    }
+
+                    if (index is { Kind: "LiteralType" } && index["literal"] is { Kind: "StringLiteral", Value: { } key })
+                    {
+                        var properties = values.Select(x => x.Is("ObjectLiteralExpression")
+                            ? x.List("properties").FirstOrDefault(p => p.Is("PropertyAssignment") && p["name"] is { } named && NameOf(named) == key)?["initializer"]
+                            : null).ToList();
+                        return properties.All(x => x is not null) ? properties.Select(x => Unconst(x!)).ToList() : null;
+                    }
+
+                    return null;
+                }
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>The initializer of the module's <c>const</c> of this name, past <c>as const</c> and <c>satisfies</c>.</summary>
+        private TypeScriptNode? ConstantOf(string name) =>
+            module.File.Root.List("statements")
+                .Where(x => x.Is("VariableStatement"))
+                .Select(x => x["declarationList"])
+                .Where(x => x?.Declared == "const")
+                .SelectMany(x => x!.List("declarations"))
+                .FirstOrDefault(x => x["name"] is { Kind: "Identifier" } named && named.Value == name)?["initializer"] is { } initializer
+                ? Unconst(initializer)
+                : null;
+
+        private static TypeScriptNode Unconst(TypeScriptNode expression) =>
+            Unwrapped(expression) is { Kind: "AsExpression" } cast ? Unconst(cast["expression"]!) : Unwrapped(expression);
 
         private void Enum(TypeScriptNode declaration, string ns)
         {

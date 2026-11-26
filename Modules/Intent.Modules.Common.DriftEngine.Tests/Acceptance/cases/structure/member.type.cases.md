@@ -1680,3 +1680,67 @@ public class UserNameField : ValidatableObject<int>
   "noOtherFindings": true
 }
 ```
+
+## typescript-keyof-and-object-types
+
+TypeScript types a designer states more simply. `keyof CheckoutValues` is the names of its properties, so `string`. An object type written in place is anonymous, as C#'s `new { ... }` is: the model's `object`, or a modelled type of the same shape (`values`), and not one of another shape (`totals`).
+
+```json case
+{ "phase": 6, "kinds": ["member.type"], "requirements": ["R2", "R1"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "checkout-values", "type": "Contract", "name": "CheckoutValues", "children": [
+            { "id": "checkout-values-name", "type": "Property", "name": "name", "typeRef": { "type": "string" } },
+            { "id": "checkout-values-email", "type": "Property", "name": "email", "typeRef": { "type": "string" } }
+          ] },
+          { "id": "field-config", "type": "Contract", "name": "FieldConfig", "children": [
+            { "id": "field-config-key", "type": "Property", "name": "key", "typeRef": { "type": "string" } },
+            { "id": "field-config-options", "type": "Property", "name": "options", "typeRef": { "type": "object" } },
+            { "id": "field-config-values", "type": "Property", "name": "values", "typeRef": { "element": "checkout-values" } },
+            { "id": "field-config-totals", "type": "Property", "name": "totals", "typeRef": { "element": "checkout-values" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/types.ts
+export interface CheckoutValues {
+    name: string;
+    email: string;
+}
+
+export interface FieldConfig {
+    key: keyof CheckoutValues;
+    options: { includeDeactivated: boolean };
+    values: { name: string; email: string };
+    totals: { amount: number };
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "field-config-key", "outcome": "verified" },
+    { "kind": "member.type", "element": "field-config-options", "outcome": "verified" },
+    { "kind": "member.type", "element": "field-config-values", "outcome": "verified" },
+    { "kind": "member.type", "element": "field-config-totals", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "field-config-totals" }
+  ]
+}
+```

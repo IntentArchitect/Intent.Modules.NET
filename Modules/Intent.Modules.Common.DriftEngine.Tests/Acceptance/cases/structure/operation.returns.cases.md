@@ -2787,6 +2787,131 @@ public class InventoryController {
 }
 ```
 
+## java-response-entity-helper
+
+The controller builds its responses with the code's own helper, `Http.created(x)`, whose body is
+`ResponseEntity.status(HttpStatus.CREATED).body(body)`: the helper is read as the handler's own response, its `body`
+parameter given what the call passes, so `getStockLevel` returns the `StockLevelDto` `stockLevels.get` gives and
+`receiveStock`'s `Http.created(null)` has no body. `Http.badRequest()` builds an error response, which isn't the operation's
+result.
+
+```json case
+{ "phase": 4, "base": "java-response-entity-built", "kinds": ["operation.returns"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc"], "language": "java" }
+```
+
+```java file src/main/java/com/eshop/backend/api/Http.java
+package com.eshop.backend.api;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+final class Http {
+    private Http() {
+    }
+
+    static ResponseEntity<Object> problem(HttpStatus status, String title) {
+        return ResponseEntity.status(status).body(title);
+    }
+
+    static ResponseEntity<Object> badRequest() {
+        return problem(HttpStatus.BAD_REQUEST, "Bad Request");
+    }
+
+    static ResponseEntity<Object> created(Object body) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(body);
+    }
+}
+```
+
+```java file src/main/java/com/eshop/backend/api/InventoryController.java
+package com.eshop.backend.api;
+
+import com.eshop.backend.application.StockLevels;
+import java.util.UUID;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class InventoryController {
+    private final StockLevels stockLevels;
+
+    public InventoryController(StockLevels stockLevels) {
+        this.stockLevels = stockLevels;
+    }
+
+    @GetMapping("/api/inventory/{productId}")
+    public ResponseEntity<Object> getStockLevel(@PathVariable UUID productId) {
+        if (productId == null) return Http.badRequest();
+        return Http.created(stockLevels.get(productId));
+    }
+
+    @PostMapping("/api/inventory/{productId}/receive")
+    public ResponseEntity<Object> receiveStock(@PathVariable UUID productId) {
+        stockLevels.receive(productId);
+        return Http.created(null);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "inventory-service-get-stock-level", "outcome": "verified", "expected": "StockLevelDto", "actual": "ResponseEntity<Object> with StockLevelDto",
+      "at": "src/main/java/com/eshop/backend/api/InventoryController.java:19" },
+    { "kind": "operation.returns", "element": "inventory-service-receive-stock", "outcome": "verified", "expected": "void", "actual": "ResponseEntity<Object> with no body" }
+  ]
+}
+```
+
+## java-response-entity-helper-contradicted
+
+A planted drift: `getStockLevel` now answers with the `productId` it was given, through the same helper, against the model's `StockLevelDto`.
+
+```json case
+{ "phase": 4, "base": "java-response-entity-helper", "kinds": ["operation.returns"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.services", "intent.java", "intent.springmvc"], "language": "java" }
+```
+
+```java file src/main/java/com/eshop/backend/api/InventoryController.java
+package com.eshop.backend.api;
+
+import com.eshop.backend.application.StockLevels;
+import java.util.UUID;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class InventoryController {
+    private final StockLevels stockLevels;
+
+    public InventoryController(StockLevels stockLevels) {
+        this.stockLevels = stockLevels;
+    }
+
+    @GetMapping("/api/inventory/{productId}")
+    public ResponseEntity<Object> getStockLevel(@PathVariable UUID productId) {
+        return Http.created(productId);
+    }
+
+    @PostMapping("/api/inventory/{productId}/receive")
+    public ResponseEntity<Object> receiveStock(@PathVariable UUID productId) {
+        stockLevels.receive(productId);
+        return Http.created(null);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "inventory-service-get-stock-level", "outcome": "contradicted", "expected": "StockLevelDto", "actual": "ResponseEntity<Object> with UUID" },
+    { "kind": "operation.returns", "element": "inventory-service-receive-stock", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "inventory-service-get-stock-level" }
+  ]
+}
+```
+
 ## typescript-proxy-operation
 
 The Java spike's Front End Proxies are object literals in a TypeScript file, `export const api = { … }`, whose methods are the Proxy Operations. The TypeScript reader (intent.typescript, `later`) makes the object literal an `object` type with a `method` node for each method, and the storefront's house pack's conventions name a Proxy's type in camel case, so the structure comparison locates each Proxy Operation's method in `api`. The method's return is the argument of its `Promise<…>`, the TypeScript profile's async wrapper, so `ProductDto` is the interface the Contract is located as. `ProductDto | null` matches the model's nullable `ProductDto`, nullability aside, and `ProductDto[]` a collection of it.

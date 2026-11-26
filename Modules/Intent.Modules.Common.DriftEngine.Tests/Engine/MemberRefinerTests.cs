@@ -130,14 +130,15 @@ public class MemberRefinerTests
         """;
 
     [Fact]
-    public void Without_the_house_the_stack_cant_read_its_helpers()
+    public void Without_the_house_the_stack_reads_its_response_helper_but_not_its_parser()
     {
         var result = Run(Controller, house: false);
         // An endpoint's parameter has its type compared by its own parameter.type claim, so the mismatch is one finding.
         Outcome(result, "parameter.type", "get-orders-status").ShouldBe("contradicted");
         Outcome(result, "operation.parameters", "get-orders").ShouldBe("verified");
-        Outcome(result, "operation.returns", "place-order").ShouldBe("cantVerify");
-        Outcome(result, "operation.returns", "cancel-order").ShouldBe("cantVerify");
+        // Http.created builds a ResponseEntity in the code's own method, which Spring MVC's reading follows.
+        Outcome(result, "operation.returns", "place-order").ShouldBe("verified");
+        Outcome(result, "operation.returns", "cancel-order").ShouldBe("verified");
     }
 
     [Fact]

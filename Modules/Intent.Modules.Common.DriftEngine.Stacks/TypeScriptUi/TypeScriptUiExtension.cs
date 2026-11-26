@@ -16,7 +16,98 @@ public sealed class TypeScriptUiExtension : IDriftExtension
 {
     public string Id => "intent.typescript.ui";
 
-    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Modules(), new StoreMembers(), new ModuleLinks(), new Requests()];
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Modules(), new StoreMembers(), new ModuleLinks(), new Requests(), new PersistedStores()];
+}
+
+/// <summary>
+/// <c>store.persisted</c> for a TypeScript store (Pinia, Redux Toolkit, Zustand): its state is kept across reloads when its
+/// definition reads or writes Web Storage (<c>localStorage</c>, <c>sessionStorage</c>, <c>window.</c> either), directly or in
+/// the module's own functions it calls, or through what keeps it there: VueUse's <c>useStorage</c>, <c>useLocalStorage</c> and
+/// <c>useSessionStorage</c>, Zustand's <c>persist</c> middleware, or a Pinia store's <c>persist</c> option
+/// (pinia-plugin-persistedstate). It answers only for a store a store library makes; another stack reads its own.
+/// </summary>
+internal sealed class PersistedStores : IClaimReader
+{
+    private const int MaxDepth = 8;
+    private static readonly HashSet<string> Storages = ["localStorage", "sessionStorage", "window.localStorage", "window.sessionStorage"];
+    private static readonly HashSet<string> Keepers = ["useStorage", "useLocalStorage", "useSessionStorage", "persist"];
+
+    public IReadOnlyCollection<string> Kinds { get; } = ["store.persisted"];
+
+    public ClaimReading? Read(ClaimContext context)
+    {
+        var module = context.Type;
+        if (module is not { Kind: "module" } || !UiCode.IsTypeScript(module) || UiCode.FileOf(context.Code, module.At.File) is not { } file
+            || Stores.Of(context.Code, file).FirstOrDefault(x => Stores.Is(x, context.Element.Name)) is not { } store)
+        {
+            return null;
+        }
+
+        if (store.Call.Name == "defineStore" && store.Call.Arguments.SelectMany(x => x.Members).FirstOrDefault(x => x.Member == "persist" && x.Value.Text != "false") is { } option)
+        {
+            return ClaimReading.Stated("true", option.Value.At);
+        }
+
+        var calls = new List<CallNode>();
+        foreach (var argument in store.Call.Arguments)
+        {
+            Collect(argument, calls, 0);
+        }
+
+        foreach (var call in calls.ToList().Where(x => x.Receiver is null or ""))
+        {
+            if (module.Members.FirstOrDefault(x => x.Kind == "method" && x.Name == call.Name) is { } function)
+            {
+                calls.AddRange(context.Code.CallsFrom(module, function).Select(x => x.Call));
+            }
+        }
+
+        if (calls.FirstOrDefault(Keeps) is { } kept)
+        {
+            return ClaimReading.Stated("true", kept.At);
+        }
+
+        return context.Expected == "true"
+            ? ClaimReading.Compared("false", store.Call.At, false,
+                $"`{context.Element.Name}` persisted: model `true`, code `false`. The store reads and writes neither `localStorage` nor `sessionStorage`, so its state isn't kept across reloads. The model states it in the store's Persisted stereotype. Keep its state in Web Storage, or remove Persisted.")
+            : ClaimReading.Absent(store.Call.At, "false");
+    }
+
+    private static bool Keeps(CallNode call) =>
+        call.Name is "getItem" or "setItem" && call.Receiver is { } receiver && Storages.Contains(receiver)
+        || call.Receiver is null or "" && Keepers.Contains(call.Name);
+
+    /// <summary>The calls a value makes: its own, its arguments', and those of a function it is, nested ones included.</summary>
+    private static void Collect(ValueNode value, List<CallNode> calls, int depth)
+    {
+        if (depth > MaxDepth)
+        {
+            return;
+        }
+
+        if (value.Call is { } call)
+        {
+            calls.Add(call);
+            foreach (var argument in call.Arguments)
+            {
+                Collect(argument, calls, depth + 1);
+            }
+        }
+
+        if (value.Function is { } function)
+        {
+            calls.AddRange(function.Calls);
+            foreach (var argument in function.Calls.SelectMany(x => x.Arguments))
+            {
+                Collect(argument, calls, depth + 1);
+            }
+        }
+
+        foreach (var item in value.Items.Concat(value.Members.Select(x => x.Value)))
+        {
+            Collect(item, calls, depth + 1);
+        }
+    }
 }
 
 /// <summary>

@@ -192,6 +192,122 @@ public class BasketState
 }
 ```
 
+## pinia-web-storage
+
+A Pinia store keeps its lines in `sessionStorage`, read and written in the module's own functions its setup calls.
+
+```json case
+{ "phase": 6, "kinds": ["store.persisted"], "requirements": ["R2"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "stores", "type": "Folder", "name": "stores", "children": [
+            { "id": "cart", "type": "Store", "name": "cart", "stereotypes": { "Persisted": { } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/stores/cart.ts
+import { defineStore } from 'pinia';
+import { ref, watch } from 'vue';
+
+const STORAGE_KEY = 'cart';
+
+function readStoredLines(): string[] {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+}
+
+function writeStoredLines(lines: string[]): void {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(lines));
+}
+
+export const useCartStore = defineStore('cart', () => {
+    const lines = ref(readStoredLines());
+    watch(lines, (value) => writeStoredLines(value), { deep: true });
+    return { lines };
+});
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "store.persisted", "element": "cart", "outcome": "verified", "expected": "true", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/store.persisted", "count": 0 }
+  ]
+}
+```
+
+## pinia-persist-option
+
+A Pinia store with pinia-plugin-persistedstate's `persist` option is persisted.
+
+```json case
+{ "phase": 6, "base": "pinia-web-storage", "kinds": ["store.persisted"], "requirements": ["R2"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```typescript file src/stores/cart.ts
+import { defineStore } from 'pinia';
+
+export const useCartStore = defineStore('cart', {
+    state: () => ({ lines: [] as string[] }),
+    persist: true,
+});
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "store.persisted", "element": "cart", "outcome": "verified", "at": "src/stores/cart.ts:5" }
+  ]
+}
+```
+
+## pinia-store-saves-nothing
+
+A planted drift: the store keeps its lines in memory only. One finding, Persisted's.
+
+```json case
+{ "phase": 6, "base": "pinia-web-storage", "kinds": ["store.persisted"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```typescript file src/stores/cart.ts
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
+
+export const useCartStore = defineStore('cart', () => {
+    const lines = ref<string[]>([]);
+    return { lines };
+});
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "store.persisted", "element": "cart", "outcome": "contradicted", "expected": "true", "actual": "false" }
+  ],
+  "findings": [
+    { "rule": "claim/store.persisted", "severity": "error", "subject": "cart", "messageContains": "reads and writes neither `localStorage` nor `sessionStorage`" }
+  ]
+}
+```
+
 ## not-a-maui-app
 
 The same Store in an app with no MAUI in its code: the MAUI reader leaves it, and nothing else reads how such an app saves its state, so Persisted can't be verified.

@@ -343,3 +343,92 @@ public enum OrderStatus {
   ]
 }
 ```
+
+## typescript-literal-unions
+
+TypeScript writes an enum as a type too: a union of literals, `type Theme = 'light' | 'dark'`, each literal a member named by its value, or the values a module constant holds, `(typeof SORT_ORDERS)[number]['value']` over `const SORT_ORDERS = [...] as const`.
+
+```json case
+{ "phase": 6, "kinds": ["enum.literals"], "requirements": ["R2"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "theme", "type": "Enum", "name": "Theme", "children": [
+            { "id": "theme-light", "type": "Enum-Literal", "name": "light" },
+            { "id": "theme-dark", "type": "Enum-Literal", "name": "dark" }
+          ] },
+          { "id": "sort-order", "type": "Enum", "name": "SortOrder", "children": [
+            { "id": "sort-order-name-asc", "type": "Enum-Literal", "name": "name-asc" },
+            { "id": "sort-order-price-asc", "type": "Enum-Literal", "name": "price-asc" }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/theme.ts
+export type Theme = 'light' | 'dark';
+```
+
+```typescript file src/filterSort.ts
+export const SORT_ORDERS = [
+    { value: 'name-asc', label: 'Name: A-Z' },
+    { value: 'price-asc', label: 'Price: low to high' },
+] as const;
+
+export type SortOrder = (typeof SORT_ORDERS)[number]['value'];
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "enum.literals", "element": "theme", "outcome": "verified", "expected": "light, dark" },
+    { "kind": "enum.literals", "element": "sort-order", "outcome": "verified", "expected": "name-asc, price-asc" }
+  ]
+}
+```
+
+## typescript-literal-unions-contradicted
+
+A planted drift: `Theme` loses `'dark'` and `SORT_ORDERS` loses `price-asc`. Both enums are contradicted.
+
+```json case
+{ "phase": 6, "base": "typescript-literal-unions", "kinds": ["enum.literals"], "requirements": ["R1"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```typescript file src/theme.ts
+export type Theme = 'light' | 'system';
+```
+
+```typescript file src/filterSort.ts
+export const SORT_ORDERS = [
+    { value: 'name-asc', label: 'Name: A-Z' },
+] as const;
+
+export type SortOrder = (typeof SORT_ORDERS)[number]['value'];
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "enum.literals", "element": "theme", "outcome": "contradicted" },
+    { "kind": "enum.literals", "element": "sort-order", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/enum.literals", "severity": "error", "subject": "theme" },
+    { "rule": "claim/enum.literals", "severity": "error", "subject": "sort-order" }
+  ]
+}
+```

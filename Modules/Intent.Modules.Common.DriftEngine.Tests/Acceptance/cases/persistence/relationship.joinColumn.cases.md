@@ -1,6 +1,6 @@
 # relationship.joinColumn
 
-The Foreign Key stereotype's Column Name on an association end, against the `@JoinColumn(name = ...)` on the JPA field that owns the relationship. Java has no foreign key attribute for `relationship.foreignKey` to name, so the join column is its own kind. The claim is stated by the association, so its `element` is the association. `relationship.joinColumn` is `stated: whenSet`: a modelled column name the code doesn't state is contradicted, never filled in from JPA's `<field>_id` default (decision 4).
+The Foreign Key stereotype's Column Name on an association end, against the `@JoinColumn(name = ...)` on the JPA field that owns the relationship. A JPA relationship may have no foreign key field for `relationship.foreignKey` to name, so the join column is its own kind. The claim is stated by the association, so its `element` is the association. `relationship.joinColumn` is `stated: whenSet`: a modelled column name the code doesn't state is contradicted, never filled in from JPA's `<field>_id` default (decision 4).
 
 ## verified
 

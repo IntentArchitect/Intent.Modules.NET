@@ -424,3 +424,145 @@ The model as `not-claimed-without-foreign-key` has it, no attribute with Foreign
   ]
 }
 ```
+
+## jpa-join-column
+
+JPA states a foreign key as the dependent's fields mapped to the column its owning navigation's `@JoinColumn` names. `Order.buyer` is a read-only `@ManyToOne` on `buyer_id`, and `buyerId` is mapped to that column by Spring Boot's snake-case naming, so the key is `BuyerId`. `Order.customer` names its column `customer_ref`, and `customerRef` is mapped to it by `@Column(name)`.
+
+```json case
+{ "phase": 4, "kinds": ["relationship.foreignKey"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-buyer-id", "type": "Attribute", "name": "BuyerId", "typeRef": { "type": "guid" },
+                "stereotypes": { "Foreign Key": { "Association": { "ref": "order-buyer" } } } },
+              { "id": "order-customer-ref", "type": "Attribute", "name": "CustomerRef", "typeRef": { "type": "guid" },
+                "stereotypes": { "Foreign Key": { "Association": { "ref": "order-customer" } } } }
+            ] },
+          { "id": "buyer", "type": "Class", "name": "Buyer",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "buyer-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" }, "stereotypes": { "Primary Key": {} } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "order-buyer", "type": "Association",
+          "source": { "element": "order", "name": "Orders", "multiplicity": "*", "navigable": false },
+          "target": { "element": "buyer", "name": "Buyer", "multiplicity": "1", "navigable": true } },
+        { "id": "order-customer", "type": "Association",
+          "source": { "element": "order", "name": "CustomerOrders", "multiplicity": "*", "navigable": false },
+          "target": { "element": "buyer", "name": "Customer", "multiplicity": "1", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/main/java/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```java file src/main/java/com/shop/domain/Order.java
+package com.shop.domain;
+
+import jakarta.persistence.*;
+import java.util.UUID;
+
+@Entity
+public class Order {
+    @Id
+    private UUID id;
+
+    private UUID buyerId;
+
+    @ManyToOne
+    @JoinColumn(name = "buyer_id", insertable = false, updatable = false)
+    private Buyer buyer;
+
+    @Column(name = "customer_ref")
+    private UUID customerRef;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_ref", insertable = false, updatable = false)
+    private Buyer customer;
+}
+```
+
+```java file src/main/java/com/shop/domain/Buyer.java
+package com.shop.domain;
+
+import jakarta.persistence.*;
+import java.util.UUID;
+
+@Entity
+public class Buyer {
+    @Id
+    private UUID id;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.foreignKey", "element": "order-buyer", "outcome": "verified", "expected": "BuyerId", "actual": "BuyerId", "at": "src/main/java/com/shop/domain/Order.java:14" },
+    { "kind": "relationship.foreignKey", "element": "order-customer", "outcome": "verified", "expected": "CustomerRef", "actual": "CustomerRef", "at": "src/main/java/com/shop/domain/Order.java:21" }
+  ]
+}
+```
+
+## jpa-join-column-contradicted
+
+A planted drift: `Order.buyer`'s join column is now `buyer_ref`, which no field of `Order` is mapped to. The foreign key is contradicted, naming the column.
+
+```json case
+{ "phase": 4, "base": "jpa-join-column", "kinds": ["relationship.foreignKey"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.domain", "intent.java", "intent.jpa"], "language": "java" }
+```
+
+```java file src/main/java/com/shop/domain/Order.java
+package com.shop.domain;
+
+import jakarta.persistence.*;
+import java.util.UUID;
+
+@Entity
+public class Order {
+    @Id
+    private UUID id;
+
+    private UUID buyerId;
+
+    @ManyToOne
+    @JoinColumn(name = "buyer_ref", insertable = false, updatable = false)
+    private Buyer buyer;
+
+    @Column(name = "customer_ref")
+    private UUID customerRef;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_ref", insertable = false, updatable = false)
+    private Buyer customer;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "relationship.foreignKey", "element": "order-buyer", "outcome": "contradicted", "expected": "BuyerId", "actual": "none" },
+    { "kind": "relationship.foreignKey", "element": "order-customer", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/relationship.foreignKey", "severity": "error", "subject": "order-buyer", "messageContains": "No field of `Order` is mapped to its join column `buyer_ref`" }
+  ]
+}
+```
