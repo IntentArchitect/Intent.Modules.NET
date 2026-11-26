@@ -28,7 +28,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceSkill
                 .FromMarkdown($"""
 ---
 name: domain-services
-description: Use when writing or changing a method body in a domain service, the interface and class in the Domain project's Services folder, including the generated stubs that throw NotImplementedException.
+description: Use when writing or changing a method body in a domain service, the I-prefixed interface and its class that the Domain designer generates in the Domain project, in the folder the service is modelled in, including the generated stubs that throw NotImplementedException.
 template-id: {TemplateId}
 ---
 

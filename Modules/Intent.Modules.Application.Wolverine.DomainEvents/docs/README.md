@@ -83,7 +83,7 @@ This module generates an AI agent skill file at `.agents/skills/wolverine-domain
 
 ## Designer Dependency
 
-This module reads domain event types from the **Modelers.Domain.Events** designer package (`Intent.Modelers.Domain.Events`). It does not depend on `Intent.DomainEvents` to avoid pulling in AutoMapper and other infrastructure that conflicts with Wolverine-only applications.
+This module reads domain event types from the **Modelers.Domain.Events** designer package (`Intent.Modelers.Domain.Events`). Installing it also installs `Intent.DomainEvents`, which provides the `IDomainEventService` interface and the domain event base types. It adds no mapping library, so Wolverine-only applications need nothing else.
 
 ## Related Modules
 

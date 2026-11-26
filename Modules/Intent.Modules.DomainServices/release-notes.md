@@ -1,6 +1,6 @@
 ### Version 1.2.3
 
-- Improvement: The `domain-services` skill is shorter, keeping the Intent-specific rules, and no longer tells an agent to save through the unit of work from a domain service.
+- Improvement: The `domain-services` skill is shorter and keeps the Intent-specific rules. It now lets a domain service use repositories, which the old text listed as an invalid dependency. The unit of work stays off-limits, because the command handler or service operation that calls the domain service commits.
 
 ### Version 1.2.2
 

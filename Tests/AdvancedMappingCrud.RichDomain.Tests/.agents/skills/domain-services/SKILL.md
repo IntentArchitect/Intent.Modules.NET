@@ -1,8 +1,8 @@
 ---
 name: domain-services
-description: Use when writing or changing a method body in a domain service, the interface and class in the Domain project's Services folder, including the generated stubs that throw NotImplementedException.
+description: Use when writing or changing a method body in a domain service, the I-prefixed interface and its class that the Domain designer generates in the Domain project, in the folder the service is modelled in, including the generated stubs that throw NotImplementedException.
 template-id: Intent.DomainServices.DomainServiceSkill
-contentHash: A281C8FA9294AAB5EAD14E6E0AFBF1763FB1F1344A20CFD54BB6178B96960C47
+contentHash: FB839036F6B277DAF2546F9996E81BF639A9D6CC6F4BF64C778F3257BD59DA8B
 ---
 # Domain Service
 

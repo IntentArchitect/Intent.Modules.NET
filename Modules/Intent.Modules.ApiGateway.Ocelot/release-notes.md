@@ -6,6 +6,7 @@
 - Improvement: Each generated route has a `Key`, set to the route's name, so Ocelot aggregates can reference it. Two API Gateway Routes with the same name fail the Software Factory with an error on the route, instead of generating duplicate keys.
 - Improvement: A route such as `/api/customers` gets `"Priority": 2` when a route with the same verb has `/api/customers/{id}`, so the bare path is no longer served by the placeholder route.
 - Improvement: Installing this module now also brings `Intent.Metadata.ApiGateway` up to 1.0.0 or later, so **Manage Gateway Routes...** shows each route as secured or unsecured, and marks rate-limited routes.
+- Improvement: This version requires Intent Architect 4.5.18 or later.
 - Fixed: A route whose target has no Http Settings fails the Software Factory with an error naming the route and the endpoint, instead of a `NullReferenceException`.
 
 ### Version 1.1.0

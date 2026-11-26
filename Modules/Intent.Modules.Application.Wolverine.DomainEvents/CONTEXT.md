@@ -8,15 +8,13 @@ Generates the `DomainEventService` (dispatches domain events via Wolverine's `IM
 
 ## Key Architectural Decisions
 
-### AutoMapper isolation constraint (CRITICAL — do not relax)
+### The `Intent.DomainEvents` dependency is real and harmless (developer decision, 2026-11-26)
 
-This module must NOT declare `Intent.DomainEvents` as an imodspec `<dependency>`.
+The `.imodspec` declares `Intent.DomainEvents`. The Module Builder writes it because the module application has `Intent.DomainEvents` installed for its designer metadata (`includeAssets="designerMetadata"`), so the dependency comes back on every regeneration.
 
-`Intent.DomainEvents` (the full IA module) transitively pulls in AutoMapper via its dependency chain. In Wolverine-only applications that have no AutoMapper installed, this causes a `KeyNotFoundException` at SF time — a silent, hard-to-diagnose failure.
+An earlier rule here said this module must never declare that dependency: `Intent.DomainEvents` used to pull in AutoMapper, and Wolverine-only applications without AutoMapper failed at Software Factory time with a `KeyNotFoundException`. That cause is gone. `Intent.DomainEvents` (5.1.x) depends only on `Intent.Common`, `Intent.Common.CSharp`, `Intent.Common.Types`, the Domain and Domain Events designers and RoslynWeaver. The 2026-11-26 module spike ran a Wolverine-only application with it installed and no AutoMapper, and the Software Factory ran clean. The developer chose to keep the dependency and correct the docs, rather than remove the designer metadata from the module application, which could break the model's references to domain event types.
 
-The correct dependency is `Intent.Modelers.Domain.Events` (the designer NuGet package only). This provides the domain event designer elements without the mapper chain.
-
-If you are tempted to add `Intent.DomainEvents` as a convenience (e.g. to avoid re-declaring a type), stop and find another path. This constraint exists because of a real runtime failure that was not immediately obvious.
+If `Intent.DomainEvents` ever takes on a mapper dependency again, revisit this: the old `KeyNotFoundException` failure would return in Wolverine-only applications.
 
 ### Dispatch semantics: `PublishAsync`, not `InvokeAsync`
 
@@ -68,13 +66,13 @@ If the MediatR skill template's structure changes (e.g. new sections added upstr
 
 | Module | Relationship |
 |---|---|
-| `Intent.Modelers.Domain.Events` | Designer package (NOT `Intent.DomainEvents`). Provides domain event element types without triggering the AutoMapper dependency chain. |
+| `Intent.Modelers.Domain.Events` | Designer package. Provides the domain event element types the templates read. |
+| `Intent.DomainEvents` | Declared dependency. `DomainEventService` implements the interface its `DomainEventServiceInterface` template generates (looked up by role). See the decision above. |
 | `Intent.Application.Wolverine` | Sibling module. `DomainEventService` depends on `IMessageBus` which is registered by the core Wolverine module. |
 
 ---
 
 ## Anti-Patterns
 
-- **Do not add `Intent.DomainEvents` as an imodspec dependency.** It silently pulls in AutoMapper, breaking Wolverine-only apps at SF time.
 - **Do not use `InvokeAsync` for domain event dispatch.** Domain events are pub/sub; `PublishAsync` is correct.
 - **Do not make handler method bodies `[IntentManaged(Body = Mode.Fully)]`.** Developers write business logic in those bodies; overwriting on SF run destroys their work.

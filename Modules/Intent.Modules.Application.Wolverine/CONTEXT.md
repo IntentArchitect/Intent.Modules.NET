@@ -108,11 +108,13 @@ Both the `opts.Policies.AddMiddleware<MessageBusFlushMiddleware>(...)` and its c
 
 - **Only CQRS.CRUD counts.** It finds handlers by `TemplateRoles.Application.Handler.*`. `Intent.Application.MediatR.CRUD` matches the MediatR `TemplateId` and never touches Wolverine handlers, so checking for it here would leave stubs Merge with nothing to implement them. (The MediatR module checks both.)
 - **Soft lookup, no dependency.** The check is `InstalledModules.Any(...)` by module id.
-- **The skills keep the published rule**, worded since 1.3.0 as "Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write its body", which holds in both states. A Merge stub is just "not Ignore yet" to the AI.
+- **The skills keep the published rule**, worded since 1.2.1 as "Mark `Handle` with `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` when you write its body", which holds in both states. A Merge stub is just "not Ignore yet" to the AI.
 
-### Handler skills: trimmed text, no pointer rule (1.3.0)
+### Handler skills: trimmed text, no pointer rule (1.2.1)
 
 The reasoning is shared with the MediatR handler skills and recorded in `Intent.Application.MediatR`'s `CONTEXT.md`, "Handler skills: trimmed text, no pointer rule". Wolverine-specific: the skills keep "handlers are plain classes found by naming convention; never implement a handler interface", because agents trained on MediatR reach for `IRequestHandler`. The descriptions name `*CommandHandler.cs` and `*QueryHandler.cs`; a command or query whose name lacks the `Command`/`Query` suffix gets a `{Name}Handler` (for example `GetProductByIdHandler` in `Tests/Wolverine.Mapperly`), which the descriptions still cover as "any command handler" or "any query handler".
+
+The skills stay in MediatR's bare-rules style (developer decision, 2026-11-26). The 2026-11-26 module spike noted that `Intent.Application.Mediator`'s handler skills also carry "Finding the handlers to write" and "Read the model first" sections. They were not ported: Mediator differs because its handlers are always stubs, MediatR is the evaluated baseline, and MediatR's `CONTEXT.md` says not to add text to these skills without evaluating it first. Port them only together with such an evaluation.
 - **Rejected on this branch (never published):** Merge on CRUD-implemented bodies (confused the AI), Fully on every handler (deletes hand-written code in existing apps once the file's output next changes), and Ignore on every unimplemented handler (sticky, so a mapping added later is never implemented). The MediatR `CONTEXT.md` has the reasoning and the RoslynWeaver observations (MediatR handlers and service operations, same mechanics, not re-run on a Wolverine app). The one this design relies on: `Merge`→`Ignore` keeps a hand-written body. `Ignore` is sticky, so installing CQRS.CRUD later does not implement existing handlers until they are switched to `Body = Mode.Fully` by hand.
 
 ---

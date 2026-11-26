@@ -133,9 +133,11 @@ The Software Factory merges the routes into the `ocelot.json` on disk rather tha
 
 You can add any Ocelot setting to a generated route, for example `LoadBalancerOptions`, `QoSOptions` or `AuthenticationOptions.AllowedScopes`, and it is kept when the Software Factory runs again, along with your `//` and `/* */` comments. Routes are matched on their `UpstreamPathTemplate` and `DownstreamHttpMethod`, so your additions stay with their route when other routes are added, removed or reordered; the routes are written in the model's order. If you change either of those two values in the designer, the route counts as new and your additions to it are lost.
 
+Some settings need more than the JSON. Ocelot refuses to start with `QoSOptions` on a route unless a quality-of-service provider is registered, for example `AddPolly()` from the `Ocelot.Provider.Polly` package.
+
 Values the template writes come from the model: a route's `Key`, paths, verbs, hosts and `Priority`, `AuthenticationOptions.AllowAnonymous`, the global `AuthenticationProviderKeys`, and the rate limit's `EnableRateLimiting` and `RouteKeys`. A hand change to one of them is reverted, and removing it in the model (for example the `Unsecured` stereotype) removes it from `ocelot.json`. Other keys in the same object, such as `AllowedScopes` next to `AllowAnonymous`, are kept.
 
-To keep a hand change to a generated value, put `// IntentIgnore` on the line above it. The Software Factory then leaves that value, and everything inside it, exactly as you wrote it:
+To keep a hand change to a generated value, put `// IntentIgnore` on the line above it. The Software Factory then keeps that value, and everything inside it, as you wrote it. Only its layout changes, because the whole file is re-indented (see below):
 
 ```json
 "Routes": [
@@ -151,7 +153,7 @@ An ignored value no longer follows the model: changing the model has no effect o
 
 Removing a route from the designer removes it from `ocelot.json`. So does any route you add by hand, unless you put `// IntentIgnore` above it; an ignored route stays where you put it. Keys you add by hand to `GlobalConfiguration`, such as `BaseUrl`, and other top-level sections you add, such as `Aggregates`, are left alone.
 
-The file is re-indented with 2 spaces and one value per line on every run, and trailing commas are dropped. If `ocelot.json` is not valid JSON, the Software Factory stops with an error giving the line, and leaves the file untouched: fix it, or delete it to have it generated again.
+The file is re-indented with 2 spaces and one value per line on every run, and trailing commas are dropped. If `ocelot.json` is not valid JSON, the Software Factory stops with an error giving the line it stopped at, and leaves the file untouched. That can be the line after the mistake, because a missing comma is reported where the next value starts. Fix the file, or delete it to have it generated again.
 
 ## Hosts
 
