@@ -28,7 +28,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandlerSkill
                 .FromMarkdown($"""
 ---
 name: mediatr-domain-event-handler
-description: implement or revise jimmy bogard-style mediatr domain event handlers in clean architecture c# solutions. use when a domain event notification handler, outbox/integration-event reaction, projection update, notification side effect, audit side effect, or cross-aggregate follow-up is incomplete or incorrect and chatgpt should update the handler while preserving clean layer boundaries and existing codebase conventions.
+description: Implements or revises MediatR domain event handlers in Clean Architecture C# solutions. MUST load before creating or editing a domain event notification handler, for example an integration-event reaction, projection update, notification, audit or cross-aggregate side effect.
 template-id: {TemplateId}
 ---
 

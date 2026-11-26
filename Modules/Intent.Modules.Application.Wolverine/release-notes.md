@@ -1,3 +1,7 @@
+### Version 1.3.0
+
+- Improvement: The `wolverine-command-handler` and `wolverine-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
+
 ### Version 1.2.0
 
 - Improvement: Updated NuGet package versions:

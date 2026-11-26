@@ -46,6 +46,10 @@ public class CustomerDtoProfile : Profile
 }
 ```
 
+## AI skill guidance
+
+The module adds a "Mapping (AutoMapper)" section to the handler and service skills that other modules generate. It tells an agent to return entity-shaped DTOs through AutoMapper rather than `new XxxDto { … }`, to add a missing `Profile` under `Mappings/<Aggregate>/` (profiles are found by assembly scanning), and to build a DTO by hand only when it is not entity-shaped, with a comment saying why.
+
 ## Commercial License Options
 
 Starting with **AutoMapper v15.0**, a [commercial license](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/) is required. All versions prior to v15.0 remain free to use.

@@ -48,6 +48,10 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 * Entity Contracts
 * State behaviour seperatation
 
+### AI skill
+
+The module generates a `domain-entity` skill into the application's AI skills folder (for example `.agents/skills/`). It holds the rules for filling in a modelled constructor or operation on an entity: properties and signatures belong to the Domain designer, a body you write switches from `Body = Mode.Merge` to `Body = Mode.Ignore`, the entity stays valid and enforces its invariants, and it depends only on Domain types. Its description names the situation it covers, so an agent knows when to load it.
+
 ## Related Modules
 
 ### Intent.EntityFrameworkCore

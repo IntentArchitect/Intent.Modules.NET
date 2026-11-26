@@ -18,6 +18,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
     {
         public override string Id => "Intent.EntityFrameworkCore.AISkillGuidanceForServiceImplementations";
 
+        private const string PersistenceSectionTitle = "Persistence (EF Core)";
+
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
@@ -33,22 +35,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
         {
             var lazyLoading = application.GetSettings().GetDatabaseSettings().LazyLoadingWithProxies();
 
-            file.BeforeSection("Output expectations", "EF Related Data Loading guidance", section =>
+            // "Persistence (EF Core)" is shared with Intent.EntityFrameworkCore.Repositories, which adds its
+            // unit-of-work and Update rules to the same section after this one.
+            file.WithSection(PersistenceSectionTitle, section =>
             {
-                section.WithListItems($"""
-                    - NEVER use `Include` or `ThenInclude` in the Application Layer, these are only available in the Infrastructure layer.
-                    - Lazy loading with proxies is {(lazyLoading ? "enabled" : "disabled")}. 
-                    - Entities are configured using the `Owns` apis, so compsitional children will be automatically loaded with their parents.
-                    """);
-                if (lazyLoading)
-                {
-                    section.WithListItem("You can rely on navigation properties being automatically loaded when accessed.");
-                    section.WithListItem("(CRITICAL) If your implementation will cause a lot of Lazy loading consider other alternatives, like moving the data loading into the repository layer.");
-                }
-                else
-                {
-                    section.WithListItem("You must explicitly load related data in the infrastructure layer using repository methods");
-                }
+                section.WithListItem(lazyLoading
+                    ? "`Include` and `ThenInclude` are Infrastructure-only. Owned children load with their parent, and lazy loading with proxies is enabled, so navigation properties load when accessed. If that would mean many lazy loads, move the loading into a repository method."
+                    : "`Include` and `ThenInclude` are Infrastructure-only. Owned children load with their parent, but lazy loading is off, so explicitly load any other related data in a repository method.");
             });
         }
     }

@@ -100,3 +100,13 @@ public async Task<List<CustomerDto>> Handle(GetCustomersQuery request, Cancellat
 
 This approach is sometimes used as a **technical trade-off** for the convenience of customizing eager loading per repository call.
 
+## AI skill guidance
+
+The module adds rules to the "Persistence (EF Core)" section of the handler and service skills that other modules generate, after the loading rule from `Intent.EntityFrameworkCore`. Only skills for code that writes get them; query handler skills do not.
+
+- **Don't call `SaveChangesAsync`.** Added only when the `Automatically persist unit of work` setting is on. Command handler and service skills say the unit of work commits afterwards and allow the call only to read back a database-generated value such as a new Id. Domain event handler skills say the handler runs inside the unit of work that raised the event.
+- **Don't call the repository's `Update`.** EF tracks the entities it loaded; `Add` and `Remove` are for inserts and deletes only.
+
+### The `ef-repository` skill
+
+The module also generates an `ef-repository` skill for adding a query or persistence method to a repository. It says when to model the method as a repository operation (a designer will map to it) and when to add it by hand, how to mark a hand-added method so regeneration keeps it, and to declare a composite result as a record in the interface's file rather than return a tuple.

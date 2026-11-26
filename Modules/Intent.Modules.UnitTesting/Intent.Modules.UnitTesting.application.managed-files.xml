@@ -7,6 +7,7 @@
   <file path="FactoryExtensions/UnitTestingAITasksFactoryExtension.cs" deviationsHash="40729170448AC02ACECB626218DB33B565B35B6A7CEC118B732F999857927625" templateId="Intent.ModuleBuilder.Templates.FactoryExtension" />
   <file path="Intent.Modules.UnitTesting.csproj" templateId="Intent.VisualStudio.Projects.CSharpProject" />
   <file path="Intent.UnitTesting.imodspec" templateId="Intent.ModuleBuilder.IModSpecFile" />
+  <file path="Migrations/Migration_01_02_01_Pre_00.cs" deviationsHash="02F7B18C0BD2F913AB4279A0493A13BD4BF66E3D25572CC0048F13084E847104" templateId="Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration" />
   <file path="Migrations/OnInstallMigration.cs" deviationsHash="91ECAE7B31815BF7E34FDC21AC2656BFB4E16DE3466A456B58A94B9FAF13C125" templateId="Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration" />
   <file path="NugetPackages.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.NugetPackages" />
   <file path="Settings/ModuleSettingsExtensions.cs" templateId="Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions" />
@@ -23,7 +24,7 @@
   <file path="Templates/ServiceOperationTest/ServiceOperationTestTemplatePartial.cs" templateId="Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial" />
   <file path="Templates/ServiceOperationTest/ServiceOperationTestTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.FilePerModel" />
   <file path="Templates/TemplateExtensions.cs" templateId="Intent.ModuleBuilder.Templates.TemplateExtensions" />
-  <file path="Templates/UnitTestInstruction/UnitTestInstructionTemplatePartial.cs" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
+  <file path="Templates/UnitTestInstruction/UnitTestInstructionTemplatePartial.cs" deviationsHash="CE985ADE42362B57E28061FF29EF9ABBDA3611C352CEC93F24CBB6990F27CB6B" templateId="Intent.ModuleBuilder.ProjectItemTemplate.Partial" />
   <file path="Templates/UnitTestInstruction/UnitTestInstructionTemplateRegistration.cs" templateId="Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel" />
   <file path="resources/documentation.json" templateId="Intent.ModuleBuilder.Templates.DocumentationTemplate" />
 </managedFiles>

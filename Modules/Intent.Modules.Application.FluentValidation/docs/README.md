@@ -50,3 +50,7 @@ A `Max Length` validation rule is generated when a field is mapped to an attribu
 ### Not Null
 
 A `Not Null` validation rule is generated for fields with nullable types when the `Is Nullable` checkbox is unchecked.
+
+## AI skill
+
+The module generates a `fluent-validation-custom-validation` skill into the application's AI skills folder (for example `.agents/skills/`). It holds the rules for filling in a custom or async validation method: mark the body `Body = Mode.Ignore`, implement the rule the codebase states, report failures with `AddFailure`, inject only Domain and Application types, and model a missing repository method when a designer will use it.

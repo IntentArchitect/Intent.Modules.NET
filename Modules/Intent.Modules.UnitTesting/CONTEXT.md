@@ -1,0 +1,65 @@
+# Context: Intent.UnitTesting
+
+## Purpose
+
+Generates xUnit unit-test stubs for commands, queries, services and operations. It also generates a
+`unit-test-guidelines` AI skill for filling them in.
+
+## Architectural Decisions
+
+- **`unit-test-guidelines` is a skill, not an instruction (1.2.1).** Developer decision, November 2026. Before 1.2.1
+  it was an always-loaded instruction, so every agent session carried about 1,300 words of unit-test guidance
+  whether or not it touched a test. Now it is a skill: an agent loads it only when it works on a test. It was
+  briefly kept as a trimmed instruction in this same line before the developer chose to convert it. The trim keeps
+  the rules that change what an agent writes in this codebase: code management of the merge-managed test class,
+  naming, real entity types and DTO factories, mocking `FindAllAsync` predicates and AutoMapper's singular
+  `Map<TDto>`, capturing a created entity's Id, and what to cover per handler kind. The reasoning behind the trimmed
+  shape is in `Intent.Application.MediatR`'s `CONTEXT.md`, "Handler skills: trimmed text, no pointer rule".
+- **The conversion is a role change in the designer, not a new template.** `UnitTestInstructionTemplate` keeps its
+  name, so its template id (`Intent.UnitTesting.UnitTestInstructionTemplate`) doesn't change. Its Template Settings
+  role moved from `AI.Context.Instructions` to `AI.Context.Skills`, and it now writes `unit-test-guidelines/SKILL.md`.
+  A new template would have meant a new id and an orphaned output in every consumer; renaming the element would have
+  changed the id too.
+- **The description carries the trigger; no pointer rule.** It is a calm "Use when…" sentence naming the
+  `*.UnitTests` project, which the module creates as `{Application project}.UnitTests`. A glob-scoped rule telling
+  agents to load the skill was built in this line and removed before release (developer decision): in the evaluation
+  (skills inventory report, §17) trimmed skills loaded from their names and descriptions alone. The full reasoning is
+  in the MediatR section named above.
+- **Domain-service tests don't verify `SaveChangesAsync`.** Developer ruling: a domain service may use repositories
+  but never the unit of work. Keep this consistent with `Intent.DomainServices`' skill.
+
+## Invariants & Constraints
+
+- **An upgrade has to move the placed output: `Migration_01_02_01_Pre_00`.** A consumer keeps a template output in the
+  folder it was first placed in. Changing the role alone therefore left existing applications writing the skill to
+  `.agents/instructions/unit-test-guidelines/SKILL.md`, where harnesses don't look for skills. Seen in
+  `IntegrationTesting.Tests` and `IntegrationTesting.SQLLite.Tests`. The version migration finds the
+  `AI.Context.Skills` output anchor in each Codebase Structure package. It moves the
+  `Intent.UnitTesting.UnitTestInstructionTemplate` output into that anchor's folder, copying its stereotypes and
+  metadata. The persistence API has no move, so the migration removes the element and adds it again with the same
+  id. If a package has no skills anchor, the output stays where it is. Tested by upgrading 1.2.0 → 1.2.1-pre.0. The
+  migration's version is the module version: if the version changes before release, rename the Version Migration
+  element in the designer and its `<migration>` entry in the `.imodspec`.
+- **The `.imodspec` is ignored in the Software Factory, so it is maintained by hand.** That covers its `<version>`,
+  `<tags>`, `<templates>` (ids and roles) and `<migrations>`, and they must be kept in step with the Module Builder
+  model. A Version Migration modelled in the designer runs only once the `.imodspec` lists it under `<migrations>`.
+  Without the entry the generated class compiles and ships, but Intent never calls it.
+- **The module has no static content template.** The legacy `resources/AIInstructions/unit-test.md`, an untrimmed
+  older copy of the guidance, was deleted in 1.2.1: packaging copies `resources/*` into `content/*`, and a static
+  content template ships every file in its content folder, so it would have become a second instruction. The unit-test
+  guidance lives only in `UnitTestInstructionTemplate`.
+- **The mocking examples use Moq syntax**, although the module supports NSubstitute. They were not made
+  framework-specific in this trim.
+
+## Module Interactions
+
+- **`Intent.Common`**: written against 3.11.1. The markdown file builder behind the skill is available at that
+  version.
+- **`Intent.Persistence.SDK`** (1.0.3): `IPersistenceLoader`, used by both migrations to read and save the Codebase
+  Structure designer.
+
+## Superseded
+
+- **"Trimmed but stays an instruction" (earlier in the 1.2.1 line).** This was replaced by the conversion to a skill.
+- **"A skill plus a pointer rule" (earlier in the 1.2.1 line).** The pointer rule was removed before release; see
+  Architectural Decisions.

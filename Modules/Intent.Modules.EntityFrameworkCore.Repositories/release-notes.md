@@ -1,3 +1,8 @@
+### Version 4.8.7
+
+- Improvement: The handler and service skill guidance is condensed into the "Persistence (EF Core)" section, and query skills no longer get the `SaveChangesAsync` and `Update` rules, which only apply to code that writes.
+- Improvement: The `ef-repository` skill is shorter, keeping the Intent-specific rules.
+
 ### Version 4.8.6
 
 - Improvement: Added default Template Classification and Priorities.

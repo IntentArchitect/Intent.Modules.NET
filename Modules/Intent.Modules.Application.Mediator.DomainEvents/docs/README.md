@@ -100,7 +100,9 @@ Model the handler in the Services designer: a Domain Event Handler element, asso
 - how the handler receives the event (`notification.DomainEvent`) and why the signature is never edited;
 - how to read the handler's associations from the Services designer and implement them in order, and what each interaction type means;
 - keeping the handler in step with the model: re-read the associations whenever the handler is implemented or revisited, because adding or changing an association changes no generated file;
-- eventing, saving and idempotency rules, and the layer boundaries to respect.
+- eventing and idempotency rules, and the layer boundaries to respect.
+
+Other installed modules add their own sections, for example "Persistence (EF Core)" (the handler runs inside the unit of work that raised the event, so it never saves) and the mapping guidance.
 
 Each generated handler class also carries an AI summary and context line pointing at this skill.
 

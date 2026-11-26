@@ -103,6 +103,24 @@ Two related consequences worth knowing before changing this area:
   fast/container-free option, not the faithful one. The generated `integration-test` skill states this
   explicitly so agents report provider quirks as findings instead of bending tests around them.
 
+## The `integration-test` skill: trimmed text, no pointer rule (2.1.1)
+
+- **The skill keeps what is specific to this generated project**: test through HTTP only with `CreateClient()`;
+  don't use the generated service proxies, and turn off `Generate Service Proxies for Testing` if they break the
+  build (a deleted proxy file comes back); keep each class's generated signature and attributes (the classes are
+  `Mode.Merge, Signature = Mode.Fully`); the collection's database is shared and never reset, so tag test data and
+  never assert counts; arrange through the API; built-in assertions only (FluentAssertions' licence is commercial).
+  Removed: generic xUnit and HTTP-testing advice, and internal notes that had leaked into the text. The database
+  section is still chosen at generation time (`UsesInProcessDatabase()`): Testcontainers, or in-memory SQLite.
+- **Calm description that names the project, no pointer rule.** The description is a "Use when…" sentence naming the
+  `*.IntegrationTests` project, which is always the generated test project's name. A glob-scoped rule telling agents
+  to load the skill was built and removed before release: in the evaluation (skills inventory report, §17) trimmed
+  skills loaded from their names and descriptions alone. The full reasoning is in `Intent.Application.MediatR`'s
+  `CONTEXT.md`, "Handler skills: trimmed text, no pointer rule".
+- **The test class's AI context names the work, not a handler.** `ServiceEndpointTestTemplate`'s `WithAIContext`
+  says to use the skill "when you add or change tests in this class"; the old "when modifying this handler" was
+  copied from a handler template.
+
 ## Related/affected modules
 
 - `Intent.Modules.Contracts.Clients.Shared` — owns `DtoContractTemplateBase`; this module's

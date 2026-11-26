@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+- Improvement: The `mediator-command-handler` and `mediator-query-handler` skills are shorter, keeping only the rules shown to change what an agent writes.
+
 ### Version 1.1.0
 
 - Improvement: Scheduled Jobs from `Intent.QuartzScheduler` and Hangfire Jobs from `Intent.Hangfire` can publish commands.

@@ -1,3 +1,7 @@
+### Version 5.4.2
+
+- Fixed: The `mediatr-domain-event-handler` skill's description was written for ChatGPT in lower case; it now says when an agent must load the skill.
+
 ### Version 5.4.1
 
 - Improvement: Updated Skill Template to new extensible version.

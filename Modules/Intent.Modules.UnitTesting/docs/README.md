@@ -54,3 +54,9 @@ The mocking framework used in the generated unit test stubs can also be configur
 - `NSubstitute`
 
 Choose the framework that best aligns with your team’s preferences and testing practices.
+
+## AI skill
+
+The module generates a `unit-test-guidelines` skill into the application's AI skills folder (for example `.agents/skills/unit-test-guidelines/SKILL.md`) for filling in the generated test stubs. It covers code management (the test class is merge-managed, so keep its attributes and add test methods), how to write and name tests, mocking repositories and mappers, and what to cover for each kind of handler and service. A domain service doesn't save, so its tests don't verify `SaveChangesAsync`.
+
+Before 1.2.1 the guidance was an always-loaded instruction at `.agents/instructions/unit-test-guidelines.md`. Upgrading to 1.2.1 moves the template's output into the skills folder and removes the old file.

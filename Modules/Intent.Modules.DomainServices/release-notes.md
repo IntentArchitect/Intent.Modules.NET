@@ -1,3 +1,7 @@
+### Version 1.2.3
+
+- Improvement: The `domain-services` skill is shorter, keeping the Intent-specific rules, and no longer tells an agent to save through the unit of work from a domain service.
+
 ### Version 1.2.2
 
 - Improvement: Updated output path of some templates to not be nested in an `Services` folder.

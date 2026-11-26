@@ -117,3 +117,7 @@ Available options are:
 - Transient (the default)
 - Scoped
 - Singleton
+
+## AI skill
+
+The module generates a `domain-services` skill into the application's AI skills folder (for example `.agents/skills/`). It holds the rules for filling in a domain service method: signatures belong to the Domain designer, a body you write is marked `Body = Mode.Ignore`, the service depends only on Domain types, and it may use repositories but never saves or uses the unit of work, since the pipeline that called it commits. Its description names the situation it covers, so an agent knows when to load it.

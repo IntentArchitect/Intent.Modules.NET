@@ -158,6 +158,9 @@ You can then simply add your integration tests to the test classes as required. 
     }
 ```
 
+### AI skill
+
+The module generates an `integration-test` skill into the application's AI skills folder (for example `.agents/skills/`) for filling in these test classes: test through HTTP only, keep each class's generated signature and attributes, arrange data through the API, isolate each test's data in the shared database, and assert what the API does today. Its database section follows the fixture: Testcontainers, or in-memory SQLite when the EF Core provider is SQLite.
 ## Top Level Statements with this module
 
 IF you are using `top-level Statements`, you will get a compilation error around `Program is inaccessible!`, you will need to apply the following work-around to get the projects compiling. https://github.com/dotnet/AspNetCore.Docs/issues/23837
