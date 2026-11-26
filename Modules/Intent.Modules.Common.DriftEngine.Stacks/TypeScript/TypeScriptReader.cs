@@ -429,9 +429,10 @@ internal static class TypeScriptReader
             if (module.Owner is null)
             {
                 var root = module.File.Root;
+                // Named as the module is, without its file's extension: the model names it `board`, never `board.js`.
                 Add(module.Owner = new TypeNode
                 {
-                    Name = FileName(module.File.Path),
+                    Name = ModuleName(FileName(module.File.Path)),
                     Namespace = module.Namespace,
                     Kind = "module",
                     At = module.File.SpanOf(root.Start, root.End),

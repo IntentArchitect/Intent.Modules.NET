@@ -255,9 +255,11 @@ internal static class PythonReader
 
         public void Read()
         {
+            // Named as Python names the module, without its file's extension: `projects` for projects.py, a package's
+            // __init__.py by its package. The model names it `projects`, never `projects.py`.
             var module = file.ModuleOwner = new TypeNode
             {
-                Name = FileName(file.Path),
+                Name = file.Module.Length > 0 ? file.Module[(file.Module.LastIndexOf('.') + 1)..] : Path.GetFileNameWithoutExtension(file.Path),
                 Namespace = file.Module,
                 Kind = "module",
                 At = SpanOf(file.Tree, file.Path),
@@ -802,8 +804,6 @@ internal static class PythonReader
 
         return tokens.Count > 0 ? CanonicalText.Of(tokens) : CanonicalText.OfText(file.Source[node.First.Start..node.Last.End]);
     }
-
-    private static string FileName(string path) => path[(path.LastIndexOf('/') + 1)..];
 }
 
 /// <summary>A Python file as the reader works with it: its parse, its module, what it binds and declares, and what is read last.</summary>

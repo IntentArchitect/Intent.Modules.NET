@@ -187,7 +187,7 @@ public class StringValueTests
     [Fact]
     public void TypeScript_follows_module_constants_template_literals_and_its_functions()
     {
-        var module = TypeScript.Types.Single(x => x.Name == "client.ts");
+        var module = TypeScript.Types.Single(x => x.Name == "client" && x.Kind == "module");
         var fetch = module.Members.Single(x => x.Name == "request").Calls.Single(x => x.Name == "fetch");
         Show(TypeScript.StringOf(fetch.Arguments[0])).ShouldBe("/api{path}");
 

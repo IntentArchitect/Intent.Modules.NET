@@ -1547,6 +1547,13 @@ public sealed partial class DriftEngine
             candidates = [component];
         }
 
+        // A module is named as its file is, without the extension, so a file declaring a type of that name (OrderList.tsx's
+        // OrderList component, beside its helpers) has two: the type it declares is the element's, not the file's loose code.
+        if (candidates.Count > 1)
+        {
+            candidates = candidates.Where(x => x.Kind != "module" || !candidates.Any(y => y.Kind != "module" && y.Files.Intersect(x.Files).Any())).ToList();
+        }
+
         // A generic type and the type of its name without type parameters are two types (Result<T> : Result): the element's
         // is the one with as many type parameters as it has generic types.
         if (candidates.Count > 1 && candidates.Where(x => x.TypeParameters.Count == (element.GenericTypes?.Count() ?? 0)).ToList() is { Count: > 0 } sameArity)

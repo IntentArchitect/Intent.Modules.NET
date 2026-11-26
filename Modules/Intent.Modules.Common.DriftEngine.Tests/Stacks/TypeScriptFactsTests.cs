@@ -206,7 +206,7 @@ public class TypeScriptFactsTests
     [Fact]
     public void What_a_module_declares_outside_its_types_is_its_module_type()
     {
-        var client = Type("client.ts");
+        var client = Module("client"); // named as the module, without the file's extension
         client.Kind.ShouldBe("module");
         client.Namespace.ShouldBe("src/api/client");
         client.Members.Select(x => x.Name).ShouldBe(["http", "pageSize", "getProducts", "deleteProduct", "api"]);
@@ -291,7 +291,7 @@ public class TypeScriptFactsTests
     public void A_call_reaches_a_module_function_an_object_method_or_a_class_method_through_what_it_is_called_on()
     {
         var getProduct = Member(Type("api"), "getProduct").Body!;
-        getProduct.Calls.Single().Target!.Member.ShouldBeSameAs(Member(Type("client.ts"), "getProducts"));
+        getProduct.Calls.Single().Target!.Member.ShouldBeSameAs(Member(Module("client"), "getProducts"));
 
         var find = Member(Type("ProductService"), "find").Body!;
         var get = find.Calls.Single(x => x.Name == "get");
@@ -309,7 +309,7 @@ public class TypeScriptFactsTests
     [Fact]
     public void A_body_has_its_type_arguments_template_literals_and_awaited_values()
     {
-        var getProducts = Member(Type("client.ts"), "getProducts").Body!;
+        var getProducts = Member(Module("client"), "getProducts").Body!;
         var get = getProducts.Calls.Single(x => x.Name == "get");
         get.Receiver.ShouldBe("http");
         get.TypeArguments.Single().Text.ShouldBe("Paged<ProductDto>");
@@ -443,7 +443,10 @@ public class TypeScriptFactsTests
 
     private static readonly CodeGraph ReactGraph = ReadAll(ReactFiles);
 
-    private static TypeNode ReactType(string name) => ReactGraph.Types.Single(x => x.Name == name);
+    /// <summary>A type the code declares; a file's module type has the file's name too (<c>ProductCard</c>), so it is <see cref="ReactModule"/>.</summary>
+    private static TypeNode ReactType(string name) => ReactGraph.Types.Single(x => x.Name == name && x.Kind != "module");
+
+    private static TypeNode ReactModule(string name) => ReactGraph.Types.Single(x => x.Name == name && x.Kind == "module");
 
     [Fact]
     public void A_capitalised_function_returning_jsx_is_a_component_and_javascript_is_read_too()
@@ -454,7 +457,7 @@ public class TypeScriptFactsTests
         ReactType("Catalog").Files.ShouldBe(["web/src/Catalog.jsx"]);
 
         // A function that returns anything else is still the module's.
-        Member(ReactType("ProductCard.tsx"), "formatName").Kind.ShouldBe("method");
+        Member(ReactModule("ProductCard"), "formatName").Kind.ShouldBe("method");
 
         // A default export names the component, so a default import of its file resolves to it.
         var catalog = ReactGraph.Files.Single(x => x.Path == "web/src/main.jsx").Imports.Single(x => x.Alias == "Catalog");
@@ -533,6 +536,8 @@ public class TypeScriptFactsTests
     }
 
     private static TypeNode Type(string name) => Graph.Types.Single(x => x.Name == name);
+
+    private static TypeNode Module(string name) => Graph.Types.Single(x => x.Name == name && x.Kind == "module");
 
     private static MemberNode Member(TypeNode type, string name) => type.Members.Single(x => x.Name == name);
 

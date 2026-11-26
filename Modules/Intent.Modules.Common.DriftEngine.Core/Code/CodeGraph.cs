@@ -1297,6 +1297,12 @@ public sealed class CodeGraph
             .Where(x => reference.QualifiedName == reference.Name || $".{x.Namespace}.{x.Name}".EndsWith("." + reference.QualifiedName, StringComparison.Ordinal))
             .ToList();
 
+        // A module, named as its file without the extension, is never what a type reference means while a type of the name is there.
+        if (candidates.Count > 1 && candidates.Any(x => x.Kind != "module"))
+        {
+            candidates = candidates.Where(x => x.Kind != "module").ToList();
+        }
+
         // Of a name's types, the one with as many type parameters as the reference gives arguments: Result<T> : Result names
         // Result, not itself. Only a preference, as a language may leave arguments out (Java's raw types).
         if (candidates.Count > 1 && candidates.Where(x => x.TypeParameters.Count == reference.Arguments.Count).ToList() is { Count: > 0 } sameArity)

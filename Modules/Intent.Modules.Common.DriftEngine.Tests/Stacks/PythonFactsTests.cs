@@ -384,7 +384,7 @@ public class PythonFactsTests
     public void A_module_is_a_type_of_its_functions_and_variables()
     {
         var module = Graph.Types.Single(x => x.Kind == "module");
-        module.Name.ShouldBe("orders.py");
+        module.Name.ShouldBe("orders"); // as Python names the module, without the file's extension
         module.Namespace.ShouldBe("shop.domain.orders");
         module.Members.Select(x => x.Name).ShouldBe(["MAX_LINES", "default_status", "make_order"]);
         module.Members.ShouldAllBe(x => x.IsStatic);

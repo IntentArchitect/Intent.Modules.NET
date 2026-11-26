@@ -337,7 +337,7 @@ public class PythonWebTests
                       { "id": "svc-delete-id", "type": "Parameter", "name": "order_id", "typeRef": { "type": "int" } }
                     ] }
                   ] },
-                  { "id": "orders-api", "type": "Service", "name": "orders.py", "stereotypes": { "Http Service Settings": { "Route": "api/orders" } }, "children": [
+                  { "id": "orders-api", "type": "Service", "name": "orders", "stereotypes": { "Http Service Settings": { "Route": "api/orders" } }, "children": [
                     { "id": "list-orders", "type": "Operation", "name": "list_orders", "typeRef": { "element": "order-read", "collection": true },
                       "stereotypes": { "Http Settings": { "Verb": "GET" } }, "children": [
                       { "id": "list-orders-limit", "type": "Parameter", "name": "limit", "typeRef": { "type": "int" }, "value": "20", "stereotypes": { "Parameter Settings": { "Source": "From Query" } } }
@@ -356,7 +356,7 @@ public class PythonWebTests
                       { "id": "delete-order-id", "type": "Parameter", "name": "order_id", "typeRef": { "type": "int" }, "stereotypes": { "Parameter Settings": { "Source": "From Route" } } }
                     ] }
                   ] },
-                  { "id": "web", "type": "Service", "name": "routes.py", "stereotypes": { "Http Service Settings": {}, "OpenAPI Settings": { "Ignore": "true" } }, "children": [
+                  { "id": "web", "type": "Service", "name": "routes", "stereotypes": { "Http Service Settings": {}, "OpenAPI Settings": { "Ignore": "true" } }, "children": [
                     { "id": "index-op", "type": "Operation", "name": "index", "typeRef": { "element": "html-response" }, "stereotypes": { "Http Settings": { "Verb": "GET" } } },
                     { "id": "order-page-op", "type": "Operation", "name": "order_page", "typeRef": { "element": "html-response" },
                       "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "orders/{order_id}" } }, "children": [
@@ -499,7 +499,7 @@ public class PythonWebTests
         var result = Run(code);
 
         var finding = Errors(result).Single(x => x.Rule == "claim/intent.invokes");
-        finding.Message.ShouldBe("The form at `app/templates/order.html:4` sends POST to `/orders/{order_id}/notes`, but `routes.py.save_notes` answers PUT there: an HTML form sends only GET or POST. Give the operation a route the form can send, or link the form to the operation it reaches.");
+        finding.Message.ShouldBe("The form at `app/templates/order.html:4` sends POST to `/orders/{order_id}/notes`, but `routes.save_notes` answers PUT there: an HTML form sends only GET or POST. Give the operation a route the form can send, or link the form to the operation it reaches.");
     }
 
     [Fact]
@@ -507,11 +507,12 @@ public class PythonWebTests
     {
         var graph = Read();
 
-        var getOrder = graph.Types.Single(x => x.Name == "orders.py").Members.Single(x => x.Name == "get_order");
+        var api = graph.Types.Single(x => x.Name == "orders" && x.Kind == "module"); // app/api/orders.py is the module `orders`, as the model names it
+        var getOrder = api.Members.Single(x => x.Name == "get_order");
         var service = getOrder.Parameters.Single(x => x.Name == "service");
         service.Type!.QualifiedName.ShouldBe("app.services.OrderService"); // OrderServiceDep, from app.dependencies
         service.Attributes.Single().Name.ShouldBe("Depends");
-        var limit = graph.Types.Single(x => x.Name == "orders.py").Members.Single(x => x.Name == "list_orders").Parameters.Single(x => x.Name == "limit");
+        var limit = api.Members.Single(x => x.Name == "list_orders").Parameters.Single(x => x.Name == "limit");
         limit.Type!.Name.ShouldBe("int");
         limit.Attributes.Single().Name.ShouldBe("Query");
         getOrder.Calls.Single(x => x.Name == "get").Target!.Type.Name.ShouldBe("OrderService");
