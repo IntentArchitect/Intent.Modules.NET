@@ -4,8 +4,9 @@ using Intent.Modules.Common.DriftEngine.Extensions;
 namespace Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 
 /// <summary>
-/// How ASP.NET Core code states the HTTP claims (<see cref="Http.HttpExtension"/>): a controller's route, verb, binding and
-/// authorization attributes, and a Minimal API router's endpoint mappings (<see cref="MinimalApiReader"/>). It adds no
+/// How ASP.NET Core code states the HTTP claims (<see cref="Http.HttpExtension"/>): a controller's route, verb, binding,
+/// authorization and API explorer attributes, and a Minimal API router's endpoint mappings (<see cref="MinimalApiReader"/>),
+/// an endpoint's OpenAPI operationId and API description exclusion included (<see cref="OpenApi"/>). It adds no
 /// claims of its own, so a Spring MVC extension reads the same claims from its annotations.
 /// </summary>
 public sealed class AspNetCoreExtension : IDriftExtension
@@ -114,7 +115,7 @@ internal sealed class AspNetCoreClaims : IClaimReader
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
         "type.exists", "service.route", "operation.verb", "operation.route", "parameter.source", "parameter.name", "operation.status", "endpoint.exists", "security",
-        "security.roles", "security.policy", "service.versions", "operation.versions", "api.versionScheme"
+        "security.roles", "security.policy", "service.versions", "operation.versions", "api.versionScheme", OpenApi.OperationIdKind, OpenApi.IgnoreKind
     };
 
     /// <summary>The attributes whose <c>Name</c> is the name a parameter is bound by: Web API 2's <c>[FromUri]</c> too.</summary>
@@ -208,6 +209,8 @@ internal sealed class AspNetCoreClaims : IClaimReader
                 return Versioning.Scheme(context);
             case "endpoint.exists":
                 return Endpoint(context);
+            case OpenApi.OperationIdKind or OpenApi.IgnoreKind:
+                return OpenApi.Action(context);
             case "service.versions":
             {
                 // A controller's [ApiVersion]s, its bases' and its actions' included.
@@ -343,7 +346,7 @@ internal sealed class AspNetCoreClaims : IClaimReader
     /// convention for an unattributed action, the verb its name starts with (<c>GetOrders</c> is GET), else POST. Null for an
     /// ASP.NET Core action with no verb attribute, which serves every verb.
     /// </summary>
-    private static (IReadOnlyList<string> Verbs, Span At)? Verbs(CodeGraph code, TypeNode? owner, MemberNode member)
+    internal static (IReadOnlyList<string> Verbs, Span At)? Verbs(CodeGraph code, TypeNode? owner, MemberNode member)
     {
         var verbs = member.Attributes.Where(x => HttpVerbs.Contains(x.Name)).ToList();
         var accept = member.Attributes.FirstOrDefault(x => x.Name == "AcceptVerbs" && x.Arguments.Count > 0);
@@ -408,7 +411,7 @@ internal sealed class AspNetCoreClaims : IClaimReader
     }
 
     /// <summary>Route tokens: <c>[controller]</c> is the class name less <c>Controller</c>, <c>[action]</c> the method's.</summary>
-    private static string Tokens(string template, string controller, string? action)
+    internal static string Tokens(string template, string controller, string? action)
     {
         var name = controller.EndsWith("Controller", StringComparison.Ordinal) ? controller[..^"Controller".Length] : controller;
         var replaced = template.Replace("[controller]", name, StringComparison.OrdinalIgnoreCase);

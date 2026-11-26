@@ -69,11 +69,11 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         // A member's serialized name is read from its own language's attributes, whatever framework the case names, so it comes
         // with the languages. What a handler handles, sends, publishes, invokes and acts on is read from any framework's code,
         // so it comes with each. .NET's own HTTP and gRPC clients are read wherever their code is, as a case's house pack gives
-        // a proxy's vocabulary and leaves the reading to them; Blazor's, Vue's and React's components come with the User
-        // Interface vocabulary, and a case with a house designer's pack names intent.vue or intent.react to have that stack read
-        // its claims. The TypeScript modules, stores and proxies any front end writes come with either.
+        // a proxy's vocabulary and leaves the reading to them; Blazor's, MVC's views', MAUI's views, the MVVM Toolkit's messenger, Vue's and React's components come with the
+        // User Interface vocabulary, and a case with a house designer's pack names intent.vue or intent.react to have that stack
+        // read its claims. The TypeScript modules, stores and proxies any front end writes come with either.
         // A house extension comes last, as a module's is registered after the stock ones, so its readers are asked first.
-        var ui = input.StockPacks.Contains("intent.ui") ? ["intent.blazor", "intent.typescript.ui", "intent.vue", "intent.react"]
+        var ui = input.StockPacks.Contains("intent.ui") ? ["intent.blazor", "intent.mvc", "intent.mvvmtoolkit", "intent.maui", "intent.typescript.ui", "intent.vue", "intent.react"]
             : input.StockPacks.Any(x => x is "intent.vue" or "intent.react") ? new[] { "intent.typescript.ui" } : [];
         var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any() || x.Id is "intent.serialization" or "intent.proxies")
             .Concat(ui.Select(StockExtensions.Find).OfType<IDriftExtension>())

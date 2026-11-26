@@ -344,6 +344,93 @@ public class CatalogService(HttpClient httpClient)
 }
 ```
 
+## csharp-standard-backend-call
+
+The standard User Interface designer (2.0.0) with a C# front end: each Proxy Operation has a Call Service Operation Action to the backend Operation in another application's Services designer, whose Http Settings Verb and Http Service Settings and Http Settings Routes are the model's values. The claims are on the link, whose target end is the claim's element, so the stock .NET proxy reader reads the link's source, the Proxy Operation, as its method. `GetCatalogItem` sends a GET; `DeleteCatalogItem` posts where the backend answers DELETE. Both routes hold: a route parameter is any value the code computes, whatever the backend names it (`{itemId}` against `{id}`), and literals compare without case, as ASP.NET Core routes do (`Items`).
+
+```json case
+{ "phase": "later", "kinds": ["proxy.verb", "proxy.route"], "requirements": ["R2", "R10", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "webappcomponents", "name": "WebAppComponents", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog-service", "type": "Proxy", "name": "CatalogService", "children": [
+            { "id": "get-catalog-item", "type": "Proxy Operation", "name": "GetCatalogItem", "children": [
+              { "id": "get-catalog-item-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+            ] },
+            { "id": "delete-catalog-item", "type": "Proxy Operation", "name": "DeleteCatalogItem", "children": [
+              { "id": "delete-catalog-item-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+            ] }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "get-catalog-item-calls-backend", "type": "Call Service Operation Action", "source": { "element": "get-catalog-item" }, "target": { "element": "catalog-get-item" } },
+        { "id": "delete-catalog-item-calls-backend", "type": "Call Service Operation Action", "source": { "element": "delete-catalog-item" }, "target": { "element": "catalog-delete-item" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "catalog-api", "name": "Catalog.API",
+        "elements": [
+          { "id": "catalog-api-service", "type": "Service", "name": "CatalogApi", "stereotypes": { "Http Service Settings": { "Route": "api/catalog" } }, "children": [
+            { "id": "catalog-get-item", "type": "Operation", "name": "GetItemById", "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "items/{itemId}" } } },
+            { "id": "catalog-delete-item", "type": "Operation", "name": "DeleteItemById", "stereotypes": { "Http Settings": { "Verb": "DELETE", "Route": "items/{id}" } } }
+          ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```csharp file src/WebAppComponents/Services/CatalogService.cs
+using System.Net.Http.Json;
+
+namespace eShop.WebAppComponents.Services;
+
+public class CatalogService(HttpClient httpClient)
+{
+    private readonly string remoteServiceBaseUrl = "api/catalog/";
+
+    public Task<CatalogItem?> GetCatalogItem(int id)
+    {
+        var uri = $"{remoteServiceBaseUrl}items/{id}";
+        return httpClient.GetFromJsonAsync<CatalogItem>(uri);
+    }
+
+    public Task DeleteCatalogItem(int id) => httpClient.PostAsync($"{remoteServiceBaseUrl}Items/{id}", null);
+}
+
+public record CatalogItem(int Id, string Name);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.verb", "element": "get-catalog-item-calls-backend", "outcome": "verified", "expected": "GET", "actual": "GET", "at": "src/WebAppComponents/Services/CatalogService.cs:12" },
+    { "kind": "proxy.route", "element": "get-catalog-item-calls-backend", "outcome": "verified", "expected": "api/catalog/items/{itemId}", "actual": "api/catalog/items/{id}", "at": "src/WebAppComponents/Services/CatalogService.cs:12" },
+    { "kind": "proxy.verb", "element": "delete-catalog-item-calls-backend", "outcome": "contradicted", "expected": "DELETE", "actual": "POST", "at": "src/WebAppComponents/Services/CatalogService.cs:15" },
+    { "kind": "proxy.route", "element": "delete-catalog-item-calls-backend", "outcome": "verified", "at": "src/WebAppComponents/Services/CatalogService.cs:15" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.verb", "severity": "error", "subject": "delete-catalog-item-calls-backend" },
+    { "rule": "claim/proxy.route", "count": 0 }
+  ]
+}
+```
+
 ## eshop-http-verb-contradicted
 
 The proxy now posts the item's id with `PostAsJsonAsync`, and the backend Operation answers GET.

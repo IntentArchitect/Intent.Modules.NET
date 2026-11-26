@@ -3,21 +3,61 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Stacks.Interactions;
+using Intent.Modules.Common.DriftEngine.Stacks.Markup;
 using Intent.Modules.Common.DriftEngine.Stacks.Messaging;
+using Intent.Modules.Common.DriftEngine.Stacks.Proxies;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScriptUi;
+using Intent.Modules.Common.DriftEngine.Stacks.Ui;
 
 namespace Intent.Modules.Common.DriftEngine.Stacks.Blazor;
 
 /// <summary>
 /// Reads the User Interface designer's claims (the <c>intent.ui</c> pack's) from Blazor's Razor components: a page's
 /// <c>@page</c> routes and <c>&lt;PageTitle&gt;</c>, whether a component is a page or a layout, its <c>[Parameter]</c>
-/// properties and <c>EventCallback</c>s, and what its markup and code render, navigate to, open and inject. It answers only
-/// for a component its <c>.razor</c> file declares, so a Vue front end's claims are left to its house pack.
+/// properties and <c>EventCallback</c>s, its section outlets (Regions), and what its markup and code render, navigate to,
+/// open, inject, post forms to and load scripts for. It answers only for a component its <c>.razor</c> file declares, so a
+/// Vue front end's claims are left to its house pack, and for what a plain C# class uses and the proxy operations it calls
+/// (a Store's, a View Model's), which a Blazor application's state and services are.
 /// </summary>
 public sealed class BlazorExtension : IDriftExtension
 {
     public string Id => "intent.blazor";
 
-    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new Links()];
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new Links(), new Regions()];
+
+    public IEnumerable<ICodeReader> Readers { get; } = [new ComponentMembers()];
+
+    public IEnumerable<IOptInRule> OptInRules { get; } = [new UnmodelledRegions()];
+
+    /// <summary>
+    /// What a component's properties are to the designer, so <c>unmodelled.member</c> asks only for the ones it can state:
+    /// an injected service (<c>@inject</c>, <c>[Inject]</c>) is its <c>Uses</c> of what it injects (<see cref="CodeGraph.StatedByLink"/>),
+    /// and a property that is no parameter, such as one bound from the posted form (<c>[SupplyParameterFromForm]</c>), is
+    /// written in code (<see cref="CodeGraph.Unmodellable"/>): the designer states a component's Properties only for its
+    /// parameters, and a Page's only for its route and query parameters.
+    /// </summary>
+    private sealed class ComponentMembers : ICodeReader
+    {
+        public void Read(CodeGraph graph)
+        {
+            // A RenderFragment parameter is a placement point a parent fills: a Region states it, never a Property.
+            graph.Unstatable.Add((_, type, member) => IsRazor(type) && BlazorMarkup.IsFragment(member)
+                ? "it is a placement point a parent fills with content, which a Region states"
+                : null);
+
+            foreach (var member in graph.Types.Where(IsRazor).SelectMany(x => x.Members).Where(x => x.Kind is "property" or "field"))
+            {
+                if (member.Attributes.Any(a => a.Name == "Inject"))
+                {
+                    graph.StatedByLink[member] = "Uses";
+                }
+                else if (!IsParameter(member))
+                {
+                    graph.Unmodellable[member] = IsFormBound(member) ? "Blazor binds it from the posted form" : "it is no parameter, so a parent can't set it";
+                }
+            }
+        }
+    }
 
     /// <summary>A component a <c>.razor</c> file declares, with its code-behind.</summary>
     internal static bool IsRazor(TypeNode? type) => type is { Kind: "component" } && type.Files.Any(x => x.EndsWith(".razor", StringComparison.OrdinalIgnoreCase));
@@ -27,6 +67,9 @@ public sealed class BlazorExtension : IDriftExtension
 
     /// <summary>A property a parent sets: <c>[Parameter]</c>, <c>[SupplyParameterFromQuery]</c> or <c>[CascadingParameter]</c>.</summary>
     internal static bool IsParameter(MemberNode member) => member.Attributes.Any(x => x.Name is "Parameter" or "SupplyParameterFromQuery" or "CascadingParameter");
+
+    /// <summary>A property Blazor binds from the posted form: <c>[SupplyParameterFromForm]</c>.</summary>
+    internal static bool IsFormBound(MemberNode member) => member.Attributes.Any(x => x.Name == "SupplyParameterFromForm");
 
     internal static bool IsCallback(TypeRefNode? type) => type?.Name is "EventCallback";
 
@@ -158,6 +201,13 @@ internal sealed class Members : IClaimReader
             case "member.exists":
             {
                 // A parent sets a component's Property, and handles its Event Emitter, only through a parameter.
+                // A form-bound value is the page's own code: the designer models a Page's Properties only for route and query parameters.
+                if (!callback && BlazorExtension.IsFormBound(member))
+                {
+                    return ClaimReading.Compared("bound from the form", member.At, false,
+                        $"`{member.Name}` is bound from the posted form ([SupplyParameterFromForm]), which the model doesn't state: a Page's Properties are its route and query parameters, and a component's its parameters. Remove the Property.");
+                }
+
                 if (!BlazorExtension.IsParameter(member) || callback && !BlazorExtension.IsCallback(member.Type))
                 {
                     return ClaimReading.Compared(callback ? "not an EventCallback parameter" : "not a parameter", member.At, false,
@@ -217,13 +267,18 @@ internal sealed class Links : IClaimReader
             { SpecializationType: "Display Component" } display => (display, display.TypeReference?.Element as IElement),
             _ => (null, null)
         };
-        if (BlazorExtension.CodeOf(context, source) is not { } located || target is null || !BlazorExtension.IsRazor(located.Type))
+        if (BlazorExtension.CodeOf(context, source) is not { } located || target is null)
         {
             return null;
         }
 
-        // From one of its operations, only that method's code is read.
         var (component, type) = located;
+        if (!BlazorExtension.IsRazor(type))
+        {
+            return Class(context, source!, component, type, target);
+        }
+
+        // From one of its operations, only that method's code is read.
         var methods = context.Code.MembersOf(type).Where(x => x.Kind == "method").ToList();
         if (source != component && methods.FirstOrDefault(x => x.Name == source!.Name) is { } operation)
         {
@@ -232,13 +287,21 @@ internal sealed class Links : IClaimReader
 
         var calls = methods.SelectMany(x => x.Calls).ToList();
         var markup = context.Code.MarkupOf(type).ToList();
-        // What a component uses that isn't a component (a store, service, utility or proxy) is injected.
         var used = context.TypeOf(target);
         return context.Kind switch
         {
+            // A script module it uses (a Behaviour, or any module of a script file) is imported through JS interop, or for a
+            // Behaviour loaded for the whole application and acting on an element of its markup.
+            "intent.uses" when used is { Kind: not "component" } && BlazorMarkup.ScriptFile(used) is { } script => Script(context, component, target, type, script),
+            "intent.uses" when used is null && UiCode.Bound(context, "Behaviour") is not null =>
+                ClaimReading.CantVerify("blocked", $"Waits on `{target.Name}`, which nothing located."),
+            // What it uses that isn't a component (a store, service, utility, view model or proxy) is injected, or held or
+            // created as any class's dependency is.
             "intent.uses" when used is { Kind: not "component" } || BlazorExtension.Binds(context, "Used") => Injected(context, type, target, used) is { } injected
                 ? ClaimReading.Found(injected, injected.At)
-                : ClaimReading.Absent(type.At),
+                : used is not null && Dependencies.Find(context.Code, type, used) is { } dependency
+                    ? ClaimReading.Found(dependency.Node, dependency.At)
+                    : ClaimReading.Absent(type.At),
             "intent.uses" => markup.FirstOrDefault(x => x.Component?.Name == target.Name) is { } tag
                 ? ClaimReading.Found(tag, tag.At)
                 : ClaimReading.Absent(type.At),
@@ -247,16 +310,62 @@ internal sealed class Links : IClaimReader
                 : ClaimReading.Absent(type.At),
             "intent.navigates" => Navigates(context, target, markup, calls, type),
             // A Call Service Operation Action: the component's code calls the proxy operation, itself or through the code's own
-            // types it calls (CartPage's BasketState calls BasketService).
+            // types it calls (CartPage's BasketState calls BasketService), or its markup posts a plain form to the operation.
             "intent.invokes" => Invocation(context, target, methods.Select(x => (type, x))) is { } invoked
                 ? ClaimReading.Found(invoked.Call, invoked.Call.At)
-                : ClaimReading.Absent(type.At),
+                : FormPost(context, component, target, type) ?? ClaimReading.Absent(type.At),
             _ when context.Element is IAssociationEnd { Association.SpecializationType: "Call Service Operation Action" } =>
                 Invocation(context, target, methods.Select(x => (type, x))) is { } call
                     ? ClaimReading.Compared(call.Declared is { } declared ? Qualified(declared) : call.Call.ReceiverType?.Text ?? call.Call.Text, call.Call.At, call.OnLocated)
-                    : null,
+                    : Posted(context, target, type) is { Post: true } form
+                        ? ClaimReading.Compared(target.ParentElement?.Name ?? target.Name, form.Node.At, true)
+                        : null,
             _ => Target(context, target, markup, type)
         };
+    }
+
+    /// <summary>
+    /// A link from an element whose code is a plain C# class, not a component: a Store, View Model, UI Service, Utility or
+    /// Background Process the designer gives no member for its methods, so the element is the whole class. Its Uses (the
+    /// vocabulary binds <c>Used</c>) is a dependency of the class on the used element's type (<see cref="Dependencies"/>). Its
+    /// Call Service Operation Action's calls are those of every method and constructor, and of the code's own methods they
+    /// reach. Any other source or kind is left to other readers.
+    /// </summary>
+    private static ClaimReading? Class(ClaimContext context, IElement source, IElement holder, TypeNode type, IElement target)
+    {
+        if (holder != source || type.Kind == "component" || !type.Files.Any(x => x.EndsWith(".cs", StringComparison.OrdinalIgnoreCase)))
+        {
+            return null;
+        }
+
+        if (context.Kind == "intent.uses" && BlazorExtension.Binds(context, "Used"))
+        {
+            if (context.TypeOf(target) is not { } used)
+            {
+                return ClaimReading.CantVerify("blocked", $"Waits on `{target.Name}`, which nothing located.");
+            }
+
+            return Dependencies.Find(context.Code, type, used) is { } dependency
+                ? ClaimReading.Found(dependency.Node, dependency.At)
+                : ClaimReading.Compared("none", type.At, false,
+                    $"`{source.Name}` uses `{target.Name}`: in the model, not in the code. No field, property or constructor parameter of `{type.Name}` is a `{used.Name}` or an interface of it, and it creates none. The model states it in its Uses. Give `{type.Name}` the dependency, or remove the Uses.");
+        }
+
+        if (context.Element is not IAssociationEnd { Association.SpecializationType: "Call Service Operation Action" } || context.Kind is not ("intent.invokes" or "intent.target"))
+        {
+            return null;
+        }
+
+        var units = context.Code.MembersOf(type).Where(x => x.Kind is "method" or "constructor").Select(x => (type, x)).ToList();
+        if (Invocation(context, target, units) is not { } call)
+        {
+            // What the target is waits on whether it is invoked, which says so.
+            return context.Kind == "intent.target" ? null : ClaimReading.Absent(type.At);
+        }
+
+        return context.Kind == "intent.invokes"
+            ? ClaimReading.Found(call.Call, call.Call.At)
+            : ClaimReading.Compared(call.Declared is { } declared ? Qualified(declared) : call.Call.ReceiverType?.Text ?? call.Call.Text, call.Call.At, call.OnLocated);
     }
 
     /// <summary>
@@ -312,6 +421,118 @@ internal sealed class Links : IClaimReader
     }
 
     private static string Qualified(TypeNode type) => type.Namespace.Length > 0 ? $"{type.Namespace}.{type.Name}" : type.Name;
+
+    /// <summary>
+    /// A component's Uses of a script module: a JS interop import of its file, else, for a Behaviour (the vocabulary binds
+    /// <c>Behaviour</c>), the file loaded for the whole application by a <c>&lt;script src&gt;</c> and acting on an element of
+    /// the component's markup, one a selector it passes to the DOM matches. Only a selector naming a class, an id or a
+    /// <c>data-</c> attribute marks an element (<see cref="CssSelector.Marks"/>).
+    /// </summary>
+    private static ClaimReading Script(ClaimContext context, IElement component, IElement target, TypeNode type, string file)
+    {
+        if (BlazorMarkup.ModuleImport(context.Code, type, file) is { } import)
+        {
+            return ClaimReading.Found(import, import.At);
+        }
+
+        if (UiCode.Bound(context, "Behaviour") is null)
+        {
+            return ClaimReading.Compared("none", type.At, false,
+                $"`{component.Name}` uses `{target.Name}`: in the model, not in the code. `{component.Name}` doesn't import `{file}` through JS interop. The model states it in its Uses. Import the module, or remove the Uses.");
+        }
+
+        if (BlazorMarkup.ScriptLoading(context.Code, file) is not { } loading)
+        {
+            return ClaimReading.Compared("none", type.At, false,
+                $"`{component.Name}` uses `{target.Name}`: in the model, not in the code. `{component.Name}` doesn't import `{file}` through JS interop, and no `<script src>` loads it for the application. The model states it in its Uses. Load the script, or remove the Uses.");
+        }
+
+        var selectors = BlazorMarkup.MarkingSelectors(context.Code, file);
+        if (context.Code.MarkupOf(type).FirstOrDefault(x => selectors.Any(s => s.Matches(x))) is { } marked)
+        {
+            return ClaimReading.Found(marked, marked.At);
+        }
+
+        var acts = selectors.Count == 0 ? "no element by a selector naming a class, an id or a data- attribute" : string.Join(", ", selectors.Select(x => $"`{x.Text}`"));
+        return ClaimReading.Compared("none", type.At, false,
+            $"`{component.Name}` uses `{target.Name}`: in the model, not in the code. `{file}`, loaded for the application by `<script src=\"{loading.Src}\">` in `{loading.Host.Name}`, acts on {acts}, and no element of `{component.Name}`'s markup matches. The model states it in its Uses. Mark the element it acts on, or remove the Uses.");
+    }
+
+    /// <summary>
+    /// The routes an operation with Http Settings is served at, as the model gives them: its Route under its Service's Http
+    /// Service Settings Route (<c>[controller]</c> filled in, a query string dropped), and its own Route alone when it starts
+    /// with a slash, which an attribute route reads as absolute. Empty for an operation without Http Settings.
+    /// </summary>
+    private static IReadOnlyList<string> Routes(ClaimContext context, IElement operation)
+    {
+        if (!context.Model.HasStereotype(operation, "Http Settings"))
+        {
+            return [];
+        }
+
+        var own = context.Model.Stereotype(operation, "Http Settings", "Route") ?? "";
+        if (operation.ParentElement is not { } service || context.Model.Stereotype(service, "Http Service Settings", "Route") is not { Length: > 0 } prefix)
+        {
+            return [own];
+        }
+
+        prefix = prefix.Split('?')[0].Replace("[controller]", service.Name.EndsWith("Service", StringComparison.Ordinal) ? service.Name[..^"Service".Length] : service.Name);
+        var combined = own.Length == 0 ? prefix : prefix.TrimEnd('/') + "/" + own.TrimStart('/');
+        return own.StartsWith('/') || own.StartsWith("~/", StringComparison.Ordinal) ? [combined, own] : [combined];
+    }
+
+    /// <summary>
+    /// The plain form of the component's markup (<see cref="BlazorMarkup.PostedForms"/>) whose action is the operation's route,
+    /// and whether the operation takes the POST a form sends. Null when the operation has no Http Settings, or no form posts to
+    /// its route.
+    /// </summary>
+    private static (MarkupNode Node, bool Post)? Posted(ClaimContext context, IElement operation, TypeNode type)
+    {
+        var routes = Routes(context, operation);
+        if (routes.Count == 0)
+        {
+            return null;
+        }
+
+        var post = string.Equals(context.Model.Stereotype(operation, "Http Settings", "Verb"), "POST", StringComparison.OrdinalIgnoreCase);
+        return BlazorMarkup.PostedForms(context.Code, type)
+            .FirstOrDefault(x => ProxyRequests.Route(x.Action) is { } route && routes.Any(r => ProxyRequests.RouteMatches(route.Segments, r))) is { Node: { } node }
+            ? (node, post)
+            : null;
+    }
+
+    /// <summary>
+    /// A component's Call Service Operation Action to an operation with Http Settings, read from its plain form posts: one
+    /// posting to the operation's route invokes it when the operation takes a POST. Null when the component posts no form, so
+    /// silence says the rest.
+    /// </summary>
+    private static ClaimReading? FormPost(ClaimContext context, IElement component, IElement operation, TypeNode type)
+    {
+        var forms = BlazorMarkup.PostedForms(context.Code, type);
+        if (forms.Count == 0 || Routes(context, operation) is not [var route, ..])
+        {
+            return null;
+        }
+
+        var verb = context.Model.Stereotype(operation, "Http Settings", "Verb") ?? "";
+        switch (Posted(context, operation, type))
+        {
+            case { Post: true } form:
+                return ClaimReading.Found(form.Node, form.Node.At);
+            case { } form:
+                return ClaimReading.Compared("POST", form.Node.At, false,
+                    $"`{component.Name}` posts a form to `{operation.Name}`'s route, but `{operation.Name}` is a `{verb}` endpoint, and a form sends a POST. The model states it in its Call Service Operation Action. Link the operation the form posts to.");
+        }
+
+        var actions = forms.Select(x => ProxyRequests.Route(x.Action)).ToList();
+        if (actions.Any(x => x is null))
+        {
+            return ClaimReading.CantVerify("unreadable", "A posted form's action is computed.", forms[actions.FindIndex(x => x is null)].Node.At);
+        }
+
+        return ClaimReading.Compared(string.Join(", ", actions.Select(x => x!.Value.Shown)), forms[0].Node.At, false,
+            $"`{component.Name}` invokes `{operation.Name}`: in the model, not in the code. `{operation.Name}` is `{verb} {route.Trim('/')}`, and `{component.Name}` posts its forms to {string.Join(", ", actions.Select(x => $"`{x!.Value.Shown}`"))}. The model states it in its Call Service Operation Action. Post the form to the operation's route, or link the operation it posts to.");
+    }
 
     /// <summary>
     /// The member a component has the target injected into (<c>@inject</c>, <c>[Inject]</c>, a field or property of its type):

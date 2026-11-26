@@ -243,7 +243,7 @@ internal static class ActionResults
     /// The one static method of the code's own a call on the controller reaches as an extension method: of the call's name,
     /// taking a <c>Controller</c> or <c>ControllerBase</c> and then the call's arguments, and returning an untyped result.
     /// </summary>
-    private static MemberNode? Extension(CodeGraph code, CallNode call) =>
+    internal static MemberNode? Extension(CodeGraph code, CallNode call) =>
         code.Types.SelectMany(x => x.Members)
             .Where(x => x is { Kind: "method", IsStatic: true, Type: { } type } && x.Name == call.Name && IsUntyped(type)
                         && x.Parameters.Count == call.Arguments.Count + 1 && x.Parameters[0].Type is { } extended && ControllerBases.Contains(extended.Name))

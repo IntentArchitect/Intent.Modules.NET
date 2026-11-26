@@ -7,15 +7,27 @@ namespace Intent.Modules.Common.DriftEngine.Extensions;
 public sealed class ClaimContext
 {
     private readonly DriftEngine _engine;
+    private readonly Func<ClaimReading?>? _next;
 
-    internal ClaimContext(DriftEngine engine, Claim claim, CodeGraph code, CodeScope scope)
+    internal ClaimContext(DriftEngine engine, Claim claim, CodeGraph code, CodeScope scope, Func<ClaimReading?>? next = null)
     {
         _engine = engine;
         Claim = claim;
         Code = code;
         Scope = scope;
         Model = new ModelContext(engine);
+        _next = next;
     }
+
+    /// <summary>
+    /// What the claim readers after this one read, as if this one had passed the claim on: a later extension's reader comes
+    /// first, so this is an earlier extension's and then the stock stacks'. A reader that only adjusts a reading (narrows where
+    /// a lookup looks, rewords a finding, turns a can't-verify into a miss for its own code) calls it and returns what it makes
+    /// of the result, rather than redoing the stack's reading. Null when no later reader answers: if this reader returns null
+    /// too, the engine's own rule for the kind reads the claim as usual. A later reader that fails is reported as failing,
+    /// and its reading is can't verify.
+    /// </summary>
+    public ClaimReading? ReadNext() => _next?.Invoke();
 
     public Claim Claim { get; }
 
@@ -103,27 +115,44 @@ public sealed class ClaimReading
         Message = message;
     }
 
-    internal string From { get; }
+    // Readable by extensions, so a reader that asks the readers after it (ClaimContext.ReadNext) can see what they read and
+    // adjust it; made only through the factory methods below.
 
-    internal string? Value { get; }
+    /// <summary>
+    /// What the reading is: <c>found</c>, <c>code</c> (stated), <c>compared:same</c> or <c>compared:different</c>,
+    /// <c>absent</c>, <c>missing</c>, <c>default</c>, <c>outOfScope</c> or <c>cantVerify</c>, as the factory method that made it.
+    /// </summary>
+    public string From { get; }
 
-    internal Span? At { get; }
+    /// <summary>The value the code states, compared or defaults to; null for none.</summary>
+    public string? Value { get; }
 
-    internal string? Reason { get; }
+    /// <summary>Where the code states it, or would.</summary>
+    public Span? At { get; }
 
-    internal string? Detail { get; }
+    /// <summary>Why it can't be verified (<c>unresolved</c>, <c>ambiguous</c>, <c>outOfScope</c>, ...); null for a reading that verifies or contradicts.</summary>
+    public string? Reason { get; }
 
-    internal IReadOnlyList<Span>? Candidates { get; }
+    /// <summary>What the finding says beyond the value: what can't be read, where a missing thing was searched, the out-of-scope file.</summary>
+    public string? Detail { get; }
 
-    internal string? Searched { get; }
+    /// <summary>The places an ambiguous reading could be.</summary>
+    public IReadOnlyList<Span>? Candidates { get; }
 
-    internal object? Located { get; }
+    /// <summary>For a missing reading, what was searched for.</summary>
+    public string? Searched { get; }
 
-    internal string? Message { get; }
+    /// <summary>What an existence reading located: a type, a member, or an extension's own model of it.</summary>
+    public object? Located { get; }
 
-    internal IReadOnlyList<Span> Code { get; private init; } = [];
+    /// <summary>The reader's own finding text for a contradiction; null for the engine's wording.</summary>
+    public string? Message { get; }
 
-    internal IReadOnlyList<ModelCorrection> Corrections { get; private init; } = [];
+    /// <summary>The other code the reading was read through (<see cref="Through"/>).</summary>
+    public IReadOnlyList<Span> Code { get; private init; } = [];
+
+    /// <summary>The model changes that settle a contradiction (<see cref="Correcting"/>).</summary>
+    public IReadOnlyList<ModelCorrection> Corrections { get; private init; } = [];
 
     /// <summary>
     /// The reading with the other code it was read through, such as the <c>HasOne</c> and <c>WithMany</c> that pick out the

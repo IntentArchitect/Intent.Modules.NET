@@ -696,3 +696,68 @@ export const router = createRouter({ history: createWebHistory(), routes: [] })
   "filesRead": { "include": ["src/utils/format.ts"], "exclude": ["src/**/*.test.ts"] }
 }
 ```
+
+## xaml-views-are-their-classs-and-resources-add-no-file
+
+A XAML view (`intent.xaml`) is the markup half of the class its `x:Class` names, so a located view's XAML is located with its code-behind. The application's own XAML (`App.xaml`, an `Application`) and a resource dictionary (`Colors.xaml`, no `x:Class`) hold resources for the whole app, which no designer has a construct for: they add no file, so the rules for unmodelled files and types report nothing.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.file", "optin/unmodelled.type"], "kinds": ["type.exists"], "requirements": ["R38", "R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [ { "id": "catalog", "type": "Page", "name": "CatalogView", "stereotypes": { "Page": { } } } ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.file" }, { "Rule": "optin/unmodelled.type" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/App.xaml
+<Application x:Class="Shop.App" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <ResourceDictionary Source="Resources/Colors.xaml" />
+    </Application.Resources>
+</Application>
+```
+
+```xml file src/Shop/Resources/Colors.xaml
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="Accent">#512BD4</Color>
+</ResourceDictionary>
+```
+
+```xml file src/Shop/Views/CatalogView.xaml
+<ContentPage x:Class="Shop.Views.CatalogView" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Label Text="Catalog" TextColor="{StaticResource Accent}" />
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/CatalogView.xaml.cs
+namespace Shop.Views;
+
+public partial class CatalogView : ContentPage
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "catalog", "outcome": "verified", "at": "src/Shop/Views/CatalogView.xaml.cs:3" }
+  ],
+  "noOtherFindings": true
+}
+```

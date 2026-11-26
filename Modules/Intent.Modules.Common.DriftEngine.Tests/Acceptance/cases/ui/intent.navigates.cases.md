@@ -2,7 +2,7 @@
 
 A component navigates to a page: a Navigation in the User Interface designer, or a Navigates To association in the Java spike's Front End designer. It is a `presence` kind, an existence kind, `stated: always`, and the claim sits on the association that states it.
 
-The Blazor cases use the `intent.ui` pack's vocabulary, and the Blazor reader reads the navigation: an `href`, a form `action` or a `NavigateTo` whose URI is the target's route. A navigation whose URI is computed is can't verify, `unreadable`. The Vue cases use the Java spike's house pack, which gives the Front End designer's vocabulary too.
+The Blazor cases use the `intent.ui` pack's vocabulary, and the Blazor reader reads the navigation: an `href`, a form `action` or a `NavigateTo` whose URI is the target's route. A navigation whose URI is computed is can't verify, `unreadable`. The Vue cases use the Java spike's house pack, which gives the Front End designer's vocabulary too. The `mvc-*` cases read ASP.NET Core MVC views with the MVC reader (`intent.mvc`): a link reaching an action that takes a GET and renders the target's view, or the target Razor Page.
 
 ## verified-href
 
@@ -642,6 +642,436 @@ export default function HelpPage() {
     { "kind": "intent.navigates", "element": "nav-to-help", "outcome": "cantVerify", "reason": "unreadable" },
     { "kind": "intent.navigates", "element": "account-to-login", "outcome": "verified", "at": "src/AccountPage.jsx:5" },
     { "kind": "intent.navigates", "element": "orders-to-login", "outcome": "verified", "at": "src/OrdersPage.jsx:5" }
+  ]
+}
+```
+
+## mvc-links
+
+ASP.NET Core MVC views, read by the MVC reader (`intent.mvc`): a link navigates to a page when it reaches an action that takes a GET and renders the page's view. An `<a href>` reaches the actions served at its path (`~/orders` is `OrdersController.Index`, served by the default conventional route at `/Orders`), an `<a asp-controller asp-action>` the action it names, and an `<a asp-page>` the Razor Page at that path. A link to another site reaches no page of this one.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop.Web", "type": "User Interface Package",
+        "elements": [
+          { "id": "views", "type": "Folder", "name": "Views", "children": [
+            { "id": "home", "type": "Folder", "name": "Home", "children": [
+              { "id": "home-index", "type": "Page", "name": "Index", "stereotypes": { "Page": { "Route": "/" } } }
+            ] },
+            { "id": "orders", "type": "Folder", "name": "Orders", "children": [
+              { "id": "orders-index", "type": "Page", "name": "Index", "stereotypes": { "Page": { "Route": "/Orders" } } },
+              { "id": "cancelled", "type": "Page", "name": "Cancelled", "stereotypes": { "Page": { } } }
+            ] }
+          ] },
+          { "id": "pages", "type": "Folder", "name": "Pages", "children": [
+            { "id": "privacy", "type": "Page", "name": "Privacy", "stereotypes": { "Page": { "Route": "/Privacy" } } }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "home-to-orders", "type": "Navigation", "source": { "element": "home-index" }, "target": { "element": "orders-index" } },
+        { "id": "home-to-privacy", "type": "Navigation", "source": { "element": "home-index" }, "target": { "element": "privacy" } },
+        { "id": "orders-to-home", "type": "Navigation", "source": { "element": "orders-index" }, "target": { "element": "home-index" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop.Web/Shop.Web.csproj
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>
+```
+
+```csharp file src/Shop.Web/Program.cs
+var app = WebApplication.CreateBuilder(args).Build();
+app.MapDefaultControllerRoute();
+app.MapRazorPages();
+app.Run();
+```
+
+```csharp file src/Shop.Web/Controllers/HomeController.cs
+namespace Shop.Web.Controllers;
+
+public class HomeController : Controller
+{
+    public IActionResult Index() => View();
+}
+```
+
+```csharp file src/Shop.Web/Controllers/OrdersController.cs
+namespace Shop.Web.Controllers;
+
+public class OrdersController : Controller
+{
+    public IActionResult Index() => View();
+
+    [HttpPost]
+    public IActionResult Cancel(int id) => View("Cancelled");
+}
+```
+
+```cshtml file src/Shop.Web/Views/Home/Index.cshtml
+<h1>Welcome</h1>
+<a href="~/orders">Your orders</a>
+<a asp-page="/Privacy">Privacy</a>
+<a href="https://learn.microsoft.com/aspnet/core">About ASP.NET Core</a>
+```
+
+```cshtml file src/Shop.Web/Views/Orders/Index.cshtml
+<h1>Your orders</h1>
+<a asp-controller="Home" asp-action="Index">Home</a>
+<a asp-action="Cancel" asp-route-id="5">Cancel order 5</a>
+```
+
+```cshtml file src/Shop.Web/Views/Orders/Cancelled.cshtml
+<h1>Order cancelled</h1>
+```
+
+```cshtml file src/Shop.Web/Pages/Privacy.cshtml
+@page
+<h1>Privacy</h1>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "home-to-orders", "outcome": "verified", "at": "src/Shop.Web/Views/Home/Index.cshtml:2" },
+    { "kind": "intent.navigates", "element": "home-to-privacy", "outcome": "verified", "at": "src/Shop.Web/Views/Home/Index.cshtml:3" },
+    { "kind": "intent.navigates", "element": "orders-to-home", "outcome": "verified", "at": "src/Shop.Web/Views/Orders/Index.cshtml:2" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "count": 0 }
+  ]
+}
+```
+
+## mvc-link-reaches-another-page
+
+A planted drift: the home page's link now goes to `~/home`, the home page itself. One finding, naming the target's URLs and where the view links to.
+
+```json case
+{ "phase": 6, "base": "mvc-links", "kinds": ["intent.navigates"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```cshtml file src/Shop.Web/Views/Home/Index.cshtml
+<h1>Welcome</h1>
+<a href="~/home">Your orders</a>
+<a asp-page="/Privacy">Privacy</a>
+<a href="https://learn.microsoft.com/aspnet/core">About ASP.NET Core</a>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "home-to-orders", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "home-to-orders", "messageContains": "`Index` navigates to `Index`: in the model, not in the code. `Index` is at `/Orders`, `/Orders/Index`, and `src/Shop.Web/Views/Home/Index.cshtml` links to `href=\"~/home\"`, `asp-page=\"/Privacy\"`, `href=\"https://learn.microsoft.com/aspnet/core\"`." },
+    { "rule": "scope/coverage", "severity": "info" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-link-to-a-post-action-states-nothing
+
+A link sends a GET, so a link to an action that takes only a POST reaches nothing, though that action renders a page: the orders page's `<a asp-action="Cancel">` doesn't navigate to `Cancelled`, which only the POST `Cancel` renders.
+
+```json case
+{ "phase": 6, "base": "mvc-links", "kinds": ["intent.navigates"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop.Web", "type": "User Interface Package",
+        "elements": [
+          { "id": "views", "type": "Folder", "name": "Views", "children": [
+            { "id": "orders", "type": "Folder", "name": "Orders", "children": [
+              { "id": "orders-index", "type": "Page", "name": "Index", "stereotypes": { "Page": { "Route": "/Orders" } } },
+              { "id": "cancelled", "type": "Page", "name": "Cancelled", "stereotypes": { "Page": { } } }
+            ] }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "orders-to-cancelled", "type": "Navigation", "source": { "element": "orders-index" }, "target": { "element": "cancelled" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "orders-to-cancelled", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "orders-to-cancelled", "messageContains": "No GET shows `Cancelled`" },
+    { "rule": "scope/coverage", "severity": "info" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-helper-links
+
+The same links written with the HTML and URL helpers: `Html.ActionLink("Your orders", "Index", "Orders")` links to the action and controller it names, `href="@Url.Page("/Privacy")"` to the Razor Page, and `href="@Url.Action("Index", "Home")"` to the home page, each a GET.
+
+```json case
+{ "phase": 6, "base": "mvc-links", "kinds": ["intent.navigates"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```cshtml file src/Shop.Web/Views/Home/Index.cshtml
+<h1>Welcome</h1>
+<p>@Html.ActionLink("Your orders", "Index", "Orders")</p>
+<a href="@Url.Page("/Privacy")">Privacy</a>
+```
+
+```cshtml file src/Shop.Web/Views/Orders/Index.cshtml
+<h1>Your orders</h1>
+<a href="@Url.Action("Index", "Home")">Home</a>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "home-to-orders", "outcome": "verified", "at": "src/Shop.Web/Views/Home/Index.cshtml:2" },
+    { "kind": "intent.navigates", "element": "home-to-privacy", "outcome": "verified", "at": "src/Shop.Web/Views/Home/Index.cshtml:3" },
+    { "kind": "intent.navigates", "element": "orders-to-home", "outcome": "verified", "at": "src/Shop.Web/Views/Orders/Index.cshtml:2" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "count": 0 }
+  ]
+}
+```
+
+## maui-navigations
+
+A .NET MAUI page's navigations (`intent.maui`) are its own code's and its binding context's, as a view model navigates in MVVM: a Shell navigation (`Shell.Current.GoToAsync(route)`, or a call of the code's own method that takes the route as a parameter and makes one, whatever it is named, here eShop's `INavigationService.NavigateToAsync` reached through its implementation), resolved against the Shell's contents and the registered routes, or a page pushed on the navigation stack. A Shell's navigation to a page is the menu entry its content is.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "AppShell" },
+          { "id": "login", "type": "Page", "name": "LoginView", "stereotypes": { "Page": { } } },
+          { "id": "catalog", "type": "Page", "name": "CatalogView", "stereotypes": { "Page": { } } },
+          { "id": "basket", "type": "Page", "name": "BasketView", "stereotypes": { "Page": { } } },
+          { "id": "order", "type": "Page", "name": "OrderView", "stereotypes": { "Page": { } } }
+        ]
+      }],
+      "associations": [
+        { "id": "shell-to-catalog", "type": "Navigation", "source": { "element": "shell" }, "target": { "element": "catalog" } },
+        { "id": "login-to-catalog", "type": "Navigation", "source": { "element": "login" }, "target": { "element": "catalog" } },
+        { "id": "catalog-to-basket", "type": "Navigation", "source": { "element": "catalog" }, "target": { "element": "basket" } },
+        { "id": "basket-to-order", "type": "Navigation", "source": { "element": "basket" }, "target": { "element": "order" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Shop.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+</Project>
+```
+
+```xml file src/Shop/AppShell.xaml
+<Shell x:Class="Shop.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Shop.Views">
+    <FlyoutItem>
+        <ShellContent ContentTemplate="{DataTemplate views:LoginView}" Route="Login" />
+    </FlyoutItem>
+    <TabBar Route="Main">
+        <ShellContent ContentTemplate="{DataTemplate views:CatalogView}" Route="Catalog" />
+    </TabBar>
+</Shell>
+```
+
+```csharp file src/Shop/AppShell.xaml.cs
+using Shop.Views;
+
+namespace Shop;
+
+public partial class AppShell : Shell
+{
+    public AppShell()
+    {
+        Routing.RegisterRoute("Basket", typeof(BasketView));
+        InitializeComponent();
+    }
+}
+```
+
+```csharp file src/Shop/Services/Navigation.cs
+namespace Shop.Services;
+
+public interface INavigationService
+{
+    Task NavigateToAsync(string route);
+}
+
+public class MauiNavigationService : INavigationService
+{
+    public Task NavigateToAsync(string route)
+    {
+        var state = new ShellNavigationState(route);
+        return Shell.Current.GoToAsync(state);
+    }
+}
+```
+
+```csharp file src/Shop/ViewModels/CatalogViewModel.cs
+using Shop.Services;
+
+namespace Shop.ViewModels;
+
+public class CatalogViewModel(INavigationService navigation)
+{
+    public Task ViewBasketAsync() => navigation.NavigateToAsync("Basket");
+}
+```
+
+```csharp file src/Shop/Views/CatalogView.cs
+using Shop.ViewModels;
+
+namespace Shop.Views;
+
+public class CatalogView : ContentPage
+{
+    public CatalogView(CatalogViewModel viewModel)
+    {
+        BindingContext = viewModel;
+    }
+}
+```
+
+```csharp file src/Shop/Views/Pages.cs
+namespace Shop.Views;
+
+public class LoginView : ContentPage
+{
+    private async void SignIn() => await Shell.Current.GoToAsync("//Main/Catalog");
+}
+
+public class BasketView : ContentPage
+{
+    private Task OpenOrder() => Navigation.PushAsync(new OrderView());
+}
+
+public class OrderView : ContentPage
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "shell-to-catalog", "outcome": "verified", "at": "src/Shop/AppShell.xaml:9" },
+    { "kind": "intent.navigates", "element": "login-to-catalog", "outcome": "verified", "at": "src/Shop/Views/Pages.cs:5" },
+    { "kind": "intent.navigates", "element": "catalog-to-basket", "outcome": "verified", "at": "src/Shop/ViewModels/CatalogViewModel.cs:7" },
+    { "kind": "intent.navigates", "element": "basket-to-order", "outcome": "verified", "at": "src/Shop/Views/Pages.cs:10" }
+  ],
+  "others": "verified",
+  "noOtherFindings": true
+}
+```
+
+## maui-navigation-changed
+
+A planted drift: the catalog's view model navigates to a route no page is at. One finding, the Navigation's, naming the page's routes and where the code goes.
+
+```json case
+{ "phase": 6, "base": "maui-navigations", "kinds": ["intent.navigates"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/Shop/ViewModels/CatalogViewModel.cs
+using Shop.Services;
+
+namespace Shop.ViewModels;
+
+public class CatalogViewModel(INavigationService navigation)
+{
+    public Task ViewBasketAsync() => navigation.NavigateToAsync("Filter");
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "catalog-to-basket", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "catalog-to-basket", "messageContains": "`CatalogView` navigates to `BasketView`: in the model, not in the code. `BasketView` is at `/Basket`, and `CatalogView` and its binding context `CatalogViewModel` navigate to `\"Filter\"`." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## maui-computed-route
+
+The view model navigates to a route it picks from a list: the route isn't text the code states, so the Navigation can't be verified.
+
+```json case
+{ "phase": 6, "base": "maui-navigations", "kinds": ["intent.navigates"], "cases": ["engine/unreadable"], "requirements": ["R3"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/Shop/ViewModels/CatalogViewModel.cs
+using Shop.Services;
+
+namespace Shop.ViewModels;
+
+public class CatalogViewModel(INavigationService navigation)
+{
+    private readonly string[] _routes = ["Basket", "Filter"];
+
+    public Task OpenAsync(int index) => navigation.NavigateToAsync(_routes[index]);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "catalog-to-basket", "outcome": "cantVerify", "reason": "unreadable", "at": "src/Shop/ViewModels/CatalogViewModel.cs:9" }
   ]
 }
 ```

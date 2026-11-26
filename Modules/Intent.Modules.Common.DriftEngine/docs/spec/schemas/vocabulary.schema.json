@@ -46,8 +46,8 @@
         "own": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z][A-Za-z0-9]*$" }, "uniqueItems": true },
         "discriminator": { "$ref": "#/$defs/expression" },
         "parameterNames": { "$ref": "#/$defs/expression" },
-        "dependsOn": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" },
-        "waitsOn": { "type": "array", "items": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" } },
+        "dependsOn": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*)*$" },
+        "waitsOn": { "type": "array", "items": { "type": "string", "pattern": "^(parent:)?[a-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*)*$" } },
         "source": { "type": "string", "minLength": 1 },
         "fixHint": { "type": "string" },
         "note": { "type": "string" }
@@ -59,7 +59,7 @@
       "required": ["extends", "bindings"],
       "additionalProperties": false,
       "properties": {
-        "extends": { "type": "string", "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9]+)*/[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$", "description": "<pack>/<kind>" },
+        "extends": { "type": "string", "pattern": "^[a-z][a-z0-9]*(\\.[a-z0-9]+)*/[a-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*)*$", "description": "<pack>/<kind>" },
         "for": { "$ref": "#/$defs/selector" },
         "bindings": { "type": "object", "minProperties": 1, "propertyNames": { "pattern": "^[A-Z][A-Za-z0-9]*$" }, "additionalProperties": { "$ref": "#/$defs/expression" } },
         "note": { "type": "string" }

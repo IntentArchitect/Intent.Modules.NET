@@ -1,0 +1,45 @@
+{
+  "id": "intent.constraints",
+  "version": "1.0.0",
+  "description": "Domain Constraints on Domain attributes, from Intent's Domain Constraints stereotypes (Intent.Metadata.Domain.Constraints): Required, Text Limits, Collection Limits, Regular Expression, Email, Url, Base64 and Numeric Limits. Every kind is stated only when the model sets a value, so a Text Limits with no Min or Max Length states nothing. Validation frameworks' extensions read them from code.",
+  "requires": [{ "id": "intent.domain", "version": "^1.0.0" }],
+  "designers": ["Domain"],
+  "kinds": [
+    { "kind": "constraint.required", "label": "Required constraint", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "constraint.minLength", "label": "minimum length constraint", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "constraint.maxLength", "label": "maximum length constraint", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "constraint.minItems", "label": "minimum items constraint", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "constraint.maxItems", "label": "maximum items constraint", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "constraint.pattern", "label": "Regular Expression pattern", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "constraint.patternMessage", "label": "Regular Expression message", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "constraint.email", "label": "Email constraint", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "constraint.url", "label": "Url constraint", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "constraint.base64", "label": "Base64 constraint", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "constraint.minValue", "label": "minimum value constraint", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "constraint.maxValue", "label": "maximum value constraint", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "constraint.minExclusive", "label": "minimum value exclusive", "valueType": "bool", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "constraint.maxExclusive", "label": "maximum value exclusive", "valueType": "bool", "comparer": "exact", "stated": "whenSet" }
+  ],
+  "vocabulary": {
+    "Domain": {
+      "designer": "Domain",
+      "entries": [
+        { "kind": "constraint.required", "for": { "element": "Attribute", "applies": "hasStereotype('Required') || type.isNullable", "where": "hasStereotype('Required')" }, "value": "'true'", "dependsOn": "member.exists", "source": "the attribute's Required constraint" },
+        { "kind": "constraint.minLength", "for": { "element": "Attribute", "applies": "type.name == 'string'", "where": "hasStereotype('Text Limits')" }, "value": "stereotype('Text Limits')['Min Length']", "dependsOn": "member.exists", "source": "the attribute's Text Limits Min Length" },
+        { "kind": "constraint.maxLength", "for": { "element": "Attribute", "applies": "type.name == 'string' && (exists(stereotype('Text Limits')['Max Length']) || !exists(stereotype('Text Constraints').MaxLength))", "where": "hasStereotype('Text Limits') && !exists(stereotype('Text Constraints').MaxLength)" }, "value": "stereotype('Text Limits')['Max Length']", "dependsOn": "member.exists", "source": "the attribute's Text Limits Max Length" },
+        { "kind": "constraint.maxLength", "for": { "element": "Attribute", "applies": "type.name == 'string' && (exists(stereotype('Text Limits')['Max Length']) || !exists(stereotype('Text Constraints').MaxLength))", "where": "exists(stereotype('Text Limits')['Max Length']) && exists(stereotype('Text Constraints').MaxLength)" }, "value": "stereotype('Text Constraints').MaxLength", "dependsOn": "member.exists", "source": "the attribute's Text Constraints MaxLength, which Intent validates in place of its Text Limits Max Length" },
+        { "kind": "constraint.minItems", "for": { "element": "Attribute", "applies": "type.isCollection", "where": "hasStereotype('Collection Limits')" }, "value": "stereotype('Collection Limits')['Min Length']", "dependsOn": "member.exists", "source": "the attribute's Collection Limits Min Length" },
+        { "kind": "constraint.maxItems", "for": { "element": "Attribute", "applies": "type.isCollection", "where": "hasStereotype('Collection Limits')" }, "value": "stereotype('Collection Limits')['Max Length']", "dependsOn": "member.exists", "source": "the attribute's Collection Limits Max Length" },
+        { "kind": "constraint.pattern", "for": { "element": "Attribute", "applies": "type.name == 'string'", "where": "hasStereotype('Regular Expression')" }, "value": "stereotype('Regular Expression').Pattern", "dependsOn": "member.exists", "source": "the attribute's Regular Expression Pattern" },
+        { "kind": "constraint.patternMessage", "for": { "element": "Attribute", "applies": "type.name == 'string'", "where": "hasStereotype('Regular Expression')" }, "value": "stereotype('Regular Expression').Message", "dependsOn": "member.exists", "waitsOn": ["constraint.pattern"], "source": "the attribute's Regular Expression Message" },
+        { "kind": "constraint.email", "for": { "element": "Attribute", "applies": "type.name == 'string'", "where": "hasStereotype('Email')" }, "value": "'true'", "dependsOn": "member.exists", "source": "the attribute's Email constraint" },
+        { "kind": "constraint.url", "for": { "element": "Attribute", "applies": "type.name == 'string'", "where": "hasStereotype('Url')" }, "value": "'true'", "dependsOn": "member.exists", "source": "the attribute's Url constraint" },
+        { "kind": "constraint.base64", "for": { "element": "Attribute", "applies": "type.name == 'string'", "where": "hasStereotype('Base64')" }, "value": "'true'", "dependsOn": "member.exists", "source": "the attribute's Base64 constraint" },
+        { "kind": "constraint.minValue", "for": { "element": "Attribute", "applies": "type.name == 'int' || type.name == 'long' || type.name == 'short' || type.name == 'byte' || type.name == 'decimal' || type.name == 'float' || type.name == 'double'", "where": "hasStereotype('Numeric Limits')" }, "value": "stereotype('Numeric Limits')['Min Value']", "dependsOn": "member.exists", "source": "the attribute's Numeric Limits Min Value" },
+        { "kind": "constraint.maxValue", "for": { "element": "Attribute", "applies": "type.name == 'int' || type.name == 'long' || type.name == 'short' || type.name == 'byte' || type.name == 'decimal' || type.name == 'float' || type.name == 'double'", "where": "hasStereotype('Numeric Limits')" }, "value": "stereotype('Numeric Limits')['Max Value']", "dependsOn": "member.exists", "source": "the attribute's Numeric Limits Max Value" },
+        { "kind": "constraint.minExclusive", "for": { "element": "Attribute", "applies": "type.name == 'decimal' || type.name == 'float' || type.name == 'double'", "where": "hasStereotype('Numeric Limits') && exists(stereotype('Numeric Limits')['Min Value'])" }, "value": "if(stereotype('Numeric Limits')['Min Boundary Type'] == 'Exclusive', 'true', 'false')", "dependsOn": "member.exists", "waitsOn": ["constraint.minValue"], "source": "the attribute's Numeric Limits Min Boundary Type" },
+        { "kind": "constraint.maxExclusive", "for": { "element": "Attribute", "applies": "type.name == 'decimal' || type.name == 'float' || type.name == 'double'", "where": "hasStereotype('Numeric Limits') && exists(stereotype('Numeric Limits')['Max Value'])" }, "value": "if(stereotype('Numeric Limits')['Max Boundary Type'] == 'Exclusive', 'true', 'false')", "dependsOn": "member.exists", "waitsOn": ["constraint.maxValue"], "source": "the attribute's Numeric Limits Max Boundary Type" }
+      ]
+    }
+  }
+}

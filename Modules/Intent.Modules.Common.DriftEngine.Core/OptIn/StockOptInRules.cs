@@ -103,7 +103,11 @@ internal sealed class UnmodelledType : IOptInRule
 /// element type can state (its convention's <c>states</c>) that no claim located; and whatever a designer's <c>members</c>
 /// conventions find inside located types. Overrides, the members every type has, and a record's primary constructor (its
 /// declaration) are never reported; nor, where the language profile names <c>accessors</c>, a located field's accessors; nor
-/// a member a framework reader knows no designer can state (<see cref="CodeGraph.Unmodellable"/>).
+/// a member a framework reader knows no designer can state (<see cref="CodeGraph.Unmodellable"/>), or the element's type can't
+/// (<see cref="CodeGraph.Unstatable"/>, a Proxy's method that sends no request), nor one a link states
+/// (<see cref="CodeGraph.StatedByLink"/>, a Blazor component's injected service). Where the element type's convention says
+/// its members are named uniquely (<c>uniqueNames</c>), only one of a type's overloads is asked for, and none when one is
+/// located.
 /// </summary>
 internal sealed class UnmodelledMember : IOptInRule
 {
@@ -131,11 +135,17 @@ internal sealed class UnmodelledMember : IOptInRule
             // An override of a modelled base type's member is that type's; one of a framework's base (a hosted service's
             // StopAsync, a gRPC service's methods) is the type's own operation.
             var modelledBase = type.BaseTypes.Any(b => context.Code.TypesNamed(b.Name).Any(x => context.ElementOf(x) is not null));
+            // Where the designer names members uniquely, of a type's overloads only one can be stated: none when one is
+            // located, else the first.
+            var uniqueNames = engine.UniqueNames(claim.Designer, element);
+            var named = new HashSet<string>(type.Members.Where(x => x.Kind == "method" && context.IsLocated(x)).Select(x => x.Name), StringComparer.Ordinal);
             foreach (var member in type.Members)
             {
-                if (!states.Contains(member.Kind) || member.Access != "public" || modelledBase && member.Modifiers.Contains("override") || EveryTypeHas.Contains(member.Name) ||
+                if (!states.Contains(member.Kind) || member.Access != "public" || context.Code.StatedByLink.ContainsKey(member) || modelledBase && member.Modifiers.Contains("override") || EveryTypeHas.Contains(member.Name) ||
                     member is { Kind: "constructor", IsPrimary: true } && type.Kind == "record" || member.Kind == "method" && located.Contains(member.Name) ||
-                    context.IsLocated(member) || context.Code.Unmodellable.ContainsKey(member) || !reported.Add(member))
+                    context.IsLocated(member) || context.Code.Unmodellable.ContainsKey(member) ||
+                    uniqueNames && member.Kind == "method" && !named.Add(member.Name) ||
+                    context.Code.Unstatable.Any(x => x(element.SpecializationType, type, member) is not null) || !reported.Add(member))
                 {
                     continue;
                 }

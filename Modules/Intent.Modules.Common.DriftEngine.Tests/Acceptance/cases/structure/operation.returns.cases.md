@@ -3202,3 +3202,79 @@ public class PlanController : ApiController
   ]
 }
 ```
+
+## javascript-proxy-untyped
+
+A proxy written in JavaScript declares no return or parameter types. Against a return type the model states, the claim is can't verify, `unresolved`, with no finding of its own, and listed in the one `engine/notStated` note (R35); against no return type, as `RemoveLine` has, it is void as before. Its parameters are compared by name alone, so `RemoveLine`'s `id` is not stated too, and `AddLine`, whose code takes no `quantity`, is still contradicted.
+
+```json case
+{ "phase": 6, "kinds": ["operation.returns", "operation.parameters"], "cases": ["engine/unresolved", "engine/notStated"], "requirements": ["R1", "R2", "R35", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "shop-api", "type": "Proxy", "name": "ShopApi", "children": [
+            { "id": "get-product-name", "type": "Proxy Operation", "name": "GetProductName", "typeRef": { "type": "string" },
+              "children": [
+                { "id": "get-product-name-id", "type": "Parameter", "name": "id", "typeRef": { "type": "string" } }
+              ] },
+            { "id": "remove-line", "type": "Proxy Operation", "name": "RemoveLine",
+              "children": [
+                { "id": "remove-line-id", "type": "Parameter", "name": "id", "typeRef": { "type": "string" } }
+              ] },
+            { "id": "add-line", "type": "Proxy Operation", "name": "AddLine",
+              "children": [
+                { "id": "add-line-product-id", "type": "Parameter", "name": "productId", "typeRef": { "type": "string" } },
+                { "id": "add-line-quantity", "type": "Parameter", "name": "quantity", "typeRef": { "type": "int" } }
+              ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```js file src/shopApi.js
+import axios from 'axios';
+
+export const shopApi = {
+    getProductName(id) {
+        return axios.get(`/products/${id}/name`).then((x) => x.data);
+    },
+
+    removeLine(id) {
+        return axios.delete(`/cart/lines/${id}`);
+    },
+
+    addLine(productId) {
+        return axios.post('/cart/lines', { productId, quantity: 1 });
+    },
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-product-name", "outcome": "cantVerify", "reason": "unresolved", "at": "src/shopApi.js:4" },
+    { "kind": "operation.parameters", "element": "get-product-name", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "operation.returns", "element": "remove-line", "outcome": "verified" },
+    { "kind": "operation.parameters", "element": "remove-line", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "operation.parameters", "element": "add-line", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 },
+    { "rule": "claim/operation.parameters", "severity": "error", "subject": "add-line" },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 3 claims on types their code leaves out (User Interface 3)" }
+  ]
+}
+```

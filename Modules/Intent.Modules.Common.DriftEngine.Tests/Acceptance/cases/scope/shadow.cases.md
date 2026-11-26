@@ -377,3 +377,103 @@ public class Order
   "filesRead": { "include": ["src/Domain/Customer.cs"], "exclude": ["src/Contracts/**"] }
 }
 ```
+
+## no-row-includes-it-in-a-referenced-project
+
+Where the in-scope code says which projects it builds with, a file no row covers is named only when it is in one of them. The in-scope `Shop.Domain` project references `Shop.Contracts`, so `src/Contracts/Order.cs` is the application's own code that the scope leaves out: `outOfScope`, as in `no-row-includes-it`.
+
+```json case
+{ "phase": 1, "base": "no-row-includes-it", "cases": ["scope/shadow", "scope/notRead"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```xml file src/Domain/Shop.Domain.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\Shop.Contracts.csproj" />
+  </ItemGroup>
+</Project>
+```
+
+```xml file src/Contracts/Shop.Contracts.csproj
+<Project Sdk="Microsoft.NET.Sdk" />
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "cantVerify", "reason": "outOfScope" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order", "messageContains": "src/Contracts/Order.cs may hold it, but no Drift Scope row includes that file" }
+  ],
+  "filesRead": { "include": ["src/Domain/Customer.cs"], "exclude": ["src/Contracts/**"] }
+}
+```
+
+## another-applications-project
+
+Several applications over one output folder each keep their own code, often with types of the same names: eShop's WebApp and Catalog.API both declare `CatalogBrand`. The in-scope `Shop.Domain` project references no other project, so `src/Catalog/Order.cs`, which no row covers, is in a project the application doesn't build with: another application's code, not a file that may hold this one's. The model's `Order` isn't in the code.
+
+```json case
+{ "phase": 1, "cases": ["scope/shadow"], "requirements": ["R22", "R25"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [
+          { "Glob": "src/Domain/**", "Scope": "In" }
+        ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Domain/Shop.Domain.csproj
+<Project Sdk="Microsoft.NET.Sdk" />
+```
+
+```csharp file src/Domain/Customer.cs
+namespace Shop.Domain;
+
+public class Customer
+{
+    public Guid Id { get; set; }
+}
+```
+
+```xml file src/Catalog/Shop.Catalog.csproj
+<Project Sdk="Microsoft.NET.Sdk" />
+```
+
+```csharp file src/Catalog/Order.cs
+namespace Shop.Catalog;
+
+public class Order
+{
+    public Guid Id { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "order", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "order" },
+    { "rule": "claim/type.exists", "subject": "order", "messageContains": "may hold it", "count": 0 }
+  ],
+  "filesRead": { "include": ["src/Domain/Customer.cs"], "exclude": ["src/Catalog/**"] }
+}
+```

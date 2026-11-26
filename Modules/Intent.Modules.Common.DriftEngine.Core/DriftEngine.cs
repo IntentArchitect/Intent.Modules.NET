@@ -171,11 +171,13 @@ public sealed partial class DriftEngine
         {
             findings.AddRange(ScopeFindings());
             findings.AddRange(_claims.Where(x => x.Outcome != "verified" && x.Reason is not "blocked" && !NotStated(x)).Select(Report));
-            // One note per language, since each says why its own code leaves nullability unstated.
+            // One note per language and per what its code leaves unstated, a type or a nullability, since each says why and
+            // how to state it.
             findings.AddRange(_claims.Where(NotStated)
-                .GroupBy(x => LanguageOf(x.Reading!.At!.File)?.Name ?? "", StringComparer.Ordinal)
-                .OrderBy(x => x.Key, StringComparer.Ordinal)
-                .Select(x => NotStatedFinding(x.ToList())));
+                .GroupBy(x => (Language: LanguageOf(x.Reading!.At!.File)?.Name ?? "", Untyped: _untyped.Contains(x)))
+                .OrderBy(x => x.Key.Language, StringComparer.Ordinal)
+                .ThenBy(x => x.Key.Untyped)
+                .Select(x => NotStatedFinding(x.ToList(), x.Key.Untyped)));
 
             Timed("rules", () => findings.AddRange(Rules()));
             Timed("optin", () => findings.AddRange(OptIn(findings)));
@@ -247,21 +249,44 @@ public sealed partial class DriftEngine
 
     /// <summary>
     /// A claim the code can't state in its language: a C# reference type outside a nullable context, or an unannotated Java
-    /// one. It is can't verify, <c>unresolved</c>, like any fact the reader can't supply (R35), but neither side can be
-    /// wrong, so it isn't drift: it has no finding of its own, and one <c>engine/notStated</c> note lists them all.
+    /// one, or a type a JavaScript declaration leaves out (<see cref="_untyped"/>). It is can't verify, <c>unresolved</c>,
+    /// like any fact the reader can't supply (R35), but neither side can be wrong, so it isn't drift: it has no finding of
+    /// its own, and an <c>engine/notStated</c> note per language lists them.
     /// </summary>
-    private static bool NotStated(Claim claim) =>
-        claim is { Reason: "unresolved", Reading: { Value: "unknown", At: not null } } && claim.Kind.EndsWith(".nullable", StringComparison.Ordinal);
+    private bool NotStated(Claim claim) =>
+        claim is { Reason: "unresolved", Reading: { Value: "unknown", At: not null } }
+        && (claim.Kind.EndsWith(".nullable", StringComparison.Ordinal) || _untyped.Contains(claim));
 
-    /// <summary>The note's why and how-to come from the language profile's <c>nullable.notStated</c>.</summary>
-    private Finding NotStatedFinding(IReadOnlyList<Claim> claims)
+    /// <summary>
+    /// Claims on a type the code leaves out, in a language that lets a declaration go without one: JavaScript declares none,
+    /// TypeScript infers what a declaration leaves out, and Python states a type only in an annotation. The model can state
+    /// it and the code can't be wrong about it, so, as with a nullability the code can't state, each is can't verify,
+    /// <c>unresolved</c>, has no finding of its own, and is listed in the language's <c>engine/notStated</c> note on types.
+    /// </summary>
+    private readonly HashSet<Claim> _untyped = new(ReferenceEqualityComparer.Instance);
+
+    /// <summary>Whether the file's language lets a declaration leave its type out: its profile has an <c>untyped</c> note.</summary>
+    private bool MayLeaveTypesOut(string file) => ProfileOf(file)["untyped"] is not null;
+
+    /// <summary>The claim can't be checked: the code declares no type for <paramref name="what"/> (<see cref="_untyped"/>).</summary>
+    private void Untyped(Claim claim, Span at, string what)
+    {
+        _untyped.Add(claim);
+        Cant(claim, "unresolved", new Reading { At = at, Value = "unknown", Detail = $"{at.File} declares no type for {what}." });
+    }
+
+    /// <summary>The note's why and how-to come from the language profile's <c>nullable.notStated</c>, or its <c>untyped.notStated</c>.</summary>
+    private Finding NotStatedFinding(IReadOnlyList<Claim> claims, bool untyped)
     {
         var designers = claims.GroupBy(x => x.Designer).OrderBy(x => x.Key).Select(x => $"{x.Key} {x.Count()}");
         var folders = claims.Select(x => x.Reading!.At!.File).Distinct().GroupBy(x => x.Split('/')[0]).OrderBy(x => x.Key).Select(x => $"{x.Key} {x.Count()}");
-        var why = ProfileOf(claims[0].Reading!.At!.File)["nullable"]?["notStated"]?.GetValue<string>() ?? "Their code doesn't state whether these types are nullable.";
+        var profile = ProfileOf(claims[0].Reading!.At!.File);
+        var (what, why) = untyped
+            ? ("claims on types their code leaves out", profile["untyped"]?["notStated"]?.GetValue<string>() ?? "Their code declares no type for these.")
+            : ("nullability claims", profile["nullable"]?["notStated"]?.GetValue<string>() ?? "Their code doesn't state whether these types are nullable.");
         return new Finding("engine/notStated", ScopeArea, "Code", "info",
-            $"Not checked: {claims.Count} nullability claims ({string.Join(", ", designers)}). {why} Files: {string.Join(", ", folders)}.",
-            new Anchor(Text: "nullability"));
+            $"Not checked: {claims.Count} {what} ({string.Join(", ", designers)}). {why} Files: {string.Join(", ", folders)}.",
+            new Anchor(Text: untyped ? "types" : "nullability"));
     }
 
     /// <summary>Rows that need attention, and the coverage listing (R15, R23, R24).</summary>
@@ -352,7 +377,7 @@ public sealed partial class DriftEngine
             _files.Add((file.Path, _scope.Decide(file.Path)));
         }
 
-        _codeScope = new CodeScope(_files.Select(x => (x.Path, x.Decision.In, x.Decision.Checked)));
+        _codeScope = new CodeScope(_files.Select(x => (x.Path, x.Decision)));
         _timings.Add(new Timing("code files", Stopwatch.GetElapsedTime(walk).TotalMilliseconds, _files.Count));
 
         // Each language reads its in-scope files; a file no language reads isn't read.
@@ -418,7 +443,9 @@ public sealed partial class DriftEngine
 
     /// <summary>
     /// Each language's profile, from the packs (the last pack's that has one), and the primary one: the profile of the language
-    /// that read the most files. The packs are the model's, so this is worked out every run, a kept read's too.
+    /// that read the most files and has one. A markup language that declares no types of its own (XAML, whose views are their
+    /// code-behind's) has no profile, so it never stands for the code's.
+    /// The packs are the model's, so this is worked out every run, a kept read's too.
     /// </summary>
     private void Profiles()
     {
@@ -431,7 +458,8 @@ public sealed partial class DriftEngine
         }
 
         _read = _readCounts.OrderByDescending(x => x.Value).ThenBy(x => x.Key, StringComparer.Ordinal).Select(x => x.Key).ToList();
-        var primary = _read.Concat(_languages.Select(x => x.Language.Name)).FirstOrDefault();
+        var candidates = _read.Concat(_languages.Select(x => x.Language.Name)).ToList();
+        var primary = candidates.FirstOrDefault(_profiles.ContainsKey) ?? candidates.FirstOrDefault();
         _profile = primary is not null && _profiles.TryGetValue(primary, out var primaryProfile) ? primaryProfile : new JsonObject();
     }
 
@@ -889,7 +917,33 @@ public sealed partial class DriftEngine
         return path;
     }
 
-    private JsonNode? Convention(string designer, IElement element) => _packs.Select(x => x.TypeConvention(designer, element.SpecializationType)).LastOrDefault(x => x is not null);
+    private readonly Dictionary<(string Designer, string Type), JsonObject?> _conventions = [];
+
+    /// <summary>
+    /// An element type's convention, each field from the last pack whose convention for the type states it, so a house pack
+    /// changes one field (what the type states, its name) and keeps the stock pack's others (its type kinds, locations)
+    /// without copying them. Before, the last pack's convention replaced the stock one whole.
+    /// </summary>
+    private JsonObject? Convention(string designer, IElement element)
+    {
+        var key = (designer, element.SpecializationType);
+        if (_conventions.TryGetValue(key, out var known))
+        {
+            return known;
+        }
+
+        JsonObject? merged = null;
+        foreach (var convention in _packs.Select(x => x.TypeConvention(designer, element.SpecializationType)).OfType<JsonObject>())
+        {
+            merged ??= new JsonObject();
+            foreach (var (name, value) in convention)
+            {
+                merged[name] = value?.DeepClone();
+            }
+        }
+
+        return _conventions[key] = merged;
+    }
 
     /// <summary>The kinds an element's type may be: its convention's, else every kind the languages read have.</summary>
     private IReadOnlyList<string> TypeKinds(string designer, IElement element) =>
@@ -974,6 +1028,33 @@ public sealed partial class DriftEngine
     private IEnumerable<(string Extension, IClaimReader Reader)> ClaimReaders(string kind) =>
         _extensions.SelectMany(x => x.ClaimReaders.Select(r => (x.Id, r))).Reverse().Where(x => x.r.Kinds.Contains(kind));
 
+    /// <summary>
+    /// The first reading of the readers from <paramref name="start"/> on, each able to ask the ones after it in turn
+    /// (<see cref="ClaimContext.ReadNext"/>). A reader that fails is reported, and reads as can't verify.
+    /// </summary>
+    private ClaimReading? ReadFrom(Claim claim, IReadOnlyList<(string Extension, IClaimReader Reader)> readers, int start)
+    {
+        for (var i = start; i < readers.Count; i++)
+        {
+            var (extension, reader) = readers[i];
+            var after = i + 1;
+            try
+            {
+                if (reader.Read(new ClaimContext(this, claim, _graph, _codeScope, () => ReadFrom(claim, readers, after))) is { } reading)
+                {
+                    return reading;
+                }
+            }
+            catch (Exception e)
+            {
+                _extensionFailures.Add((extension, $"{e.GetType().Name}: {e.Message}"));
+                return ClaimReading.CantVerify("ruleFailed", $"The {extension} extension failed reading it.");
+            }
+        }
+
+        return null;
+    }
+
     /// <param name="withoutMember">
     /// Its member isn't in the code: only a reader that reads the kind without it (<see cref="IClaimReader.KindsWithoutMember"/>)
     /// reads it, and with none answering it waits on the member as any other claim does.
@@ -1039,13 +1120,17 @@ public sealed partial class DriftEngine
         }
 
         // An extension's claim reader comes before the engine's own structure rules, and a later extension's before an
-        // earlier one's, so a module's reader can read any kind, the engine's included.
-        foreach (var (extension, reader) in ClaimReaders(claim.Kind))
+        // earlier one's, so a module's reader can read any kind, the engine's included. A reader can ask the readers after it
+        // (ClaimContext.ReadNext) and adjust what they read.
+        var ordered = ClaimReaders(claim.Kind).ToList();
+        for (var i = 0; i < ordered.Count; i++)
         {
+            var (extension, reader) = ordered[i];
+            var after = i + 1;
             ClaimReading? reading;
             try
             {
-                reading = reader.Read(new ClaimContext(this, claim, _graph, _codeScope));
+                reading = reader.Read(new ClaimContext(this, claim, _graph, _codeScope, () => ReadFrom(claim, ordered, after)));
             }
             catch (Exception e)
             {
@@ -1094,13 +1179,25 @@ public sealed partial class DriftEngine
             case "member.type":
             {
                 var member = OwnMember(claim);
+                if (member.Type is null && MayLeaveTypesOut(member.At.File))
+                {
+                    Untyped(claim, member.At, $"`{member.Name}`");
+                    break;
+                }
+
                 if (member.Type is null || claim.ExpectedValue is not ITypeReference model)
                 {
                     Cant(claim, "notFound", new Reading { At = member.At, Detail = "The member has no type." });
                     break;
                 }
 
-                Compare(claim, member.Type.Text, member.At, "code", TypeMatches(model, member.Type));
+                // A member a generic type of the code declares is typed by its type parameters as the element's type binds them
+                // (ValidatableObject<string>'s Value is a string), and one left unbound is at least an object, which a
+                // designer with no generics can state: less precise, but true.
+                var bound = TypeParameters.Bound(_graph, Owner(claim.Source) is { } parent ? TypeOf(claim.Designer, parent) : null, member,
+                    ProfileOf(member)["types"]?["object"]?[0]?.GetValue<string>() ?? "object");
+                Compare(claim, (bound?.Bound ?? member.Type).Text, member.At, "code",
+                    TypeMatches(model, member.Type) || bound is { } typed && (TypeMatches(model, typed.Bound) || TypeMatches(model, typed.Erased)));
                 break;
             }
             case "member.nullable":
@@ -1109,6 +1206,13 @@ public sealed partial class DriftEngine
                 if (_graph.UngovernedFiles.TryGetValue(member.At.File, out var project))
                 {
                     Cant(claim, "readerFailed", new Reading { At = member.At, Detail = $"{project}, which sets {member.At.File}'s nullable context, can't be read." });
+                    break;
+                }
+
+                // With no type, the nullability is unstated for want of the type, which the types note says how to state.
+                if (member.Type is null && MayLeaveTypesOut(member.At.File))
+                {
+                    Untyped(claim, member.At, $"`{member.Name}`");
                     break;
                 }
 
@@ -1131,8 +1235,15 @@ public sealed partial class DriftEngine
             case "operation.returns":
             {
                 // An async method returns what the model states, through the profile's async wrappers: C#'s Task<T> is T,
-                // and Task is void.
+                // and Task is void. A function that leaves its return type out, as every JavaScript one does, can't be
+                // compared with a type the model states, so the claim is not stated; against no type it is void, as before.
                 var member = OwnMember(claim);
+                if (member.Type is null && claim.ExpectedValue is ITypeReference && MayLeaveTypesOut(member.At.File))
+                {
+                    Untyped(claim, member.At, $"what `{member.Name}` returns");
+                    break;
+                }
+
                 var returns = Unwrapped(member);
                 var actual = returns?.Text ?? "void";
                 Compare(claim, member.Type?.Text ?? "void", member.At, "code", claim.ExpectedValue is ITypeReference model
@@ -1147,6 +1258,12 @@ public sealed partial class DriftEngine
                 if (_graph.UngovernedFiles.TryGetValue(member.At.File, out var project))
                 {
                     Cant(claim, "readerFailed", new Reading { At = member.At, Detail = $"{project}, which sets {member.At.File}'s nullable context, can't be read." });
+                    break;
+                }
+
+                if (member.Type is null && MayLeaveTypesOut(member.At.File))
+                {
+                    Untyped(claim, member.At, $"what `{member.Name}` returns");
                     break;
                 }
 
@@ -1250,11 +1367,71 @@ public sealed partial class DriftEngine
                 // A model that also lists what is injected (a gRPC ServerCallContext), as one drawn from the method does, states
                 // the whole signature, which is as true. C#'s @ only escapes a keyword: @event is event. A parameter with a
                 // parameter.type claim of its own (an HTTP endpoint's) has its type compared there, so a mismatch is one finding.
-                bool Matches(IReadOnlyList<ParameterNode> stated) => stated.Count == model.Count && stated.Zip(model).All(x =>
-                    x.First.Name.TrimStart('@') == x.Second.Name.TrimStart('@') && x.First.Type is { } type && x.Second.TypeReference is { Element: not null } modelType
-                    && (ClaimOn(claim.Designer, x.Second, "parameter.type") is not null || TypeMatches(modelType, type)));
-                bool Same(MemberNode declared) => Matches(Stated(declared)) || Matches(declared.Parameters);
-                Compare(claim, string.Join(", ", code.Select(x => $"{x.Name}: {x.Type?.Text ?? "?"}")), member.At, "code", Same(member) || Counterparts(member).Any(Same));
+                // A parameter whose code leaves its type out, where its language lets it (JavaScript's), matches on its name
+                // alone, and the signature is then not stated rather than verified, unless another declaration states the types.
+                (bool Same, bool Untyped) Matches(IReadOnlyList<ParameterNode> stated)
+                {
+                    if (stated.Count != model.Count)
+                    {
+                        return default;
+                    }
+
+                    var untyped = false;
+                    foreach (var (parameter, modelled) in stated.Zip(model))
+                    {
+                        if (parameter.Name.TrimStart('@') != modelled.Name.TrimStart('@') || modelled.TypeReference is not { Element: not null } modelType
+                            || parameter.Type is null && !MayLeaveTypesOut(parameter.At.File))
+                        {
+                            return default;
+                        }
+
+                        if (ClaimOn(claim.Designer, modelled, "parameter.type") is not null)
+                        {
+                            continue;
+                        }
+
+                        if (parameter.Type is null)
+                        {
+                            untyped = true;
+                        }
+                        else if (!TypeMatches(modelType, parameter.Type))
+                        {
+                            return default;
+                        }
+                    }
+
+                    return (true, untyped);
+                }
+
+                // The method's own declaration first, and its counterparts only when that doesn't match.
+                IEnumerable<MemberNode> Declarations()
+                {
+                    yield return member;
+                    foreach (var counterpart in Counterparts(member))
+                    {
+                        yield return counterpart;
+                    }
+                }
+
+                var same = false;
+                var named = false;
+                foreach (var match in Declarations().SelectMany(x => new[] { Stated(x), x.Parameters }).Select(Matches).Where(x => x.Same))
+                {
+                    same = !match.Untyped;
+                    named = true;
+                    if (same)
+                    {
+                        break;
+                    }
+                }
+
+                if (named && !same)
+                {
+                    Untyped(claim, member.At, $"`{member.Name}`'s parameters");
+                    break;
+                }
+
+                Compare(claim, string.Join(", ", code.Select(x => $"{x.Name}: {x.Type?.Text ?? "?"}")), member.At, "code", same);
                 break;
             }
             default:
@@ -1264,7 +1441,7 @@ public sealed partial class DriftEngine
                 var readers = _extensions.Where(x => x.ClaimReaders.Any(r => r.Kinds.Contains(claim.Kind))).Select(x => x.Id).ToList();
                 var stems = new[] { claim.Source, Owner(claim.Source) }.OfType<IElement>().Select(NameOf).Where(x => x.Length > 0).ToList();
                 var shadow = readers.Count == 0 ? default
-                    : _files.FirstOrDefault(x => !x.Decision.In && LanguageOf(x.Path) is not null
+                    : _files.FirstOrDefault(x => !x.Decision.In && OwnCode(x) && LanguageOf(x.Path) is not null
                                                  && stems.Any(stem => Path.GetFileName(x.Path).StartsWith(stem, StringComparison.Ordinal)));
                 if (shadow.Path is not null)
                 {
@@ -1420,7 +1597,7 @@ public sealed partial class DriftEngine
                 _types[claim] = candidates[0];
                 Verify(claim, new Reading { Value = "present", From = "code", At = candidates[0].At });
                 break;
-            case 0 when !_files.Any(x => !x.Decision.In && names.Any(stem => IsNamedFor(x.Path, stem)))
+            case 0 when !_files.Any(x => !x.Decision.In && OwnCode(x) && names.Any(stem => IsNamedFor(x.Path, stem)))
                          && LibraryUseOf(names, PlacedNamespaces(element)) is { } use:
                 // A type the code uses and doesn't declare is a library's it references, as a message from a contracts
                 // package is (IHandleMessages<Ping>): it exists, and what the model says of its shape can't be read. Not
@@ -1637,6 +1814,12 @@ public sealed partial class DriftEngine
         switch (claim.Kind)
         {
             case "parameter.type":
+                if (parameter.Type is null && MayLeaveTypesOut(parameter.At.File))
+                {
+                    Untyped(claim, parameter.At, $"`{member.Name}`'s `{parameter.Name}`");
+                    break;
+                }
+
                 if (parameter.Type is null || claim.ExpectedValue is not ITypeReference model)
                 {
                     Cant(claim, "notFound", new Reading { At = parameter.At, Detail = $"`{member.Name}`'s `{parameter.Name}` has no type." });
@@ -1649,6 +1832,12 @@ public sealed partial class DriftEngine
                 if (_graph.UngovernedFiles.TryGetValue(parameter.At.File, out var project))
                 {
                     Cant(claim, "readerFailed", new Reading { At = parameter.At, Detail = $"{project}, which sets {parameter.At.File}'s nullable context, can't be read." });
+                    break;
+                }
+
+                if (parameter.Type is null && MayLeaveTypesOut(parameter.At.File))
+                {
+                    Untyped(claim, parameter.At, $"`{member.Name}`'s `{parameter.Name}`");
                     break;
                 }
 
@@ -1918,6 +2107,26 @@ public sealed partial class DriftEngine
 
     private void Missing(Claim claim, string fileStem, string searchedFor, Span? at = null) => Missing(claim, [fileStem], searchedFor, at);
 
+    /// <summary>
+    /// An out-of-scope file is the application's own code, so a lookup may name it as holding a claim's code: one a scope row
+    /// excludes, or one no row covers in a project the in-scope code builds with (an in-scope project, or one it references,
+    /// as a data project does its DTO project). A file in a project nothing in scope references is another application's,
+    /// since several applications over one output folder each keep their own copies (eShop's WebApp and Catalog.API both
+    /// declare `CatalogBrand`), and naming it turned drift into "can't be verified". Where no language says which projects
+    /// the code builds with (<see cref="CodeGraph.ProjectReferences"/> is empty), a file no row covers is named.
+    /// </summary>
+    private bool OwnCode((string Path, ScopeDecision Decision) file)
+    {
+        if (file.Decision.Row is not null || _graph.ProjectReferences.Count == 0)
+        {
+            return true;
+        }
+
+        return _graph.ProjectReferences.Keys.Concat(_graph.ProjectReferences.Values.SelectMany(x => x))
+            .Select(x => Path.GetDirectoryName(x)?.Replace('\\', '/') ?? "")
+            .Any(folder => folder.Length == 0 || file.Path.StartsWith(folder + "/", StringComparison.Ordinal));
+    }
+
     /// <param name="at">Where the missing code belongs, when that is known: a member's owner.</param>
     /// <param name="owner">
     /// The in-scope type a missing member belongs in. Only another part of a partial type can hold it, so for any other
@@ -1927,7 +2136,7 @@ public sealed partial class DriftEngine
     private void Missing(Claim claim, IReadOnlyList<string> fileStems, string searchedFor, Span? at = null, TypeNode? owner = null)
     {
         var shadow = owner is { IsPartial: false } ? default
-            : _files.FirstOrDefault(x => !x.Decision.In && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
+            : _files.FirstOrDefault(x => !x.Decision.In && OwnCode(x) && fileStems.Any(stem => IsNamedFor(x.Path, stem)));
         if (shadow.Path is not null)
         {
             Cant(claim, "outOfScope", new Reading { ShadowFile = shadow.Path, ScopeRow = shadow.Decision.Row?.Id, Detail = searchedFor });

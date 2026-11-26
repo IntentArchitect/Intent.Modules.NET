@@ -420,6 +420,76 @@ public class MessagingTests
     }
 
     /// <summary>
+    /// The Eventing DTOs a subscribed message carries are reached from the message the subscription links to, through its
+    /// fields' types, so the subscriber's copy of each is read with none of the subscriber's referenced packages handed over,
+    /// as in a Software Factory run (2026-11-26, from CleaneShop3's Catalog and Webhooks copies of Ordering's
+    /// <c>OrderStockItem</c>). A copy of another type is one finding on the subscription, beside the message's own copy,
+    /// which still verifies.
+    /// </summary>
+    [Fact]
+    public void A_carried_Eventing_DTOs_copy_is_read_when_the_subscribers_referenced_packages_arent_handed_over()
+    {
+        var model = JsonNode.Parse("""
+            {
+              "designers": {
+                "Services": {
+                  "packages": [{ "id": "services", "name": "Webhooks.API",
+                    "elements": [{ "id": "paid-handler", "type": "Integration Event Handler", "name": "OrderPaidHandler" }] }],
+                  "associations": [
+                    { "id": "handler-subscribes-paid", "type": "Subscribe Integration Event", "source": { "element": "paid-handler" }, "target": { "element": "order-paid" } }
+                  ]
+                },
+                "Codebase Structure": {
+                  "packages": [{ "id": "root", "name": "Webhooks", "type": "Root Folder",
+                    "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+                }
+              },
+              "references": {
+                "Services": {
+                  "packages": [{ "id": "ordering-eventing", "name": "Ordering.Eventing", "type": "Eventing Package",
+                    "elements": [
+                      { "id": "stock-item", "type": "Eventing DTO", "name": "StockItem",
+                        "children": [
+                          { "id": "stock-item-product", "type": "Eventing DTO-Field", "name": "ProductId", "typeRef": { "type": "int" } },
+                          { "id": "stock-item-units", "type": "Eventing DTO-Field", "name": "Units", "typeRef": { "type": "int" } }
+                        ] },
+                      { "id": "order-paid", "type": "Message", "name": "OrderPaid",
+                        "children": [
+                          { "id": "order-paid-order", "type": "Property", "name": "OrderId", "typeRef": { "type": "int" } },
+                          { "id": "order-paid-items", "type": "Property", "name": "Items", "typeRef": { "element": "stock-item", "collection": true } }
+                        ] }
+                    ] }]
+                }
+              }
+            }
+            """)!;
+        Dictionary<string, string> Code(string units) => new()
+        {
+            ["src/Webhooks.API/IntegrationEvents.cs"] = $$"""
+                namespace Webhooks.API.IntegrationEvents;
+                public record IntegrationEvent;
+                public record OrderPaid(int OrderId, IEnumerable<StockItem> Items) : IntegrationEvent;
+                public record StockItem(int ProductId, {{units}} Units);
+                public class OrderPaidHandler : IIntegrationEventHandler<OrderPaid>
+                {
+                    public Task Handle(OrderPaid @event) => Task.CompletedTask;
+                }
+                """
+        };
+
+        // Built without its references, as the Software Factory hands the engine only this application's packages.
+        var clean = Run(model, Code("int"));
+        var drifted = Run(model, Code("long"));
+
+        clean.Claims.Single(x => x.Kind == "message.copy" && x.Discriminator == "StockItem").Outcome.ShouldBe("verified");
+        drifted.Claims.Single(x => x.Kind == "message.copy" && x.Discriminator is null).Outcome.ShouldBe("verified");
+        drifted.Findings.Where(x => x.Rule == "claim/message.copy").Select(x => x.Message).ShouldBe([
+            "`StockItem` (src/Webhooks.API/IntegrationEvents.cs) is the copy of `StockItem`, the Eventing DTO of `Ordering.Eventing` that `OrderPaid` carries, "
+            + "but `Units` is `long` in the copy and `int` in the model. Make the copy's properties the fields of `StockItem`, or model what the message sends."
+        ]);
+    }
+
+    /// <summary>
     /// A client's bus code, as its model draws it (2026-11-24):
     /// <list type="bullet">
     /// <item><c>OnMessageAsync</c> calls its wrapper's <c>SendAsync</c>, whose body publishes: the wrapper does a publish.</item>

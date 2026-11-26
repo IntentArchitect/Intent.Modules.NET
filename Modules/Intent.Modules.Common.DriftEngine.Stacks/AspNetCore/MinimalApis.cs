@@ -25,8 +25,26 @@ internal sealed record MinimalEndpoint(string Router, string? Handler, string Ve
     /// <summary>The API versions the endpoint itself declares (<c>HasApiVersion</c>) or narrows its groups' to (<c>MapToApiVersion</c>).</summary>
     public IReadOnlyList<VersionValue> Versions { get; init; } = [];
 
+    /// <summary>The name the last <c>.WithName(...)</c> chained on the endpoint gives it, which OpenAPI makes its operationId.</summary>
+    public NamedValue? EndpointName { get; init; }
+
+    /// <summary>
+    /// The operationId the last OpenAPI operation callback chained on the endpoint sets (<c>.WithOpenApi(op => ...)</c>,
+    /// <c>.AddOpenApiOperationTransformer((op, context, ct) => ...)</c>), which overrides its name.
+    /// </summary>
+    public NamedValue? OperationId { get; init; }
+
+    /// <summary>Where the endpoint itself is left out of the API description (<c>.ExcludeFromDescription()</c>), if it is.</summary>
+    public Span? Excluded { get; init; }
+
+    /// <summary>Where a group it is mapped on is left out of the API description, if one is.</summary>
+    public Span? GroupExcluded { get; init; }
+
     /// <summary>The pattern, a string constant's value where the code names one (<c>OrderRoutes.ById</c>); null when the code doesn't give it.</summary>
     public string? TemplateIn(CodeGraph code) => TemplateWritten ? Constant(code, Template) : Template;
+
+    /// <summary>A value the endpoint's chain gives: a string literal's, else a string constant's the code declares; null when neither.</summary>
+    public string? TextIn(CodeGraph code, WrittenValue value) => value.Literal ?? Constant(code, value.Written);
 
     /// <summary>The groups' prefixes, as <see cref="TemplateIn"/> reads a pattern; null when one can't be read.</summary>
     public string? GroupIn(CodeGraph code) =>
@@ -40,6 +58,9 @@ internal sealed record MinimalEndpoint(string Router, string? Handler, string Ve
 /// reader to read as a constant the code declares, or to report it can't.
 /// </summary>
 internal sealed record WrittenValue(string? Literal, string Written);
+
+/// <summary>A value a call states and where: the name <c>.WithName("ListItems")</c> gives an endpoint.</summary>
+internal sealed record NamedValue(WrittenValue Value, Span At);
 
 /// <summary>
 /// <c>RequireAuthorization(...)</c> or <c>AllowAnonymous()</c> (<paramref name="Kind"/>), where it is called, and the roles and
@@ -71,6 +92,12 @@ internal sealed class MinimalApiModel
     /// in Program.cs): it applies to the group the method returns, so to the router's endpoints.
     /// </summary>
     public Dictionary<string, Authorization> RouterSecurity { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// Where a call of a router's mapping method anywhere in scope is left out of the API description
+    /// (<c>app.MapOrdersApi().ExcludeFromDescription()</c>): the group the method returns is, so the router's endpoints are.
+    /// </summary>
+    public Dictionary<string, Span> RouterExcluded { get; } = new(StringComparer.Ordinal);
 
     /// <summary>The types that map endpoints or groups, by name: a router whose method maps nothing still is one.</summary>
     public HashSet<string> Routers { get; } = new(StringComparer.Ordinal);
@@ -151,7 +178,11 @@ internal sealed class MinimalApiReader : ICodeReader
                     group.Prefix, group.At, chained.Authorization, group.Authorization, lambda is null ? null : Method(lambda, name ?? $"{verb} {pattern}", file, graph), written, group.Written)
                 {
                     GroupVersions = group.Versions,
-                    Versions = chained.Versions
+                    Versions = chained.Versions,
+                    EndpointName = chained.Name,
+                    OperationId = chained.OperationId,
+                    Excluded = chained.Excluded,
+                    GroupExcluded = group.Excluded
                 });
 
                 if (call.FirstAncestorOrSelf<MethodDeclarationSyntax>() is { } mapper)
@@ -165,10 +196,20 @@ internal sealed class MinimalApiReader : ICodeReader
         {
             foreach (var call in tree.GetRoot().DescendantNodes().OfType<InvocationExpressionSyntax>())
             {
-                if (call.Expression is MemberAccessExpressionSyntax access && mappers.TryGetValue(access.Name.Identifier.Text, out var router)
-                    && Chained(call, file).Authorization is { } authorization)
+                if (call.Expression is not MemberAccessExpressionSyntax access || !mappers.TryGetValue(access.Name.Identifier.Text, out var router))
+                {
+                    continue;
+                }
+
+                var chained = Chained(call, file);
+                if (chained.Authorization is { } authorization)
                 {
                     model.RouterSecurity[router] = authorization;
+                }
+
+                if (chained.Excluded is { } excluded)
+                {
+                    model.RouterExcluded[router] = excluded;
                 }
             }
         }
@@ -216,6 +257,8 @@ internal sealed class MinimalApiReader : ICodeReader
             Kind = "method",
             Type = lambda is ParenthesizedLambdaExpressionSyntax { ReturnType: { } returns } ? CSharpReader.TypeRef(returns) : null,
             Parameters = CSharpReader.ParametersOf(parameters, file),
+            // A lambda's own attributes are its endpoint's metadata, as a method group's are: [ExcludeFromDescription], [EndpointName].
+            Attributes = lambda is LambdaExpressionSyntax { AttributeLists: { Count: > 0 } lists } ? CSharpReader.AttributesOf(lists, file) : [],
             At = at,
             Body = graph.Types.SelectMany(x => x.Members).SelectMany(x => x.Calls).SelectMany(x => x.Arguments)
                 .Select(x => x.Function).FirstOrDefault(x => x is not null && x.At.File == at.File && x.At.Line == at.Line && x.At.Column == at.Column)
@@ -223,15 +266,17 @@ internal sealed class MinimalApiReader : ICodeReader
     }
 
     /// <summary>
-    /// The <c>MapGroup</c> prefixes, security and API versions of the builder an endpoint is mapped on, following a local
-    /// variable to its initializer: <c>var api = app.MapGroup("api/orders").HasApiVersion(1.0);</c>.
+    /// The <c>MapGroup</c> prefixes, security, API versions and API description exclusion of the builder an endpoint is mapped
+    /// on, following a local variable to its initializer: <c>var api = app.MapGroup("api/orders").HasApiVersion(1.0);</c>. A
+    /// group is also excluded by a statement on its variable (<c>api.ExcludeFromDescription();</c>).
     /// </summary>
-    private static (string? Prefix, Span? At, Authorization? Authorization, IReadOnlyList<VersionValue> Versions, string? Written) Group(ExpressionSyntax builder, string file)
+    private static (string? Prefix, Span? At, Authorization? Authorization, IReadOnlyList<VersionValue> Versions, string? Written, Span? Excluded) Group(ExpressionSyntax builder, string file)
     {
         var prefixes = new List<string>();
         string? written = null;
         Span? at = null;
         Authorization? authorization = null;
+        Span? excluded = null;
         var versions = new List<VersionValue>();
         var seen = new HashSet<string>(StringComparer.Ordinal);
         var current = builder;
@@ -239,6 +284,11 @@ internal sealed class MinimalApiReader : ICodeReader
         {
             if (current is InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax access } call)
             {
+                if (Excludes(call))
+                {
+                    excluded ??= SpanOf(access.Name, file);
+                }
+
                 switch (access.Name.Identifier.Text)
                 {
                     case "MapGroup" when call.ArgumentList.Arguments is [{ Expression: LiteralExpressionSyntax prefix }, ..]:
@@ -262,28 +312,75 @@ internal sealed class MinimalApiReader : ICodeReader
                 current = access.Expression;
             }
             else if (current is IdentifierNameSyntax variable && seen.Add(variable.Identifier.Text)
-                     && current.FirstAncestorOrSelf<MemberDeclarationSyntax>()?.DescendantNodes().OfType<VariableDeclaratorSyntax>()
+                     && current.FirstAncestorOrSelf<MemberDeclarationSyntax>() is { } scope
+                     && scope.DescendantNodes().OfType<VariableDeclaratorSyntax>()
                          .FirstOrDefault(x => x.Identifier.Text == variable.Identifier.Text)?.Initializer?.Value is { } initializer)
             {
+                excluded ??= ExcludedByStatement(scope, variable.Identifier.Text, file);
                 current = initializer;
             }
             else
             {
-                return (prefixes.Count == 0 ? null : string.Join("/", prefixes.Select(x => x.Trim('/'))), at, authorization, versions, written);
+                return (prefixes.Count == 0 ? null : string.Join("/", prefixes.Select(x => x.Trim('/'))), at, authorization, versions, written, excluded);
             }
         }
     }
 
     /// <summary>
-    /// The <c>RequireAuthorization</c> or <c>AllowAnonymous</c> chained after a call, and the API versions chained on it:
-    /// <c>HasApiVersion</c>, or <c>MapToApiVersion</c>, which narrows its group's.
+    /// A call that leaves what it's chained on out of the API description: <c>ExcludeFromDescription()</c>, or
+    /// <c>WithMetadata(new ExcludeFromDescriptionAttribute())</c>, the metadata it adds.
     /// </summary>
-    private static (Authorization? Authorization, IReadOnlyList<VersionValue> Versions) Chained(InvocationExpressionSyntax call, string file)
+    private static bool Excludes(InvocationExpressionSyntax call) =>
+        call.Expression is MemberAccessExpressionSyntax access
+        && (access.Name.Identifier.Text == "ExcludeFromDescription"
+            || access.Name.Identifier.Text == "WithMetadata" && call.ArgumentList.Arguments.Any(x => x.Expression is ObjectCreationExpressionSyntax { Type: var type }
+                && type.ToString().Split('.')[^1] is "ExcludeFromDescriptionAttribute" or "ExcludeFromDescription"));
+
+    /// <summary>
+    /// Where a statement in <paramref name="scope"/> excludes the group a variable holds: a chain on the variable reaching
+    /// <c>ExcludeFromDescription()</c> through no <c>Map*</c> call (<c>api.MapGet(...).ExcludeFromDescription()</c> excludes that
+    /// endpoint, and <c>api.MapGroup(...)</c> another group).
+    /// </summary>
+    private static Span? ExcludedByStatement(MemberDeclarationSyntax scope, string variable, string file)
+    {
+        foreach (var call in scope.DescendantNodes().OfType<InvocationExpressionSyntax>().Where(Excludes))
+        {
+            var receiver = ((MemberAccessExpressionSyntax)call.Expression).Expression;
+            while (receiver is InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax inner } && !inner.Name.Identifier.Text.StartsWith("Map", StringComparison.Ordinal))
+            {
+                receiver = inner.Expression;
+            }
+
+            if (receiver is IdentifierNameSyntax named && named.Identifier.Text == variable)
+            {
+                return SpanOf(((MemberAccessExpressionSyntax)call.Expression).Name, file);
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// The <c>RequireAuthorization</c> or <c>AllowAnonymous</c> chained after a call, and the API versions chained on it:
+    /// <c>HasApiVersion</c>, or <c>MapToApiVersion</c>, which narrows its group's. And what OpenAPI reads from the chain: the
+    /// last <c>WithName</c>'s name, the operationId the last OpenAPI operation callback sets, and an exclusion from the API
+    /// description.
+    /// </summary>
+    private static (Authorization? Authorization, IReadOnlyList<VersionValue> Versions, NamedValue? Name, NamedValue? OperationId, Span? Excluded) Chained(
+        InvocationExpressionSyntax call, string file)
     {
         Authorization? authorization = null;
+        NamedValue? name = null;
+        NamedValue? operationId = null;
+        Span? excluded = null;
         var versions = new List<VersionValue>();
         for (SyntaxNode node = call; node.Parent is MemberAccessExpressionSyntax access && access.Parent is InvocationExpressionSyntax next; node = next)
         {
+            if (Excludes(next))
+            {
+                excluded ??= SpanOf(access.Name, file);
+            }
+
             switch (access.Name.Identifier.Text)
             {
                 case "RequireAuthorization" or "AllowAnonymous" when authorization is null:
@@ -292,11 +389,51 @@ internal sealed class MinimalApiReader : ICodeReader
                 case "HasApiVersion" or "MapToApiVersion":
                     versions.AddRange(Versions(next, file));
                     break;
+                // The last name is the endpoint's: OpenAPI takes the last IEndpointNameMetadata.
+                case "WithName" when next.ArgumentList.Arguments is [{ Expression: var named }]:
+                    name = new NamedValue(Text(named, file), SpanOf(access.Name, next, file));
+                    break;
+                // Each callback runs after the ones before it, so the last one that sets the operationId decides it.
+                case "WithOpenApi" or "AddOpenApiOperationTransformer" when OperationIdSet(next, file) is { } set:
+                    operationId = set;
+                    break;
             }
         }
 
-        return (authorization, versions);
+        return (authorization, versions, name, operationId, excluded);
     }
+
+    /// <summary>
+    /// The operationId an OpenAPI operation callback sets on the operation it is given: <c>op =&gt; { op.OperationId = "x"; ... }</c>,
+    /// or <c>op =&gt; new(op) { OperationId = "x" }</c>; the last it sets, when it sets one.
+    /// </summary>
+    private static NamedValue? OperationIdSet(InvocationExpressionSyntax call, string file)
+    {
+        if (call.ArgumentList.Arguments.FirstOrDefault()?.Expression is not LambdaExpressionSyntax lambda)
+        {
+            return null;
+        }
+
+        var operation = lambda switch
+        {
+            SimpleLambdaExpressionSyntax simple => simple.Parameter.Identifier.Text,
+            ParenthesizedLambdaExpressionSyntax { ParameterList.Parameters: [var first, ..] } => first.Identifier.Text,
+            _ => null
+        };
+        var set = lambda.Body.DescendantNodesAndSelf().OfType<AssignmentExpressionSyntax>()
+            .Where(x => x.Left switch
+            {
+                MemberAccessExpressionSyntax { Name.Identifier.Text: "OperationId", Expression: IdentifierNameSyntax target } => target.Identifier.Text == operation,
+                IdentifierNameSyntax { Identifier.Text: "OperationId" } => x.Parent is InitializerExpressionSyntax,
+                _ => false
+            })
+            .LastOrDefault();
+        return set is null ? null : new NamedValue(Text(set.Right, file), SpanOf(set, file));
+    }
+
+    /// <summary>A value as written, with its string literal's value (verbatim, raw and <c>nameof</c> included) where it is one.</summary>
+    private static WrittenValue Text(ExpressionSyntax value, string file) =>
+        new(CSharpReader.ValueOf(value, file).Literal is { Kind: "string" } literal ? literal.Value : null, value.ToString());
 
     /// <summary>
     /// What a <c>RequireAuthorization(...)</c> names: a policy's name (a literal, or a constant the claim reader reads), an
@@ -382,6 +519,14 @@ internal sealed class MinimalApiReader : ICodeReader
         var lines = node.GetLocation().GetLineSpan();
         return new Span(file, lines.StartLinePosition.Line + 1, lines.StartLinePosition.Character + 1, lines.EndLinePosition.Line + 1, lines.EndLinePosition.Character + 1);
     }
+
+    /// <summary>From one node's start to another's end: a chained call's name and arguments, without what it's chained on.</summary>
+    private static Span SpanOf(SyntaxNode from, SyntaxNode to, string file)
+    {
+        var start = from.GetLocation().GetLineSpan().StartLinePosition;
+        var end = to.GetLocation().GetLineSpan().EndLinePosition;
+        return new Span(file, start.Line + 1, start.Character + 1, end.Line + 1, end.Character + 1);
+    }
 }
 
 /// <summary>
@@ -418,7 +563,7 @@ internal sealed class MinimalApiClaims : IClaimReader
     public IReadOnlyCollection<string> Kinds { get; } = new HashSet<string>(StringComparer.Ordinal)
     {
         "member.exists", "service.route", "operation.verb", "operation.route", "operation.returns", "operation.parameters", "operation.status",
-        "endpoint.exists", "security", "security.roles", "security.policy", "service.versions", "operation.versions"
+        "endpoint.exists", "security", "security.roles", "security.policy", "service.versions", "operation.versions", OpenApi.OperationIdKind, OpenApi.IgnoreKind
     };
 
     public ClaimReading? Read(ClaimContext context)
@@ -502,6 +647,8 @@ internal sealed class MinimalApiClaims : IClaimReader
             "operation.returns" when endpoint.Lambda is not null && member.Type is null => LambdaReturns(context, endpoint, member),
             "operation.returns" => Returns(context, member),
             "operation.status" => Http.SuccessStatus.Read(context, member),
+            OpenApi.OperationIdKind => OpenApi.OperationId(context, endpoint, member, router),
+            OpenApi.IgnoreKind => OpenApi.Ignore(model, endpoint, member, router),
             _ => Parameters(context, member)
         };
     }
@@ -551,7 +698,8 @@ internal sealed class MinimalApiClaims : IClaimReader
 
     /// <summary>
     /// An operation whose endpoint's handler isn't a method of the router of its name: the lambda <c>.WithName</c> names
-    /// after it, or else the only endpoint mapped with the operation's verb and route, a lambda or a method group whose
+    /// after it or after the OpenAPI operationId its OpenAPI Settings give it, or else the only endpoint mapped with the
+    /// operation's verb and route, a lambda or a method group whose
     /// method has another name (<c>CancelOrderAsync</c> for the Operation <c>CancelOrder</c>).
     /// </summary>
     private static ClaimReading? Lambda(ClaimContext context, MinimalApiModel model)
@@ -564,7 +712,10 @@ internal sealed class MinimalApiClaims : IClaimReader
         var endpoints = model.Endpoints.Where(x => x.Router == router.Name).ToList();
         var verb = context.Model.Stereotype(context.Element, "Http Settings", "Verb");
         var route = context.Model.Stereotype(context.Element, "Http Settings", "Route");
+        // A lambda's name is its Operation's, or the OpenAPI operationId the Operation's OpenAPI Settings give it.
+        var operationId = context.ClaimOn(context.Element, OpenApi.OperationIdKind)?.Expected;
         var match = endpoints.FirstOrDefault(x => x.Lambda is not null && x.Handler == context.Element.Name)
+                    ?? endpoints.FirstOrDefault(x => x.Lambda is not null && operationId is { Length: > 0 } && x.Handler == operationId)
                     ?? (endpoints.Where(x => (x.Lambda is null || x.Handler is null) && string.Equals(x.Verb, verb, StringComparison.OrdinalIgnoreCase)
                                              && Route(x.TemplateIn(context.Code) ?? x.Template) == Route(route ?? "")).ToList() is [var only] ? only : null);
         return match switch

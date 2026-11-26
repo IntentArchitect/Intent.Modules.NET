@@ -10,7 +10,7 @@
     "unevaluatedProperties": false
   },
   "$defs": {
-    "kindId": { "type": "string", "pattern": "^[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*$" },
+    "kindId": { "type": "string", "pattern": "^[a-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*)*$" },
     "valueType": { "enum": ["text", "bool", "number", "list", "set", "type", "route", "presence"] },
     "comparer": {
       "description": "A built-in comparer, or a plug-in's as <pack>/<id>.",

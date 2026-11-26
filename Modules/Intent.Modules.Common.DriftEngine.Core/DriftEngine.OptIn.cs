@@ -18,10 +18,6 @@ internal sealed record LocatedCode(HashSet<TypeNode> Types, HashSet<MemberNode> 
 /// </summary>
 public sealed partial class DriftEngine
 {
-    /// <summary>The engine's own opt-in rules; a module's rule of the same id replaces one.</summary>
-    private static readonly IOptInRule[] StockOptInRules =
-        [new UnmodelledFile(), new UnmodelledType(), new UnmodelledMember(), new UnmodelledInteraction(), new UnmodelledExposed(), new UnmodelledValue()];
-
     private CheckModel _check = null!;
     private LocatedCode? _locatedCode;
 
@@ -122,8 +118,10 @@ public sealed partial class DriftEngine
     /// pack's convention for the element type that says nothing of them keeps the stock pack's.
     /// </summary>
     internal IReadOnlySet<string> States(string designer, IElement element) =>
-        (_packs.Select(x => (x.TypeConvention(designer, element.SpecializationType) as JsonObject)?["states"]).LastOrDefault(x => x is not null) as JsonArray)?
-        .Select(x => x!.GetValue<string>()).ToHashSet(StringComparer.Ordinal) ?? [];
+        (Convention(designer, element)?["states"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToHashSet(StringComparer.Ordinal) ?? [];
+
+    /// <summary>Whether the designer names each of the element type's members uniquely, so only one of a type's overloads can be stated.</summary>
+    internal bool UniqueNames(string designer, IElement element) => Convention(designer, element)?["uniqueNames"]?.GetValue<bool>() == true;
 
     /// <summary>Every pack's type conventions: what <c>unmodelled.type</c> looks for.</summary>
     internal IEnumerable<(string Designer, string ElementType, JsonNode Convention)> TypeConventions() => _packs.SelectMany(x => x.TypeConventions());
@@ -267,7 +265,7 @@ public sealed partial class DriftEngine
         var places = reported.Where(x => x.Category == "ModelCode" && x.Subject is { File: not null, Line: not null })
             .Select(x => (x.Subject.File!, x.Subject.Line!.Value))
             .ToHashSet();
-        var rules = StockOptInRules.Select(x => (Extension: "intent.core", Rule: x))
+        var rules = StockOptInRules.All.Select(x => (Extension: "intent.core", Rule: x))
             .Concat(_extensions.SelectMany(x => x.OptInRules.Select(r => (Extension: x.Id, Rule: r))))
             .GroupBy(x => $"optin/{x.Rule.Id}")
             .ToDictionary(x => x.Key, x => x.Last());

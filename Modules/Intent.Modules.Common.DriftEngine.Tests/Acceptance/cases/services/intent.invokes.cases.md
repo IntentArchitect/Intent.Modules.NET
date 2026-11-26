@@ -472,6 +472,300 @@ eShopCustom's orders page calls the ordering service proxy's `GetOrders` from `O
 }
 ```
 
+## store-class-calls-proxy-operation
+
+A Store whose code is a plain C# class, as a Blazor application's state usually is, calls a Proxy Operation. The User Interface designer gives a Store no member for its methods, so the Store is the whole class: its calls are those of every method and constructor, and of the code's own methods they reach. `BasketState.CheckoutAsync` clears the basket through a private helper, on the `IBasketService` interface the located `BasketService` implements.
+
+```json case
+{ "phase": "later", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "basket-state", "type": "Store", "name": "BasketState" },
+          { "id": "basket-service", "type": "Proxy", "name": "BasketService", "children": [
+            { "id": "basket-service-delete-basket", "type": "Proxy Operation", "name": "DeleteBasketAsync" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "basket-state-deletes-basket", "type": "Call Service Operation Action", "source": { "element": "basket-state" }, "target": { "element": "basket-service-delete-basket" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebApp/Services/BasketState.cs
+namespace eShop.WebApp.Services;
+
+public class BasketState(IBasketService basketService)
+{
+    public async Task CheckoutAsync()
+    {
+        await ClearAsync();
+    }
+
+    private Task ClearAsync() => basketService.DeleteBasketAsync();
+}
+```
+
+```csharp file src/WebApp/Services/BasketService.cs
+namespace eShop.WebApp.Services;
+
+public interface IBasketService
+{
+    Task DeleteBasketAsync();
+}
+
+public class BasketService(HttpClient httpClient) : IBasketService
+{
+    public Task DeleteBasketAsync() => httpClient.DeleteAsync("api/basket");
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "basket-state-deletes-basket", "outcome": "verified", "at": "src/WebApp/Services/BasketState.cs:10" },
+    { "kind": "intent.target", "element": "basket-state-deletes-basket", "outcome": "verified", "at": "src/WebApp/Services/BasketState.cs:10" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "count": 0 },
+    { "rule": "claim/intent.target", "count": 0 }
+  ]
+}
+```
+
+## store-class-doesnt-call-proxy-operation
+
+The Store no longer clears the basket: nothing in any of its methods, or the code's own methods they call, calls `DeleteBasketAsync`. One finding, on the invocation; the target waits on it.
+
+```json case
+{ "phase": "later", "base": "store-class-calls-proxy-operation", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/WebApp/Services/BasketState.cs
+namespace eShop.WebApp.Services;
+
+public class BasketState(IBasketService basketService)
+{
+    public Task CheckoutAsync() => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "basket-state-deletes-basket", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "basket-state-deletes-basket" },
+    { "rule": "claim/intent.target", "count": 0 }
+  ]
+}
+```
+
+## blazor-form-posts-to-operation
+
+eShop's webhook client logs out with a plain HTML form, which posts to the authentication endpoint with no proxy in between. The User Interface model has a Call Service Operation Action from the `UserMenu` component to the `Logout` Operation of another application's Services designer, whose Http Settings say `POST /logout`. A form with `method="post"` and no `@onsubmit` handler posts to its action, whose path is the operation's route, so it invokes the operation, and its target is the operation's service.
+
+```json case
+{ "phase": "later", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebhookClient", "type": "User Interface Package",
+        "elements": [
+          { "id": "user-menu", "type": "Component", "name": "UserMenu" }
+        ]
+      }],
+      "associations": [
+        { "id": "user-menu-logs-out", "type": "Call Service Operation Action", "source": { "element": "user-menu" }, "target": { "element": "logout" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "hooks-services", "name": "WebhookClient.Services",
+        "elements": [
+          { "id": "authentication-endpoints", "type": "Service", "name": "AuthenticationEndpoints", "children": [
+            { "id": "logout", "type": "Operation", "name": "Logout", "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "/logout" } } }
+          ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```razor file src/WebhookClient/Components/Layout/UserMenu.razor
+<AuthorizeView>
+    <Authorized>
+        <form method="post" action="logout">
+            <AntiforgeryToken />
+            <button class="action" type="submit">Log out</button>
+        </form>
+    </Authorized>
+</AuthorizeView>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "user-menu-logs-out", "outcome": "verified", "at": "src/WebhookClient/Components/Layout/UserMenu.razor:3" },
+    { "kind": "intent.target", "element": "user-menu-logs-out", "outcome": "verified", "at": "src/WebhookClient/Components/Layout/UserMenu.razor:3" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## blazor-form-posts-elsewhere
+
+A planted drift: the form posts to `signout`. One finding, on the invocation, naming where the forms post; the target waits on it.
+
+```json case
+{ "phase": "later", "base": "blazor-form-posts-to-operation", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```razor file src/WebhookClient/Components/Layout/UserMenu.razor
+<AuthorizeView>
+    <Authorized>
+        <form method="post" action="signout">
+            <AntiforgeryToken />
+            <button class="action" type="submit">Log out</button>
+        </form>
+    </Authorized>
+</AuthorizeView>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "user-menu-logs-out", "outcome": "contradicted", "actual": "signout", "at": "src/WebhookClient/Components/Layout/UserMenu.razor:3" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "user-menu-logs-out", "messageContains": "`UserMenu` invokes `Logout`: in the model, not in the code. `Logout` is `POST logout`, and `UserMenu` posts its forms to `signout`." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## blazor-form-posts-to-a-get-operation
+
+The form posts to the operation's route, but the operation answers GET, and a form sends a POST: one finding.
+
+```json case
+{ "phase": "later", "base": "blazor-form-posts-to-operation", "kinds": ["intent.invokes"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebhookClient", "type": "User Interface Package",
+        "elements": [
+          { "id": "user-menu", "type": "Component", "name": "UserMenu" }
+        ]
+      }],
+      "associations": [
+        { "id": "user-menu-logs-out", "type": "Call Service Operation Action", "source": { "element": "user-menu" }, "target": { "element": "logout" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "hooks-services", "name": "WebhookClient.Services",
+        "elements": [
+          { "id": "authentication-endpoints", "type": "Service", "name": "AuthenticationEndpoints", "stereotypes": { "Http Service Settings": { "Route": "account" } }, "children": [
+            { "id": "logout", "type": "Operation", "name": "Logout", "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "logout" } } }
+          ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```razor file src/WebhookClient/Components/Layout/UserMenu.razor
+<AuthorizeView>
+    <Authorized>
+        <form method="post" action="/account/logout">
+            <button class="action" type="submit">Log out</button>
+        </form>
+    </Authorized>
+</AuthorizeView>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "user-menu-logs-out", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "user-menu-logs-out", "messageContains": "but `Logout` is a `GET` endpoint, and a form sends a POST." }
+  ]
+}
+```
+
+## blazor-form-with-handler-posts-nothing
+
+What isn't a plain post states nothing: a form with an `@onsubmit` handler is handled by the component itself, its action only a fallback, so it doesn't invoke the operation, and with nothing else calling it the component's silence says it doesn't.
+
+```json case
+{ "phase": "later", "base": "blazor-form-posts-to-operation", "kinds": ["intent.invokes"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```razor file src/WebhookClient/Components/Layout/UserMenu.razor
+<AuthorizeView>
+    <Authorized>
+        <form method="post" action="logout" @onsubmit="SignOutAsync" @formname="logout">
+            <AntiforgeryToken />
+            <button class="action" type="submit">Log out</button>
+        </form>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private Task SignOutAsync() => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "user-menu-logs-out", "outcome": "contradicted", "fromSilence": true }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "user-menu-logs-out" }
+  ]
+}
+```
+
 ## from-handler-subscription
 
 An Integration Event Handler's handling of `OrderStatusChangedToPaidIntegrationEvent` invokes `WebhooksSender.SendAll`. The invocation is drawn from the subscription, an association end, not from an element, so it is only claimed when the engine collects the links that start at a link's end. The handler calls it through the injected interface.
@@ -1138,5 +1432,225 @@ public class OrderLogic
     { "kind": "intent.invokes", "element": "get-order-invokes-sp-get-order", "outcome": "verified", "expected": "present", "actual": "present",
       "at": "src/Acme.Crm/Logic/OrderLogic.cs:19" }
   ]
+}
+```
+
+## mvc-forms-post-to-operations
+
+eShop's Identity site posts its MVC views' forms to the controllers' actions, which the Services model has as Operations with Http Settings. The MVC reader (`intent.mvc`) reads where each form goes: one the form tag helper builds (any `asp-` attribute) posts unless its `method` says otherwise, to `asp-controller`/`asp-action` (each defaulting to the action that rendered the view: the grants page's `asp-action="Revoke"` is `GrantsController.Revoke`), or to the route `asp-route` names, and with no action's route of that name, to the URL the view was rendered at, as the tag helper writes no action of its own (the login form reaches the POST `Login` at `/Account/Login`); a plain form to its `action`'s path. The form must reach the Operation's action with its Http Settings Verb, and its target is then the Operation's service.
+
+```json case
+{ "phase": "later", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Identity.API", "type": "User Interface Package",
+        "elements": [
+          { "id": "login", "type": "Page", "name": "Login", "stereotypes": { "Page": { "Route": "/Account/Login" } } },
+          { "id": "grants", "type": "Page", "name": "Index", "stereotypes": { "Page": { "Route": "/Grants" } } }
+        ]
+      }],
+      "associations": [
+        { "id": "login-posts-login", "type": "Call Service Operation Action", "source": { "element": "login" }, "target": { "element": "account-login" } },
+        { "id": "login-posts-register", "type": "Call Service Operation Action", "source": { "element": "login" }, "target": { "element": "account-register" } },
+        { "id": "grants-posts-revoke", "type": "Call Service Operation Action", "source": { "element": "grants" }, "target": { "element": "grants-revoke" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Identity.API.Services",
+        "elements": [
+          { "id": "account-controller", "type": "Service", "name": "AccountController", "children": [
+            { "id": "account-login", "type": "Operation", "name": "Login", "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Account/Login" } } },
+            { "id": "account-register", "type": "Operation", "name": "Register", "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Account/Register" } } }
+          ] },
+          { "id": "grants-controller", "type": "Service", "name": "GrantsController", "children": [
+            { "id": "grants-revoke", "type": "Operation", "name": "Revoke", "stereotypes": { "Http Settings": { "Verb": "POST", "Route": "~/Grants/Revoke" } } }
+          ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```xml file src/Identity.API/Identity.API.csproj
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>
+```
+
+```csharp file src/Identity.API/Program.cs
+var app = WebApplication.CreateBuilder(args).Build();
+app.MapDefaultControllerRoute();
+app.Run();
+```
+
+```csharp file src/Identity.API/Quickstart/AccountController.cs
+namespace Identity.API.Quickstart;
+
+public class AccountController : Controller
+{
+    [HttpGet]
+    public IActionResult Login(string returnUrl) => View();
+
+    [HttpPost]
+    public IActionResult Login(LoginInputModel model) => View();
+
+    [HttpPost]
+    public IActionResult Register(RegisterInputModel model) => RedirectToAction("Login");
+}
+
+public class LoginInputModel { }
+
+public class RegisterInputModel { }
+```
+
+```csharp file src/Identity.API/Quickstart/GrantsController.cs
+namespace Identity.API.Quickstart;
+
+public class GrantsController : Controller
+{
+    [HttpGet]
+    public IActionResult Index() => View();
+
+    [HttpPost]
+    public IActionResult Revoke(string clientId) => RedirectToAction("Index");
+}
+```
+
+```cshtml file src/Identity.API/Views/Account/Login.cshtml
+<form asp-route="Login">
+    <button name="button" value="login">Login</button>
+</form>
+<form method="post" action="/Account/Register">
+    <button>Register</button>
+</form>
+```
+
+```cshtml file src/Identity.API/Views/Grants/Index.cshtml
+<form asp-action="Revoke">
+    <input type="hidden" name="clientId" value="@client.ClientId" />
+    <button class="btn btn-danger">Revoke Access</button>
+</form>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "login-posts-login", "outcome": "verified", "at": "src/Identity.API/Views/Account/Login.cshtml:1" },
+    { "kind": "intent.target", "element": "login-posts-login", "outcome": "verified", "at": "src/Identity.API/Views/Account/Login.cshtml:1" },
+    { "kind": "intent.invokes", "element": "login-posts-register", "outcome": "verified", "at": "src/Identity.API/Views/Account/Login.cshtml:4" },
+    { "kind": "intent.invokes", "element": "grants-posts-revoke", "outcome": "verified", "at": "src/Identity.API/Views/Grants/Index.cshtml:1" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-form-posts-elsewhere
+
+A planted drift: the login form now names `asp-action="Logout"`, an action that isn't there. One finding, on the invocation, naming what each form reaches; the target waits on it.
+
+```json case
+{ "phase": "later", "base": "mvc-forms-post-to-operations", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```cshtml file src/Identity.API/Views/Account/Login.cshtml
+<form asp-action="Logout">
+    <button name="button" value="login">Login</button>
+</form>
+<form method="post" action="/Account/Register">
+    <button>Register</button>
+</form>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "login-posts-login", "outcome": "contradicted" },
+    { "kind": "intent.invokes", "element": "login-posts-register", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "login-posts-login", "messageContains": "`Login` invokes `AccountController.Login` (POST): in the model, not in the code. `src/Identity.API/Views/Account/Login.cshtml` posts `asp-action=\"Logout\"` (POST no action), `action=\"/Account/Register\"` (POST `AccountController.Register`)." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-plain-form-gets
+
+A plain form with no `method` sends a GET, whatever its action: the register form no longer says `method="post"`, so it reaches no action that takes the POST the Operation's Http Settings give, and the invocation is contradicted though its action's path is the Operation's route.
+
+```json case
+{ "phase": "later", "base": "mvc-forms-post-to-operations", "kinds": ["intent.invokes"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```cshtml file src/Identity.API/Views/Account/Login.cshtml
+<form asp-route="Login">
+    <button name="button" value="login">Login</button>
+</form>
+<form action="/Account/Register">
+    <button>Register</button>
+</form>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "login-posts-register", "outcome": "contradicted" },
+    { "kind": "intent.invokes", "element": "login-posts-login", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "login-posts-register", "messageContains": "`action=\"/Account/Register\"` (GET no action)" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-html-helper-forms
+
+The same forms written with the HTML helpers, as ASP.NET MVC views often are: `Html.BeginForm("Login", "Account", FormMethod.Post)` posts to the action and controller it names, `Html.BeginForm("Revoke")` to that action of the controller that rendered the view, and a plain form's action may be the URL helper's (`action="@Url.Action("Register", "Account")"`).
+
+```json case
+{ "phase": "later", "base": "mvc-forms-post-to-operations", "kinds": ["intent.invokes"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```cshtml file src/Identity.API/Views/Account/Login.cshtml
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <button name="button" value="login">Login</button>
+}
+<form method="post" action="@Url.Action("Register", "Account")">
+    <button>Register</button>
+</form>
+```
+
+```cshtml file src/Identity.API/Views/Grants/Index.cshtml
+@using (Html.BeginForm("Revoke"))
+{
+    <button class="btn btn-danger">Revoke Access</button>
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "login-posts-login", "outcome": "verified", "at": "src/Identity.API/Views/Account/Login.cshtml:1" },
+    { "kind": "intent.invokes", "element": "login-posts-register", "outcome": "verified", "at": "src/Identity.API/Views/Account/Login.cshtml:5" },
+    { "kind": "intent.invokes", "element": "grants-posts-revoke", "outcome": "verified", "at": "src/Identity.API/Views/Grants/Index.cshtml:1" }
+  ],
+  "noOtherFindings": true
 }
 ```

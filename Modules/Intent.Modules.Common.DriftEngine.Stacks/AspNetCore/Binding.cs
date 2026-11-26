@@ -193,13 +193,21 @@ internal static class Binding
     /// <c>{action}</c>, or <c>MapDefaultControllerRoute()</c>'s, unless the controller has a <c>[Route]</c> or
     /// <c>[ApiController]</c>, which require attribute routing. Null when none serves it.
     /// </summary>
-    private static (string[] Template, HashSet<string> Optional)? Mapping(CodeGraph code, TypeNode owner)
+    private static (string[] Template, HashSet<string> Optional)? Mapping(CodeGraph code, TypeNode owner) =>
+        Mappings(code, owner).Select(x => ((string[] Template, HashSet<string> Optional)?)(x.Template, x.Optional)).FirstOrDefault();
+
+    /// <summary>
+    /// Every conventional route that serves the controller's actions with no route of their own, in the order the code maps
+    /// them (<see cref="Mapping"/> is the first), each with the route values its defaults make optional and the defaults the
+    /// call gives in an object (<c>defaults: new { controller = "Home", action = "Index" }</c>, ASP.NET MVC's <c>MapRoute</c>).
+    /// </summary>
+    private static IEnumerable<(string[] Template, HashSet<string> Optional, IReadOnlyDictionary<string, string> Defaults)> Mappings(CodeGraph code, TypeNode owner)
     {
         var webApi2 = WebApi2(code, owner);
         var controllers = new[] { owner }.Concat(code.Bases(owner)).ToList();
         if (!webApi2 && controllers.Any(x => x.Attributes.Any(a => a.Name == "ApiController" || a.Name == "Route" && a.Arguments.Count > 0)))
         {
-            return null;
+            yield break;
         }
 
         foreach (var call in MinimalApiClaims.AllCalls(code).Where(x => webApi2 ? x.Name == "MapHttpRoute" : CoreConventional.Contains(x.Name)))
@@ -210,11 +218,87 @@ internal static class Binding
             if (quoted is not null)
             {
                 var optional = call.Arguments.SelectMany(x => OptionalValues.Matches(x.Text).Select(m => m.Groups[1].Value)).ToHashSet(StringComparer.OrdinalIgnoreCase);
-                return (quoted.Trim('"').Trim('/').Split('/'), optional);
+                var defaults = call.Arguments.Where(x => x.Text.StartsWith("new", StringComparison.Ordinal))
+                    .SelectMany(x => DefaultValues.Matches(x.Text))
+                    .GroupBy(x => x.Groups[1].Value, StringComparer.OrdinalIgnoreCase)
+                    .ToDictionary(x => x.Key, x => x.First().Groups[2].Value, StringComparer.OrdinalIgnoreCase);
+                yield return (quoted.Trim('"').Trim('/').Split('/'), optional, defaults);
+            }
+        }
+    }
+
+    /// <summary>
+    /// A route value an object of defaults gives: as text (<c>controller = "Home"</c>), or optional, as ASP.NET MVC writes it
+    /// (<c>id = UrlParameter.Optional</c>, an empty default).
+    /// </summary>
+    private static readonly Regex DefaultValues = new(@"([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(?:""([^""]*)""|UrlParameter\.Optional)", RegexOptions.Compiled);
+
+    /// <summary>
+    /// Every URL ASP.NET Core's conventional routes reach a controller action at, as a page's address rather than an
+    /// endpoint's one route: each route <see cref="Mappings"/> gives, its <c>{controller}</c> and <c>{action}</c> filled with
+    /// the controller's name and the action's (its <c>[ActionName]</c>'s), and a trailing segment that may be left out, left
+    /// out in turn. A token whose default is the value filled in may be (<c>{controller=Home}/{action=Index}/{id?}</c> serves
+    /// <c>HomeController.Index</c> at <c>/Home/Index</c>, <c>/Home</c> and <c>/</c>); an optional parameter stays as written when
+    /// the action takes it (<c>/Orders/Details/{id?}</c>, then <c>/Orders/Details</c>), and is left out when it doesn't. Empty for
+    /// an action with a route of its own, an OData controller's, or with no conventional route serving it.
+    /// </summary>
+    public static IReadOnlyList<string> ConventionalUrls(CodeGraph code, TypeNode owner, MemberNode member)
+    {
+        if (HasOwnRoute(member) || OData(code, owner))
+        {
+            return [];
+        }
+
+        var controller = ControllerName(owner);
+        var action = member.Attributes.FirstOrDefault(x => x.Name == "ActionName" && x.Arguments.Count > 0)?.Arguments[0].Trim('"') ?? member.Name;
+        var urls = new List<string>();
+        foreach (var (template, optional, defaults) in Mappings(code, owner))
+        {
+            var segments = new List<(string Value, bool Droppable)>();
+            foreach (var segment in template)
+            {
+                if (!segment.StartsWith('{'))
+                {
+                    segments.Add((segment, false));
+                    continue;
+                }
+
+                var token = segment.Trim('{', '}');
+                var name = token.Split('=')[0].TrimEnd('?').Split(':')[0].TrimStart('*');
+                var fallback = token.Contains('=') ? token.Split('=', 2)[1].TrimEnd('?') : defaults.GetValueOrDefault(name);
+                var leftOut = token.Contains('=') || token.EndsWith('?') || optional.Contains(name) || defaults.ContainsKey(name);
+                if (name.Equals("controller", StringComparison.OrdinalIgnoreCase))
+                {
+                    segments.Add((controller, string.Equals(fallback, controller, StringComparison.OrdinalIgnoreCase)));
+                }
+                else if (name.Equals("action", StringComparison.OrdinalIgnoreCase))
+                {
+                    segments.Add((action, string.Equals(fallback, action, StringComparison.OrdinalIgnoreCase)));
+                }
+                else if (!leftOut || member.Parameters.Any(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+                {
+                    segments.Add((leftOut ? $"{{{name}?}}" : segment, leftOut));
+                }
+                else
+                {
+                    segments.Add(("", true));
+                }
+            }
+
+            while (segments.Count > 0 && segments[^1].Value.Length == 0)
+            {
+                segments.RemoveAt(segments.Count - 1);
+            }
+
+            urls.Add("/" + string.Join("/", segments.Select(x => x.Value).Where(x => x.Length > 0)));
+            while (segments.Count > 0 && segments[^1].Droppable)
+            {
+                segments.RemoveAt(segments.Count - 1);
+                urls.Add("/" + string.Join("/", segments.Select(x => x.Value).Where(x => x.Length > 0)));
             }
         }
 
-        return null;
+        return urls.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
     }
 
     /// <summary>A controller's name in a route: its class name less <c>Controller</c>.</summary>

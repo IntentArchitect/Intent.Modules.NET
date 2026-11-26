@@ -32,6 +32,9 @@
         "unionMembers": ["None"],
         "notStated": "Python states whether a value can be None only in its type annotation, and these are typed Any or object, which say nothing either way; annotate them with their type (Optional[T] or T | None when they can be None) to check them."
       },
+      "untyped": {
+        "notStated": "Python states a type only in an annotation, and these have none; annotate them to check them."
+      },
       "naming": { "property": "{Name|snake}", "field": "{Name|snake}", "method": "{Name|snake}", "parameter": "{Name|snake}" },
       "typeKinds": ["class", "interface", "enum", "typeAlias"]
     }

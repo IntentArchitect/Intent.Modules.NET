@@ -7,9 +7,9 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 
 /// <summary>
-/// C# as a language the engine reads: <c>.cs</c> files, Razor components (<c>.razor</c>), and the <c>.csproj</c> files that
-/// set their nullable context and root namespace. Its profile (the <c>csharp</c> pack) names C#'s types, collections and
-/// type kinds.
+/// C# as a language the engine reads: <c>.cs</c> files, Razor components (<c>.razor</c>), MVC views and Razor Pages
+/// (<c>.cshtml</c>, each a component named after its file), and the <c>.csproj</c> files that set their nullable context and
+/// root namespace. Its profile (the <c>csharp</c> pack) names C#'s types, collections and type kinds.
 /// </summary>
 public sealed class CSharpExtension : IDriftExtension
 {
@@ -29,7 +29,8 @@ internal sealed class CSharpLanguage : ILanguage
     public string Title => "C#";
 
     public bool Reads(string path) =>
-        path.EndsWith(".cs", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".razor", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase);
+        path.EndsWith(".cs", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".razor", StringComparison.OrdinalIgnoreCase) || RazorFile.IsCshtml(path)
+        || path.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase);
 
     public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken) => CSharpReader.Read(root, files, graph, cancellationToken);
 }
@@ -46,8 +47,9 @@ public sealed class CSharpSyntax
 
     /// <summary>
     /// Each in-scope C# file's syntax tree, by path relative to the output folder, with Roslyn's full syntax. A Razor
-    /// component's is the C# the Razor compiler generates for it; <see cref="SpanOf"/> places its nodes in the <c>.razor</c>
-    /// file they are written in.
+    /// component's, MVC view's or Razor Page's is the C# the Razor compiler generates for it; <see cref="SpanOf"/> places its
+    /// nodes in the <c>.razor</c> or <c>.cshtml</c> file they are written in. A <c>_ViewStart.cshtml</c>'s is here too, though
+    /// it has no file or type in the graph: it holds no view, only code its folder's views run first (their <c>Layout</c>).
     /// </summary>
     public SortedDictionary<string, SyntaxTree> Trees { get; } = new(StringComparer.Ordinal);
 

@@ -195,3 +195,73 @@ export default function OrderPage({ note }: { note?: string }) {
   ]
 }
 ```
+
+## maui-shell-has-no-route-parameters
+
+.NET MAUI's Shell has no route parameters (`intent.maui`): a page receives its navigation's values as query parameters. So a MAUI page's Property the model marks a route parameter is one finding, and one it doesn't verifies.
+
+```json case
+{ "phase": "later", "kinds": ["property.route"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "order", "type": "Page", "name": "OrderDetailView", "stereotypes": { "Page": { } }, "children": [
+            { "id": "order-number", "type": "Property", "name": "OrderNumber", "typeRef": { "type": "int" }, "stereotypes": { "[Route Parameter]": { } } },
+            { "id": "order-tab", "type": "Property", "name": "Tab", "typeRef": { "type": "string" }, "stereotypes": { "[Query Parameter]": { } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Shop.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+</Project>
+```
+
+```xml file src/Shop/Views/OrderDetailView.xaml
+<ContentPage x:Class="Shop.Views.OrderDetailView" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Label Text="{Binding OrderNumber}" />
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/OrderDetailView.xaml.cs
+namespace Shop.Views;
+
+[QueryProperty(nameof(Tab), "tab")]
+public partial class OrderDetailView : ContentPage
+{
+    public int OrderNumber { get; set; }
+
+    public string Tab { get; set; } = "";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.route", "element": "order-number", "outcome": "contradicted", "expected": "true", "actual": "false" },
+    { "kind": "property.route", "element": "order-tab", "outcome": "verified", "expected": "false", "actual": "false" },
+    { "kind": "property.query", "element": "order-tab", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/property.route", "severity": "error", "subject": "order-number", "messageContains": "MAUI Shell has no route parameters: a page receives navigation values as query parameters. Remove [Route Parameter]." }
+  ],
+  "noOtherFindings": true
+}
+```

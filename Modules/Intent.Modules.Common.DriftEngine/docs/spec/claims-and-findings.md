@@ -189,7 +189,7 @@ Messages name the element and the claim's label, never an id. Code goes in backt
 | -------------------------------------------------------------------------------- | ---------------------- |
 | Contradicted claim                                                               | Error                  |
 | Can't-verify claim, every reason except the next row                             | Error                  |
-| `engine/notStated`: nullability claims whose code is outside a nullable context, listed once; no finding per claim | Info |
+| `engine/notStated`: nullability claims whose code is outside a nullable context, and type claims whose code leaves the type out, listed once per language and per which; no finding per claim | Info |
 | `engine/noVocabulary`, and a designer with no vocabulary                         | Error                  |
 | `engine/readerFailed` (the file)                                                 | Error                  |
 | `scope/missing` (no Drift Scope anywhere)                                        | Error                  |
@@ -203,6 +203,8 @@ Messages name the element and the claim's label, never an id. Code goes in backt
 Info is logged, never reported. Every can't-verify is an error because the model makes a claim the run couldn't check (principle 2). Open question 2 asks to confirm this.
 
 The exception is a fact the code can't state at all. Outside a nullable context a C# reference type says nothing about nullability, so neither the model nor the code can be wrong about it, and it isn't drift. Each such claim is still can't verify, `unresolved`, in the run result, but it has no finding of its own: one `engine/notStated` note gives the count per designer and the files per top folder, and says that turning nullable reference types on makes them checkable. ClientA's first Software Factory run showed why: a codebase the recipe check reports clean came back with 753 errors, every one a `string` in a project with nullable off.
+
+A type the code leaves out is the same. JavaScript declares no types, TypeScript infers the ones a declaration leaves out, and Python states one only in an annotation, so a JavaScript component's props, a TypeScript `useState(1)` and an unannotated Python attribute say nothing about the type the model states. Where the language profile has `untyped` ([rules.md](rules.md), Language profiles), each such `member.type`, `operation.returns`, `parameter.type` and `operation.parameters` claim, and the nullability claims on the same declarations, is can't verify, `unresolved`, with no finding of its own, and a second `engine/notStated` note per language lists them with the profile's `untyped.notStated`.
 
 ### Overrides
 

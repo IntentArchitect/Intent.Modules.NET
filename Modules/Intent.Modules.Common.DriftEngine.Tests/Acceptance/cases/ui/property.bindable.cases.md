@@ -195,3 +195,118 @@ export function QuantityInput({ quantity, max, onQuantityChange }: QuantityInput
   ]
 }
 ```
+
+## maui-bindable-property
+
+A .NET MAUI component's property is bindable (`intent.maui`) when a static `{Name}Property` `BindableProperty` backs it, the only way a parent binds it: eShop's ClientApp badge binds its `Text`; its `Caption` is a plain property. MAUI is in the code through the page's XAML.
+
+```json case
+{ "phase": "later", "kinds": ["property.bindable"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "badge", "type": "Component", "name": "BadgeView", "children": [
+            { "id": "badge-text", "type": "Property", "name": "Text", "typeRef": { "type": "string" }, "stereotypes": { "[Bindable]": { } } },
+            { "id": "badge-caption", "type": "Property", "name": "Caption", "typeRef": { "type": "string" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Shop.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+</Project>
+```
+
+```xml file src/Shop/Views/CatalogView.xaml
+<ContentPage x:Class="Shop.Views.CatalogView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Shop.Views">
+    <views:BadgeView Text="{Binding Count}" />
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/CatalogView.xaml.cs
+namespace Shop.Views;
+
+public partial class CatalogView : ContentPage
+{
+}
+```
+
+```csharp file src/Shop/Views/BadgeView.cs
+namespace Shop.Views;
+
+public class BadgeView : Grid
+{
+    public static readonly BindableProperty TextProperty =
+        BindableProperty.Create(nameof(Text), typeof(string), typeof(BadgeView), "0");
+
+    public string Text
+    {
+        get => (string)GetValue(TextProperty);
+        set => SetValue(TextProperty, value);
+    }
+
+    public string Caption { get; set; } = "";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.bindable", "element": "badge-text", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/Shop/Views/BadgeView.cs:5" },
+    { "kind": "property.bindable", "element": "badge-caption", "outcome": "verified", "expected": "false", "actual": "false" }
+  ],
+  "others": "verified",
+  "noOtherFindings": true
+}
+```
+
+## maui-bindable-property-removed
+
+A planted drift: the badge's `Text` is a plain property. One finding: no `BindableProperty` backs it, so a parent can't bind it.
+
+```json case
+{ "phase": "later", "base": "maui-bindable-property", "kinds": ["property.bindable"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/Shop/Views/BadgeView.cs
+namespace Shop.Views;
+
+public class BadgeView : Grid
+{
+    public string Text { get; set; } = "0";
+
+    public string Caption { get; set; } = "";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.bindable", "element": "badge-text", "outcome": "contradicted", "expected": "true", "actual": "false" }
+  ],
+  "findings": [
+    { "rule": "claim/property.bindable", "severity": "error", "subject": "badge-text", "messageContains": "No `TextProperty` BindableProperty backs it, so a parent can't bind it." }
+  ],
+  "noOtherFindings": true
+}
+```

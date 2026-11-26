@@ -377,6 +377,123 @@ public class CatalogService(HttpClient httpClient)
 }
 ```
 
+## csharp-request-wrapper
+
+A C# proxy that sends its requests through the application's own wrapper, `IRequestProvider`, as eShop's MAUI client does: the wrapper's implementation sends an `HttpClient` request to the URI it is given, so a call of it is the proxy's request, read with the wrapper's `uri` bound to what the proxy passes. No wrapper name is known to the engine. The URI starts with the gateway's base address, a setting, which is dropped; the backend service's route carries its API version as a query string, which isn't part of the path. `CancelOrderAsync` posts where the backend answers PUT, and its route holds; the route of `GetOrdersAsync` names `order` where the backend serves `orders`.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route", "proxy.verb"], "requirements": ["R2", "R10", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "clientapp", "name": "ClientApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "order-service", "type": "Proxy", "name": "OrderService", "children": [
+            { "id": "get-orders", "type": "Proxy Operation", "name": "GetOrdersAsync" },
+            { "id": "cancel-order", "type": "Proxy Operation", "name": "CancelOrderAsync", "children": [
+              { "id": "cancel-order-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "int" } }
+            ] }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "get-orders-calls-backend", "type": "Call Service Operation Action", "source": { "element": "get-orders" }, "target": { "element": "ordering-get-orders" } },
+        { "id": "cancel-order-calls-backend", "type": "Call Service Operation Action", "source": { "element": "cancel-order" }, "target": { "element": "ordering-cancel-order" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "ordering-api", "name": "Ordering.API",
+        "elements": [
+          { "id": "ordering-api-service", "type": "Service", "name": "OrdersApi", "stereotypes": { "Http Service Settings": { "Route": "api/orders?api-version={version}" } }, "children": [
+            { "id": "ordering-get-orders", "type": "Operation", "name": "GetOrdersByUser", "stereotypes": { "Http Settings": { "Verb": "GET" } } },
+            { "id": "ordering-cancel-order", "type": "Operation", "name": "CancelOrder", "stereotypes": { "Http Settings": { "Verb": "PUT", "Route": "cancel" } } }
+          ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```csharp file src/ClientApp/Services/RequestProvider/RequestProvider.cs
+using System.Net.Http.Json;
+
+namespace eShop.ClientApp.Services.RequestProvider;
+
+public interface IRequestProvider
+{
+    Task<TResult> GetAsync<TResult>(string uri, string token = "");
+
+    Task<TResult> PostAsync<TRequest, TResult>(string uri, TRequest data, string token = "");
+
+    Task<bool> PutAsync(string uri, string token = "");
+}
+
+public class RequestProvider(HttpClient httpClient) : IRequestProvider
+{
+    public async Task<TResult> GetAsync<TResult>(string uri, string token = "")
+    {
+        var response = await httpClient.GetAsync(uri);
+        return (await response.Content.ReadFromJsonAsync<TResult>())!;
+    }
+
+    public async Task<TResult> PostAsync<TRequest, TResult>(string uri, TRequest data, string token = "")
+    {
+        var response = await httpClient.PostAsJsonAsync(uri, data);
+        return (await response.Content.ReadFromJsonAsync<TResult>())!;
+    }
+
+    public async Task<bool> PutAsync(string uri, string token = "")
+    {
+        var response = await httpClient.PutAsync(uri, null);
+        return response.IsSuccessStatusCode;
+    }
+}
+```
+
+```csharp file src/ClientApp/Services/Order/OrderService.cs
+using eShop.ClientApp.Services.RequestProvider;
+
+namespace eShop.ClientApp.Services.Order;
+
+public class OrderService(IRequestProvider requestProvider, ISettingsService settings)
+{
+    public Task<List<OrderSummary>> GetOrdersAsync() =>
+        requestProvider.GetAsync<List<OrderSummary>>($"{settings.GatewayOrdersEndpointBase}api/order?api-version=1.0");
+
+    public Task<bool> CancelOrderAsync(int orderId) =>
+        requestProvider.PostAsync<object, bool>($"{settings.GatewayOrdersEndpointBase}api/orders/cancel?api-version=1.0", new { orderId });
+}
+
+public record OrderSummary(int OrderNumber);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "get-orders-calls-backend", "outcome": "contradicted", "expected": "api/orders", "actual": "api/order", "at": "src/ClientApp/Services/Order/OrderService.cs:8" },
+    { "kind": "proxy.verb", "element": "get-orders-calls-backend", "outcome": "verified", "expected": "GET", "actual": "GET", "at": "src/ClientApp/Services/Order/OrderService.cs:8" },
+    { "kind": "proxy.route", "element": "cancel-order-calls-backend", "outcome": "verified", "expected": "api/orders/cancel", "actual": "api/orders/cancel", "at": "src/ClientApp/Services/Order/OrderService.cs:11" },
+    { "kind": "proxy.verb", "element": "cancel-order-calls-backend", "outcome": "contradicted", "expected": "PUT", "actual": "POST", "at": "src/ClientApp/Services/Order/OrderService.cs:11" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "get-orders-calls-backend" },
+    { "rule": "claim/proxy.verb", "severity": "error", "subject": "cancel-order-calls-backend" }
+  ]
+}
+```
+
 ## eshop-http-route-contradicted
 
 The proxy asks for `items/by/{id}`, a path the backend Operation doesn't serve.

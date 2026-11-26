@@ -1,3 +1,6 @@
+using System.Text.Json.Nodes;
+using Intent.Modules.Common.DriftEngine.Packs;
+using Intent.Modules.Common.DriftEngine.Stacks;
 using Intent.Modules.Common.DriftEngine.Tests.Harness;
 
 namespace Intent.Modules.Common.DriftEngine.Tests.Integrity;
@@ -35,10 +38,17 @@ public class CatalogTests
     }
 
     [Fact]
-    public void Every_kind_is_used_by_a_check_or_by_a_Common_Drift_recipe()
+    public void Every_kind_is_used_by_a_check_a_Common_Drift_recipe_or_stock_vocabulary()
     {
         var byChecks = AcceptanceData.Dispositions.Values.SelectMany(x => x).Where(x => x.StartsWith("claim:", StringComparison.Ordinal)).Select(x => x["claim:".Length..]);
-        var used = byChecks.Concat(SpecDocuments.CommonDriftKinds(Paths.Conversion)).ToHashSet(StringComparer.Ordinal);
+        // A kind the engine claims from a standard Intent stereotype that no old check or recipe read, such as OpenAPI Settings
+        // and the Domain Constraints, is used by the stock vocabulary that claims it.
+        var byStockVocabulary = new[] { "intent.core", "intent.domain", "intent.services", "intent.ui" }.Select(x => Pack.Stock(x)!)
+            .Concat(StockExtensions.All.SelectMany(x => x.Packs))
+            .SelectMany(pack => (pack.Data["vocabulary"] as JsonObject ?? []).SelectMany(designer => pack.Vocabulary(designer.Key)))
+            .Select(x => x["kind"]?.GetValue<string>())
+            .OfType<string>();
+        var used = byChecks.Concat(SpecDocuments.CommonDriftKinds(Paths.Conversion)).Concat(byStockVocabulary).ToHashSet(StringComparer.Ordinal);
 
         AcceptanceData.Kinds.Keys.Where(x => !used.Contains(x)).ShouldBeEmpty();
     }

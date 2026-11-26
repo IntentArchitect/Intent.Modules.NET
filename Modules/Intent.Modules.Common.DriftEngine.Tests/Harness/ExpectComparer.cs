@@ -45,6 +45,13 @@ internal static class ExpectComparer
                 continue;
             }
 
+            // Without a key, the claim with no discriminator, where the element's others of the kind each have one: a
+            // subscription's message.copy beside those of the types its message carries.
+            if (key is null && candidates.Count > 1 && candidates.Where(x => x.Text("discriminator") is null).ToList() is [var undiscriminated])
+            {
+                candidates = [undiscriminated];
+            }
+
             if (candidates.Count == 0)
             {
                 differences.Add($"{label}: the run produced no such claim");

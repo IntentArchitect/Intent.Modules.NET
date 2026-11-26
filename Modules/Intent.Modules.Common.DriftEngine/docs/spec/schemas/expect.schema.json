@@ -62,7 +62,7 @@
       "properties": {
         "rule": {
           "type": "string",
-          "pattern": "^(claim/[a-z][A-Za-z.]*|scope/[a-z][A-Za-z]*|engine/[a-z][A-Za-z]*|optin/[a-z][A-Za-z.]*|config/[a-z][A-Za-z]*|messaging/[a-z][A-Za-z.]*|aspnetcore/[a-z][A-Za-z.]*)$",
+          "pattern": "^(claim/[a-z][A-Za-z0-9.]*|scope/[a-z][A-Za-z]*|engine/[a-z][A-Za-z]*|optin/[a-z][A-Za-z.]*|config/[a-z][A-Za-z]*|messaging/[a-z][A-Za-z.]*|aspnetcore/[a-z][A-Za-z.]*)$",
           "description": "A core rule, or a stock extension's own rule (rules.md), named for its stack"
         },
         "severity": { "enum": ["error", "warning", "info"] },

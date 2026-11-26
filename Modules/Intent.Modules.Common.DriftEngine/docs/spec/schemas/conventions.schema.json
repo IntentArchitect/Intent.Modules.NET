@@ -74,6 +74,10 @@
           "uniqueItems": true,
           "description": "unmodelled.member: the kinds of member the element type can state. The last pack whose convention for the element type says wins; none: the rule doesn't look inside its types"
         },
+        "uniqueNames": {
+          "type": "boolean",
+          "description": "unmodelled.member: the designer gives each of the element type's members a name of its own, so of a type's methods of one name (overloads) only one can be stated: none is asked for when one is located, else only the first. The last pack whose convention for the element type says wins; absent: false"
+        },
         "note": { "type": "string" }
       }
     },

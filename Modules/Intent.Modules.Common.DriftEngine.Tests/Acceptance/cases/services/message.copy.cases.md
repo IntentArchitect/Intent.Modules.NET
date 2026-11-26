@@ -1,6 +1,6 @@
 # message.copy
 
-Another application's Message that a handler here subscribes to, against the subscriber's code: the event bus deserialises the message into a local copy, a class or record of the same name deriving eShopCustom's `IntegrationEvent`, whose own properties must be among the message's modelled properties, with the same types (an enum read as its name or number). The publisher's code is another application's, so the model's message stands for what is sent. The claim is on the subscription, as only its handler names the copy, and only when another application owns the message (a referenced package's): a Message of this application is its own type, which the structure claims check. A copy the model draws itself (Common.Drift's `Integration Event Subscription` from the copy to the published message) is claimed on that link and compared with the published message's code.
+Another application's Message that a handler here subscribes to, against the subscriber's code: the event bus deserialises the message into a local copy, a class or record of the same name deriving eShopCustom's `IntegrationEvent`, whose own properties must be among the message's modelled properties, with the same types (an enum read as its name or number). The publisher's code is another application's, so the model's message stands for what is sent. The claim is on the subscription, as only its handler names the copy, and only when another application owns the message (a referenced package's): a Message of this application is its own type, which the structure claims check. A copy the model draws itself (Common.Drift's `Integration Event Subscription` from the copy to the published message) is claimed on that link and compared with the published message's code. The types such a message carries through its fields, an Eventing DTO and the ones it carries in turn, are deserialised into copies too: each is a `message.copy` claim of its own on the subscription, keyed by the type's name, read from the type of its name that the copy of its carrier names in a property, whose properties must be among the type's fields, with the same types.
 
 The fixture adapts eShopCustom's `Ordering.API` integration events.
 
@@ -245,6 +245,283 @@ public record OrderStatusChangedToPaidIntegrationEvent(int OrderId, string Order
   ],
   "findings": [
     { "rule": "claim/message.copy", "severity": "error", "subject": "handler-subscribes-paid", "messageContains": "`Note` isn't one of its modelled properties" }
+  ]
+}
+```
+
+## carried-dto
+
+Catalog subscribes to Ordering's `OrderStatusChangedToAwaitingValidationIntegrationEvent`, whose `OrderStockItems` field carries Ordering's Eventing DTO `OrderStockItem`. Catalog deserialises it into its own copies of both: the copy of the message names Catalog's `OrderStockItem` record in a property, and that record is the copy of the Eventing DTO, whose `ProductId` and `Units` are the DTO's fields. Each type a subscribed message carries is a `message.copy` claim of its own on the subscription, keyed by the type's name, so the copy is checked, and located: the opt-in rules don't report it. The DTO is reached from the message the subscription links to, its fields' types followed, so no referenced package needs to be handed over, as a Software Factory run doesn't for a subscriber's Eventing packages. The fixture adapts eShop's `Catalog.API`.
+
+```json case
+{ "phase": "later", "kinds": ["message.copy"], "cases": ["optin/unmodelled.type", "optin/unmodelled.file"], "traces": ["ESC-SVC-64"], "requirements": ["R2", "R44", "R49"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Catalog.API",
+        "elements": [
+          { "id": "awaiting-handler", "type": "Integration Event Handler", "name": "OrderStatusChangedToAwaitingValidationIntegrationEventHandler" }
+        ]
+      }],
+      "associations": [
+        { "id": "handler-subscribes-awaiting", "type": "Subscribe Integration Event",
+          "source": { "element": "awaiting-handler" }, "target": { "element": "awaiting-validation" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Catalog", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" }, { "Rule": "optin/unmodelled.file" } ] }
+        } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "ordering-eventing", "name": "Ordering.API.Eventing", "type": "Eventing Package",
+        "elements": [
+          { "id": "order-stock-item", "type": "Eventing DTO", "name": "OrderStockItem",
+            "children": [
+              { "id": "order-stock-item-product-id", "type": "Eventing DTO-Field", "name": "ProductId", "typeRef": { "type": "int" } },
+              { "id": "order-stock-item-units", "type": "Eventing DTO-Field", "name": "Units", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "awaiting-validation", "type": "Message", "name": "OrderStatusChangedToAwaitingValidationIntegrationEvent",
+            "children": [
+              { "id": "awaiting-validation-order-id", "type": "Property", "name": "OrderId", "typeRef": { "type": "int" } },
+              { "id": "awaiting-validation-items", "type": "Property", "name": "OrderStockItems", "typeRef": { "element": "order-stock-item", "collection": true } }
+            ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStatusChangedToAwaitingValidationIntegrationEvent.cs
+namespace eShop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStatusChangedToAwaitingValidationIntegrationEvent(int OrderId, IEnumerable<OrderStockItem> OrderStockItems) : IntegrationEvent;
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs
+namespace eShop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStockItem(int ProductId, int Units);
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/EventHandling/OrderStatusChangedToAwaitingValidationIntegrationEventHandler.cs
+using eShop.Catalog.API.IntegrationEvents.Events;
+
+namespace eShop.Catalog.API.IntegrationEvents.EventHandling;
+
+public class OrderStatusChangedToAwaitingValidationIntegrationEventHandler : IIntegrationEventHandler<OrderStatusChangedToAwaitingValidationIntegrationEvent>
+{
+    public Task Handle(OrderStatusChangedToAwaitingValidationIntegrationEvent @event) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "outcome": "verified",
+      "at": "src/Catalog.API/IntegrationEvents/Events/OrderStatusChangedToAwaitingValidationIntegrationEvent.cs:3" },
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "key": "OrderStockItem", "outcome": "verified",
+      "at": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:3" }
+  ],
+  "findings": [
+    { "rule": "claim/message.copy", "count": 0 },
+    { "rule": "optin/unmodelled.type", "subject": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:3", "count": 0 },
+    { "rule": "optin/unmodelled.file", "count": 0 }
+  ]
+}
+```
+
+## carried-dto-other-type
+
+Catalog's copy of `OrderStockItem` makes `Units` a `long`, a planted drift: the DTO's `Units` is an `int`. It is one finding, on the subscription, naming the copy, the DTO and the message that carries it. The copy of the message is still right.
+
+```json case
+{ "phase": "later", "base": "carried-dto", "kinds": ["message.copy"], "traces": ["ESC-SVC-64"], "requirements": ["R8", "R11", "R44"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs
+namespace eShop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStockItem(int ProductId, long Units);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "outcome": "verified" },
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "key": "OrderStockItem", "outcome": "contradicted", "expected": "present", "actual": "absent",
+      "at": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:3" }
+  ],
+  "findings": [
+    { "rule": "claim/message.copy", "severity": "error", "subject": "handler-subscribes-awaiting",
+      "messageContains": "`OrderStockItem` (src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs) is the copy of `OrderStockItem`, the Eventing DTO of `Ordering.API.Eventing` that `OrderStatusChangedToAwaitingValidationIntegrationEvent` carries, but `Units` is `long` in the copy and `int` in the model." },
+    { "rule": "claim/message.copy", "count": 1 }
+  ]
+}
+```
+
+## carried-dto-extra-field
+
+Catalog's copy of `OrderStockItem` has a `Quantity` the Eventing DTO doesn't have, so it is never set when the event arrives. A copy may leave a field out, as the message's copy may, but every property it has must be one of the DTO's.
+
+```json case
+{ "phase": "later", "base": "carried-dto", "kinds": ["message.copy"], "traces": ["ESC-SVC-64"], "requirements": ["R8", "R44"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs
+namespace eShop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStockItem(int ProductId, int Quantity);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "key": "OrderStockItem", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/message.copy", "severity": "error", "subject": "handler-subscribes-awaiting", "messageContains": "but `Quantity` isn't one of its fields." },
+    { "rule": "claim/message.copy", "count": 1 }
+  ]
+}
+```
+
+## carried-dto-not-named-by-the-copy
+
+Catalog's copy of the message keeps only `OrderId`, as a copy may, so it names no `OrderStockItem`. A record of that name elsewhere in the code isn't the DTO's copy for its name alone: the carried type's claim is `blocked`, with no finding, and the record is code the model doesn't describe, which `optin/unmodelled.type` reports.
+
+```json case
+{ "phase": "later", "base": "carried-dto", "kinds": ["message.copy"], "cases": ["optin/unmodelled.type"], "requirements": ["R5", "R49"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStatusChangedToAwaitingValidationIntegrationEvent.cs
+namespace eShop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStatusChangedToAwaitingValidationIntegrationEvent(int OrderId) : IntegrationEvent;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "outcome": "verified" },
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "key": "OrderStockItem", "outcome": "cantVerify", "reason": "blocked" }
+  ],
+  "findings": [
+    { "rule": "claim/message.copy", "count": 0 },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:3", "messageContains": "OrderStockItem" }
+  ]
+}
+```
+
+## carried-dto-nested
+
+`OrderStockItem` carries an Eventing DTO of its own, `StockProduct`, so the message carries it too, through it. The copy of `OrderStockItem` names Catalog's `StockProduct` class, which is that DTO's copy, checked and located like the first: a type the message carries through another carried type's fields is followed down as far as the fields go.
+
+```json case
+{ "phase": "later", "kinds": ["message.copy"], "cases": ["optin/unmodelled.type"], "traces": ["ESC-SVC-64"], "requirements": ["R2", "R44"], "packs": ["intent.core", "intent.services", "intent.nservicebus"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Catalog.API",
+        "elements": [
+          { "id": "awaiting-handler", "type": "Integration Event Handler", "name": "OrderStatusChangedToAwaitingValidationIntegrationEventHandler" }
+        ]
+      }],
+      "associations": [
+        { "id": "handler-subscribes-awaiting", "type": "Subscribe Integration Event",
+          "source": { "element": "awaiting-handler" }, "target": { "element": "awaiting-validation" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Catalog", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" } ] }
+        } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "ordering-eventing", "name": "Ordering.API.Eventing", "type": "Eventing Package",
+        "elements": [
+          { "id": "stock-product", "type": "Eventing DTO", "name": "StockProduct",
+            "children": [
+              { "id": "stock-product-id", "type": "Eventing DTO-Field", "name": "Id", "typeRef": { "type": "int" } },
+              { "id": "stock-product-name", "type": "Eventing DTO-Field", "name": "Name", "typeRef": { "type": "string" } }
+            ] },
+          { "id": "order-stock-item", "type": "Eventing DTO", "name": "OrderStockItem",
+            "children": [
+              { "id": "order-stock-item-product", "type": "Eventing DTO-Field", "name": "Product", "typeRef": { "element": "stock-product" } },
+              { "id": "order-stock-item-units", "type": "Eventing DTO-Field", "name": "Units", "typeRef": { "type": "int" } }
+            ] },
+          { "id": "awaiting-validation", "type": "Message", "name": "OrderStatusChangedToAwaitingValidationIntegrationEvent",
+            "children": [
+              { "id": "awaiting-validation-order-id", "type": "Property", "name": "OrderId", "typeRef": { "type": "int" } },
+              { "id": "awaiting-validation-items", "type": "Property", "name": "OrderStockItems", "typeRef": { "element": "order-stock-item", "collection": true } }
+            ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStatusChangedToAwaitingValidationIntegrationEvent.cs
+namespace eShop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStatusChangedToAwaitingValidationIntegrationEvent(int OrderId, IEnumerable<OrderStockItem> OrderStockItems) : IntegrationEvent;
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs
+namespace eShop.Catalog.API.IntegrationEvents.Events;
+
+public record OrderStockItem(StockProduct Product, int Units);
+
+public class StockProduct
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; }
+}
+```
+
+```csharp file src/Catalog.API/IntegrationEvents/EventHandling/OrderStatusChangedToAwaitingValidationIntegrationEventHandler.cs
+using eShop.Catalog.API.IntegrationEvents.Events;
+
+namespace eShop.Catalog.API.IntegrationEvents.EventHandling;
+
+public class OrderStatusChangedToAwaitingValidationIntegrationEventHandler : IIntegrationEventHandler<OrderStatusChangedToAwaitingValidationIntegrationEvent>
+{
+    public Task Handle(OrderStatusChangedToAwaitingValidationIntegrationEvent @event) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "key": "OrderStockItem", "outcome": "verified",
+      "at": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:3" },
+    { "kind": "message.copy", "element": "handler-subscribes-awaiting", "key": "StockProduct", "outcome": "verified",
+      "at": "src/Catalog.API/IntegrationEvents/Events/OrderStockItem.cs:5" }
+  ],
+  "findings": [
+    { "rule": "claim/message.copy", "count": 0 },
+    { "rule": "optin/unmodelled.type", "count": 0 }
   ]
 }
 ```

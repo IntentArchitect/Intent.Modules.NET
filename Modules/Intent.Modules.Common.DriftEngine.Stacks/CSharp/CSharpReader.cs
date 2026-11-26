@@ -43,9 +43,10 @@ internal static class CSharpReader
             bool? nullable = null;
             string? rootNamespace = null;
             var addsImports = true;
+            IReadOnlyList<string> references = [];
             try
             {
-                (nullable, rootNamespace, addsImports) = ProjectSettings(Path.Combine(root, project));
+                (nullable, rootNamespace, addsImports, references) = ProjectSettings(root, project);
             }
             catch (System.Xml.XmlException e)
             {
@@ -53,6 +54,7 @@ internal static class CSharpReader
             }
 
             projects[Path.GetDirectoryName(project)!.Replace('\\', '/')] = new Project(project, nullable, rootNamespace, addsImports);
+            graph.ProjectReferences[project] = references;
         }
 
         var parts = new Dictionary<string, TypeNode>(StringComparer.Ordinal);
@@ -61,8 +63,11 @@ internal static class CSharpReader
         var topLevel = new List<(FileNode Node, IReadOnlyList<SyntaxNode> Statements, string File)>();
         var razorEngines = new Dictionary<string, RazorProjectEngine>(StringComparer.Ordinal);
 
-        // Razor components first, so a component's code-behind (X.razor.cs) is a part of the component.
-        foreach (var file in files.Where(x => x.EndsWith(".razor", StringComparison.OrdinalIgnoreCase)).Concat(files.Where(x => x.EndsWith(".cs", StringComparison.OrdinalIgnoreCase))))
+        // Razor components first, so a component's code-behind (X.razor.cs) is a part of the component; MVC views and Razor
+        // Pages (.cshtml) are Razor too. _ViewImports.cshtml holds no view and nothing the graph keeps, so it isn't read.
+        var razorFiles = files.Where(x => x.EndsWith(".razor", StringComparison.OrdinalIgnoreCase))
+            .Concat(files.Where(x => RazorFile.IsCshtml(x) && !Path.GetFileName(x).Equals("_ViewImports.cshtml", StringComparison.OrdinalIgnoreCase)));
+        foreach (var file in razorFiles.Concat(files.Where(x => x.EndsWith(".cs", StringComparison.OrdinalIgnoreCase))))
         {
             cancellationToken.ThrowIfCancellationRequested();
             var parse = Stopwatch.GetTimestamp();
@@ -74,14 +79,16 @@ internal static class CSharpReader
 
             RazorFile? razor = null;
             SyntaxTree tree;
-            if (file.EndsWith(".razor", StringComparison.OrdinalIgnoreCase))
+            if (file.EndsWith(".razor", StringComparison.OrdinalIgnoreCase) || RazorFile.IsCshtml(file))
             {
                 try
                 {
                     var rootNamespace = governing is null ? null : governing.RootNamespace ?? Path.GetFileNameWithoutExtension(governing.Path).Replace(' ', '_');
-                    if (!razorEngines.TryGetValue(rootNamespace ?? "", out var engine))
+                    var views = RazorFile.IsCshtml(file);
+                    var key = (views ? "cshtml:" : "") + (rootNamespace ?? "");
+                    if (!razorEngines.TryGetValue(key, out var engine))
                     {
-                        razorEngines[rootNamespace ?? ""] = engine = RazorFile.Engine(root, rootNamespace);
+                        razorEngines[key] = engine = RazorFile.Engine(root, rootNamespace, views);
                     }
 
                     razor = RazorFile.Generate(root, file, governing is null ? null : Path.GetDirectoryName(governing.Path)!.Replace('\\', '/'), engine);
@@ -93,6 +100,15 @@ internal static class CSharpReader
                 }
 
                 tree = razor.Tree;
+
+                // _ViewStart.cshtml configures the views of its folder (their layout) and is no view itself: its code is kept for
+                // the extensions that read views, with no file or type of its own, as no designer has a construct for it.
+                if (RazorFile.IsViewConfiguration(file))
+                {
+                    syntax.Trees[file] = tree;
+                    graph.Timed("parse", parse);
+                    continue;
+                }
             }
             else
             {
@@ -363,7 +379,7 @@ internal static class CSharpReader
     private static ValueNode? ValueOf(EqualsValueClauseSyntax? clause, string file) => clause is null ? null : ValueOf(clause.Value, file);
 
     /// <summary><c>new X(...)</c>; a target-typed <c>new(...)</c> names no type, so it isn't one.</summary>
-    private static IReadOnlyList<AttributeNode> AttributesOf(SyntaxList<AttributeListSyntax> lists, string file) =>
+    internal static IReadOnlyList<AttributeNode> AttributesOf(SyntaxList<AttributeListSyntax> lists, string file) =>
         lists.SelectMany(x => x.Attributes).Select(attribute =>
         {
             var simple = attribute.Name switch
@@ -604,18 +620,26 @@ internal static class CSharpReader
     }
 
     /// <summary>
-    /// Whether the project turns nullable reference types on, its root namespace when it sets one, and whether it adds global
-    /// imports of its own: a <c>&lt;Using&gt;</c> item in it, or in the Directory.Build.props or Directory.Build.targets
-    /// MSBuild brings in, the nearest of each in its folder or above. The SDK's implicit usings are only its libraries'
-    /// namespaces, so they make none of the code's types nameable.
+    /// Whether the project turns nullable reference types on, its root namespace when it sets one, whether it adds global
+    /// imports of its own (a <c>&lt;Using&gt;</c> item in it, or in the Directory.Build.props or Directory.Build.targets
+    /// MSBuild brings in, the nearest of each in its folder or above; the SDK's implicit usings are only its libraries'
+    /// namespaces, so they make none of the code's types nameable), and the projects it references, relative to the output
+    /// folder.
     /// </summary>
-    private static (bool Nullable, string? RootNamespace, bool AddsImports) ProjectSettings(string projectFile)
+    private static (bool Nullable, string? RootNamespace, bool AddsImports, IReadOnlyList<string> References) ProjectSettings(string root, string project)
     {
+        var projectFile = Path.Combine(root, project);
         var elements = XDocument.Load(projectFile).Descendants().ToList();
         var nullable = elements.FirstOrDefault(x => x.Name.LocalName == "Nullable")?.Value.Trim();
         var rootNamespace = elements.FirstOrDefault(x => x.Name.LocalName == "RootNamespace")?.Value.Trim();
         var addsImports = AddsImports(elements) || DirectoryBuildFiles(Path.GetDirectoryName(Path.GetFullPath(projectFile))).Any(AddsImports);
-        return (string.Equals(nullable, "enable", StringComparison.OrdinalIgnoreCase), string.IsNullOrEmpty(rootNamespace) ? null : rootNamespace, addsImports);
+        var folder = Path.GetDirectoryName(Path.GetFullPath(projectFile))!;
+        var references = elements.Where(x => x.Name.LocalName == "ProjectReference")
+            .Select(x => x.Attribute("Include")?.Value.Trim())
+            .Where(x => !string.IsNullOrEmpty(x))
+            .Select(x => Path.GetRelativePath(Path.GetFullPath(root), Path.GetFullPath(Path.Combine(folder, x!.Replace('\\', Path.DirectorySeparatorChar)))).Replace('\\', '/'))
+            .ToList();
+        return (string.Equals(nullable, "enable", StringComparison.OrdinalIgnoreCase), string.IsNullOrEmpty(rootNamespace) ? null : rootNamespace, addsImports, references);
     }
 
     private static bool AddsImports(IEnumerable<XElement> elements) => elements.Any(x => x.Name.LocalName == "Using" && x.Attribute("Include") is not null);

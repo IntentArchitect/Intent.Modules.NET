@@ -1127,6 +1127,298 @@ public record CatalogItem(int Id, string Name);
 }
 ```
 
+## component-injections
+
+A component's injected services are its Uses of what it injects, never Properties of it, so none is reported as an unmodelled member, though `JS` is a public property. Nor is a Uses asked for: whether a use is significant enough to draw is the modeller's call, as a lookup's is. `BasketState` is modelled as a UI Service the page uses, so its `@inject` is located and the Uses checked; `CatalogService` is the application's own class with no Uses in the model, and `NavigationManager` and `IJSRuntime` are the framework's.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/cart" } } },
+          { "id": "basket-state", "type": "UI Service", "name": "BasketState" }
+        ]
+      }],
+      "associations": [
+        { "id": "cart-page-uses-basket-state", "type": "Uses", "source": { "element": "cart-page" }, "target": { "element": "basket-state" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```razor file src/WebApp/Components/_Imports.razor
+@using eShop.WebApp.Services
+```
+
+```razor file src/WebApp/Components/Pages/CartPage.razor
+@page "/cart"
+@inject BasketState Basket
+@inject CatalogService Catalog
+@inject NavigationManager Navigation
+
+<h1>Cart</h1>
+
+@code {
+    [Inject] public IJSRuntime JS { get; set; } = default!;
+}
+```
+
+```csharp file src/WebApp/Services/BasketState.cs
+namespace eShop.WebApp.Services;
+
+public class BasketState
+{
+}
+```
+
+```csharp file src/WebApp/Services/CatalogService.cs
+namespace eShop.WebApp.Services;
+
+public class CatalogService
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "cart-page-uses-basket-state", "outcome": "verified", "at": "src/WebApp/Components/Pages/CartPage.razor:2" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Components/Pages/CartPage.razor:2", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Components/Pages/CartPage.razor:3", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Components/Pages/CartPage.razor:4", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Components/Pages/CartPage.razor:9", "count": 0 }
+  ]
+}
+```
+
+## page-properties-that-are-no-parameters
+
+A Page's properties that are no parameter are written in code: the User Interface designer models a Page's Properties only for its route and query parameters. So neither the form-bound `UpdateQuantityId` (`[SupplyParameterFromForm]`) nor the plain public `IsBusy` is asked for, while the unmodelled query parameter `Page` is.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/cart" } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```razor file src/WebApp/Components/Pages/Cart/CartPage.razor
+@page "/cart"
+
+<form method="post" @formname="update-cart">
+    <AntiforgeryToken />
+</form>
+
+@code {
+    [SupplyParameterFromForm]
+    public int? UpdateQuantityId { get; set; }
+
+    public bool IsBusy { get; set; }
+
+    [SupplyParameterFromQuery]
+    public int? Page { get; set; }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "cart-page", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/WebApp/Components/Pages/Cart/CartPage.razor:13", "messageContains": "CartPage.Page" },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Components/Pages/Cart/CartPage.razor:8", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Components/Pages/Cart/CartPage.razor:11", "count": 0 }
+  ]
+}
+```
+
+## ui-members-the-designer-cant-state
+
+What the User Interface designer can state of an element's members, as its own rules say: a Store adds Properties only ("Don't model actions or getters; describe them in its comment"), and a UI Service or Utility adds no members at all, so neither asks for its methods. `BasketState`'s unmodelled public property `ItemCount` is still reported; its methods, `ProductImageUrlProvider.GetProductImageUrl` and `Formatting.FormatPrice` aren't.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "basket-state", "type": "Store", "name": "BasketState", "children": [
+            { "id": "basket-state-items", "type": "Property", "name": "Items", "typeRef": { "type": "string", "collection": true } }
+          ] },
+          { "id": "image-url-provider", "type": "UI Service", "name": "ProductImageUrlProvider" },
+          { "id": "formatting", "type": "Utility", "name": "Formatting" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebApp/Services/BasketState.cs
+namespace eShop.WebApp.Services;
+
+public class BasketState
+{
+    public IReadOnlyList<string> Items { get; private set; } = [];
+
+    public int ItemCount { get; private set; }
+
+    public Task AddAsync(string item) => Task.CompletedTask;
+
+    public Task DeleteBasketAsync() => Task.CompletedTask;
+}
+```
+
+```csharp file src/WebApp/Services/ProductImageUrlProvider.cs
+namespace eShop.WebApp.Services;
+
+public class ProductImageUrlProvider
+{
+    public string GetProductImageUrl(int productId) => $"product-images/{productId}";
+}
+```
+
+```csharp file src/WebApp/Services/Formatting.cs
+namespace eShop.WebApp.Services;
+
+public static class Formatting
+{
+    public static string FormatPrice(decimal price) => price.ToString("C");
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "basket-state", "outcome": "verified", "at": "src/WebApp/Services/BasketState.cs:3" },
+    { "kind": "member.exists", "element": "basket-state-items", "outcome": "verified", "at": "src/WebApp/Services/BasketState.cs:5" },
+    { "kind": "type.exists", "element": "image-url-provider", "outcome": "verified" },
+    { "kind": "type.exists", "element": "formatting", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/WebApp/Services/BasketState.cs:7", "messageContains": "ItemCount" },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Services/BasketState.cs:9", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Services/BasketState.cs:11", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Services/ProductImageUrlProvider.cs:5", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Services/Formatting.cs:5", "count": 0 }
+  ]
+}
+```
+
+## view-model-states-properties
+
+A View Model adds Properties only, as its designer says ("Add a Property only for state other elements read ... Don't model its methods; describe them in its comment"), so its methods are never asked for and its Properties get the stock member checks. `ChatState`'s modelled `Messages` verifies; its unmodelled public property `IsBusy` is reported; its method `AddUserMessageAsync` isn't.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "kinds": ["type.exists", "member.exists"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "chat-state", "type": "View Model", "name": "ChatState", "children": [
+            { "id": "chat-state-messages", "type": "Property", "name": "Messages", "typeRef": { "element": "chat-message", "collection": true } }
+          ] },
+          { "id": "chat-message", "type": "Contract", "name": "ChatMessage", "children": [
+            { "id": "chat-message-text", "type": "Property", "name": "Text", "typeRef": { "type": "string" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebApp/Components/Chatbot/ChatState.cs
+namespace eShop.WebApp.Components.Chatbot;
+
+public record ChatMessage(string Text);
+
+public class ChatState
+{
+    public IList<ChatMessage> Messages { get; } = new List<ChatMessage>();
+
+    public bool IsBusy { get; private set; }
+
+    public Task AddUserMessageAsync(string text) => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "chat-state", "outcome": "verified", "at": "src/WebApp/Components/Chatbot/ChatState.cs:5" },
+    { "kind": "member.exists", "element": "chat-state-messages", "outcome": "verified", "at": "src/WebApp/Components/Chatbot/ChatState.cs:7" },
+    { "kind": "member.type", "element": "chat-state-messages", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/WebApp/Components/Chatbot/ChatState.cs:9", "messageContains": "IsBusy" },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Components/Chatbot/ChatState.cs:11", "count": 0 }
+  ]
+}
+```
+
 ## bindable-changed
 
 The exception to `event.unmodelled`: a Bindable Property's `XChanged` callback. `Quantity` has the Bindable stereotype, and its `property.bindable` claim reads `QuantityChanged`, so the callback is located and isn't reported, though no Event Emitter models it. `property.bindable` has no phase yet, so neither has this case.
@@ -1319,6 +1611,76 @@ public class CatalogService(HttpClient httpClient)
   "findings": [
     { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/WebApp/Services/CatalogService.cs:10", "messageContains": "GetCatalogItems" },
     { "rule": "optin/unmodelled.member", "subject": "src/WebApp/Services/CatalogService.cs:5", "count": 0 }
+  ]
+}
+```
+
+## proxy-overloads-and-methods-sending-nothing
+
+A Proxy of the standard User Interface designer (2.0.0): the designer names each Proxy Operation uniquely, so of `GetCatalogItems`' two overloads only one can be stated, and the modelled one is located; and its validation requires a Proxy Operation to call a backend operation or describe an HTTP request, so `Dispose` and the static `Describe`, which send none, can't be one. None of them is asked for. `GetBrands` sends a request and isn't modelled, so it is. Unlike the 1.x designer's Service Proxy (`service-proxy-overload`), which reports an overload.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebAppComponents", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog-service", "type": "Proxy", "name": "CatalogService", "children": [
+            { "id": "catalog-service-get-items", "type": "Proxy Operation", "name": "GetCatalogItems", "children": [
+              { "id": "catalog-service-get-items-page-index", "type": "Parameter", "name": "pageIndex", "typeRef": { "type": "int" } },
+              { "id": "catalog-service-get-items-page-size", "type": "Parameter", "name": "pageSize", "typeRef": { "type": "int" } }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebAppComponents/Services/CatalogService.cs
+using System.Net.Http.Json;
+
+namespace eShop.WebAppComponents.Services;
+
+public class CatalogService(HttpClient httpClient) : IDisposable
+{
+    public Task<string[]?> GetCatalogItems(int pageIndex, int pageSize) =>
+        httpClient.GetFromJsonAsync<string[]>($"api/catalog/items?pageIndex={pageIndex}&pageSize={pageSize}");
+
+    public Task<string[]?> GetCatalogItems(IEnumerable<int> ids) =>
+        httpClient.GetFromJsonAsync<string[]>($"api/catalog/items/by?ids={string.Join("&ids=", ids)}");
+
+    public Task<string[]?> GetBrands() => httpClient.GetFromJsonAsync<string[]>("api/catalog/catalogbrands");
+
+    public static string Describe(string name) => name.ToUpperInvariant();
+
+    public void Dispose() => httpClient.Dispose();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "catalog-service-get-items", "outcome": "verified", "at": "src/WebAppComponents/Services/CatalogService.cs:7" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/WebAppComponents/Services/CatalogService.cs:13", "messageContains": "GetBrands" },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebAppComponents/Services/CatalogService.cs:10", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebAppComponents/Services/CatalogService.cs:15", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/WebAppComponents/Services/CatalogService.cs:17", "count": 0 }
   ]
 }
 ```
@@ -1825,5 +2187,139 @@ public class OrderPaymentSucceededHandler : IHandleMessages<OrderPaymentSucceede
     { "rule": "optin/unmodelled.member", "subject": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs:5", "count": 0, "note": "The subscription's code" },
     { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Ordering.API/Application/IntegrationEvents/EventHandling/OrderPaymentSucceededHandler.cs:7", "messageContains": "OrderPaymentSucceededHandler.Retry" }
   ]
+}
+```
+
+## mvc-view-members-not-asked
+
+An MVC view takes no parameters, and what a user does on it is a form or a link to a controller's action, so none of its members is a Property or Component Operation the designer can state: its `@inject` is its Uses of what it injects, and its `@functions` field and helper method are written in code. Nothing is asked for.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "kinds": ["type.exists"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Identity.API", "type": "User Interface Package",
+        "elements": [
+          { "id": "diagnostics", "type": "Page", "name": "Index", "stereotypes": { "Page": { } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```cshtml file src/Identity.API/Views/Diagnostics/Index.cshtml
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+<h1>Authentication Cookie</h1>
+<p>@Describe(Configuration["Issuer"])</p>
+
+@functions {
+    private int shown;
+
+    private string Describe(string issuer) => $"Issued by {issuer}";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "diagnostics", "outcome": "verified", "at": "src/Identity.API/Views/Diagnostics/Index.cshtml:1" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "count": 0 }
+  ]
+}
+```
+
+## maui-view-members
+
+What a .NET MAUI view's members are to the designer (`intent.maui`): a page's Properties are its query parameters (Shell has no route parameters), and a component's are the inputs a parent supplies, which only a `BindableProperty` lets it bind. So a page's property a `[QueryProperty]` binds and the model leaves out is one finding; its other properties, a component's plain property and the static `BindableProperty` backing a modelled one are written in code, and never asked for.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "kinds": ["member.exists"], "requirements": ["R44", "R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog", "type": "Page", "name": "CatalogView", "stereotypes": { "Page": { } } },
+          { "id": "badge", "type": "Component", "name": "BadgeView", "children": [
+            { "id": "badge-text", "type": "Property", "name": "Text", "typeRef": { "type": "string" }, "stereotypes": { "[Bindable]": { } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Views/CatalogView.xaml
+<ContentPage x:Class="Shop.Views.CatalogView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Shop.Views">
+    <views:BadgeView Text="{Binding Count}" />
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/CatalogView.xaml.cs
+namespace Shop.Views;
+
+[QueryProperty(nameof(BrandId), "brand")]
+public partial class CatalogView : ContentPage
+{
+    public string BrandId { get; set; } = "";
+
+    public bool IsBusy { get; set; }
+}
+```
+
+```csharp file src/Shop/Views/BadgeView.cs
+namespace Shop.Views;
+
+public class BadgeView : Grid
+{
+    public static readonly BindableProperty TextProperty =
+        BindableProperty.Create(nameof(Text), typeof(string), typeof(BadgeView), "0");
+
+    public string Text
+    {
+        get => (string)GetValue(TextProperty);
+        set => SetValue(TextProperty, value);
+    }
+
+    public string Caption { get; set; } = "";
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Shop/Views/CatalogView.xaml.cs:6", "messageContains": "`CatalogView.BrandId` is a public property of `CatalogView`" }
+  ],
+  "noOtherFindings": true
 }
 ```

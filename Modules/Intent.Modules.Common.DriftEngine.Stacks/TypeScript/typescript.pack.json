@@ -31,6 +31,9 @@
         "unionMembers": ["null", "undefined"],
         "notStated": "Their tsconfig.json doesn't turn on strict or strictNullChecks, so their types don't state whether they are nullable; turn it on to check them."
       },
+      "untyped": {
+        "notStated": "Their code leaves the type out: JavaScript declares none, and TypeScript infers one a declaration leaves out; write it out as a TypeScript annotation to check them."
+      },
       "naming": { "method": "{Name|camel}" },
       "typeKinds": ["class", "interface", "typeAlias", "enum", "component"]
     }

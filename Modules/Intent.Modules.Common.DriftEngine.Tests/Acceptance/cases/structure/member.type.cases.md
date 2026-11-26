@@ -1444,3 +1444,239 @@ class StockItem:
   ]
 }
 ```
+
+## jsx-component-members-untyped
+
+A React component written in JavaScript: its props are the names it destructures, and its state a `useState` value, none of them with a declared type, which JavaScript has no way to write. The model states each type, and the code can't be wrong about one it doesn't state, so each claim is can't verify, `unresolved`, with no finding of its own, and one `engine/notStated` note lists them, as for a nullability the code doesn't state (R35). `useState(1)` in TypeScript is the same: TypeScript infers the type the code leaves out.
+
+```json case
+{ "phase": 6, "kinds": ["member.type"], "cases": ["engine/unresolved", "engine/notStated"], "requirements": ["R2", "R35", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "product-card", "type": "Component", "name": "ProductCard",
+            "children": [
+              { "id": "product-card-product-id", "type": "Property", "name": "ProductId", "typeRef": { "type": "string" } },
+              { "id": "product-card-quantity", "type": "Property", "name": "Quantity", "typeRef": { "type": "int" } },
+              { "id": "product-card-selected", "type": "Event Emitter", "name": "Selected", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/ProductCard.jsx
+import { useState } from 'react';
+
+export function ProductCard({ productId, onSelected }) {
+    const [quantity, setQuantity] = useState(1);
+    return (
+        <article>
+            <input type="number" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
+            <button onClick={() => onSelected(productId)}>Select</button>
+        </article>
+    );
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "product-card-product-id", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.type", "element": "product-card-quantity", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.type", "element": "product-card-selected", "outcome": "cantVerify", "reason": "unresolved" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "count": 0 },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 3 claims on types their code leaves out (User Interface 3). Their code leaves the type out" }
+  ]
+}
+```
+
+## jsx-component-members-untyped-renamed
+
+The prop is renamed in the code: a type the code doesn't state never hides a member that isn't there, which is the member's own finding.
+
+```json case
+{ "phase": 6, "base": "jsx-component-members-untyped", "kinds": ["member.type"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```jsx file src/ProductCard.jsx
+import { useState } from 'react';
+
+export function ProductCard({ sku, onSelected }) {
+    const [quantity, setQuantity] = useState(1);
+    return (
+        <article>
+            <input type="number" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
+            <button onClick={() => onSelected(sku)}>Select</button>
+        </article>
+    );
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "product-card-product-id", "outcome": "contradicted" },
+    { "kind": "member.type", "element": "product-card-quantity", "outcome": "cantVerify", "reason": "unresolved" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "product-card-product-id" },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 claims on types their code leaves out (User Interface 2)" }
+  ]
+}
+```
+
+## type-parameter-is-at-least-an-object
+
+A member typed by a type parameter of its generic class (eShop's ClientApp `ValidatableObject<T>`'s `T Value`). A View Model has no generic types in the User Interface designer, so the most its model can state is `object`, which is less precise than `T` but true: it verifies, a `List<T>` as a collection of objects too. A class deriving from it binds the parameter (`UserNameField : ValidatableObject<string>`), so its inherited `Value` is a `string`. A designer with generics states `T` itself, which matches by name as before.
+
+```json case
+{ "phase": 6, "kinds": ["member.type"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "validatable", "type": "View Model", "name": "ValidatableObject", "children": [
+            { "id": "validatable-value", "type": "Property", "name": "Value", "typeRef": { "type": "object" } },
+            { "id": "validatable-errors", "type": "Property", "name": "Errors", "typeRef": { "type": "object", "collection": true } }
+          ] },
+          { "id": "user-name", "type": "View Model", "name": "UserNameField", "children": [
+            { "id": "user-name-value", "type": "Property", "name": "Value", "typeRef": { "type": "string" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Shop/Validations/ValidatableObject.cs
+namespace Shop.Validations;
+
+public class ValidatableObject<T>
+{
+    public T Value { get; set; }
+
+    public List<T> Errors { get; } = [];
+}
+
+public class UserNameField : ValidatableObject<string>
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "validatable-value", "outcome": "verified", "expected": "object", "actual": "T" },
+    { "kind": "member.type", "element": "validatable-errors", "outcome": "verified", "actual": "List<T>" },
+    { "kind": "member.type", "element": "user-name-value", "outcome": "verified", "expected": "string", "actual": "string" }
+  ],
+  "others": "verified",
+  "noOtherFindings": true
+}
+```
+
+## type-parameter-modelled-as-another-type
+
+A planted drift in the model: the generic class's `Value` is modelled as a `string`, which `T` isn't. One finding.
+
+```json case
+{ "phase": 6, "base": "type-parameter-is-at-least-an-object", "kinds": ["member.type"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "validatable", "type": "View Model", "name": "ValidatableObject", "children": [
+            { "id": "validatable-value", "type": "Property", "name": "Value", "typeRef": { "type": "string" } },
+            { "id": "validatable-errors", "type": "Property", "name": "Errors", "typeRef": { "type": "object", "collection": true } }
+          ] },
+          { "id": "user-name", "type": "View Model", "name": "UserNameField", "children": [
+            { "id": "user-name-value", "type": "Property", "name": "Value", "typeRef": { "type": "string" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "validatable-value", "outcome": "contradicted", "expected": "string", "actual": "T" },
+    { "kind": "member.type", "element": "user-name-value", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "validatable-value" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## type-argument-a-derived-class-binds-differently
+
+A planted drift in the code: the derived field binds `int`. Its inherited `Value` is an `int`, not the `string` its model states: one finding, naming the bound type.
+
+```json case
+{ "phase": 6, "base": "type-parameter-is-at-least-an-object", "kinds": ["member.type"], "requirements": ["R3"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/Shop/Validations/ValidatableObject.cs
+namespace Shop.Validations;
+
+public class ValidatableObject<T>
+{
+    public T Value { get; set; }
+
+    public List<T> Errors { get; } = [];
+}
+
+public class UserNameField : ValidatableObject<int>
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "user-name-value", "outcome": "contradicted", "expected": "string", "actual": "int" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "user-name-value" }
+  ],
+  "noOtherFindings": true
+}
+```

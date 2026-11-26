@@ -17,6 +17,13 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.CSharp;
 /// <c>@inject</c>'s property) is placed at the directive, and the component's class at the whole file. Its markup is read as
 /// Razor parses it (<see cref="Markup"/>), not from the code generated for it: without the referenced assemblies'
 /// components the compiler can't tell a component's parameters from HTML.
+/// <para>
+/// An MVC view or Razor Page (<c>.cshtml</c>) is read the same way, as a component of its own named after its file: it is
+/// Razor too, and only the component file kind builds an element tree (the MVC file kind writes markup out as text). Its
+/// <c>@model</c> and <c>@section</c> are known as the directives they are in an MVC document (<see cref="Directives"/>), and
+/// no <c>_Imports.razor</c> applies to it. Tag helpers aren't bound, so <c>asp-action</c>, <c>&lt;partial name&gt;</c> and
+/// <c>~/</c> URLs stay as written.
+/// </para>
 /// </summary>
 internal sealed class RazorFile
 {
@@ -33,13 +40,33 @@ internal sealed class RazorFile
         _directives = directives;
         ImportsFrom = imports;
         Markup = markup;
-        IsImports = FileKinds.IsComponentImport(FileKinds.GetComponentFileKindFromFilePath(path));
+        IsView = IsCshtml(path);
+        IsImports = !IsView && FileKinds.IsComponentImport(FileKinds.GetComponentFileKindFromFilePath(path));
         Component = IsImports
             ? null
             : tree.GetRoot().DescendantNodes().OfType<ClassDeclarationSyntax>().FirstOrDefault(x => x.Parent is BaseNamespaceDeclarationSyntax or CompilationUnitSyntax);
     }
 
     public string Path { get; }
+
+    /// <summary>An MVC view or Razor Page (<c>.cshtml</c>), not a Razor component.</summary>
+    public bool IsView { get; }
+
+    /// <summary>
+    /// The directives written in it (its imports' too, for a component), each with its tokens and where it is written:
+    /// <c>@page "/orders"</c>, an MVC view's <c>@model LoginViewModel</c> and <c>@section scripts</c>.
+    /// </summary>
+    public IReadOnlyList<RazorDirective> Directives => _directives;
+
+    /// <summary>A file the C# language reads as an MVC view or Razor Page.</summary>
+    public static bool IsCshtml(string path) => path.EndsWith(".cshtml", StringComparison.OrdinalIgnoreCase);
+
+    /// <summary>
+    /// An MVC file that configures the views of its folder and holds no view: <c>_ViewImports.cshtml</c> (their imports and
+    /// tag helpers) or <c>_ViewStart.cshtml</c> (code run before each, which sets their layout).
+    /// </summary>
+    public static bool IsViewConfiguration(string path) =>
+        System.IO.Path.GetFileName(path) is var name && (name.Equals("_ViewImports.cshtml", StringComparison.OrdinalIgnoreCase) || name.Equals("_ViewStart.cshtml", StringComparison.OrdinalIgnoreCase));
 
     /// <summary>The C# generated for it, its file path the <c>.razor</c> file's.</summary>
     public SyntaxTree Tree { get; }
@@ -78,11 +105,12 @@ internal sealed class RazorFile
     public static RazorFile Generate(string root, string path, string? project, RazorProjectEngine engine)
     {
         var text = File.ReadAllText(System.IO.Path.Combine(root, path));
-        var imports = Imports(root, path, project).ToList();
+        var view = IsCshtml(path);
+        var imports = view ? [] : Imports(root, path, project).ToList();
         var texts = imports.ToDictionary(x => x.Path, x => x.Text, StringComparer.Ordinal);
         texts[path] = text;
 
-        var document = engine.Process(Source(path, text, project), FileKinds.GetComponentFileKindFromFilePath(path),
+        var document = engine.Process(Source(path, text, project), view ? FileKinds.Component : FileKinds.GetComponentFileKindFromFilePath(path),
             imports.Select(x => Source(x.Path, x.Text, project)).ToList(), []);
         var parsed = document.Items[typeof(Capture)] as Captured;
         var directives = (parsed?.Directives ?? [])
@@ -91,7 +119,7 @@ internal sealed class RazorFile
             {
                 var source = x.Source!.Value;
                 var written = texts[source.FilePath];
-                return new RazorDirective(x.DirectiveName, x.Tokens.Select(t => t.Content).ToList(),
+                return new RazorDirective(x.Name, x.Tokens,
                     SpanAt(source.FilePath, written, source.AbsoluteIndex, source.AbsoluteIndex + written.Substring(source.AbsoluteIndex, source.Length).TrimEnd().Length),
                     written.Substring(source.AbsoluteIndex, source.Length).Trim());
             })
@@ -152,13 +180,27 @@ internal sealed class RazorFile
 
     private static MarkupParts.Part PartOf(RazorPart part, string path, string text) => new(part.Code, part.Text, SpanAt(path, text, part.Start, part.End));
 
-    /// <summary>A Razor engine for a project: components, with the project's root namespace when it has one.</summary>
-    public static RazorProjectEngine Engine(string root, string? rootNamespace) =>
+    /// <summary>
+    /// A Razor engine for a project: components, with the project's root namespace when it has one. For views, it also knows
+    /// the directives an MVC document has that a component doesn't, <c>@model</c> and <c>@section</c>, so they are read as
+    /// directives, not as code and text.
+    /// </summary>
+    public static RazorProjectEngine Engine(string root, string? rootNamespace, bool views = false) =>
         RazorProjectEngine.Create(RazorConfiguration.Default, RazorProjectFileSystem.Create(root), builder =>
         {
             if (rootNamespace is not null)
             {
                 builder.SetRootNamespace(rootNamespace);
+            }
+
+            if (views)
+            {
+                builder.AddDirective(DirectiveDescriptor.CreateDirective("model", DirectiveKind.SingleLine, x =>
+                {
+                    x.AddTypeToken();
+                    x.Usage = DirectiveUsage.FileScopedSinglyOccurring;
+                }), FileKinds.Component);
+                builder.AddDirective(DirectiveDescriptor.CreateRazorBlockDirective("section", x => x.AddMemberToken()), FileKinds.Component);
             }
 
             builder.Features.Add(new Capture());
@@ -274,10 +316,14 @@ internal sealed class RazorFile
         return (line, index - lineStart + 1);
     }
 
-    private sealed record RazorDirective(string Name, IReadOnlyList<string> Tokens, Span At, string Text);
+    /// <summary>A directive as written: its name (<c>page</c>), its tokens (<c>"/orders"</c>, quotes kept), where it is and its text.</summary>
+    internal sealed record RazorDirective(string Name, IReadOnlyList<string> Tokens, Span At, string Text);
 
     /// <summary>What Razor parsed: its directives, and its elements as they were before the compiler's passes.</summary>
-    private sealed record Captured(IReadOnlyList<DirectiveIntermediateNode> Directives, IReadOnlyList<RazorElement> Elements);
+    private sealed record Captured(IReadOnlyList<CapturedDirective> Directives, IReadOnlyList<RazorElement> Elements);
+
+    /// <summary>A directive as Razor parsed it: its name, its tokens' content and where it is.</summary>
+    private sealed record CapturedDirective(string Name, IReadOnlyList<string> Tokens, SourceSpan? Source);
 
     /// <summary>An element as Razor parsed it, by absolute positions in <see cref="File"/>; <see cref="Content"/> is null when it holds an element or code.</summary>
     private sealed record RazorElement(string Tag, string File, int Start, int End, IReadOnlyList<RazorAttribute> Attributes, IReadOnlyList<RazorElement> Children, IReadOnlyList<RazorPart>? Content);
@@ -295,8 +341,18 @@ internal sealed class RazorFile
     {
         public override int Order => int.MinValue;
 
+        // A view's directive the component file kind doesn't take as written is kept too: a Razor Page's @page has no route
+        // of its own to give, which a component's must.
         protected override void ExecuteCore(RazorCodeDocument codeDocument, DocumentIntermediateNode documentNode) =>
-            codeDocument.Items[typeof(Capture)] = new Captured(documentNode.FindDescendantNodes<DirectiveIntermediateNode>().ToList(), Elements(documentNode).ToList());
+            codeDocument.Items[typeof(Capture)] = new Captured(
+                documentNode.FindDescendantNodes<DirectiveIntermediateNode>()
+                    .Select(x => new CapturedDirective(x.DirectiveName, x.Tokens.Select(t => t.Content).ToList(), x.Source))
+                    .Concat(IsCshtml(codeDocument.Source.FilePath ?? "")
+                        ? documentNode.FindDescendantNodes<MalformedDirectiveIntermediateNode>()
+                            .Select(x => new CapturedDirective(x.DirectiveName, x.Tokens.Select(t => t.Content).ToList(), x.Source))
+                        : [])
+                    .ToList(),
+                Elements(documentNode).ToList());
 
         /// <summary>The elements inside a node, those inside its code included, not those inside them.</summary>
         private static IEnumerable<RazorElement> Elements(IntermediateNode node)

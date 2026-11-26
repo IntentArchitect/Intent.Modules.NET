@@ -206,6 +206,123 @@ public class RazorFactsTests
         Assert.Equal(("component", "Shop.Web"), (Type("Broken").Kind, Type("Broken").Namespace));
     }
 
+    // ------------------------------------------------------------------ MVC views and Razor Pages (.cshtml)
+
+    private static readonly (string Path, string Source)[] ViewFiles =
+    [
+        ("src/Identity/Identity.csproj", """<Project Sdk="Microsoft.NET.Sdk.Web"><PropertyGroup><TargetFramework>net8.0</TargetFramework></PropertyGroup></Project>"""),
+        ("src/Identity/Views/_ViewImports.cshtml", """
+            @using Identity.Models
+            @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+            """),
+        ("src/Identity/Views/_ViewStart.cshtml", """
+            @{
+                Layout = "_Layout";
+            }
+            """),
+        ("src/Identity/Views/Account/Login.cshtml", """
+            @model LoginViewModel
+            @inject IConfiguration Configuration
+            @{
+                ViewData["Title"] = "Sign in";
+            }
+            <div class="login-page">
+                <form asp-route="Login" method="post">
+                    <input type="hidden" asp-for="ReturnUrl" />
+                    <partial name="_ValidationSummary" />
+                    <button name="button" value="login">Login</button>
+                </form>
+                <a href="~/account/register">Register</a>
+            </div>
+            @section scripts {
+                <script src="~/js/login.js"></script>
+            }
+            @functions {
+                private string Greeting() => "Hello";
+            }
+            """),
+        ("src/Identity/Views/Shared/_Layout.cshtml", """
+            <!DOCTYPE html>
+            <html>
+            <head><title>@ViewData["Title"]</title></head>
+            <body>
+                <div class="container">@RenderBody()</div>
+                @await RenderSectionAsync("scripts", required: false)
+            </body>
+            </html>
+            """),
+        ("src/Identity/Pages/Privacy.cshtml", """
+            @page "{section?}"
+            @model PrivacyModel
+            <h1>Privacy</h1>
+            """),
+        ("src/Identity/Pages/Privacy.cshtml.cs", """
+            namespace Identity.Pages;
+
+            public class PrivacyModel { }
+            """)
+    ];
+
+    private static readonly CodeGraph Views = ReadAll(ViewFiles);
+
+    [Fact]
+    public void A_view_is_a_component_named_after_its_file_in_its_project_and_folder_namespace()
+    {
+        var login = Views.Types.Single(x => x.Name == "Login");
+
+        Assert.Equal(("component", "Identity.Views.Account"), (login.Kind, login.Namespace));
+        Assert.Equal(["src/Identity/Views/Account/Login.cshtml"], login.Files);
+        Assert.Equal(("src/Identity/Views/Account/Login.cshtml", 1), (login.At.File, login.At.Line));
+        Assert.Equal(("component", "Identity.Views.Shared"), (Views.Types.Single(x => x.Name == "_Layout").Kind, Views.Types.Single(x => x.Name == "_Layout").Namespace));
+    }
+
+    [Fact]
+    public void A_views_members_are_its_injects_and_functions_not_what_its_markup_or_code_blocks_compile_to()
+    {
+        var login = Views.Types.Single(x => x.Name == "Login");
+
+        Assert.Equal(["Greeting", "Configuration"], login.Members.Select(x => x.Name));
+        Assert.Equal(["Inject"], login.Members.Single(x => x.Name == "Configuration").Attributes.Select(x => x.Name));
+    }
+
+    [Fact]
+    public void A_views_markup_is_on_its_file_with_tag_helper_attributes_as_written_and_its_sections_markup_included()
+    {
+        var file = Views.Files.Single(x => x.Path == "src/Identity/Views/Account/Login.cshtml");
+        var markup = file.Markup.SelectMany(x => x.DescendantsAndSelf()).ToList();
+        var form = markup.Single(x => x.Tag == "form");
+
+        Assert.Equal("csharp", file.Language);
+        Assert.Equal(["Identity.Views.Account"], file.Namespaces);
+        Assert.Equal([("asp-route", "Login"), ("method", "post")], form.Attributes.Select(x => (x.Name, x.Literal?.Value)));
+        Assert.Equal(7, form.At.Line);
+        Assert.Equal("_ValidationSummary", markup.Single(x => x.Tag == "partial").Attributes.Single().Literal?.Value);
+        Assert.Equal("~/account/register", markup.Single(x => x.Tag == "a").Attributes.Single().Literal?.Value);
+        Assert.Equal("~/js/login.js", markup.Single(x => x.Tag == "script").Attributes.Single().Literal?.Value);
+        Assert.Null(markup.Single(x => x.Tag == "a").Component);
+    }
+
+    [Fact]
+    public void ViewStart_and_ViewImports_hold_no_view_so_they_add_no_file_or_type_and_ViewStarts_code_is_kept()
+    {
+        Assert.DoesNotContain(Views.Files, x => x.Path.EndsWith("_ViewStart.cshtml") || x.Path.EndsWith("_ViewImports.cshtml"));
+        Assert.DoesNotContain(Views.Types, x => x.Name is "_ViewStart" or "_ViewImports");
+        Assert.Equal(
+            ["src/Identity/Pages/Privacy.cshtml", "src/Identity/Pages/Privacy.cshtml.cs", "src/Identity/Views/Account/Login.cshtml", "src/Identity/Views/Shared/_Layout.cshtml", "src/Identity/Views/_ViewStart.cshtml"],
+            CSharpSyntax.Of(Views)!.Trees.Keys);
+        Assert.Empty(Views.Failures);
+    }
+
+    [Fact]
+    public void A_razor_page_is_a_view_its_page_model_another_type()
+    {
+        var privacy = Views.Types.Single(x => x.Name == "Privacy");
+
+        Assert.Equal(("component", "Identity.Pages"), (privacy.Kind, privacy.Namespace));
+        Assert.Equal(["src/Identity/Pages/Privacy.cshtml"], privacy.Files);
+        Assert.Equal(("class", "Identity.Pages"), (Views.Types.Single(x => x.Name == "PrivacyModel").Kind, Views.Types.Single(x => x.Name == "PrivacyModel").Namespace));
+    }
+
     private static TypeNode Type(string name) => Graph.Types.Single(x => x.Name == name);
 
     private static MemberNode Member(TypeNode type, string name) => type.Members.Single(x => x.Name == name);

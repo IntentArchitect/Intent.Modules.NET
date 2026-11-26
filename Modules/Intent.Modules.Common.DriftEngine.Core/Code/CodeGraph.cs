@@ -916,11 +916,27 @@ public sealed class CodeGraph
 
     private void Changed() => _indexes = null;
 
+    /// <summary>
+    /// Tells the graph a code reader changed what its lookups were worked out from, after the languages read: a type's files or
+    /// base types (a XAML view joining its code-behind, which gains the view's file and, written with no base class, the
+    /// view's root as its base). What was worked out from them (the lookups, and each type's bases, supertypes and inherited
+    /// members) is worked out again on its next use. Adding or removing a file or a type needs no call.
+    /// </summary>
+    public void Reindex() => Changed();
+
     /// <summary>Files a reader failed on, with its diagnostic (code-reader.md, Failures).</summary>
     public List<(string File, string Error)> Failures { get; } = [];
 
     /// <summary>Source files whose governing project file failed to read, so its settings are unknown.</summary>
     public Dictionary<string, string> UngovernedFiles { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// Each in-scope project file and the project files it builds with, relative to the output folder with <c>/</c>
+    /// separators, as a language with project files reads them (C#'s <c>&lt;ProjectReference&gt;</c>). Empty where no language
+    /// says. The engine names an out-of-scope file no scope row covers as one that may hold a claim's code only when it is in
+    /// one of these projects: a project nothing in scope builds with is another application's code.
+    /// </summary>
+    public Dictionary<string, IReadOnlyList<string>> ProjectReferences { get; } = new(StringComparer.Ordinal);
 
     /// <summary>
     /// The members a framework's reader knows no designer can state, each with why: a property EF doesn't map
@@ -929,6 +945,23 @@ public sealed class CodeGraph
     /// it isn't drift (user, 2026-11-14).
     /// </summary>
     public Dictionary<MemberNode, string> Unmodellable { get; } = [];
+
+    /// <summary>
+    /// The members a framework's reader knows a link states, not a member, each with the link's name: a Blazor component's
+    /// injected service is the component's <c>Uses</c> of what it injects, never a Property of it, so the
+    /// <c>unmodelled.member</c> rule never reports one. Nor does any rule ask for the link: whether a use is significant
+    /// enough to draw is the modeller's call, as a lookup's is (user, 2026-11-25). A link the model draws is checked.
+    /// </summary>
+    public Dictionary<MemberNode, string> StatedByLink { get; } = [];
+
+    /// <summary>
+    /// What a framework's reader knows one element type can't state of the members of the type it describes, though another
+    /// element type describing the same code might: each is given the element type, the type and a member, and says why, or
+    /// null. A User Interface Proxy's method that sends no request can't be a Proxy Operation, which the designer requires to
+    /// call a backend operation or describe an HTTP request. The <c>unmodelled.member</c> rule asks them only of a member it
+    /// would otherwise report, so a costly reading is paid only for those.
+    /// </summary>
+    public List<Func<string, TypeNode, MemberNode, string?>> Unstatable { get; } = [];
 
     /// <summary>
     /// What a file's code can name without qualifying it: its own imports, those of the files it has imports from
@@ -1181,6 +1214,13 @@ public sealed class CodeGraph
     /// by <c>request('GET', `/api/orders/${id}`)</c>, is <c>/api/orders/</c> and <c>id</c> after the base URL.
     /// </summary>
     public LiteralNode StringOf(ValueNode value, IReadOnlyList<CallNode> through) => StringValues.Of(value, through);
+
+    /// <summary>
+    /// As <see cref="StringOf(ValueNode, IReadOnlyList{CallNode})"/>, each call with the method it runs where the call doesn't
+    /// say: <c>_requestProvider.PutAsync(uri, ...)</c>, made on an interface, runs its implementation's <c>PutAsync</c>, whose
+    /// <c>httpClient.PutAsync(uri, ...)</c> sends the caller's URI.
+    /// </summary>
+    public LiteralNode StringOf(ValueNode value, IReadOnlyList<(CallNode Call, MemberNode Into)> through) => StringValues.Of(value, through);
 
     /// <summary>
     /// The string a constant stands for, by its name as the code writes it where only text is kept, as an attribute's

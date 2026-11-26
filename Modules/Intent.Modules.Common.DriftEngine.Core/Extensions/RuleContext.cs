@@ -71,13 +71,31 @@ public sealed class RuleContext
 /// <summary>Which files the Drift Scope reads. Paths are relative to the output folder, with <c>/</c>.</summary>
 public sealed class CodeScope
 {
-    private readonly IReadOnlyDictionary<string, (bool In, bool Checked)> _files;
+    private readonly IReadOnlyDictionary<string, (bool In, bool Checked, DriftScopeRow? Row)> _files;
 
-    internal CodeScope(IEnumerable<(string Path, bool In, bool Checked)> files)
+    internal CodeScope(IEnumerable<(string Path, Scope.ScopeDecision Decision)> files)
     {
-        _files = files.ToDictionary(x => x.Path, x => (x.In, x.Checked), StringComparer.Ordinal);
+        var rows = new Dictionary<Scope.ScopeRow, DriftScopeRow>();
+        DriftScopeRow? RowOf(Scope.ScopeRow? row) => row is null ? null
+            : rows.TryGetValue(row, out var known) ? known
+            : rows[row] = new DriftScopeRow(row.Id, row.Scope, row.BasePath, row.Globs.Select(x => x.Pattern).ToList(), row.Reason);
+        _files = files.ToDictionary(x => x.Path, x => (x.Decision.In, x.Decision.Checked, RowOf(x.Decision.Row)), StringComparer.Ordinal);
         Files = _files.Keys.OrderBy(x => x, StringComparer.Ordinal).ToList();
     }
+
+    /// <summary>
+    /// The Drift Scope row that decides the file: the deepest folder with a row that matches it, the last of them there. Null
+    /// when no row covers it, which puts it out of scope as surely as an Out row does, but says nothing about it: a file no row
+    /// covers may be another application's code over the same output folder. A file the engine never walks (a built-in
+    /// exclusion) is null too.
+    /// </summary>
+    public DriftScopeRow? RowOf(string path) => _files.GetValueOrDefault(path).Row;
+
+    /// <summary>
+    /// A glob matches a path as a Drift Scope row's glob does (<c>**</c> crosses folders, <c>*</c> and <c>?</c> don't, without
+    /// case), so a module matching its own globs matches as the scope does.
+    /// </summary>
+    public static bool GlobMatches(string glob, string path) => new Scope.GlobPattern(glob).IsMatch(path);
 
     /// <summary>Every file under the output folder, in or out of scope, in path order.</summary>
     public IReadOnlyList<string> Files { get; }
@@ -91,3 +109,11 @@ public sealed class CodeScope
     /// </summary>
     public bool Checks(string path) => _files.GetValueOrDefault(path).Checked;
 }
+
+/// <summary>A row of a <c>Drift Scope</c> stereotype, as it decides a file.</summary>
+/// <param name="Id">The folder or Root Folder it is on and its number there, as findings name it.</param>
+/// <param name="Scope"><c>In</c>, <c>Out</c> or <c>Context</c>.</param>
+/// <param name="BasePath">The folder the row's globs are relative to, from the output folder; empty for the Root Folder.</param>
+/// <param name="Globs">Its globs; none matches every file under its folder.</param>
+/// <param name="Reason">Why an Out or Context row leaves its files out of the check.</param>
+public sealed record DriftScopeRow(string Id, string Scope, string BasePath, IReadOnlyList<string> Globs, string? Reason);

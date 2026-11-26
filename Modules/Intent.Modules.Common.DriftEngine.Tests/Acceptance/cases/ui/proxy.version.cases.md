@@ -115,6 +115,87 @@ public class CatalogService(HttpClient httpClient)
 }
 ```
 
+## csharp-standard-one-of-the-versions
+
+The standard User Interface designer (2.0.0): a Proxy Operation's Call Service Operation Action targets a backend Operation whose service applies two API versions, `1.0` and `2.0`, and the operation none of its own. The request asks for one of them, so it holds; `GetCatalogTypes` asks for `3.0`, which the service doesn't apply.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.version"], "requirements": ["R2", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "webappcomponents", "name": "WebAppComponents", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog-proxy", "type": "Proxy", "name": "CatalogService", "children": [
+            { "id": "catalog-proxy-get-brands", "type": "Proxy Operation", "name": "GetBrands" },
+            { "id": "catalog-proxy-get-types", "type": "Proxy Operation", "name": "GetCatalogTypes" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "get-brands-calls-backend", "type": "Call Service Operation Action", "source": { "element": "catalog-proxy-get-brands" }, "target": { "element": "catalog-list-brands" } },
+        { "id": "get-types-calls-backend", "type": "Call Service Operation Action", "source": { "element": "catalog-proxy-get-types" }, "target": { "element": "catalog-list-types" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "catalog-api", "name": "Catalog.API",
+        "elements": [
+          { "id": "catalog-versions", "type": "Api Version", "name": "Catalog", "children": [
+            { "id": "catalog-v1", "type": "Version", "name": "1.0" },
+            { "id": "catalog-v2", "type": "Version", "name": "2.0" }
+          ] },
+          { "id": "catalog-api-service", "type": "Service", "name": "CatalogApi",
+            "stereotypes": {
+              "Http Service Settings": { "Route": "api/catalog" },
+              "Api Version Settings": { "Applicable Versions": [{ "ref": "catalog-v1" }, { "ref": "catalog-v2" }] }
+            },
+            "children": [
+              { "id": "catalog-list-brands", "type": "Operation", "name": "ListItemBrands", "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "catalogbrands" } } },
+              { "id": "catalog-list-types", "type": "Operation", "name": "ListItemTypes", "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "catalogtypes" } } }
+            ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```csharp file src/WebAppComponents/Services/CatalogService.cs
+using System.Net.Http.Json;
+
+namespace eShop.WebAppComponents.Services;
+
+public class CatalogService(HttpClient httpClient)
+{
+    public Task<string[]?> GetBrands() => httpClient.GetFromJsonAsync<string[]>("api/catalog/catalogbrands?api-version=2.0");
+
+    public Task<string[]?> GetCatalogTypes() => httpClient.GetFromJsonAsync<string[]>("api/catalog/catalogtypes?api-version=3.0");
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.version", "element": "get-brands-calls-backend", "outcome": "verified", "expected": "1.0, 2.0", "actual": "2.0", "at": "src/WebAppComponents/Services/CatalogService.cs:7" },
+    { "kind": "proxy.version", "element": "get-types-calls-backend", "outcome": "contradicted", "expected": "1.0, 2.0", "actual": "3.0", "at": "src/WebAppComponents/Services/CatalogService.cs:9" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.version", "severity": "error", "subject": "get-types-calls-backend" }
+  ]
+}
+```
+
 ## eshop-registration-version
 
 The request sends no `api-version`; the proxy's `AddHttpClient<CatalogService>` registration, in another file, adds version 3 to every request it makes, and the backend Operation is version `2.0`.

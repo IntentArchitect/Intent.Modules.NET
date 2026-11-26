@@ -46,6 +46,17 @@
         }
       }
     },
+    "untyped": {
+      "type": "object",
+      "description": "Present when the language lets a declaration leave its type out (JavaScript, TypeScript's inferred types, unannotated Python): a type claim on one is can't verify, unresolved, and listed in an engine/notStated note, never a finding of its own",
+      "additionalProperties": false,
+      "properties": {
+        "notStated": {
+          "type": "string",
+          "description": "Why the code leaves these types out, and how to make them checkable: the engine/notStated note's text"
+        }
+      }
+    },
     "naming": {
       "type": "object",
       "description": "From an element's name to a name in code: {Name} with the placeholder filters ({Name|camel}). A kind with no pattern is named as modelled.",

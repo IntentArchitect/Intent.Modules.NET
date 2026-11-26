@@ -24,7 +24,7 @@
   "$defs": {
     "disposition": {
       "type": "string",
-      "pattern": "^(claim:[a-z][A-Za-z]*(\\.[a-z][A-Za-z]*)*|scope:[a-z][A-Za-z]*|engine:[a-z][A-Za-z]*|optin:unmodelled\\.[a-z]+|model-rule|dropped:(inventory|codeOnly))$"
+      "pattern": "^(claim:[a-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*)*|scope:[a-z][A-Za-z]*|engine:[a-z][A-Za-z]*|optin:unmodelled\\.[a-z]+|model-rule|dropped:(inventory|codeOnly))$"
     }
   }
 }

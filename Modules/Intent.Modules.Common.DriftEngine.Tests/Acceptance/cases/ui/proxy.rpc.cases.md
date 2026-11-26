@@ -98,6 +98,86 @@ public class BasketService(GrpcBasketClient basketClient)
 }
 ```
 
+## csharp-standard-grpc-call
+
+The standard User Interface designer (2.0.0): a Proxy Operation's Call Service Operation Action targets a backend Operation with no Http Settings, a gRPC service's, so the link claims the rpc the proxy calls, the target's name, and no verb or route. `GetBasketAsync` calls the generated client's `GetBasketAsync`; `DeleteBasketAsync` calls `GetBasketAsync` too, where the model says `DeleteBasket`.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.rpc", "proxy.verb", "proxy.route"], "requirements": ["R2", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "webapp", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "basket-proxy", "type": "Proxy", "name": "BasketService", "children": [
+            { "id": "basket-proxy-get", "type": "Proxy Operation", "name": "GetBasketAsync" },
+            { "id": "basket-proxy-delete", "type": "Proxy Operation", "name": "DeleteBasketAsync" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "get-basket-calls-backend", "type": "Call Service Operation Action", "source": { "element": "basket-proxy-get" }, "target": { "element": "basket-get-basket" } },
+        { "id": "delete-basket-calls-backend", "type": "Call Service Operation Action", "source": { "element": "basket-proxy-delete" }, "target": { "element": "basket-delete-basket" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "basket-api", "name": "Basket.API",
+        "elements": [
+          { "id": "basket-grpc-service", "type": "Service", "name": "BasketService", "children": [
+            { "id": "basket-get-basket", "type": "Operation", "name": "GetBasket" },
+            { "id": "basket-delete-basket", "type": "Operation", "name": "DeleteBasket" }
+          ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```csharp file src/WebApp/Services/BasketService.cs
+using GrpcBasketClient = eShop.Basket.API.Grpc.Basket.BasketClient;
+
+namespace eShop.WebApp.Services;
+
+public class BasketService(GrpcBasketClient basketClient)
+{
+    public async Task GetBasketAsync()
+    {
+        await basketClient.GetBasketAsync(new ());
+    }
+
+    public async Task DeleteBasketAsync()
+    {
+        await basketClient.GetBasketAsync(new ());
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.rpc", "element": "get-basket-calls-backend", "outcome": "verified", "expected": "GetBasket", "actual": "GetBasket", "at": "src/WebApp/Services/BasketService.cs:9" },
+    { "kind": "proxy.rpc", "element": "delete-basket-calls-backend", "outcome": "contradicted", "expected": "DeleteBasket", "actual": "GetBasket", "at": "src/WebApp/Services/BasketService.cs:14" },
+    { "kind": "proxy.verb", "element": "get-basket-calls-backend", "absent": true },
+    { "kind": "proxy.route", "element": "get-basket-calls-backend", "absent": true }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.rpc", "severity": "error", "subject": "delete-basket-calls-backend" }
+  ]
+}
+```
+
 ## eshop-grpc-rpc-other
 
 The proxy calls `UpdateBasketAsync`, another rpc of the same service.

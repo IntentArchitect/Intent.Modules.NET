@@ -145,7 +145,7 @@ The integrity tests run in phase 0 and must pass before sign-off:
 
 1. Every schema is a valid JSON Schema (draft 2020-12).
 2. `checks.json` has exactly the 321 ids in [check-classification.md](../check-classification.md), parsed from its tables, with the per-source counts in its totals table.
-3. Every disposition names a kind, scope case, engine case or opt-in rule in `catalog.json`.
+3. Every disposition names a kind, scope case, engine case or opt-in rule in `catalog.json`, and every kind there is used by a check, a Common.Drift recipe, or the stock vocabulary that claims it from a standard stereotype no old check read (OpenAPI Settings, the Domain Constraints).
 4. Every case file parses, every block validates, every `element` and association in `expect` exists in the case's model, every `at` names a case file and a line within it, every pack is inline or a stock pack the catalog plans, and every `traces` id is in `checks.json`.
 5. Every check whose disposition is a claim, scope, engine or opt-in case is traced by at least one case, and every scope case, engine case and opt-in rule in `catalog.json` is shown by one.
 6. Every claim kind with phase 1 to 4 has at least one case with each outcome: verified, contradicted and can't verify.

@@ -45,7 +45,7 @@ Every node has:
 | `chain`         | A whole fluent call chain                                                                                          | `calls` in order                                                                                     |
 | `call`          | A method or function call                                                                                          | `callee` (the name called), `receiver` (canonical text), `receiverType` (when resolved), `typeArguments` (type refs, as written), `arguments`: each with `text` (canonical), `types` and `literal` (when it is one) |
 | `creation`      | An object creation (`new X(…)`)                                                                                    | `type`, `arguments`, `initializers` (each a member, or an indexer as written, and its value), `items` (a collection initializer's) |
-| `markup`        | An element in markup: a Razor component's, a Vue template's, JSX's ([Markup](#markup))                             | `tag`, `component` (a type ref, when the tag names a component), `attributes`, `children`, `content` |
+| `markup`        | An element in markup: a Razor component's, a Vue template's, JSX's, a XAML view's ([Markup](#markup))              | `tag`, `component` (a type ref, when the tag names a component), `attributes`, `children`, `content` |
 
 Framework readers add their own kinds, namespaced by framework: `ef.entity`, `openapi.operation`.
 
@@ -116,13 +116,14 @@ Rules compare canonical text, so layout and comments never change a reading.
 
 | Reader             | Phase | Reads                                                                        | Resolution |
 | ------------------ | ----- | ---------------------------------------------------------------------------- | ---------- |
-| C#                 | 1     | `.cs`, `.razor` (its directives, `@code` and markup), `.csproj`, `Directory.Build.props` | declared   |
+| C#                 | 1     | `.cs`, `.razor` (its directives, `@code` and markup), `.cshtml` (an MVC view's or Razor Page's, the same), `.csproj`, `Directory.Build.props` | declared   |
 | Text               | 1     | any file, as `file` with `raw`                                               | none       |
 | Java               | 4     | `.java`, `pom.xml`, `build.gradle`                                           | declared   |
 | Python             | later | `.py`, `.pyi`                                                                | declared   |
 | EF Core migrations | 4     | committed `*ModelSnapshot.cs`                                                | n/a        |
 | TypeScript         | later | `.ts`, `.tsx`, `.mts`, `.cts`, `.js`, `.jsx`, `.mjs`, `.cjs` (JSX as markup), `.vue` (its `<script>` blocks, and its `<template>` as markup), `tsconfig.json`, `jsconfig.json` | declared |
 | Protobuf           | later | `.proto` (proto2, proto3 and editions)                                       | declared   |
+| XAML               | later | `.xaml` with an `x:Class` (a view's file and markup, no type)                | declared   |
 
 A reader is a plug-in like any other ([rules.md](rules.md#plug-ins)); the C# and text readers ship in the engine's own pack, the others in their stack packs ([packs.md](packs.md#stock-packs)).
 
@@ -141,7 +142,9 @@ The C# reader reads a Razor component (`.razor`) as the C# compiler does: as the
 | `@using`                                                     | `import`s of the file, written `@using X`. An `_Imports.razor`'s are its own file's, and every component it applies to has them too (`importsFrom`); it declares no type |
 | Markup                                                       | The file's `markup` nodes ([Markup](#markup)), as Razor parses them before it compiles them             |
 
-A directive is the code it compiles to, so there's no node for the directive itself; `@rendermode` isn't read, as the Razor compiler the reader uses predates it. The markup isn't read from the generated code: without the components the referenced assemblies declare, the compiler can't tell a component's parameters, and the code in them, from HTML. A Razor diagnostic doesn't fail the file, as a C# syntax error doesn't. MVC views and Razor Pages (`.cshtml`) aren't read.
+A directive is the code it compiles to, so there's no node for the directive itself; `@rendermode` isn't read, as the Razor compiler the reader uses predates it. The markup isn't read from the generated code: without the components the referenced assemblies declare, the compiler can't tell a component's parameters, and the code in them, from HTML. A Razor diagnostic doesn't fail the file, as a C# syntax error doesn't.
+
+An MVC view or Razor Page (`.cshtml`) is Razor too, so the C# reader reads it the same way, with no reader of its own: in the component file kind, the only one that builds an element tree (the MVC file kind writes markup out as text), as a `component` type named after its file in its project's root namespace and folders (`Identity.API.Views.Account.Login`), with its markup, its `@inject`s and its `@functions` members. Its `@model` and `@section` are known as the directives they are in an MVC document, and a Razor Page's bare `@page` is kept though the component kind wants a route with it; no `_Imports.razor` applies to it. `_ViewImports.cshtml` and `_ViewStart.cshtml` configure the views of their folder and hold none, so they add no file and no type; `_ViewStart`'s generated code is kept in the C# syntax (`CSharpSyntax.Trees`) for what reads views, which takes its `Layout`. Tag helpers aren't bound, so `asp-action`, `<partial name>` and `~/` URLs are attributes and tags as written. What a view's code states for MVC (its `Layout`, `RenderBody()`, `RenderSection`, partial and view component calls, `ViewData["Title"]`, the HTML and URL helpers' forms and links) is read from its generated code by `intent.mvc` ([rules.md](rules.md#user-interface-from-mvc-views)).
 
 ### The TypeScript reader
 
@@ -198,9 +201,23 @@ Names are kept as the `.proto` writes them. protoc's renaming for C# (`order_id`
 
 The reader parses the language's grammar itself, proto2, proto3 and editions, with every position. On 72 real files (Google's `descriptor.proto`, `google/api`, `google/type` and `google/rpc`, eShopCustom's) it reads the same messages, fields, numbers, labels, enums and rpcs, and the same presence, as protobuf-net's parser. A syntax error is the file's reader failure, and the file is read on after the statement it is in.
 
+### The XAML reader
+
+A XAML view (.NET MAUI, Xamarin.Forms, WPF, WinUI, Avalonia) is the markup half of a C# class, whose code-behind the C# reader reads. The XAML language (`intent.xaml`) parses each `.xaml` file as the XML it is (`XDocument` with line information, never patterns) and adds:
+
+| XAML                                                                             | Node                                                                                                 |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| A file whose root has an `x:Class`                                               | `file`, language `xaml`, in its nearest project, its namespace the `x:Class`'s; no `type`            |
+| Its elements                                                                     | The file's `markup` ([Markup](#markup)), placed from each start tag to its end tag                   |
+| An `Application` root (or one named for one, a platform head's `MauiWinUIApplication`), a `ResourceDictionary` root, or no `x:Class` | Nothing: it holds the application or its resources, as `_ViewImports.cshtml` holds no view, so `unmodelled.file` doesn't ask for it |
+
+The documents are kept beside the graph (`XamlSyntax`, each `XamlDocument` with its `x:Class`, root and `At`) for the stacks that give XAML a framework's meaning (`intent.maui`'s Shell items, binding contexts and navigations). Its code reader then joins each view to the class its `x:Class` names, by its full name: the view's file becomes one of the class's files, so whatever locates the class locates its markup, and a code-behind written with no base class (`partial class CatalogView`) gets its root's type as its base (`<views:ContentPageBase x:Class="...">`), as the XAML compiler's generated half gives it. A base that resolves to no type is taken for an interface by C#'s naming (`IQueryAttributable`), so it doesn't stop the root's being added. A code reader that changes a type's files or bases after the languages have read calls `CodeGraph.Reindex()`, so the graph's indexes (bases, supertypes, a file's types) are built again.
+
+An element's type is its local name in the CLR namespace its XAML namespace maps to (`clr-namespace:Shop.Views;assembly=Shop`, `using:Shop.Views`); a framework's URI namespace names the framework's own types, which stay as written. A markup extension (`{Binding Name, Mode=TwoWay}`, `{DataTemplate views:LoginView}`) is parsed by the XAML grammar (`XamlMarkupExtension`): quoted values, a `\` escaping the character after it, nested extensions, and a value starting `{}` being text. XAML has no profile, as it declares no type: its class is compared under C#'s. A file that isn't well-formed XML fails to read at all, which is one `engine/readerFailed` finding for it ([Failures](#failures)).
+
 ### Markup
 
-A Razor component's markup, a Vue component's template and JSX are read into one shape, so a rule about what a page renders, links to or titles itself reads any of them. A file's `markup` is the elements at its top level, each with the elements inside it; what an attribute means to a framework (a component's parameter, a link's route) is a stack's to say. A file with several React components holds all of their JSX; each component's is what lies inside its declaration.
+A Razor component's markup, a Vue component's template, JSX and a XAML view are read into one shape, so a rule about what a page renders, links to or titles itself reads any of them. A file's `markup` is the elements at its top level, each with the elements inside it; what an attribute means to a framework (a component's parameter, a link's route) is a stack's to say. A file with several React components holds all of their JSX; each component's is what lies inside its declaration.
 
 | Field        | What it is                                                                                                                                                       |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -218,7 +235,7 @@ A Razor component's markup, a Vue component's template and JSX are read into one
 | Vue's `:to` (`v-bind:to`), `@click.prevent`   | `bind`, `to`; `on`, `click`, `prevent`                  |
 | Vue's `#item` (`v-slot:item`), `.value`       | `slot`, `item`; `bind`, `value`, `prop`                 |
 
-A directive's value is code, so it has no `literal`. A plain attribute's is a `string`, or in Razor `interpolated` when values are written in it: `href="/orders/@id"` is `/orders/` and `id`, and `Item="@item"` is `item` alone. JSX has no directives: an attribute given in braces is `interpolated` alike, its parts the code's values, so `` to={`/orders/${id}`} `` is `/orders/` and `id`, `onClick={save}` is `save` alone, and a string in braces is a `string`. A spread (`{...props}`) is an attribute named `...`.
+A directive's value is code, so it has no `literal`. A plain attribute's is a `string`, or in Razor `interpolated` when values are written in it: `href="/orders/@id"` is `/orders/` and `id`, and `Item="@item"` is `item` alone. JSX has no directives: an attribute given in braces is `interpolated` alike, its parts the code's values, so `` to={`/orders/${id}`} `` is `/orders/` and `id`, `onClick={save}` is `save` alone, and a string in braces is a `string`. A spread (`{...props}`) is an attribute named `...`. XAML has no directives either: an attribute set by a markup extension (`{Binding Name}`, `{StaticResource Accent}`) is code, with no `literal`, and any other value is a `string`, one escaped with `{}` without it. A tag and an attribute's name are written with the prefix the file gives them (`views:BadgeView`, `x:Name`, `Grid.Row`), and a property element (`<ContentPage.BindingContext>`) is an element with no `component`.
 
 Razor's markup is read as the Razor compiler parses it, before the compiler's own passes fold and encode it. JSX is read from TypeScript's parse, with the code it is written in, so its values are that code's: each outermost element, and each element written as an attribute's value (react-router's `element={<Page />}`), is a top-level element. A fragment (`<>...</>`) renders only its children, so they take its place, and an element written in code among an element's children (`{items.map(x => <Row />)}`, `{open && <Dialog />}`) is one of its children. A Vue template is read as Vue's compiler parses a single-file component: the top-level `<template>` is HTML and every other block raw text; an element closes at its end tag, at `/>` or as a void element, an end tag closes the elements left open inside its element, and one that closes nothing is ignored; `<textarea>` and `<title>` hold text and `{{ }}` values, `<script>` and `<style>` text alone. A template in another language (`lang="pug"`) or file (`src`) isn't read.
 
@@ -229,6 +246,7 @@ A component used in markup is a type ref like any other, so the `type` comparer 
 - In a `.razor` file, an element whose tag starts with a capital letter, or is qualified, names that tag. The C# reader resolves it as Razor does: a qualified name as written; otherwise through the `@using` directives of the file and of every `_Imports.razor` in its folder and the folders above it, then the file's own namespace (its `@namespace`, or the project's root namespace plus the folder path) and the namespaces it is in.
 - In a `.vue` file, a tag that isn't an HTML, SVG or MathML element, or that starts with a capital letter, names a component by its PascalCase name (`stock-pill` names `StockPill`), and a dotted tag (`ui.Badge`) names a member of what the script imports. It resolves through the script's imports. `<component :is>` names none, and `<slot>` and `<template>` aren't components.
 - In JSX, a tag that starts with a capital letter, or is qualified (`Ui.Badge`), names a component, as JSX compiles it; a lower-case tag is an element. It resolves through the file's imports, an aliased import (`import { StockPill as Pill }`) included, then the file's own components.
+- In a `.xaml` file, every object element names a type, as XAML creates one for it: its local name in the CLR namespace its prefix maps to (`<templates:ProductTemplate />` under `xmlns:templates="clr-namespace:Shop.Views.Templates"` is `Shop.Views.Templates.ProductTemplate`), resolved by that full name. A framework's element (`<Grid>`, `<ContentPage>`) is its own namespace's, so its name stays as written.
 
 A library's component, such as Blazor's `PageTitle` or Vue Router's `RouterLink`, isn't in the graph, so its name stays as written.
 
@@ -236,19 +254,19 @@ A library's component, such as Blazor's `PageTitle` or Vue Router's `RouterLink`
 
 Each reader declares what it can do ([R35](requirements.md)). A rule that needs a capability the reader lacks gives can't verify, `unresolved`.
 
-| Capability     | Meaning                                                                                                                                                    | C#       | Java       | Python     | TypeScript | Protobuf | Text |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ---------- | ---------- | -------- | ---- |
-| `declarations` | Types and members, with modifiers and type refs                                                                                                            | yes      | yes        | yes        | yes        | yes      | no   |
-| `bodies`       | Statements, chains, calls and creations                                                                                                                    | yes      | yes        | yes        | yes        | no       | no   |
-| `resolution`   | `declared`: names resolve to in-scope declarations through imports, namespaces and the project's global usings. Never to library types: there is no build. | declared | declared   | declared   | declared   | declared | none |
-| `nullable`     | Knows the nullable context                                                                                                                                 | yes      | by profile | by annotation | by `tsconfig.json` | by presence | no |
-| `callTargets`  | Resolves a call to its method when the receiver's declared type is known (a field, parameter or explicitly typed local)                                    | declared | declared   | declared   | declared   | no       | no   |
+| Capability     | Meaning                                                                                                                                                    | C#       | Java       | Python     | TypeScript | Protobuf | XAML     | Text |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ---------- | ---------- | -------- | -------- | ---- |
+| `declarations` | Types and members, with modifiers and type refs                                                                                                            | yes      | yes        | yes        | yes        | yes      | no (its class is C#'s) | no   |
+| `bodies`       | Statements, chains, calls and creations                                                                                                                    | yes      | yes        | yes        | yes        | no       | no       | no   |
+| `resolution`   | `declared`: names resolve to in-scope declarations through imports, namespaces and the project's global usings. Never to library types: there is no build. | declared | declared   | declared   | declared   | declared | declared (CLR namespaces) | none |
+| `nullable`     | Knows the nullable context                                                                                                                                 | yes      | by profile | by annotation | by `tsconfig.json` | by presence | no | no |
+| `callTargets`  | Resolves a call to its method when the receiver's declared type is known (a field, parameter or explicitly typed local)                                    | declared | declared   | declared   | declared   | no       | no       | no   |
 
 `resolution: declared` is enough for the structure claims: a base type, a member's type or an implemented interface declared in scope resolves, and one from a library stays as written. A rule comparing a library type compares its name as written.
 
 ### Units
 
-The parts of a partial type are one `type` node, with a `unit` naming its files. The files of one component in one folder whose names are the same up to the first dot (`Checkout.razor` and `Checkout.razor.cs`, `customer-list.component.ts` and `customer-list.component.html`) are one `unit`, as Common.Drift reads them.
+The parts of a partial type are one `type` node, with a `unit` naming its files. The files of one component in one folder whose names are the same up to the first dot (`Checkout.razor` and `Checkout.razor.cs`, `customer-list.component.ts` and `customer-list.component.html`) are one `unit`, as Common.Drift reads them. A XAML view and its code-behind are one type by its `x:Class`, whatever their files are named ([The XAML reader](#the-xaml-reader)).
 
 ## Framework readers
 
@@ -272,4 +290,4 @@ A file that isn't text at all can't be written as a case's fixture, so the suite
 
 ## Acceptance cases
 
-What each reader puts in the graph is tested by its fact tests (`Stacks/*FactsTests.cs`), node by node, and through the claims every kind's cases read with it: partial types and component units in `engine/ambiguous` and `ui/component.kind`, unresolved nullability in `engine/unresolved`, markup in the `ui` area. The C# fact tests hold canonical text Common.Drift captured, and a probe of both over the five copied codebases found no member or statement whose text differs. Reader failures are `engine/readerFailed`'s. No framework reader of a committed artifact is built yet.
+What each reader puts in the graph is tested by its fact tests (`Stacks/*FactsTests.cs`, XAML's in `XamlFactsTests`), node by node, and through the claims every kind's cases read with it: partial types and component units in `engine/ambiguous` and `ui/component.kind`, unresolved nullability in `engine/unresolved`, markup in the `ui` area. The C# fact tests hold canonical text Common.Drift captured, and a probe of both over the five copied codebases found no member or statement whose text differs. Reader failures are `engine/readerFailed`'s. No framework reader of a committed artifact is built yet.

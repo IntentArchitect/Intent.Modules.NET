@@ -20,12 +20,19 @@ internal static class StringValues
     /// call to the one into the method holding the value, and each binds its method's parameters to its arguments, read with the
     /// bindings of the calls before it.
     /// </summary>
-    public static LiteralNode Of(ValueNode value, IReadOnlyList<CallNode> through)
+    public static LiteralNode Of(ValueNode value, IReadOnlyList<CallNode> through) =>
+        through.All(x => x.Target is not null) ? Of(value, through.Select(x => (x, x.Target!.Member)).ToList()) : Literal([Hole(value)]);
+
+    /// <summary>
+    /// As <see cref="Of(ValueNode, IReadOnlyList{CallNode})"/>, each call with the method it runs, where the call doesn't say:
+    /// one made on an interface runs an implementation's method.
+    /// </summary>
+    public static LiteralNode Of(ValueNode value, IReadOnlyList<(CallNode Call, MemberNode Into)> through)
     {
         var bindings = Unbound;
-        foreach (var call in through)
+        foreach (var (call, into) in through)
         {
-            if (call.Target?.Member.Body is not { } body)
+            if (into.Body is not { } body)
             {
                 return Literal([Hole(value)]);
             }

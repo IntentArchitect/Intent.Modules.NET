@@ -283,3 +283,101 @@ export default function SearchPage() {
   ]
 }
 ```
+
+## maui-query-property
+
+A .NET MAUI page's property is a query parameter (`intent.maui`) when a `[QueryProperty(nameof(X), "x")]` on the page, or on its binding context, which Shell sets too, names it: Shell hands a page its navigation's values as its query. Its `Title` is set by the page itself.
+
+```json case
+{ "phase": "later", "kinds": ["property.query"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "item", "type": "Page", "name": "CatalogItemView", "stereotypes": { "Page": { } }, "children": [
+            { "id": "item-id", "type": "Property", "name": "ItemId", "typeRef": { "type": "string" }, "stereotypes": { "[Query Parameter]": { } } },
+            { "id": "item-title", "type": "Property", "name": "Heading", "typeRef": { "type": "string" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Shop.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+</Project>
+```
+
+```xml file src/Shop/Views/CatalogItemView.xaml
+<ContentPage x:Class="Shop.Views.CatalogItemView" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Label Text="{Binding Heading}" />
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/CatalogItemView.xaml.cs
+namespace Shop.Views;
+
+[QueryProperty(nameof(ItemId), "id")]
+public partial class CatalogItemView : ContentPage
+{
+    public string ItemId { get; set; } = "";
+
+    public string Heading { get; set; } = "";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.query", "element": "item-id", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/Shop/Views/CatalogItemView.xaml.cs:3" },
+    { "kind": "property.query", "element": "item-title", "outcome": "verified", "expected": "false", "actual": "false" }
+  ],
+  "others": "verified",
+  "noOtherFindings": true
+}
+```
+
+## maui-query-property-removed
+
+A planted drift: the page binds nothing from its query. One finding, the query parameter's.
+
+```json case
+{ "phase": "later", "base": "maui-query-property", "kinds": ["property.query"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/Shop/Views/CatalogItemView.xaml.cs
+namespace Shop.Views;
+
+public partial class CatalogItemView : ContentPage
+{
+    public string ItemId { get; set; } = "";
+
+    public string Heading { get; set; } = "";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "property.query", "element": "item-id", "outcome": "contradicted", "expected": "true", "actual": "false" }
+  ],
+  "findings": [
+    { "rule": "claim/property.query", "severity": "error", "subject": "item-id", "messageContains": "No [QueryProperty] on `CatalogItemView` or its binding context names it." }
+  ],
+  "noOtherFindings": true
+}
+```

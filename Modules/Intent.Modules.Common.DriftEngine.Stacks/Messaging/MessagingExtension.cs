@@ -101,7 +101,10 @@ internal static class Subscription
 /// <summary>
 /// A subscription to a message another application owns, a referenced package's, as a <c>message.copy</c> claim on the
 /// subscription: the subscriber deserialises the message into a copy of its own, which only the handler names. A
-/// subscription to this application's own message gives none, as the message is its own type.
+/// subscription to this application's own message gives none, as the message is its own type. The types such a message
+/// carries through its fields (its Eventing DTOs, and theirs in turn) are deserialised into copies too, which only the
+/// message's copy names, so each is a <c>message.copy</c> claim of its own, on the first subscription whose message carries
+/// it, keyed by the type's name (<see cref="CarriedType"/>).
 /// </summary>
 internal sealed class SubscribedCopySource : IClaimSource
 {
@@ -113,7 +116,10 @@ internal sealed class SubscribedCopySource : IClaimSource
         }
 
         // Another application's message is one this application's designer doesn't hold: its link reaches a referenced package.
+        // The message is the link's target, whatever packages the host hands over: in a Software Factory run a subscriber's
+        // referenced Eventing package isn't among them, and the message's fields are reached from it all the same.
         var own = model.Elements(Subscription.Designer).Select(x => x.Id).ToHashSet(StringComparer.Ordinal);
+        var carried = new Dictionary<string, (IElement Type, List<IAssociationEnd> Subscriptions)>(StringComparer.Ordinal);
         foreach (var handler in model.Elements(Subscription.Designer))
         {
             foreach (var link in Subscription.Associations.SelectMany(x => model.Links(handler, x)).Where(x => !own.Contains(x.Target.Id)))
@@ -127,9 +133,73 @@ internal sealed class SubscribedCopySource : IClaimSource
                     DependsOn = new ClaimRef(Subscription.Designer, handler.Id, "type.exists"),
                     Source = $"its {link.End.Association?.SpecializationType} link"
                 };
+
+                foreach (var type in CarriedType.Of(link.Target).Select(x => x.Type).Where(x => !own.Contains(x.Id)))
+                {
+                    if (!carried.TryGetValue(type.Id, out var entry))
+                    {
+                        carried[type.Id] = entry = (type, []);
+                    }
+
+                    if (!entry.Subscriptions.Contains(link.End))
+                    {
+                        entry.Subscriptions.Add(link.End);
+                    }
+                }
+            }
+        }
+
+        foreach (var group in carried.Values.GroupBy(x => x.Subscriptions[0].Id, StringComparer.Ordinal))
+        {
+            foreach (var (type, subscriptions) in group)
+            {
+                var end = subscriptions[0];
+                yield return new ClaimSpec
+                {
+                    Designer = Subscription.Designer,
+                    Element = end,
+                    Kind = "message.copy",
+                    // One claim per carried type on the subscription, told apart by its name; by its package too where two share it.
+                    Discriminator = group.Count(x => x.Type.Name == type.Name) > 1 && type.Package?.Name is { } package ? $"{package}.{type.Name}" : type.Name,
+                    Expected = "present",
+                    Value = new CarriedType(type, subscriptions),
+                    Source = $"`{type.Name}`'s fields, which `{end.TypeReference?.Element?.Name}` carries"
+                };
             }
         }
     }
+}
+
+/// <summary>
+/// A type a subscribed message carries through its fields, directly or through another carried type's, such as an Eventing
+/// DTO, with the subscriptions whose messages carry it. The subscriber's copy of it is the type the copy of a carrying
+/// message (or of a carrying type) names in a property, and its properties are checked against the type's fields.
+/// </summary>
+internal sealed record CarriedType(IElement Type, IReadOnlyList<IAssociationEnd> Subscriptions)
+{
+    /// <summary>
+    /// The types an element's fields carry, each with the element whose field carries it, nearest first: any element a field's
+    /// type names that has typed fields of its own (an Eventing DTO, a DTO), not an enum or a primitive, and theirs in turn.
+    /// </summary>
+    public static IEnumerable<(IElement Type, IElement Carrier)> Of(IElement message)
+    {
+        var seen = new HashSet<string>(StringComparer.Ordinal) { message.Id };
+        var queue = new Queue<IElement>([message]);
+        while (queue.TryDequeue(out var current))
+        {
+            foreach (var type in Fields(current).Select(x => x.TypeReference.Element).OfType<IElement>().Where(x => Fields(x).Any()).DistinctBy(x => x.Id))
+            {
+                yield return (type, current);
+                if (seen.Add(type.Id))
+                {
+                    queue.Enqueue(type);
+                }
+            }
+        }
+    }
+
+    /// <summary>An element's fields: its children with a type.</summary>
+    public static IEnumerable<IElement> Fields(IElement element) => element.ChildElements.Where(x => x.TypeReference?.Element is not null);
 }
 
 /// <summary>
@@ -190,7 +260,8 @@ internal sealed class SubscriptionReader : IClaimReader
 /// <summary>
 /// A subscriber's copy of a message another service publishes (Integration Event Subscription, from the copy to the
 /// published message): every property the copy has, the published message has, of the same type, so what is sent can be
-/// read. The copy may leave properties out.
+/// read. The copy may leave properties out. So too for the copy of a subscribed message's own, and for the copies of the
+/// types it carries (<see cref="CarriedType"/>), against their modelled fields.
 /// </summary>
 internal sealed class MessageCopyReader : IClaimReader
 {
@@ -198,6 +269,11 @@ internal sealed class MessageCopyReader : IClaimReader
 
     public ClaimReading? Read(ClaimContext context)
     {
+        if (context.ExpectedValue is CarriedType carried)
+        {
+            return Carried(context, carried);
+        }
+
         if (context.Element is IAssociationEnd { TypeReference.Element: IElement subscribed } subscription
             && Subscription.Associations.Contains(subscription.Association?.SpecializationType))
         {
@@ -247,14 +323,7 @@ internal sealed class MessageCopyReader : IClaimReader
             return null;
         }
 
-        static IEnumerable<TypeRefNode> Nested(TypeRefNode type) => new[] { type }.Concat(type.Arguments.SelectMany(Nested));
-        var copy = new[] { handler }.Concat(context.Code.Bases(handler))
-            .SelectMany(x => x.BaseTypes.Concat(x.Members.Where(m => m.Kind == "method").SelectMany(m => m.Parameters).Select(p => p.Type).OfType<TypeRefNode>()))
-            .SelectMany(Nested)
-            .Where(x => x.Name == message.Name)
-            .Select(x => context.Code.TypeFor(x, handler))
-            .OfType<TypeNode>()
-            .FirstOrDefault();
+        var copy = CopyOf(context.Code, handler, message);
         if (copy is null)
         {
             // A handler that takes no such type is its subscription's finding; one that takes a library's has no copy to read.
@@ -282,6 +351,109 @@ internal sealed class MessageCopyReader : IClaimReader
             : ClaimReading.Compared("absent", copy.At, false,
                 $"`{copy.Name}` ({copy.At.File}) is `{handler.Name}`'s copy of `{message.Name}`, which it subscribes to from another application, but {string.Join("; ", problems)}. Make the copy's properties those of the message, or model what the message sends.");
     }
+
+    /// <summary>
+    /// The copy of a type a subscribed message carries (<see cref="CarriedType"/>): the type of its name that the copy of a
+    /// carrying message names in a property, or the copy of a carrying type does, found through every subscription whose
+    /// message carries it. Its properties, its bases' included, must be among the type's modelled fields, with the same
+    /// types. A copy may leave fields out, as a message's copy may.
+    /// </summary>
+    private static ClaimReading Carried(ClaimContext context, CarriedType carried)
+    {
+        var type = carried.Type;
+        var copies = new List<(TypeNode Copy, IElement Carrier)>();
+        foreach (var subscription in carried.Subscriptions)
+        {
+            // A handler whose class isn't found, or that takes no copy of the message, is its own claims' finding.
+            if (subscription.TypeReference?.Element is not IElement message || context.Owner(subscription) is not { } handler
+                || context.LocatedOf(handler, "type.exists", Subscription.Designer) is not TypeNode handlerType
+                || CopyOf(context.Code, handlerType, message) is not { } messageCopy)
+            {
+                continue;
+            }
+
+            // Down the model's fields from the message, each carried type's copy named by its carrier's copy, by the type's name.
+            var seen = new HashSet<(string, TypeNode)>();
+            var queue = new Queue<(IElement Element, TypeNode Copy)>([(message, messageCopy)]);
+            while (queue.TryDequeue(out var current))
+            {
+                foreach (var next in CarriedType.Fields(current.Element).Select(x => x.TypeReference.Element).OfType<IElement>().Where(x => CarriedType.Fields(x).Any()).DistinctBy(x => x.Id))
+                {
+                    foreach (var copy in Named(context.Code, current.Copy, next.Name))
+                    {
+                        if (next.Id == type.Id && copies.All(x => x.Copy != copy))
+                        {
+                            copies.Add((copy, current.Element));
+                        }
+
+                        if (seen.Add((next.Id, copy)))
+                        {
+                            queue.Enqueue((next, copy));
+                        }
+                    }
+                }
+            }
+        }
+
+        if (copies.Count == 0)
+        {
+            return ClaimReading.CantVerify("blocked", $"No copy of a message that carries `{type.Name}` names a type of the code called `{type.Name}`, so there is no copy to read.");
+        }
+
+        var fields = CarriedType.Fields(type).GroupBy(x => x.Name, StringComparer.OrdinalIgnoreCase).ToDictionary(x => x.Key, x => x.First().TypeReference, StringComparer.OrdinalIgnoreCase);
+        var what = type.Package?.Name is { } owner ? $"the {type.SpecializationType} of `{owner}`" : $"the {type.SpecializationType}";
+        var differences = new List<string>();
+        foreach (var (copy, carrier) in copies)
+        {
+            var problems = new List<string>();
+            foreach (var property in Properties(context.Code, copy))
+            {
+                if (!fields.TryGetValue(property.Name, out var field))
+                {
+                    problems.Add($"`{property.Name}` isn't one of its fields");
+                }
+                else if (property.Type is { } propertyType && !context.TypeMatches(field, propertyType) && !(field.Element is { SpecializationType: "Enum" } && NameOrNumber(propertyType)))
+                {
+                    problems.Add($"`{property.Name}` is `{propertyType.Text}` in the copy and `{field.Element!.Name}{(field.IsCollection ? "[]" : "")}` in the model");
+                }
+            }
+
+            if (problems.Count > 0)
+            {
+                differences.Add($"`{copy.Name}` ({copy.At.File}) is the copy of `{type.Name}`, {what} that `{carrier.Name}` carries, but {string.Join("; ", problems)}");
+            }
+        }
+
+        var first = copies[0].Copy.At;
+        var others = copies.Skip(1).Select(x => x.Copy.At);
+        return differences.Count == 0
+            ? ClaimReading.Compared("present", first, true).Through(others)
+            : ClaimReading.Compared("absent", first, false, $"{string.Join(". ", differences)}. Make the copy's properties the fields of `{type.Name}`, or model what the message sends.").Through(others);
+    }
+
+    /// <summary>
+    /// The handler's copy of a message: the type of the code of the message's name that it, or a class it derives from, takes
+    /// for it, in a base's type arguments (<c>IIntegrationEventHandler&lt;T&gt;</c>) or a method's parameter. Null for none.
+    /// </summary>
+    private static TypeNode? CopyOf(CodeGraph code, TypeNode handler, IElement message) =>
+        new[] { handler }.Concat(code.Bases(handler))
+            .SelectMany(x => x.BaseTypes.Concat(x.Members.Where(m => m.Kind == "method").SelectMany(m => m.Parameters).Select(p => p.Type).OfType<TypeRefNode>()))
+            .SelectMany(Nested)
+            .Where(x => x.Name == message.Name)
+            .Select(x => code.TypeFor(x, handler))
+            .OfType<TypeNode>()
+            .FirstOrDefault();
+
+    /// <summary>The types of the code of a name that a copy's properties name, as their type or a type argument of it.</summary>
+    private static IEnumerable<TypeNode> Named(CodeGraph code, TypeNode copy, string name) =>
+        Properties(code, copy).Select(x => x.Type).OfType<TypeRefNode>()
+            .SelectMany(Nested)
+            .Where(x => x.Name == name)
+            .Select(x => code.TypeFor(x, copy))
+            .OfType<TypeNode>()
+            .Distinct();
+
+    private static IEnumerable<TypeRefNode> Nested(TypeRefNode type) => new[] { type }.Concat(type.Arguments.SelectMany(Nested));
 
     private static IEnumerable<MemberNode> Properties(CodeGraph code, TypeNode type) =>
         new[] { type }.Concat(code.Bases(type)).SelectMany(x => x.Members).Where(x => x.Kind == "property" && x.Access == "public" && !x.IsStatic);

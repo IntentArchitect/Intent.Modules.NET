@@ -1083,6 +1083,62 @@ A User Interface Component's Property is a `[Parameter]` property, its Event Emi
 }
 ```
 
+## page-property-bound-from-the-form
+
+`UpdateQuantityId` is bound from the posted form (`[SupplyParameterFromForm]`), so it isn't the modelled Property: the User Interface designer models a Page's Properties only for its route and query parameters ("Everything else is written in code"). Contradicted, with a finding that says to remove the Property rather than make it a parameter.
+
+```json case
+{ "phase": 6, "kinds": ["member.exists"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/cart" } },
+            "children": [
+              { "id": "cart-page-update-quantity-id", "type": "Property", "name": "UpdateQuantityId", "typeRef": { "type": "int", "nullable": true } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```razor file src/WebApp/Components/Pages/Cart/CartPage.razor
+@page "/cart"
+
+<form method="post" @formname="update-cart" @onsubmit="UpdateQuantityAsync">
+    <AntiforgeryToken />
+</form>
+
+@code {
+    [SupplyParameterFromForm]
+    public int? UpdateQuantityId { get; set; }
+
+    private Task UpdateQuantityAsync() => Task.CompletedTask;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "cart-page-update-quantity-id", "outcome": "contradicted", "actual": "bound from the form", "at": "src/WebApp/Components/Pages/Cart/CartPage.razor:8" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "cart-page-update-quantity-id", "messageContains": "Remove the Property" }
+  ]
+}
+```
+
 ## react-component-members
 
 The standard User Interface designer (2.0.0) read against a React function component by the stock React reader. A Property is a prop, from the props type or the names the component destructures, or its state (a `useState` value); an Event Emitter is an `on...` callback prop of its name, `Selected` being `onSelected`; a Component Operation is a function the component declares, here through `useCallback`. A component wrapped in `memo` is the component.

@@ -1,7 +1,7 @@
 {
   "id": "intent.http",
   "version": "1.0.0",
-  "description": "HTTP APIs: endpoints, routes, verbs, parameters, security and versioning, from the Services designer's HTTP, security and versioning stereotypes. Framework extensions read them from code.",
+  "description": "HTTP APIs: endpoints, routes, verbs, parameters, security, versioning and how an endpoint appears in OpenAPI, from the Services designer's HTTP, security, versioning and OpenAPI stereotypes. Framework extensions read them from code.",
   "requires": [{ "id": "intent.services", "version": "^1.0.0" }],
   "designers": ["Services"],
   "kinds": [
@@ -17,7 +17,9 @@
     { "kind": "service.versions", "label": "API versions", "valueType": "set", "comparer": "versions", "stated": "whenSet" },
     { "kind": "operation.versions", "label": "API versions", "valueType": "set", "comparer": "versions", "stated": "whenSet" },
     { "kind": "api.versionScheme", "label": "versioning scheme", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
-    { "kind": "operation.status", "label": "success status", "valueType": "number", "comparer": "number", "stated": "whenSet" }
+    { "kind": "operation.status", "label": "success status", "valueType": "number", "comparer": "number", "stated": "whenSet" },
+    { "kind": "operation.openApi.operationId", "label": "OpenAPI operationId", "valueType": "text", "comparer": "exact", "stated": "whenSet" },
+    { "kind": "operation.openApi.ignore", "label": "hidden from OpenAPI", "valueType": "bool", "comparer": "exact", "stated": "whenSet" }
   ],
   "vocabulary": {
     "Services": {
@@ -42,7 +44,10 @@
         { "kind": "service.versions", "for": { "element": "Service", "applies": "count(where(children('Operation'), hasStereotype('Api Version Settings'))) == '0'", "where": "hasStereotype('Api Version Settings')" }, "value": "join(map(stereotype('Api Version Settings')['Applicable Versions'], name), ', ')", "dependsOn": "type.exists", "source": "the service's Api Version Settings Applicable Versions" },
         { "kind": "operation.versions", "for": { "element": "Operation", "where": "hasStereotype('Http Settings') && hasStereotype('Api Version Settings')" }, "value": "join(map(stereotype('Api Version Settings')['Applicable Versions'], name), ', ')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "the operation's Api Version Settings Applicable Versions" },
         { "kind": "operation.versions", "for": { "element": "Operation", "where": "hasStereotype('Http Settings') && !hasStereotype('Api Version Settings') && parent.hasStereotype('Api Version Settings')" }, "value": "join(map(parent.stereotype('Api Version Settings')['Applicable Versions'], name), ', ')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "its service's Api Version Settings Applicable Versions" },
-        { "kind": "operation.status", "for": { "element": "Operation", "where": "hasStereotype('Http Settings')" }, "value": "number(stereotype('Http Settings')['Success Response Code'])", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "the operation's Http Settings Success Response Code" }
+        { "kind": "operation.status", "for": { "element": "Operation", "where": "hasStereotype('Http Settings')" }, "value": "number(stereotype('Http Settings')['Success Response Code'])", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "the operation's Http Settings Success Response Code" },
+        { "kind": "operation.openApi.operationId", "for": { "element": "Operation", "applies": "hasStereotype('Http Settings') && if(hasStereotype('OpenAPI Settings'), stereotype('OpenAPI Settings').Ignore, parent.stereotype('OpenAPI Settings').Ignore) != 'true'", "where": "hasStereotype('OpenAPI Settings')" }, "value": "replace(replace(stereotype('OpenAPI Settings').OperationId, '{MethodName}', pascal(name)), '{ServiceName}', pascal(parent.name))", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "the operation's OpenAPI Settings OperationId" },
+        { "kind": "operation.openApi.ignore", "for": { "element": "Operation", "applies": "hasStereotype('Http Settings')", "where": "hasStereotype('OpenAPI Settings')" }, "value": "if(stereotype('OpenAPI Settings').Ignore == 'true', 'true', 'false')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "the operation's OpenAPI Settings Ignore" },
+        { "kind": "operation.openApi.ignore", "for": { "element": "Operation", "applies": "hasStereotype('Http Settings')", "where": "!hasStereotype('OpenAPI Settings') && parent.hasStereotype('OpenAPI Settings')" }, "value": "if(parent.stereotype('OpenAPI Settings').Ignore == 'true', 'true', 'false')", "dependsOn": "member.exists", "waitsOn": ["endpoint.exists"], "source": "its service's OpenAPI Settings Ignore" }
       ],
       "nonClaims": [
         { "for": { "element": "Security Configuration" }, "reason": "Holds the roles Secured stereotypes name; each endpoint's roles are checked." },

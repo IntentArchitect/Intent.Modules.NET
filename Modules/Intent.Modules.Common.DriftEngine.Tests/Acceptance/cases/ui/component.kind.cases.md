@@ -4,6 +4,8 @@ What a User Interface designer Component or Layout is: `Page` for a Component wi
 
 The `intent.ui` pack (phase 6) gives the vocabulary, and the Blazor reader reads the component: an `@page` directive makes it a page, and a `LayoutComponentBase` base a layout. The reader takes a component's files as one unit: `CartPage.razor` and `CartPage.razor.cs` are one place (R37).
 
+The `mvc-*` cases read ASP.NET Core MVC views (`.cshtml`), which the C# language reads as components named after their files, with the MVC reader (`intent.mvc`): a view a `_ViewStart.cshtml` or another view names as its `Layout` is a layout, one an action renders (`View(...)`) or a Razor Page (`@page`) is a page, and any other is a plain component, a partial.
+
 ## verified-page
 
 The Cart page has the Page stereotype, and its `.razor` file has an `@page` directive.
@@ -681,6 +683,490 @@ export default function ReactPage() {
     { "kind": "component.kind", "element": "vue-shell", "outcome": "verified", "actual": "Layout", "at": "src/VueShell.vue:2" },
     { "kind": "component.kind", "element": "react-page", "outcome": "verified", "actual": "Page", "at": "src/routes.tsx:7" },
     { "kind": "component.kind", "element": "razor-page", "outcome": "verified", "actual": "Page" }
+  ]
+}
+```
+
+## mvc-views
+
+eShop's Identity site: `_ViewStart.cshtml` names `_Layout` as every view's layout, `HomeController.Index` renders its own view (`View()`), `AccountController.Login` renders `Redirect` through a controller extension method of the code's own (`this.LoadingPage("Redirect", url)`, whose body is `controller.View(viewName, ...)`), `_Nav` is a partial the layout renders, and `Privacy` is a Razor Page. A dialog can't be told from a view's own code. `_ViewStart.cshtml` and `_ViewImports.cshtml` hold no view, so they are no type.
+
+```json case
+{ "phase": 6, "kinds": ["component.kind"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Identity.API", "type": "User Interface Package",
+        "elements": [
+          { "id": "views", "type": "Folder", "name": "Views", "children": [
+            { "id": "home", "type": "Folder", "name": "Home", "children": [
+              { "id": "home-index", "type": "Page", "name": "Index", "stereotypes": { "Page": { } } }
+            ] },
+            { "id": "shared", "type": "Folder", "name": "Shared", "children": [
+              { "id": "layout", "type": "Layout", "name": "_Layout" },
+              { "id": "nav", "type": "Component", "name": "_Nav" },
+              { "id": "redirect", "type": "Page", "name": "Redirect", "stereotypes": { "Page": { } } },
+              { "id": "confirm", "type": "Dialog", "name": "_Confirm" }
+            ] }
+          ] },
+          { "id": "pages", "type": "Folder", "name": "Pages", "children": [
+            { "id": "privacy", "type": "Page", "name": "Privacy", "stereotypes": { "Page": { } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Identity.API/Identity.API.csproj
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>
+```
+
+```csharp file src/Identity.API/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+var app = builder.Build();
+app.MapDefaultControllerRoute();
+app.MapRazorPages();
+app.Run();
+```
+
+```csharp file src/Identity.API/Quickstart/HomeController.cs
+namespace Identity.API.Quickstart;
+
+public class HomeController : Controller
+{
+    public IActionResult Index() => View();
+}
+```
+
+```csharp file src/Identity.API/Quickstart/AccountController.cs
+namespace Identity.API.Quickstart;
+
+public class AccountController : Controller
+{
+    [HttpPost]
+    public IActionResult Login(string returnUrl) => this.LoadingPage("Redirect", returnUrl);
+}
+
+public static class Extensions
+{
+    public static IActionResult LoadingPage(this Controller controller, string viewName, string redirectUri) =>
+        controller.View(viewName, new RedirectViewModel { RedirectUrl = redirectUri });
+}
+
+public class RedirectViewModel
+{
+    public string RedirectUrl { get; set; }
+}
+```
+
+```cshtml file src/Identity.API/Views/_ViewStart.cshtml
+@{
+    Layout = "_Layout";
+}
+```
+
+```cshtml file src/Identity.API/Views/_ViewImports.cshtml
+@using Identity.API.Quickstart
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+```
+
+```cshtml file src/Identity.API/Views/Home/Index.cshtml
+<h1>Welcome to Identity</h1>
+```
+
+```cshtml file src/Identity.API/Views/Shared/_Layout.cshtml
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <partial name="_Nav" />
+    <div class="container body-container">@RenderBody()</div>
+</body>
+</html>
+```
+
+```cshtml file src/Identity.API/Views/Shared/_Nav.cshtml
+<nav class="navbar"><a href="~/">Identity</a></nav>
+```
+
+```cshtml file src/Identity.API/Views/Shared/Redirect.cshtml
+@model RedirectViewModel
+<meta http-equiv="refresh" content="0;url=@Model.RedirectUrl" data-url="@Model.RedirectUrl">
+```
+
+```cshtml file src/Identity.API/Views/Shared/_Confirm.cshtml
+<div class="modal"><button>OK</button></div>
+```
+
+```cshtml file src/Identity.API/Pages/Privacy.cshtml
+@page
+<h1>Privacy</h1>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "layout", "outcome": "verified", "expected": "Layout", "actual": "Layout", "at": "src/Identity.API/Views/_ViewStart.cshtml:2" },
+    { "kind": "component.kind", "element": "home-index", "outcome": "verified", "expected": "Page", "actual": "Page", "at": "src/Identity.API/Quickstart/HomeController.cs:5" },
+    { "kind": "component.kind", "element": "redirect", "outcome": "verified", "expected": "Page", "actual": "Page", "at": "src/Identity.API/Quickstart/AccountController.cs:6" },
+    { "kind": "component.kind", "element": "nav", "outcome": "verified", "expected": "Component", "actual": "Component", "at": "src/Identity.API/Views/Shared/_Layout.cshtml:4" },
+    { "kind": "component.kind", "element": "privacy", "outcome": "verified", "expected": "Page", "actual": "Page", "at": "src/Identity.API/Pages/Privacy.cshtml:1" },
+    { "kind": "component.kind", "element": "confirm", "outcome": "cantVerify", "reason": "noRule" }
+  ]
+}
+```
+
+## mvc-view-no-longer-rendered
+
+A planted drift: `HomeController.Index` now redirects instead of rendering its view. Nothing renders `Views/Home/Index.cshtml` or names it as a layout, so it states, by saying nothing, that it is a plain component: one finding. The model leaves the dialog out, so its can't-verify row doesn't stand beside it.
+
+```json case
+{ "phase": 6, "base": "mvc-views", "kinds": ["component.kind"], "cases": ["engine/silence"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Identity.API", "type": "User Interface Package",
+        "elements": [
+          { "id": "views", "type": "Folder", "name": "Views", "children": [
+            { "id": "home", "type": "Folder", "name": "Home", "children": [
+              { "id": "home-index", "type": "Page", "name": "Index", "stereotypes": { "Page": { } } }
+            ] },
+            { "id": "shared", "type": "Folder", "name": "Shared", "children": [
+              { "id": "layout", "type": "Layout", "name": "_Layout" },
+              { "id": "nav", "type": "Component", "name": "_Nav" },
+              { "id": "redirect", "type": "Page", "name": "Redirect", "stereotypes": { "Page": { } } }
+            ] }
+          ] },
+          { "id": "pages", "type": "Folder", "name": "Pages", "children": [
+            { "id": "privacy", "type": "Page", "name": "Privacy", "stereotypes": { "Page": { } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Identity.API/Quickstart/HomeController.cs
+namespace Identity.API.Quickstart;
+
+public class HomeController : Controller
+{
+    public IActionResult Index() => RedirectToAction("Login", "Account");
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "home-index", "outcome": "contradicted", "expected": "Page", "actual": "Component", "fromSilence": true }
+  ],
+  "findings": [
+    { "rule": "claim/component.kind", "severity": "error", "subject": "home-index" },
+    { "rule": "scope/coverage", "severity": "info" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-view-configuration-states-nothing
+
+What isn't a view states nothing: with the opt-in rules for unmodelled types and files on, a Razor Pages site whose every page, layout and partial is modelled reports nothing for its `_ViewStart.cshtml` and `_ViewImports.cshtml`, which configure the views of their folder and hold no view of their own.
+
+```json case
+{ "phase": 6, "kinds": ["component.kind"], "cases": ["optin/unmodelled.type", "optin/unmodelled.file"], "requirements": ["R2", "R38", "R49"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Web", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "Pages", "children": [
+            { "id": "index", "type": "Page", "name": "Index", "stereotypes": { "Page": { "Route": "/" } } },
+            { "id": "shared", "type": "Folder", "name": "Shared", "children": [
+              { "id": "layout", "type": "Layout", "name": "_Layout" },
+              { "id": "row", "type": "Component", "name": "_Row" }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Web", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" }, { "Rule": "optin/unmodelled.file" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```xml file src/Web/Web.csproj
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>
+```
+
+```cshtml file src/Web/Pages/_ViewImports.cshtml
+@namespace Web.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+```
+
+```cshtml file src/Web/Pages/_ViewStart.cshtml
+@{
+    Layout = "_Layout";
+}
+```
+
+```cshtml file src/Web/Pages/Index.cshtml
+@page
+<h1>Orders</h1>
+<partial name="_Row" />
+```
+
+```cshtml file src/Web/Pages/Shared/_Layout.cshtml
+<main>@RenderBody()</main>
+```
+
+```cshtml file src/Web/Pages/Shared/_Row.cshtml
+<tr><td>Order</td></tr>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "index", "outcome": "verified", "actual": "Page", "at": "src/Web/Pages/Index.cshtml:1" },
+    { "kind": "component.kind", "element": "layout", "outcome": "verified", "actual": "Layout", "at": "src/Web/Pages/_ViewStart.cshtml:2" },
+    { "kind": "component.kind", "element": "row", "outcome": "verified", "actual": "Component", "at": "src/Web/Pages/Index.cshtml:3" }
+  ],
+  "findings": [
+    { "rule": "scope/coverage", "severity": "info" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## maui-views
+
+A .NET MAUI app's views (`intent.maui`), each what the first framework base on its base chain makes it: a `Shell` or a page host (`NavigationPage`, `TabbedPage`, `FlyoutPage`) is a Layout, a `ContentPage` a Page, CommunityToolkit.Maui's `Popup` a Dialog, a view (`ContentView`, `Grid`, ...) a Component. `CatalogView`'s code-behind is written with no base: its XAML's root, the app's own `PageBase`, is its base, as the XAML compiler gives it. MAUI is in the code through the views' XAML namespace.
+
+```json case
+{ "phase": 6, "kinds": ["component.kind"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "AppShell" },
+          { "id": "host", "type": "Layout", "name": "DetailHost" },
+          { "id": "catalog", "type": "Page", "name": "CatalogView", "stereotypes": { "Page": { } } },
+          { "id": "confirm", "type": "Dialog", "name": "ConfirmPopup" },
+          { "id": "badge", "type": "Component", "name": "BadgeView" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Shop.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+</Project>
+```
+
+```xml file src/Shop/AppShell.xaml
+<Shell x:Class="Shop.AppShell" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+</Shell>
+```
+
+```csharp file src/Shop/AppShell.xaml.cs
+namespace Shop;
+
+public partial class AppShell : Shell
+{
+}
+```
+
+```csharp file src/Shop/Views/Views.cs
+namespace Shop.Views;
+
+public abstract class PageBase : ContentPage
+{
+}
+
+public class DetailHost : NavigationPage
+{
+}
+
+public class ConfirmPopup : Popup
+{
+}
+
+public class BadgeView : Grid
+{
+}
+```
+
+```xml file src/Shop/Views/CatalogView.xaml
+<views:PageBase x:Class="Shop.Views.CatalogView"
+                xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:Shop.Views">
+    <views:BadgeView />
+</views:PageBase>
+```
+
+```csharp file src/Shop/Views/CatalogView.xaml.cs
+namespace Shop.Views;
+
+public partial class CatalogView
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "shell", "outcome": "verified", "actual": "Layout", "at": "src/Shop/AppShell.xaml:1" },
+    { "kind": "component.kind", "element": "host", "outcome": "verified", "actual": "Layout", "at": "src/Shop/Views/Views.cs:7" },
+    { "kind": "component.kind", "element": "catalog", "outcome": "verified", "actual": "Page", "at": "src/Shop/Views/CatalogView.xaml:1" },
+    { "kind": "component.kind", "element": "confirm", "outcome": "verified", "actual": "Dialog", "at": "src/Shop/Views/Views.cs:11" },
+    { "kind": "component.kind", "element": "badge", "outcome": "verified", "actual": "Component", "at": "src/Shop/Views/Views.cs:15" }
+  ],
+  "others": "verified",
+  "noOtherFindings": true
+}
+```
+
+## maui-view-modelled-as-a-page
+
+A planted drift: the badge, a `Grid`, is modelled as a Page. One finding, its kind's, naming the base that makes it a Component.
+
+```json case
+{ "phase": 6, "base": "maui-views", "kinds": ["component.kind"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "AppShell" },
+          { "id": "host", "type": "Layout", "name": "DetailHost" },
+          { "id": "catalog", "type": "Page", "name": "CatalogView", "stereotypes": { "Page": { } } },
+          { "id": "confirm", "type": "Dialog", "name": "ConfirmPopup" },
+          { "id": "badge", "type": "Page", "name": "BadgeView", "stereotypes": { "Page": { } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "badge", "outcome": "contradicted", "expected": "Page", "actual": "Component" }
+  ],
+  "findings": [
+    { "rule": "claim/component.kind", "severity": "error", "subject": "badge", "messageContains": "`BadgeView` component kind: model `Page`, code `Component`. `BadgeView` derives from `Grid`. Model it as a Component." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## wpf-page-isnt-mauis
+
+What another XAML framework writes states nothing to MAUI's reader: a WPF page (XAML 2006, no MAUI in the code) is read as the markup half of its class, but its kind is left to a WPF reader the engine doesn't have.
+
+```json case
+{ "phase": 6, "kinds": ["component.kind"], "cases": ["engine/noRule"], "requirements": ["R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Desk", "type": "User Interface Package",
+        "elements": [ { "id": "orders", "type": "Page", "name": "OrdersPage", "stereotypes": { "Page": { } } } ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Desk", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Desk/OrdersPage.xaml
+<Page x:Class="Desk.OrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid />
+</Page>
+```
+
+```csharp file src/Desk/OrdersPage.xaml.cs
+namespace Desk;
+
+public partial class OrdersPage
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "orders", "outcome": "verified" },
+    { "kind": "component.kind", "element": "orders", "outcome": "cantVerify", "reason": "noRule" }
   ]
 }
 ```

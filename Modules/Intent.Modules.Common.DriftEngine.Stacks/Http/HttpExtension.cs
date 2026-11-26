@@ -5,9 +5,10 @@ using Intent.Modules.Common.DriftEngine.Packs;
 namespace Intent.Modules.Common.DriftEngine.Stacks.Http;
 
 /// <summary>
-/// What a model says about an HTTP API, whatever framework serves it: endpoints, routes, verbs, parameters, security and
-/// versioning, from the Services designer's HTTP, security and versioning stereotypes. It reads no code; a framework's
-/// extension (ASP.NET Core, Spring MVC) reads these claims from its own code.
+/// What a model says about an HTTP API, whatever framework serves it: endpoints, routes, verbs, parameters, security,
+/// versioning and an endpoint's OpenAPI operationId and visibility, from the Services designer's HTTP, security, versioning
+/// and OpenAPI Settings stereotypes. It reads no code; a framework's extension (ASP.NET Core, Spring MVC) reads these claims
+/// from its own code.
 /// </summary>
 public sealed class HttpExtension : IDriftExtension
 {

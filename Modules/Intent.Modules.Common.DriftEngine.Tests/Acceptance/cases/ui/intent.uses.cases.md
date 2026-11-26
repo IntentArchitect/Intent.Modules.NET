@@ -744,3 +744,965 @@ export function CartBadge() {
   ]
 }
 ```
+
+## blazor-behaviour-acts-on-markup
+
+A Behaviour is reusable behaviour attached to an element, and the component that applies it has a Uses to it (Intent.Modelers.UI 2.0.0). eShop's chat dock is a script `App.razor` loads for the whole application, which finds the elements it acts on through the selectors it passes to the DOM; the chatbot button carries `data-chat-toggle`, so the button's component applies it. The Uses vocabulary binds `Behaviour` for a Behaviour target, so the Blazor reader reads the script's selectors: only one naming a class, an id or a `data-` attribute marks an element (`form` doesn't).
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "webapp", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "chat-dock", "type": "Behaviour", "name": "chat-dock" },
+          { "id": "show-chatbot-button", "type": "Component", "name": "ShowChatbotButton" }
+        ]
+      }],
+      "associations": [
+        { "id": "button-uses-chat-dock", "type": "Uses", "source": { "element": "show-chatbot-button" }, "target": { "element": "chat-dock" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```razor file src/WebApp/Components/App.razor
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <Routes />
+    <script src="_framework/blazor.web.js"></script>
+    <script src="js/chat-dock.js"></script>
+</body>
+</html>
+```
+
+```razor file src/WebApp/Components/Chatbot/ShowChatbotButton.razor
+<div class="chatbot-launcher">
+    <button type="button" class="show-chatbot" data-chat-toggle aria-label="Ask">Ask</button>
+</div>
+```
+
+```js file src/WebApp/wwwroot/js/chat-dock.js
+(function () {
+    const dock = () => document.querySelector('[data-chat-dock]');
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('[data-chat-toggle]')) { dock().hidden = !dock().hidden; }
+        const form = e.target.closest('form');
+    });
+})();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "chat-dock", "outcome": "verified" },
+    { "kind": "intent.uses", "element": "button-uses-chat-dock", "outcome": "verified", "expected": "present", "actual": "present", "at": "src/WebApp/Components/Chatbot/ShowChatbotButton.razor:2" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## blazor-behaviour-markup-not-marked
+
+A planted drift: the button no longer carries `data-chat-toggle`. The script is still loaded, but no element of the component's markup matches a selector it acts on: one finding, naming the selectors.
+
+```json case
+{ "phase": 6, "base": "blazor-behaviour-acts-on-markup", "kinds": ["intent.uses"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```razor file src/WebApp/Components/Chatbot/ShowChatbotButton.razor
+<div class="chatbot-launcher">
+    <button type="button" class="show-chatbot" aria-label="Ask">Ask</button>
+</div>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "button-uses-chat-dock", "outcome": "contradicted", "expected": "present", "actual": "none" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "button-uses-chat-dock", "messageContains": "`src/WebApp/wwwroot/js/chat-dock.js`, loaded for the application by `<script src=\"js/chat-dock.js\">` in `App`, acts on `[data-chat-dock]`, `[data-chat-toggle]`, and no element of `ShowChatbotButton`'s markup matches." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## blazor-behaviour-script-not-loaded
+
+A planted drift: `App.razor` no longer loads the chat dock. Nothing imports it either, so the Uses is one finding.
+
+```json case
+{ "phase": 6, "base": "blazor-behaviour-acts-on-markup", "kinds": ["intent.uses"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```razor file src/WebApp/Components/App.razor
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <Routes />
+    <script src="_framework/blazor.web.js"></script>
+</body>
+</html>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "button-uses-chat-dock", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "button-uses-chat-dock", "messageContains": "and no `<script src>` loads it for the application." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## blazor-behaviour-tags-and-aria-mark-nothing
+
+What isn't a mark states nothing: this script finds its elements only by a bare tag (`textarea`) and an ARIA attribute (`[role="option"]`), which match any markup of their kind, so a component's `<textarea>` and `role="option"` don't show it applies the behaviour.
+
+```json case
+{ "phase": 6, "base": "blazor-behaviour-acts-on-markup", "kinds": ["intent.uses"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```razor file src/WebApp/Components/Chatbot/ShowChatbotButton.razor
+<div class="chatbot-launcher">
+    <textarea></textarea>
+    <span role="option">Ask</span>
+</div>
+```
+
+```js file src/WebApp/wwwroot/js/chat-dock.js
+(function () {
+    document.addEventListener('keydown', (e) => {
+        const box = document.querySelector('textarea');
+        const option = e.target.closest('[role="option"]');
+    });
+})();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "button-uses-chat-dock", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "button-uses-chat-dock", "messageContains": "acts on no element by a selector naming a class, an id or a data- attribute" }
+  ]
+}
+```
+
+## blazor-module-imported-through-js-interop
+
+The chatbot imports its collocated module through JS interop, the path relative to the application's root. The Behaviour's Implementation Path names the module's file, so the import is the Uses.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "webapp", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "chatbot-module", "type": "Behaviour", "name": "Chatbot.razor", "stereotypes": { "Implementation": { "Path": "Components/Chatbot/Chatbot.razor.js" } } },
+          { "id": "chatbot", "type": "Component", "name": "Chatbot" }
+        ]
+      }],
+      "associations": [
+        { "id": "chatbot-uses-module", "type": "Uses", "source": { "element": "chatbot" }, "target": { "element": "chatbot-module" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```razor file src/WebApp/Components/Chatbot/Chatbot.razor
+@inject IJSRuntime JS
+
+<div class="chatbot"><textarea @ref="textbox"></textarea></div>
+
+@code {
+    private ElementReference textbox;
+    private IJSObjectReference? jsModule;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        jsModule ??= await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Chatbot/Chatbot.razor.js");
+        await jsModule.InvokeVoidAsync("submitOnEnter", textbox);
+    }
+}
+```
+
+```js file src/WebApp/Components/Chatbot/Chatbot.razor.js
+export function submitOnEnter(element) {
+    element.addEventListener('keydown', event => { });
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "chatbot-module", "outcome": "verified" },
+    { "kind": "intent.uses", "element": "chatbot-uses-module", "outcome": "verified", "at": "src/WebApp/Components/Chatbot/Chatbot.razor:11" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "count": 0 }
+  ]
+}
+```
+
+## blazor-module-imported-elsewhere
+
+A planted drift: the chatbot imports another module. The Behaviour's module isn't imported and no script tag loads it: one finding.
+
+```json case
+{ "phase": 6, "base": "blazor-module-imported-through-js-interop", "kinds": ["intent.uses"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```razor file src/WebApp/Components/Chatbot/Chatbot.razor
+@inject IJSRuntime JS
+
+<div class="chatbot"><textarea @ref="textbox"></textarea></div>
+
+@code {
+    private ElementReference textbox;
+    private IJSObjectReference? jsModule;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        jsModule ??= await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Chatbot/Other.razor.js");
+        await jsModule.InvokeVoidAsync("submitOnEnter", textbox);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "chatbot-uses-module", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "chatbot-uses-module", "messageContains": "doesn't import `src/WebApp/Components/Chatbot/Chatbot.razor.js` through JS interop" }
+  ]
+}
+```
+
+## view-model-uses-store
+
+A View Model is a stateful class one element creates for its own use; it is located as the class of its name, and its Properties are its members. Its Uses of a Store is a dependency of the class on the Store's type: here a field and constructor parameter of `IBasketState`, the interface the located `BasketState` implements.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses", "type.exists", "member.exists"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "webapp", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "basket-state", "type": "Store", "name": "BasketState" },
+          { "id": "chat-state", "type": "View Model", "name": "ChatState", "children": [
+            { "id": "chat-state-messages", "type": "Property", "name": "Messages", "typeRef": { "element": "chat-message", "collection": true } }
+          ] },
+          { "id": "chat-message", "type": "Contract", "name": "ChatMessage", "children": [
+            { "id": "chat-message-text", "type": "Property", "name": "Text", "typeRef": { "type": "string" } }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "chat-state-uses-basket", "type": "Uses", "source": { "element": "chat-state" }, "target": { "element": "basket-state" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebApp/Services/BasketState.cs
+namespace eShop.WebApp.Services;
+
+public interface IBasketState
+{
+    Task AddAsync(int id);
+}
+
+public class BasketState : IBasketState, IDisposable
+{
+    Task IBasketState.AddAsync(int id) => Task.CompletedTask;
+
+    public void Dispose() { }
+}
+```
+
+```csharp file src/WebApp/Components/Chatbot/ChatState.cs
+using eShop.WebApp.Services;
+
+namespace eShop.WebApp.Components.Chatbot;
+
+public record ChatMessage(string Text);
+
+public class ChatState
+{
+    private readonly IBasketState _basketState;
+
+    public ChatState(IBasketState basketState)
+    {
+        _basketState = basketState;
+    }
+
+    public IList<ChatMessage> Messages { get; } = new List<ChatMessage>();
+
+    public Task AddUserMessageAsync(string text) => _basketState.AddAsync(1);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "chat-state", "outcome": "verified", "at": "src/WebApp/Components/Chatbot/ChatState.cs:7" },
+    { "kind": "member.exists", "element": "chat-state-messages", "outcome": "verified", "at": "src/WebApp/Components/Chatbot/ChatState.cs:16" },
+    { "kind": "intent.uses", "element": "chat-state-uses-basket", "outcome": "verified", "expected": "present", "actual": "present", "at": "src/WebApp/Components/Chatbot/ChatState.cs:9" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## view-model-holds-only-a-library-interface
+
+A planted drift: the View Model no longer takes the basket, only an `IDisposable`. `BasketState` implements `IDisposable` too, but a library interface stands for any type, so it doesn't show the dependency: one finding.
+
+```json case
+{ "phase": 6, "base": "view-model-uses-store", "kinds": ["intent.uses"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/WebApp/Components/Chatbot/ChatState.cs
+namespace eShop.WebApp.Components.Chatbot;
+
+public record ChatMessage(string Text);
+
+public class ChatState(IDisposable subscription)
+{
+    private readonly IDisposable _subscription = subscription;
+
+    public IList<ChatMessage> Messages { get; } = new List<ChatMessage>();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "chat-state-uses-basket", "outcome": "contradicted", "expected": "present", "actual": "none" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "chat-state-uses-basket", "messageContains": "`ChatState` uses `BasketState`: in the model, not in the code. No field, property or constructor parameter of `ChatState` is a `BasketState` or an interface of it, and it creates none." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## view-model-creates-what-it-uses
+
+The designer's Uses is also "an instance it creates": a View Model making the tree nodes it presents uses their View Model, though it holds none in a field.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R2", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "webapp", "name": "WebApp", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog-tree", "type": "View Model", "name": "CatalogTreeViewModel" },
+          { "id": "catalog-node", "type": "View Model", "name": "CatalogNodeViewModel" }
+        ]
+      }],
+      "associations": [
+        { "id": "tree-uses-node", "type": "Uses", "source": { "element": "catalog-tree" }, "target": { "element": "catalog-node" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebApp/Catalog/CatalogTreeViewModel.cs
+namespace eShop.WebApp.Catalog;
+
+public class CatalogNodeViewModel(string name)
+{
+    public string Name { get; } = name;
+}
+
+public class CatalogTreeViewModel
+{
+    public IEnumerable<object> Build(IEnumerable<string> names)
+    {
+        foreach (var name in names)
+        {
+            yield return new CatalogNodeViewModel(name);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "tree-uses-node", "outcome": "verified", "at": "src/WebApp/Catalog/CatalogTreeViewModel.cs:14" }
+  ]
+}
+```
+
+## mvc-composition
+
+ASP.NET Core MVC views, read by the MVC reader (`intent.mvc`). A view composes what it renders: a partial (`<partial name="_Nav" />`, `Html.PartialAsync("_Promotions")`), found as MVC finds it, in the view's folder and then `Shared`, and a view component (`<vc:cart-summary />`, the `CartSummary` class). The layout places its pages through its body's Region, which `_ViewStart.cshtml` makes every view's layout. A view's Uses of a service is what it injects (`@inject`).
+
+```json case
+{ "phase": "later", "kinds": ["intent.uses", "intent.target"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop.Web", "type": "User Interface Package",
+        "elements": [
+          { "id": "views", "type": "Folder", "name": "Views", "children": [
+            { "id": "home", "type": "Folder", "name": "Home", "children": [
+              { "id": "index", "type": "Page", "name": "Index", "stereotypes": { "Page": { "Route": "/" } } },
+              { "id": "promotions", "type": "Component", "name": "_Promotions" }
+            ] },
+            { "id": "shared", "type": "Folder", "name": "Shared", "children": [
+              { "id": "layout", "type": "Layout", "name": "_Layout", "children": [
+                { "id": "main", "type": "Region", "name": "Main" }
+              ] },
+              { "id": "nav", "type": "Component", "name": "_Nav" }
+            ] }
+          ] },
+          { "id": "cart-summary", "type": "Component", "name": "CartSummary" },
+          { "id": "cart-service", "type": "UI Service", "name": "CartService" }
+        ]
+      }],
+      "associations": [
+        { "id": "main-shows-index", "type": "Composition", "source": { "element": "main" }, "target": { "element": "index" } },
+        { "id": "layout-nav", "type": "Composition", "source": { "element": "layout" }, "target": { "element": "nav" } },
+        { "id": "layout-cart", "type": "Composition", "source": { "element": "layout" }, "target": { "element": "cart-summary" } },
+        { "id": "index-promotions", "type": "Composition", "source": { "element": "index" }, "target": { "element": "promotions" } },
+        { "id": "index-uses-cart", "type": "Uses", "source": { "element": "index" }, "target": { "element": "cart-service" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop.Web/Shop.Web.csproj
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>
+```
+
+```csharp file src/Shop.Web/Program.cs
+var app = WebApplication.CreateBuilder(args).Build();
+app.MapDefaultControllerRoute();
+app.Run();
+```
+
+```csharp file src/Shop.Web/Controllers/HomeController.cs
+namespace Shop.Web.Controllers;
+
+public class HomeController : Controller
+{
+    public IActionResult Index() => View();
+}
+```
+
+```csharp file src/Shop.Web/ViewComponents/CartSummary.cs
+namespace Shop.Web.ViewComponents;
+
+public class CartSummary : ViewComponent
+{
+    public IViewComponentResult Invoke() => View();
+}
+```
+
+```csharp file src/Shop.Web/Services/CartService.cs
+namespace Shop.Web.Services;
+
+public class CartService
+{
+    public int Count() => 0;
+}
+```
+
+```cshtml file src/Shop.Web/Views/_ViewStart.cshtml
+@{
+    Layout = "_Layout";
+}
+```
+
+```cshtml file src/Shop.Web/Views/Shared/_Layout.cshtml
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <partial name="_Nav" />
+    <vc:cart-summary />
+    <main>@RenderBody()</main>
+</body>
+</html>
+```
+
+```cshtml file src/Shop.Web/Views/Shared/_Nav.cshtml
+<nav><a href="~/">Shop</a></nav>
+```
+
+```cshtml file src/Shop.Web/Views/Home/Index.cshtml
+@inject Shop.Web.Services.CartService Cart
+<h1>Welcome</h1>
+@await Html.PartialAsync("_Promotions")
+```
+
+```cshtml file src/Shop.Web/Views/Home/_Promotions.cshtml
+<section class="promotions"></section>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "main-shows-index", "outcome": "verified", "at": "src/Shop.Web/Views/_ViewStart.cshtml:2" },
+    { "kind": "intent.uses", "element": "layout-nav", "outcome": "verified", "at": "src/Shop.Web/Views/Shared/_Layout.cshtml:4" },
+    { "kind": "intent.uses", "element": "layout-cart", "outcome": "verified", "at": "src/Shop.Web/Views/Shared/_Layout.cshtml:5" },
+    { "kind": "intent.uses", "element": "index-promotions", "outcome": "verified", "at": "src/Shop.Web/Views/Home/Index.cshtml:3" },
+    { "kind": "intent.uses", "element": "index-uses-cart", "outcome": "verified", "at": "src/Shop.Web/Views/Home/Index.cshtml:1" },
+    { "kind": "intent.target", "element": "layout-nav", "outcome": "verified", "actual": "Shop.Web.Views.Shared._Nav" },
+    { "kind": "intent.target", "element": "index-promotions", "outcome": "verified", "actual": "Shop.Web.Views.Home._Promotions" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "count": 0 },
+    { "rule": "claim/intent.target", "count": 0 }
+  ]
+}
+```
+
+## mvc-composition-partial-removed
+
+A planted drift: the home page no longer renders `_Promotions`. One finding, on the Composition, naming what the view renders; its target waits on it.
+
+```json case
+{ "phase": "later", "base": "mvc-composition", "kinds": ["intent.uses"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```cshtml file src/Shop.Web/Views/Home/Index.cshtml
+@inject Shop.Web.Services.CartService Cart
+<h1>Welcome</h1>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "index-promotions", "outcome": "contradicted", "actual": "none" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "index-promotions", "messageContains": "`Index` renders `_Promotions`: in the model, not in the code. `src/Shop.Web/Views/Home/Index.cshtml` renders no partial or view component." },
+    { "rule": "scope/coverage", "severity": "info" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-partial-of-another-folder-states-nothing
+
+A partial's name is found as MVC finds it, in the view's own folder first: the home page's `<partial name="_Nav" />` now renders the home folder's own `_Nav`, not the shared one the model composes, so the Composition is contradicted even though a view of that name is rendered.
+
+```json case
+{ "phase": "later", "base": "mvc-composition", "kinds": ["intent.uses"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop.Web", "type": "User Interface Package",
+        "elements": [
+          { "id": "views", "type": "Folder", "name": "Views", "children": [
+            { "id": "home", "type": "Folder", "name": "Home", "children": [
+              { "id": "index", "type": "Page", "name": "Index", "stereotypes": { "Page": { "Route": "/" } } }
+            ] },
+            { "id": "shared", "type": "Folder", "name": "Shared", "children": [
+              { "id": "nav", "type": "Component", "name": "_Nav" }
+            ] }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "index-nav", "type": "Composition", "source": { "element": "index" }, "target": { "element": "nav" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```cshtml file src/Shop.Web/Views/Home/Index.cshtml
+<h1>Welcome</h1>
+<partial name="_Nav" />
+```
+
+```cshtml file src/Shop.Web/Views/Home/_Nav.cshtml
+<nav class="home-nav"></nav>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "index-nav", "outcome": "contradicted", "actual": "_Nav" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "index-nav" },
+    { "rule": "scope/coverage", "severity": "info" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## maui-views
+
+A .NET MAUI view's links (`intent.maui`). A Composition is its XAML placing the component: an element of it (`<templates:ProductTemplate />`), a data template making one (`{DataTemplate templates:RowTemplate}`), or a type it names (`{x:Type local:Routes}`, the root component a Blazor hybrid page hosts). A Uses of a view model is the view's binding context: set in its code (`BindingContext = viewModel`) or in a `<ContentPage.BindingContext>` element of its XAML.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog", "type": "Page", "name": "CatalogView", "stereotypes": { "Page": { } } },
+          { "id": "login", "type": "Page", "name": "LoginView", "stereotypes": { "Page": { } } },
+          { "id": "main", "type": "Page", "name": "MainPage", "stereotypes": { "Page": { } } },
+          { "id": "product", "type": "Component", "name": "ProductTemplate" },
+          { "id": "row", "type": "Component", "name": "RowTemplate" },
+          { "id": "routes", "type": "Component", "name": "Routes" },
+          { "id": "catalog-vm", "type": "View Model", "name": "CatalogViewModel" },
+          { "id": "login-vm", "type": "View Model", "name": "LoginViewModel" }
+        ]
+      }],
+      "associations": [
+        { "id": "catalog-product", "type": "Composition", "source": { "element": "catalog" }, "target": { "element": "product" } },
+        { "id": "catalog-row", "type": "Composition", "source": { "element": "catalog" }, "target": { "element": "row" } },
+        { "id": "main-routes", "type": "Composition", "source": { "element": "main" }, "target": { "element": "routes" } },
+        { "id": "catalog-uses-vm", "type": "Uses", "source": { "element": "catalog" }, "target": { "element": "catalog-vm" } },
+        { "id": "login-uses-vm", "type": "Uses", "source": { "element": "login" }, "target": { "element": "login-vm" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Shop.csproj
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+</Project>
+```
+
+```xml file src/Shop/Views/CatalogView.xaml
+<ContentPage x:Class="Shop.Views.CatalogView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:Shop.Views.Templates">
+    <VerticalStackLayout>
+        <templates:ProductTemplate />
+        <CollectionView ItemsSource="{Binding Items}" ItemTemplate="{DataTemplate templates:RowTemplate}" />
+    </VerticalStackLayout>
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/CatalogView.xaml.cs
+using Shop.ViewModels;
+
+namespace Shop.Views;
+
+public partial class CatalogView : ContentPage
+{
+    public CatalogView(CatalogViewModel viewModel)
+    {
+        BindingContext = viewModel;
+        InitializeComponent();
+    }
+}
+```
+
+```xml file src/Shop/Views/LoginView.xaml
+<ContentPage x:Class="Shop.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Shop.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+    <Button Text="Sign in" Command="{Binding SignInCommand}" />
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/LoginView.xaml.cs
+namespace Shop.Views;
+
+public partial class LoginView : ContentPage
+{
+}
+```
+
+```csharp file src/Shop/Views/Templates/Templates.cs
+namespace Shop.Views.Templates;
+
+public class ProductTemplate : ContentView
+{
+}
+
+public class RowTemplate : ContentView
+{
+}
+```
+
+```csharp file src/Shop/ViewModels/ViewModels.cs
+namespace Shop.ViewModels;
+
+public class CatalogViewModel
+{
+}
+
+public class LoginViewModel
+{
+}
+```
+
+```xml file src/Shop/MainPage.xaml
+<ContentPage x:Class="Shop.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Shop">
+    <BlazorWebView HostPage="wwwroot/index.html">
+        <BlazorWebView.RootComponents>
+            <RootComponent Selector="#app" ComponentType="{x:Type local:Routes}" />
+        </BlazorWebView.RootComponents>
+    </BlazorWebView>
+</ContentPage>
+```
+
+```csharp file src/Shop/MainPage.xaml.cs
+namespace Shop;
+
+public partial class MainPage : ContentPage
+{
+}
+```
+
+```razor file src/Shop/Routes.razor
+<Router AppAssembly="typeof(MainPage).Assembly">
+    <Found Context="routeData"><RouteView RouteData="routeData" /></Found>
+</Router>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "catalog-product", "outcome": "verified", "at": "src/Shop/Views/CatalogView.xaml:6" },
+    { "kind": "intent.uses", "element": "catalog-row", "outcome": "verified", "at": "src/Shop/Views/CatalogView.xaml:7" },
+    { "kind": "intent.uses", "element": "main-routes", "outcome": "verified", "at": "src/Shop/MainPage.xaml:7" },
+    { "kind": "intent.uses", "element": "catalog-uses-vm", "outcome": "verified", "at": "src/Shop/Views/CatalogView.xaml.cs:9" },
+    { "kind": "intent.uses", "element": "login-uses-vm", "outcome": "verified", "at": "src/Shop/Views/LoginView.xaml:6" }
+  ],
+  "others": "verified",
+  "noOtherFindings": true
+}
+```
+
+## maui-view-model-swapped
+
+A planted drift: the catalog page's binding context is the login's view model. One finding, the Uses', naming the binding context the code sets.
+
+```json case
+{ "phase": 6, "base": "maui-views", "kinds": ["intent.uses"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```csharp file src/Shop/Views/CatalogView.xaml.cs
+using Shop.ViewModels;
+
+namespace Shop.Views;
+
+public partial class CatalogView : ContentPage
+{
+    public CatalogView(LoginViewModel viewModel)
+    {
+        BindingContext = viewModel;
+        InitializeComponent();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "catalog-uses-vm", "outcome": "contradicted", "actual": "LoginViewModel" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "catalog-uses-vm", "messageContains": "`CatalogView` uses `CatalogViewModel`: in the model, not in the code. `CatalogView`'s binding context is `LoginViewModel`" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## maui-template-removed
+
+A planted drift: the catalog page no longer places the product template. One finding, its Composition's, naming what the XAML does use.
+
+```json case
+{ "phase": 6, "base": "maui-views", "kinds": ["intent.uses"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```xml file src/Shop/Views/CatalogView.xaml
+<ContentPage x:Class="Shop.Views.CatalogView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:Shop.Views.Templates">
+    <VerticalStackLayout>
+        <Label Text="Products" />
+        <CollectionView ItemsSource="{Binding Items}" ItemTemplate="{DataTemplate templates:RowTemplate}" />
+    </VerticalStackLayout>
+</ContentPage>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "catalog-product", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "catalog-product", "messageContains": "`src/Shop/Views/CatalogView.xaml` uses `RowTemplate`, and no element, `DataTemplate` or `x:Type` of it is a `ProductTemplate`." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## maui-region-shows-another-page
+
+A Region of a .NET MAUI Shell shows its pages through the contents of the item it names. Here the tab bar shows the profile page where the model places the catalog: one finding, the Region's Composition's.
+
+```json case
+{ "phase": 6, "kinds": ["intent.uses"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "AppShell", "children": [ { "id": "main-region", "type": "Region", "name": "Main" } ] },
+          { "id": "catalog", "type": "Page", "name": "CatalogView", "stereotypes": { "Page": { } } }
+        ]
+      }],
+      "associations": [
+        { "id": "shows-catalog", "type": "Composition", "source": { "element": "main-region" }, "target": { "element": "catalog" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/AppShell.xaml
+<Shell x:Class="Shop.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Shop.Views">
+    <TabBar Route="Main">
+        <ShellContent ContentTemplate="{DataTemplate views:ProfileView}" />
+    </TabBar>
+</Shell>
+```
+
+```csharp file src/Shop/AppShell.xaml.cs
+namespace Shop;
+
+public partial class AppShell : Shell
+{
+}
+```
+
+```csharp file src/Shop/Views/Pages.cs
+namespace Shop.Views;
+
+public class CatalogView : ContentPage
+{
+}
+
+public class ProfileView : ContentPage
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "shows-catalog", "outcome": "contradicted", "actual": "ProfileView" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "shows-catalog", "messageContains": "`Main` shows `CatalogView`: in the model, not in the code. The Shell item `Main` shows `ProfileView`." }
+  ],
+  "noOtherFindings": true
+}
+```

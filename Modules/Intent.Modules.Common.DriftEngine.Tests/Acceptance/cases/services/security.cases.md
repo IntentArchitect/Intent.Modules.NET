@@ -676,3 +676,216 @@ public class OrdersController {
   ]
 }
 ```
+
+## mvc-view-has-no-security
+
+An MVC view carries no authorization of its own: the action that renders it does, and the Services model states that on the controller's Operation. So the MVC reader (`intent.mvc`) reads every view's security as `None`, and the grants page, which only the `[Authorize]` `GrantsController` renders, is still `None`: the action's attribute isn't the view's. A Razor Page is its own endpoint, so its `@attribute [Authorize]` (or its page model's) secures it.
+
+```json case
+{ "phase": 4, "kinds": ["security"], "requirements": ["R2", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Identity.API", "type": "User Interface Package",
+        "elements": [
+          { "id": "grants", "type": "Page", "name": "Index", "stereotypes": { "Page": { } } },
+          { "id": "diagnostics", "type": "Page", "name": "Diagnostics", "stereotypes": { "Page": { }, "Secured": { } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Identity.API/Identity.API.csproj
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>
+```
+
+```csharp file src/Identity.API/Program.cs
+var app = WebApplication.CreateBuilder(args).Build();
+app.MapDefaultControllerRoute();
+app.MapRazorPages();
+app.Run();
+```
+
+```csharp file src/Identity.API/Quickstart/GrantsController.cs
+namespace Identity.API.Quickstart;
+
+[Authorize]
+public class GrantsController : Controller
+{
+    public IActionResult Index() => View();
+}
+```
+
+```cshtml file src/Identity.API/Views/Grants/Index.cshtml
+<h1>Client Application Permissions</h1>
+```
+
+```cshtml file src/Identity.API/Pages/Diagnostics.cshtml
+@page
+@attribute [Authorize]
+<h1>Authentication Cookie</h1>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "grants", "outcome": "verified", "expected": "None", "actual": "None", "at": "src/Identity.API/Views/Grants/Index.cshtml:1" },
+    { "kind": "security", "element": "diagnostics", "outcome": "verified", "expected": "Secured", "actual": "Secured", "at": "src/Identity.API/Pages/Diagnostics.cshtml:2" }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## mvc-view-secured-in-model
+
+A planted drift: the model secures the grants page, as its action is. The view states no security, so one finding, saying where the model states it instead.
+
+```json case
+{ "phase": 4, "base": "mvc-view-has-no-security", "kinds": ["security"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Identity.API", "type": "User Interface Package",
+        "elements": [
+          { "id": "grants", "type": "Page", "name": "Index", "stereotypes": { "Page": { }, "Secured": { } } },
+          { "id": "diagnostics", "type": "Page", "name": "Diagnostics", "stereotypes": { "Page": { }, "Secured": { } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "eShop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "grants", "outcome": "contradicted", "expected": "Secured", "actual": "None" }
+  ],
+  "findings": [
+    { "rule": "claim/security", "severity": "error", "subject": "grants", "messageContains": "An MVC view carries no authorization of its own: the controller action that renders it does, and the Services model states it on that operation. Leave the view's security unset." }
+  ],
+  "noOtherFindings": true
+}
+```
+
+## maui-view-has-no-security
+
+A .NET MAUI view carries no authorization of its own (`intent.maui`): the app decides what to show, and the API it calls secures its operations. A page and a component the model leaves unsecured verify as `None`.
+
+```json case
+{ "phase": 4, "kinds": ["security"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "orders", "type": "Page", "name": "OrdersView", "stereotypes": { "Page": { } } },
+          { "id": "badge", "type": "Component", "name": "BadgeView" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Shop/Views/OrdersView.xaml
+<ContentPage x:Class="Shop.Views.OrdersView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Shop.Views">
+    <views:BadgeView />
+</ContentPage>
+```
+
+```csharp file src/Shop/Views/OrdersView.xaml.cs
+namespace Shop.Views;
+
+public partial class OrdersView : ContentPage
+{
+}
+
+public class BadgeView : ContentView
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "orders", "outcome": "verified", "expected": "None", "actual": "None", "at": "src/Shop/Views/OrdersView.xaml:1" },
+    { "kind": "security", "element": "badge", "outcome": "verified", "expected": "None", "actual": "None", "at": "src/Shop/Views/OrdersView.xaml.cs:7" }
+  ],
+  "others": "verified",
+  "noOtherFindings": true
+}
+```
+
+## maui-secured-view
+
+The model secures the orders page, which no MAUI view can state: one finding, saying to leave its security unset.
+
+```json case
+{ "phase": 4, "base": "maui-view-has-no-security", "kinds": ["security"], "requirements": ["R3", "R14"], "packs": ["intent.core", "intent.ui"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "ui", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "orders", "type": "Page", "name": "OrdersView", "stereotypes": { "Page": { }, "Secured": { } } },
+          { "id": "badge", "type": "Component", "name": "BadgeView" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "orders", "outcome": "contradicted", "expected": "Secured", "actual": "None" }
+  ],
+  "findings": [
+    { "rule": "claim/security", "severity": "error", "subject": "orders", "messageContains": "A MAUI view carries no authorization of its own: the app decides what to show, and the API it calls secures its operations. Leave the element's security unset." }
+  ],
+  "noOtherFindings": true
+}
+```

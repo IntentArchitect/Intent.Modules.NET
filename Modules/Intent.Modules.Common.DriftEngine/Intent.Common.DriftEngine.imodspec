@@ -31,7 +31,7 @@
     <file src="$outDir$/Microsoft.CodeAnalysis.CSharp.dll" inspect="false" />
     <file src="$outDir$/Microsoft.AspNetCore.Razor.Language.dll" inspect="false" />
   </files>
-  <tags>guardrails brownfield drift-detection csharp dotnet razor blazor java typescript vue protobuf grpc</tags>
+  <tags>guardrails brownfield drift-detection csharp dotnet razor blazor maui xaml java typescript vue protobuf grpc</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata>

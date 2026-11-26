@@ -816,6 +816,32 @@
       "phase": "later"
     },
     {
+      "kind": "grpc.service.rpcs",
+      "label": "proto service rpcs",
+      "area": "services",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "always",
+      "existence": false,
+      "phase": 4
+    },
+    { "kind": "operation.openApi.operationId", "label": "OpenAPI operationId", "area": "services", "valueType": "text", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "operation.openApi.ignore", "label": "hidden from OpenAPI", "area": "services", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.required", "label": "Required constraint", "area": "structure", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.minLength", "label": "minimum length constraint", "area": "structure", "valueType": "number", "comparer": "number", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.maxLength", "label": "maximum length constraint", "area": "structure", "valueType": "number", "comparer": "number", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.minItems", "label": "minimum items constraint", "area": "structure", "valueType": "number", "comparer": "number", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.maxItems", "label": "maximum items constraint", "area": "structure", "valueType": "number", "comparer": "number", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.pattern", "label": "Regular Expression pattern", "area": "structure", "valueType": "text", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.patternMessage", "label": "Regular Expression message", "area": "structure", "valueType": "text", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.email", "label": "Email constraint", "area": "structure", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.url", "label": "Url constraint", "area": "structure", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.base64", "label": "Base64 constraint", "area": "structure", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.minValue", "label": "minimum value constraint", "area": "structure", "valueType": "number", "comparer": "number", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.maxValue", "label": "maximum value constraint", "area": "structure", "valueType": "number", "comparer": "number", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.minExclusive", "label": "minimum value exclusive", "area": "structure", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    { "kind": "constraint.maxExclusive", "label": "maximum value exclusive", "area": "structure", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 4 },
+    {
       "kind": "component.kind",
       "label": "component kind",
       "area": "ui",
@@ -876,6 +902,14 @@
       "existence": false,
       "phase": "later"
     },
+    { "kind": "region.outlet", "label": "region outlet", "area": "ui", "valueType": "text", "comparer": "exact", "stated": "always", "existence": false, "phase": 6 },
+    { "kind": "entry.label", "label": "entry label", "area": "ui", "valueType": "text", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 6 },
+    { "kind": "entry.icon", "label": "entry icon", "area": "ui", "valueType": "text", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 6 },
+    { "kind": "entry.key", "label": "entry key", "area": "ui", "valueType": "text", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 6 },
+    { "kind": "entry.shortcut", "label": "entry shortcut", "area": "ui", "valueType": "text", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 6 },
+    { "kind": "appEvent.publishes", "label": "publishes", "area": "ui", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true, "phase": 6 },
+    { "kind": "appEvent.subscribes", "label": "subscribes", "area": "ui", "valueType": "presence", "comparer": "presence", "stated": "always", "existence": true, "phase": 6 },
+    { "kind": "store.persisted", "label": "persisted", "area": "ui", "valueType": "bool", "comparer": "exact", "stated": "whenSet", "existence": false, "phase": 6 },
     {
       "kind": "intent.uses",
       "label": "uses",
@@ -1023,7 +1057,7 @@
     "comparers",
     "report"
   ],
-  "optIn": ["unmodelled.type", "unmodelled.member", "unmodelled.interaction", "unmodelled.exposed", "unmodelled.file", "unmodelled.value", "unmodelled.index", "unmodelled.endpoint"],
+  "optIn": ["unmodelled.type", "unmodelled.member", "unmodelled.interaction", "unmodelled.exposed", "unmodelled.file", "unmodelled.value", "unmodelled.index", "unmodelled.endpoint", "unmodelled.region"],
   "packs": [
     "intent.core",
     "intent.domain",
@@ -1043,6 +1077,8 @@
     "intent.wolverine",
     "intent.blazor",
     "intent.typescript",
-    "intent.grpc"
+    "intent.grpc",
+    "intent.dataannotations",
+    "intent.beanvalidation"
   ]
 }
