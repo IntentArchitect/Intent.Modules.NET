@@ -98,6 +98,18 @@ public class ExtensionAdjustmentTests
         CodeScope.GlobMatches("src/*.cs", "src/Domain/Order.cs").ShouldBeFalse();
     }
 
+    [Fact]
+    public void A_rows_glob_lines_skip_comments_and_the_last_matching_line_decides()
+    {
+        string[] lines = ["# What the Domain team has modelled", "src/**", "!src/Legacy/**", "src/Legacy/Kept/**"];
+        CodeScope.GlobMatches(lines, "src/Domain/Order.cs").ShouldBeTrue();
+        CodeScope.GlobMatches(lines, "src/Legacy/Order.cs").ShouldBeFalse();
+        CodeScope.GlobMatches(lines, "src/Legacy/Kept/Order.cs").ShouldBeTrue();
+        CodeScope.GlobMatches(lines, "tools/Seed.cs").ShouldBeFalse();
+        CodeScope.GlobMatches(["# Only a note"], "tools/Seed.cs").ShouldBeTrue();
+        CodeScope.GlobMatches(["!src/Legacy/**"], "src/Domain/Order.cs").ShouldBeFalse();
+    }
+
     private static readonly Pack NotePack = Pack.Parse(JsonNode.Parse("""
         {
           "id": "house.notes",

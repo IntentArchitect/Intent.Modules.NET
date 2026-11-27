@@ -320,7 +320,7 @@ public sealed partial class DriftEngine
             foreach (var code in found.OrderBy(x => x.At.File, StringComparer.Ordinal).ThenBy(x => x.At.Line))
             {
                 // A row's glob narrows the rule within scope; it never widens it, and Context code is read, not checked.
-                if (!_codeScope.Checks(code.At.File) || !rows.Any(x => x.Globs.Count == 0 || x.Globs.Any(g => g.IsMatch(code.At.File))))
+                if (!_codeScope.Checks(code.At.File) || !rows.Any(x => x.Covers(code.At.File)))
                 {
                     continue;
                 }

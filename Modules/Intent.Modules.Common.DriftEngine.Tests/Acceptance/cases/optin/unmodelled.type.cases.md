@@ -177,6 +177,57 @@ public class OrderItem : Entity
 }
 ```
 
+## narrowed-glob-takes-back
+
+The row's Glob reads as a Drift Scope row's does: a `#` line is a comment, and a `!` line takes back what the lines above it matched. The rule covers `src/Domain` but the buyer aggregate, still being modelled, so `OrderItem` is reported and `Buyer` isn't.
+
+```json case
+{ "phase": 2, "base": "off-by-default", "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain", "house.ordering"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Ordering.Domain",
+        "elements": [
+          { "id": "order", "type": "Class", "name": "Order",
+            "children": [
+              { "id": "order-description", "type": "Attribute", "name": "Description", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type", "Glob": "# The Domain but what is still being modelled\nsrc/Domain/**\n!src/Domain/BuyerAggregate/**" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/OrderAggregate/OrderItem.cs
+namespace Ordering.Domain.OrderAggregate;
+
+public class OrderItem : Entity
+{
+    public int ProductId { get; private set; }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/Domain/OrderAggregate/OrderItem.cs:3", "messageContains": "OrderItem" },
+    { "rule": "optin/unmodelled.type", "subject": "src/Domain/BuyerAggregate/Buyer.cs:3", "count": 0, "note": "Taken back by the row's ! line" }
+  ]
+}
+```
+
 ## excepted
 
 The rule is on, and an `Exceptions` row names `Buyer` by its type name, with a reason. The team has chosen not to model it, so it isn't reported, and the exception matched something, so it isn't stale either.

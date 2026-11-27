@@ -124,3 +124,49 @@ The opt-in row is narrowed by a glob to the legacy folder, the only place it wou
   "filesRead": { "exclude": ["src/Application/Legacy/**"] }
 }
 ```
+
+## not-line-takes-back-scope
+
+One In row does what the first case's two rows do, as a File Classification row would: a `#` line is a comment, and its `!` line takes the legacy folder back out of `src/**`, the last matching line deciding. `LegacyOrderDto.cs` is then in no row, so it is neither read nor reported.
+
+```json case
+{ "phase": 1, "base": "opt-in-rule-reports-in-scope-code-only", "cases": ["scope/gate", "optin/unmodelled.file"], "requirements": ["R22", "R27", "R49"], "packs": ["intent.core", "intent.services"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Services",
+        "elements": [
+          { "id": "order-dto", "type": "DTO", "name": "OrderDto",
+            "children": [
+              { "id": "order-dto-id", "type": "DTO-Field", "name": "Id", "typeRef": { "type": "guid" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [
+            { "Glob": "# Everything under src but the v1 contracts\nsrc/**\n!src/Application/Legacy/**", "Scope": "In" }
+          ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.file" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.file", "severity": "error", "messageContains": "OrderSummaryDto.cs" },
+    { "rule": "optin/unmodelled.file", "messageContains": "LegacyOrderDto.cs", "count": 0 },
+    { "rule": "optin/unmodelled.file", "messageContains": "SeedOrders.cs", "count": 0 }
+  ],
+  "filesRead": { "include": ["src/Application/Orders/*.cs"], "exclude": ["src/Application/Legacy/**", "tools/**"] }
+}
+```

@@ -45,10 +45,42 @@ internal sealed class GlobPattern
     public bool IsMatch(string path) => _regex.IsMatch(path);
 }
 
+/// <summary>
+/// One line of a row's <c>Glob</c>, as File Classification reads it (scope.md, Glob rules): a glob, or with a leading <c>!</c>
+/// one that takes back what it matches.
+/// </summary>
+internal sealed class GlobLine
+{
+    private readonly GlobPattern _glob;
+
+    public GlobLine(string line)
+    {
+        Pattern = line;
+        Excludes = line.StartsWith('!');
+        _glob = new GlobPattern(Excludes ? line[1..].TrimStart() : line);
+    }
+
+    /// <summary>The line as written, with its <c>!</c>.</summary>
+    public string Pattern { get; }
+
+    public bool Excludes { get; }
+
+    /// <summary>A row's lines, one per line of its text; a line starting with <c>#</c> is a comment.</summary>
+    public static IReadOnlyList<GlobLine> Of(string? text) =>
+        (text?.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries) ?? [])
+        .Where(x => !x.StartsWith('#'))
+        .Select(x => new GlobLine(x))
+        .ToList();
+
+    /// <summary>Whether a row's lines take a path: the last line whose glob matches it decides, and a row with none takes every path.</summary>
+    public static bool Matches(IReadOnlyList<GlobLine> lines, string path) =>
+        lines.Count == 0 || lines.LastOrDefault(x => x._glob.IsMatch(path)) is { Excludes: false };
+}
+
 /// <summary>One row of a <c>Drift Scope</c> stereotype's Entries (scope.md).</summary>
 /// <param name="In">The files it matches are read: In or Context.</param>
 /// <param name="Context">Read for context only: rules read the code, but it is never reported as code the model doesn't describe.</param>
-internal sealed record ScopeRow(string Host, int Number, string BasePath, IReadOnlyList<GlobPattern> Globs, IReadOnlyList<string> Types, bool In, string? Reason, bool Context = false)
+internal sealed record ScopeRow(string Host, int Number, string BasePath, IReadOnlyList<GlobLine> Globs, IReadOnlyList<string> Types, bool In, string? Reason, bool Context = false)
 {
     public string Id => $"{Host}#{Number}";
 
@@ -62,7 +94,7 @@ internal sealed record ScopeRow(string Host, int Number, string BasePath, IReadO
         }
 
         var relative = BasePath.Length == 0 ? path : path[(BasePath.Length + 1)..];
-        return Globs.Count == 0 || Globs.Any(x => x.IsMatch(relative));
+        return GlobLine.Matches(Globs, relative);
     }
 }
 
@@ -282,7 +314,7 @@ internal sealed class ScopeModel
                 host,
                 number,
                 basePath,
-                Lines(item, "Glob").Select(x => new GlobPattern(x)).ToList(),
+                GlobLine.Of(Text(item, "Glob")),
                 Lines(item, "Types").ToList(),
                 !string.Equals(scope, "Out", StringComparison.OrdinalIgnoreCase),
                 Text(item, "Reason") is { Length: > 0 } reason ? reason : null,

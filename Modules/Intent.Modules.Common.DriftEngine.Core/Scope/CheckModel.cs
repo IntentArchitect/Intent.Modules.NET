@@ -3,8 +3,14 @@ using Intent.Metadata.Models;
 
 namespace Intent.Modules.Common.DriftEngine.Scope;
 
-/// <summary>An <c>Opt-in Rules</c> row: a rule turned on, narrowed to the files its globs match (none: every file in scope).</summary>
-internal sealed record OptInRow(int Number, string Rule, IReadOnlyList<GlobPattern> Globs);
+/// <summary>
+/// An <c>Opt-in Rules</c> row: a rule turned on, narrowed to the files its glob lines take (none: every file in scope), read
+/// as a Drift Scope row's are.
+/// </summary>
+internal sealed record OptInRow(int Number, string Rule, IReadOnlyList<GlobLine> Globs)
+{
+    public bool Covers(string file) => GlobLine.Matches(Globs, file);
+}
 
 /// <summary>
 /// An <c>Exceptions</c> row: code an opt-in rule must not report, and why. Its Match lists one or more entries, one per line,
@@ -61,7 +67,7 @@ internal sealed class CheckModel
         var stereotype = root?.Stereotypes.First(x => x.Name == "Drift Check");
         return new CheckModel(
             root?.Id ?? codebaseStructure?.FirstOrDefault()?.Id,
-            Rows(stereotype, "Opt-in Rules").Select((x, i) => new OptInRow(i + 1, Text(x, "Rule") ?? "", Lines(x, "Glob").Select(g => new GlobPattern(g)).ToList())).ToList(),
+            Rows(stereotype, "Opt-in Rules").Select((x, i) => new OptInRow(i + 1, Text(x, "Rule") ?? "", GlobLine.Of(Text(x, "Glob")))).ToList(),
             Rows(stereotype, "Exceptions").Select((x, i) => new ExceptionRow(i + 1, Text(x, "Rule") ?? "", Text(x, "Match") ?? "", Text(x, "Reason"))).ToList(),
             Rows(stereotype, "Severity Overrides").Select((x, i) => new OverrideRow(i + 1, Text(x, "Rule") ?? "", Text(x, "Severity"), Text(x, "Reason"))).ToList());
     }
@@ -72,7 +78,4 @@ internal sealed class CheckModel
 
     private static string? Text(IStereotype item, string key) =>
         item.Properties.FirstOrDefault(x => x.Key == key)?.Value is { } value && !string.IsNullOrWhiteSpace(value) ? value.Trim() : null;
-
-    private static IEnumerable<string> Lines(IStereotype item, string key) =>
-        Text(item, key)?.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries) ?? [];
 }

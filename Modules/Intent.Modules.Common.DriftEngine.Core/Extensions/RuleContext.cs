@@ -97,6 +97,12 @@ public sealed class CodeScope
     /// </summary>
     public static bool GlobMatches(string glob, string path) => new Scope.GlobPattern(glob).IsMatch(path);
 
+    /// <summary>
+    /// A row's glob lines take a path as a Drift Scope row's do: a <c>#</c> line is a comment, a <c>!</c> line takes back what
+    /// it matches, the last matching line decides, and no lines take every path.
+    /// </summary>
+    public static bool GlobMatches(IEnumerable<string> lines, string path) => Scope.GlobLine.Matches(Scope.GlobLine.Of(string.Join('\n', lines)), path);
+
     /// <summary>Every file under the output folder, in or out of scope, in path order.</summary>
     public IReadOnlyList<string> Files { get; }
 
@@ -114,6 +120,9 @@ public sealed class CodeScope
 /// <param name="Id">The folder or Root Folder it is on and its number there, as findings name it.</param>
 /// <param name="Scope"><c>In</c>, <c>Out</c> or <c>Context</c>.</param>
 /// <param name="BasePath">The folder the row's globs are relative to, from the output folder; empty for the Root Folder.</param>
-/// <param name="Globs">Its globs; none matches every file under its folder.</param>
+/// <param name="Globs">
+/// Its glob lines as written, without comments: a <c>!</c> line takes back what it matches, and none matches every file under
+/// its folder. <see cref="CodeScope.GlobMatches(IEnumerable{string}, string)"/> matches them as the row does.
+/// </param>
 /// <param name="Reason">Why an Out or Context row leaves its files out of the check.</param>
 public sealed record DriftScopeRow(string Id, string Scope, string BasePath, IReadOnlyList<string> Globs, string? Reason);
