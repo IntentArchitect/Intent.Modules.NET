@@ -17,5 +17,6 @@ namespace FastEndpointsTest.Application.Interfaces.ServiceDispatch
         Task<string> QueryNoImpl6Async(CancellationToken cancellationToken = default);
         Task<string> QueryNoImpl7Async(string param, CancellationToken cancellationToken = default);
         void MutationNoImpl8();
+        Task QueryNoReturnType(CancellationToken cancellationToken = default);
     }
 }

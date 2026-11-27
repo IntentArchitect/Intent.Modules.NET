@@ -71,6 +71,7 @@
   <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl5Endpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl6AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoImpl7AsyncEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
+  <file path="FastEndpointsTest.Api/FastEndpoints/ServiceDispatch/ServiceDispatchWithoutImplementation/QueryNoReturnTypeEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/CreateSimpleProductEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/DeleteSimpleProductEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />
   <file path="FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/FindSimpleProductByIdEndpoint.cs" templateId="Intent.FastEndpoints.EndpointTemplate" />

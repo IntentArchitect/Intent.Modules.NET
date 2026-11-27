@@ -1,7 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Wolverine;
 using Wolverine.AspNetCore.Controllers.Application;
 using Wolverine.AspNetCore.Controllers.Application.ChangeProductProduct;
 using Wolverine.AspNetCore.Controllers.Application.CreateProduct;

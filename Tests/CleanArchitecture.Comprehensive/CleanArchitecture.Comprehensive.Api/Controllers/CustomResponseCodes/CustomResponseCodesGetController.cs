@@ -49,7 +49,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified .</response>
+        /// <response code="200">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response200")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -73,7 +73,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="201">Returns the specified .</response>
+        /// <response code="201">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response201")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -97,7 +97,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="202">Returns the specified .</response>
+        /// <response code="202">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response202")]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -121,7 +121,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="203">Returns the specified .</response>
+        /// <response code="203">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response203")]
         [ProducesResponseType(StatusCodes.Status203NonAuthoritative)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -145,7 +145,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="204">Returns the specified .</response>
+        /// <response code="204">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response204")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -169,7 +169,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="205">Returns the specified .</response>
+        /// <response code="205">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response205")]
         [ProducesResponseType(StatusCodes.Status205ResetContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -193,7 +193,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="206">Returns the specified .</response>
+        /// <response code="206">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response206")]
         [ProducesResponseType(StatusCodes.Status206PartialContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -217,7 +217,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="207">Returns the specified .</response>
+        /// <response code="207">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response207")]
         [ProducesResponseType(StatusCodes.Status207MultiStatus)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -241,7 +241,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="208">Returns the specified .</response>
+        /// <response code="208">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response208")]
         [ProducesResponseType(StatusCodes.Status208AlreadyReported)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -265,7 +265,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="226">Returns the specified .</response>
+        /// <response code="226">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response226")]
         [ProducesResponseType(StatusCodes.Status226IMUsed)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -289,9 +289,9 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.CustomResponseCodes
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified .</response>
+        /// <response code="204">Successful request, no content returned.</response>
         [HttpGet("api/custom-response-codes/custom-response-default")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> CustomResponseDefault(CancellationToken cancellationToken = default)
         {

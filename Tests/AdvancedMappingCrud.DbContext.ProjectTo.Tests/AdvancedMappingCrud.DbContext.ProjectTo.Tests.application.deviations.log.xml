@@ -8,6 +8,9 @@
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2026-10-20T11:53:52.1126582Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-11-27T13:04:28.160415Z</approvedAt>
       <deviationsHash>D23E8E25DF13E045048E01956A6C99AA9D11BE315478B4278CFF8D4EC66BDEF9</deviationsHash>
     </file>
     <file>
@@ -50,4 +53,12 @@
       <fileHash>6D671B330DB6C26E49BE08130BC8F61EBC438D24473B6F7D4AF0B667E075E631</fileHash>
     </file>
   </files>
+  <customFiles>
+    <customFile>
+      <path>Tests/AdvancedMappingCrud.DbContext.ProjectTo.Tests/Intent.Metadata/Codebase Structure/Codebase Structure.designer.config</path>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2026-11-27T13:04:43.2697049Z</approvedAt>
+    </customFile>
+  </customFiles>
 </deviationsLog>
