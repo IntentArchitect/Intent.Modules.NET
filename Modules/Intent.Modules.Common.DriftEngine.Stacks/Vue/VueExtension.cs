@@ -286,7 +286,7 @@ internal sealed class VueLinks : ScriptLinks
 
     protected override bool Tagged(MarkupNode tag, string name) => tag.Tag == name || tag.Tag == UiCode.Kebab(name);
 
-    protected override IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, IReadOnlyList<MarkupNode> markup)
+    protected override IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, TypeNode type, IReadOnlyList<MarkupNode> markup)
     {
         foreach (var attribute in markup.SelectMany(x => x.Attributes))
         {

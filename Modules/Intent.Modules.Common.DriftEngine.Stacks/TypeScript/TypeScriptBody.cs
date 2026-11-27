@@ -513,19 +513,49 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
             Types = types,
             IsKnown = known && types.Count > 0,
             Literal = LiteralOf(expression, Value),
-            Function = unwrapped.Kind is "ArrowFunction" or "FunctionExpression" ? Lambda(unwrapped) : null,
+            Function = unwrapped.Kind is "ArrowFunction" or "FunctionExpression" ? Lambda(unwrapped) : Computed(bare) is { } computed ? Lambda(computed) : null,
             Creations = types.Select(x => _createdBy.TryGetValue(x, out var creation) ? Creation(creation) : null).OfType<CreationNode>().ToList(),
-            Members = unwrapped.Is("ObjectLiteralExpression") ? unwrapped.List("properties").Select(Member).OfType<InitializerNode>().ToList() : [],
-            Items = unwrapped.Is("ArrayLiteralExpression") ? unwrapped.List("elements").Select(Value).ToList() : [],
+            // An object or array written under an `as const` or `satisfies` is still that literal.
+            Members = bare.Is("ObjectLiteralExpression") ? bare.List("properties").Select(Member).OfType<InitializerNode>().ToList() : [],
+            Items = bare.Is("ArrayLiteralExpression") ? bare.List("elements").Select(Value).ToList() : [],
             Joined = Joined(bare),
             GivenOf = () => Given(bare),
             Parameter = bare.Is("Identifier") && Local(bare.Value!, bare.Start) is null ? ParameterOf(bare) : null,
             Field = FieldRead(bare),
             Call = bare.Is("CallExpression") ? Call(bare) : null,
             Trimmed = Trimmed(bare),
+            AccessedOf = () => Accessed(bare),
+            CalleeOf = bare.Is("CallExpression") ? () => Value(bare["expression"]!) : null,
             At = expression.Span
         };
     }
+
+    /// <summary>
+    /// A member read off a value that names no type: <c>this.endpoints.user</c>, <c>getEndpoints().auth</c>,
+    /// <c>urls['home']</c>. What <c>this</c>'s own members and a type's or module's are read as is a field (<see cref="FieldRead"/>).
+    /// </summary>
+    private AccessNode? Accessed(TypeScriptNode bare)
+    {
+        switch (bare.Kind)
+        {
+            case "PropertyAccessExpression" when FieldRead(bare) is null && !TypeScriptReader.Unwrapped(bare["expression"]!).Is("ThisKeyword"):
+                return new AccessNode(Value(bare["expression"]!), bare["name"]!.Value!);
+            case "ElementAccessExpression" when TypeScriptReader.Unwrapped(bare["argumentExpression"]!) is { Kind: "StringLiteral" or "NoSubstitutionTemplateLiteral", Value: { } key }:
+                return new AccessNode(Value(bare["expression"]!), key);
+            default:
+                return null;
+        }
+    }
+
+    /// <summary>
+    /// The function an Angular <c>computed(() =&gt; ...)</c> runs: calling the signal it makes (<c>detailUrl()</c>) gives what the
+    /// function returns.
+    /// </summary>
+    private static TypeScriptNode? Computed(TypeScriptNode bare) =>
+        bare.Is("CallExpression") && TypeScriptReader.Unwrapped(bare["expression"]!) is { Kind: "Identifier", Value: "computed" }
+        && bare.List("arguments").FirstOrDefault() is { } argument && TypeScriptReader.Unwrapped(argument) is { Kind: "ArrowFunction" or "FunctionExpression" } function
+            ? function
+            : null;
 
     /// <summary>What a value is under its parentheses, <c>!</c>, <c>satisfies</c>, <c>as</c> and type assertions, none of which change its text.</summary>
     private static TypeScriptNode Bare(TypeScriptNode expression)

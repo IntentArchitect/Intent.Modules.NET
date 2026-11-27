@@ -1229,3 +1229,343 @@ export default function Header() {
   ]
 }
 ```
+
+## angular-links-through-url-constants
+
+An Angular header whose links come from the app's URL constants: `[routerLink]="authUrls.logIn"` reads the component's `authUrls`, which holds `AUTH_URLS`, whose `logIn` is built from the path constants; `[routerLink]="detailUrl()"` runs the `computed` the component holds, `POKEMON_URLS.detail(...)`; and `register()` calls the app's own `LanguageService.navigateWithUserLanguage(language, AUTH_URLS.register)`, whose `router.navigate([pathToRedirect])` navigates to what it is handed. Each link is read through the constants and the calls, the helper's parameters bound to what the header passes, and is placed at the header's own call.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "App" },
+          { "id": "header", "type": "Component", "name": "Header" },
+          { "id": "log-in", "type": "Page", "name": "LogIn", "stereotypes": { "Page": { "Route": "/auth/log-in" } } },
+          { "id": "register", "type": "Page", "name": "Register", "stereotypes": { "Page": { "Route": "/auth/register" } } },
+          { "id": "my-account", "type": "Page", "name": "MyAccount", "stereotypes": { "Page": { "Route": "/auth/my-account" } } },
+          { "id": "pokemon-detail", "type": "Page", "name": "PokemonDetail", "stereotypes": { "Page": { "Route": "/pokemon/{pokemonId}" } } }
+        ]
+      }],
+      "associations": [
+        { "id": "header-log-in", "type": "Navigation", "source": { "element": "header" }, "target": { "element": "log-in" } },
+        { "id": "header-register", "type": "Navigation", "source": { "element": "header" }, "target": { "element": "register" } },
+        { "id": "header-pokemon", "type": "Navigation", "source": { "element": "header" }, "target": { "element": "pokemon-detail" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { App } from './app/app';
+import { routes } from './app/app.routes';
+
+bootstrapApplication(App, { providers: [provideRouter(routes)] });
+```
+
+```typescript file src/app/app.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Header } from './header';
+
+@Component({ selector: 'app-root', imports: [RouterOutlet, Header], template: `<app-header /><router-outlet />` })
+export class App {}
+```
+
+```typescript file src/app/paths.constants.ts
+export const AUTHENTICATION_PATHS = {
+  base: 'auth',
+  logIn: 'log-in',
+  register: 'register',
+  myAccount: 'my-account',
+};
+
+export const POKEMON_PATHS = {
+  base: 'pokemon',
+};
+```
+
+```typescript file src/app/urls.constants.ts
+import { AUTHENTICATION_PATHS, POKEMON_PATHS } from './paths.constants';
+
+export const AUTH_URLS = {
+  logIn: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.logIn}`,
+  register: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.register}`,
+  myAccount: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.myAccount}`,
+};
+
+export const POKEMON_URLS = {
+  detail: (id: string) => `/${POKEMON_PATHS.base}/${id}`,
+};
+```
+
+```typescript file src/app/app.routes.ts
+import { Routes } from '@angular/router';
+import { AUTHENTICATION_PATHS, POKEMON_PATHS } from './paths.constants';
+import { LogIn, MyAccount, PokemonDetail, Register } from './pages';
+
+export const routes: Routes = [
+  {
+    path: AUTHENTICATION_PATHS.base,
+    children: [
+      { path: AUTHENTICATION_PATHS.logIn, component: LogIn },
+      { path: AUTHENTICATION_PATHS.register, component: Register },
+      { path: AUTHENTICATION_PATHS.myAccount, component: MyAccount },
+    ],
+  },
+  { path: `${POKEMON_PATHS.base}/:pokemonId`, component: PokemonDetail },
+];
+```
+
+```typescript file src/app/pages.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-log-in', template: `<h1>Log in</h1>` })
+export class LogIn {}
+
+@Component({ selector: 'app-register', template: `<h1>Register</h1>` })
+export class Register {}
+
+@Component({ selector: 'app-my-account', template: `<h1>My account</h1>` })
+export class MyAccount {}
+
+@Component({ selector: 'app-pokemon-detail', template: `<h1>Pokemon</h1>` })
+export class PokemonDetail {}
+```
+
+```typescript file src/app/language.service.ts
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Injectable({ providedIn: 'root' })
+export class LanguageService {
+  private readonly router = inject(Router);
+
+  navigateWithUserLanguage(language: string, pathToRedirect: string) {
+    if (language) {
+      void this.router.navigate([pathToRedirect]);
+    }
+  }
+}
+```
+
+```typescript file src/app/header.ts
+import { Component, computed, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { LanguageService } from './language.service';
+import { AUTH_URLS, POKEMON_URLS } from './urls.constants';
+
+@Component({
+  selector: 'app-header',
+  imports: [RouterLink],
+  template: `
+    <a [routerLink]="authUrls.logIn">Log in</a>
+    <a [routerLink]="detailUrl()">Pokemon</a>
+    <button (click)="register()">Register</button>
+  `,
+})
+export class Header {
+  private readonly languageService = inject(LanguageService);
+  readonly authUrls = AUTH_URLS;
+  readonly pokemonId = signal('pikachu');
+  readonly detailUrl = computed(() => POKEMON_URLS.detail(this.pokemonId()));
+
+  register() {
+    this.languageService.navigateWithUserLanguage('en', AUTH_URLS.register);
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "header-log-in", "outcome": "verified" },
+    { "kind": "intent.navigates", "element": "header-pokemon", "outcome": "verified" },
+    { "kind": "intent.navigates", "element": "header-register", "outcome": "verified", "at": "src/app/header.ts:22" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "count": 0 }
+  ]
+}
+```
+
+## angular-links-through-url-constants-contradicted
+
+The model says the header also navigates to `MyAccount`, but none of its links, read through the constants and the helper, is `/auth/my-account`.
+
+```json case
+{ "phase": 6, "base": "angular-links-through-url-constants", "kinds": ["intent.navigates"], "requirements": ["R2", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "App" },
+          { "id": "header", "type": "Component", "name": "Header" },
+          { "id": "log-in", "type": "Page", "name": "LogIn", "stereotypes": { "Page": { "Route": "/auth/log-in" } } },
+          { "id": "register", "type": "Page", "name": "Register", "stereotypes": { "Page": { "Route": "/auth/register" } } },
+          { "id": "my-account", "type": "Page", "name": "MyAccount", "stereotypes": { "Page": { "Route": "/auth/my-account" } } },
+          { "id": "pokemon-detail", "type": "Page", "name": "PokemonDetail", "stereotypes": { "Page": { "Route": "/pokemon/{pokemonId}" } } }
+        ]
+      }],
+      "associations": [
+        { "id": "header-my-account", "type": "Navigation", "source": { "element": "header" }, "target": { "element": "my-account" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "header-my-account", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "header-my-account" }
+  ]
+}
+```
+
+## angular-navigation-in-callbacks
+
+A component that navigates once something it waits for arrives: in a `subscribe` callback, `router.navigate([POKEMON_URLS.detail(String(id))])`, and in an observer's `next`, `router.navigate([POKEMON_URLS.detail(pokemon.name)])`. A command segment the code builds with a value in it, `/pokemon/${id}`, keeps its text with the value as a hole, which stands for the page's route parameter; only a segment the code computes whole is a hole.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "App" },
+          { "id": "register", "type": "Page", "name": "Register", "stereotypes": { "Page": { "Route": "/register" } } },
+          { "id": "search", "type": "Component", "name": "Search" },
+          { "id": "pokemon-detail", "type": "Page", "name": "PokemonDetail", "stereotypes": { "Page": { "Route": "/pokemon/{pokemonId}" } } }
+        ]
+      }],
+      "associations": [
+        { "id": "register-pokemon", "type": "Navigation", "source": { "element": "register" }, "target": { "element": "pokemon-detail" } },
+        { "id": "search-pokemon", "type": "Navigation", "source": { "element": "search" }, "target": { "element": "pokemon-detail" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { App } from './app/app';
+import { routes } from './app/app.routes';
+
+bootstrapApplication(App, { providers: [provideRouter(routes)] });
+```
+
+```typescript file src/app/app.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({ selector: 'app-root', imports: [RouterOutlet], template: `<router-outlet />` })
+export class App {}
+```
+
+```typescript file src/app/urls.constants.ts
+export const POKEMON_URLS = {
+  detail: (id: string) => `/pokemon/${id}`,
+};
+```
+
+```typescript file src/app/app.routes.ts
+import { Routes } from '@angular/router';
+import { PokemonDetail, Register } from './pages';
+
+export const routes: Routes = [
+  { path: 'register', component: Register },
+  { path: 'pokemon/:pokemonId', component: PokemonDetail },
+];
+```
+
+```typescript file src/app/pages.ts
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { timer } from 'rxjs';
+import { POKEMON_URLS } from './urls.constants';
+
+@Component({ selector: 'app-register', template: `<h1>Register</h1>` })
+export class Register {
+  private readonly router = inject(Router);
+
+  celebrate(): void {
+    timer(500).subscribe(() => {
+      const id = Math.floor(Math.random() * 1000) + 1;
+      void this.router.navigate([POKEMON_URLS.detail(String(id))]);
+    });
+  }
+}
+
+@Component({ selector: 'app-pokemon-detail', template: `<h1>Pokemon</h1>` })
+export class PokemonDetail {}
+```
+
+```typescript file src/app/search.ts
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { POKEMON_URLS } from './urls.constants';
+
+@Component({ selector: 'app-search', template: `<button (click)="search('pikachu')">Search</button>` })
+export class Search {
+  private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
+
+  search(name: string): void {
+    this.http.get<{ name: string }>(`/api/pokemon/${name}`).subscribe({
+      next: (pokemon) => {
+        void this.router.navigate([POKEMON_URLS.detail(pokemon.name)]);
+      },
+    });
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "register-pokemon", "outcome": "verified", "at": "src/app/pages.ts:13" },
+    { "kind": "intent.navigates", "element": "search-pokemon", "outcome": "verified", "at": "src/app/search.ts:14" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "count": 0 }
+  ]
+}
+```

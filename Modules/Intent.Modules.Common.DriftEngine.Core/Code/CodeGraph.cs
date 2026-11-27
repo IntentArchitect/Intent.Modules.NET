@@ -437,11 +437,38 @@ public sealed class ValueNode
     /// <summary>The value it trims: C#'s <c>uri.TrimEnd('&amp;', '?')</c>, Java's and TypeScript's <c>trim()</c>.</summary>
     public TrimNode? Trimmed { get; init; }
 
+    private (bool Read, AccessNode? Value) _accessed;
+
+    /// <summary>
+    /// The member it reads off another value, where that value is no type's name: <c>user</c> off <c>this.endpoints</c> in
+    /// <c>this.endpoints.user</c>, where the field holds what <c>getEndpoints()</c> returns. The string a value is follows it
+    /// into the object the other value is (<see cref="CodeGraph.StringOf(ValueNode)"/>). Null for anything else.
+    /// </summary>
+    public AccessNode? Accessed => _accessed.Read ? _accessed.Value : (_accessed = (true, AccessedOf?.Invoke())).Value;
+
+    /// <summary>Gives <see cref="Accessed"/> the first time it is read.</summary>
+    public Func<AccessNode?>? AccessedOf { get; init; }
+
+    private (bool Read, ValueNode? Value) _callee;
+
+    /// <summary>
+    /// What a call it is the result of calls, as a value (<c>this.endpoints.pokemon.v1.pokemon</c> in
+    /// <c>this.endpoints.pokemon.v1.pokemon(id)</c>), where no method of the code is its <see cref="CallNode.Target"/>: a
+    /// function a variable or an object's member holds. Null for anything else.
+    /// </summary>
+    public ValueNode? Callee => _callee.Read ? _callee.Value : (_callee = (true, CalleeOf?.Invoke())).Value;
+
+    /// <summary>Gives <see cref="Callee"/> the first time it is read.</summary>
+    public Func<ValueNode?>? CalleeOf { get; init; }
+
     public required Span At { get; init; }
 }
 
 /// <summary>A field or property a value reads, and the type that declares it.</summary>
 public sealed record FieldRef(TypeNode Type, MemberNode Member);
+
+/// <summary>A member read off a value: <c>Member</c> of <c>Of</c>.</summary>
+public sealed record AccessNode(ValueNode Of, string Member);
 
 /// <summary>A value with characters trimmed from its start, its end or both; whitespace when <see cref="Characters"/> is empty.</summary>
 public sealed record TrimNode(ValueNode Value, bool Start, bool End, IReadOnlyList<char> Characters);
@@ -1279,6 +1306,13 @@ public sealed class CodeGraph
     /// <c>httpClient.PutAsync(uri, ...)</c> sends the caller's URI.
     /// </summary>
     public LiteralNode StringOf(ValueNode value, IReadOnlyList<(CallNode Call, MemberNode Into)> through) => StringValues.Of(value, through);
+
+    /// <summary>
+    /// The string a path of members reads, from one of the type's members, as markup writes it where only text is kept: an
+    /// Angular template's <c>authUrls.register</c> is the component's <c>authUrls</c> field's object's <c>register</c>, and
+    /// <c>detailUrl()</c> runs what <c>detailUrl</c> holds. Null when the code doesn't say what a step holds.
+    /// </summary>
+    public LiteralNode? StringOf(TypeNode type, IReadOnlyList<(string Member, bool Called)> path) => StringValues.Of(type, path);
 
     /// <summary>
     /// The string a constant stands for, by its name as the code writes it where only text is kept, as an attribute's

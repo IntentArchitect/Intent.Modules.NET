@@ -40,7 +40,11 @@ public sealed record AngularGuard(string Name, IReadOnlyList<ValueNode> Argument
 /// <param name="Guards">Its guards and its parents', <c>canMatch</c>, <c>canActivate</c> and <c>canActivateChild</c>.</param>
 /// <param name="Data">The keys of its <c>data</c>.</param>
 /// <param name="Parent">It has child routes (<c>children</c>, <c>loadChildren</c>), so what it shows hosts theirs.</param>
-public sealed record AngularRoute(string Path, TypeNode? Component, string? Title, IReadOnlyList<AngularGuard> Guards, IReadOnlyList<string> Data, bool Parent, Span At);
+public sealed record AngularRoute(string Path, TypeNode? Component, string? Title, IReadOnlyList<AngularGuard> Guards, IReadOnlyList<string> Data, bool Parent, Span At)
+{
+    /// <summary>The routes above it whose paths its path joins, outermost first: a <c>loadChildren</c> entry in another file among them.</summary>
+    public IReadOnlyList<Span> Parents { get; init; } = [];
+}
 
 /// <summary>
 /// An Angular application's routes as its code states them, read once per run: the route tables <c>provideRouter</c> and
@@ -140,7 +144,7 @@ internal sealed class AngularSite
             .ToList();
         foreach (var root in roots)
         {
-            Walk(code, root, "", [], reached, 0);
+            Walk(code, root, "", [], [], reached, 0);
         }
 
         // A route table nothing reaches from the router's: a root of its own, as the code may provide its router out of scope.
@@ -148,7 +152,7 @@ internal sealed class AngularSite
         {
             if (!reached.Contains(table))
             {
-                Walk(code, table, "", [], reached, 0);
+                Walk(code, table, "", [], [], reached, 0);
             }
         }
     }
@@ -161,7 +165,7 @@ internal sealed class AngularSite
     private static ValueNode? Table(CodeGraph code, string file, ValueNode value) =>
         value.Items.Count > 0 ? value : value.Field?.Member.Value is { } field && IsTable(field) ? field : AngularCode.Constant(code, file, value.Text) is { } named && IsTable(named) ? named : null;
 
-    private void Walk(CodeGraph code, ValueNode table, string prefix, IReadOnlyList<AngularGuard> inherited, HashSet<ValueNode> reached, int depth)
+    private void Walk(CodeGraph code, ValueNode table, string prefix, IReadOnlyList<AngularGuard> inherited, IReadOnlyList<Span> parents, HashSet<ValueNode> reached, int depth)
     {
         if (depth > 12 || !reached.Add(table))
         {
@@ -189,17 +193,17 @@ internal sealed class AngularSite
             {
                 var title = Member("title") is { } titled ? UiCode.Text(code.StringOf(titled)) ?? UiCode.Hole.ToString() : null;
                 var data = Member("data")?.Members.Select(x => x.Member).ToList() ?? [];
-                Routes.Add(new AngularRoute(full, component, title, guards, data, children is not null || loaded is not null, route.At));
+                Routes.Add(new AngularRoute(full, component, title, guards, data, children is not null || loaded is not null, route.At) { Parents = parents });
             }
 
             if (children is not null)
             {
-                Walk(code, children, full, guards, reached, depth + 1);
+                Walk(code, children, full, guards, [.. parents, route.At], reached, depth + 1);
             }
 
             if (loaded is not null)
             {
-                Walk(code, loaded, full, guards, reached, depth + 1);
+                Walk(code, loaded, full, guards, [.. parents, route.At], reached, depth + 1);
             }
         }
     }
@@ -529,7 +533,9 @@ internal sealed class AngularComponents : IClaimReader
 
                 return pages.Count == 0
                     ? ClaimReading.Absent(type!.At)
-                    : ClaimReading.Stated(string.Join(", ", pages.Select(x => UiCode.ModelRoute(x.Path)).Distinct().Order(StringComparer.Ordinal)), pages[0].At);
+                    : ClaimReading.Stated(string.Join(", ", pages.Select(x => UiCode.ModelRoute(x.Path)).Distinct().Order(StringComparer.Ordinal)), pages[0].At)
+                        // The parent routes a path joins are where its start is written, a lazy loadChildren in app.routes.ts among them.
+                        .Through(pages.SelectMany(x => x.Parents).Distinct().ToList());
             case "page.title":
                 return Title(context, code, type!, pages);
             case "security":
@@ -798,7 +804,7 @@ internal sealed class AngularLinks : ScriptLinks
         return path;
     }
 
-    protected override IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, IReadOnlyList<MarkupNode> markup)
+    protected override IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, TypeNode type, IReadOnlyList<MarkupNode> markup)
     {
         foreach (var attribute in markup.SelectMany(x => x.Attributes))
         {
@@ -810,10 +816,38 @@ internal sealed class AngularLinks : ScriptLinks
             {
                 foreach (var branch in Branches(expression))
                 {
-                    yield return (Link(branch), attribute.At);
+                    yield return (Link(code, type, branch), attribute.At);
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// A template expression's text: a string written in it, else a path of the component's members (<c>authUrls.register</c>,
+    /// <c>ROOT_URLS.home</c> held in a field, <c>detailUrl()</c>), read as the code gives it; null for anything else.
+    /// </summary>
+    private static string? Text(CodeGraph code, TypeNode type, string expression)
+    {
+        if (UiCode.Written(expression) is { } written)
+        {
+            return written;
+        }
+
+        var path = new List<(string Member, bool Called)>();
+        foreach (var step in expression.Trim().Split('.'))
+        {
+            var name = step.Trim();
+            var called = name.EndsWith("()", StringComparison.Ordinal);
+            name = called ? name[..^2].TrimEnd() : name;
+            if (name.Length == 0 || !name.All(c => char.IsLetterOrDigit(c) || c is '_' or '$'))
+            {
+                return null;
+            }
+
+            path.Add((name, called));
+        }
+
+        return UiCode.Text(code.StringOf(type, path));
     }
 
     /// <summary>Both branches of <c>cond ? a : b</c>, outside quotes and brackets; the expression itself otherwise.</summary>
@@ -856,12 +890,14 @@ internal sealed class AngularLinks : ScriptLinks
     }
 
     /// <summary>
-    /// A bound link as a path: <c>'/cart'</c>, or a commands array (<c>['/pizzerias', pizzeria.id]</c>), each quoted segment as
-    /// written and each value a hole; null for a link the code computes whole.
+    /// A bound link as a path: <c>'/cart'</c>, a member of the component the code gives the text of (<c>authUrls.register</c>
+    /// over <c>readonly authUrls = AUTH_URLS</c>, <c>detailUrl()</c> over a <c>computed</c>), or a commands array
+    /// (<c>['/pizzerias', pizzeria.id]</c>), each segment's text where the code gives it and each other value a hole; null for a
+    /// link the code computes whole.
     /// </summary>
-    private static string? Link(string expression)
+    private static string? Link(CodeGraph code, TypeNode type, string expression)
     {
-        if (UiCode.Written(expression) is { } written)
+        if (Text(code, type, expression) is { } written)
         {
             return written;
         }
@@ -901,7 +937,7 @@ internal sealed class AngularLinks : ScriptLinks
         }
 
         items.Add(expression[start..^1]);
-        var parts = items.Select(x => x.Trim()).Where(x => x.Length > 0).Select(x => UiCode.Written(x) is { } text && !text.Contains(UiCode.Hole) ? text : UiCode.Hole.ToString()).ToList();
+        var parts = items.Select(x => x.Trim()).Where(x => x.Length > 0).Select(x => Text(code, type, x) is { } text && !text.Contains(UiCode.Hole) ? text : UiCode.Hole.ToString()).ToList();
         if (parts.Count == 0)
         {
             return null;

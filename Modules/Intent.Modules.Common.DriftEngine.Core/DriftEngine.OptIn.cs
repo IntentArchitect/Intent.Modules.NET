@@ -48,7 +48,10 @@ public sealed partial class DriftEngine
             }
         }
 
-        var spans = _claims.Select(x => x.Reading?.At).OfType<Span>().Where(x => x.File.Length > 0).ToList();
+        // The code a reading was read through is what the claim is about as much as its own place: the parent routes a page's
+        // route joins, the HasOne a HasForeignKey configures.
+        var spans = _claims.Select(x => x.Reading).OfType<Reading>().SelectMany(x => x.Through.Prepend(x.At))
+            .OfType<Span>().Where(x => x.File.Length > 0).ToList();
         var typesByFile = _graph.Types.SelectMany(t => t.Files.Distinct().Select(f => (File: f, Type: t))).ToLookup(x => x.File, x => x.Type);
         foreach (var span in spans)
         {

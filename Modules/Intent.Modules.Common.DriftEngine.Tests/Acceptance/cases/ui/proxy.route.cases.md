@@ -699,3 +699,256 @@ export const catalog = {
   ]
 }
 ```
+
+## angular-endpoints-helper
+
+An Angular API client whose URLs come from a constants module's helper: `private readonly endpoints = getEndpoints()`, a function returning an object of endpoint groups `as const`, each group made by a function of the API's base URL, `` `${baseUrl}/v1/user` ``, or of a host the helper states, `` (id) => `${host}/v2/pokemon/${id}` ``. The request's URL is read through the field, the calls, the objects' members and the function the member holds, with each function's parameters bound to what it is called with. The base URL comes from configuration (`inject(ENVIRONMENT).apiBaseUrl`), so the route is what follows it; the PokeAPI host is stated, so its path is part of the route.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route", "proxy.verb"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "user-service", "type": "Proxy", "name": "UserService", "children": [
+            { "id": "get-me", "type": "Proxy Operation", "name": "getMe", "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "v1/user" } } },
+            { "id": "get-pokemon", "type": "Proxy Operation", "name": "getPokemon", "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/v2/pokemon/{pokemonIdOrName}" } }, "children": [
+              { "id": "get-pokemon-id", "type": "Parameter", "name": "pokemonIdOrName", "typeRef": { "type": "string" } }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/app/core/tokens/environment.token.ts
+import { InjectionToken } from '@angular/core';
+
+export interface Environment {
+  apiBaseUrl: string;
+}
+
+export const ENVIRONMENT = new InjectionToken<Environment>('ENVIRONMENT');
+```
+
+```typescript file src/app/core/constants/endpoints.constants.ts
+import { inject } from '@angular/core';
+import type { Environment } from '../tokens/environment.token';
+import { ENVIRONMENT } from '../tokens/environment.token';
+
+const getUserEndpoints = (baseUrl: string) => ({
+  v1: {
+    user: `${baseUrl}/v1/user`,
+  },
+});
+
+const getPokemonEndpoints = (baseUrl: string, host: string) => ({
+  v1: {
+    pokemon: (pokemonIdOrName: string | number) => `${host}/v2/pokemon/${pokemonIdOrName}`,
+  },
+});
+
+export const getEndpoints = () => {
+  const environment = inject<Environment>(ENVIRONMENT);
+  const POKEMON_API_HOST = 'https://pokeapi.co/api';
+  return {
+    user: getUserEndpoints(environment.apiBaseUrl),
+    pokemon: getPokemonEndpoints(environment.apiBaseUrl, POKEMON_API_HOST),
+  } as const;
+};
+```
+
+```typescript file src/app/features/user/user.service.ts
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { getEndpoints } from '../../core/constants/endpoints.constants';
+
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  private readonly http = inject(HttpClient);
+  private readonly endpoints = getEndpoints();
+
+  getMe() {
+    return this.http.get(this.endpoints.user.v1.user);
+  }
+
+  getPokemon(pokemonIdOrName: string | number) {
+    return this.http.get(this.endpoints.pokemon.v1.pokemon(pokemonIdOrName));
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.verb", "element": "get-me", "outcome": "verified", "actual": "GET" },
+    { "kind": "proxy.route", "element": "get-me", "outcome": "verified", "actual": "v1/user", "at": "src/app/features/user/user.service.ts:11" },
+    { "kind": "proxy.route", "element": "get-pokemon", "outcome": "verified", "actual": "api/v2/pokemon/{pokemonIdOrName}", "at": "src/app/features/user/user.service.ts:15" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "count": 0 }
+  ]
+}
+```
+
+## angular-endpoints-helper-contradicted
+
+The helper's user endpoint is `v1/users`, not the modelled `v1/user`.
+
+```json case
+{ "phase": "later", "base": "angular-endpoints-helper", "kinds": ["proxy.route"], "requirements": ["R2", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```typescript file src/app/core/constants/endpoints.constants.ts
+import { inject } from '@angular/core';
+import type { Environment } from '../tokens/environment.token';
+import { ENVIRONMENT } from '../tokens/environment.token';
+
+const getUserEndpoints = (baseUrl: string) => ({
+  v1: {
+    user: `${baseUrl}/v1/users`,
+  },
+});
+
+const getPokemonEndpoints = (baseUrl: string, host: string) => ({
+  v1: {
+    pokemon: (pokemonIdOrName: string | number) => `${host}/v2/pokemon/${pokemonIdOrName}`,
+  },
+});
+
+export const getEndpoints = () => {
+  const environment = inject<Environment>(ENVIRONMENT);
+  const POKEMON_API_HOST = 'https://pokeapi.co/api';
+  return {
+    user: getUserEndpoints(environment.apiBaseUrl),
+    pokemon: getPokemonEndpoints(environment.apiBaseUrl, POKEMON_API_HOST),
+  } as const;
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "get-me", "outcome": "contradicted", "expected": "v1/user", "actual": "v1/users" },
+    { "kind": "proxy.route", "element": "get-pokemon", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "get-me" }
+  ]
+}
+```
+
+## angular-resource-sent-when-and-url-as-parameter
+
+Angular's `httpResource(() => name() ? url : undefined)` sends nothing while its function gives `undefined`, so the request is the other way: `/api/pokemon/{name}`. A method whose URL is wholly its own parameter, `http.get(fileUrl)`, sends to whatever its caller gives, which the model states as the route `{fileUrl}`.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "pokemon-service", "type": "Proxy", "name": "PokemonService", "children": [
+            { "id": "get-pokemon-resource", "type": "Proxy Operation", "name": "getPokemonResource", "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/pokemon/{name}" } } },
+            { "id": "get-file", "type": "Proxy Operation", "name": "getFileAsText", "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "{fileUrl}" } }, "children": [
+              { "id": "get-file-url", "type": "Parameter", "name": "fileUrl", "typeRef": { "type": "string" } }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/app/pokemon.service.ts
+import { HttpClient, httpResource } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class PokemonService {
+  private readonly http = inject(HttpClient);
+
+  getPokemonResource(name: () => string | undefined) {
+    return httpResource(() => (name() ? `/api/pokemon/${name()}` : undefined));
+  }
+
+  getFileAsText(fileUrl: string) {
+    return this.http.get(fileUrl, { responseType: 'text' });
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "get-pokemon-resource", "outcome": "verified", "actual": "api/pokemon/{…}" },
+    { "kind": "proxy.route", "element": "get-file", "outcome": "verified", "actual": "{fileUrl}" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "count": 0 }
+  ]
+}
+```
+
+## angular-url-as-parameter-modelled-as-a-route
+
+The model gives `getFileAsText` a fixed route, but the method sends to whatever URL its caller gives.
+
+```json case
+{ "phase": "later", "base": "angular-resource-sent-when-and-url-as-parameter", "kinds": ["proxy.route"], "requirements": ["R2", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "pokemon-service", "type": "Proxy", "name": "PokemonService", "children": [
+            { "id": "get-file", "type": "Proxy Operation", "name": "getFileAsText", "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/files" } }, "children": [
+              { "id": "get-file-url", "type": "Parameter", "name": "fileUrl", "typeRef": { "type": "string" } }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "get-file", "outcome": "contradicted", "expected": "api/files", "actual": "{fileUrl}" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "get-file" }
+  ]
+}
+```

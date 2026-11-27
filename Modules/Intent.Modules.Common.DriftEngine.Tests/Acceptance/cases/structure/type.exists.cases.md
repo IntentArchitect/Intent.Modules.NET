@@ -1908,3 +1908,116 @@ namespace Shop.Application.Orders
   ]
 }
 ```
+
+## angular-files-named-for-their-class
+
+Angular's style guide names a file for its class with the class's role as a suffix: `UserService` is in `user.service.ts`, `UserStore` in `user.store.ts`, the functional interceptor `caching.interceptor` in `caching.interceptor.ts`. A store, service or proxy is found by its file's whole name before the extension as well as by its stem, so none of them needs an Implementation Path.
+
+```json case
+{ "phase": 6, "kinds": ["type.exists"], "requirements": ["R2"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "core", "type": "Folder", "name": "core", "children": [
+            { "id": "user-store", "type": "Store", "name": "UserStore" },
+            { "id": "user-service", "type": "Proxy", "name": "UserService" },
+            { "id": "caching-interceptor", "type": "UI Service", "name": "caching.interceptor" }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/app/core/user.store.ts
+import { Injectable, signal } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class UserStore {
+  readonly name = signal('');
+}
+```
+
+```typescript file src/app/core/user.service.ts
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  private readonly http = inject(HttpClient);
+
+  getUser() {
+    return this.http.get('/api/user');
+  }
+}
+```
+
+```typescript file src/app/core/caching.interceptor.ts
+import { HttpInterceptorFn } from '@angular/common/http';
+
+export const cachingInterceptor: HttpInterceptorFn = (request, next) => next(request);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "user-store", "outcome": "verified", "at": "src/app/core/user.store.ts:3" },
+    { "kind": "type.exists", "element": "user-service", "outcome": "verified", "at": "src/app/core/user.service.ts:4" },
+    { "kind": "type.exists", "element": "caching-interceptor", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 }
+  ]
+}
+```
+
+## angular-file-named-for-another-class
+
+The model's `AccountService` has no file named for it: `user.service.ts` is named for `UserService`.
+
+```json case
+{ "phase": 6, "base": "angular-files-named-for-their-class", "kinds": ["type.exists"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "core", "type": "Folder", "name": "core", "children": [
+            { "id": "user-service", "type": "Proxy", "name": "AccountService" }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "user-service", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "user-service" }
+  ]
+}
+```

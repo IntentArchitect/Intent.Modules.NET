@@ -40,7 +40,7 @@ internal abstract class ScriptLinks : IClaimReader
     protected virtual bool Tagged(MarkupNode tag, string name) => tag.Tag == name;
 
     /// <summary>The paths the markup links to, null for one it computes whole, and where each is.</summary>
-    protected virtual IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, IReadOnlyList<MarkupNode> markup) => [];
+    protected virtual IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, TypeNode type, IReadOnlyList<MarkupNode> markup) => [];
 
     /// <summary>A call of the method written in markup that isn't code the units hold (a Vue template's <c>@click="api.save()"</c>).</summary>
     protected virtual MarkupAttributeNode? MarkupCall(IReadOnlyList<MarkupNode> markup, string name) => null;
@@ -244,9 +244,12 @@ internal abstract class ScriptLinks : IClaimReader
 
         var routes = claimed.Split(',', StringSplitOptions.TrimEntries) is var split && split.All(x => x.Length > 0) ? split : [.. split.Where(x => x.Length > 0), ""];
 
-        var links = MarkupLinks(code, markup).ToList();
-        foreach (var call in units.SelectMany(x => x.Unit.Calls).Where(IsNavigation))
+        var links = MarkupLinks(code, type, markup).ToList();
+        foreach (var (call, through) in Navigations(code, units))
         {
+            // A navigation in the code's own helper it calls (languageService.navigateWithUserLanguage(language, AUTH_URLS.logIn)
+            // into router.navigate([pathToRedirect])) is read with the helper's parameters bound, at the call that leads there.
+            var at = through.Count > 0 ? through[0].At : call.At;
             // Each value a conditional or a local stands for is a link of its own: navigate(admin ? ['/admin'] : ['/']).
             var given = call.Arguments[0];
             foreach (var argument in given.Items.Count == 0 && given.Literal is null && given.Given.Count > 0 ? given.Given : [given])
@@ -254,12 +257,12 @@ internal abstract class ScriptLinks : IClaimReader
                 // A router's commands, Angular's navigate(['/orders', id]): its segments, each value a hole.
                 if (argument.Items.Count > 0)
                 {
-                    links.Add((UiCode.Commands(code, argument.Items), call.At));
+                    links.Add((UiCode.Commands(code, argument.Items, through), at));
                     continue;
                 }
 
                 var path = argument.Members.FirstOrDefault(x => x.Member is "path" or "pathname")?.Value ?? argument;
-                links.Add((UiCode.Text(code.StringOf(path)), call.At));
+                links.Add((UiCode.Text(code.StringOf(path, through)), at));
             }
         }
 
@@ -281,6 +284,35 @@ internal abstract class ScriptLinks : IClaimReader
         }
 
         return computed is { } unreadable ? ClaimReading.CantVerify("unreadable", "A link's path is computed.", unreadable) : ClaimReading.Absent(start);
+    }
+
+    /// <summary>
+    /// The navigations the units make, nearest first: their own, then those of the code's own functions they call, each with the
+    /// calls that lead to it, outermost first.
+    /// </summary>
+    private static IEnumerable<(CallNode Call, IReadOnlyList<CallNode> Through)> Navigations(CodeGraph code, IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> units)
+    {
+        var seen = new HashSet<FunctionNode>();
+        var queue = new Queue<(TypeNode Type, FunctionNode Unit, IReadOnlyList<CallNode> Through)>(units.Where(x => seen.Add(x.Unit)).Select(x => (x.Type, x.Unit, (IReadOnlyList<CallNode>)[])));
+        while (queue.TryDequeue(out var current))
+        {
+            foreach (var call in current.Unit.Calls)
+            {
+                if (IsNavigation(call))
+                {
+                    yield return (call, current.Through);
+                    continue;
+                }
+
+                foreach (var (type, member) in UiCode.Reached(code, current.Type, call))
+                {
+                    if (member.Body is { } body && seen.Add(body))
+                    {
+                        queue.Enqueue((type, body, [.. current.Through, call]));
+                    }
+                }
+            }
+        }
     }
 
     private static readonly Regex Router = new(@"(?i)(router|history)$");

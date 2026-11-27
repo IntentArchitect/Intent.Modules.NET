@@ -733,7 +733,7 @@ internal sealed class ReactLinks : ScriptLinks
 
     protected override bool UsesByImport => true;
 
-    protected override IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, IReadOnlyList<MarkupNode> markup)
+    protected override IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, TypeNode type, IReadOnlyList<MarkupNode> markup)
     {
         foreach (var attribute in markup.SelectMany(x => x.Attributes).Where(x => x.Name is "to" or "href"))
         {

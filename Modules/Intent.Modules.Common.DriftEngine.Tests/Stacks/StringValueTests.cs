@@ -201,6 +201,94 @@ public class StringValueTests
         Show(TypeScript.StringOf(Returned(TypeScript, "Client", "orders"))).ShouldBe("/api/client/orders/{id}");
     }
 
+    private static readonly CodeGraph Endpoints = ReadTypeScript(
+        ("src/app/core/constants/paths.constants.ts", """
+            export const AUTHENTICATION_PATHS = {
+              base: 'auth',
+              logIn: 'log-in',
+            };
+
+            export const POKEMON_PATHS = {
+              base: 'pokemon',
+            };
+            """),
+        ("src/app/core/constants/urls.constants.ts", """
+            import { AUTHENTICATION_PATHS, POKEMON_PATHS } from './paths.constants';
+
+            export const AUTH_URLS = {
+              logIn: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.logIn}`,
+            };
+
+            export const POKEMON_URLS = {
+              detail: (id: string) => `/${POKEMON_PATHS.base}/${id}`,
+            };
+            """),
+        ("src/app/core/constants/endpoints.constants.ts", """
+            import { inject } from '@angular/core';
+            import { ENVIRONMENT } from '../tokens/environment.token';
+
+            const getUserEndpoints = (baseUrl: string) => ({
+              v1: {
+                user: `${baseUrl}/v1/user`,
+              },
+            });
+
+            const getPokemonEndpoints = (baseUrl: string, host: string) => ({
+              v1: {
+                pokemon: (pokemonIdOrName: string | number) => `${host}/v2/pokemon/${pokemonIdOrName}`,
+              },
+            });
+
+            export const getEndpoints = () => {
+              const environment = inject(ENVIRONMENT);
+              const POKEMON_API_HOST = 'https://pokeapi.co/api';
+              return {
+                user: getUserEndpoints(environment.apiBaseUrl),
+                pokemon: getPokemonEndpoints(environment.apiBaseUrl, POKEMON_API_HOST),
+              } as const;
+            };
+            """),
+        ("src/app/features/user/user.service.ts", """
+            import { HttpClient } from '@angular/common/http';
+            import { inject, Injectable } from '@angular/core';
+            import { getEndpoints } from '../../core/constants/endpoints.constants';
+            import { AUTH_URLS, POKEMON_URLS } from '../../core/constants/urls.constants';
+
+            @Injectable({ providedIn: 'root' })
+            export class UserService {
+              private readonly http = inject(HttpClient);
+              private readonly endpoints = getEndpoints();
+              readonly authUrls = AUTH_URLS;
+              readonly pokemonId = 'x';
+              readonly detailUrl = computed(() => POKEMON_URLS.detail(this.pokemonId));
+
+              getMe() {
+                return this.http.get(this.endpoints.user.v1.user);
+              }
+
+              getPokemon(pokemonIdOrName: string | number) {
+                return this.http.get(this.endpoints.pokemon.v1.pokemon(pokemonIdOrName));
+              }
+            }
+            """));
+
+    [Fact]
+    public void TypeScript_follows_a_member_read_off_what_a_field_a_call_or_a_function_holds()
+    {
+        Show(Endpoints.StringOf(Sent(Endpoints, "UserService", "getMe"))).ShouldBe("{environment.apiBaseUrl}/v1/user");
+        Show(Endpoints.StringOf(Sent(Endpoints, "UserService", "getPokemon"))).ShouldBe("https://pokeapi.co/api/v2/pokemon/{pokemonIdOrName}");
+    }
+
+    [Fact]
+    public void A_path_of_members_reads_through_constants_and_runs_what_a_called_step_holds()
+    {
+        var service = Endpoints.Types.Single(x => x.Name == "UserService");
+        Show(Endpoints.StringOf(service, [("authUrls", false), ("logIn", false)])!).ShouldBe("/auth/log-in");
+        Show(Endpoints.StringOf(service, [("detailUrl", true)])!).ShouldBe("/pokemon/x");
+    }
+
+    private static ValueNode Sent(CodeGraph graph, string type, string member) => Member(graph, type, member).Body!.Calls.Single(x => x.Name == "get").Arguments[0];
+
     private static MemberNode Member(CodeGraph graph, string type, string member) => graph.Types.Single(x => x.Name == type).Members.Single(x => x.Name == member);
 
     private static ValueNode Returned(CodeGraph graph, string type, string member) => Member(graph, type, member).Body!.Returns.Single();

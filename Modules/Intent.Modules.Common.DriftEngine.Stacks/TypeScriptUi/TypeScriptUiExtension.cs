@@ -18,7 +18,22 @@ public sealed class TypeScriptUiExtension : IDriftExtension
 
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Modules(), new StoreMembers(), new ModuleLinks(), new Requests(), new BaseUrls(), new PersistedStores()];
 
-    public IEnumerable<ICodeReader> Readers { get; } = [new ClassDependencies(), new StoreGetters()];
+    public IEnumerable<ICodeReader> Readers { get; } = [new ClassDependencies(), new StoreGetters(), new ProxyHelpers()];
+}
+
+/// <summary>
+/// A User Interface Proxy's TypeScript method that sends no request (an Angular service's <c>logOut()</c> that only clears local
+/// state, a <c>loadGtmScript()</c>) can't be a Proxy Operation, which the designer requires to call a backend operation or
+/// describe an HTTP request (<see cref="CodeGraph.Unstatable"/>), so <c>unmodelled.member</c> doesn't ask for one, as it
+/// doesn't of a C# proxy's (<c>ProxyMethods</c>). A method that sends one through another it calls is a request.
+/// </summary>
+internal sealed class ProxyHelpers : ICodeReader
+{
+    public void Read(CodeGraph graph) => graph.Unstatable.Add((elementType, type, member) =>
+        elementType == "Proxy" && member is { Kind: "method", Body: not null } && UiCode.IsTypeScript(type)
+        && Requests.Request(graph, type, member) is null
+            ? "it sends no request, and a Proxy Operation calls a backend operation or describes an HTTP request"
+            : null);
 }
 
 /// <summary>
@@ -136,7 +151,8 @@ internal sealed class BaseUrls : IClaimReader
 
 /// <summary>
 /// <c>store.persisted</c> for a TypeScript store (Pinia, Redux Toolkit, Zustand): its state is kept across reloads when its
-/// definition reads or writes Web Storage (<c>localStorage</c>, <c>sessionStorage</c>, <c>window.</c> either), directly or in
+/// definition reads or writes Web Storage (<c>localStorage</c>, <c>sessionStorage</c>, <c>window.</c> either, or any value typed
+/// <c>Storage</c>, such as an injected <c>LOCAL_STORAGE</c> token's), directly or in
 /// the module's own functions it calls, or through what keeps it there: VueUse's <c>useStorage</c>, <c>useLocalStorage</c> and
 /// <c>useSessionStorage</c>, Zustand's <c>persist</c> middleware, or a Pinia store's <c>persist</c> option
 /// (pinia-plugin-persistedstate). It answers only for a store a store library makes; another stack reads its own.
@@ -182,7 +198,7 @@ internal sealed class PersistedStores : IClaimReader
             }
         }
 
-        if (calls.FirstOrDefault(Keeps) is { } kept)
+        if (calls.FirstOrDefault(x => Keeps(context.Code, x)) is { } kept)
         {
             return ClaimReading.Stated("true", kept.At);
         }
@@ -193,9 +209,33 @@ internal sealed class PersistedStores : IClaimReader
             : ClaimReading.Absent(store.Call.At, "false");
     }
 
-    private static bool Keeps(CallNode call) =>
-        call.Name is "getItem" or "setItem" && call.Receiver is { } receiver && Storages.Contains(receiver)
+    private static bool Keeps(CodeGraph code, CallNode call) =>
+        call.Name is "getItem" or "setItem" && (call.Receiver is { } receiver && Storages.Contains(receiver) || IsStorage(code, call.ReceiverType, 0))
         || call.Receiver is null or "" && Keepers.Contains(call.Name);
+
+    /// <summary>
+    /// A value typed as Web Storage, the DOM's <c>Storage</c>, whatever it is named: a field declared <c>Storage | null</c>, or
+    /// what an Angular injection token of it gives (<c>inject(LOCAL_STORAGE)</c>, where <c>LOCAL_STORAGE</c> is a
+    /// <c>new InjectionToken&lt;Storage | null&gt;(...)</c>), as an app that renders on the server provides it.
+    /// </summary>
+    private static bool IsStorage(CodeGraph code, TypeRefNode? type, int depth)
+    {
+        if (type is null || depth > 3)
+        {
+            return false;
+        }
+
+        if (type.Name == "Storage" || type.Union.Any(x => IsStorage(code, x, depth + 1)))
+        {
+            return true;
+        }
+
+        // What inject gives for a token: the type argument of the InjectionToken the token is.
+        return code.Types.Where(UiCode.IsTypeScript).SelectMany(x => x.Members)
+            .Where(x => x.Name == type.Name && x.Kind is "field" or "property" && x.Value is not null)
+            .SelectMany(x => x.Value!.Types)
+            .Any(x => x.Name == "InjectionToken" && x.Arguments.Any(a => IsStorage(code, a, depth + 1)));
+    }
 
     /// <summary>
     /// A store written as a class (MobX's): its state is kept across reloads when its own code reads or writes Web Storage, in its
@@ -212,7 +252,7 @@ internal sealed class PersistedStores : IClaimReader
 
         calls.AddRange(store.Members.SelectMany(x => x.Body?.Calls ?? []));
 
-        if (calls.FirstOrDefault(Keeps) is { } kept)
+        if (calls.FirstOrDefault(x => Keeps(context.Code, x)) is { } kept)
         {
             return ClaimReading.Stated("true", kept.At);
         }
@@ -376,9 +416,12 @@ internal sealed class Modules : IClaimReader
         else
         {
             var folders = UiCode.Folders(element);
+            // Named for it by its stem (cart.ts) or, as Angular's style guide names a file for its class, by its whole name
+            // before the extension, its type suffix included (alert.service.ts for AlertService, user.store.ts for UserStore).
             var candidates = code.Files.Where(x => UiCode.IsTypeScript(x.Path) && !x.Path.EndsWith(".d.ts", StringComparison.OrdinalIgnoreCase)
                                                    && UiCode.Words(UiCode.Stem(x.Path)) is var stem
-                                                   && (stem == name || store && (stem == name + "store" || stem == $"use{name}store" || stem == name + "slice")))
+                                                   && (stem == name || UiCode.Words(UiCode.Named(x.Path)) == name
+                                                       || store && (stem == name + "store" || stem == $"use{name}store" || stem == name + "slice")))
                 .ToList();
             file = candidates.Where(x => UiCode.EndsWith(UiCode.Directory(x.Path), folders)).MinBy(x => x.Path.Length)
                    ?? (candidates.Count == 1 ? candidates[0] : null);
@@ -492,6 +535,13 @@ internal sealed class Requests : IClaimReader
                     : ClaimReading.CantVerify("unreadable", "The request's method is computed.", request.At);
             case "proxy.route":
             {
+                // A URL that is wholly the operation's own parameter (http.get(fileUrl)) is the route the model states as {fileUrl}.
+                if (request.Url is { Kind: "interpolated", Parts: [{ Parameter: { } whole }] })
+                {
+                    var parameter = $"{{{whole.Name}}}";
+                    return ClaimReading.Compared(parameter, request.At, string.Equals(context.Expected.Trim().Trim('/'), parameter, StringComparison.OrdinalIgnoreCase));
+                }
+
                 if (request.Url is not { } url || Route(url) is not { } written)
                 {
                     return ClaimReading.CantVerify("unreadable", "The request's URL is computed.", request.At);
@@ -642,6 +692,12 @@ internal sealed class Requests : IClaimReader
             if ((resource.Function is { } function ? function.Returns.FirstOrDefault() : resource) is not { } request)
             {
                 return null;
+            }
+
+            // A resource whose function gives undefined sends nothing then (pokemonName() ? url : undefined): the request is the other way.
+            if (request.Given.Where(x => x.Text != "undefined").ToList() is [var sent] && request.Given.Count > 1)
+            {
+                request = sent;
             }
 
             var url = request.Members.Count > 0 ? request.Members.FirstOrDefault(x => x.Member == "url")?.Value : request;

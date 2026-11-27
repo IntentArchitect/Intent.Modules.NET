@@ -2667,3 +2667,79 @@ export class AuthService {
   ]
 }
 ```
+
+## angular-proxy-methods-that-send-no-request
+
+An Angular API client's method that sends no request can't be a Proxy Operation, which the designer requires to call a backend operation or describe an HTTP request: `logOut()` only clears local state and `loadScript()` adds a script tag, so neither is asked for, as a C# proxy's aren't. `refresh()` sends one through the client's own `send()`, so it is a request the model doesn't state, and is reported.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "auth-service", "type": "Proxy", "name": "AuthenticationService", "children": [
+            { "id": "log-in", "type": "Proxy Operation", "name": "logIn", "stereotypes": { "HTTP Request": { "Verb": "POST", "Route": "api/login" } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```typescript file src/app/authentication.service.ts
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class AuthenticationService {
+  private readonly http = inject(HttpClient);
+  private readonly token = signal<string | null>(null);
+
+  logIn(name: string) {
+    return this.http.post('/api/login', { name });
+  }
+
+  logOut(): void {
+    this.token.set(null);
+  }
+
+  loadScript(): void {
+    document.head.appendChild(document.createElement('script'));
+  }
+
+  refresh() {
+    return this.send();
+  }
+
+  private send() {
+    return this.http.post('/api/token/refresh', {});
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "auth-service", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/app/authentication.service.ts:21", "messageContains": "refresh" },
+    { "rule": "optin/unmodelled.member", "subject": "src/app/authentication.service.ts:13", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/app/authentication.service.ts:17", "count": 0 }
+  ]
+}
+```

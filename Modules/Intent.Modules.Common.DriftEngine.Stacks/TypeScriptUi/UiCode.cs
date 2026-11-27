@@ -48,6 +48,13 @@ internal static class UiCode
         return name.Contains('.') ? name[..name.IndexOf('.')] : name;
     }
 
+    /// <summary>A file's name without its last extension: <c>alert.service</c> for <c>services/alert.service.ts</c>.</summary>
+    public static string Named(string file)
+    {
+        var name = file[(file.LastIndexOf('/') + 1)..];
+        return name.Contains('.') ? name[..name.LastIndexOf('.')] : name;
+    }
+
     /// <summary>The element's designer folders, outermost first: the elements it sits in.</summary>
     public static IReadOnlyList<string> Folders(IElement element)
     {
@@ -388,9 +395,13 @@ internal static class UiCode
     /// A router's commands as a path (Angular's <c>['/pizzerias', pizzeria.id, 'edit']</c>): each segment's text joined by
     /// <c>/</c>, a value the code computes a <see cref="Hole"/>, a segment holding slashes as written.
     /// </summary>
-    public static string Commands(CodeGraph code, IReadOnlyList<ValueNode> segments)
+    public static string Commands(CodeGraph code, IReadOnlyList<ValueNode> segments) => Commands(code, segments, []);
+
+    /// <summary>As <see cref="Commands(CodeGraph, IReadOnlyList{ValueNode})"/>, the segments read through the calls that lead to them, outermost first.</summary>
+    public static string Commands(CodeGraph code, IReadOnlyList<ValueNode> segments, IReadOnlyList<CallNode> through)
     {
-        var parts = segments.Select(x => Text(code.StringOf(x)) is { } text && !text.Contains(Hole) ? text : Hole.ToString()).ToList();
+        // A segment the code builds with values in it (POKEMON_URLS.detail(id), `/pokemon/${id}`) keeps its text, each value a hole.
+        var parts = segments.Select(x => Text(through.Count == 0 ? code.StringOf(x) : code.StringOf(x, through)) is { } text && text.Any(c => c != Hole) ? text : Hole.ToString()).ToList();
         var joined = string.Join("/", parts.Select((x, i) => i == 0 ? x.TrimEnd('/') : x.Trim('/')));
         return joined.Length == 0 ? "/" : joined;
     }

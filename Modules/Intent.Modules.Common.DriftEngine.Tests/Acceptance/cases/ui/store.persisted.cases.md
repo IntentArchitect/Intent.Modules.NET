@@ -415,3 +415,117 @@ export default class CommonStore {
   ]
 }
 ```
+
+## angular-injected-storage-token
+
+An Angular store that keeps its state in Web Storage through an injection token, as an app that renders on the server provides it: `inject(LOCAL_STORAGE)`, where `LOCAL_STORAGE` is a `new InjectionToken<Storage | null>(...)`. Whatever the field is named, a `getItem` or `setItem` on a value typed `Storage`, declared so or given by the token, is Web Storage.
+
+```json case
+{ "phase": 6, "kinds": ["store.persisted"], "requirements": ["R2"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "theme-store", "type": "Store", "name": "ThemeManagerService", "stereotypes": { "Persisted": { } } },
+          { "id": "consent-store", "type": "Store", "name": "CookieConsentService", "stereotypes": { "Persisted": { } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/app/local-storage.ts
+import { InjectionToken } from '@angular/core';
+
+export const LOCAL_STORAGE = new InjectionToken<Storage | null>('LOCAL_STORAGE', {
+  providedIn: 'root',
+  factory: () => (typeof localStorage === 'undefined' ? null : localStorage),
+});
+```
+
+```typescript file src/app/theme-manager.service.ts
+import { inject, Injectable, signal } from '@angular/core';
+import { LOCAL_STORAGE } from './local-storage';
+
+@Injectable({ providedIn: 'root' })
+export class ThemeManagerService {
+  private readonly localStorage: Storage | null = inject(LOCAL_STORAGE);
+  private readonly theme = signal(this.localStorage?.getItem('theme') ?? 'dark');
+
+  setTheme(theme: string): void {
+    this.theme.set(theme);
+    this.localStorage?.setItem('theme', theme);
+  }
+}
+```
+
+```typescript file src/app/cookie-consent.service.ts
+import { inject, Injectable } from '@angular/core';
+import { LOCAL_STORAGE } from './local-storage';
+
+@Injectable({ providedIn: 'root' })
+export class CookieConsentService {
+  private readonly storage = inject(LOCAL_STORAGE);
+
+  accept(): void {
+    this.storage?.setItem('consent', 'yes');
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "store.persisted", "element": "theme-store", "outcome": "verified", "expected": "true", "actual": "true" },
+    { "kind": "store.persisted", "element": "consent-store", "outcome": "verified", "expected": "true", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/store.persisted", "count": 0 }
+  ]
+}
+```
+
+## angular-injected-storage-token-saves-nothing
+
+The theme store still injects the token but no longer reads or writes it, so the model's Persisted is contradicted.
+
+```json case
+{ "phase": 6, "base": "angular-injected-storage-token", "kinds": ["store.persisted"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```typescript file src/app/theme-manager.service.ts
+import { inject, Injectable, signal } from '@angular/core';
+import { LOCAL_STORAGE } from './local-storage';
+
+@Injectable({ providedIn: 'root' })
+export class ThemeManagerService {
+  private readonly localStorage: Storage | null = inject(LOCAL_STORAGE);
+  private readonly theme = signal('dark');
+
+  setTheme(theme: string): void {
+    this.theme.set(theme);
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "store.persisted", "element": "theme-store", "outcome": "contradicted", "expected": "true", "actual": "false" },
+    { "kind": "store.persisted", "element": "consent-store", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/store.persisted", "severity": "error", "subject": "theme-store" }
+  ]
+}
+```

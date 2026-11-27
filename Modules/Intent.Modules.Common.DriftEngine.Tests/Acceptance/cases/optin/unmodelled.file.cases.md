@@ -830,3 +830,127 @@ public partial class CatalogView : ContentPage
   "noOtherFindings": true
 }
 ```
+
+## angular-lazy-parent-routes-file
+
+An Angular app's root routes file holds only lazy parents and a redirect: `{ path: USER_PATHS.base, loadChildren: () => import('./features/user/user.routes')... }` and `{ path: '**', redirectTo: ... }`. Each lazy entry's path is the start of the Route of every Page under it, so a Page's route is read through it: the file is code the model describes, and isn't reported.
+
+```json case
+{ "phase": 6, "kinds": ["page.route"], "cases": ["optin/unmodelled.file"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "App" },
+          { "id": "my-pokemon", "type": "Page", "name": "MyPokemonComponent", "stereotypes": { "Page": { "Route": "/user/my-pokemon" } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" }, { "Glob": "src/main.ts", "Scope": "Context" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.file", "Glob": "src/app/**" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```typescript file src/main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { App } from './app/app';
+import { appRoutes } from './app/app.routes';
+
+bootstrapApplication(App, { providers: [provideRouter(appRoutes)] });
+```
+
+```typescript file src/app/app.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({ selector: 'app-root', imports: [RouterOutlet], template: `<router-outlet />` })
+export class App {}
+```
+
+```typescript file src/app/app.routes.ts
+import type { Route } from '@angular/router';
+
+export const appRoutes: Route[] = [
+  {
+    path: 'user',
+    loadChildren: async () => import('./features/user/user.routes').then((module) => module.USER_ROUTES),
+  },
+  { path: '**', redirectTo: '/user/my-pokemon' },
+];
+```
+
+```typescript file src/app/features/user/user.routes.ts
+import { MyPokemonComponent } from './my-pokemon.component';
+
+export const USER_ROUTES = [{ path: 'my-pokemon', component: MyPokemonComponent }];
+```
+
+```typescript file src/app/features/user/my-pokemon.component.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-my-pokemon', template: `<h1>My Pokemon</h1>` })
+export class MyPokemonComponent {}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "page.route", "element": "my-pokemon", "outcome": "verified", "at": "src/app/features/user/user.routes.ts:3" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.file", "subject": "src/app/app.routes.ts:1", "count": 0 },
+    { "rule": "optin/unmodelled.file", "subject": "src/app/features/user/user.routes.ts:1", "count": 0 }
+  ]
+}
+```
+
+## angular-lazy-parent-routes-file-of-no-page
+
+With no Page modelled under it, the root routes file and the child routes file describe nothing the model states, and both are reported.
+
+```json case
+{ "phase": 6, "base": "angular-lazy-parent-routes-file", "kinds": ["page.route"], "cases": ["optin/unmodelled.file"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "App" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" }, { "Glob": "src/main.ts", "Scope": "Context" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.file", "Glob": "src/app/**" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.file", "severity": "error", "subject": "src/app/app.routes.ts:1", "messageContains": "app.routes.ts" },
+    { "rule": "optin/unmodelled.file", "severity": "error", "subject": "src/app/features/user/user.routes.ts:1", "messageContains": "user.routes.ts" }
+  ]
+}
+```
