@@ -57,13 +57,24 @@ internal sealed class GlobLine
     {
         Pattern = line;
         Excludes = line.StartsWith('!');
-        _glob = new GlobPattern(Excludes ? line[1..].TrimStart() : line);
+        var glob = Excludes ? line[1..].TrimStart() : line;
+        _glob = new GlobPattern(glob);
+        Unsupported = glob.StartsWith('/') ? "a glob is relative to the row's folder, so a leading `/` matches nothing; drop it"
+            : glob.IndexOfAny(['{', '}']) >= 0 ? "braces aren't supported; give each alternative a line of its own"
+            : glob.IndexOfAny(['[', ']']) >= 0 ? "character classes aren't supported; give each name a line of its own, or use `?` or `*`"
+            : null;
     }
 
     /// <summary>The line as written, with its <c>!</c>.</summary>
     public string Pattern { get; }
 
     public bool Excludes { get; }
+
+    /// <summary>
+    /// Why the matcher can't take the line, as File Classification's can't (scope.md, Glob rules), or null: a leading
+    /// <c>/</c>, braces or a character class. Such a line matches nothing, and the run reports it as <c>config/glob</c>.
+    /// </summary>
+    public string? Unsupported { get; }
 
     /// <summary>A row's lines, one per line of its text; a line starting with <c>#</c> is a comment.</summary>
     public static IReadOnlyList<GlobLine> Of(string? text) =>

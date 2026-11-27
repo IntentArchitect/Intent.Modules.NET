@@ -316,10 +316,18 @@ public sealed partial class DriftEngine
                     : $"Scope row {row.Number} ({what}) is Out with no reason. Say why this code isn't checked.", subject);
             }
 
+            var unsupported = row.Globs.Where(x => x.Unsupported is not null).ToList();
+            foreach (var line in unsupported)
+            {
+                yield return new Finding("config/glob", ScopeArea, "Code", "error",
+                    $"Scope row {row.Number} ({what}) has the glob `{line.Pattern}`, which matches no file: {line.Unsupported}.", subject);
+            }
+
             var decides = row.Types.Count > 0
                 ? _excludedTypes.Count(x => x.Row == row)
                 : _files.Count(x => x.Decision.Row == row);
-            if (decides == 0)
+            // A row deciding nothing because of a glob the matcher can't take has said so already.
+            if (decides == 0 && unsupported.Count == 0)
             {
                 yield return new Finding("scope/stale", ScopeArea, "Code", "warning",
                     $"Scope row {row.Number} ({what}) decides no {(row.Types.Count > 0 ? "type" : "file")}. Remove it, or correct it.", subject);

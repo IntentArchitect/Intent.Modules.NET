@@ -134,10 +134,11 @@ Configuration findings:
 | `config/packUnused`      | A pack provides vocabulary for no designer with content and no rule used | Warning  |
 | `config/overrideReason`  | A severity override with no reason                                       | Error    |
 | `config/exceptionReason` | An exception with no reason                                              | Error    |
+| `config/glob`            | An Opt-in Rules row's glob line the matcher can't take, as a scope row's | Error    |
 | `optin/staleException`   | An exception that matches nothing                                        | Warning  |
 | `config/unknownRule`     | An override, opt-in row or exception naming a rule no pack provides      | Error    |
 | `config/overrideSeverity` | A severity override whose severity isn't Error or Warning               | Error    |
 
 ## Acceptance cases
 
-The `scope` area of the suite ([acceptance-suite.md](acceptance-suite.md)) has a file per case kind: `missing`, `reason`, `stale`, `coverage`, `gate` (opt-in rules ignore out-of-scope code), `shadow`, `notRead`, `builtin`, `type`, `nested` and `context`. The catalog maps eShopCustom's adoption-scope checks onto them ([claim-catalog.md](claim-catalog.md)).
+The `scope` area of the suite ([acceptance-suite.md](acceptance-suite.md)) has a file per case kind: `missing`, `reason`, `stale`, `coverage`, `gate` (opt-in rules ignore out-of-scope code), `shadow`, `notRead`, `builtin`, `type`, `nested`, `context` and `glob`. The catalog maps eShopCustom's adoption-scope checks onto them ([claim-catalog.md](claim-catalog.md)).

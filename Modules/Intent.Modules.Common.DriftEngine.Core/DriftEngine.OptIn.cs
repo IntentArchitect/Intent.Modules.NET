@@ -415,6 +415,11 @@ public sealed partial class DriftEngine
             findings.Add(Config("config/unknownRule", $"Opt-in Rules row {row.Number} of the Drift Check names `{row.Rule}`, which no installed module provides. The opt-in rules are {known}."));
         }
 
+        foreach (var (row, line) in _check.OptIn.SelectMany(x => x.Globs.Where(g => g.Unsupported is not null).Select(g => (x, g))))
+        {
+            findings.Add(Config("config/glob", $"Opt-in Rules row {row.Number} of the Drift Check ({row.Rule}) has the glob `{line.Pattern}`, which matches no file: {line.Unsupported}."));
+        }
+
         foreach (var row in _check.Exceptions)
         {
             if (!optInRules.Contains(row.Rule))
