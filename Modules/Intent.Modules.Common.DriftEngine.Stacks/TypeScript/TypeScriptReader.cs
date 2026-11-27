@@ -488,6 +488,9 @@ internal static class TypeScriptReader
                 case "ExportAssignment" when statement["expression"] is { Kind: "Identifier" } exported:
                     module.Default ??= exported.Value;
                     return;
+                case "ExportAssignment" when Unwrapped(statement["expression"]!) is { Kind: "ObjectLiteralExpression" } api:
+                    DefaultObject(api);
+                    return;
                 case "ExportAssignment" when Unwrapped(statement["expression"]!) is { Kind: "CallExpression" } wrapper:
                     // export default memo(Cart), connect(mapState)(Cart): what a wrapper is given, when it is a component's name.
                     if (wrapper.List("arguments").FirstOrDefault(x => x.Is("Identifier"))?.Value is { Length: > 0 } wrapped && char.IsUpper(wrapped[0]))
@@ -551,8 +554,18 @@ internal static class TypeScriptReader
 
             foreach (var member in declaration.List("members"))
             {
+                var initializer = member["initializer"] is { } value ? Unwrapped(value) : null;
                 switch (member.Kind)
                 {
+                    case "PropertyDeclaration" when react is not null && !member.Has("StaticKeyword") && member["name"]?.Value == "state" && initializer is { Kind: "ObjectLiteralExpression" } state:
+                        // state = { order: null }: each of its keys is the component's state, as useState's values are.
+                        State(type, state);
+                        break;
+                    case "PropertyDeclaration" when initializer is { Kind: "ArrowFunction" or "FunctionExpression" } function:
+                        // fetchOrder = (id) => { ... }: a field holding a function is a method, its body the class's code.
+                        Body(Member(member, "method", Returns(function), member.List("modifiers"), Parameters(function), TypeParameters(function),
+                            extra: function.Has("AsyncKeyword") ? ["async"] : []), function, type);
+                        break;
                     case "PropertyDeclaration":
                         type.Members.Add(Member(member, "property", Typed(member["type"], member), member.List("modifiers"), value: member["initializer"]));
                         break;
@@ -576,7 +589,118 @@ internal static class TypeScriptReader
                 }
             }
 
+            if (react is not null)
+            {
+                ClassComponent(type, declaration);
+            }
+
             Accessors(type, declaration.List("members"));
+        }
+
+        /// <summary>
+        /// A class component's props and state, which JavaScript states nowhere but in its code: each prop its
+        /// <c>propTypes</c> or <c>defaultProps</c> declare (<c>static propTypes = { ... }</c>, or <c>Footer.propTypes = { ... }</c>
+        /// in its file), and each it reads (<c>this.props.year</c>, <c>const { classes } = this.props</c>), as public properties;
+        /// each key of the state its constructor sets (<c>this.state = { order: null }</c>), as state.
+        /// </summary>
+        private void ClassComponent(TypeNode type, TypeScriptNode declaration)
+        {
+            void AddProp(TypeScriptNode at, string name, TypeScriptNode? value = null)
+            {
+                if (type.Members.All(x => x.Name != name))
+                {
+                    type.Members.Add(Member(at, "property", null, [], name: name, value: value, access: "public"));
+                }
+            }
+
+            // static propTypes = { ... }, or Footer.propTypes = { ... } after the class.
+            var declared = declaration.List("members")
+                .Where(x => x.Is("PropertyDeclaration") && x.Has("StaticKeyword") && x["name"]?.Value is "propTypes" or "defaultProps")
+                .Select(x => x["initializer"])
+                .Concat(module.File.Root.List("statements")
+                    .Select(x => x.Is("ExpressionStatement") ? Unwrapped(x["expression"]!) : null)
+                    .Where(x => x is { Kind: "BinaryExpression" } && x["operatorToken"]?.Kind == "EqualsToken" && x["left"] is { Kind: "PropertyAccessExpression" } left
+                                && left["expression"]?.Value == type.Name && left["name"]?.Value is "propTypes" or "defaultProps")
+                    .Select(x => x!["right"]));
+            foreach (var property in declared.OfType<TypeScriptNode>().Select(Unwrapped).Where(x => x.Is("ObjectLiteralExpression")).SelectMany(x => x.List("properties")))
+            {
+                if (property["name"] is { } name)
+                {
+                    AddProp(property, NameOf(name));
+                }
+            }
+
+            foreach (var node in declaration.Descendants())
+            {
+                // this.props.year, read anywhere in the class.
+                if (node.Is("PropertyAccessExpression") && IsThisProps(node["expression"]) && node["name"]?.Value is { } read)
+                {
+                    AddProp(node, read);
+                }
+
+                // const { classes, year } = this.props.
+                if (node.Is("VariableDeclaration") && node["name"] is { Kind: "ObjectBindingPattern" } pattern && node["initializer"] is { } from && IsThisProps(from))
+                {
+                    foreach (var element in pattern.List("elements").Where(x => x["dotDotDotToken"] is null))
+                    {
+                        if ((element["propertyName"] is { } renamed ? NameOf(renamed) : element["name"]?.Value) is { } prop)
+                        {
+                            AddProp(element, prop, element["initializer"]);
+                        }
+                    }
+                }
+
+                // this.state = { order: null }, in its constructor.
+                if (node.Is("BinaryExpression") && node["operatorToken"]?.Kind == "EqualsToken" && node["left"] is { Kind: "PropertyAccessExpression" } target
+                    && Unwrapped(target["expression"]!).Is("ThisKeyword") && target["name"]?.Value == "state" && node["right"] is { } right && Unwrapped(right) is { Kind: "ObjectLiteralExpression" } state
+                    && node.Ancestors().Any(x => x.Is("Constructor")))
+                {
+                    State(type, state);
+                }
+            }
+
+            static bool IsThisProps(TypeScriptNode? expression) =>
+                expression is not null && Unwrapped(expression) is { Kind: "PropertyAccessExpression" } props && props["name"]?.Value == "props"
+                && Unwrapped(props["expression"]!).Is("ThisKeyword");
+        }
+
+        /// <summary>
+        /// A default export that is an object of the module's own functions, <c>export default { getOrders, getOrder }</c>: the
+        /// module is what it exports, so a default import of it (<c>import ordersService from './ordersService'</c>) is the
+        /// module and <c>ordersService.getOrder(id)</c> calls its <c>getOrder</c>. A function the object declares itself
+        /// (<c>getOrders() { ... }</c>, <c>getOrder: (id) =&gt; ...</c>) is one of the module's, named by its key.
+        /// </summary>
+        private void DefaultObject(TypeScriptNode literal)
+        {
+            var owner = Owner();
+            module.Default ??= owner.Name;
+            foreach (var property in literal.List("properties"))
+            {
+                var value = property["initializer"] is { } initializer ? Unwrapped(initializer) : null;
+                switch (property.Kind)
+                {
+                    case "MethodDeclaration":
+                        Body(Member(property, "method", Returns(property), property.List("modifiers"), Parameters(property), TypeParameters(property), access: "public"), property, owner);
+                        break;
+                    case "PropertyAssignment" when value is { Kind: "ArrowFunction" or "FunctionExpression" } function:
+                        Body(Member(property, "method", Returns(function), function.List("modifiers"), Parameters(function), TypeParameters(function), access: "public",
+                            extra: function.Has("AsyncKeyword") ? ["async"] : []), function, owner);
+                        break;
+                }
+            }
+        }
+
+        /// <summary>A class component's state, each key of the object it starts as: private, as a function component's <c>useState</c> values are.</summary>
+        private void State(TypeNode type, TypeScriptNode literal)
+        {
+            foreach (var property in literal.List("properties").Where(x => x["name"] is not null))
+            {
+                var name = NameOf(property["name"]!);
+                if (type.Members.All(x => x.Name != name))
+                {
+                    type.Members.Add(Member(property, "property", null, [], name: name, access: "private", extra: ["state"]));
+                }
+            }
         }
 
         private void Interface(TypeScriptNode declaration, string ns)
@@ -880,11 +1004,22 @@ internal static class TypeScriptReader
             }
             else if (props?["name"] is { Kind: "Identifier" } named && stated.Count == 0)
             {
-                // (props) => props.title: each name it reads from its props.
+                // (props) => props.title, or const { title, navigation } = props: each name it reads from its props.
                 foreach (var read in function.Descendants().Where(x => x.Is("PropertyAccessExpression") && x["expression"] is { Kind: "Identifier" } on && on.Value == named.Value)
                              .DistinctBy(x => x["name"]!.Value))
                 {
                     type.Members.Add(Member(read, "property", null, [], name: read["name"]!.Value, access: "public"));
+                }
+
+                foreach (var element in function.Descendants()
+                             .Where(x => x.Is("VariableDeclaration") && x["name"] is { Kind: "ObjectBindingPattern" } && x["initializer"] is { } from && Unwrapped(from) is { Kind: "Identifier" } given && given.Value == named.Value)
+                             .SelectMany(x => x["name"]!.List("elements")).Where(x => x["dotDotDotToken"] is null))
+                {
+                    var prop = element["propertyName"] is { } renamed ? NameOf(renamed) : element["name"]?.Value;
+                    if (prop is not null && type.Members.All(x => x.Name != prop))
+                    {
+                        type.Members.Add(Member(element, "property", null, [], name: prop, value: element["initializer"], access: "public"));
+                    }
                 }
             }
 

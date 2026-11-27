@@ -120,6 +120,24 @@ public sealed partial class DriftEngine
     internal IReadOnlySet<string> States(string designer, IElement element) =>
         (Convention(designer, element)?["states"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToHashSet(StringComparer.Ordinal) ?? [];
 
+    /// <summary>
+    /// The files whose every type a scope row excludes by name (R26): what they declare is out of scope with their types, so
+    /// <c>unmodelled.file</c> doesn't ask for them. A file that also declares a type still read, or loose code of its own (a
+    /// module type), isn't one.
+    /// </summary>
+    internal IReadOnlySet<string> FilesOfExcludedTypes()
+    {
+        var read = _graph.Types.SelectMany(x => x.Files).ToHashSet(StringComparer.Ordinal);
+        return _excludedTypes.SelectMany(x => x.Type.Files).Where(x => !read.Contains(x)).ToHashSet(StringComparer.Ordinal);
+    }
+
+    /// <summary>
+    /// The kinds of member the element type can state as static (its conventions' <c>statics</c>), as its designer's member
+    /// types allow: a Domain Class's Operations, never its Attributes. Null when no convention says, so any it states can be.
+    /// </summary>
+    internal IReadOnlySet<string>? Statics(string designer, IElement element) =>
+        (Convention(designer, element)?["statics"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToHashSet(StringComparer.Ordinal);
+
     /// <summary>Whether the designer names each of the element type's members uniquely, so only one of a type's overloads can be stated.</summary>
     internal bool UniqueNames(string designer, IElement element) => Convention(designer, element)?["uniqueNames"]?.GetValue<bool>() == true;
 

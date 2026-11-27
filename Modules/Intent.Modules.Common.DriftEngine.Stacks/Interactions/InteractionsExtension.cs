@@ -231,6 +231,7 @@ internal sealed class EntityActionReader : IClaimReader
         }
 
         var located = Reach.Located<TypeNode>(context, entity, "type.exists");
+        var repositories = Repositories(context, entity);
         // A link to an operation states that it is the way: ShipOrderCommand updates Order by calling SetShippedStatus.
         var operation = target.SpecializationType == "Operation" ? target.Name : null;
         Span? created = null, deleted = null, updated = null, queried = null, changed = null, called = null;
@@ -251,6 +252,14 @@ internal sealed class EntityActionReader : IClaimReader
 
                 var words = Reach.Words(call.Name);
                 var touch = Touches(context.Code, call, type, IsEntity, entity.Name);
+
+                // The entity's repository as the model has it, or an interface the code gives it (IAccountRepository), accesses
+                // the entity whatever its methods are given: _accountRepository.Delete(account.AccountId).
+                if (touch == Touch.None && repositories.Count > 0 && call.ReceiverType is { } held && context.Code.TypeFor(held, type) is { } repository
+                    && repositories.Any(x => x == repository || context.Code.Bases(x).Contains(repository)))
+                {
+                    touch = Touch.Accessed;
+                }
 
                 // Only data access names the entity by what it is made on; a call that is only given one, such as a
                 // mapper's or a logger's, counts when it adds, changes or removes it: Insert(order), BulkInsert(orders).
@@ -343,6 +352,14 @@ internal sealed class EntityActionReader : IClaimReader
     /// collection or repository of it (its type, or a base of it, has the entity as a type argument); <see cref="Touch.Given"/>
     /// when it is only given one.
     /// </summary>
+    /// <summary>The code of each Domain Repository the model gives the entity (its type is the entity), as its <c>type.exists</c> located it.</summary>
+    private static IReadOnlyList<TypeNode> Repositories(ClaimContext context, IElement entity) =>
+        context.Model.Elements("Domain", "Repository")
+            .Where(x => x.TypeReference?.Element?.Id == entity.Id)
+            .Select(x => context.LocatedOf(x, "type.exists", "Domain") as TypeNode)
+            .OfType<TypeNode>()
+            .ToList();
+
     private static Touch Touches(CodeGraph code, CallNode call, TypeNode from, Func<TypeRefNode, bool> isEntity, string entity)
     {
         if (call.TypeArguments.Any(x => Reach.Over(x, isEntity)))

@@ -1204,10 +1204,12 @@ public sealed partial class DriftEngine
                 // A member a generic type of the code declares is typed by its type parameters as the element's type binds them
                 // (ValidatableObject<string>'s Value is a string), and one left unbound is at least an object, which a
                 // designer with no generics can state: less precise, but true.
-                var bound = TypeParameters.Bound(_graph, Owner(claim.Source) is { } parent ? TypeOf(claim.Designer, parent) : null, member,
-                    ProfileOf(member)["types"]?["object"]?[0]?.GetValue<string>() ?? "object");
-                Compare(claim, (bound?.Bound ?? member.Type).Text, member.At, "code",
-                    TypeMatches(model, member.Type) || bound is { } typed && (TypeMatches(model, typed.Bound) || TypeMatches(model, typed.Erased)));
+                var owner = Owner(claim.Source) is { } parent ? TypeOf(claim.Designer, parent) : null;
+                var bound = TypeParameters.Bound(_graph, owner, member, ProfileOf(member)["types"]?["object"]?[0]?.GetValue<string>() ?? "object");
+                // A collection class of the code's own is the collection its bases make it (CreditsCollection : List<Credit>).
+                var collection = model.IsCollection && owner is not null ? CollectionBase(member.Type, owner) : null;                Compare(claim, (bound?.Bound ?? member.Type).Text, member.At, "code",
+                    TypeMatches(model, member.Type) || bound is { } typed && (TypeMatches(model, typed.Bound) || TypeMatches(model, typed.Erased))
+                    || collection is not null && TypeMatches(model, collection));
                 break;
             }
             case "member.nullable":
@@ -2014,7 +2016,7 @@ public sealed partial class DriftEngine
     private IReadOnlyList<ParameterNode> Stated(MemberNode member)
     {
         var injected = ProfileOf(member)["injectedParameters"]?.AsArray().Select(x => x!.GetValue<string>()).ToHashSet() ?? [];
-        return member.Parameters.Where(x => x.Type is null || !injected.Contains(x.Type.Name)).ToList();
+        return member.Parameters.Where(x => !_graph.InjectedParameters.Contains(x) && (x.Type is null || !injected.Contains(x.Type.Name))).ToList();
     }
 
     /// <summary>
@@ -2369,6 +2371,21 @@ public sealed partial class DriftEngine
     }
 
     internal bool TypeMatches(ITypeReference model, TypeRefNode code) => TypeComparer.Matches(model, code, ProfileOf(code));
+
+    /// <summary>
+    /// The collection a type of the code's own is through its bases, its own or an in-scope base's: <c>CreditsCollection :
+    /// List&lt;Credit&gt;</c> is a <c>List&lt;Credit&gt;</c>. Null when the type isn't in scope or is no collection.
+    /// </summary>
+    private TypeRefNode? CollectionBase(TypeRefNode type, TypeNode from)
+    {
+        if (_graph.TypeFor(type, from) is not { } declared)
+        {
+            return null;
+        }
+
+        var profile = ProfileOf(declared);
+        return new[] { declared }.Concat(_graph.Bases(declared)).SelectMany(x => x.BaseTypes).FirstOrDefault(x => TypeComparer.IsCollection(x, profile));
+    }
 
     internal Claim? ClaimOn(string designer, IElement element, string kind, string? discriminator = null) =>
         _index.GetValueOrDefault(new ClaimRef(designer, element.Id, kind, discriminator));

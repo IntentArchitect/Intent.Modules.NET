@@ -85,6 +85,76 @@ eShopCustom's catalog page renders `<CatalogListItem>`. `_Imports.razor` brings 
 }
 ```
 
+## react-composition-of-a-wrapped-default-export
+
+A React tag names what the module it imports exports by default: `Footer.jsx` exports `withStyles(styles)(Footer)`, so `<Footer />` is the `Footer` component the wrapper is given. The file's module is named `Footer` too, as a module is named by its file, and the tag never means the module.
+
+```json case
+{ "phase": "later", "kinds": ["intent.target"], "requirements": ["R2", "R37"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "layout", "type": "Component", "name": "Layout" },
+          { "id": "footer", "type": "Component", "name": "Footer" }
+        ]
+      }],
+      "associations": [
+        { "id": "layout-renders-footer", "type": "Composition", "source": { "element": "layout" }, "target": { "element": "footer" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/components/Footer.jsx
+import React from 'react';
+import { withStyles } from '@material-ui/styles';
+
+const styles = { footer: { padding: 8 } };
+
+class Footer extends React.Component {
+  render() {
+    return <footer className={this.props.classes.footer}>Footer</footer>;
+  }
+}
+
+export default withStyles(styles)(Footer);
+```
+
+```jsx file src/components/Layout.jsx
+import React from 'react';
+import Footer from './Footer';
+
+export default class Layout extends React.Component {
+  render() {
+    return (
+      <main>
+        <Footer />
+      </main>
+    );
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "footer", "outcome": "verified", "at": "src/components/Footer.jsx:6" },
+    { "kind": "intent.target", "element": "layout-renders-footer", "outcome": "verified", "at": "src/components/Layout.jsx:8" }
+  ]
+}
+```
+
 ## composition-target-other-package
 
 The WebApp gains its own `CatalogListItem`, and the page imports its namespace instead of WebAppComponents' Catalog, so the tag is the WebApp's component, not the one the Composition targets.

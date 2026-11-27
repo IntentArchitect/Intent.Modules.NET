@@ -150,6 +150,75 @@ The same model and code, with the rule on. The two files no claim located anythi
 }
 ```
 
+## file-of-types-scoped-out
+
+A scope row may leave types out by name, as test doubles a feature flag swaps in: `CurrencyExchangeFake` is out, so its file, which declares nothing else, is out with it and not asked for. `CurrencyExchange.cs` declares a type still read, so it is reported.
+
+```json case
+{ "phase": 1, "cases": ["optin/unmodelled.file"], "requirements": ["R26", "R49"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Bank.Domain",
+        "elements": [
+          { "id": "account", "type": "Class", "name": "Account" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [
+            { "Glob": "src/**", "Scope": "In" },
+            { "Glob": "src/**", "Types": ["CurrencyExchangeFake"], "Scope": "Out", "Reason": "Test double a feature flag swaps in" }
+          ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.file" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Account.cs
+namespace Bank.Domain;
+
+public class Account
+{
+}
+```
+
+```csharp file src/Infrastructure/CurrencyExchangeFake.cs
+namespace Bank.Infrastructure;
+
+public sealed class CurrencyExchangeFake
+{
+}
+```
+
+```csharp file src/Infrastructure/CurrencyExchange.cs
+namespace Bank.Infrastructure;
+
+public sealed class CurrencyExchange
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "account", "outcome": "verified", "at": "src/Domain/Account.cs:3" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.file", "subject": "src/Infrastructure/CurrencyExchangeFake.cs:1", "count": 0 },
+    { "rule": "optin/unmodelled.file", "severity": "error", "subject": "src/Infrastructure/CurrencyExchange.cs:1", "messageContains": "CurrencyExchange.cs" }
+  ]
+}
+```
+
 ## narrowed-by-glob
 
 The `Opt-in Rules` row has a `Glob`: the team holds only the Domain project to strict ownership so far. `OrderingDomainException.cs` is under it and is reported; `Extensions.cs` isn't.

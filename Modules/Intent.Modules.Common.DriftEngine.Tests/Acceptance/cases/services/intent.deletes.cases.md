@@ -520,3 +520,125 @@ public class AdsService(IGenericRepository repo)
   ]
 }
 ```
+
+## modelled-repository-interface
+
+The Domain designer's `AccountRepository` is `Account`'s repository, and the code gives it an interface of its own, `IAccountRepository`, with no generic base naming the entity. The use case deletes through that interface, given only the account's id: `_accountRepository.Delete(account.Id)`. The model says whose repository it is, so the call deletes an `Account`, whatever the repository runs inside (here raw SQL, which states no entity of its own). `Credit` has no repository, and nothing deletes one.
+
+```json case
+{ "phase": 4, "kinds": ["intent.deletes"], "requirements": ["R2", "R33"], "packs": ["intent.core", "intent.domain", "intent.services", "intent.interactions"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Bank.Domain",
+        "elements": [
+          { "id": "account", "type": "Class", "name": "Account",
+            "children": [
+              { "id": "account-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" } }
+            ] },
+          { "id": "credit", "type": "Class", "name": "Credit" },
+          { "id": "account-repository", "type": "Repository", "name": "AccountRepository", "typeRef": { "element": "account" },
+            "children": [
+              { "id": "account-repository-delete", "type": "Operation", "name": "Delete",
+                "children": [
+                  { "id": "account-repository-delete-id", "type": "Parameter", "name": "id", "typeRef": { "type": "guid" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Bank.Application",
+        "elements": [
+          { "id": "close-account", "type": "Service", "name": "CloseAccountUseCase",
+            "children": [
+              { "id": "close-account-execute", "type": "Operation", "name": "Execute",
+                "children": [
+                  { "id": "close-account-execute-account", "type": "Parameter", "name": "account", "typeRef": { "element": "account" } }
+                ] }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "close-deletes-account", "type": "Delete Entity Action", "source": { "element": "close-account-execute" }, "target": { "element": "account" } },
+        { "id": "close-deletes-credit", "type": "Delete Entity Action", "source": { "element": "close-account-execute" }, "target": { "element": "credit" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Account.cs
+namespace Bank.Domain;
+
+public class Account
+{
+    public Guid Id { get; private set; }
+}
+
+public class Credit
+{
+}
+
+public interface IAccountRepository
+{
+    Task Delete(Guid id);
+}
+```
+
+```csharp file src/Infrastructure/AccountRepository.cs
+using Bank.Domain;
+using Microsoft.EntityFrameworkCore;
+
+namespace Bank.Infrastructure;
+
+public sealed class AccountRepository : IAccountRepository
+{
+    private readonly DbContext _context;
+
+    public AccountRepository(DbContext context) => _context = context;
+
+    public async Task Delete(Guid id) =>
+        await _context.Database.ExecuteSqlRawAsync("DELETE FROM Account WHERE Id = {0}", id);
+}
+```
+
+```csharp file src/Application/CloseAccountUseCase.cs
+using Bank.Domain;
+
+namespace Bank.Application;
+
+public sealed class CloseAccountUseCase
+{
+    private readonly IAccountRepository _accountRepository;
+
+    public CloseAccountUseCase(IAccountRepository accountRepository) => _accountRepository = accountRepository;
+
+    public async Task Execute(Account account)
+    {
+        await _accountRepository.Delete(account.Id);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.deletes", "element": "close-deletes-account", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Application/CloseAccountUseCase.cs:13" },
+    { "kind": "intent.deletes", "element": "close-deletes-credit", "outcome": "contradicted", "expected": "present", "actual": "absent" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.deletes", "severity": "error", "subject": "close-deletes-credit" }
+  ]
+}
+```

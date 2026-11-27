@@ -263,7 +263,8 @@ internal static class UiCode
     {
         var actual = Segments(path);
         var expected = Segments(route);
-        return actual.Count == expected.Count && actual.Zip(expected, (a, e) => IsParameter(e) || IsParameter(a) || string.Equals(a, e, StringComparison.OrdinalIgnoreCase)).All(x => x);
+        return actual.Count == expected.Count && actual.Zip(expected, (a, e) => IsParameter(e) || IsParameter(a) || string.Equals(a, e, StringComparison.OrdinalIgnoreCase)
+                                                                              || Http.HttpExtension.TemplateSegmentMatches(e, a)).All(x => x);
     }
 
     public const char Hole = '\u0001';

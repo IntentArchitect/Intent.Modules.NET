@@ -205,6 +205,8 @@ internal static class CSharpReader
             graph.Timed("declarations", declarations);
         }
 
+        BindNestedUsings(graph, syntax);
+
         // What a body's calls are made on, and what their arguments are, can depend on any type, so bodies are read last, and
         // so are initializers, whose names can be another type's constants.
         var started = Stopwatch.GetTimestamp();
@@ -298,6 +300,49 @@ internal static class CSharpReader
             })
             .ToList()
     };
+
+    /// <summary>
+    /// A <c>using</c> written inside a namespace names what C# finds from that namespace outwards, the innermost first:
+    /// <c>namespace Domain; using Credits;</c> imports <c>Domain.Credits</c> when the code declares it, as
+    /// <c>namespace Application.UseCases.Deposit; using Services;</c> imports <c>Application.Services</c>. Each is bound once
+    /// every file's namespaces and types are known; one that names none of the code's is a library's, as written.
+    /// </summary>
+    private static void BindNestedUsings(CodeGraph graph, CSharpSyntax syntax)
+    {
+        var namespaces = graph.Files.Where(x => x.Language == CSharpLanguage.LanguageName).SelectMany(x => x.Namespaces)
+            .SelectMany(x => x.Split('.').Select((_, i) => string.Join(".", x.Split('.').Take(i + 1))))
+            .ToHashSet(StringComparer.Ordinal);
+        var types = graph.Types.Select(x => x.Namespace.Length == 0 ? x.Name : $"{x.Namespace}.{x.Name}").ToHashSet(StringComparer.Ordinal);
+        foreach (var file in graph.Files.Where(x => x.Path.EndsWith(".cs", StringComparison.OrdinalIgnoreCase)))
+        {
+            if (!syntax.Trees.TryGetValue(file.Path, out var tree) || file.Imports is not List<ImportNode> imports)
+            {
+                continue;
+            }
+
+            var usings = tree.GetRoot().DescendantNodes().OfType<UsingDirectiveSyntax>().Where(x => x.NamespaceOrType is not null).ToList();
+            for (var i = 0; i < imports.Count && usings.Count == imports.Count; i++)
+            {
+                if (usings[i].Parent is not BaseNamespaceDeclarationSyntax declaration || usings[i].NamespaceOrType is AliasQualifiedNameSyntax)
+                {
+                    continue;
+                }
+
+                var import = imports[i];
+                var enclosing = Namespace(declaration.Name).Split('.');
+                var bound = Enumerable.Range(1, enclosing.Length).Reverse()
+                    .Select(n => $"{string.Join(".", enclosing.Take(n))}.{import.Target}")
+                    .FirstOrDefault(x => import.Wildcard ? namespaces.Contains(x) : types.Contains(x) || namespaces.Contains(x));
+                if (bound is not null)
+                {
+                    imports[i] = new ImportNode
+                    {
+                        Target = bound, Text = import.Text, Alias = import.Alias, Static = import.Static, Wildcard = import.Wildcard, Global = import.Global, At = import.At
+                    };
+                }
+            }
+        }
+    }
 
     /// <summary>A namespace declaration's qualified name, including the namespaces it is nested in.</summary>
     private static string Namespace(NameSyntax name) =>

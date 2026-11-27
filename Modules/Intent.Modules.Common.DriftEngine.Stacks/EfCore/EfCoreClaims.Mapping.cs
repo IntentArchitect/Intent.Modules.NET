@@ -75,9 +75,12 @@ internal sealed partial class EfCoreClaims
     }
 
     /// <summary>
-    /// Whether EF Core maps a value object attribute as an owned type: <c>OwnsOne</c> or <c>OwnsMany</c> of it, <c>[Owned]</c>
-    /// on its type or <c>modelBuilder.Owned&lt;T&gt;()</c> say it is; <c>ComplexProperty</c> or <c>[ComplexType]</c> make it a
-    /// complex type instead. EF Core never owns a navigation unless the code says so, so silence is <c>false</c>.
+    /// Whether EF Core maps a value object attribute as a value, which is all a Value Object type states: as an owned type
+    /// (<c>OwnsOne</c> or <c>OwnsMany</c> of it, <c>[Owned]</c> on its type, <c>modelBuilder.Owned&lt;T&gt;()</c>), a complex
+    /// type (<c>ComplexProperty</c>, <c>[ComplexType]</c>), or one column through a value converter
+    /// (<c>Property(x =&gt; x.AccountId).HasConversion(...)</c>, or a context's <c>ConfigureConventions</c> converting its
+    /// type). The designer has no construct choosing among them, so any verifies (user decision, 2026-11-26). EF Core never
+    /// maps a class as a value unless the code says so, so silence is <c>false</c>.
     /// </summary>
     private static ClaimReading? Owned(ClaimContext context, EfCoreModel model)
     {
@@ -94,18 +97,31 @@ internal sealed partial class EfCoreClaims
 
         if (entity?.Chains.LastOrDefault(x => x[0].Name is "OwnsOne" or "OwnsMany" or "ComplexProperty" or "ComplexCollection" && x[0].Selected.Contains(member.Name)) is { } chain)
         {
-            return ClaimReading.Stated(chain[0].Name.StartsWith("Owns", StringComparison.Ordinal) ? "true" : "false", chain[0].At);
+            return ClaimReading.Stated("true", chain[0].At);
+        }
+
+        if (entity?.Properties.GetValueOrDefault(member.Name)?.LastOrDefault(x => x.Name == "HasConversion") is { } conversion)
+        {
+            return ClaimReading.Stated("true", conversion.At);
         }
 
         var held = member.Type is { } reference ? context.Code.TypeFor(reference.Arguments is [var item] ? item : reference, type) : null;
         if (held?.Attributes.FirstOrDefault(x => x.Name is "Owned" or "ComplexType") is { } annotated)
         {
-            return ClaimReading.Stated(annotated.Name == "Owned" ? "true" : "false", annotated.At);
+            return ClaimReading.Stated("true", annotated.At);
         }
 
         if ((held?.Name ?? member.Type?.Name) is { } name && model.Owned.TryGetValue(name, out var owned))
         {
             return ClaimReading.Stated("true", owned);
+        }
+
+        // configurationBuilder.Properties<AccountId>().HaveConversion<AccountIdConverter>(), for every property of its type.
+        if (member.Type is { } valueType && model.ContextsOf(type.Name).SelectMany(x => x.Conventions)
+                .Where(x => x.Call.Name == "HasConversion" && x.Type.Name == (valueType is { Name: "Nullable", Arguments: [var inner] } ? inner.Name : valueType.Name))
+                .Select(x => x.Call).FirstOrDefault() is { } converted)
+        {
+            return ClaimReading.Stated("true", converted.At);
         }
 
         return ClaimReading.Absent(entity?.At ?? member.At, "false");

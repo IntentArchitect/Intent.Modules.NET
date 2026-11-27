@@ -318,3 +318,65 @@ public struct Money
   ]
 }
 ```
+
+## react-context-provider-store
+
+A React Context provider holds what its consumers share, which is what a Store is: the `AuthProvider` class component renders `<AuthContext.Provider value={...}>`, so it is the Store's code, though it is a component. `Header` provides nothing, so as a Store it is the wrong kind of code.
+
+```json case
+{ "phase": "later", "kinds": ["type.kind"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "auth-provider", "type": "Store", "name": "AuthProvider" },
+          { "id": "header", "type": "Store", "name": "Header" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/providers/authProvider.jsx
+import React, { Component } from 'react';
+
+const AuthContext = React.createContext({});
+
+export const AuthConsumer = AuthContext.Consumer;
+
+export class AuthProvider extends Component {
+  render() {
+    return <AuthContext.Provider value={{ user: null }}>{this.props.children}</AuthContext.Provider>;
+  }
+}
+```
+
+```jsx file src/components/Header.jsx
+import React from 'react';
+
+export default function Header() {
+  return <header>Header</header>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.kind", "element": "auth-provider", "outcome": "verified", "at": "src/providers/authProvider.jsx:9" },
+    { "kind": "type.kind", "element": "header", "outcome": "contradicted", "expected": "class, module, object", "actual": "component" }
+  ],
+  "findings": [
+    { "rule": "claim/type.kind", "severity": "error", "subject": "header" }
+  ]
+}
+```

@@ -94,6 +94,13 @@ internal sealed class AspNetCoreDetector : ICodeReader
                                     || graph.Supertypes(x).Any(s => s is "ControllerBase" or "Controller" or "ApiController" or "ODataController")))
         {
             graph.Set(new AspNetCoreCode());
+
+            // [FromServices] IGetAccountUseCase useCase: the container supplies it, so it is no part of the action's signature.
+            foreach (var parameter in graph.Types.SelectMany(x => x.Members).Where(x => x.Kind == "method").SelectMany(x => x.Parameters)
+                         .Where(x => x.Attributes.Any(a => a.Name is "FromServices" or "FromKeyedServices")))
+            {
+                graph.InjectedParameters.Add(parameter);
+            }
         }
     }
 }

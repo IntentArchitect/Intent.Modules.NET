@@ -128,10 +128,12 @@ internal sealed class ProxyRequests : IClaimReader
             }
             default:
             {
-                // An api-version in the request's query string, else the one the proxy's AddHttpClient registration adds to every
-                // request. The model may allow several versions; the request sends one of them.
-                var (version, stated) = Text(request.Uri) is { } text && Regex.Match(text, @"[?&]api-version=([^&#]+)") is { Success: true } query
-                    ? (query.Groups[1].Value, at)
+                // The version the request's path names where the called route has v{version}, or an api-version in its query
+                // string, else the one the proxy's AddHttpClient registration adds to every request. The model may allow several
+                // versions; the request sends one of them.
+                var called = context.ClaimOn(context.Element, "proxy.route")?.Expected ?? "";
+                var (version, stated) = Text(request.Uri) is { } text && HttpExtension.VersionIn(called, text) is { } named
+                    ? (named, at)
                     : Registered(context.Code, proxy.Name) is { } registered ? (registered.Version, registered.At) : (null, at);
                 return version is null
                     ? ClaimReading.Absent(at)
@@ -316,9 +318,11 @@ internal sealed class ProxyRequests : IClaimReader
             model.RemoveAt(model.Count - 1);
         }
 
+        // A segment with a parameter inside its text, API versioning's v{version}, is the code's v1 (or a computed v{n}).
         return model.Count == code.Count && model.Zip(code).All(x => x.First.StartsWith('{')
             ? x.Second.Contains(HoleStart)
-            : !x.Second.Contains(HoleStart) && string.Equals(x.First, x.Second, StringComparison.OrdinalIgnoreCase));
+            : HttpExtension.TemplateSegmentMatches(x.First, Regex.Replace(x.Second, $@"{HoleStart}\d+{HoleEnd}", "x"))
+              || !x.Second.Contains(HoleStart) && string.Equals(x.First, x.Second, StringComparison.OrdinalIgnoreCase));
     }
 
     /// <summary>A URI as text, each value in it <c>{value}</c>, for reading its query string.</summary>

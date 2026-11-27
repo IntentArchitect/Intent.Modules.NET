@@ -984,6 +984,142 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 }
 ```
 
+## ef-nullable-navigation-required-by-its-key
+
+With nullable reference types on, `Credit.Account` is written `Account?`, as a navigation a query may leave unloaded often is, but its foreign key `AccountId` can't be null, so EF Core makes the relationship required: every credit has an account, as the model's `1` says. `Debit.Account` is an `Account?` whose key is a `Guid?`, so it is optional, and the model's `1` is contradicted.
+
+```json case
+{ "phase": 4, "kinds": ["member.nullable"], "requirements": ["R2", "R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Bank.Domain",
+        "elements": [
+          { "id": "account", "type": "Class", "name": "Account", "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "account-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" }, "stereotypes": { "Primary Key": {} } }
+            ] },
+          { "id": "credit", "type": "Class", "name": "Credit", "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "credit-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "credit-account-id", "type": "Attribute", "name": "AccountId", "typeRef": { "type": "guid" } }
+            ] },
+          { "id": "debit", "type": "Class", "name": "Debit", "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "debit-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "guid" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "debit-account-id", "type": "Attribute", "name": "AccountId", "typeRef": { "type": "guid", "nullable": true } }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "credit-account", "type": "Association",
+          "source": { "element": "credit", "name": "Credits", "multiplicity": "*", "navigable": false },
+          "target": { "element": "account", "name": "Account", "multiplicity": "1", "navigable": true } },
+        { "id": "debit-account", "type": "Association",
+          "source": { "element": "debit", "name": "Debits", "multiplicity": "*", "navigable": false },
+          "target": { "element": "account", "name": "Account", "multiplicity": "1", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```xml file src/Domain/Bank.Domain.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
+```
+
+```csharp file src/Domain/Account.cs
+namespace Bank.Domain;
+
+public class Account
+{
+    public Guid Id { get; private set; }
+}
+```
+
+```csharp file src/Domain/Credit.cs
+namespace Bank.Domain;
+
+public class Credit
+{
+    public Guid Id { get; private set; }
+
+    public Guid AccountId { get; private set; }
+
+    public Account? Account { get; private set; }
+}
+```
+
+```csharp file src/Domain/Debit.cs
+namespace Bank.Domain;
+
+public class Debit
+{
+    public Guid Id { get; private set; }
+
+    public Guid? AccountId { get; private set; }
+
+    public Account? Account { get; private set; }
+}
+```
+
+```csharp file src/Domain/Persistence/CreditConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Bank.Domain.Persistence;
+
+public class CreditConfiguration : IEntityTypeConfiguration<Credit>
+{
+    public void Configure(EntityTypeBuilder<Credit> builder)
+    {
+        builder.HasOne(c => c.Account).WithMany().HasForeignKey(c => c.AccountId);
+    }
+}
+```
+
+```csharp file src/Domain/Persistence/DebitConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Bank.Domain.Persistence;
+
+public class DebitConfiguration : IEntityTypeConfiguration<Debit>
+{
+    public void Configure(EntityTypeBuilder<Debit> builder)
+    {
+        builder.HasOne(d => d.Account).WithMany().HasForeignKey(d => d.AccountId);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "credit-account", "outcome": "verified", "expected": "false", "actual": "false", "at": "src/Domain/Credit.cs:7" },
+    { "kind": "member.nullable", "element": "debit-account", "outcome": "contradicted", "expected": "false", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "debit-account" }
+  ]
+}
+```
+
 ## ef6-has-required
 
 An EF6 context configures the relationship with `HasRequired(o => o.Buyer)`, EF6's form of `HasOne(o => o.Buyer).IsRequired()`. It decides whatever the foreign key's type, so with `BuyerId` an `int?` the navigation is still required, and the model's `1` agrees. A client's EF6 data layer configures its relationships this way.

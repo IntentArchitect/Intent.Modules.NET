@@ -5,15 +5,22 @@ using Intent.Modules.Common.DriftEngine.Scope;
 
 namespace Intent.Modules.Common.DriftEngine.OptIn;
 
-/// <summary><c>unmodelled.file</c>: an in-scope file in which no claim located anything (rules.md, Opt-in rules).</summary>
+/// <summary>
+/// <c>unmodelled.file</c>: an in-scope file in which no claim located anything (rules.md, Opt-in rules). A file whose every
+/// type a scope row excludes by name is out of scope with them.
+/// </summary>
 internal sealed class UnmodelledFile : IOptInRule
 {
     public string Id => "unmodelled.file";
 
-    public IEnumerable<UnmodelledCode> Find(RuleContext context) => context.Code.Files
-        .Where(x => context.Scope.Checks(x.Path) && !context.IsLocated(x.Path))
-        .Select(x => new UnmodelledCode(null, new Span(x.Path, 1), x.Path,
-            $"Nothing in the model describes the code in `{x.Path}`. Model what it holds, or add an exception with a reason to the Root Folder's Drift Check."));
+    public IEnumerable<UnmodelledCode> Find(RuleContext context)
+    {
+        var excluded = context.Engine.FilesOfExcludedTypes();
+        return context.Code.Files
+            .Where(x => context.Scope.Checks(x.Path) && !excluded.Contains(x.Path) && !context.IsLocated(x.Path))
+            .Select(x => new UnmodelledCode(null, new Span(x.Path, 1), x.Path,
+                $"Nothing in the model describes the code in `{x.Path}`. Model what it holds, or add an exception with a reason to the Root Folder's Drift Check."));
+    }
 }
 
 /// <summary>
@@ -52,7 +59,16 @@ internal sealed class UnmodelledType : IOptInRule
             var applying = patterns.Where(x => x.Files.Count == 0 || x.Files.Any(g => g.IsMatch(type.At.File))).ToList();
             if (applying.Count == 0)
             {
+                // The nearby designer is named only when one of its element types can describe this kind of code: a Razor view
+                // beside a Services designer's controllers is a component, which the User Interface designer describes.
                 var designer = DesignerNear(designers, type.At.File);
+                var kinds = new[] { type.Kind }.Concat((context.Engine.ProfileOf(type)["kindOf"]?[type.Kind] as JsonArray)?.Select(x => x!.GetValue<string>()) ?? []).ToList();
+                if (designer is not null && !context.Engine.TypeConventions().Any(x => x.Designer == designer
+                        && (x.Convention["typeKinds"] as JsonArray)?.Any(k => kinds.Contains(k!.GetValue<string>())) == true))
+                {
+                    designer = null;
+                }
+
                 yield return new UnmodelledCode(designer, type.At, type.Name,
                     $"`{type.Name}` isn't in the model. Model it{(designer is null ? "" : $" in the {designer} designer")}, or add an exception with a reason to the Root Folder's Drift Check.",
                     Type: type.Name);
@@ -128,6 +144,9 @@ internal sealed class UnmodelledMember : IOptInRule
                 continue;
             }
 
+            // A static member of a kind the element type can't state as static, such as a null object's static Instance on a
+            // Domain Class, whose Attributes are never static, is no Attribute the designer could add.
+            var statics = engine.Statics(claim.Designer, element);
             var accessors = (engine.ProfileOf(type)["accessors"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToList() ?? [];
             var fields = type.Members.Where(x => x.Kind is "field" or "property" && context.IsLocated(x)).Select(x => x.Name).ToList();
             var located = fields.SelectMany(field => accessors.Select(x => Naming.Fill(x, new Dictionary<string, string> { ["Name"] = field }))).ToHashSet(StringComparer.Ordinal);
@@ -141,7 +160,7 @@ internal sealed class UnmodelledMember : IOptInRule
             var named = new HashSet<string>(type.Members.Where(x => x.Kind == "method" && context.IsLocated(x)).Select(x => x.Name), StringComparer.Ordinal);
             foreach (var member in type.Members)
             {
-                if (!states.Contains(member.Kind) || member.Access != "public" || context.Code.StatedByLink.ContainsKey(member) || modelledBase && member.Modifiers.Contains("override") || EveryTypeHas.Contains(member.Name) ||
+                if (!states.Contains(member.Kind) || member.Access != "public" || member.IsStatic && statics is not null && !statics.Contains(member.Kind) || context.Code.StatedByLink.ContainsKey(member) || modelledBase && member.Modifiers.Contains("override") || EveryTypeHas.Contains(member.Name) ||
                     member is { Kind: "constructor", IsPrimary: true } && type.Kind == "record" || member.Kind == "method" && located.Contains(member.Name) ||
                     context.IsLocated(member) || context.Code.Unmodellable.ContainsKey(member) ||
                     uniqueNames && member.Kind == "method" && !named.Add(member.Name) ||

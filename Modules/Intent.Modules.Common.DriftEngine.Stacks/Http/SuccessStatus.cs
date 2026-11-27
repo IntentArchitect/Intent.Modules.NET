@@ -173,6 +173,17 @@ internal static class SuccessStatus
             }
         }
 
+        // A field of the code's own it returns (return this._viewModel!): each value its type's members assign to it.
+        if (value.Call is null && value.Creations.Count == 0 && Assigned(value) is { Count: > 0 } assigned)
+        {
+            foreach (var (unit, assignment) in assigned)
+            {
+                Value(code, type, unit, assignment.Value, assignment.At, depth + 1, found, ref unreadable);
+            }
+
+            return;
+        }
+
         var returned = value.Call ?? Outermost(body, value.At) ?? value.Given.Select(x => x.Call).FirstOrDefault(x => x is not null);
         if (returned is null && value.Given.Count > 0)
         {
@@ -235,6 +246,18 @@ internal static class SuccessStatus
             }
         }
     }
+
+    /// <summary>
+    /// What the members of a field's own type assign to the field a value reads, each with the unit it is assigned in:
+    /// <c>_viewModel = Ok(x)</c> or <c>this._viewModel = Ok(x)</c>, as a clean-architecture controller's output-port methods
+    /// set the result its action returns. Empty for anything but a field or property of a type of the code's own.
+    /// </summary>
+    internal static IReadOnlyList<(FunctionNode Unit, AssignmentNode Assignment)> Assigned(ValueNode value) =>
+        value.Field is { Member: { Kind: "field" or "property" } field, Type: var owner }
+            ? owner.Members.Where(x => x.Body is not null)
+                .SelectMany(x => x.Body!.Assignments.Where(a => a.Target == field.Name || a.Target == $"this.{field.Name}").Select(a => (x.Body!, a)))
+                .ToList()
+            : [];
 
     /// <summary>A status given as a value: a success is found, an error isn't the success status, and one the code doesn't give as a value can't be read.</summary>
     private static void Given((bool Known, int Status) status, Span at, List<(int Status, Span At)> found, ref Span? unreadable)

@@ -312,7 +312,7 @@ internal sealed class Requests : IClaimReader
 
     private static readonly string[] Verbs = ["get", "post", "put", "patch", "delete", "head", "options"];
 
-    public IReadOnlyCollection<string> Kinds { get; } = ["proxy.request", "proxy.verb", "proxy.route"];
+    public IReadOnlyCollection<string> Kinds { get; } = ["proxy.request", "proxy.verb", "proxy.route", "proxy.version"];
 
     public ClaimReading? Read(ClaimContext context)
     {
@@ -343,7 +343,7 @@ internal sealed class Requests : IClaimReader
                 return request.Verb is { } verb
                     ? ClaimReading.Compared(verb, request.At, string.Equals(verb, context.Expected, StringComparison.OrdinalIgnoreCase))
                     : ClaimReading.CantVerify("unreadable", "The request's method is computed.", request.At);
-            default:
+            case "proxy.route":
             {
                 if (request.Url is not { } url || Route(url) is not { } route)
                 {
@@ -352,6 +352,23 @@ internal sealed class Requests : IClaimReader
 
                 return ClaimReading.Compared(route.Shown, request.At, UiCode.Matches(route.Path, context.Expected));
             }
+            case "proxy.version":
+            {
+                // The version the request names where the called route has v{version}, or its api-version query. The model may
+                // allow several versions; the request sends one of them.
+                if (request.Url is not { } url || Route(url) is not { } route)
+                {
+                    return ClaimReading.CantVerify("unreadable", "The request's URL is computed.", request.At);
+                }
+
+                var query = UiCode.Text(url) is { } text && text.IndexOf('?') is var at and >= 0 ? text[at..] : "";
+                var called = context.ClaimOn(context.Element, "proxy.route")?.Expected ?? "";
+                return Http.HttpExtension.VersionIn(called, route.Path + query) is { } version
+                    ? ClaimReading.Compared(version, request.At, context.Expected.Split(',', StringSplitOptions.TrimEntries).Any(x => Http.HttpExtension.Version(x) == Http.HttpExtension.Version(version)))
+                    : ClaimReading.Absent(request.At);
+            }
+            default:
+                return null;
         }
     }
 

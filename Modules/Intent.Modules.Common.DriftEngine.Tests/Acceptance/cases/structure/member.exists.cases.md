@@ -1239,6 +1239,166 @@ export function ProductCard({ productId, quantity, compact }: ProductCardProps) 
 }
 ```
 
+## react-class-component-members
+
+A JavaScript class component states its props nowhere but in its code: the names its `propTypes` declare and those it reads from `this.props`, destructured or not, are its props, and each key of the state its constructor sets is its state. `classes` and `year` are destructured from `this.props`, `note` is only in `propTypes`, `owner` is read as `this.props.owner`, and `expanded` is its state. A Component Operation is a function it declares, also as a class field (`toggle = () => ...`). `Theme` is none of these.
+
+```json case
+{ "phase": 6, "kinds": ["member.exists"], "requirements": ["R2", "R8", "R33", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "footer", "type": "Component", "name": "Footer",
+            "children": [
+              { "id": "footer-classes", "type": "Property", "name": "Classes", "typeRef": { "type": "object" } },
+              { "id": "footer-year", "type": "Property", "name": "Year", "typeRef": { "type": "int" } },
+              { "id": "footer-note", "type": "Property", "name": "Note", "typeRef": { "type": "string" } },
+              { "id": "footer-owner", "type": "Property", "name": "Owner", "typeRef": { "type": "string" } },
+              { "id": "footer-expanded", "type": "Property", "name": "Expanded", "typeRef": { "type": "bool" } },
+              { "id": "footer-theme", "type": "Property", "name": "Theme", "typeRef": { "type": "string" } },
+              { "id": "footer-toggle", "type": "Component Operation", "name": "Toggle" }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/components/Footer.jsx
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/styles';
+
+const styles = { footer: { padding: 8 } };
+
+class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { expanded: false };
+  }
+
+  toggle = () => this.setState({ expanded: !this.state.expanded });
+
+  render() {
+    const { classes, year } = this.props;
+    return <footer className={classes.footer} onClick={this.toggle}>{year} {this.props.owner}</footer>;
+  }
+}
+
+Footer.propTypes = { classes: PropTypes.object.isRequired, year: PropTypes.number, note: PropTypes.string };
+
+export default withStyles(styles)(Footer);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "footer-classes", "outcome": "verified", "at": "src/components/Footer.jsx:21" },
+    { "kind": "member.exists", "element": "footer-year", "outcome": "verified", "at": "src/components/Footer.jsx:21" },
+    { "kind": "member.exists", "element": "footer-note", "outcome": "verified", "at": "src/components/Footer.jsx:21" },
+    { "kind": "member.exists", "element": "footer-owner", "outcome": "verified", "at": "src/components/Footer.jsx:17" },
+    { "kind": "member.exists", "element": "footer-expanded", "outcome": "verified", "at": "src/components/Footer.jsx:10" },
+    { "kind": "member.exists", "element": "footer-toggle", "outcome": "verified", "at": "src/components/Footer.jsx:13" },
+    { "kind": "member.exists", "element": "footer-theme", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "footer-theme" }
+  ]
+}
+```
+
+## react-props-destructured-and-callbacks
+
+A function component may take its props whole and destructure them in its body, `const { title, navigation } = props`: each name is a prop. An Event Emitter is a callback prop, which a component needn't name `on...`: `Header` hands `handleChangeNavDrawer` to its button's `onClick`, so it is one. `navDrawerOpen` is a prop it only reads, so the Event Emitter `NavDrawerOpen` is no callback.
+
+```json case
+{ "phase": 6, "kinds": ["member.exists"], "requirements": ["R2", "R8", "R33", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "page-base", "type": "Component", "name": "PageBase",
+            "children": [
+              { "id": "page-base-title", "type": "Property", "name": "Title", "typeRef": { "type": "string" } },
+              { "id": "page-base-navigation", "type": "Property", "name": "Navigation", "typeRef": { "type": "string" } }
+            ] },
+          { "id": "header", "type": "Component", "name": "Header",
+            "children": [
+              { "id": "header-handle-change", "type": "Event Emitter", "name": "HandleChangeNavDrawer" },
+              { "id": "header-nav-drawer-open", "type": "Event Emitter", "name": "NavDrawerOpen" }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/components/PageBase.jsx
+import React from 'react';
+
+const PageBase = props => {
+  const { title, navigation } = props;
+
+  return (
+    <div>
+      <span>{navigation}</span>
+      <h3>{title}</h3>
+      {props.children}
+    </div>
+  );
+};
+
+export default PageBase;
+```
+
+```jsx file src/components/Header.jsx
+import React from 'react';
+
+class Header extends React.Component {
+  render() {
+    const { handleChangeNavDrawer, navDrawerOpen } = this.props;
+    return <button onClick={handleChangeNavDrawer}>{navDrawerOpen ? 'Close' : 'Open'}</button>;
+  }
+}
+
+export default Header;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "page-base-title", "outcome": "verified", "at": "src/components/PageBase.jsx:4" },
+    { "kind": "member.exists", "element": "page-base-navigation", "outcome": "verified", "at": "src/components/PageBase.jsx:4" },
+    { "kind": "member.exists", "element": "header-handle-change", "outcome": "verified", "at": "src/components/Header.jsx:5" },
+    { "kind": "member.exists", "element": "header-nav-drawer-open", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "header-nav-drawer-open" }
+  ]
+}
+```
+
 ## react-store-members
 
 A store's state and actions, whatever the store library: a Redux Toolkit slice's initial state and reducers, and what a Zustand store's creator returns. The readers every TypeScript front end shares read both, through the slice's `initialState` constant and Zustand's middleware. The wishlist has no `clear` action.

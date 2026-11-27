@@ -704,6 +704,66 @@ public class CSharpFactsTests
         usings.Legacy.ShouldBeSameAs(usings.Own);
     }
 
+    [Fact]
+    public void A_using_inside_a_namespace_names_what_it_finds_from_that_namespace_outwards()
+    {
+        // Projects that add no imports of their own, so a file's imports are all it can name.
+        const string project = """<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net8.0</TargetFramework></PropertyGroup></Project>""";
+        var graph = ReadAll(
+            ("src/Domain/Domain.csproj", project),
+            ("src/Domain/Account.cs", """
+                namespace Domain;
+
+                using System.Text;
+                using Credits;
+
+                public class Account
+                {
+                    public CreditsCollection Credits { get; } = new();
+                }
+                """),
+            ("src/Domain/Credits/CreditsCollection.cs", """
+                namespace Domain.Credits;
+
+                public sealed class CreditsCollection : List<Credit>
+                {
+                }
+
+                public class Credit
+                {
+                }
+                """),
+            ("src/Application/Application.csproj", project),
+            ("src/Application/UseCases/Deposit/DepositUseCase.cs", """
+                namespace Application.UseCases.Deposit
+                {
+                    using Services;
+
+                    public class DepositUseCase
+                    {
+                        public IExchange Exchange { get; } = null!;
+                    }
+                }
+                """),
+            ("src/Application/Services/IExchange.cs", """
+                namespace Application.Services;
+
+                public interface IExchange
+                {
+                }
+                """));
+
+        // Domain's using Credits is Domain.Credits; a library's namespace stays as written.
+        var account = graph.Types.Single(x => x.Name == "Account");
+        graph.Files.Single(x => x.Path == "src/Domain/Account.cs").Imports.Select(x => x.Target).ShouldBe(["System.Text", "Domain.Credits"]);
+        graph.TypeFor(account.Members.Single(x => x.Name == "Credits").Type!, account).ShouldBeSameAs(graph.Types.Single(x => x.Name == "CreditsCollection"));
+
+        // Inside Application.UseCases.Deposit, using Services is Application.Services, two namespaces out.
+        var deposit = graph.Types.Single(x => x.Name == "DepositUseCase");
+        graph.Files.Single(x => x.Path == "src/Application/UseCases/Deposit/DepositUseCase.cs").Imports.Single().Target.ShouldBe("Application.Services");
+        graph.TypeFor(deposit.Members.Single(x => x.Name == "Exchange").Type!, deposit).ShouldBeSameAs(graph.Types.Single(x => x.Name == "IExchange"));
+    }
+
     private static CodeGraph Read(string source) => ReadAll(("Shop.cs", source));
 
     private static CodeGraph ReadAll(params (string Path, string Source)[] files)

@@ -1,6 +1,6 @@
 # column.owned
 
-Whether an attribute of a persisted class whose type is a Value Object is mapped as an owned type: `true` in the model for every such attribute. EF Core states it with `OwnsOne(x => x.Attr)`. eShopCustom checked it as `persistence.owned` (ESC-DOM-38). `column.owned` is `stated: always`: EF Core never makes a navigation owned unless the code says so, so a configuration with no `OwnsOne` really states `false`, and the reading from silence is honest (R3).
+Whether an attribute of a persisted class whose type is a Value Object is mapped as a value: `true` in the model for every such attribute. EF Core states it with `OwnsOne(x => x.Attr)`, a complex type (`ComplexProperty`) or a value converter (`Property(x => x.Attr).HasConversion(...)`): a Value Object type states only that the attribute is a value, and the designer has no construct choosing among them, so any of them verifies (user decision, 2026-11-26). eShopCustom checked it as `persistence.owned` (ESC-DOM-38), which asked for `OwnsOne` alone. `column.owned` is `stated: always`: EF Core never maps a class as a value unless the code says so, so a configuration with none of them really states `false`, and the reading from silence is honest (R3).
 
 ## verified
 
@@ -120,12 +120,12 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 }
 ```
 
-## contradicted-complex-property
+## verified-complex-property
 
-The configuration maps `Address` with `ComplexProperty`, EF Core 8's complex type, which isn't an owned type. The code states `false` explicitly, at the line.
+The configuration maps `Address` with `ComplexProperty`, EF Core 8's complex type: not an owned type, but a value all the same, which is what the model states.
 
 ```json case
-{ "phase": 4, "base": "verified", "kinds": ["column.owned"], "requirements": ["R1", "R11"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+{ "phase": 4, "base": "verified", "kinds": ["column.owned"], "requirements": ["R2", "R11"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
 ```
 
 ```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
@@ -147,8 +147,92 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 ```json expect
 {
   "claims": [
-    { "kind": "column.owned", "element": "order-address", "outcome": "contradicted", "expected": "true", "actual": "false",
+    { "kind": "column.owned", "element": "order-address", "outcome": "verified", "expected": "true", "actual": "true",
       "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:11" }
+  ]
+}
+```
+
+## verified-value-conversion
+
+A strongly typed identifier kept in one column: `Order.CustomerId` is the Value Object `CustomerId`, which the configuration stores through a value converter, `HasConversion(v => v.Value, v => new CustomerId(v))`. The value object is mapped as a value, so the claim holds.
+
+```json case
+{ "phase": 4, "kinds": ["column.owned"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "customer-id", "type": "Value Object", "name": "CustomerId",
+            "children": [
+              { "id": "customer-id-value", "type": "Attribute", "name": "Value", "typeRef": { "type": "guid" } }
+            ] },
+          { "id": "order", "type": "Class", "name": "Order",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-id", "type": "Attribute", "name": "Id", "typeRef": { "type": "int" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-customer-id", "type": "Attribute", "name": "CustomerId", "typeRef": { "element": "customer-id" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/CustomerId.cs
+namespace Shop.Domain;
+
+public readonly struct CustomerId
+{
+    public CustomerId(Guid value) => Value = value;
+
+    public Guid Value { get; }
+}
+```
+
+```csharp file src/Domain/Order.cs
+namespace Shop.Domain;
+
+public class Order
+{
+    public int Id { get; private set; }
+
+    public CustomerId CustomerId { get; private set; }
+}
+```
+
+```csharp file src/Infrastructure/Persistence/OrderConfiguration.cs
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Shop.Domain;
+
+namespace Shop.Infrastructure.Persistence;
+
+public class OrderConfiguration : IEntityTypeConfiguration<Order>
+{
+    public void Configure(EntityTypeBuilder<Order> builder)
+    {
+        builder.Property(o => o.CustomerId)
+            .HasConversion(v => v.Value, v => new CustomerId(v));
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "column.owned", "element": "order-customer-id", "outcome": "verified", "expected": "true", "actual": "true",
+      "at": "src/Infrastructure/Persistence/OrderConfiguration.cs:12" }
   ]
 }
 ```

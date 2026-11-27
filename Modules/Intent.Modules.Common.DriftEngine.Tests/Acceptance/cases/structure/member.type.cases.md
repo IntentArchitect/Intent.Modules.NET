@@ -1249,6 +1249,90 @@ public class PaymentMethod
 }
 ```
 
+## association-collection-class
+
+A collection class of the code's own is the collection its base makes it: `Account.Credits` is a `CreditsCollection`, which derives from `List<Credit>`, so it is a collection of `Credit`, as the `*` end says. `Account.Debits` is a `DebitsCollection`, which derives from `List<Credit>` too, so it isn't the model's collection of `Debit`.
+
+```json case
+{ "phase": 1, "kinds": ["member.type"], "requirements": ["R2", "R41"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Bank.Domain",
+        "elements": [
+          { "id": "account", "type": "Class", "name": "Account" },
+          { "id": "credit", "type": "Class", "name": "Credit" },
+          { "id": "debit", "type": "Class", "name": "Debit" }
+        ]
+      }],
+      "associations": [
+        { "id": "account-credits", "type": "Association",
+          "source": { "element": "account", "name": "Account", "multiplicity": "1", "navigable": false },
+          "target": { "element": "credit", "name": "Credits", "multiplicity": "*", "navigable": true } },
+        { "id": "account-debits", "type": "Association",
+          "source": { "element": "account", "name": "Account", "multiplicity": "1", "navigable": false },
+          "target": { "element": "debit", "name": "Debits", "multiplicity": "*", "navigable": true } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/Account.cs
+namespace Bank.Domain;
+
+public class Account
+{
+    public CreditsCollection Credits { get; } = new();
+
+    public DebitsCollection Debits { get; } = new();
+}
+```
+
+```csharp file src/Domain/Credit.cs
+namespace Bank.Domain;
+
+public class Credit
+{
+}
+
+public sealed class CreditsCollection : List<Credit>
+{
+}
+```
+
+```csharp file src/Domain/Debit.cs
+namespace Bank.Domain;
+
+public class Debit
+{
+}
+
+public sealed class DebitsCollection : List<Credit>
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "account-credits", "outcome": "verified", "actual": "CreditsCollection", "at": "src/Domain/Account.cs:5" },
+    { "kind": "member.type", "element": "account-debits", "outcome": "contradicted", "actual": "DebitsCollection", "at": "src/Domain/Account.cs:7" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "account-debits" }
+  ]
+}
+```
+
 ## association-collection-flag
 
 The model says a buyer has at most one payment method (`0..1`), but the code navigates a collection: the end's type is contradicted, as one finding. The type differs only in being a collection, so the finding says what that means for the end, its multiplicity, with the code's type.

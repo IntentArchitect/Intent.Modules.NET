@@ -1702,6 +1702,71 @@ public class OrderService
 }
 ```
 
+## view-beside-services
+
+An MVC view the API renders for its error page, `CustomError.cshtml`, sits beside the controllers the Services designer describes. It is a component, which the User Interface designer describes, so it is reported without naming the Services designer, whose elements can't describe it. The controller's own `ErrorModel` class can be a Services element, so it names the designer.
+
+```json case
+{ "phase": 2, "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Bank.Api",
+        "elements": [
+          { "id": "custom-error-controller", "type": "Service", "name": "CustomErrorController" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type", "Glob": "src/WebApi/**" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/WebApi/CustomError/CustomErrorController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Bank.WebApi.CustomError;
+
+public sealed class CustomErrorController : Controller
+{
+    [HttpGet("api/error")]
+    public IActionResult Get() => View("CustomError");
+}
+
+public sealed class ErrorModel
+{
+    public string Message { get; set; } = "";
+}
+```
+
+```razor file src/WebApi/CustomError/CustomError.cshtml
+<h1>Something went wrong</h1>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "custom-error-controller", "outcome": "verified", "at": "src/WebApi/CustomError/CustomErrorController.cs:5" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/WebApi/CustomError/CustomError.cshtml:1",
+      "messageContains": "`CustomError` isn't in the model. Model it, or add an exception with a reason to the Root Folder's Drift Check." },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/WebApi/CustomError/CustomErrorController.cs:11",
+      "messageContains": "`ErrorModel` isn't in the model. Model it in the Services designer" }
+  ]
+}
+```
+
 ## nested-in-a-partial-types-other-part
 
 `Order` is partial, and the part declared first is in `Order.Generated.cs`. `Status` is nested in its other part, in `Order.cs`, so it is part of `Order` too, never reported on its own. A client's handler declares its enums this way.

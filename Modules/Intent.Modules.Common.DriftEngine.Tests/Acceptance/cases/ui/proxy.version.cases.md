@@ -196,6 +196,100 @@ public class CatalogService(HttpClient httpClient)
 }
 ```
 
+## javascript-path-version
+
+A JavaScript proxy calling an API versioned in its path: the backend's routes are `api/v{version}/Accounts/...`, and the proxy writes the version it calls, `/api/v1/accounts/${id}`. The route holds whatever version the segment names, without case and with its parameters by position, and the version is the one the segment names: `getAccount` asks for `1`, which the service applies as `1.0`; `closeAccount` asks for `2`, which it doesn't.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.version", "proxy.route"], "requirements": ["R2", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "accounts-proxy", "type": "Proxy", "name": "accountsService", "children": [
+            { "id": "accounts-proxy-get-account", "type": "Proxy Operation", "name": "GetAccount" },
+            { "id": "accounts-proxy-close-account", "type": "Proxy Operation", "name": "CloseAccount" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "get-account-calls-backend", "type": "Call Service Operation Action", "source": { "element": "accounts-proxy-get-account" }, "target": { "element": "accounts-get" } },
+        { "id": "close-account-calls-backend", "type": "Call Service Operation Action", "source": { "element": "accounts-proxy-close-account" }, "target": { "element": "accounts-close" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "accounts-api", "name": "AccountsApi",
+        "elements": [
+          { "id": "api-versions", "type": "Api Version", "name": "Accounts", "children": [
+            { "id": "api-v1", "type": "Version", "name": "1.0" }
+          ] },
+          { "id": "accounts-controller", "type": "Service", "name": "AccountsController",
+            "stereotypes": {
+              "Http Service Settings": { "Route": "api/v{version}/Accounts" },
+              "Api Version Settings": { "Applicable Versions": [{ "ref": "api-v1" }] }
+            },
+            "children": [
+              { "id": "accounts-get", "type": "Operation", "name": "Get", "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{accountId}" } } },
+              { "id": "accounts-close", "type": "Operation", "name": "Close", "stereotypes": { "Http Settings": { "Verb": "DELETE", "Route": "{accountId}" } } }
+            ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```js file src/store/api.js
+import axios from 'axios';
+
+const api = axios.create({ baseURL: '/' });
+
+export default api;
+```
+
+```js file src/store/accountsService.js
+import api from './api';
+
+const getAccount = (id) => {
+  return api.get(`/api/v1/accounts/${id}`);
+};
+
+const closeAccount = (id) => {
+  return api.delete(`/api/v2/accounts/${id}`);
+};
+
+export default {
+  getAccount,
+  closeAccount
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "get-account-calls-backend", "outcome": "verified", "expected": "api/v{version}/Accounts/{accountId}", "actual": "api/v1/accounts/{id}", "at": "src/store/accountsService.js:4" },
+    { "kind": "proxy.version", "element": "get-account-calls-backend", "outcome": "verified", "expected": "1.0", "actual": "1", "at": "src/store/accountsService.js:4" },
+    { "kind": "proxy.route", "element": "close-account-calls-backend", "outcome": "verified", "at": "src/store/accountsService.js:8" },
+    { "kind": "proxy.version", "element": "close-account-calls-backend", "outcome": "contradicted", "expected": "1.0", "actual": "2", "at": "src/store/accountsService.js:8" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.version", "severity": "error", "subject": "close-account-calls-backend" }
+  ]
+}
+```
+
 ## eshop-registration-version
 
 The request sends no `api-version`; the proxy's `AddHttpClient<CatalogService>` registration, in another file, adds version 3 to every request it makes, and the backend Operation is version `2.0`.

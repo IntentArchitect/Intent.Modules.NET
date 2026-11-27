@@ -955,6 +955,13 @@ public sealed class CodeGraph
     public Dictionary<MemberNode, string> StatedByLink { get; } = [];
 
     /// <summary>
+    /// The parameters a framework's reader knows the framework supplies, never a caller: ASP.NET Core's <c>[FromServices]</c>
+    /// ones, injected from the container. They are no part of an operation's signature (<c>operation.parameters</c>), as the
+    /// language profile's <c>injectedParameters</c> types aren't, though a model that lists them states the whole signature.
+    /// </summary>
+    public HashSet<ParameterNode> InjectedParameters { get; } = new(ReferenceEqualityComparer.Instance);
+
+    /// <summary>
     /// What a framework's reader knows one element type can't state of the members of the type it describes, though another
     /// element type describing the same code might: each is given the element type, the type and a member, and says why, or
     /// null. A User Interface Proxy's method that sends no request can't be a Proxy Operation, which the designer requires to
@@ -1178,7 +1185,9 @@ public sealed class CodeGraph
             return [];
         }
 
-        return MembersOf(type).Where(x => x.Kind == "method" && x.Name == name && (!onlyStatic || x.IsStatic) && (arguments is not { } count || Takes(x, count)))
+        // An explicit interface implementation (void IOutputPort.Ok(...)) is called only through its interface, so a call on the
+        // class itself, this.Ok(x) in a controller, is its base's Ok, never it.
+        return MembersOf(type).Where(x => x.Kind == "method" && x.Name == name && x.Implements is null && (!onlyStatic || x.IsStatic) && (arguments is not { } count || Takes(x, count)))
             .GroupBy(x => string.Join(",", x.Parameters.Select(p => p.Type?.Name)))
             .Select(x => new CallTarget(DeclaringType(type, x.First()), x.First()))
             .ToList();
@@ -1463,7 +1472,11 @@ public sealed class CodeGraph
             return _positions[type];
         }
 
-        /// <summary>The first type of each qualified name: <c>Shop.Domain.Order</c>, or a bare name in no namespace.</summary>
+        /// <summary>
+        /// The first type of each qualified name: <c>Shop.Domain.Order</c>, or a bare name in no namespace. A module is named
+        /// as its file without the extension, so <c>Footer.jsx</c>'s module and the <c>Footer</c> component it declares share a
+        /// name; the declared type is the name's, as a module is never what a reference means while a type of the name is there.
+        /// </summary>
         public Dictionary<string, TypeNode> TypesByQualifiedName
         {
             get
@@ -1473,7 +1486,11 @@ public sealed class CodeGraph
                     _typesByQualifiedName = new Dictionary<string, TypeNode>(StringComparer.Ordinal);
                     foreach (var type in graph.Types)
                     {
-                        _typesByQualifiedName.TryAdd(type.Namespace.Length == 0 ? type.Name : $"{type.Namespace}.{type.Name}", type);
+                        var name = type.Namespace.Length == 0 ? type.Name : $"{type.Namespace}.{type.Name}";
+                        if (!_typesByQualifiedName.TryAdd(name, type) && _typesByQualifiedName[name].Kind == "module" && type.Kind != "module")
+                        {
+                            _typesByQualifiedName[name] = type;
+                        }
                     }
                 }
 

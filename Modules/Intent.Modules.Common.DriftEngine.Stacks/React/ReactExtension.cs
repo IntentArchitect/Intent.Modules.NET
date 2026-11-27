@@ -17,7 +17,91 @@ public sealed class ReactExtension : IDriftExtension
 {
     public string Id => "intent.react";
 
-    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new ReactLinks()];
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new ReactLinks(), new ContextStores()];
+
+    public IEnumerable<ICodeReader> Readers { get; } = [new ComponentMembers()];
+}
+
+/// <summary>
+/// What a component's members are to the designer, so <c>unmodelled.member</c> asks only for those it can state: React's
+/// lifecycle methods and a class component's statics (<c>render</c>, <c>componentDidMount</c>, <c>static displayName</c>,
+/// <c>propTypes</c>) are React's (<see cref="CodeGraph.Unmodellable"/>); a property holding a service the component creates
+/// (<c>authService = new AuthService()</c>, or so set in its constructor) is its <c>Uses</c> of that service
+/// (<see cref="CodeGraph.StatedByLink"/>), as a Blazor component's injected one is; and react-router 5's <c>match</c>,
+/// <c>location</c> and <c>history</c> props, which the router gives a component a route mounts or <c>withRouter</c> wraps,
+/// are the router's, not a parent's.
+/// </summary>
+internal sealed class ComponentMembers : ICodeReader
+{
+    private static readonly HashSet<string> Lifecycle =
+    [
+        "render", "componentDidMount", "componentDidUpdate", "componentWillUnmount", "shouldComponentUpdate", "getSnapshotBeforeUpdate", "componentDidCatch",
+        "getDerivedStateFromProps", "getDerivedStateFromError", "componentWillMount", "componentWillReceiveProps", "componentWillUpdate",
+        "UNSAFE_componentWillMount", "UNSAFE_componentWillReceiveProps", "UNSAFE_componentWillUpdate"
+    ];
+
+    private static readonly HashSet<string> Statics = ["displayName", "propTypes", "defaultProps", "contextType"];
+
+    private static readonly HashSet<string> RouterProps = ["match", "location", "history"];
+
+    public void Read(CodeGraph graph)
+    {
+        foreach (var type in graph.Types.Where(ReactCode.IsReact))
+        {
+            var isClass = ReactCode.IsClassComponent(type);
+            foreach (var member in type.Members)
+            {
+                if (isClass && member.Kind == "method" && !member.IsStatic && Lifecycle.Contains(member.Name)
+                    || member.IsStatic && (Statics.Contains(member.Name) || member.Name.StartsWith("getDerivedState", StringComparison.Ordinal)))
+                {
+                    graph.Unmodellable[member] = "React calls it, or reads it, for every component: no designer states it";
+                }
+                else if (isClass && member.Kind is "property" or "field" && !member.IsStatic && Creates(graph, type, member))
+                {
+                    graph.StatedByLink[member] = "Uses";
+                }
+                else if (member is { Kind: "property", Access: "public" } && RouterProps.Contains(member.Name) && Routed(graph, type))
+                {
+                    graph.Unmodellable[member] = "react-router gives it to the component a route mounts or withRouter wraps";
+                }
+            }
+        }
+    }
+
+    /// <summary>The property holds an instance of a class of the code's own that the component creates: its initializer, or its constructor's <c>this.x = new X()</c>.</summary>
+    private static bool Creates(CodeGraph graph, TypeNode type, MemberNode member)
+    {
+        var values = new[] { member.Value }.Concat(type.Members.Where(x => x.Kind == "constructor").SelectMany(x => x.Body?.Assignments ?? [])
+            .Where(x => x.Target == $"this.{member.Name}").Select(x => x.Value));
+        return values.OfType<ValueNode>().SelectMany(x => x.Creations).Any(x => graph.TypeFor(x.Type, type) is { Kind: "class" or "component" });
+    }
+
+    /// <summary>A route mounts the component, or its file wraps it in <c>withRouter</c>.</summary>
+    private static bool Routed(CodeGraph graph, TypeNode type) =>
+        ReactCode.Records(graph).Any(x => x.Component == type)
+        || graph.Files.Where(x => type.Files.Contains(x.Path)).SelectMany(x => x.TopLevel?.Calls ?? [])
+            .Any(x => x.Name == "withRouter" && x.Arguments.Any(a => a.Text == type.Name));
+}
+
+/// <summary>
+/// A Store that is a React Context provider: a component whose markup provides a context, <c>&lt;AuthContext.Provider
+/// value={this.authService}&gt;</c>, holds what its consumers share, which is what a Store is. Its <c>type.kind</c> is a
+/// store's, whatever kind of code the component is.
+/// </summary>
+internal sealed class ContextStores : IClaimReader
+{
+    public IReadOnlyCollection<string> Kinds { get; } = ["type.kind"];
+
+    public ClaimReading? Read(ClaimContext context)
+    {
+        if (context.Element?.SpecializationType != "Store" || context.Type is not { } type || !ReactCode.IsReact(type)
+            || ReactCode.Markup(context.Code, type).FirstOrDefault(x => x.Tag.EndsWith(".Provider", StringComparison.Ordinal)) is not { } provider)
+        {
+            return null;
+        }
+
+        return ClaimReading.Compared($"{type.Kind} providing `{provider.Tag[..^".Provider".Length]}`", provider.At, true);
+    }
 }
 
 /// <summary>What the React readers share: what a React component is, its markup and units, and react-router's routes.</summary>
@@ -26,6 +110,9 @@ internal static class ReactCode
     /// <summary>A React component: a component the TypeScript language read from a TypeScript or JavaScript file, not a Vue one.</summary>
     public static bool IsReact(TypeNode? type) =>
         type is { Kind: "component" } && UiCode.IsTypeScript(type) && !type.Files.Any(x => x.EndsWith(".vue", StringComparison.OrdinalIgnoreCase));
+
+    /// <summary>A class component: it extends React's <c>Component</c> or <c>PureComponent</c>.</summary>
+    public static bool IsClassComponent(TypeNode type) => IsReact(type) && type.BaseTypes.Any(x => x.Name is "Component" or "PureComponent");
 
     /// <summary>The markup the component writes: every element of its file's JSX inside its own declaration, at any depth.</summary>
     public static IReadOnlyList<MarkupNode> Markup(CodeGraph code, TypeNode component) =>
@@ -292,7 +379,7 @@ internal sealed class Members : IClaimReader
         var words = UiCode.Words(element.Name);
         // An Event Emitter is a callback prop: Selected or OnSelected is onSelected.
         var member = context.Member ?? owner!.Members.Where(x => x.Kind != "constructor" && (UiCode.Words(x.Name) == words || kind == "event" && UiCode.Words(x.Name) == "on" + words))
-            .OrderByDescending(x => Fits(x, kind)).ThenByDescending(x => x.Name == element.Name).FirstOrDefault();
+            .OrderByDescending(x => Fits(code, owner!, x, kind)).ThenByDescending(x => x.Name == element.Name).FirstOrDefault();
         switch (context.Kind)
         {
             case "member.exists":
@@ -306,7 +393,7 @@ internal sealed class Members : IClaimReader
                         : ClaimReading.Missing($"`{owner!.At.File}`", $"{what} of `{owner.Name}` named `{UiCode.Camel(element.Name)}`");
                 }
 
-                return Fits(member, kind)
+                return Fits(code, owner!, member, kind)
                     ? ClaimReading.Found(member)
                     : ClaimReading.Compared($"a {member.Kind}", member.At, false,
                         $"`{member.Name}` is a {(member.Modifiers.Contains("state") ? "state value" : member.Kind)}, not {kind switch { "event" => "an on... callback prop", "method" => "a function", _ => "a prop or state" }}.");
@@ -333,13 +420,24 @@ internal sealed class Members : IClaimReader
         }
     }
 
-    /// <summary>A Property is a prop or state, an operation a function the component declares, an Event Emitter an <c>on...</c> callback prop.</summary>
-    private static bool Fits(MemberNode member, string kind) => kind switch
+    /// <summary>
+    /// A Property is a prop or state, an operation a function the component declares, an Event Emitter a callback prop: an
+    /// <c>on...</c> one, or one the component calls or hands to an event of its markup (<c>onClick={handleChangeNavDrawer}</c>).
+    /// </summary>
+    private static bool Fits(CodeGraph code, TypeNode owner, MemberNode member, string kind) => kind switch
     {
-        "event" => member.Kind == "property" && member.Access == "public" && Regex.IsMatch(member.Name, "^on[A-Z]"),
+        "event" => member.Kind == "property" && member.Access == "public" && (Regex.IsMatch(member.Name, "^on[A-Z]") || Called(code, owner, member.Name)),
         "method" => member.Kind is "method",
         _ => member.Kind is "property" or "field"
     };
+
+    /// <summary>The component calls a prop of the name, or hands it to an event of its markup: it is a callback.</summary>
+    private static bool Called(CodeGraph code, TypeNode component, string name)
+    {
+        var held = new HashSet<string>(StringComparer.Ordinal) { name, $"props.{name}", $"this.props.{name}" };
+        return ReactCode.Markup(code, component).Any(x => x.Attributes.Any(a => Regex.IsMatch(a.Name, "^on[A-Z]") && a.Value is { } value && held.Contains(value.Trim('{', '}', ' '))))
+               || ReactCode.Units(code, component).SelectMany(x => x.Unit.Calls).Any(x => x.Name == name && x.Receiver is null or "props" or "this.props");
+    }
 
     /// <summary>Where the component reads a route parameter of the name: <c>const { id } = useParams()</c>, <c>useParams().id</c>, <c>params.id</c>.</summary>
     private static Span? Route(TypeNode component, string name)
@@ -347,6 +445,13 @@ internal sealed class Members : IClaimReader
         var camel = Regex.Escape(UiCode.Camel(name));
         foreach (var unit in component.Members.Select(x => x.Body).OfType<FunctionNode>())
         {
+            // react-router 5 gives the component a route mounts its match: this.props.match.params.id, or { id } = match.params.
+            if (Regex.IsMatch(unit.Text, $@"\bmatch\s*\.\s*params\s*(?:\.\s*{camel}\b|\[\s*['""]{camel}['""]\s*\])", RegexOptions.IgnoreCase)
+                || Regex.IsMatch(unit.Text, $@"\{{[^}}]*\b{camel}\b[^}}]*\}}\s*=\s*(?:this\s*\.\s*)?(?:props\s*\.\s*)?match\s*\.\s*params\b", RegexOptions.IgnoreCase))
+            {
+                return unit.At;
+            }
+
             if (unit.Calls.FirstOrDefault(x => x is { Name: "useParams", Receiver: null }) is not { } call)
             {
                 continue;

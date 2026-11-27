@@ -171,6 +171,21 @@ internal static class ActionResults
             return Unreadable(value, at);
         }
 
+        // A field of the controller's own: each result its members assign to it, as a presenter's output-port methods do
+        // (return this._viewModel! with void IOutputPort.Ok(Account a) => this._viewModel = Ok(new AccountModel(a))).
+        if (value.Call is null && value.Creations.Count == 0 && Http.SuccessStatus.Assigned(value) is { Count: > 0 } assigned)
+        {
+            foreach (var (unit, assignment) in assigned)
+            {
+                if (Value(code, unit, assignment.Value, assignment.At, depth + 1, successes, controllers) is { } unread)
+                {
+                    return unread;
+                }
+            }
+
+            return null;
+        }
+
         // A local, or a conditional: each value it is given (var result = Ok(x); cond ? NotFound() : Ok(x)).
         if (value.Call is null && value.Creations.Count == 0 && value.Given.Count > 0)
         {

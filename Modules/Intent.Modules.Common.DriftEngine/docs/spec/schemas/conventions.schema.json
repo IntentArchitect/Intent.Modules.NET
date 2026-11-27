@@ -74,6 +74,12 @@
           "uniqueItems": true,
           "description": "unmodelled.member: the kinds of member the element type can state. The last pack whose convention for the element type says wins; none: the rule doesn't look inside its types"
         },
+        "statics": {
+          "type": "array",
+          "items": { "enum": ["property", "field", "constructor", "method", "event", "enumMember"] },
+          "uniqueItems": true,
+          "description": "unmodelled.member: the kinds of member the element type can state as static, as its designer's member types allow (a Domain Class's Operations, never its Attributes); a static member of another kind isn't asked for. The last pack whose convention for the element type says wins; absent: any kind it states"
+        },
         "uniqueNames": {
           "type": "boolean",
           "description": "unmodelled.member: the designer gives each of the element type's members a name of its own, so of a type's methods of one name (overloads) only one can be stated: none is asked for when one is located, else only the first. The last pack whose convention for the element type says wins; absent: false"

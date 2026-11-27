@@ -442,6 +442,72 @@ namespace Acme.API.Controllers.Pricing
 }
 ```
 
+## action-from-services-parameter
+
+An action may take a dependency the container supplies rather than its constructor: `[FromServices] IGetAccountUseCase useCase`. The request never sends it, so it is no part of the operation's signature, which the model states as `accountId` alone.
+
+```json case
+{ "phase": 2, "kinds": ["operation.parameters"], "requirements": ["R2", "R41", "R53"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Bank.Api",
+        "elements": [
+          { "id": "accounts-controller", "type": "Service", "name": "AccountsController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/accounts" } },
+            "children": [
+              { "id": "accounts-get", "type": "Operation", "name": "Get",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{accountId}" } },
+                "children": [
+                  { "id": "accounts-get-account-id", "type": "Parameter", "name": "accountId", "typeRef": { "type": "guid" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Bank.Api/Controllers/AccountsController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Bank.Api.Controllers;
+
+public interface IGetAccountUseCase
+{
+    Task Execute(Guid accountId);
+}
+
+[ApiController]
+[Route("api/accounts")]
+public sealed class AccountsController : ControllerBase
+{
+    [HttpGet("{accountId}")]
+    public async Task<IActionResult> Get([FromServices] IGetAccountUseCase useCase, [FromRoute] Guid accountId)
+    {
+        await useCase.Execute(accountId);
+        return Ok();
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.parameters", "element": "accounts-get", "outcome": "verified" }
+  ]
+}
+```
+
 ## services-endpoint-parameter-missing
 
 The model adds a `month` Parameter that the action doesn't take: contradicted, `services.parameter.missing` in eShopCustom's terms.

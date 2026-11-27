@@ -1201,6 +1201,197 @@ export default function CatalogPage() {
 }
 ```
 
+## service-proxy-through-its-interface
+
+A use case calls an outbound client through the interface the client implements, as dependency injection hands it over: `DepositUseCase` holds an `ICurrencyExchange`, which `CurrencyExchangeService`, the Service Proxy, implements. The call is in a private overload `Execute` hands on to, awaited with `ConfigureAwait(false)`, and the interface is named through a `using` relative to the file's namespace (`using Services;` in `Bank.Application`).
+
+```json case
+{ "phase": 6, "kinds": ["intent.invokes"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.interactions"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Bank.Application",
+        "elements": [
+          { "id": "deposit", "type": "Service", "name": "DepositUseCase",
+            "children": [
+              { "id": "deposit-execute", "type": "Operation", "name": "Execute",
+                "children": [
+                  { "id": "deposit-execute-account-id", "type": "Parameter", "name": "accountId", "typeRef": { "type": "guid" } },
+                  { "id": "deposit-execute-amount", "type": "Parameter", "name": "amount", "typeRef": { "type": "decimal" } }
+                ] }
+            ] },
+          { "id": "currency-exchange", "type": "Service Proxy", "name": "CurrencyExchangeService",
+            "children": [
+              { "id": "currency-exchange-convert", "type": "Operation", "name": "Convert", "typeRef": { "type": "decimal" },
+                "children": [
+                  { "id": "currency-exchange-convert-amount", "type": "Parameter", "name": "originalAmount", "typeRef": { "type": "decimal" } }
+                ] }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "deposit-invokes-convert", "type": "Perform Invocation", "source": { "element": "deposit-execute" }, "target": { "element": "currency-exchange-convert" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Application/Services/ICurrencyExchange.cs
+namespace Bank.Application.Services;
+
+public interface ICurrencyExchange
+{
+    Task<decimal> Convert(decimal originalAmount);
+}
+```
+
+```csharp file src/Application/UseCases/DepositUseCase.cs
+namespace Bank.Application.UseCases;
+
+using Services;
+
+public sealed class DepositUseCase
+{
+    private readonly ICurrencyExchange _currencyExchange;
+
+    public DepositUseCase(ICurrencyExchange currencyExchange) => this._currencyExchange = currencyExchange;
+
+    public Task Execute(Guid accountId, decimal amount) => this.Deposit(accountId, amount);
+
+    private async Task Deposit(Guid accountId, decimal amount)
+    {
+        decimal converted =
+            await this._currencyExchange
+                .Convert(amount)
+                .ConfigureAwait(false);
+
+        await this.Deposit(accountId.ToString(), converted).ConfigureAwait(false);
+    }
+
+    private Task Deposit(string account, decimal converted) => Task.CompletedTask;
+}
+```
+
+```csharp file src/Infrastructure/CurrencyExchangeService.cs
+namespace Bank.Infrastructure;
+
+using Bank.Application.Services;
+
+public sealed class CurrencyExchangeService : ICurrencyExchange
+{
+    public Task<decimal> Convert(decimal originalAmount) => Task.FromResult(originalAmount);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "deposit-invokes-convert", "outcome": "verified", "expected": "present", "actual": "present",
+      "at": "src/Application/UseCases/DepositUseCase.cs:16" }
+  ]
+}
+```
+
+## react-class-component-calls-proxy-module
+
+A JavaScript proxy module that exports an object of its functions, `export default { getOrders, getOrder }`, is what a default import of it is, so the class component's `ordersService.getOrder(id)` calls the module's `getOrder`. The call is in a class field holding a function (`fetchOrder = (id) => ...`), which is one of the component's methods, run from `componentDidMount`. Nothing calls `getOrders`.
+
+```json case
+{ "phase": "later", "kinds": ["intent.invokes", "intent.target"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "order-page", "type": "Page", "name": "OrderPage", "stereotypes": { "Page": { "Route": "/orders/{orderId}" } } },
+          { "id": "orders-service", "type": "Proxy", "name": "ordersService", "children": [
+            { "id": "get-orders", "type": "Proxy Operation", "name": "GetOrders" },
+            { "id": "get-order", "type": "Proxy Operation", "name": "GetOrder" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "page-calls-get-order", "type": "Call Service Operation Action", "source": { "element": "order-page" }, "target": { "element": "get-order" } },
+        { "id": "page-calls-get-orders", "type": "Call Service Operation Action", "source": { "element": "order-page" }, "target": { "element": "get-orders" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```js file src/store/api.js
+import axios from 'axios';
+
+export default axios.create({ baseURL: '/' });
+```
+
+```js file src/store/ordersService.js
+import api from './api';
+
+const getOrders = () => api.get('/api/v1/orders');
+
+const getOrder = (id) => api.get(`/api/v1/orders/${id}`);
+
+export default {
+  getOrders,
+  getOrder
+};
+```
+
+```jsx file src/pages/OrderPage.jsx
+import React from 'react';
+import ordersService from '../store/ordersService';
+
+export default class OrderPage extends React.Component {
+  state = { order: null };
+
+  componentDidMount() {
+    this.fetchOrder(this.props.match.params.orderId);
+  }
+
+  fetchOrder = (id) => {
+    ordersService
+      .getOrder(id)
+      .then((response) => this.setState({ order: response.data }));
+  };
+
+  render() {
+    return <div>{this.state.order && this.state.order.id}</div>;
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "orders-service", "outcome": "verified", "at": "src/store/ordersService.js:1" },
+    { "kind": "intent.invokes", "element": "page-calls-get-order", "outcome": "verified", "at": "src/pages/OrderPage.jsx:12" },
+    { "kind": "intent.target", "element": "page-calls-get-order", "outcome": "verified", "actual": "ordersService" },
+    { "kind": "intent.invokes", "element": "page-calls-get-orders", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "page-calls-get-orders" }
+  ]
+}
+```
+
 ## domain-service-call
 
 `PlaceOrder` invokes the Domain Service operation `PricingService.PriceOf`, and the application service calls it through its injected `IPricingService`, the interface beside the Domain Service's class.

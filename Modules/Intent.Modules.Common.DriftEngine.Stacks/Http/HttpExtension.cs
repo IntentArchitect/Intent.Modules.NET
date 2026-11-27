@@ -64,6 +64,48 @@ public sealed class HttpExtension : IDriftExtension
         return trimmed;
     }
 
+    /// <summary>
+    /// A route segment that holds a parameter inside literal text, as API versioning's <c>v{version}</c> does, against the
+    /// code's: the same text around it and anything in the parameter's place (<c>v1</c>, <c>v2.0</c>, a value the code
+    /// computes), without case. A segment that is all parameter, or has none, is compared as before.
+    /// </summary>
+    internal static bool TemplateSegmentMatches(string model, string code) =>
+        TemplateSegment(model) is { } pattern && pattern.IsMatch(code);
+
+    /// <summary>
+    /// The API version a request names: what the code writes where the called route has <c>{version}</c> (<c>1</c> for
+    /// <c>v1</c> against <c>api/v{version}/orders</c>), else its query string's <c>api-version</c>; null when it names none.
+    /// </summary>
+    internal static string? VersionIn(string modelRoute, string codeUrl)
+    {
+        var model = modelRoute.Split('?')[0].Split('/', StringSplitOptions.RemoveEmptyEntries);
+        var code = codeUrl.Split('?', '#')[0].Split('/', StringSplitOptions.RemoveEmptyEntries);
+        if (model.Length == code.Length)
+        {
+            foreach (var (segment, written) in model.Zip(code))
+            {
+                if (Regex.IsMatch(segment, @"\{version\b", RegexOptions.IgnoreCase) && TemplateSegment(segment) is { } pattern && pattern.Match(written) is { Success: true } match)
+                {
+                    return match.Groups["value"].Value;
+                }
+            }
+        }
+
+        return Regex.Match(codeUrl, @"[?&]api-version=([^&#]+)") is { Success: true } query ? query.Groups[1].Value : null;
+    }
+
+    private static Regex? TemplateSegment(string segment)
+    {
+        var parameters = Regex.Matches(segment, @"\{[^}]*\}");
+        if (parameters.Count == 0 || parameters.Count == 1 && parameters[0].Length == segment.Length)
+        {
+            return null;
+        }
+
+        var pattern = string.Concat(Regex.Split(segment, @"(\{[^}]*\})").Select((x, i) => i % 2 == 1 ? (i == 1 ? "(?<value>.+?)" : ".+?") : Regex.Escape(x)));
+        return new Regex($"^{pattern}$", RegexOptions.IgnoreCase);
+    }
+
     private static HashSet<string> Versions(string text) =>
         text.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Where(x => x != "none").Select(Version).ToHashSet(StringComparer.OrdinalIgnoreCase);
 }

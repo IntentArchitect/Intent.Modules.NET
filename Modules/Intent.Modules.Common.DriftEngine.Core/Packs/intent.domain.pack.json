@@ -60,7 +60,7 @@
     "Domain": {
       "designer": "Domain",
       "types": {
-        "Class": { "typeKinds": ["class", "record"], "states": ["property", "field", "constructor", "method"] },
+        "Class": { "typeKinds": ["class", "record"], "states": ["property", "field", "constructor", "method"], "statics": ["method"] },
         "Enum": { "typeKinds": ["enum"], "states": ["enumMember"] },
         "Domain Event": { "typeKinds": ["class", "record"], "states": ["property", "field"] },
         "Value Object": { "typeKinds": ["class", "record", "struct"], "states": ["property", "field"] },

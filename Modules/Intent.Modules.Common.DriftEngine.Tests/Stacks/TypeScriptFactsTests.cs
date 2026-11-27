@@ -524,6 +524,141 @@ public class TypeScriptFactsTests
         create.Arguments[0].Function!.Returns.Single().Members.Select(x => x.Member).ShouldBe(["items", "add"]);
     }
 
+    /// <summary>A JavaScript front end of class components: Material-UI's withStyles, react-router 5, a Context provider, and a proxy module exporting an object.</summary>
+    private static readonly (string Path, string Source)[] ClassFiles =
+    [
+        ("spa/src/components/Footer.jsx", """
+            import React from 'react';
+            import PropTypes from 'prop-types';
+            import { withStyles } from '@material-ui/styles';
+
+            const styles = { footer: { padding: 8 } };
+
+            class Footer extends React.Component {
+              render() {
+                const { classes, year } = this.props;
+                return <footer className={classes.footer}>{year} {this.props.owner}</footer>;
+              }
+            }
+
+            Footer.propTypes = { classes: PropTypes.object.isRequired, year: PropTypes.number, note: PropTypes.string };
+
+            export default withStyles(styles)(Footer);
+            """),
+        ("spa/src/components/Shell.jsx", """
+            import React, { Component } from 'react';
+            import Footer from './Footer';
+
+            export default class Shell extends Component {
+              render() {
+                return <main><Footer year={2024} /></main>;
+              }
+            }
+            """),
+        ("spa/src/store/ordersService.js", """
+            import api from './api';
+
+            const getOrders = () => api.get('/api/v1/orders');
+
+            const getOrder = (id) => api.get(`/api/v1/orders/${id}`);
+
+            export default {
+              getOrders,
+              getOrder,
+              cancelOrder(id) {
+                return api.delete(`/api/v1/orders/${id}`);
+              }
+            };
+            """),
+        ("spa/src/store/api.js", """
+            import axios from 'axios';
+
+            export default axios.create({ baseURL: '/' });
+            """),
+        ("spa/src/store/authService.js", """
+            export default class AuthService {
+              getUser() { return Promise.resolve(null); }
+            }
+            """),
+        ("spa/src/pages/Order.jsx", """
+            import React from 'react';
+            import { withRouter } from 'react-router-dom';
+            import ordersService from '../store/ordersService';
+            import AuthService from '../store/authService';
+
+            class Order extends React.Component {
+              static displayName = Order.name;
+
+              authService;
+
+              constructor(props) {
+                super(props);
+                this.state = { orderId: this.props.match.params.orderId, order: null };
+                this.authService = new AuthService();
+              }
+
+              componentDidMount() {
+                this.fetchOrder(this.state.orderId);
+              }
+
+              fetchOrder = (id) => {
+                ordersService.getOrder(id).then((response) => this.setState({ order: response.data }));
+              };
+
+              render() {
+                return <div>{this.state.order && this.state.order.id}</div>;
+              }
+            }
+
+            export default withRouter(Order);
+            """),
+    ];
+
+    private static readonly CodeGraph ClassGraph = ReadAll(ClassFiles);
+
+    private static TypeNode ClassType(string name) => ClassGraph.Types.Single(x => x.Name == name && x.Kind != "module");
+
+    [Fact]
+    public void A_tag_and_a_default_import_name_the_component_a_module_exports_wrapped_not_the_module_of_the_same_name()
+    {
+        // Footer.jsx's module is named Footer too, and its loose code (styles) comes first.
+        ClassGraph.Types.Single(x => x.Name == "Footer" && x.Kind == "module").ShouldNotBeNull();
+
+        var shell = ClassGraph.Files.Single(x => x.Path == "spa/src/components/Shell.jsx");
+        ClassGraph.TypeOf(shell.Imports.Single(x => x.Alias == "Footer")).ShouldBeSameAs(ClassType("Footer"));
+        var footer = shell.Markup.Single().Children.Single();
+        ClassGraph.TypeFor(footer.Component!, ClassType("Shell")).ShouldBeSameAs(ClassType("Footer"));
+    }
+
+    [Fact]
+    public void A_class_components_props_are_its_prop_types_and_what_it_reads_from_this_props()
+    {
+        ClassType("Footer").Members.Where(x => x.Kind == "property").Select(x => (x.Name, x.Access))
+            .ShouldBe([("classes", "public"), ("year", "public"), ("note", "public"), ("owner", "public")]);
+
+        // Its constructor's state is its state, as useState's values are; match is a prop it reads.
+        var order = ClassType("Order");
+        order.Members.Where(x => x.Modifiers.Contains("state")).Select(x => (x.Name, x.Access)).ShouldBe([("orderId", "private"), ("order", "private")]);
+        Member(order, "match").Access.ShouldBe("public");
+    }
+
+    [Fact]
+    public void A_class_field_holding_a_function_is_a_method_whose_calls_reach_a_module_through_the_object_it_exports()
+    {
+        var fetchOrder = Member(ClassType("Order"), "fetchOrder");
+        fetchOrder.Kind.ShouldBe("method");
+
+        // ordersService is the module its default export is an object of: getOrder is the module's.
+        var module = ClassGraph.Types.Single(x => x.Name == "ordersService" && x.Kind == "module");
+        var getOrder = fetchOrder.Body!.Calls.Single(x => x.Name == "getOrder");
+        getOrder.Target!.Member.ShouldBeSameAs(Member(module, "getOrder"));
+
+        // A function the exported object declares itself is the module's too.
+        Member(module, "cancelOrder").Kind.ShouldBe("method");
+        var orders = ClassGraph.Files.Single(x => x.Path == "spa/src/pages/Order.jsx").Imports.Single(x => x.Alias == "ordersService");
+        ClassGraph.TypeOf(orders).ShouldBeSameAs(module);
+    }
+
     private sealed class NoNode : INodeRunner
     {
         public NodeRun Run(string script, IReadOnlyList<string> arguments) => new(null, "Node.js isn't on the path.");

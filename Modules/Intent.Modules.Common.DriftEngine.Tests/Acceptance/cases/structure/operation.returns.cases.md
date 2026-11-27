@@ -593,6 +593,154 @@ public class ProductCatalogController : ControllerBase
 }
 ```
 
+## action-result-from-output-port
+
+A clean-architecture controller is its use case's output port: the action runs the use case, which calls the port back, and returns the result the port set, `return this._viewModel!`. The controller's own members that assign the field say what it returns, as returns through a local do: `IOutputPort.Ok(Account account)` sets `Ok(new AccountModel(account))`, so `Get` returns an `AccountModel`, with a 200; `NotFound()` is an error, which the model doesn't state. `Close`'s port sets `Accepted(...)` where the model says 200.
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns", "operation.status"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Bank.Api",
+        "elements": [
+          { "id": "account-model", "type": "DTO", "name": "AccountModel",
+            "children": [
+              { "id": "account-model-id", "type": "DTO-Field", "name": "Id", "typeRef": { "type": "guid" } }
+            ] },
+          { "id": "accounts-controller", "type": "Service", "name": "AccountsController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/accounts" } },
+            "children": [
+              { "id": "accounts-get", "type": "Operation", "name": "Get", "typeRef": { "element": "account-model" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{accountId}", "Success Response Code": "200 (Ok)" } },
+                "children": [
+                  { "id": "accounts-get-account-id", "type": "Parameter", "name": "accountId", "typeRef": { "type": "guid" } }
+                ] }
+            ] },
+          { "id": "close-controller", "type": "Service", "name": "CloseController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/accounts" } },
+            "children": [
+              { "id": "close-close", "type": "Operation", "name": "Close", "typeRef": { "element": "account-model" },
+                "stereotypes": { "Http Settings": { "Verb": "DELETE", "Route": "{accountId}", "Success Response Code": "200 (Ok)" } },
+                "children": [
+                  { "id": "close-close-account-id", "type": "Parameter", "name": "accountId", "typeRef": { "type": "guid" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Bank.Api/Accounts.cs
+namespace Bank.Api;
+
+public class Account
+{
+    public Guid Id { get; set; }
+}
+
+public class AccountModel
+{
+    public AccountModel(Account account) => Id = account.Id;
+
+    public Guid Id { get; }
+}
+
+public interface IOutputPort
+{
+    void Ok(Account account);
+
+    void NotFound();
+}
+
+public interface IGetAccountUseCase
+{
+    void SetOutputPort(IOutputPort outputPort);
+
+    Task Execute(Guid accountId);
+}
+```
+
+```csharp file src/Bank.Api/Controllers/AccountsController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Bank.Api.Controllers;
+
+[ApiController]
+[Route("api/accounts")]
+public sealed class AccountsController : ControllerBase, IOutputPort
+{
+    private readonly IGetAccountUseCase _useCase;
+    private IActionResult? _viewModel;
+
+    public AccountsController(IGetAccountUseCase useCase) => _useCase = useCase;
+
+    void IOutputPort.Ok(Account account) => this._viewModel = this.Ok(new AccountModel(account));
+
+    void IOutputPort.NotFound() => this._viewModel = this.NotFound();
+
+    [HttpGet("{accountId}")]
+    public async Task<IActionResult> Get(Guid accountId)
+    {
+        this._useCase.SetOutputPort(this);
+        await this._useCase.Execute(accountId);
+        return this._viewModel!;
+    }
+}
+```
+
+```csharp file src/Bank.Api/Controllers/CloseController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Bank.Api.Controllers;
+
+[ApiController]
+[Route("api/accounts")]
+public sealed class CloseController : ControllerBase, IOutputPort
+{
+    private readonly IGetAccountUseCase _useCase;
+    private IActionResult? _viewModel;
+
+    public CloseController(IGetAccountUseCase useCase) => _useCase = useCase;
+
+    void IOutputPort.Ok(Account account) => this._viewModel = this.Accepted(new AccountModel(account));
+
+    void IOutputPort.NotFound() => this._viewModel = this.NotFound();
+
+    [HttpDelete("{accountId}")]
+    public async Task<IActionResult> Close(Guid accountId)
+    {
+        this._useCase.SetOutputPort(this);
+        await this._useCase.Execute(accountId);
+        return this._viewModel!;
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "accounts-get", "outcome": "verified", "expected": "AccountModel", "actual": "Task<IActionResult> with AccountModel" },
+    { "kind": "operation.status", "element": "accounts-get", "outcome": "verified", "actual": "200", "at": "src/Bank.Api/Controllers/AccountsController.cs:14" },
+    { "kind": "operation.returns", "element": "close-close", "outcome": "verified", "expected": "AccountModel", "actual": "Task<IActionResult> with AccountModel" },
+    { "kind": "operation.status", "element": "close-close", "outcome": "contradicted", "actual": "202", "at": "src/Bank.Api/Controllers/CloseController.cs:14" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.status", "severity": "error", "subject": "close-close" }
+  ]
+}
+```
+
 ## action-result-body-contradicted
 
 `Get` now succeeds with every product, `Ok(await _products.GetAllAsync())`, against the model's single `ProductDTO`; `Delete` succeeds with `Ok(id)`, an `int`, against a model that returns nothing. Both are contradicted.

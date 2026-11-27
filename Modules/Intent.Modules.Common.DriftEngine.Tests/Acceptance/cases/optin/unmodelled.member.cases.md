@@ -1355,6 +1355,151 @@ public static class Formatting
 }
 ```
 
+## domain-static-members-the-designer-cant-state
+
+A Domain Class's Attributes are never static (only its Operations may be), so a null object's `static Instance` is no Attribute the designer could add, and isn't asked for. Its static `Create` method is an Operation the designer could state as static, so it is reported, as is the instance property `Label`.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.domain"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Bank.Domain",
+        "elements": [
+          { "id": "account-null", "type": "Class", "name": "AccountNull" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Bank", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/AccountNull.cs
+namespace Bank.Domain;
+
+public sealed class AccountNull
+{
+    public static AccountNull Instance { get; } = new AccountNull();
+
+    public static AccountNull Create() => Instance;
+
+    public string Label => "none";
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "account-null", "outcome": "verified", "at": "src/Domain/AccountNull.cs:3" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "subject": "src/Domain/AccountNull.cs:5", "count": 0 },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Domain/AccountNull.cs:7", "messageContains": "Create" },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Domain/AccountNull.cs:9", "messageContains": "Label" }
+  ]
+}
+```
+
+## react-class-component-framework-members
+
+What React calls or reads on every class component is React's, never the designer's: `render`, `componentDidMount` and the `static displayName` aren't asked for. Nor are the `match` and `history` props react-router 5 gives a component `withRouter` wraps, or `authService`, which holds a service the component creates (its constructor's `new AuthService()`), its Uses of that service. The component's own `refresh` function is still reported.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "side-menu", "type": "Component", "name": "SideMenu" },
+          { "id": "auth-service", "type": "UI Service", "name": "AuthService" }
+        ]
+      }],
+      "associations": [
+        { "id": "side-menu-uses-auth", "type": "Uses", "source": { "element": "side-menu" }, "target": { "element": "auth-service" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```js file src/store/AuthService.js
+export default class AuthService {
+  getUser() {
+    return Promise.resolve(null);
+  }
+}
+```
+
+```jsx file src/components/SideMenu.jsx
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import AuthService from '../store/AuthService';
+
+class SideMenu extends Component {
+  static displayName = SideMenu.name;
+
+  authService;
+
+  constructor(props) {
+    super(props);
+    this.authService = new AuthService();
+  }
+
+  componentDidMount() {
+    this.refresh();
+  }
+
+  refresh() {
+    this.authService.getUser().then(() => this.props.history.push(this.props.match.url));
+  }
+
+  render() {
+    return <nav>Menu</nav>;
+  }
+}
+
+export default withRouter(SideMenu);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "side-menu", "outcome": "verified", "at": "src/components/SideMenu.jsx:5" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/components/SideMenu.jsx:19", "messageContains": "refresh" },
+    { "rule": "optin/unmodelled.member", "subject": "src/components/SideMenu.jsx:6", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/components/SideMenu.jsx:8", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/components/SideMenu.jsx:15", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/components/SideMenu.jsx:20", "count": 0 },
+    { "rule": "optin/unmodelled.member", "subject": "src/components/SideMenu.jsx:23", "count": 0 }
+  ]
+}
+```
+
 ## view-model-states-properties
 
 A View Model adds Properties only, as its designer says ("Add a Property only for state other elements read ... Don't model its methods; describe them in its comment"), so its methods are never asked for and its Properties get the stock member checks. `ChatState`'s modelled `Messages` verifies; its unmodelled public property `IsBusy` is reported; its method `AddUserMessageAsync` isn't.

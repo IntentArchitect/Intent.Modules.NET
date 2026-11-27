@@ -791,15 +791,19 @@ internal sealed partial class EfCoreClaims : IClaimReader
     }
 
     /// <summary>
-    /// Whether a reference navigation may be null, where its C# type can't say (outside a nullable context), as EF Core
-    /// decides it: the relationship's <c>IsRequired</c>, else the navigation's foreign key, required when it can't be null.
+    /// Whether a reference navigation may be null, where its C# type can't say (outside a nullable context) or says it may
+    /// (<c>Account?</c>, which a loaded entity may still leave null), as EF Core decides it: the relationship's
+    /// <c>IsRequired</c>, else the navigation's foreign key, required when it can't be null.
     /// The key is the one the chain names (<c>HasForeignKey</c>), else <c>[ForeignKey]</c>, else EF Core's by convention: the
     /// navigation's or the principal's name and <c>Id</c>. A navigation whose own class holds no such key (a principal's to
     /// its dependent in a one-to-one) isn't read.
     /// </summary>
     private static ClaimReading? Navigation(ClaimContext context, EfCoreModel model, IAssociationEnd end)
     {
-        if (context.Member is not { } navigation || navigation.Type?.Nullable is not (null or "unknown") || navigation.Type.IsArray
+        // A navigation its type says can't be null is required, as EF Core makes it; one that may be (Account?) is still required
+        // when its relationship's foreign key can't be null or its configuration says IsRequired(), EF Core's rule, so only
+        // that one is read here, and its type answers when neither says.
+        if (context.Member is not { } navigation || navigation.Type?.Nullable is not (null or "unknown" or "true") || navigation.Type.IsArray
             || context.Code.UngovernedFiles.ContainsKey(navigation.At.File)
             || context.Owner(end) is not { } ownerElement || context.TypeOf(ownerElement) is not { } dependent
             || end.TypeReference?.Element is not IElement principalElement || context.TypeOf(principalElement) is not { } principal

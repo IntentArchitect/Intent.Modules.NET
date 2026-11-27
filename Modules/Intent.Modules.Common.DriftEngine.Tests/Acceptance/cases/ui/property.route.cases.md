@@ -196,6 +196,66 @@ export default function OrderPage({ note }: { note?: string }) {
 }
 ```
 
+## react-router-5-match-params
+
+react-router 5 gives the component a route mounts, or `withRouter` wraps, its `match`, so a class component reads a route parameter as `this.props.match.params.accountId`. The account page keeps it in its state; `Note`, a prop it is given, isn't from the route, which the code states by saying nothing.
+
+```json case
+{ "phase": "later", "kinds": ["property.route"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "spa", "name": "Spa", "type": "User Interface Package",
+        "elements": [
+          { "id": "account-page", "type": "Page", "name": "AccountPage", "stereotypes": { "Page": { "Route": "/accounts/{accountId}" } },
+            "children": [
+              { "id": "account-page-account-id", "type": "Property", "name": "AccountId", "typeRef": { "type": "string" }, "stereotypes": { "Route Parameter": {} } },
+              { "id": "account-page-note", "type": "Property", "name": "Note", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "spa", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```jsx file src/pages/AccountPage.jsx
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+
+class AccountPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { accountId: this.props.match.params.accountId, account: null };
+  }
+
+  render() {
+    const { note } = this.props;
+    return <h1>{this.state.accountId} {note}</h1>;
+  }
+}
+
+export default withRouter(AccountPage);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "account-page-account-id", "outcome": "verified", "at": "src/pages/AccountPage.jsx:7" },
+    { "kind": "property.route", "element": "account-page-account-id", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/pages/AccountPage.jsx:5" },
+    { "kind": "property.route", "element": "account-page-note", "outcome": "verified", "expected": "false", "actual": "false", "fromSilence": true }
+  ]
+}
+```
+
 ## maui-shell-has-no-route-parameters
 
 .NET MAUI's Shell has no route parameters (`intent.maui`): a page receives its navigation's values as query parameters. So a MAUI page's Property the model marks a route parameter is one finding, and one it doesn't verifies.
