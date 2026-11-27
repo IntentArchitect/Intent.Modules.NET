@@ -259,7 +259,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 case HttpVerb.Get:
                 case HttpVerb.Query:
-                    lines.Add($"/// <response code=\"{_responseMapper.GetResponseCode(operation.InternalElement, "200")}\">Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
+                    var getResponseText = operation.ReturnType != null
+                        ? $"Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}."
+                        : "Successful request, no content returned.";
+                    lines.Add($"/// <response code=\"{_responseMapper.GetResponseCode(operation.InternalElement, operation.ReturnType != null ? "200" : "204")}\">{getResponseText}</response>");
                     break;
                 case HttpVerb.Post:
                     lines.Add($"/// <response code=\"{_responseMapper.GetResponseCode(operation.InternalElement, "201")}\">Successfully created.</response>");
@@ -337,18 +340,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 }
             }
 
+            var defaultValue = operation.ReturnType != null ? "StatusCodes.Status200OK" : "StatusCodes.Status204NoContent";
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
                 case HttpVerb.Query:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status200OK")})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, defaultValue)})]"));
                     break;
                 case HttpVerb.Post:
                     attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, "StatusCodes.Status201Created")})]"));
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    var defaultValue = operation.ReturnType != null ? "StatusCodes.Status200OK" : "StatusCodes.Status204NoContent";
                     attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}{_responseMapper.GetResponseStatusCodeEnum(operation.InternalElement, defaultValue)})]"));
                     break;
                 case HttpVerb.Delete:

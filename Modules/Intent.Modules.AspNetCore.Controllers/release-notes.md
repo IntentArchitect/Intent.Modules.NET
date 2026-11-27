@@ -1,5 +1,6 @@
 ### Version 7.2.1
 
+- Fixed: A GET or QUERY endpoint with no return type now documents 204 No Content (previously 200) in its response annotations, matching what it returns.
 - Fixed: `BinaryContentFilter` no longer generates a redundant null-forgiving operator (`!`) on the just-assigned `RequestBody` that SonarAnalyzer rule S8969 reports, which failed builds with warnings treated as errors.
 
 ### Version 7.2.0

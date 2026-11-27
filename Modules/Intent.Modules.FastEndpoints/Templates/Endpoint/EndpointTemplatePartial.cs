@@ -271,10 +271,15 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
             var producesReturnTypeDefinition = GetReturnType() is not null ? $"<{GetReturnType()}>" : "";
 
+            var defaultValue = Model.ReturnType != null ? "StatusCodes.Status200OK" : "StatusCodes.Status204NoContent";
             switch (Model.Verb)
             {
                 case HttpVerb.Get:
                 case HttpVerb.Query:
+                    lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
+                        .AddArgument(_responseMapper.GetResponseStatusCodeEnum(Model.InternalElement, defaultValue))
+                        .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));
+                    break;
                 case HttpVerb.Delete:
                     lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
                         .AddArgument(_responseMapper.GetResponseStatusCodeEnum(Model.InternalElement, "StatusCodes.Status200OK"))
@@ -287,7 +292,6 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    var defaultValue = Model.ReturnType != null ? "StatusCodes.Status200OK" : "StatusCodes.Status204NoContent";
                     lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
                         .AddArgument(_responseMapper.GetResponseStatusCodeEnum(Model.InternalElement, defaultValue))
                         .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));

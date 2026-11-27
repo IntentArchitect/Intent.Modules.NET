@@ -1,3 +1,7 @@
+### Version 1.3.1
+
+- Fixed: A GET or QUERY endpoint with no return type now documents 204 No Content (previously 200) in its response annotations, matching what it returns.
+
 ### Version 1.3.0
 
 - New Feature: Operations modelled with the HTTP `QUERY` verb generate endpoints that call `Query(...)` and respond like `GET` operations.

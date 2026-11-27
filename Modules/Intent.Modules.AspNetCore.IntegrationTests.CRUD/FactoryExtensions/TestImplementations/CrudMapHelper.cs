@@ -54,7 +54,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             foreach (var create in creates)
             {
                 string potentialEntityName = create.Name.Substring("Create".Length);
-                var getById = operations.FirstOrDefault(o => o.Name.StartsWith($"Get{potentialEntityName}ById", StringComparison.OrdinalIgnoreCase));
+                var getById = operations.FirstOrDefault(o => o.Name.StartsWith($"Get{potentialEntityName}ById", StringComparison.OrdinalIgnoreCase) && o.ReturnType?.Element != null);
                 if (getById != null)
                 {
                     if (ValidateCreateReturnType(template, create, potentialEntityName, out var responseDtoIdField))
@@ -66,7 +66,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                 }
                 else
                 {
-                    var findById = operations.FirstOrDefault(o => o.Name.StartsWith($"Find{potentialEntityName}ById", StringComparison.OrdinalIgnoreCase));
+                    var findById = operations.FirstOrDefault(o => o.Name.StartsWith($"Find{potentialEntityName}ById", StringComparison.OrdinalIgnoreCase) && o.ReturnType?.Element != null);
                     if (findById != null)
                     {
                         if (ValidateCreateReturnType(template, create, potentialEntityName, out var responseDtoIdField))
@@ -132,7 +132,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
             var createOperaion = operations.FirstOrDefault(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0 && ExpectedCreateParameters(o, owningAggregate));
             if (createOperaion == null) return null;
-            var getByIdOperation = operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName}ById", ignoreCase: true) == 0 && ExpectedGetByIdParameters(o, entity, owningAggregate));
+            var getByIdOperation = operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName}ById", ignoreCase: true) == 0 && o.ReturnType?.Element != null && ExpectedGetByIdParameters(o, entity, owningAggregate));
             if (getByIdOperation == null) return null;
 
             var domainOperationInvocations = GetDomainInvocationOperations(operations, entity, owningAggregate);

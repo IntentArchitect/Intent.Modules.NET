@@ -1,3 +1,7 @@
+### Version 1.0.22
+
+- Fixed: Test generation no longer fails when a Get/Find-by-id endpoint has no return type.
+
 ### Version 1.0.21
 
 - Improvement: The Software Factory now fails with a clear error when the `Intent.AspNetCore.IntegrationTesting` module's `Generate Service Proxies for Testing` setting is off, since this module's tests are implemented against those proxies.

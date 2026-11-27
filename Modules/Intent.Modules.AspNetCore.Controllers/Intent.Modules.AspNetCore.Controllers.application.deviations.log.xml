@@ -50,10 +50,10 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</correlationId>
       <path>Templates/Controller/ControllerTemplatePartial.cs</path>
       <count>5</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2026-11-09T10:03:32.8860473Z</updatedAt>
-      <deviationsHash>68EF1B7DB3DA3A035416B515BF6693F6983F036A31C0837FC02226E4A01AE3D2</deviationsHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2026-11-26T14:57:29.2324306Z</updatedAt>
+      <deviationsHash>243B889824B286DC1887C0017AB29C6B222EF3CCD5674F7FE26FDE7C45163792</deviationsHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</correlationId>

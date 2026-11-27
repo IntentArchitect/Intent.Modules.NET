@@ -28,6 +28,14 @@ Generates ASP.NET Core MVC controllers from Services designer elements, plus the
     `[Http{Verb}]` emission for one verb.
 - **`QUERY` is GET-like everywhere responses are decided** (`Utils` return switch, `CanReturnNotFound`, the XML
   and `ProducesResponseType` switches): a `QUERY` request is safe and idempotent, only with its criteria in the body.
+- **A `GET`/`QUERY` with no return type is annotated 204, not 200 (since 7.2.1).** The runtime already returned
+  `NoContent()` (`Utils.GetReturnStatement`), but the `ProducesResponseType` attribute and the `<response>` XML doc
+  said 200. Both now default to 204 when `ReturnType` is null, exactly as `PUT`/`PATCH` already did, and the doc
+  text reads `Successful request, no content returned.` instead of `Returns the specified .`. A user-set
+  `Success Response Code` still wins, because the default still goes through `_responseMapper`. `DELETE` is
+  intentionally still 200 (it returns `Ok()`), and `POST` stays 201. Rejected: emitting both 200 and 204 for
+  the no-return-type case, which documents a response the action never produces. Needed because the
+  `Intent.Metadata.WebApi` validation requiring a return type on `GET`/`QUERY` was removed, so the case is now modellable.
 - **`BinaryContentFilter` follows the Swashbuckle version for the Microsoft.OpenApi 3.x shape (since 7.2.0).**
   Swashbuckle 11 depends on `Microsoft.OpenApi` 3.x, which types request body content as `IOpenApiMediaType`, so
   the filter's dictionary value type switches when the resolved `Swashbuckle.AspNetCore` major is 11 or later.
