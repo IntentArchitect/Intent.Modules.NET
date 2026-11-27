@@ -16,5 +16,9 @@ This document contains durable architectural decisions, constraints, and pattern
     new GetItemByIdQuery { Id = id }
     ```
 
-### 2. Dependency Rules
+### 2. The `Wolverine` Namespace Comes From `UseType`, Not `file.AddUsing`
+- `IMessageBus` is resolved with `controllerTemplate.UseType("Wolverine.IMessageBus")`. That registers `Wolverine` as a template using, and Common.CSharp leaves out a template using that is a parent of the file's namespace. So a controller in a `Wolverine.*` namespace gets no `using Wolverine;`, and needs none to compile.
+- Do not add `file.AddUsing("Wolverine")` back. A file-level using skips that check and writes a redundant using. 1.0.0 did that; 1.0.1 removed it, which changes the output for any consumer whose namespace starts with `Wolverine.` (the `Wolverine.AspNetCore.Controllers` test app is the anchor).
+
+### 3. Dependency Rules
 - To maintain package-boundary integrity, this module project references the NuGet package `Intent.Modules.AspNetCore.Controllers` rather than a local `<ProjectReference>`.

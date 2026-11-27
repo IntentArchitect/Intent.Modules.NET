@@ -1,3 +1,8 @@
+### Version 1.0.1
+
+- Improvement: Controllers no longer get a redundant `using Wolverine;` when their namespace already sits under `Wolverine`.
+- Improvement: Requires Intent Architect 5.1.0 or later.
+
 ### Version 1.0.0
 
 - New Feature: Initial release. Dispatches commands and queries from ASP.NET Core controllers via Wolverine's `IMessageBus.InvokeAsync` instead of MediatR.
