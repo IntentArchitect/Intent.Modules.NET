@@ -52,6 +52,12 @@ public sealed class TypeRefNode
     public IReadOnlyList<TypeMemberNode> Members { get; init; } = [];
 
     /// <summary>
+    /// A function type's parameters, in order, each with its type when the code says it: <c>(file: Blob) =&gt; void</c> takes a
+    /// <c>file</c> of <c>Blob</c>. Empty for any other type. The type is still compared as written.
+    /// </summary>
+    public IReadOnlyList<TypeMemberNode> Parameters { get; init; } = [];
+
+    /// <summary>
     /// The language it is written in, as its reader says: it is compared under that language's profile, so one run reads
     /// several languages. Null: the run's primary language.
     /// </summary>
@@ -850,6 +856,13 @@ public sealed class FunctionNode
     public IReadOnlyList<CreationNode> Creations { get; init; } = [];
 
     /// <summary>
+    /// What it reads that the code types, in the order written, where a language reader records it: what its locals are given
+    /// (<c>const { loadActivities } = rootStore.activityStore</c> reads an <c>ActivityStore</c>), and the paths through its own
+    /// fields (<c>this.rootStore.userStore</c>). Each is a value of a known type; a reader that doesn't record them leaves it empty.
+    /// </summary>
+    public IReadOnlyList<ValueNode> Reads { get; init; } = [];
+
+    /// <summary>
     /// What it assigns with a plain <c>=</c>, in order: <c>o.Title = "Orders"</c> in an options lambda. An object
     /// initializer's are its creation's <see cref="CreationNode.Initializers"/>.
     /// </summary>
@@ -1120,12 +1133,32 @@ public sealed class CodeGraph
                     continue;
                 }
 
-                var arguments = reference.Arguments.Count > 0 ? reference.Arguments : library.Defaults;
+                var arguments = reference.Arguments;
 
-                TypeRefNode? Bound(TypeRefNode? memberType) =>
-                    memberType is not null && library.TypeParameters.ToList().IndexOf(memberType.Name) is var index and >= 0 && index < arguments.Count
-                        ? arguments[index]
-                        : memberType;
+                // A type parameter is the argument the code gives it, else its default (IdentityDbContext<AppUser>'s TRole is
+                // IdentityRole), also inside a member's type arguments: Users is a DbSet<AppUser>.
+                TypeRefNode? Bound(TypeRefNode? memberType)
+                {
+                    if (memberType is null)
+                    {
+                        return null;
+                    }
+
+                    if (library.TypeParameters.ToList().IndexOf(memberType.Name) is var index and >= 0)
+                    {
+                        return index < arguments.Count ? arguments[index] : index < library.Defaults.Count ? library.Defaults[index] : memberType;
+                    }
+
+                    var bound = memberType.Arguments.Select(x => Bound(x)!).ToList();
+                    return bound.SequenceEqual(memberType.Arguments)
+                        ? memberType
+                        : new TypeRefNode
+                        {
+                            Text = $"{memberType.Name}<{string.Join(", ", bound.Select(x => x.Text))}>", Name = memberType.Name, QualifiedName = memberType.QualifiedName,
+                            Arguments = bound, IsArray = memberType.IsArray, NullableMarked = memberType.NullableMarked, Nullable = memberType.Nullable,
+                            IsPredefinedValueType = memberType.IsPredefinedValueType, Language = memberType.Language
+                        };
+                }
 
                 members.AddRange(library.Members.Where(x => members.All(m => m.Name != x.Name))
                     .Select(x => x with { Type = Bound(x.Type), At = declaring.At }));
@@ -1329,7 +1362,11 @@ public sealed class CodeGraph
                 return TypeNamed($"{aliased.Target}{reference.QualifiedName[dot..]}");
             }
 
-            return candidates.Count == 1 ? candidates[0] : Nearest(candidates, from);
+            // Qualified by what a namespace it imports holds (Create.Command with using Application.Activities;), it is that one.
+            return candidates.Count == 1
+                ? candidates[0]
+                : Nearest(candidates, from)
+                  ?? (candidates.Where(x => imports.Any(i => i is { Alias: null, Static: false, Wildcard: true } && $"{i.Target}.{reference.QualifiedName}" == $"{x.Namespace}.{x.Name}")).ToList() is [var imported] ? imported : null);
         }
 
         // An unqualified name an alias or a single-type import gives is what it imports, even over a type of its own
@@ -1346,8 +1383,9 @@ public sealed class CodeGraph
             return Nameable(candidates[0], from) ? candidates[0] : null;
         }
 
+        // A type's nested types are named in it (C#'s using static imports a type's nested types as its members).
         return Nearest(candidates, from)
-               ?? (candidates.Where(x => imports.Any(i => i is { Alias: null, Static: false, Wildcard: true } && i.Target == x.Namespace)).ToList() is [var only] ? only : null);
+               ?? (candidates.Where(x => imports.Any(i => i is { Alias: null, Static: false, Wildcard: true } or { Alias: null, Static: true, Wildcard: false } && i.Target == x.Namespace)).ToList() is [var only] ? only : null);
     }
 
     /// <summary>
@@ -1360,7 +1398,9 @@ public sealed class CodeGraph
     /// </summary>
     private bool Nameable(TypeNode type, TypeNode from)
     {
-        if (type.Namespace.Length == 0 || type == from)
+        // A type nested in it, or in a type that encloses it, is named unqualified there.
+        if (type.Namespace.Length == 0 || type == from || type.Namespace == (from.Namespace.Length == 0 ? from.Name : $"{from.Namespace}.{from.Name}")
+            || from.Namespace == type.Namespace || from.Namespace.StartsWith(type.Namespace + ".", StringComparison.Ordinal))
         {
             return true;
         }
@@ -1377,10 +1417,18 @@ public sealed class CodeGraph
                                      || files.Any(x => !x.ImportsKnown || Reaches(x, type.Namespace));
     }
 
-    private static TypeNode? Nearest(IEnumerable<TypeNode> candidates, TypeNode from) =>
-        candidates.Where(x => from.Namespace == x.Namespace || from.Namespace.StartsWith(x.Namespace + ".", StringComparison.Ordinal))
-            .OrderByDescending(x => x.Namespace.Length)
+    /// <summary>
+    /// Of several types of a name, the one nearest <paramref name="from"/>: nested in it, then in its namespace or an enclosing one
+    /// (a nested type's containing types read as namespace segments, so a type nested beside it is in its namespace).
+    /// </summary>
+    private static TypeNode? Nearest(IEnumerable<TypeNode> candidates, TypeNode from)
+    {
+        var own = from.Namespace.Length == 0 ? from.Name : $"{from.Namespace}.{from.Name}";
+        return candidates.Where(x => x.Namespace == own || from.Namespace == x.Namespace || from.Namespace.StartsWith(x.Namespace + ".", StringComparison.Ordinal))
+            .OrderByDescending(x => x.Namespace == own)
+            .ThenByDescending(x => x.Namespace.Length)
             .FirstOrDefault();
+    }
 
     private readonly List<(string What, long Ticks)> _timed = [];
 

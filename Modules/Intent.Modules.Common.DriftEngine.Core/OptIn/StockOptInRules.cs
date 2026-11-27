@@ -51,7 +51,8 @@ internal sealed class UnmodelledType : IOptInRule
             .ToDictionary(x => x.Key, x => x.GroupBy(c => c.Claim.Designer).OrderByDescending(c => c.Count()).First().Key, StringComparer.Ordinal);
         foreach (var type in types)
         {
-            if (context.IsLocated(type) || byFile[type.At.File].Any(x => x.Type != type && Encloses(x.At, type.At)))
+            // A type whose declaration is a part of another's is that one's code too: a React component's props interface.
+            if (context.IsLocated(type) || byFile[type.At.File].Any(x => x.Type != type && (Encloses(x.At, type.At) || x.At == type.At)))
             {
                 continue;
             }

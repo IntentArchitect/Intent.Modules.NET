@@ -25,6 +25,7 @@ using Intent.Modules.Common.DriftEngine.Stacks.MvvmToolkit;
 using Intent.Modules.Common.DriftEngine.Stacks.Protobuf;
 using Intent.Modules.Common.DriftEngine.Stacks.Python;
 using Intent.Modules.Common.DriftEngine.Stacks.React;
+using Intent.Modules.Common.DriftEngine.Stacks.SignalR;
 using Intent.Modules.Common.DriftEngine.Stacks.Proxies;
 using Intent.Modules.Common.DriftEngine.Stacks.Relational;
 using Intent.Modules.Common.DriftEngine.Stacks.Serialization;
@@ -88,7 +89,8 @@ public static class StockExtensions
         new VueExtension(),
         new ReactExtension(),
         new AngularExtension(),
-        new ProxiesExtension()
+        new ProxiesExtension(),
+        new SignalRExtension()
     ];
 
     /// <summary>A stock extension by its id, or null.</summary>

@@ -17,6 +17,35 @@ public sealed class TypeScriptUiExtension : IDriftExtension
     public string Id => "intent.typescript.ui";
 
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Modules(), new StoreMembers(), new ModuleLinks(), new Requests(), new BaseUrls(), new PersistedStores()];
+
+    public IEnumerable<ICodeReader> Readers { get; } = [new ClassDependencies()];
+}
+
+/// <summary>
+/// What a TypeScript class's members are to the designer, so <c>unmodelled.member</c> asks only for those it can state: a member
+/// holding an instance of a class of the code's own that the class creates (a MobX root store's <c>activityStore</c>, set to
+/// <c>new ActivityStore(this)</c> in its constructor), or that its constructor is handed (a store's <c>rootStore</c>, set from
+/// its <c>rootStore: RootStore</c> parameter), is a dependency, which the model states as a <c>Uses</c>
+/// (<see cref="CodeGraph.StatedByLink"/>), as a React component's created service and an Angular class's injected one are.
+/// </summary>
+internal sealed class ClassDependencies : ICodeReader
+{
+    public void Read(CodeGraph graph)
+    {
+        foreach (var type in graph.Types.Where(x => x.Kind == "class" && UiCode.IsTypeScript(x)))
+        {
+            var assigned = type.Members.Where(x => x.Kind == "constructor").SelectMany(x => x.Body?.Assignments ?? []).ToList();
+            foreach (var member in type.Members.Where(x => x.Kind is "property" or "field" && !x.IsStatic))
+            {
+                var values = assigned.Where(x => x.Target == $"this.{member.Name}").Select(x => x.Value).Prepend(member.Value).OfType<ValueNode>().ToList();
+                if (values.SelectMany(x => x.Creations).Any(x => graph.TypeFor(x.Type, type) is { Kind: "class" or "component" } created && created != type)
+                    || values.Any(x => x.Parameter?.Type is { } given && graph.TypeFor(given, type) is { Kind: "class" or "interface" } held && held != type))
+                {
+                    graph.StatedByLink.TryAdd(member, "Uses");
+                }
+            }
+        }
+    }
 }
 
 /// <summary>
@@ -78,7 +107,7 @@ internal sealed class BaseUrls : IClaimReader
             return $"{uri.Scheme}://{uri.Authority}";
         }
 
-        var configured = request.Instance?.Value?.Call?.Arguments.FirstOrDefault()?.Members.FirstOrDefault(x => x.Member is "baseURL" or "prefixUrl")?.Value;
+        var configured = Requests.BaseUrlOf(code, request);
         return configured is null ? null : Absolute(UiCode.Text(code.StringOf(configured)));
     }
 
@@ -104,6 +133,11 @@ internal sealed class PersistedStores : IClaimReader
     public ClaimReading? Read(ClaimContext context)
     {
         var module = context.Type;
+        if (module is { Kind: "class" } && UiCode.IsTypeScript(module))
+        {
+            return Class(context, module);
+        }
+
         if (module is not { Kind: "module" } || !UiCode.IsTypeScript(module) || UiCode.FileOf(context.Code, module.At.File) is not { } file
             || Stores.Of(context.Code, file).FirstOrDefault(x => Stores.Is(x, context.Element.Name)) is not { } store)
         {
@@ -143,6 +177,32 @@ internal sealed class PersistedStores : IClaimReader
     private static bool Keeps(CallNode call) =>
         call.Name is "getItem" or "setItem" && call.Receiver is { } receiver && Storages.Contains(receiver)
         || call.Receiver is null or "" && Keepers.Contains(call.Name);
+
+    /// <summary>
+    /// A store written as a class (MobX's): its state is kept across reloads when its own code reads or writes Web Storage, in its
+    /// members, their initializers and the reactions its constructor sets up (<c>reaction(() =&gt; this.token, token =&gt;
+    /// window.localStorage.setItem('jwt', token))</c>), or through what keeps it there.
+    /// </summary>
+    private static ClaimReading Class(ClaimContext context, TypeNode store)
+    {
+        var calls = new List<CallNode>();
+        foreach (var value in store.Members.SelectMany(x => (x.Body?.Calls ?? []).SelectMany(c => c.Arguments).Prepend(x.Value)).OfType<ValueNode>())
+        {
+            Collect(value, calls, 0);
+        }
+
+        calls.AddRange(store.Members.SelectMany(x => x.Body?.Calls ?? []));
+
+        if (calls.FirstOrDefault(Keeps) is { } kept)
+        {
+            return ClaimReading.Stated("true", kept.At);
+        }
+
+        return context.Expected == "true"
+            ? ClaimReading.Compared("false", store.At, false,
+                $"`{context.Element.Name}` persisted: model `true`, code `false`. The store reads and writes neither `localStorage` nor `sessionStorage`, so its state isn't kept across reloads. The model states it in the store's Persisted stereotype. Keep its state in Web Storage, or remove Persisted.")
+            : ClaimReading.Absent(store.At, "false");
+    }
 
     /// <summary>The calls a value makes: its own, its arguments', and those of a function it is, nested ones included.</summary>
     private static void Collect(ValueNode value, List<CallNode> calls, int depth)
@@ -417,7 +477,13 @@ internal sealed class Requests : IClaimReader
                     return ClaimReading.CantVerify("unreadable", "The request's URL is computed.", request.At);
                 }
 
-                return ClaimReading.Compared(route.Shown, request.At, UiCode.Matches(route.Path, context.Expected));
+                // A base URL the code doesn't state (an environment variable's, as axios.defaults.baseURL = process.env.REACT_APP_API_URL
+                // gives it) may carry the route's start, so the code states only what follows it: the model's route verifies when it
+                // ends with the code's.
+                var same = UiCode.Matches(route.Path, context.Expected)
+                           || Configured(code, request, url) && context.Expected.Trim('/').Split('/', StringSplitOptions.RemoveEmptyEntries) is var segments
+                           && Enumerable.Range(1, Math.Max(segments.Length - 1, 0)).Any(skip => UiCode.Matches(route.Path, string.Join("/", segments.Skip(skip))));
+                return ClaimReading.Compared(route.Shown, request.At, same);
             }
             case "proxy.version":
             {
@@ -438,6 +504,35 @@ internal sealed class Requests : IClaimReader
                 return null;
         }
     }
+
+    /// <summary>
+    /// The base URL a request is sent under, as the code gives it: its client instance's <c>baseURL</c> or <c>prefixUrl</c>
+    /// (<c>axios.create({ baseURL })</c>), else what the code sets as its client's default (<c>axios.defaults.baseURL = ...</c>).
+    /// </summary>
+    internal static ValueNode? BaseUrlOf(CodeGraph code, Sent request)
+    {
+        if (request.Instance?.Value?.Call?.Arguments.FirstOrDefault()?.Members.FirstOrDefault(x => x.Member is "baseURL" or "prefixUrl")?.Value is { } configured)
+        {
+            return configured;
+        }
+
+        if (request.Client is not { } client)
+        {
+            return null;
+        }
+
+        var target = $"{client}.defaults.baseURL";
+        return code.Files.Select(x => x.TopLevel).OfType<FunctionNode>().Concat(code.Types.SelectMany(x => x.Members).Select(x => x.Body).OfType<FunctionNode>())
+            .SelectMany(x => x.Assignments).FirstOrDefault(x => x.Target == target)?.Value;
+    }
+
+    /// <summary>
+    /// The request's URL starts with what the code doesn't state: a base URL from configuration, as its leading value or its
+    /// client's base (<see cref="BaseUrlOf"/>), whose text the code doesn't give.
+    /// </summary>
+    private static bool Configured(CodeGraph code, Sent request, LiteralNode url) =>
+        UiCode.Text(url) is { Length: > 0 } text && text[0] == UiCode.Hole
+        || BaseUrlOf(code, request) is { } baseUrl && code.StringOf(baseUrl) is not { Kind: "string" };
 
     /// <summary>The first request the method sends, nearest first, following the code's own functions with the calls that lead into them.</summary>
     internal static Sent? Request(CodeGraph code, TypeNode type, MemberNode method)
@@ -480,7 +575,8 @@ internal sealed class Requests : IClaimReader
     /// A request a call sends, read through the calls that lead to it: its verb and URL, where it is, the URL's value as written,
     /// and the client instance it is sent with (<c>axios.create({ baseURL })</c>), when it is.
     /// </summary>
-    internal sealed record Sent(string? Verb, LiteralNode? Url, Span At, ValueNode? Value = null, MemberNode? Instance = null);
+    /// <param name="Client">What an HTTP client's call is made on: <c>axios</c>, or an instance of one.</param>
+    internal sealed record Sent(string? Verb, LiteralNode? Url, Span At, ValueNode? Value = null, MemberNode? Instance = null, string? Client = null);
 
     internal static Sent? Sends(CodeGraph code, CallNode call, IReadOnlyList<CallNode> through)
     {
@@ -515,14 +611,14 @@ internal sealed class Requests : IClaimReader
             var instance = Instance(code, receiver);
             if (Verbs.Contains(call.Name) && call.Arguments.Count > 0)
             {
-                return new Sent(call.Name.ToUpperInvariant(), code.StringOf(call.Arguments[0], through), call.At, call.Arguments[0], instance);
+                return new Sent(call.Name.ToUpperInvariant(), code.StringOf(call.Arguments[0], through), call.At, call.Arguments[0], instance, receiver);
             }
 
             if (call.Name == "request" && call.Arguments.FirstOrDefault() is { Members.Count: > 0 } config)
             {
                 var verb = config.Members.FirstOrDefault(x => x.Member == "method")?.Value is { } method ? Literal(method) : "GET";
                 var url = config.Members.FirstOrDefault(x => x.Member == "url")?.Value;
-                return new Sent(verb?.ToUpperInvariant(), url is null ? null : code.StringOf(url, through), call.At, url, instance);
+                return new Sent(verb?.ToUpperInvariant(), url is null ? null : code.StringOf(url, through), call.At, url, instance, receiver);
             }
         }
 

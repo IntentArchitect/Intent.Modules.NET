@@ -331,3 +331,87 @@ The same Store in an app with no MAUI in its code: the MAUI reader leaves it, an
   ]
 }
 ```
+
+## mobx-class-store-web-storage
+
+A store written as a class (MobX's) keeps its state across reloads when its own code reads or writes Web Storage: an adopted application's common store starts its token from `localStorage` and writes it back in a `reaction` its constructor sets up.
+
+```json case
+{ "phase": 6, "kinds": ["store.persisted"], "requirements": ["R2"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "common-store", "type": "Store", "name": "CommonStore", "stereotypes": { "Persisted": { } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```ts file src/stores/commonStore.ts
+import { observable, reaction } from 'mobx';
+
+export default class CommonStore {
+    @observable token: string | null = window.localStorage.getItem('jwt');
+
+    constructor() {
+        reaction(
+            () => this.token,
+            (token) => {
+                if (token) {
+                    window.localStorage.setItem('jwt', token);
+                }
+            }
+        );
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "store.persisted", "element": "common-store", "outcome": "verified", "expected": "true", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/store.persisted", "count": 0 }
+  ]
+}
+```
+
+## mobx-class-store-saves-nothing
+
+The store keeps its token in memory only, so the model's Persisted is contradicted.
+
+```json case
+{ "phase": 6, "base": "mobx-class-store-web-storage", "kinds": ["store.persisted"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```ts file src/stores/commonStore.ts
+import { observable } from 'mobx';
+
+export default class CommonStore {
+    @observable token: string | null = null;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "store.persisted", "element": "common-store", "outcome": "contradicted", "expected": "true", "actual": "false" }
+  ],
+  "findings": [
+    { "rule": "claim/store.persisted", "severity": "error", "subject": "common-store" }
+  ]
+}
+```

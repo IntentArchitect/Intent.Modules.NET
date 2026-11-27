@@ -140,6 +140,16 @@ internal static class CSharpReader
                 var ns = Namespace(declaration);
                 var name = declaration.Identifier.Text;
 
+                // A nested type is named in its containing types, as C# names it: Create.Command is
+                // Application.Activities.Create.Command, so the Command of each request class is a type of its own (its
+                // containers read as namespace segments, as a folder per request class models them). A Razor component's
+                // generated class contains what its @code declares, but no one writes it, so those are its namespace's.
+                if (declaration.Ancestors().OfType<BaseTypeDeclarationSyntax>().Where(x => razor is null || x != razor.Component).Reverse().Select(x => x.Identifier.Text).ToList()
+                    is { Count: > 0 } containers)
+                {
+                    ns = string.Join(".", ns.Length == 0 ? containers : containers.Prepend(ns));
+                }
+
                 // With neither a project's root namespace nor an @namespace, Razor names a component by its checksum
                 // (__GeneratedComponent.AspNetCore_<sha>); it is still the component its file names, in no known namespace.
                 if (component && ns == "__GeneratedComponent")

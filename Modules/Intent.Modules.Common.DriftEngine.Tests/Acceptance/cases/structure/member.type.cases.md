@@ -1828,3 +1828,94 @@ export interface FieldConfig {
   ]
 }
 ```
+
+## react-callback-prop-emitter
+
+An Event Emitter is a callback prop, and what it emits is what the component hands the callback: `uploadPhoto: (file: Blob) => void` emits a `Blob`, so its type is the callback's one parameter's, not the whole function type. From an adopted application's photo upload widget.
+
+```json case
+{ "phase": 6, "kinds": ["member.type"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "blob", "type": "Type-Definition", "name": "Blob" },
+          { "id": "photo-upload", "type": "Component", "name": "PhotoUpload", "children": [
+            { "id": "photo-upload-upload-photo", "type": "Event Emitter", "name": "uploadPhoto", "typeRef": { "element": "blob" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/components/PhotoUpload.tsx
+import React from 'react';
+
+interface IProps {
+    uploadPhoto: (file: Blob) => void;
+    loading: boolean;
+}
+
+const PhotoUpload: React.FC<IProps> = ({ uploadPhoto, loading }) => (
+    <button disabled={loading} onClick={() => uploadPhoto(new Blob())}>Upload</button>
+);
+
+export default PhotoUpload;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "photo-upload-upload-photo", "outcome": "verified" },
+    { "kind": "member.type", "element": "photo-upload-upload-photo", "outcome": "verified", "actual": "Blob" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "count": 0 }
+  ]
+}
+```
+
+## react-callback-prop-emitter-contradicted
+
+The callback now hands its caller a `string`, which the emitter's `Blob` contradicts.
+
+```json case
+{ "phase": 6, "base": "react-callback-prop-emitter", "kinds": ["member.type"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```tsx file src/components/PhotoUpload.tsx
+import React from 'react';
+
+interface IProps {
+    uploadPhoto: (file: string) => void;
+    loading: boolean;
+}
+
+const PhotoUpload: React.FC<IProps> = ({ uploadPhoto, loading }) => (
+    <button disabled={loading} onClick={() => uploadPhoto('photo')}>Upload</button>
+);
+
+export default PhotoUpload;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "photo-upload-upload-photo", "outcome": "contradicted", "actual": "string" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "photo-upload-upload-photo" }
+  ]
+}
+```

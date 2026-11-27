@@ -1607,3 +1607,191 @@ export class PhotonApi {
   ]
 }
 ```
+
+## react-router-5-switch-and-route-wrappers
+
+react-router 5 as an adopted application writes it. A `<Switch>` of routes renders the page its routes match where it is written, as v6's `<Outlet />` does, so the outermost component it is rendered in, `App`, the root no component renders, is the Layout. A route wrapper, a component rendering `<Route {...rest} ... />` (`PrivateRoute`), hands its props to a `<Route>`, so `<PrivateRoute path component>` mounts a page at its path, an array of paths at each. A `<Route component>` with no path in a `<Switch>` is the page shown where no route before it matches. Whether the wrapper secures what it mounts is the code's own condition, which no stock reader reads.
+
+```json case
+{ "phase": 6, "kinds": ["component.kind", "page.route"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "app", "type": "Layout", "name": "App" },
+          { "id": "home-page", "type": "Page", "name": "HomePage", "stereotypes": { "Page": { "Route": "" } } },
+          { "id": "order-list", "type": "Page", "name": "OrderList", "stereotypes": { "Page": { "Route": "orders" } } },
+          { "id": "order-form", "type": "Page", "name": "OrderForm", "stereotypes": { "Page": { "Route": "createOrder, manage/{id}" } } },
+          { "id": "not-found", "type": "Page", "name": "NotFound" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './app/App';
+
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
+```
+
+```tsx file src/app/App.tsx
+import React, { Fragment } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from '../features/HomePage';
+import OrderList from '../features/OrderList';
+import OrderForm from '../features/OrderForm';
+import NotFound from './NotFound';
+import PrivateRoute from './PrivateRoute';
+
+const App: React.FC = () => {
+    return (
+        <Fragment>
+            <Route exact path='/' component={HomePage} />
+            <Route
+                path={'/(.+)'}
+                render={() => (
+                    <Switch>
+                        <PrivateRoute exact path='/orders' component={OrderList} />
+                        <PrivateRoute path={['/createOrder', '/manage/:id']} component={OrderForm} />
+                        <Route component={NotFound} />
+                    </Switch>
+                )}
+            />
+        </Fragment>
+    );
+};
+
+export default App;
+```
+
+```tsx file src/app/PrivateRoute.tsx
+import React from 'react';
+import { Redirect, Route, RouteProps } from 'react-router-dom';
+
+interface IProps extends RouteProps {
+    component: React.ComponentType<any>;
+}
+
+const PrivateRoute: React.FC<IProps> = ({ component: Component, ...rest }) => {
+    const isLoggedIn = !!window.localStorage.getItem('jwt');
+    return <Route {...rest} render={(props) => (isLoggedIn ? <Component {...props} /> : <Redirect to='/' />)} />;
+};
+
+export default PrivateRoute;
+```
+
+```tsx file src/app/NotFound.tsx
+import React from 'react';
+
+const NotFound: React.FC = () => <h1>Not found</h1>;
+
+export default NotFound;
+```
+
+```tsx file src/features/HomePage.tsx
+import React from 'react';
+
+const HomePage: React.FC = () => <h1>Home</h1>;
+
+export default HomePage;
+```
+
+```tsx file src/features/OrderList.tsx
+import React from 'react';
+
+const OrderList: React.FC = () => <ul />;
+
+export default OrderList;
+```
+
+```tsx file src/features/OrderForm.tsx
+import React from 'react';
+
+const OrderForm: React.FC = () => <form />;
+
+export default OrderForm;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "app", "outcome": "verified", "expected": "Layout", "actual": "Layout", "at": "src/app/App.tsx:16" },
+    { "kind": "component.kind", "element": "home-page", "outcome": "verified", "actual": "Page", "at": "src/app/App.tsx:12" },
+    { "kind": "component.kind", "element": "order-list", "outcome": "verified", "actual": "Page", "at": "src/app/App.tsx:17" },
+    { "kind": "component.kind", "element": "order-form", "outcome": "verified", "actual": "Page", "at": "src/app/App.tsx:18" },
+    { "kind": "component.kind", "element": "not-found", "outcome": "verified", "actual": "Page", "at": "src/app/App.tsx:19" },
+    { "kind": "page.route", "element": "order-list", "outcome": "verified", "actual": "orders" },
+    { "kind": "page.route", "element": "order-form", "outcome": "verified", "actual": "createOrder, manage/{id}" }
+  ],
+  "findings": [
+    { "rule": "claim/component.kind", "count": 0 },
+    { "rule": "claim/page.route", "count": 0 }
+  ]
+}
+```
+
+## react-router-5-switch-removed
+
+The routes are no longer in a `<Switch>`: nothing hosts them as a layout does, so `App` is a plain component, and the route with no path isn't a catch-all any more, so `NotFound` is no page.
+
+```json case
+{ "phase": 6, "base": "react-router-5-switch-and-route-wrappers", "kinds": ["component.kind"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```tsx file src/app/App.tsx
+import React, { Fragment } from 'react';
+import { Route } from 'react-router-dom';
+import HomePage from '../features/HomePage';
+import OrderList from '../features/OrderList';
+import OrderForm from '../features/OrderForm';
+import NotFound from './NotFound';
+import PrivateRoute from './PrivateRoute';
+
+const App: React.FC = () => {
+    return (
+        <Fragment>
+            <Route exact path='/' component={HomePage} />
+            <Route
+                path={'/(.+)'}
+                render={() => (
+                    <div>
+                        <PrivateRoute exact path='/orders' component={OrderList} />
+                        <PrivateRoute path={['/createOrder', '/manage/:id']} component={OrderForm} />
+                        <Route component={NotFound} />
+                    </div>
+                )}
+            />
+        </Fragment>
+    );
+};
+
+export default App;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "app", "outcome": "contradicted", "expected": "Layout", "actual": "Component" },
+    { "kind": "component.kind", "element": "not-found", "outcome": "contradicted", "expected": "Page", "actual": "Component" },
+    { "kind": "component.kind", "element": "order-list", "outcome": "verified", "actual": "Page" }
+  ],
+  "findings": [
+    { "rule": "claim/component.kind", "severity": "error", "subject": "app" },
+    { "rule": "claim/component.kind", "severity": "error", "subject": "not-found" }
+  ]
+}
+```

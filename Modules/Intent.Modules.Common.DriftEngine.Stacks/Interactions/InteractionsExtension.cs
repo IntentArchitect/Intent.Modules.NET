@@ -436,7 +436,8 @@ internal sealed class EntityActionReader : IClaimReader
         {
             code.Set(known = new MemberTypes
             {
-                ByName = code.Types.SelectMany(x => x.Members)
+                // Inherited ones too, a library base's included: _context.Users on an IdentityDbContext<AppUser>.
+                ByName = code.Types.SelectMany(code.MembersOf)
                     .Where(x => x.Kind is "property" or "field" && x.Type is not null)
                     .GroupBy(x => x.Name)
                     .ToDictionary(x => x.Key, x => x.Select(m => m.Type!).ToList())

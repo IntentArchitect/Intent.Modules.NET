@@ -889,3 +889,177 @@ The model secures the orders page, which no MAUI view can state: one finding, sa
   "noOtherFindings": true
 }
 ```
+
+## global-authorize-filter
+
+A global `AuthorizeFilter` in MVC's filters secures every controller action that says nothing itself, as ASP.NET Core applies it; `[AllowAnonymous]` still opens one. From an adopted application's `Startup` (`opt.Filters.Add(new AuthorizeFilter(policy))` in `AddMvc`).
+
+```json case
+{ "phase": 4, "kinds": ["security"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Api",
+        "elements": [
+          { "id": "orders-controller", "type": "Service", "name": "OrdersController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/orders" } },
+            "children": [
+              { "id": "get-orders", "type": "Operation", "name": "GetOrders",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "" }, "Secured": {} } },
+              { "id": "get-catalog", "type": "Operation", "name": "GetCatalog",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "catalog" }, "Unsecured": {} } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Api/Program.cs
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers(options =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    options.Filters.Add(new AuthorizeFilter(policy));
+});
+
+var app = builder.Build();
+app.MapControllers();
+app.Run();
+```
+
+```csharp file src/Api/Controllers/OrdersController.cs
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Shop.Api.Controllers;
+
+[ApiController]
+[Route("api/orders")]
+public class OrdersController : ControllerBase
+{
+    [HttpGet]
+    public IActionResult GetOrders() => Ok();
+
+    [HttpGet("catalog")]
+    [AllowAnonymous]
+    public IActionResult GetCatalog() => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "get-orders", "outcome": "verified", "expected": "Secured", "actual": "Secured", "at": "src/Api/Program.cs:8" },
+    { "kind": "security", "element": "get-catalog", "outcome": "verified", "expected": "Unsecured", "actual": "Unsecured", "at": "src/Api/Controllers/OrdersController.cs:14" }
+  ],
+  "findings": [
+    { "rule": "claim/security", "count": 0 }
+  ]
+}
+```
+
+## global-authorize-filter-removed
+
+Without the global filter, the action that says nothing is unsecured, which the model's Secured contradicts.
+
+```json case
+{ "phase": 4, "base": "global-authorize-filter", "kinds": ["security"], "requirements": ["R14"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Api/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+
+var app = builder.Build();
+app.MapControllers();
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "get-orders", "outcome": "contradicted", "expected": "Secured", "actual": "None" },
+    { "kind": "security", "element": "get-catalog", "outcome": "verified", "actual": "Unsecured" }
+  ],
+  "findings": [
+    { "rule": "claim/security", "severity": "error", "subject": "get-orders" }
+  ]
+}
+```
+
+## controllers-mapping-requires-authorization
+
+`RequireAuthorization()` chained on the controllers' mapping secures every controller action the same way, and the authorization fallback policy secures any endpoint that states no authorization of its own.
+
+```json case
+{ "phase": 4, "base": "global-authorize-filter", "kinds": ["security"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Api/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+
+var app = builder.Build();
+app.MapControllers().RequireAuthorization();
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "get-orders", "outcome": "verified", "actual": "Secured", "at": "src/Api/Program.cs:5" },
+    { "kind": "security", "element": "get-catalog", "outcome": "verified", "actual": "Unsecured" }
+  ],
+  "findings": [
+    { "rule": "claim/security", "count": 0 }
+  ]
+}
+```
+
+## authorization-fallback-policy
+
+The authorization `FallbackPolicy` applies to an endpoint that states no authorization of its own.
+
+```json case
+{ "phase": 4, "base": "global-authorize-filter", "kinds": ["security"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Api/Program.cs
+using Microsoft.AspNetCore.Authorization;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+builder.Services.AddAuthorization(options =>
+{
+    options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+});
+
+var app = builder.Build();
+app.MapControllers();
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "security", "element": "get-orders", "outcome": "verified", "actual": "Secured", "at": "src/Api/Program.cs:7" },
+    { "kind": "security", "element": "get-catalog", "outcome": "verified", "actual": "Unsecured" }
+  ],
+  "findings": [
+    { "rule": "claim/security", "count": 0 }
+  ]
+}
+```

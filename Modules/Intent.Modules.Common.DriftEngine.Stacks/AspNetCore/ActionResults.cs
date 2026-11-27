@@ -427,3 +427,32 @@ internal static class ActionResults
     private static Unread Unreadable(ValueNode value, Span at) =>
         new("unreadable", $"The action returns `{value.Text}`, which isn't a result this extension reads, so what it returns isn't known.", at);
 }
+
+/// <summary>
+/// An action declared to return <c>ActionResult&lt;T&gt;</c>, under <c>Task</c> or <c>ValueTask</c> too, returns a <c>T</c>: ASP.NET
+/// Core sends the <c>T</c> it is given, and the wrapper only lets the action return a status result instead, which isn't part
+/// of the Operation's type (as <c>Results&lt;Ok&lt;T&gt;, NotFound&gt;</c>'s error results aren't). So every reader of a controller
+/// action's return type reads <c>T</c>.
+/// </summary>
+internal sealed class TypedActionResults : IMemberRefiner
+{
+    public IReadOnlyCollection<string> Kinds { get; } = ["operation.returns", "operation.nullable"];
+
+    public MemberNode? Refine(ClaimContext context)
+    {
+        if (context.Member is not { Kind: "method", Type: { } declared } member || Unwrap(declared) is not { } result
+            || context.Code.Types.FirstOrDefault(x => x.Members.Contains(member)) is not { } owner || !AspNetCoreClaims.IsController(context.Code, owner))
+        {
+            return null;
+        }
+
+        return member with { Type = result };
+    }
+
+    private static TypeRefNode? Unwrap(TypeRefNode type) => type switch
+    {
+        { Name: "ActionResult", Arguments: [var result] } => result,
+        { Name: "Task" or "ValueTask", Arguments: [var awaited] } => Unwrap(awaited),
+        _ => null
+    };
+}

@@ -385,6 +385,13 @@ internal static class TypeScriptReader
             }
             case "LiteralType":
                 return new TypeRefNode { Text = text, Name = text, QualifiedName = text, Literal = TypeScriptBody.LiteralOf(type["literal"]!, null), Nullable = text == "null" ? "true" : stated, Language = TypeScriptLanguage.LanguageName };
+            case "FunctionType":
+                // As written, with what it takes: a callback prop's (file: Blob) => void hands its caller a Blob.
+                return new TypeRefNode
+                {
+                    Text = text, Name = text, QualifiedName = text, Nullable = stated, Language = TypeScriptLanguage.LanguageName,
+                    Parameters = type.List("parameters").Select(x => new TypeMemberNode(x["name"] is { } name ? NameOf(name) : "", x["type"] is { } typed ? TypeRef(typed, strict, defaults) : null)).ToList()
+                };
             case "TypeOperator" when type.Operator == "KeyOfKeyword":
                 // keyof T is the names of T's properties, strings, which a designer states as string; it keeps its text.
                 return new TypeRefNode { Text = text, Name = "string", QualifiedName = "string", Nullable = stated, Language = TypeScriptLanguage.LanguageName };
@@ -1062,6 +1069,15 @@ internal static class TypeScriptReader
             var props = function.List("parameters").FirstOrDefault();
             var stated = (props?["type"] ?? variableType?.List("typeArguments").FirstOrDefault()) is { } written ? Signatures(written).Select(Prop).ToList() : [];
             type.Members.AddRange(stated);
+
+            // Its props type, an interface or alias of its file, is its code too, a part of it, whether or not it declares a prop of its
+            // own: interface IProps extends FieldRenderProps<string, HTMLInputElement>, FormFieldProps {} for React.FC<IProps>.
+            if ((props?["type"] ?? variableType?.List("typeArguments").FirstOrDefault()) is { Kind: "TypeReference" } propsReference && propsReference["typeName"]?.Value is { } propsName
+                && module.File.Root.Descendants().FirstOrDefault(x => x.Kind is "InterfaceDeclaration" or "TypeAliasDeclaration" && x["name"]?.Value == propsName) is { } propsType)
+            {
+                type.Parts.Add(type.At);
+                type.Parts.Add(propsType.Span);
+            }
             if (props?["name"] is { Kind: "ObjectBindingPattern" } pattern)
             {
                 // ({ title, onSave, compact = false }): each name it destructures is a prop, with its default.

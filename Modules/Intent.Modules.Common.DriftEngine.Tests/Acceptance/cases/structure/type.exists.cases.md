@@ -1771,3 +1771,140 @@ public record Price(decimal Amount);
   ]
 }
 ```
+
+## nested-request-classes
+
+A nested type is named in its containing types, as C# names it: MediatR requests written as `public class Create { public class Command : IRequest { ... } public class Handler ... }` are `Shop.Application.Orders.Create.Command` and `Shop.Application.Orders.Edit.Command`, each a type of its own, never one `Command` merged from both. A folder per request class models the containing class, so each Command is located by its folder, and its fields are its own declaration's.
+
+```json case
+{ "phase": 4, "kinds": ["type.exists", "member.type"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.mediatr"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Application",
+        "elements": [
+          { "id": "orders", "type": "Folder", "name": "Orders", "children": [
+            { "id": "create", "type": "Folder", "name": "Create", "children": [
+              { "id": "create-command", "type": "Command", "name": "Command",
+                "children": [
+                  { "id": "create-command-title", "type": "DTO-Field", "name": "Title", "typeRef": { "type": "string" } }
+                ] }
+            ] },
+            { "id": "edit", "type": "Folder", "name": "Edit", "children": [
+              { "id": "edit-command", "type": "Command", "name": "Command",
+                "children": [
+                  { "id": "edit-command-id", "type": "DTO-Field", "name": "Id", "typeRef": { "type": "guid" } },
+                  { "id": "edit-command-title", "type": "DTO-Field", "name": "Title", "typeRef": { "type": "string" } }
+                ] }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Application/Orders/Create.cs
+using MediatR;
+
+namespace Shop.Application.Orders
+{
+    public class Create
+    {
+        public class Command : IRequest
+        {
+            public string Title { get; set; }
+        }
+
+        public class Handler : IRequestHandler<Command>
+        {
+            public Task<Unit> Handle(Command request, CancellationToken cancellationToken) => Task.FromResult(Unit.Value);
+        }
+    }
+}
+```
+
+```csharp file src/Application/Orders/Edit.cs
+using MediatR;
+
+namespace Shop.Application.Orders
+{
+    public class Edit
+    {
+        public class Command : IRequest
+        {
+            public Guid Id { get; set; }
+            public string Title { get; set; }
+        }
+
+        public class Handler : IRequestHandler<Command>
+        {
+            public Task<Unit> Handle(Command request, CancellationToken cancellationToken) => Task.FromResult(Unit.Value);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "create-command", "outcome": "verified", "at": "src/Application/Orders/Create.cs:7" },
+    { "kind": "type.exists", "element": "edit-command", "outcome": "verified", "at": "src/Application/Orders/Edit.cs:7" },
+    { "kind": "member.type", "element": "create-command-title", "outcome": "verified" },
+    { "kind": "member.type", "element": "edit-command-id", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 },
+    { "rule": "claim/member.type", "count": 0 }
+  ]
+}
+```
+
+## nested-request-field-contradicted
+
+One request's field changes type: only that Command's field is contradicted, as the other request's is its own.
+
+```json case
+{ "phase": 4, "base": "nested-request-classes", "kinds": ["member.type"], "requirements": ["R14"], "packs": ["intent.core", "intent.services", "intent.mediatr"], "language": "csharp" }
+```
+
+```csharp file src/Application/Orders/Create.cs
+using MediatR;
+
+namespace Shop.Application.Orders
+{
+    public class Create
+    {
+        public class Command : IRequest
+        {
+            public int Title { get; set; }
+        }
+
+        public class Handler : IRequestHandler<Command>
+        {
+            public Task<Unit> Handle(Command request, CancellationToken cancellationToken) => Task.FromResult(Unit.Value);
+        }
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "create-command-title", "outcome": "contradicted", "actual": "int" },
+    { "kind": "member.type", "element": "edit-command-title", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "create-command-title" }
+  ]
+}
+```

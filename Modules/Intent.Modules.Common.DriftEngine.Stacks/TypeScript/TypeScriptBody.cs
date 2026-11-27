@@ -14,8 +14,11 @@ namespace Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 /// </param>
 internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode owner, IReadOnlyDictionary<string, TypeScriptReader.Module> modules, CodeGraph graph)
 {
-    /// <summary>How many locals deep a value is followed (<c>const a = b; const b = new X();</c>).</summary>
-    private const int MaxDepth = 3;
+    /// <summary>
+    /// How many steps deep a value is followed: a local to what it is given (<c>const a = b; const b = new X();</c>), a property path
+    /// to its holder (<c>rootStore.activityStore</c>), a destructured name to what it is destructured from.
+    /// </summary>
+    private const int MaxDepth = 4;
 
     private static readonly (List<TypeRefNode> Types, bool Known) Unknown = ([], false);
 
@@ -203,8 +206,11 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
     private FunctionNode Build(IReadOnlyList<TypeScriptNode> inside, IReadOnlyList<ParameterNode> parameters, IReadOnlyList<ValueNode> returns, bool isAsync, string text, Span at) => new()
     {
         Parameters = parameters,
-        Calls = inside.Where(x => x.Is("CallExpression")).Select(Call).OfType<CallNode>().ToList(),
+        Calls = inside.Select(x => x.Is("CallExpression") ? Call(x) : x.Is("JsxExpression") && x.Parent?.Is("JsxAttribute") == true ? Handler(x) : null).OfType<CallNode>().ToList(),
         Creations = inside.Where(x => x.Is("NewExpression")).Select(Creation).OfType<CreationNode>().ToList(),
+        Reads = inside.Where(x => x.Is("VariableDeclaration") && x["initializer"] is not null).Select(x => x["initializer"]!)
+            .Concat(inside.Where(x => x.Is("PropertyAccessExpression") && x.Parent?.Is("PropertyAccessExpression") == true && ThroughThis(x)))
+            .Select(Read).OfType<ValueNode>().ToList(),
         Assignments = inside
             .Where(x => x.Is("BinaryExpression") && x["operatorToken"]?.Kind == "EqualsToken")
             .Select(x => new AssignmentNode(x["left"]!.Canonical, Value(x["right"]!), x.Span))
@@ -215,6 +221,65 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
         Text = text,
         At = at
     };
+
+    /// <summary>A path read through the unit's own fields, two deep or more: <c>this.rootStore.userStore</c>.</summary>
+    private static bool ThroughThis(TypeScriptNode access)
+    {
+        var inner = TypeScriptReader.Unwrapped(access["expression"]!);
+        while (inner.Is("PropertyAccessExpression"))
+        {
+            var next = TypeScriptReader.Unwrapped(inner["expression"]!);
+            if (next.Is("ThisKeyword"))
+            {
+                return true;
+            }
+
+            inner = next;
+        }
+
+        return false;
+    }
+
+    /// <summary>A value the unit reads, when the code types it as one type; null otherwise.</summary>
+    private ValueNode? Read(TypeScriptNode expression)
+    {
+        var (types, known) = TypesOf(expression, expression.Start, 0);
+        return known && types is [_] ? new ValueNode { Text = expression.Canonical, Types = types, IsKnown = true, At = expression.Span } : null;
+    }
+
+    /// <summary>
+    /// A function of the code's own handed to an element's attribute as its handler (<c>onClick={attendActivity}</c>,
+    /// <c>onClick={store.attend}</c>) runs when the element fires it: a call of it, by reference. Null for any other value.
+    /// </summary>
+    private CallNode? Handler(TypeScriptNode attribute)
+    {
+        if (attribute["expression"] is not { } given || TypeScriptReader.Unwrapped(given) is not { Kind: "Identifier" or "PropertyAccessExpression" } expression)
+        {
+            return null;
+        }
+
+        if (_calls.TryGetValue(expression, out var known))
+        {
+            return known;
+        }
+
+        _calls[expression] = null;
+        if (Resolve(expression, null, expression.Start, 0) is not { Targets.Count: > 0 } resolved)
+        {
+            return null;
+        }
+
+        return _calls[expression] = new CallNode
+        {
+            Name = resolved.Name,
+            Receiver = resolved.Receiver,
+            ReceiverType = resolved.ReceiverType,
+            IsReference = true,
+            Target = resolved.Targets is [var target] ? target : null,
+            Text = expression.Canonical,
+            At = expression.Span
+        };
+    }
 
     /// <summary>What a node changes other than with a plain <c>=</c>: <c>x += y</c>, <c>x ??= y</c>, <c>x++</c>.</summary>
     private static TypeScriptNode? Changed(TypeScriptNode node) => node.Kind switch
@@ -380,18 +445,32 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
     /// parameter has the name. A call of what a call returns has that call's name. A call whose callee isn't a name
     /// (<c>handlers[key]()</c>, <c>import('./x')</c>, <c>super()</c>) isn't one.
     /// </summary>
-    private (string Name, string? Receiver, TypeRefNode? ReceiverType, IReadOnlyList<CallTarget> Targets)? Resolve(TypeScriptNode call, int depth)
+    private (string Name, string? Receiver, TypeRefNode? ReceiverType, IReadOnlyList<CallTarget> Targets)? Resolve(TypeScriptNode call, int depth) =>
+        Resolve(TypeScriptReader.Unwrapped(call["expression"]!), call.List("arguments").Count, call.Start, depth);
+
+    /// <param name="callee">What is called, or handed on to be called.</param>
+    /// <param name="count">How many arguments it is given; null for a function handed on, which may be called with any.</param>
+    /// <param name="at">Where the call is, for the locals declared before it.</param>
+    private (string Name, string? Receiver, TypeRefNode? ReceiverType, IReadOnlyList<CallTarget> Targets)? Resolve(TypeScriptNode callee, int? count, int at, int depth)
     {
-        var callee = TypeScriptReader.Unwrapped(call["expression"]!);
-        var count = call.List("arguments").Count;
         switch (callee.Kind)
         {
             case "Identifier":
             {
                 var name = callee.Value!;
-                if (Local(name, call.Start) is not null || Parameter(callee, name) is not null)
+                if (Local(name, at) is not null || Parameter(callee, name) is not null)
                 {
                     return (name, null, null, []);
+                }
+
+                // A member a destructuring binds is called on what it was destructured from: loadActivities() after
+                // const { loadActivities } = rootStore.activityStore is the store's loadActivities.
+                if (Destructured(name, at) is { } bound && depth < MaxDepth)
+                {
+                    var (types, known) = Through(TypesOf(bound.From, bound.From.Start, depth + 1), bound.Path.SkipLast(1).ToList());
+                    var held = known && types is [var only] ? only : null;
+                    var written = string.Join(".", bound.Path.SkipLast(1).Prepend(bound.From.Canonical));
+                    return (bound.Path[^1], written, held, held is null ? [] : graph.Targets(bound.Path[^1], written, held, count, owner));
                 }
 
                 return (name, null, null, Scoped(name) is { Whole: false } scoped && scoped.Module.Owner is { } holder ? graph.Targets(scoped.Name, null, null, count, holder) : []);
@@ -405,7 +484,7 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
                     return (name, null, null, graph.Targets(name, null, null, count, owner));
                 }
 
-                var (types, known) = TypesOf(receiver, call.Start, depth);
+                var (types, known) = TypesOf(receiver, at, depth);
                 var typed = known && types is [var only] ? only : null;
                 var written = receiver.Canonical;
                 return (name, written, typed, graph.Targets(name, written, typed, count, owner));
@@ -598,6 +677,8 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
                 return Created(expression) is { } created ? ([created], true) : Unknown;
             case "CallExpression" when Injected(expression) is { } injected:
                 return ([injected], true);
+            case "CallExpression" when Contextual(expression, before, depth) is { } context:
+                return context;
             case "CallExpression" when depth < MaxDepth:
                 return Returned(expression, depth);
             case "AwaitExpression":
@@ -622,7 +703,7 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
             {
                 // A property path through in-scope types: this.services.api is OrderServices' api.
                 var (types, known) = TypesOf(expression["expression"]!, before, depth + 1);
-                return known && types is [var only] && graph.TypeFor(only, owner) is { } type ? FieldOf(type, expression["name"]!.Value!) : Unknown;
+                return known && types is [var only] && graph.TypeFor(only, owner) is { } type ? MemberOf(type, expression["name"]!.Value!) : Unknown;
             }
             default:
                 return Unknown;
@@ -660,12 +741,148 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
             return local["type"] is { } declared ? OrDeclared(value, declared) : value;
         }
 
+        if (Destructured(name, before) is { } bound)
+        {
+            return Through(TypesOf(bound.From, bound.From.Start, depth + 1), bound.Path);
+        }
+
         if (Parameter(identifier, name) is { } parameter)
         {
             return parameter["type"] is { } type ? ([TypeScriptReader.TypeRef(type, module.Strict)], true) : Unknown;
         }
 
         return ModuleScoped(name);
+    }
+
+    /// <summary>What a value's members along a path are: <c>store</c>'s <c>modal</c>'s <c>open</c>.</summary>
+    private (List<TypeRefNode> Types, bool Known) Through((List<TypeRefNode> Types, bool Known) value, IReadOnlyList<string> path)
+    {
+        foreach (var member in path)
+        {
+            if (!value.Known || value.Types is not [var only] || graph.TypeFor(only, owner) is not { } holder)
+            {
+                return Unknown;
+            }
+
+            value = MemberOf(holder, member);
+        }
+
+        return value;
+    }
+
+    /// <summary>
+    /// A local a destructuring declares before the position, in the unit or a function around it: <c>const { loadActivities } =
+    /// rootStore.activityStore</c> binds <c>loadActivities</c> to that store's member, <c>const { a: b } = x</c> <c>b</c> to
+    /// <c>x.a</c>, and <c>const { modal: { open } } = store</c> <c>open</c> to <c>store.modal.open</c>. A rest element binds none.
+    /// </summary>
+    private (TypeScriptNode From, IReadOnlyList<string> Path)? Destructured(string name, int before)
+    {
+        foreach (var declaration in _inside.Where(x => x.Is("VariableDeclaration") && x.Start < before && x["name"] is { Kind: "ObjectBindingPattern" } && x["initializer"] is not null
+                                                       && x.Ancestors().Any(a => Functions.Contains(a.Kind))).Reverse())
+        {
+            if (Bound(declaration["name"]!, []) is { } path)
+            {
+                return (declaration["initializer"]!, path);
+            }
+        }
+
+        return null;
+
+        IReadOnlyList<string>? Bound(TypeScriptNode pattern, IReadOnlyList<string> path)
+        {
+            foreach (var element in pattern.List("elements").Where(x => x["dotDotDotToken"] is null))
+            {
+                var target = element["name"]!;
+                var member = element["propertyName"] is { } renamed ? TypeScriptReader.NameOf(renamed) : target.Is("Identifier") ? target.Value : null;
+                if (member is null)
+                {
+                    continue;
+                }
+
+                if (target.Is("Identifier") && target.Value == name)
+                {
+                    return [.. path, member];
+                }
+
+                if (target.Is("ObjectBindingPattern") && Bound(target, [.. path, member]) is { } nested)
+                {
+                    return nested;
+                }
+            }
+
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// React's context: <c>createContext(value)</c> is a <c>Context&lt;T&gt;</c> of what it is given (or of its type argument), and
+    /// <c>useContext(context)</c> is the <c>T</c> the context holds, as React declares them (<c>createContext&lt;T&gt;(defaultValue: T):
+    /// Context&lt;T&gt;</c>, <c>useContext&lt;T&gt;(context: Context&lt;T&gt;): T</c>), so <c>useContext(RootStoreContext).activityStore</c> is
+    /// the root store's <c>activityStore</c>. Null for any other call.
+    /// </summary>
+    private (List<TypeRefNode> Types, bool Known)? Contextual(TypeScriptNode call, int before, int depth)
+    {
+        // What a context call is given is read at the call's own depth: it is the call's value, not a step further.
+        if (ContextCall(call) is not { } name || call.List("arguments").FirstOrDefault() is not { } argument || depth > MaxDepth)
+        {
+            return null;
+        }
+
+        if (name == "createContext")
+        {
+            var held = call.List("typeArguments").FirstOrDefault() is { } typed ? ([TypeScriptReader.TypeRef(typed, module.Strict)], true) : TypesOf(argument, before, depth);
+            return held.Known && held.Types is [var only] ? ([ContextOf(Qualified(only, owner))], true) : Unknown;
+        }
+
+        var (types, known) = TypesOf(argument, before, depth);
+        return known && types is [{ Name: "Context", Arguments: [var value] }] ? ([value], true) : Unknown;
+    }
+
+    /// <summary><c>createContext</c> or <c>useContext</c>, also as <c>React.</c>'s; null for any other call.</summary>
+    private static string? ContextCall(TypeScriptNode call) =>
+        TypeScriptReader.Unwrapped(call["expression"]!) switch
+        {
+            { Kind: "Identifier", Value: "createContext" or "useContext" } named => named.Value,
+            { Kind: "PropertyAccessExpression" } access when access["name"]?.Value is "createContext" or "useContext" => access["name"]!.Value,
+            _ => null
+        };
+
+    private static TypeRefNode ContextOf(TypeRefNode held) =>
+        new() { Text = $"Context<{held.Text}>", Name = "Context", QualifiedName = "Context", Arguments = [held], Language = TypeScriptLanguage.LanguageName };
+
+    /// <summary>
+    /// What a <c>createContext(new RootStore())</c> declared at the top of a module holds, read with the declarations: a
+    /// <c>Context&lt;RootStore&gt;</c>. Null for any other call.
+    /// </summary>
+    private static TypeRefNode? CreatedContext(TypeScriptNode call, bool? strict)
+    {
+        if (ContextCall(call) != "createContext")
+        {
+            return null;
+        }
+
+        var held = call.List("typeArguments").FirstOrDefault() is { } typed ? TypeScriptReader.TypeRef(typed, strict)
+            : call.List("arguments").FirstOrDefault() is { } argument && TypeScriptReader.Unwrapped(argument) is { Kind: "NewExpression" } created ? CreatedType(created, strict)
+            : null;
+        return held is null ? null : ContextOf(held);
+    }
+
+    /// <summary>
+    /// A member of a type, as a value: a field's or property's (<see cref="FieldOf"/>), or, of a module, the object it declares
+    /// by that name, so a default import of <c>agent.ts</c>'s <c>export default { Activities, User }</c> reaches
+    /// <c>agent.Activities</c>, the object <c>const Activities = { ... }</c>.
+    /// </summary>
+    private (List<TypeRefNode> Types, bool Known) MemberOf(TypeNode type, string name)
+    {
+        var field = FieldOf(type, name);
+        if (field.Known || type.Kind != "module")
+        {
+            return field;
+        }
+
+        return modules.Values.FirstOrDefault(x => x.Owner == type) is { } declaring && declaring.Types.TryGetValue(name, out var declared) && declared.Kind is "object" or "class"
+            ? ([RefTo(declared)], true)
+            : field;
     }
 
     /// <summary>
@@ -719,17 +936,31 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
             return ([RefTo(type)], true);
         }
 
+        // A default import of a module whose default export is an object of its own (export default { Activities, User }) is
+        // the module, so agent.Activities is the module's Activities.
+        if (scoped.Module.Owner is { } exporting && scoped.Name == exporting.Name && scoped.Module.Default == exporting.Name)
+        {
+            return ([RefTo(exporting)], true);
+        }
+
         return scoped.Module.Owner is { } holder ? FieldOf(holder, scoped.Name) : Unknown;
     }
 
     /// <summary>A field or property of a type, or one it inherits: its declared type, else what its initializer creates.</summary>
     private (List<TypeRefNode> Types, bool Known) FieldOf(TypeNode type, string name) =>
-        graph.MembersOf(type).FirstOrDefault(x => x.Name == name && x.Kind is "field" or "property") switch
+        graph.FieldOf(type, name) switch
         {
-            { Type: { } declared } => ([declared], true),
-            { Value: { IsKnown: true, Types: [var created] } } => ([created], true),
+            { Member.Type: { } declared } field => ([Qualified(declared, field.Type)], true),
+            { Member.Value: { IsKnown: true, Types: [var created] } } field => ([Qualified(created, field.Type)], true),
             _ => Unknown
         };
+
+    /// <summary>
+    /// A type as the code that names it means it, so it stays that type wherever the value goes: <c>RootStore</c>'s
+    /// <c>activityStore: ActivityStore</c> is <c>rootStore.ts</c>'s import of it, also in a component that never imports it.
+    /// </summary>
+    private TypeRefNode Qualified(TypeRefNode type, TypeNode from) =>
+        type is { Arguments.Count: 0, IsArray: false, Union.Count: 0 } && graph.TypeFor(type, from) is { } resolved ? RefTo(resolved) : type;
 
     /// <summary>
     /// What a dependency injector's <c>inject(Token)</c> gives: an instance of the class it names, as Angular declares it
@@ -762,7 +993,7 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
         {
             "NewExpression" => CreatedType(unwrapped, strict),
             "AsExpression" or "TypeAssertionExpression" when unwrapped["type"]!.Canonical != "const" => TypeScriptReader.TypeRef(unwrapped["type"]!, strict),
-            "CallExpression" => Injected(unwrapped),
+            "CallExpression" => Injected(unwrapped) ?? CreatedContext(unwrapped, strict),
             _ => null
         };
         return new ValueNode

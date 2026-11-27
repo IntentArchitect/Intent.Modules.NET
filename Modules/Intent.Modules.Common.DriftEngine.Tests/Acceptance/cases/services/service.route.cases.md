@@ -581,3 +581,102 @@ public class DiagnosticsController : ApiController
   ]
 }
 ```
+
+## inherited-route
+
+ASP.NET Core's `[Route]` is inherited: a controller with none of its own is at its base controller's, `[controller]` being its own name less `Controller`. An adopted application's `BaseController` carries `[Route("api/[controller]")]` for every controller.
+
+```json case
+{ "phase": 4, "kinds": ["service.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Api",
+        "elements": [
+          { "id": "orders-controller", "type": "Service", "name": "OrdersController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/orders" } },
+            "children": [
+              { "id": "get-orders", "type": "Operation", "name": "GetOrders",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Api/Controllers/BaseController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Shop.Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public abstract class BaseController : ControllerBase
+{
+}
+```
+
+```csharp file src/Api/Controllers/OrdersController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Shop.Api.Controllers;
+
+public class OrdersController : BaseController
+{
+    [HttpGet]
+    public IActionResult GetOrders() => Ok();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "service.route", "element": "orders-controller", "outcome": "verified", "expected": "api/orders", "at": "src/Api/Controllers/BaseController.cs:6" }
+  ],
+  "findings": [
+    { "rule": "claim/service.route", "count": 0 },
+    { "rule": "aspnetcore/conventional.route", "count": 0 }
+  ]
+}
+```
+
+## inherited-route-contradicted
+
+The base controller's route moves to `v1`, and every controller deriving from it with it.
+
+```json case
+{ "phase": 4, "base": "inherited-route", "kinds": ["service.route"], "requirements": ["R14"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Api/Controllers/BaseController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Shop.Api.Controllers;
+
+[ApiController]
+[Route("v1/[controller]")]
+public abstract class BaseController : ControllerBase
+{
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "service.route", "element": "orders-controller", "outcome": "contradicted", "expected": "api/orders", "actual": "v1/Orders", "at": "src/Api/Controllers/BaseController.cs:6" }
+  ],
+  "findings": [
+    { "rule": "claim/service.route", "severity": "error", "subject": "orders-controller" }
+  ]
+}
+```

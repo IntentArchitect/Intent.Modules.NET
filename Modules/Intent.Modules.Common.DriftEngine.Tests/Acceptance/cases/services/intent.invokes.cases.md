@@ -1845,3 +1845,210 @@ The same forms written with the HTML helpers, as ASP.NET MVC views often are: `H
   "noOtherFindings": true
 }
 ```
+
+## react-mobx-stores-through-context
+
+A MobX front end as an adopted application writes it. Components reach the stores through a React context, `useContext(RootStoreContext)` with `RootStoreContext = createContext(new RootStore())`, which React types as the root store it was given, and destructure a store's actions from it (`const { loadActivities } = rootStore.activityStore`, nested as `const { activityStore: { loadActivities } } = ...`). Calling a destructured action, or handing it to an element's event (`onClick={loadActivities}`), calls the store's method, whose call of `agent.Activities.list()` reaches the Proxy Operation through `agent.ts`'s default export of its proxy objects. A component that reads a store this way uses it, though it never imports the store's file. The proxy's requests go under `axios.defaults.baseURL`, set from an environment variable the code doesn't state, so the model's route verifies where it ends with the code's.
+
+```json case
+{ "phase": "later", "kinds": ["intent.uses", "intent.invokes", "intent.target", "proxy.route"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "activity-store", "type": "Store", "name": "ActivityStore" },
+          { "id": "dashboard", "type": "Component", "name": "ActivityDashboard" },
+          { "id": "reload", "type": "Component", "name": "ReloadButton" },
+          { "id": "activities", "type": "Proxy", "name": "Activities", "stereotypes": { "Implementation": { "Path": "src/app/api/agent.ts" } }, "children": [
+            { "id": "list", "type": "Proxy Operation", "name": "list",
+              "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/activities" } } }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "dashboard-uses-store", "type": "Uses", "source": { "element": "dashboard" }, "target": { "element": "activity-store" } },
+        { "id": "reload-uses-store", "type": "Uses", "source": { "element": "reload" }, "target": { "element": "activity-store" } },
+        { "id": "dashboard-calls-list", "type": "Call Service Operation Action", "source": { "element": "dashboard" }, "target": { "element": "list" } },
+        { "id": "reload-calls-list", "type": "Call Service Operation Action", "source": { "element": "reload" }, "target": { "element": "list" } },
+        { "id": "store-calls-list", "type": "Call Service Operation Action", "source": { "element": "activity-store" }, "target": { "element": "list" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```ts file src/app/api/agent.ts
+import axios from 'axios';
+
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
+const Activities = {
+    list: (): Promise<string[]> => axios.get('/activities').then((x) => x.data),
+};
+
+export default { Activities };
+```
+
+```ts file src/app/stores/activityStore.ts
+import { action, observable } from 'mobx';
+import agent from '../api/agent';
+import { RootStore } from './rootStore';
+
+export default class ActivityStore {
+    rootStore: RootStore;
+
+    constructor(rootStore: RootStore) {
+        this.rootStore = rootStore;
+    }
+
+    @observable activities: string[] = [];
+
+    @action loadActivities = async () => {
+        this.activities = await agent.Activities.list();
+    };
+}
+```
+
+```ts file src/app/stores/rootStore.ts
+import { createContext } from 'react';
+import ActivityStore from './activityStore';
+
+export class RootStore {
+    activityStore: ActivityStore;
+
+    constructor() {
+        this.activityStore = new ActivityStore(this);
+    }
+}
+
+export const RootStoreContext = createContext(new RootStore());
+```
+
+```tsx file src/features/ActivityDashboard.tsx
+import React, { useContext, useEffect } from 'react';
+import { RootStoreContext } from '../app/stores/rootStore';
+
+const ActivityDashboard: React.FC = () => {
+    const rootStore = useContext(RootStoreContext);
+    const { loadActivities, activities } = rootStore.activityStore;
+
+    useEffect(() => {
+        loadActivities();
+    }, [loadActivities]);
+
+    return <ul>{activities.map((a) => <li key={a}>{a}</li>)}</ul>;
+};
+
+export default ActivityDashboard;
+```
+
+```tsx file src/features/ReloadButton.tsx
+import React, { useContext } from 'react';
+import { RootStoreContext } from '../app/stores/rootStore';
+
+const ReloadButton: React.FC = () => {
+    const { activityStore: { loadActivities } } = useContext(RootStoreContext);
+    return <button onClick={loadActivities}>Reload</button>;
+};
+
+export default ReloadButton;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "dashboard-uses-store", "outcome": "verified", "at": "src/features/ActivityDashboard.tsx:6" },
+    { "kind": "intent.uses", "element": "reload-uses-store", "outcome": "verified" },
+    { "kind": "intent.invokes", "element": "store-calls-list", "outcome": "verified", "at": "src/app/stores/activityStore.ts:15" },
+    { "kind": "intent.invokes", "element": "dashboard-calls-list", "outcome": "verified" },
+    { "kind": "intent.target", "element": "dashboard-calls-list", "outcome": "verified", "actual": "Activities" },
+    { "kind": "intent.invokes", "element": "reload-calls-list", "outcome": "verified" },
+    { "kind": "proxy.route", "element": "list", "outcome": "verified", "actual": "activities" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "count": 0 },
+    { "rule": "claim/intent.invokes", "count": 0 },
+    { "rule": "claim/intent.target", "count": 0 },
+    { "rule": "claim/proxy.route", "count": 0 }
+  ]
+}
+```
+
+## react-mobx-stores-through-context-contradicted
+
+The button hands its event another action, which calls no proxy, and the proxy requests another route: a configured base URL supplies only the route's start, so a different end is still drift.
+
+```json case
+{ "phase": "later", "base": "react-mobx-stores-through-context", "kinds": ["intent.invokes", "proxy.route"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```ts file src/app/api/agent.ts
+import axios from 'axios';
+
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
+const Activities = {
+    list: (): Promise<string[]> => axios.get('/activity').then((x) => x.data),
+};
+
+export default { Activities };
+```
+
+```ts file src/app/stores/activityStore.ts
+import { action, observable } from 'mobx';
+import agent from '../api/agent';
+import { RootStore } from './rootStore';
+
+export default class ActivityStore {
+    rootStore: RootStore;
+
+    constructor(rootStore: RootStore) {
+        this.rootStore = rootStore;
+    }
+
+    @observable activities: string[] = [];
+
+    @action loadActivities = async () => {
+        this.activities = await agent.Activities.list();
+    };
+
+    @action clearActivities = () => {
+        this.activities = [];
+    };
+}
+```
+
+```tsx file src/features/ReloadButton.tsx
+import React, { useContext } from 'react';
+import { RootStoreContext } from '../app/stores/rootStore';
+
+const ReloadButton: React.FC = () => {
+    const { activityStore: { clearActivities } } = useContext(RootStoreContext);
+    return <button onClick={clearActivities}>Clear</button>;
+};
+
+export default ReloadButton;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.invokes", "element": "reload-calls-list", "outcome": "contradicted" },
+    { "kind": "intent.invokes", "element": "dashboard-calls-list", "outcome": "verified" },
+    { "kind": "proxy.route", "element": "list", "outcome": "contradicted", "expected": "api/activities", "actual": "activity" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "reload-calls-list" },
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "list" }
+  ]
+}
+```

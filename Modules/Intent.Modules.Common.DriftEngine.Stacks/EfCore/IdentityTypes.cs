@@ -40,7 +40,20 @@ internal static class IdentityTypes
             Property("NormalizedName", Type("string", nullable: true)),
             Property("ConcurrencyStamp", Type("string", nullable: true))
         ]);
+
+        // The contexts' own DbSets: _context.Users on an IdentityDbContext<AppUser> queries AppUser. Every arity puts the user
+        // first and the role second (IdentityDbContext<TUser, TRole, TKey, ...>), and leaves out what it defaults.
+        graph.AddLibraryType("IdentityUserContext", ["TUser"], [Type("IdentityUser", nullable: false)], [Property("Users", Set("TUser"))]);
+        graph.AddLibraryType("IdentityDbContext", ["TUser", "TRole"], [Type("IdentityUser", nullable: false), Type("IdentityRole", nullable: false)],
+            [Property("Users", Set("TUser")), Property("Roles", Set("TRole"))]);
     }
+
+    /// <summary><c>DbSet&lt;T&gt;</c> of a type parameter.</summary>
+    private static TypeRefNode Set(string parameter) => new()
+    {
+        Text = $"DbSet<{parameter}>", Name = "DbSet", QualifiedName = "DbSet", Nullable = "false",
+        Arguments = [new TypeRefNode { Text = parameter, Name = parameter, QualifiedName = parameter }]
+    };
 
     /// <summary>The key, typed by the type argument <c>TKey</c>.</summary>
     private static TypeRefNode Key() => new() { Text = "TKey", Name = "TKey", QualifiedName = "TKey" };

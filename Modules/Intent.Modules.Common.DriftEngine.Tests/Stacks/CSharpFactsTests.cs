@@ -266,6 +266,33 @@ public class CSharpFactsTests
     }
 
     [Fact]
+    public void A_nested_type_is_named_in_its_containing_types_so_two_of_a_name_are_two_types()
+    {
+        var graph = Read("""
+            namespace Shop.Orders
+            {
+                public class Create
+                {
+                    public class Command { public string Title { get; set; } }
+
+                    public class Handler { public void Handle(Command command) { } }
+                }
+
+                public class Edit
+                {
+                    public class Command { public int Id { get; set; } }
+                }
+            }
+            """);
+
+        var commands = graph.Types.Where(x => x.Name == "Command").ToList();
+        commands.Select(x => x.Namespace).ShouldBe(["Shop.Orders.Create", "Shop.Orders.Edit"], ignoreOrder: true);
+        commands.Single(x => x.Namespace == "Shop.Orders.Create").Members.Select(x => x.Name).ShouldBe(["Title"]);
+        var handler = graph.Types.Single(x => x.Name == "Handler");
+        graph.TypeFor(handler.Members.Single(x => x.Name == "Handle").Parameters[0].Type!, handler)!.Namespace.ShouldBe("Shop.Orders.Create");
+    }
+
+    [Fact]
     public void A_type_has_its_access_and_its_own_type_parameters()
     {
         Type("Paged").Access.ShouldBe("public");

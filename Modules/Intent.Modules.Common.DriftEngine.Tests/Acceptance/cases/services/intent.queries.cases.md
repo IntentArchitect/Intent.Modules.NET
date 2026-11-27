@@ -182,3 +182,148 @@ Without the Spring MVC and JPA packs, no active pack has a rule for entity actio
   ]
 }
 ```
+
+## identity-context-users
+
+`_context.Users` on a context deriving from ASP.NET Core Identity's `IdentityDbContext<AppUser>` is the `DbSet<AppUser>` that base class declares, so reading it queries `AppUser`, though the context declares no `DbSet` of its own. From an adopted application's `ProfileReader`.
+
+```json case
+{ "phase": 4, "kinds": ["intent.queries"], "requirements": ["R2", "R33"], "packs": ["intent.core", "intent.domain", "intent.services", "intent.interactions", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "app-user", "type": "Class", "name": "AppUser",
+            "children": [
+              { "id": "app-user-display-name", "type": "Attribute", "name": "DisplayName", "typeRef": { "type": "string" } }
+            ] }
+        ]
+      }]
+    },
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Application",
+        "elements": [
+          { "id": "profile-reader", "type": "Service", "name": "ProfileReader",
+            "children": [
+              { "id": "read-profile", "type": "Operation", "name": "ReadProfile", "typeRef": { "type": "string" },
+                "children": [
+                  { "id": "read-profile-username", "type": "Parameter", "name": "username", "typeRef": { "type": "string" } }
+                ] }
+            ] }
+        ]
+      }],
+      "associations": [
+        { "id": "read-profile-queries-app-user", "type": "Query Entity Action",
+          "source": { "element": "read-profile" }, "target": { "element": "app-user" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/AppUser.cs
+using Microsoft.AspNetCore.Identity;
+
+namespace Shop.Domain;
+
+public class AppUser : IdentityUser
+{
+    public string DisplayName { get; set; }
+}
+```
+
+```csharp file src/Persistence/DataContext.cs
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Shop.Domain;
+
+namespace Shop.Persistence;
+
+public class DataContext : IdentityDbContext<AppUser>
+{
+    public DataContext(DbContextOptions options) : base(options)
+    {
+    }
+}
+```
+
+```csharp file src/Application/ProfileReader.cs
+using Microsoft.EntityFrameworkCore;
+using Shop.Persistence;
+
+namespace Shop.Application;
+
+public class ProfileReader
+{
+    private readonly DataContext _context;
+
+    public ProfileReader(DataContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<string> ReadProfile(string username)
+    {
+        var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == username);
+        return user.DisplayName;
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.queries", "element": "read-profile-queries-app-user", "outcome": "verified", "at": "src/Application/ProfileReader.cs:17" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.queries", "count": 0 }
+  ]
+}
+```
+
+## identity-context-users-not-read
+
+The operation no longer reads the context's users, so the model's Query Entity Action is contradicted.
+
+```json case
+{ "phase": 4, "base": "identity-context-users", "kinds": ["intent.queries"], "requirements": ["R14"], "packs": ["intent.core", "intent.domain", "intent.services", "intent.interactions", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Application/ProfileReader.cs
+using Shop.Persistence;
+
+namespace Shop.Application;
+
+public class ProfileReader
+{
+    private readonly DataContext _context;
+
+    public ProfileReader(DataContext context)
+    {
+        _context = context;
+    }
+
+    public Task<string> ReadProfile(string username) => Task.FromResult(username);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.queries", "element": "read-profile-queries-app-user", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.queries", "severity": "error", "subject": "read-profile-queries-app-user", "messageContains": "isn't in the code" }
+  ]
+}
+```

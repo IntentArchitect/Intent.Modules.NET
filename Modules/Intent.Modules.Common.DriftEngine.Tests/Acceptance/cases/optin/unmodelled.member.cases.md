@@ -2468,3 +2468,105 @@ public class BadgeView : Grid
   "noOtherFindings": true
 }
 ```
+
+## class-store-dependencies
+
+A MobX root store creates each store and hands it itself (`this.activityStore = new ActivityStore(this)`), and each store keeps the root store it is handed (`this.rootStore = rootStore`). Both members hold a class of the code's own the class depends on, which the model states as a Uses, not a Property, so neither is asked for. The store's own state still is. React-router 5's `RouteComponentProps` props of a page a route mounts (`match`, `history`, `location`, `staticContext`) are the router's.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "root-store", "type": "Store", "name": "RootStore" },
+          { "id": "activity-store", "type": "Store", "name": "ActivityStore", "children": [
+            { "id": "activity-store-activities", "type": "Property", "name": "activities", "typeRef": { "type": "string", "collection": true } }
+          ] },
+          { "id": "details", "type": "Page", "name": "ActivityDetails", "stereotypes": { "Page": { "Route": "activities/{id}" } } }
+        ]
+      }],
+      "associations": [
+        { "id": "root-uses-activities", "type": "Uses", "source": { "element": "root-store" }, "target": { "element": "activity-store" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```ts file src/stores/activityStore.ts
+import { observable } from 'mobx';
+import { RootStore } from './rootStore';
+
+export default class ActivityStore {
+    rootStore: RootStore;
+
+    constructor(rootStore: RootStore) {
+        this.rootStore = rootStore;
+    }
+
+    @observable activities: string[] = [];
+
+    @observable selected: string | null = null;
+}
+```
+
+```ts file src/stores/rootStore.ts
+import ActivityStore from './activityStore';
+
+export class RootStore {
+    activityStore: ActivityStore;
+
+    constructor() {
+        this.activityStore = new ActivityStore(this);
+    }
+}
+```
+
+```tsx file src/App.tsx
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import ActivityDetails from './ActivityDetails';
+
+const App: React.FC = () => (
+    <Switch>
+        <Route path='/activities/:id' component={ActivityDetails} />
+    </Switch>
+);
+
+export default App;
+```
+
+```tsx file src/ActivityDetails.tsx
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+
+const ActivityDetails: React.FC<RouteComponentProps<{ id: string }>> = ({ match, history }) => (
+    <button onClick={() => history.push('/')}>{match.params.id}</button>
+);
+
+export default ActivityDetails;
+```
+
+```json expect
+{
+  "findings": [
+    { "rule": "optin/unmodelled.member", "subject": "src/stores/activityStore.ts:5", "count": 0, "note": "The root store it is handed: a Uses" },
+    { "rule": "optin/unmodelled.member", "subject": "src/stores/rootStore.ts:4", "count": 0, "note": "A store it creates: a Uses" },
+    { "rule": "optin/unmodelled.member", "subject": "src/ActivityDetails.tsx:4", "count": 0, "note": "The router's props" },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/stores/activityStore.ts:13", "messageContains": "`ActivityStore.selected`" }
+  ]
+}
+```

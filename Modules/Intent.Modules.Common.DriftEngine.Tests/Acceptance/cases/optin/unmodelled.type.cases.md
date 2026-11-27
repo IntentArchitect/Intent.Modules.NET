@@ -2020,3 +2020,61 @@ public class SystemClock
   ]
 }
 ```
+
+## react-props-interface-is-the-components
+
+A component's props type is its code, whether or not it declares a prop of its own: an adopted application's form fields declare `interface IProps extends FieldRenderProps<string, HTMLInputElement>, FormFieldProps {}` only to combine library props, for `const TextInput: React.FC<IProps>`. An interface no component takes as its props is still reported.
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.type"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "text-input", "type": "Component", "name": "TextInput" }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.type" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```tsx file src/form/TextInput.tsx
+import React from 'react';
+import { FieldRenderProps } from 'react-final-form';
+import { FormFieldProps } from 'semantic-ui-react';
+
+interface IProps extends FieldRenderProps<string, HTMLInputElement>, FormFieldProps {}
+
+export interface ISortOrder {
+    field: string;
+}
+
+const TextInput: React.FC<IProps> = ({ input, placeholder }) => <input {...input} placeholder={placeholder} />;
+
+export default TextInput;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "text-input", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.type", "subject": "src/form/TextInput.tsx:5", "count": 0, "note": "The component's props interface" },
+    { "rule": "optin/unmodelled.type", "severity": "error", "subject": "src/form/TextInput.tsx:7", "messageContains": "`ISortOrder` isn't in the model." }
+  ]
+}
+```

@@ -659,6 +659,63 @@ public class TypeScriptFactsTests
         ClassGraph.TypeOf(orders).ShouldBeSameAs(module);
     }
 
+    [Fact]
+    public void A_react_context_and_destructuring_type_what_a_component_reads_and_calls_through_them()
+    {
+        var graph = ReadAll(
+        [
+            ("src/stores/rootStore.ts", """
+                import { createContext } from 'react';
+                import ActivityStore from './activityStore';
+
+                export class RootStore {
+                  activityStore: ActivityStore;
+
+                  constructor() {
+                    this.activityStore = new ActivityStore(this);
+                  }
+                }
+
+                export const RootStoreContext = createContext(new RootStore());
+                """),
+            ("src/stores/activityStore.ts", """
+                import { RootStore } from './rootStore';
+
+                export default class ActivityStore {
+                  constructor(public rootStore: RootStore) {}
+
+                  loadActivities = async () => {};
+                }
+                """),
+            ("src/Dashboard.tsx", """
+                import React, { useContext } from 'react';
+                import { RootStoreContext } from './stores/rootStore';
+
+                interface Props {
+                  onPick: (id: string) => void;
+                }
+
+                const Dashboard: React.FC<Props> = ({ onPick }) => {
+                  const { activityStore: { loadActivities } } = useContext(RootStoreContext);
+                  return <button onClick={loadActivities}>Load</button>;
+                };
+
+                export default Dashboard;
+                """)
+        ]);
+
+        var dashboard = graph.Types.Single(x => x.Name == "Dashboard" && x.Kind == "component");
+        var body = dashboard.Members.Single(x => x.Kind == "constructor").Body!;
+        body.Reads.Select(x => x.Types.Single().Name).ShouldContain("RootStore");
+        var handed = body.Calls.Single(x => x.IsReference);
+        handed.Target.ShouldNotBeNull();
+        handed.Target.Type.Name.ShouldBe("ActivityStore");
+        handed.Target.Member.Name.ShouldBe("loadActivities");
+
+        var pick = dashboard.Members.Single(x => x.Name == "onPick").Type!;
+        pick.Parameters.ShouldHaveSingleItem().Type!.Name.ShouldBe("string");
+    }
+
     private sealed class NoNode : INodeRunner
     {
         public NodeRun Run(string script, IReadOnlyList<string> arguments) => new(null, "Node.js isn't on the path.");

@@ -3551,3 +3551,122 @@ export const shopApi = {
   ]
 }
 ```
+
+## controller-typed-action-result
+
+A controller action declared to return `ActionResult<T>`, under `Task` or not, returns a `T`: ASP.NET Core sends the `T` it is given, and the wrapper only lets the action return a status result instead (`NotFound()`), which isn't part of the Operation's type. From an adopted React and ASP.NET Core application's controllers (`Task<ActionResult<ActivityDto>> Details(Guid id)`).
+
+```json case
+{ "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Api",
+        "elements": [
+          { "id": "order-dto", "type": "DTO", "name": "OrderDto",
+            "children": [
+              { "id": "order-dto-id", "type": "DTO-Field", "name": "Id", "typeRef": { "type": "guid" } }
+            ] },
+          { "id": "orders-controller", "type": "Service", "name": "OrdersController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/orders" } },
+            "children": [
+              { "id": "get-order", "type": "Operation", "name": "GetOrder", "typeRef": { "element": "order-dto" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{id}" } },
+                "children": [
+                  { "id": "get-order-id", "type": "Parameter", "name": "id", "typeRef": { "type": "guid" } }
+                ] },
+              { "id": "get-orders", "type": "Operation", "name": "GetOrders", "typeRef": { "element": "order-dto", "collection": true },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Api/Controllers/OrdersController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Shop.Api.Controllers;
+
+[ApiController]
+[Route("api/orders")]
+public class OrdersController : ControllerBase
+{
+    [HttpGet("{id}")]
+    public async Task<ActionResult<OrderDto>> GetOrder(Guid id)
+    {
+        if (id == Guid.Empty)
+        {
+            return NotFound();
+        }
+
+        return await Task.FromResult(new OrderDto(id));
+    }
+
+    [HttpGet]
+    public ActionResult<List<OrderDto>> GetOrders() => new List<OrderDto>();
+}
+
+public record OrderDto(Guid Id);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-order", "outcome": "verified", "actual": "OrderDto" },
+    { "kind": "operation.returns", "element": "get-orders", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "count": 0 }
+  ]
+}
+```
+
+## controller-typed-action-result-contradicted
+
+The action's `ActionResult<T>` names another type than the Operation's: `T` is compared, not the wrapper.
+
+```json case
+{ "phase": 4, "base": "controller-typed-action-result", "kinds": ["operation.returns"], "requirements": ["R14"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Api/Controllers/OrdersController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace Shop.Api.Controllers;
+
+[ApiController]
+[Route("api/orders")]
+public class OrdersController : ControllerBase
+{
+    [HttpGet("{id}")]
+    public async Task<ActionResult<string>> GetOrder(Guid id) => await Task.FromResult(id.ToString());
+
+    [HttpGet]
+    public ActionResult<List<OrderDto>> GetOrders() => new List<OrderDto>();
+}
+
+public record OrderDto(Guid Id);
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.returns", "element": "get-order", "outcome": "contradicted", "actual": "string" },
+    { "kind": "operation.returns", "element": "get-orders", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.returns", "severity": "error", "subject": "get-order" }
+  ]
+}
+```

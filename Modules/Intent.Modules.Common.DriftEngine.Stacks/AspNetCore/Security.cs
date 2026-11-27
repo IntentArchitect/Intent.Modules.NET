@@ -1,4 +1,7 @@
 using System.Text.RegularExpressions;
+using Intent.Modules.Common.DriftEngine.Stacks.CSharp;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
 
@@ -165,4 +168,91 @@ internal static class Security
         && code.Supertypes(type).Any(x => x is "AuthorizeAttribute" or "Authorize")
             ? type
             : null;
+}
+
+/// <summary>
+/// What secures endpoints application-wide, read once per run from the composition root: a global <c>AuthorizeFilter</c> in MVC's
+/// filters (<c>services.AddControllers(o =&gt; o.Filters.Add(new AuthorizeFilter(policy)))</c>, through <c>AddMvc</c> or
+/// <c>Configure&lt;MvcOptions&gt;</c> alike) and <c>RequireAuthorization(...)</c> chained on the controllers' mapping
+/// (<c>app.MapControllers().RequireAuthorization()</c>), which secure every controller action; and the authorization
+/// <c>FallbackPolicy</c> (<c>options.FallbackPolicy = ...</c>, <c>SetFallbackPolicy(...)</c>), which ASP.NET Core applies to any
+/// endpoint that states no authorization of its own. Each is the least specific place an endpoint's security is read from, so
+/// <c>[AllowAnonymous]</c> still opens an action, and an action's own <c>[Authorize]</c> names its roles and policy.
+/// </summary>
+internal sealed record AppAuthorization(IReadOnlyList<Authorization> Controllers, Authorization? Fallback)
+{
+    private static readonly HashSet<string> ControllerMappings = ["MapControllers", "MapControllerRoute", "MapDefaultControllerRoute", "MapAreaControllerRoute"];
+
+    public static AppAuthorization Of(CodeGraph code)
+    {
+        if (code.Get<AppAuthorization>() is { } read)
+        {
+            return read;
+        }
+
+        var controllers = new List<Authorization>();
+        Authorization? fallback = null;
+        foreach (var (file, tree) in CSharpSyntax.Of(code)?.Trees ?? [])
+        {
+            foreach (var node in tree.GetRoot().DescendantNodes())
+            {
+                switch (node)
+                {
+                    case InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "Add" } add } call
+                        when LastName(add.Expression) == "Filters" && call.ArgumentList.Arguments is [{ Expression: ObjectCreationExpressionSyntax creation }]
+                             && LastName(creation.Type) == "AuthorizeFilter":
+                        // new AuthorizeFilter("Policy") names a policy; one given a built AuthorizationPolicy names none.
+                        controllers.Add(new Authorization("AuthorizeFilter", CSharpSyntax.SpanOf(call, file), [],
+                            (creation.ArgumentList?.Arguments ?? []).Select(x => x.Expression).OfType<LiteralExpressionSyntax>()
+                                .Where(x => x.IsKind(Microsoft.CodeAnalysis.CSharp.SyntaxKind.StringLiteralExpression)).Select(x => new WrittenValue(x.Token.ValueText, x.ToString())).ToList(),
+                            []));
+                        break;
+                    case InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "RequireAuthorization" } access } call
+                        when MapsControllers(access.Expression):
+                        controllers.Add(MinimalApiReader.Authorize(call, access, file));
+                        break;
+                    case AssignmentExpressionSyntax assignment when LastName(assignment.Left) == "FallbackPolicy" && !assignment.Right.IsKind(Microsoft.CodeAnalysis.CSharp.SyntaxKind.NullLiteralExpression):
+                        fallback ??= new Authorization("FallbackPolicy", CSharpSyntax.SpanOf(assignment, file), Roles(assignment.Right), [], []);
+                        break;
+                    case InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax { Name.Identifier.Text: "SetFallbackPolicy" } } call
+                        when call.ArgumentList.Arguments is [{ Expression: var policy }] && !policy.IsKind(Microsoft.CodeAnalysis.CSharp.SyntaxKind.NullLiteralExpression):
+                        fallback ??= new Authorization("FallbackPolicy", CSharpSyntax.SpanOf(call, file), Roles(policy), [], []);
+                        break;
+                }
+            }
+        }
+
+        var found = new AppAuthorization(fallback is null ? controllers : [.. controllers, fallback], fallback);
+        code.Set(found);
+        return found;
+    }
+
+    /// <summary>The roles a policy built in place requires: <c>new AuthorizationPolicyBuilder().RequireRole("Admin").Build()</c>.</summary>
+    private static List<WrittenValue> Roles(ExpressionSyntax policy) =>
+        policy.DescendantNodesAndSelf().OfType<InvocationExpressionSyntax>()
+            .Where(x => x.Expression is MemberAccessExpressionSyntax { Name.Identifier.Text: "RequireRole" })
+            .SelectMany(x => x.ArgumentList.Arguments.Select(a => new WrittenValue(a.Expression is LiteralExpressionSyntax literal ? literal.Token.ValueText : null, a.Expression.ToString())))
+            .ToList();
+
+    /// <summary>The expression is a controllers' mapping call, or a chain on one: <c>app.MapControllers()</c>, <c>endpoints.MapDefaultControllerRoute().WithMetadata(...)</c>.</summary>
+    private static bool MapsControllers(ExpressionSyntax expression)
+    {
+        for (var current = expression; current is InvocationExpressionSyntax { Expression: MemberAccessExpressionSyntax access }; current = access.Expression)
+        {
+            if (ControllerMappings.Contains(access.Name.Identifier.Text))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static string? LastName(SyntaxNode node) => node switch
+    {
+        MemberAccessExpressionSyntax access => access.Name.Identifier.Text,
+        QualifiedNameSyntax qualified => qualified.Right.Identifier.Text,
+        SimpleNameSyntax simple => simple.Identifier.Text,
+        _ => null
+    };
 }

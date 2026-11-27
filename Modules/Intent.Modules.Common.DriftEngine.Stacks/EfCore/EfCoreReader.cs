@@ -272,7 +272,8 @@ internal sealed class EfCoreReader : ICodeReader
     private static void Configure(EfCoreModel model, string entity, string builder, SyntaxNode body, string file, CSharpSyntax csharp)
     {
         var config = Config(model, entity, body, file);
-        foreach (var chain in body.DescendantNodes().OfType<InvocationExpressionSyntax>().Where(x => x.Parent is not MemberAccessExpressionSyntax))
+        // An expression-bodied lambda's body is the chain itself: Entity<UserActivity>(x => x.HasKey(...)).
+        foreach (var chain in body.DescendantNodesAndSelf().OfType<InvocationExpressionSyntax>().Where(x => x.Parent is not MemberAccessExpressionSyntax))
         {
             var calls = Calls(chain, file, csharp);
             if (calls.Count > 0 && calls[0].Receiver == builder)

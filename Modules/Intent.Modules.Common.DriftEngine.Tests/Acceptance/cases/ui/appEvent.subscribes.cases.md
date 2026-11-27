@@ -174,3 +174,147 @@ public class CatalogViewModel
   "noOtherFindings": true
 }
 ```
+
+## signalr-client
+
+ASP.NET Core SignalR's JavaScript client (`intent.signalr`). The hub sends its clients `ReceiveComment`, which the User Interface designer models as an App Event of that name: the store's `hubConnection.on('ReceiveComment', (comment) => ...)` is the event's code, its handler's parameter the event's Property, and the store subscribes to it. The store's `invoke('SendComment', body)` calls the hub method of that name, the Operation of the Service whose class derives from `Hub`, matched without case as SignalR matches it.
+
+```json case
+{ "phase": "later", "kinds": ["appEvent.subscribes", "type.exists", "member.exists", "intent.invokes", "intent.target"], "requirements": ["R2", "R28"], "packs": ["intent.core", "intent.services", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Api",
+        "elements": [
+          { "id": "chat-hub", "type": "Service", "name": "ChatHub", "children": [
+            { "id": "send-comment", "type": "Operation", "name": "SendComment", "children": [
+              { "id": "send-comment-body", "type": "Parameter", "name": "body", "typeRef": { "type": "string" } }
+            ] }
+          ] }
+        ]
+      }]
+    },
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "activity-store", "type": "Store", "name": "ActivityStore" },
+          { "id": "receive-comment", "type": "App Event", "name": "ReceiveComment", "children": [
+            { "id": "receive-comment-comment", "type": "Property", "name": "comment", "typeRef": { "type": "string" } }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "store-subscribes", "type": "Subscribes", "source": { "element": "activity-store" }, "target": { "element": "receive-comment" } },
+        { "id": "store-sends-comment", "type": "Call Service Operation Action", "source": { "element": "activity-store" }, "target": { "element": "send-comment" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Api/ChatHub.cs
+using Microsoft.AspNetCore.SignalR;
+
+namespace Shop.Api;
+
+public class ChatHub : Hub
+{
+    public async Task SendComment(string body)
+    {
+        await Clients.All.SendAsync("ReceiveComment", body);
+    }
+}
+```
+
+```ts file src/client/stores/activityStore.ts
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { observable } from 'mobx';
+
+export default class ActivityStore {
+    @observable.ref hubConnection: HubConnection | null = null;
+    @observable comments: string[] = [];
+
+    createHubConnection = () => {
+        this.hubConnection = new HubConnectionBuilder().withUrl('/chat').build();
+        this.hubConnection.on('ReceiveComment', (comment) => {
+            this.comments.push(comment);
+        });
+        this.hubConnection.start();
+    };
+
+    addComment = async (body: string) => {
+        await this.hubConnection!.invoke('sendComment', body);
+    };
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "receive-comment", "outcome": "verified", "at": "src/client/stores/activityStore.ts:10" },
+    { "kind": "member.exists", "element": "receive-comment-comment", "outcome": "verified" },
+    { "kind": "appEvent.subscribes", "element": "store-subscribes", "outcome": "verified", "at": "src/client/stores/activityStore.ts:10" },
+    { "kind": "intent.invokes", "element": "store-sends-comment", "outcome": "verified", "at": "src/client/stores/activityStore.ts:17" },
+    { "kind": "intent.target", "element": "store-sends-comment", "outcome": "verified", "actual": "ChatHub" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 },
+    { "rule": "claim/appEvent.subscribes", "count": 0 },
+    { "rule": "claim/intent.invokes", "count": 0 }
+  ]
+}
+```
+
+## signalr-client-renamed
+
+The client now handles `CommentReceived` and invokes `PostComment`: the App Event has no code, the store subscribes to nothing of its name, and it invokes no `SendComment`.
+
+```json case
+{ "phase": "later", "base": "signalr-client", "kinds": ["appEvent.subscribes", "type.exists", "intent.invokes"], "requirements": ["R14"], "packs": ["intent.core", "intent.services", "intent.ui"], "language": "typescript" }
+```
+
+```ts file src/client/stores/activityStore.ts
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { observable } from 'mobx';
+
+export default class ActivityStore {
+    @observable.ref hubConnection: HubConnection | null = null;
+    @observable comments: string[] = [];
+
+    createHubConnection = () => {
+        this.hubConnection = new HubConnectionBuilder().withUrl('/chat').build();
+        this.hubConnection.on('CommentReceived', (comment) => {
+            this.comments.push(comment);
+        });
+        this.hubConnection.start();
+    };
+
+    addComment = async (body: string) => {
+        await this.hubConnection!.invoke('PostComment', body);
+    };
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "receive-comment", "outcome": "contradicted" },
+    { "kind": "appEvent.subscribes", "element": "store-subscribes", "outcome": "contradicted" },
+    { "kind": "intent.invokes", "element": "store-sends-comment", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "severity": "error", "subject": "receive-comment" },
+    { "rule": "claim/appEvent.subscribes", "severity": "error", "subject": "store-subscribes" },
+    { "rule": "claim/intent.invokes", "severity": "error", "subject": "store-sends-comment", "messageContains": "makes no `invoke`, `send` or `stream` of `SendComment`" }
+  ]
+}
+```

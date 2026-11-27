@@ -439,7 +439,7 @@ internal sealed class MinimalApiReader : ICodeReader
     /// What a <c>RequireAuthorization(...)</c> names: a policy's name (a literal, or a constant the claim reader reads), an
     /// <c>AuthorizeAttribute</c>'s <c>Roles</c> and <c>Policy</c>, or the roles a policy builder's <c>RequireRole</c> requires.
     /// </summary>
-    private static Authorization Authorize(InvocationExpressionSyntax call, MemberAccessExpressionSyntax access, string file)
+    internal static Authorization Authorize(InvocationExpressionSyntax call, MemberAccessExpressionSyntax access, string file)
     {
         var roles = new List<WrittenValue>();
         var policies = new List<WrittenValue>();
@@ -665,6 +665,7 @@ internal sealed class MinimalApiClaims : IClaimReader
             .Concat(Security.Attributes(code, member.Attributes, router))
             .Append(endpoint.GroupAuthorization)
             .Append(model.RouterSecurity.GetValueOrDefault(router.Name))
+            .Append(AppAuthorization.Of(code).Fallback)
             .OfType<Authorization>()
             .ToList();
 

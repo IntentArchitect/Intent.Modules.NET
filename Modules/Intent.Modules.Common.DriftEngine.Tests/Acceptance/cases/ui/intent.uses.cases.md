@@ -1706,3 +1706,102 @@ public class ProfileView : ContentPage
   "noOtherFindings": true
 }
 ```
+
+## react-markup-in-a-module-constant
+
+A component renders what a module-level constant it names holds: an adopted application's profile tabs are `const panes = [{ menuItem: 'About', render: () => <About /> }]`, handed to `<Tab panes={panes} />`. The child is imported under another name than its own (`import About from './ProfileAbout'`), and its tag still resolves to it, for the Composition and its target.
+
+```json case
+{ "phase": "later", "kinds": ["intent.uses", "intent.target"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "profile-content", "type": "Component", "name": "ProfileContent" },
+          { "id": "profile-about", "type": "Component", "name": "ProfileAbout" }
+        ]
+      }],
+      "associations": [
+        { "id": "content-shows-about", "type": "Composition", "source": { "element": "profile-content" }, "target": { "element": "profile-about" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/profiles/ProfileContent.tsx
+import React from 'react';
+import { Tab } from 'semantic-ui-react';
+import About from './ProfileAbout';
+
+const panes = [
+    { menuItem: 'About', render: () => <About /> },
+];
+
+const ProfileContent: React.FC = () => <Tab panes={panes} />;
+
+export default ProfileContent;
+```
+
+```tsx file src/profiles/ProfileAbout.tsx
+import React from 'react';
+
+const ProfileAbout: React.FC = () => <p>About</p>;
+
+export default ProfileAbout;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "content-shows-about", "outcome": "verified", "at": "src/profiles/ProfileContent.tsx:6" },
+    { "kind": "intent.target", "element": "content-shows-about", "outcome": "verified", "actual": "ProfileAbout" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "count": 0 },
+    { "rule": "claim/intent.target", "count": 0 }
+  ]
+}
+```
+
+## react-markup-in-a-module-constant-unnamed
+
+A constant the component doesn't name isn't its markup: the panes are left unused, so the Composition is contradicted.
+
+```json case
+{ "phase": "later", "base": "react-markup-in-a-module-constant", "kinds": ["intent.uses"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```tsx file src/profiles/ProfileContent.tsx
+import React from 'react';
+import { Tab } from 'semantic-ui-react';
+import About from './ProfileAbout';
+
+export const panes = [
+    { menuItem: 'About', render: () => <About /> },
+];
+
+const ProfileContent: React.FC = () => <Tab panes={[]} />;
+
+export default ProfileContent;
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "content-shows-about", "outcome": "contradicted" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "content-shows-about" }
+  ]
+}
+```

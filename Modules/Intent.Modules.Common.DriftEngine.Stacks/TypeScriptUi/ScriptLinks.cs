@@ -102,6 +102,7 @@ internal abstract class ScriptLinks : IClaimReader
 
                 return file.Imports.FirstOrDefault(x => !x.TypeOnly && x.File is { } imported && used.Files.Contains(imported) && x.File != file.Path) is { } import
                     ? ClaimReading.Found(import, import.At)
+                    : Held(code, units, used) is { } held ? ClaimReading.Found(held.Value, held.At)
                     : ClaimReading.Absent(start);
             }
             case "intent.navigates":
@@ -160,6 +161,29 @@ internal abstract class ScriptLinks : IClaimReader
         return null;
     }
 
+    /// <summary>
+    /// Where the code reaches an instance of the used type without importing its file: a value it reads that is typed so (a store
+    /// a React context gives, <c>const { loadActivities } = useContext(RootStoreContext).activityStore</c>; another store through
+    /// its own field, <c>this.rootStore.userStore</c>), or a call made on one.
+    /// </summary>
+    private static (object Value, Span At)? Held(CodeGraph code, IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> units, TypeNode used)
+    {
+        foreach (var (type, _, unit) in units)
+        {
+            if (unit.Reads.FirstOrDefault(x => x.Types is [var read] && code.TypeFor(read, type) == used) is { } value)
+            {
+                return (value, value.At);
+            }
+
+            if (unit.Calls.FirstOrDefault(x => x.Target?.Type == used || x.ReceiverType is { } on && code.TypeFor(on, type) == used) is { } call)
+            {
+                return (call, call.At);
+            }
+        }
+
+        return null;
+    }
+
     /// <summary>A component the code doesn't render is used, though not composed or opened, when its file is imported for its value (a route's element, a prop).</summary>
     protected virtual bool UsesByImport => false;
 
@@ -179,7 +203,8 @@ internal abstract class ScriptLinks : IClaimReader
         var located = context.TypeOf(expected);
         if (located is { Kind: "component" })
         {
-            if (markup.FirstOrDefault(x => Tagged(x, located.Name) || x.Component?.Name == located.Name) is not { } tag)
+            // The tag that renders it, also under another name (a default import: <ProfileActivities /> for ProfileEvents), else one of its name.
+            if ((Rendered(code, markup, type, located) ?? markup.FirstOrDefault(x => x.Component?.Name == located.Name)) is not { } tag)
             {
                 return null;
             }

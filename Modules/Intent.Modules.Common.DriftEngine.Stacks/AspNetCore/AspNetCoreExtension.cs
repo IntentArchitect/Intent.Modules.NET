@@ -18,6 +18,8 @@ public sealed class AspNetCoreExtension : IDriftExtension
     // The Minimal API reader comes first (the later one does) and passes on anything that isn't an endpoint.
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new AspNetCoreClaims(), new MinimalApiClaims()];
 
+    public IEnumerable<IMemberRefiner> Refiners { get; } = [new TypedActionResults()];
+
     public IEnumerable<IDriftRule> Rules { get; } = [new ConventionalRoutes()];
 
     public IEnumerable<IOptInRule> OptInRules { get; } = [new UnmodelledEndpoints()];
@@ -142,9 +144,15 @@ internal sealed class AspNetCoreClaims : IClaimReader
                 return Controller(context);
             case "service.route":
             {
-                // Web API 2's [RoutePrefix] is the controller's route, as ASP.NET Core's [Route] on the controller is.
+                // Web API 2's [RoutePrefix] is the controller's route, as ASP.NET Core's [Route] on the controller is. ASP.NET
+                // Core's [Route] is inherited, so with none of its own a controller is at its nearest base's, [controller] being
+                // its own name (BaseController's [Route("api/[controller]")] routes ActivitiesController at api/activities);
+                // Web API 2's [RoutePrefix] isn't.
                 var type = context.Type!;
-                var route = type.Attributes.FirstOrDefault(x => x.Name is "Route" or "RoutePrefix" && x.Arguments.Count > 0);
+                var route = type.Attributes.FirstOrDefault(x => x.Name is "Route" or "RoutePrefix" && x.Arguments.Count > 0)
+                            ?? (IsController(context.Code, type) && !Binding.WebApi2(context.Code, type)
+                                ? context.Code.Bases(type).Select(b => b.Attributes.FirstOrDefault(x => x.Name == "Route" && x.Arguments.Count > 0)).FirstOrDefault(x => x is not null)
+                                : null);
                 // With none, a controller a conventional route serves is under that route's prefix up to its {controller}: the
                 // routing's convention, not a value the code states, so unmodelled.value doesn't report it.
                 if (route is null && IsController(context.Code, type) && Binding.ConventionalPrefix(context.Code, type) is { } conventional)
@@ -252,7 +260,8 @@ internal sealed class AspNetCoreClaims : IClaimReader
                         owner, member.At);
                 }
 
-                return Security.Read(context, Security.Attributes(context.Code, member.Attributes, owner).Concat(Security.OfType(context.Code, owner)).ToList(), owner, member.At);
+                return Security.Read(context, Security.Attributes(context.Code, member.Attributes, owner).Concat(Security.OfType(context.Code, owner))
+                    .Concat(AppAuthorization.Of(context.Code).Controllers).ToList(), owner, member.At);
             }
         }
     }

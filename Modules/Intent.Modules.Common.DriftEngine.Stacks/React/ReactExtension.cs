@@ -1,6 +1,7 @@
 using System.Text.RegularExpressions;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 using Intent.Modules.Common.DriftEngine.Stacks.TypeScriptUi;
 
 namespace Intent.Modules.Common.DriftEngine.Stacks.React;
@@ -20,6 +21,30 @@ public sealed class ReactExtension : IDriftExtension
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new ReactLinks(), new ContextStores()];
 
     public IEnumerable<ICodeReader> Readers { get; } = [new ComponentMembers()];
+
+    public IEnumerable<IMemberRefiner> Refiners { get; } = [new CallbackProps()];
+}
+
+/// <summary>
+/// An Event Emitter is a callback prop, and what it emits is what the component hands the callback: <c>uploadPhoto: (file: Blob)
+/// =&gt; void</c> emits a <c>Blob</c>. So the emitter's type is read as the callback's one parameter's, not as the whole
+/// function type. A callback taking none or several is left as written.
+/// </summary>
+internal sealed class CallbackProps : IMemberRefiner
+{
+    public IReadOnlyCollection<string> Kinds { get; } = ["member.type"];
+
+    public MemberNode? Refine(ClaimContext context)
+    {
+        if (context.Member is not { Type.Parameters: [{ Type: { } emitted }] } member
+            || context.ClaimOn(context.Element, "member.exists")?.Bindings?.ContainsKey("Event") != true
+            || context.Code.Types.FirstOrDefault(x => x.Members.Contains(member)) is not { } owner || !ReactCode.IsReact(owner))
+        {
+            return null;
+        }
+
+        return member with { Type = emitted };
+    }
 }
 
 /// <summary>
@@ -42,7 +67,7 @@ internal sealed class ComponentMembers : ICodeReader
 
     private static readonly HashSet<string> Statics = ["displayName", "propTypes", "defaultProps", "contextType"];
 
-    private static readonly HashSet<string> RouterProps = ["match", "location", "history"];
+    private static readonly HashSet<string> RouterProps = ["match", "location", "history", "staticContext"];
 
     public void Read(CodeGraph graph)
     {
@@ -119,8 +144,151 @@ internal static class ReactCode
     public static bool IsClassComponent(TypeNode type) => IsReact(type) && type.BaseTypes.Any(x => x.Name is "Component" or "PureComponent");
 
     /// <summary>The markup the component writes: every element of its file's JSX inside its own declaration, at any depth.</summary>
-    public static IReadOnlyList<MarkupNode> Markup(CodeGraph code, TypeNode component) =>
-        UiCode.FileOf(code, component.At.File) is { } file ? UiCode.Markup(file).Where(x => Within(x.At, component.At)).ToList() : [];
+    /// <remarks>
+    /// Its file's module-level constants it names are its markup too: a <c>const panes = [{ menuItem: 'About', render: () =&gt;
+    /// &lt;ProfileDescription /&gt; }]</c> handed to <c>&lt;Tab panes={panes} /&gt;</c> renders what it holds where the component does.
+    /// </remarks>
+    public static IReadOnlyList<MarkupNode> Markup(CodeGraph code, TypeNode component)
+    {
+        if (UiCode.FileOf(code, component.At.File) is not { } file)
+        {
+            return [];
+        }
+
+        var spans = Constants(code, file.Path).Where(x => x.Users.Contains(component)).Select(x => x.At).Prepend(component.At).ToList();
+        return UiCode.Markup(file).Where(x => spans.Any(at => Within(x.At, at))).ToList();
+    }
+
+    /// <summary>A file's module-level constants that aren't components, each with the components that name it, read once per file.</summary>
+    private static IReadOnlyList<(Span At, IReadOnlySet<TypeNode> Users)> Constants(CodeGraph code, string path)
+    {
+        if (code.Get<ModuleConstants>() is not { } cache)
+        {
+            code.Set(cache = new ModuleConstants());
+        }
+
+        if (cache.ByFile.TryGetValue(path, out var known))
+        {
+            return known;
+        }
+
+        var found = new List<(Span, IReadOnlySet<TypeNode>)>();
+        if (TypeScriptSyntax.Of(code)?.Trees.GetValueOrDefault(path) is { } tree)
+        {
+            var components = code.Types.Where(x => x.Files.Contains(path) && IsReact(x)).ToList();
+            // A name a reference uses, not one that names a property or attribute: panes={[]} names no constant panes.
+            var named = tree.Root.Descendants().Where(x => x.Is("Identifier")
+                && !(x.Parent is { Kind: "JsxAttribute" or "PropertyAssignment" or "PropertyAccessExpression" or "PropertySignature" or "PropertyDeclaration" or "MethodDeclaration" } owner
+                     && ReferenceEquals(owner["name"], x))).ToList();
+            foreach (var declaration in tree.Root.Descendants().Where(x => x.Is("VariableDeclaration") && x.Parent?.Parent?.Parent == tree.Root && x["name"] is { Kind: "Identifier" }))
+            {
+                var name = declaration["name"]!.Value;
+                if (components.Any(x => x.Name == name))
+                {
+                    continue;
+                }
+
+                var users = components.Where(c => named.Any(x => x.Value == name && Within(x.Span, c.At))).ToHashSet();
+                if (users.Count > 0)
+                {
+                    found.Add((declaration.Span, users));
+                }
+            }
+        }
+
+        return cache.ByFile[path] = found;
+    }
+
+    private sealed class ModuleConstants
+    {
+        public Dictionary<string, IReadOnlyList<(Span At, IReadOnlySet<TypeNode> Users)>> ByFile { get; } = new(StringComparer.Ordinal);
+    }
+
+    /// <summary>
+    /// react-router 5's layouts: a <c>&lt;Switch&gt;</c> of routes renders the page its routes match where it is written, as v6's
+    /// <c>&lt;Outlet /&gt;</c> does. The layout is the outermost component it is rendered in: from the component whose markup holds
+    /// the <c>&lt;Switch&gt;</c>, up through the components that render it, to one a route mounts (a layout route's) or one no
+    /// component renders (the application's root). Each with where its <c>&lt;Switch&gt;</c> is.
+    /// </summary>
+    public static IReadOnlyDictionary<TypeNode, Span> SwitchLayouts(CodeGraph code)
+    {
+        if (code.Get<SwitchHosts>() is { } cached)
+        {
+            return cached.Layouts;
+        }
+
+        var react = code.Types.Where(IsReact).ToList();
+        var mounted = Records(code).Select(x => x.Component).OfType<TypeNode>().ToHashSet();
+        var wrappers = Wrappers(code);
+        var renderedBy = new Dictionary<TypeNode, List<TypeNode>>();
+        foreach (var parent in react)
+        {
+            foreach (var tag in Markup(code, parent))
+            {
+                if (tag.Component is { } named && code.TypeFor(named, parent) is { } child && child != parent && IsReact(child))
+                {
+                    (renderedBy.TryGetValue(child, out var parents) ? parents : renderedBy[child] = []).Add(parent);
+                }
+            }
+        }
+
+        var layouts = new Dictionary<TypeNode, Span>();
+        foreach (var host in react)
+        {
+            if (Markup(code, host).FirstOrDefault(x => x.Tag == "Switch" && x.Children.Any(c => IsRoute(code, host.At.File, c, wrappers))) is not { } hosting)
+            {
+                continue;
+            }
+
+            var seen = new HashSet<TypeNode>();
+            var queue = new Queue<TypeNode>([host]);
+            while (queue.TryDequeue(out var current))
+            {
+                if (!seen.Add(current))
+                {
+                    continue;
+                }
+
+                if (mounted.Contains(current) || !renderedBy.TryGetValue(current, out var parents))
+                {
+                    layouts.TryAdd(current, hosting.At);
+                    continue;
+                }
+
+                foreach (var parent in parents)
+                {
+                    queue.Enqueue(parent);
+                }
+            }
+        }
+
+        code.Set(new SwitchHosts(layouts));
+        return layouts;
+    }
+
+    private sealed record SwitchHosts(IReadOnlyDictionary<TypeNode, Span> Layouts);
+
+    /// <summary>
+    /// react-router 5's route wrappers: a component that renders <c>&lt;Route {...rest} ... /&gt;</c> hands a <c>&lt;Route&gt;</c> the props it
+    /// is given, so <c>&lt;PrivateRoute path="/activities" component={ActivityDashboard} /&gt;</c> is a route of that path mounting that
+    /// component, whatever else the wrapper renders. Read once per run.
+    /// </summary>
+    private static IReadOnlySet<TypeNode> Wrappers(CodeGraph code)
+    {
+        if (code.Get<RouteWrappers>() is not { } cached)
+        {
+            code.Set(cached = new RouteWrappers(code.Types.Where(x => IsReact(x)
+                && UiCode.FileOf(code, x.At.File) is { } file && UiCode.Markup(file).Any(m => Within(m.At, x.At) && m.Tag == "Route" && m.Attributes.Any(a => a.Name == "..."))).ToHashSet()));
+        }
+
+        return cached.Components;
+    }
+
+    private sealed record RouteWrappers(IReadOnlySet<TypeNode> Components);
+
+    /// <summary>A <c>&lt;Route&gt;</c>, or a tag naming a route wrapper.</summary>
+    private static bool IsRoute(CodeGraph code, string file, MarkupNode element, IReadOnlySet<TypeNode> wrappers) =>
+        element.Tag == "Route" || element.Component is not null && Named(code, file, element.Tag) is { } named && wrappers.Contains(named);
 
     private static bool Within(Span at, Span declared) =>
         at.File == declared.File && at.Line >= declared.Line && at.Line <= (declared.EndLine ?? declared.Line);
@@ -159,51 +327,62 @@ internal static class ReactCode
             record.Members.FirstOrDefault(x => x.Member is "element" or "Component" or "lazy") is { } mounted
                 ? (Mounted(code, mounted.Value.At.File, mounted.Value.Text, mounted.Value.At), true)
                 : (null, false)).ToList();
+        var wrappers = Wrappers(code);
         foreach (var file in code.Files)
         {
             foreach (var root in file.Markup)
             {
-                Elements(root, "");
+                Elements(root, "", false);
             }
 
-            void Elements(MarkupNode element, string parent)
+            void Elements(MarkupNode element, string parent, bool inSwitch)
             {
-                if (element.Tag != "Route")
+                if (!IsRoute(code, file.Path, element, wrappers))
                 {
-                    foreach (var child in element.Children)
+                    foreach (var nested in element.Children)
                     {
-                        Elements(child, parent);
+                        Elements(nested, parent, inSwitch || element.Tag == "Switch");
                     }
 
                     return;
                 }
 
-                var path = element.Attributes.FirstOrDefault(x => x.Name == "path")?.Literal switch
+                // react-router 5 takes an array of paths too: path={['/createActivity', '/manage/:id']} mounts the component at each.
+                var paths = element.Attributes.FirstOrDefault(x => x.Name == "path")?.Literal switch
                 {
                     null => null,
-                    { Kind: "interpolated", Parts: [{ Literal: null } computed] } => UiCode.Text(code.StringOf(computed)) ?? UiCode.Hole.ToString(),
-                    var written => UiCode.Text(written) ?? UiCode.Hole.ToString()
+                    { Kind: "interpolated", Parts: [{ Literal: null, Items.Count: > 0 } listed] } => listed.Items.Select(x => UiCode.Text(code.StringOf(x)) ?? UiCode.Hole.ToString()).ToList(),
+                    { Kind: "interpolated", Parts: [{ Literal: null } computed] } => [UiCode.Text(code.StringOf(computed)) ?? UiCode.Hole.ToString()],
+                    var written => (List<string>)[UiCode.Text(written) ?? UiCode.Hole.ToString()]
                 };
                 var index = element.Attributes.Any(x => x.Name == "index" && (x.Literal is null || x.Literal.Value == "true"));
-                var full = path is null ? parent : UiCode.Joined(parent, path);
+                var fulls = paths is null ? [parent] : paths.Select(x => UiCode.Joined(parent, x)).ToList();
                 var routes = element.Children.Where(x => x.Tag == "Route").ToList();
-                if (path is not null || index)
+                // element={<Page />}, Component={Page}, component={Page}, or <Route path="/x"><Page /></Route>.
+                var given = element.Attributes.FirstOrDefault(x => x.Name is "element" or "Component" or "component" or "render");
+                var component = given?.Literal?.Parts is [var value]
+                    ? Mounted(code, file.Path, value.Text, value.At)
+                    : element.Children.FirstOrDefault(x => x.Tag != "Route") is { } child ? Chain(code, file.Path, child) : null;
+                if (paths is not null || index)
                 {
-                    // element={<Page />}, Component={Page}, component={Page}, or <Route path="/x"><Page /></Route>.
-                    var given = element.Attributes.FirstOrDefault(x => x.Name is "element" or "Component" or "component" or "render");
-                    var component = given?.Literal?.Parts is [var value]
-                        ? Mounted(code, file.Path, value.Text, value.At)
-                        : element.Children.FirstOrDefault(x => x.Tag != "Route") is { } child ? Chain(code, file.Path, child) : null;
                     if (given is not null || component is not null)
                     {
                         // An index route under a pathless layout route is the root.
-                        records.Add(new UiCode.RouteRecord(full.Length == 0 ? "/" : full, component, null, null, element.At, routes.Count > 0));
+                        foreach (var full in fulls)
+                        {
+                            records.Add(new UiCode.RouteRecord(full.Length == 0 ? "/" : full, component, null, null, element.At, routes.Count > 0));
+                        }
                     }
+                }
+                else if (inSwitch && component is not null)
+                {
+                    // react-router 5's <Route component={NotFound} /> with no path, in a <Switch>: what no route before it matches.
+                    records.Add(new UiCode.RouteRecord("*", component, null, null, element.At));
                 }
 
                 foreach (var route in routes)
                 {
-                    Elements(route, full);
+                    Elements(route, fulls[0], false);
                 }
             }
         }
@@ -294,6 +473,12 @@ internal sealed class Components : IClaimReader
                 if (context.Expected == "Dialog")
                 {
                     return ClaimReading.CantVerify("noRule", "A React component's own code doesn't say whether it is a dialog.", type!.At);
+                }
+
+                // react-router 5: the outermost component a <Switch> of routes is rendered in lays out the pages they mount.
+                if (ReactCode.SwitchLayouts(code).TryGetValue(type!, out var hosting))
+                {
+                    return ClaimReading.Compared("Layout", hosting, context.Expected == "Layout");
                 }
 
                 var outlet = markup.FirstOrDefault(x => x.Tag == "Outlet");
@@ -503,8 +688,7 @@ internal sealed class ReactLinks : ScriptLinks
 
     protected override IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> Units(CodeGraph code, FileNode file, TypeNode type) => ReactCode.Units(code, type);
 
-    protected override IReadOnlyList<MarkupNode> Markup(FileNode file, TypeNode type) =>
-        UiCode.Markup(file).Where(x => x.At.Line >= type.At.Line && x.At.Line <= (type.At.EndLine ?? type.At.Line)).ToList();
+    protected override IReadOnlyList<MarkupNode> Markup(CodeGraph code, FileNode file, TypeNode type) => ReactCode.Markup(code, type);
 
     protected override Span Start(FileNode file, TypeNode type) => type.At;
 

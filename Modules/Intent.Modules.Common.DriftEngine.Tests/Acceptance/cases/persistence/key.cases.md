@@ -548,3 +548,110 @@ The model has the SeedWork base too: an abstract `Entity` with the `Id` Primary 
   ]
 }
 ```
+
+## expression-bodied-entity-lambda
+
+A key configured in an expression-bodied `Entity<T>(x => x.HasKey(...))` lambda is read as one in a block-bodied lambda is: the lambda's body is the chain itself. Its columns are required, as EF Core maps every primary key column. From an adopted application's `DataContext` (`builder.Entity<UserActivity>(x => x.HasKey(ua => new { ua.AppUserId, ua.ActivityId }))`).
+
+```json case
+{ "phase": 4, "kinds": ["key", "member.nullable"], "requirements": ["R2"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Domain": {
+      "packages": [{
+        "id": "domain", "name": "Shop.Domain",
+        "elements": [
+          { "id": "order-line", "type": "Class", "name": "OrderLine",
+            "stereotypes": { "Table": {} },
+            "children": [
+              { "id": "order-line-order-id", "type": "Attribute", "name": "OrderId", "typeRef": { "type": "string" }, "stereotypes": { "Primary Key": {} } },
+              { "id": "order-line-product-id", "type": "Attribute", "name": "ProductId", "typeRef": { "type": "string" }, "stereotypes": { "Primary Key": {} } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Domain/OrderLine.cs
+namespace Shop.Domain;
+
+public class OrderLine
+{
+    public string OrderId { get; set; }
+    public string ProductId { get; set; }
+}
+```
+
+```csharp file src/Infrastructure/ShopContext.cs
+using Microsoft.EntityFrameworkCore;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class ShopContext : DbContext
+{
+    public DbSet<OrderLine> OrderLines { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.Entity<OrderLine>(x => x.HasKey(l => new { l.OrderId, l.ProductId }));
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "key", "element": "order-line", "outcome": "verified", "expected": "OrderId, ProductId", "actual": "OrderId, ProductId", "at": "src/Infrastructure/ShopContext.cs:12" }
+  ],
+  "findings": [
+    { "rule": "claim/key", "count": 0 },
+    { "rule": "claim/member.nullable", "count": 0 }
+  ]
+}
+```
+
+## expression-bodied-entity-lambda-contradicted
+
+The lambda's key is in the other order, which the model's key attributes contradict.
+
+```json case
+{ "phase": 4, "base": "expression-bodied-entity-lambda", "kinds": ["key"], "requirements": ["R14"], "packs": ["intent.core", "intent.domain", "intent.efcore"], "language": "csharp" }
+```
+
+```csharp file src/Infrastructure/ShopContext.cs
+using Microsoft.EntityFrameworkCore;
+using Shop.Domain;
+
+namespace Shop.Infrastructure;
+
+public class ShopContext : DbContext
+{
+    public DbSet<OrderLine> OrderLines { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.Entity<OrderLine>(x => x.HasKey(l => new { l.ProductId, l.OrderId }));
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "key", "element": "order-line", "outcome": "contradicted", "expected": "OrderId, ProductId", "actual": "ProductId, OrderId" }
+  ],
+  "findings": [
+    { "rule": "claim/key", "severity": "error", "subject": "order-line" }
+  ]
+}
+```
