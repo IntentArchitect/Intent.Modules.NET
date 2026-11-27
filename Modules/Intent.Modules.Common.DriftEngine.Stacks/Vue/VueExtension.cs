@@ -16,7 +16,28 @@ public sealed class VueExtension : IDriftExtension
 {
     public string Id => "intent.vue";
 
-    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new VueLinks()];
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new VueLinks(), new VueRegions()];
+}
+
+/// <summary>
+/// A Vue component's placement points (<see cref="MarkupRegions"/>): its template's <c>&lt;slot&gt;</c>s and
+/// <c>&lt;RouterView&gt;</c>s, each named by its <c>name</c>; a bare <c>&lt;slot /&gt;</c> or <c>&lt;RouterView /&gt;</c> is the
+/// default one, which the template doesn't name, and a bound <c>:name</c> is computed.
+/// </summary>
+internal sealed class VueRegions : MarkupRegions
+{
+    protected override string Written => "<slot name=\"{0}\" />";
+
+    protected override bool Answers(TypeNode type) => VueCode.IsVue(type);
+
+    protected override IReadOnlyList<Outlet> Outlets(CodeGraph code, TypeNode type) =>
+        code.MarkupOf(type)
+            .Where(x => x.Tag is "slot" or "RouterView" or "router-view")
+            .Select(x => new Outlet(
+                x.Attributes.Any(a => a is { Directive: "bind", Argument: "name" }) ? UiCode.Hole.ToString()
+                : x.Attributes.FirstOrDefault(a => a is { Directive: null, Name: "name" })?.Value is { Length: > 0 } name ? name : null,
+                x.At))
+            .ToList();
 }
 
 /// <summary>What the Vue readers share: what a Vue component is, and vue-router's records.</summary>
@@ -137,7 +158,7 @@ internal sealed class Components : IClaimReader
 /// </summary>
 internal sealed class Members : IClaimReader
 {
-    public IReadOnlyCollection<string> Kinds { get; } = ["member.exists", "property.query", "property.route", "property.bindable"];
+    public IReadOnlyCollection<string> Kinds { get; } = ["member.exists", "member.type", "member.nullable", "property.query", "property.route", "property.bindable"];
 
     public ClaimReading? Read(ClaimContext context)
     {
@@ -155,6 +176,23 @@ internal sealed class Members : IClaimReader
         var words = UiCode.Words(element.Name);
         var member = context.Member ?? owner!.Members.Where(x => UiCode.Words(x.Name) == words)
             .OrderByDescending(x => x.Kind == kind).ThenByDescending(x => x.Name == element.Name).FirstOrDefault();
+        if (context.Kind is "member.type" or "member.nullable")
+        {
+            // A declared member's type is the engine's own rule; a Property found where the page reads it from its route is the
+            // string the router gives, missing where a route showing the page lacks it, or, for a query value, wherever the URL does.
+            if (context.Member is not null || member is not null)
+            {
+                return null;
+            }
+
+            var paths = VueCode.Records(code).Where(x => x.Component == owner).Select(x => x.Path).ToList();
+            return context.Kind == "member.type"
+                ? Parameter(code, owner!, element.Name) is { } given ? UiCode.RouterGivenType(context, owner!.Name, given) : null
+                : Reads(code, owner!, "params", element.Name) is { } parameter ? UiCode.RouterGivenNullable(context, owner!.Name, parameter, false, paths)
+                : Reads(code, owner!, "query", element.Name) is { } value ? UiCode.RouterGivenNullable(context, owner!.Name, value, true, paths)
+                : null;
+        }
+
         switch (context.Kind)
         {
             case "member.exists":

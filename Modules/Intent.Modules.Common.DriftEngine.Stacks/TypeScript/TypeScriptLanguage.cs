@@ -52,6 +52,16 @@ public sealed class TypeScriptSyntax
 
     public static TypeScriptSyntax? Of(CodeGraph graph) => graph.Get<TypeScriptSyntax>();
 
+    /// <summary>
+    /// The in-scope file a module specifier names when <paramref name="from"/> imports it, resolved as the file's static
+    /// imports are: a relative path, or what its <c>tsconfig.json</c>'s (or <c>jsconfig.json</c>'s) <c>paths</c> or
+    /// <c>baseUrl</c> map it to, with or without its extension, or a folder's <c>index</c>. A lazy <c>import('@features/x')</c>
+    /// resolves through the same aliases as an <c>import</c> statement. Null for a package's module, or a file out of scope.
+    /// </summary>
+    public string? Resolve(string from, string specifier) => Resolver?.Invoke(from, specifier);
+
+    internal Func<string, string, string?>? Resolver { get; set; }
+
     /// <summary>A type as written, as the graph has it.</summary>
     public static TypeRefNode TypeOf(TypeScriptNode type) => TypeScriptReader.TypeRef(type, null);
 }

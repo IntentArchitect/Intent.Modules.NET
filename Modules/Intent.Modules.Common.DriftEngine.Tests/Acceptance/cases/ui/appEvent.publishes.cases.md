@@ -65,7 +65,8 @@ public class BasketViewModel
   "claims": [
     { "kind": "appEvent.publishes", "element": "basket-publishes", "outcome": "verified", "at": "src/Shop/ViewModels/BasketViewModel.cs:10" },
     { "kind": "type.exists", "element": "count-changed", "outcome": "verified" },
-    { "kind": "member.type", "element": "count-value", "outcome": "verified", "expected": "int", "actual": "int" }
+    { "kind": "member.type", "element": "count-value", "outcome": "verified", "expected": "int", "actual": "int" },
+    { "kind": "member.nullable", "element": "count-value", "outcome": "verified", "expected": "false", "actual": "false", "note": "ValueChangedMessage<int> binds T Value to an int, which is never null, nullable context or not" }
   ],
   "others": "verified",
   "noOtherFindings": true

@@ -3,6 +3,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Stacks.Messaging;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
 
 namespace Intent.Modules.Common.DriftEngine.Stacks.TypeScriptUi;
 
@@ -249,15 +250,20 @@ internal static class UiCode
 
     /// <summary>
     /// The component a name or a lazy import stands for: an imported name, a type of that name, or
-    /// <c>() =&gt; import('./X.vue')</c>'s file's component (any component its file declares).
+    /// <c>() =&gt; import('./X.vue')</c>'s file's component (any component its file declares), the import resolved as a static
+    /// one is (<see cref="FileLoaded"/>).
     /// </summary>
     public static TypeNode? ComponentNamed(CodeGraph code, string file, string text)
     {
         var from = FileOf(code, file);
         if (Regex.Match(text, @"import\(\s*['""`]([^'""`]+)['""`]\s*\)") is { Success: true } lazy && from is not null)
         {
-            var target = Resolve(from.Path, lazy.Groups[1].Value);
-            var components = code.Types.Where(x => x.Kind == "component" && x.Files.Any(f => f == target || ModuleOf(f) == ModuleOf(target))).ToList();
+            if (FileLoaded(code, from.Path, lazy.Groups[1].Value) is not { } target)
+            {
+                return null;
+            }
+
+            var components = code.Types.Where(x => x.Kind == "component" && x.Files.Contains(target)).ToList();
             // A file's default export, when it declares several.
             return components.Count > 1 ? components.FirstOrDefault(x => x.Name == Stem(target)) ?? components[0] : components.FirstOrDefault();
         }
@@ -277,7 +283,59 @@ internal static class UiCode
         return code.Types.Where(x => x.Kind == "component" && x.Name == text).ToList() is [var only] ? only : null;
     }
 
-    private static string ModuleOf(string path) => Regex.Replace(path, @"\.(vue|ts|tsx|js|jsx|mjs|cjs)$", "");
+    /// <summary>
+    /// <c>member.type</c> of a page's Property the router gives it, where the page reads it rather than declares it (Angular's
+    /// <c>paramMap.get('id')</c>, react-router's <c>useParams()</c>): the router gives every route and query value as text, so
+    /// it is a <c>string</c>, compared with the model's type as a declared member's is. Null when the Property has no type.
+    /// </summary>
+    public static ClaimReading? RouterGivenType(ClaimContext context, string component, Span at)
+    {
+        if (context.ExpectedValue is not ITypeReference model)
+        {
+            return null;
+        }
+
+        var text = new TypeRefNode { Text = "string", Name = "string", QualifiedName = "string", Language = TypeScriptLanguage.LanguageName };
+        return context.TypeMatches(model, text)
+            ? ClaimReading.Compared("string", at, true)
+            : ClaimReading.Compared("string", at, false,
+                $"`{component}.{context.Element.Name}` type: model `{context.Expected}`, code `string`. The page reads it from its route, which gives every route and query value as text. Type the Property `string`, or read it into a member that converts it.");
+    }
+
+    /// <summary>
+    /// <c>member.nullable</c> of a page's Property the router gives it, where the page reads it rather than declares it: a query
+    /// value can be left out of the URL, so it may be missing; a route parameter is there on every route that has it, so it is
+    /// never missing only when every route showing the page has it, and not as an optional one (<c>:id?</c>). The routes are
+    /// the router's paths that show the page, in its own syntax (<c>/users/:id</c>).
+    /// </summary>
+    public static ClaimReading RouterGivenNullable(ClaimContext context, string component, Span at, bool query, IReadOnlyCollection<string> routes)
+    {
+        var name = context.Element.Name;
+        List<string> without = query ? [] : routes.Where(x => !ModelRoute(x).Split('/').Any(s => s.StartsWith('{') && !s.EndsWith("?}", StringComparison.Ordinal) && Words(s) == Words(name))).ToList();
+        var nullable = query || routes.Count == 0 || without.Count > 0;
+        var actual = nullable ? "true" : "false";
+        if (actual == context.Expected)
+        {
+            return ClaimReading.Compared(actual, at, true);
+        }
+
+        var why = query
+            ? "a query value can be left out of the URL"
+            : routes.Count == 0
+                ? "no route the code states shows the page, so nothing says the router always gives it"
+                : nullable
+                    ? $"the page is also shown at `{without[0]}`, which has no `:{Camel(name)}`"
+                    : $"every route showing the page has `:{Camel(name)}`, so the router always gives it";
+        return ClaimReading.Compared(actual, at, false,
+            $"`{component}.{name}` nullable: model `{context.Expected}`, code `{actual}`. The page reads it from its route, and {why}. {(nullable ? "Make the Property nullable" : "Make the Property not nullable")}, or change the routes.");
+    }
+
+    /// <summary>
+    /// The in-scope file a lazy <c>import('...')</c> from a file loads, resolved as the TypeScript reader resolves the file's
+    /// <c>import</c> statements: relative, or through its <c>tsconfig.json</c> <c>paths</c> and <c>baseUrl</c>
+    /// (<c>import('@features/dashboard/dashboard')</c>). Null for a package's module or a file out of scope.
+    /// </summary>
+    public static string? FileLoaded(CodeGraph code, string from, string specifier) => TypeScriptSyntax.Of(code)?.Resolve(from, specifier);
 
     /// <summary>A relative module path from a file: <c>./pages/Cart.vue</c> from <c>src/router.ts</c> is <c>src/pages/Cart.vue</c>.</summary>
     public static string Resolve(string from, string module)

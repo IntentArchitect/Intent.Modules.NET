@@ -1087,6 +1087,9 @@ public class ChatState
     { "kind": "member.exists", "element": "chat-state-messages", "outcome": "verified", "at": "src/WebApp/Components/Chatbot/ChatState.cs:16" },
     { "kind": "intent.uses", "element": "chat-state-uses-basket", "outcome": "verified", "expected": "present", "actual": "present", "at": "src/WebApp/Components/Chatbot/ChatState.cs:9" }
   ],
+  "findings": [
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (User Interface 2)", "note": "The code is outside a nullable context" }
+  ],
   "noOtherFindings": true
 }
 ```
@@ -1118,7 +1121,8 @@ public class ChatState(IDisposable subscription)
     { "kind": "intent.uses", "element": "chat-state-uses-basket", "outcome": "contradicted", "expected": "present", "actual": "none" }
   ],
   "findings": [
-    { "rule": "claim/intent.uses", "severity": "error", "subject": "chat-state-uses-basket", "messageContains": "`ChatState` uses `BasketState`: in the model, not in the code. No field, property or constructor parameter of `ChatState` is a `BasketState` or an interface of it, and it creates none." }
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "chat-state-uses-basket", "messageContains": "`ChatState` uses `BasketState`: in the model, not in the code. No field, property or constructor parameter of `ChatState` is a `BasketState` or an interface of it, and it creates none." },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (User Interface 2)" }
   ],
   "noOtherFindings": true
 }

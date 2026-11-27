@@ -195,7 +195,15 @@ internal static class CSharpReader
                 }
 
                 type.Attributes.AddRange(AttributesOf(declaration.AttributeLists, file));
-                type.BaseTypes.AddRange((declaration.BaseList?.Types ?? []).Select(x => TypeRef(x.Type)));
+                var bases = (declaration.BaseList?.Types ?? []).Select(x => TypeRef(x.Type)).ToList();
+                type.BaseTypes.AddRange(bases);
+
+                // A base's type arguments bind its members' types (ValueChangedMessage<int>'s T Value is an int), so they state nullability too.
+                foreach (var typeRef in bases.SelectMany(x => x.Arguments).SelectMany(WithArguments))
+                {
+                    referenceTypesNullable.Add((typeRef, nullableContext));
+                }
+
                 foreach (var (member, body) in Members(declaration, file, razor))
                 {
                     type.Members.Add(member);

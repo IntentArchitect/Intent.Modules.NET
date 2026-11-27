@@ -266,6 +266,17 @@ public class TypeScriptFactsTests
     }
 
     [Fact]
+    public void A_lazy_import_resolves_as_an_import_statement_does()
+    {
+        var syntax = TypeScriptSyntax.Of(Graph)!;
+        syntax.Resolve("src/api/client.ts", "@/api/types").ShouldBe("src/api/types.ts");
+        syntax.Resolve("src/api/client.ts", "./types").ShouldBe("src/api/types.ts");
+        syntax.Resolve("src/App.vue", "@/components/ProductCard.vue").ShouldBe("src/components/ProductCard.vue");
+        syntax.Resolve("src/api/client.ts", "axios").ShouldBeNull();
+        syntax.Resolve("src/api/client.ts", "@/api/missing").ShouldBeNull();
+    }
+
+    [Fact]
     public void A_vue_component_has_its_props_emits_model_and_setup_members()
     {
         var card = Type("ProductCard");

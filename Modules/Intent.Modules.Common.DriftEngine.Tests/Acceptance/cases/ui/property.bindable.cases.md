@@ -273,7 +273,12 @@ public class BadgeView : Grid
 {
   "claims": [
     { "kind": "property.bindable", "element": "badge-text", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/Shop/Views/BadgeView.cs:5" },
-    { "kind": "property.bindable", "element": "badge-caption", "outcome": "verified", "expected": "false", "actual": "false" }
+    { "kind": "property.bindable", "element": "badge-caption", "outcome": "verified", "expected": "false", "actual": "false" },
+    { "kind": "member.nullable", "element": "badge-text", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.nullable", "element": "badge-caption", "outcome": "cantVerify", "reason": "unresolved" }
+  ],
+  "findings": [
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (User Interface 2)", "note": "The project doesn't turn nullable reference types on" }
   ],
   "others": "verified",
   "noOtherFindings": true
@@ -305,7 +310,8 @@ public class BadgeView : Grid
     { "kind": "property.bindable", "element": "badge-text", "outcome": "contradicted", "expected": "true", "actual": "false" }
   ],
   "findings": [
-    { "rule": "claim/property.bindable", "severity": "error", "subject": "badge-text", "messageContains": "No `TextProperty` BindableProperty backs it, so a parent can't bind it." }
+    { "rule": "claim/property.bindable", "severity": "error", "subject": "badge-text", "messageContains": "No `TextProperty` BindableProperty backs it, so a parent can't bind it." },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (User Interface 2)" }
   ],
   "noOtherFindings": true
 }

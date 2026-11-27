@@ -344,7 +344,12 @@ public partial class CatalogItemView : ContentPage
 {
   "claims": [
     { "kind": "property.query", "element": "item-id", "outcome": "verified", "expected": "true", "actual": "true", "at": "src/Shop/Views/CatalogItemView.xaml.cs:3" },
-    { "kind": "property.query", "element": "item-title", "outcome": "verified", "expected": "false", "actual": "false" }
+    { "kind": "property.query", "element": "item-title", "outcome": "verified", "expected": "false", "actual": "false" },
+    { "kind": "member.nullable", "element": "item-id", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.nullable", "element": "item-title", "outcome": "cantVerify", "reason": "unresolved" }
+  ],
+  "findings": [
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (User Interface 2)", "note": "The project doesn't turn nullable reference types on" }
   ],
   "others": "verified",
   "noOtherFindings": true
@@ -376,7 +381,8 @@ public partial class CatalogItemView : ContentPage
     { "kind": "property.query", "element": "item-id", "outcome": "contradicted", "expected": "true", "actual": "false" }
   ],
   "findings": [
-    { "rule": "claim/property.query", "severity": "error", "subject": "item-id", "messageContains": "No [QueryProperty] on `CatalogItemView` or its binding context names it." }
+    { "rule": "claim/property.query", "severity": "error", "subject": "item-id", "messageContains": "No [QueryProperty] on `CatalogItemView` or its binding context names it." },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (User Interface 2)" }
   ],
   "noOtherFindings": true
 }

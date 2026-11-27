@@ -338,7 +338,7 @@ A component that isn't a layout has no `@Body`, so a Region its markup doesn't n
 
 ## not-a-razor-component
 
-A Region of a Vue component: the Blazor reader answers only for a Razor component, so it leaves the claim to a Vue reader, and with none reading regions it can't be verified rather than being read from code that isn't Blazor's.
+A Region of a Vue component: the Blazor reader answers only for a Razor component, so it leaves the claim to the Vue reader, which reads the component's `<slot name="actions">`.
 
 ```json case
 { "phase": 6, "kinds": ["region.outlet"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
@@ -378,7 +378,203 @@ A Region of a Vue component: the Blazor reader answers only for a Razor componen
 ```json expect
 {
   "claims": [
-    { "kind": "region.outlet", "element": "page-shell-actions", "outcome": "cantVerify", "reason": "noRule" }
+    { "kind": "region.outlet", "element": "page-shell-actions", "outcome": "verified", "actual": "actions", "at": "src/components/PageShell.vue:3" }
+  ]
+}
+```
+
+## vue-slots
+
+A Vue component's placement points are its `<slot>`s: a named one is the Region of its name, and the bare `<slot />`, its default, is the Region no slot names. `Card` has a default slot and a `header`. `Panel`'s only slot is `footer`, which the model's `Actions` Region doesn't name, and no other Region does, so it was renamed from `footer`.
+
+```json case
+{ "phase": "later", "kinds": ["region.outlet"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "card", "type": "Component", "name": "Card", "children": [
+            { "id": "card-body", "type": "Region", "name": "Body" },
+            { "id": "card-header", "type": "Region", "name": "Header" }
+          ] },
+          { "id": "panel", "type": "Component", "name": "Panel", "children": [
+            { "id": "panel-actions", "type": "Region", "name": "Actions" }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```vue file src/Card.vue
+<template>
+  <article>
+    <header><slot name="header" /></header>
+    <slot />
+  </article>
+</template>
+```
+
+```vue file src/Panel.vue
+<template>
+  <aside>
+    <footer><slot name="footer" /></footer>
+  </aside>
+</template>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "region.outlet", "element": "card-body", "outcome": "verified", "at": "src/Card.vue:4" },
+    { "kind": "region.outlet", "element": "card-header", "outcome": "verified", "at": "src/Card.vue:3" },
+    { "kind": "region.outlet", "element": "panel-actions", "outcome": "contradicted", "actual": "footer", "at": "src/Panel.vue:3" }
+  ],
+  "findings": [
+    { "rule": "claim/region.outlet", "severity": "error", "subject": "panel-actions" }
+  ]
+}
+```
+
+## angular-content-projection
+
+An Angular component's placement points are its template's `<ng-content>`s, each named by what its `select` names (an attribute's value, the attribute, a class or a tag), and its `<router-outlet>`s, by their `name`. A bare `<ng-content />` is the Region no placement point names. The modal, an inline template, has a default slot and a `[slot=footer]` one; the card, a `templateUrl` template, a `.card-title` one and a bare one. The panel's only one is `[actions]`, which its `Buttons` Region doesn't name.
+
+```json case
+{ "phase": "later", "kinds": ["region.outlet"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "modal", "type": "Dialog", "name": "Modal", "children": [
+            { "id": "modal-default", "type": "Region", "name": "default" },
+            { "id": "modal-footer", "type": "Region", "name": "footer" }
+          ] },
+          { "id": "card", "type": "Component", "name": "Card", "children": [
+            { "id": "card-title", "type": "Region", "name": "CardTitle" },
+            { "id": "card-content", "type": "Region", "name": "Content" }
+          ] },
+          { "id": "panel", "type": "Component", "name": "Panel", "children": [
+            { "id": "panel-buttons", "type": "Region", "name": "Buttons" }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/modal.ts
+import { Component, input } from '@angular/core';
+
+@Component({
+    selector: 'app-modal',
+    template: `
+        @if (isOpen()) {
+            <div role="dialog">
+                <ng-content />
+                <footer><ng-content select="[slot=footer]" /></footer>
+            </div>
+        }
+    `,
+})
+export class Modal {
+    readonly isOpen = input.required<boolean>();
+}
+```
+
+```typescript file src/card.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-card', templateUrl: './card.html' })
+export class Card {}
+```
+
+```html file src/card.html
+<section class="card">
+  <h2><ng-content select=".card-title" /></h2>
+  <ng-content />
+</section>
+```
+
+```typescript file src/panel.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-panel', template: `<aside><ng-content select="[actions]" /></aside>` })
+export class Panel {}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "region.outlet", "element": "modal-default", "outcome": "verified", "at": "src/modal.ts:8" },
+    { "kind": "region.outlet", "element": "modal-footer", "outcome": "verified", "at": "src/modal.ts:9" },
+    { "kind": "region.outlet", "element": "card-title", "outcome": "verified", "at": "src/card.html:2" },
+    { "kind": "region.outlet", "element": "card-content", "outcome": "verified", "at": "src/card.html:3" },
+    { "kind": "region.outlet", "element": "panel-buttons", "outcome": "contradicted", "actual": "actions", "at": "src/panel.ts:3" }
+  ],
+  "findings": [
+    { "rule": "claim/region.outlet", "severity": "error", "subject": "panel-buttons" }
+  ]
+}
+```
+
+## angular-content-projection-renamed
+
+A planted drift: the modal's footer slot is renamed `[slot=actions]`. Now two Regions, `default` and `footer`, name no placement point, and nothing says which of them is the bare `<ng-content />`, so neither can be verified: each names the two placement points it could be, rather than one being read as renamed and the other as the bare one.
+
+```json case
+{ "phase": "later", "base": "angular-content-projection", "kinds": ["region.outlet"], "requirements": ["R3", "R8"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```typescript file src/modal.ts
+import { Component, input } from '@angular/core';
+
+@Component({
+    selector: 'app-modal',
+    template: `
+        @if (isOpen()) {
+            <div role="dialog">
+                <ng-content />
+                <footer><ng-content select="[slot=actions]" /></footer>
+            </div>
+        }
+    `,
+})
+export class Modal {
+    readonly isOpen = input.required<boolean>();
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "region.outlet", "element": "modal-default", "outcome": "cantVerify", "reason": "ambiguous" },
+    { "kind": "region.outlet", "element": "modal-footer", "outcome": "cantVerify", "reason": "ambiguous" },
+    { "kind": "region.outlet", "element": "card-content", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/region.outlet", "subject": "modal-default", "messageContains": "at src/modal.ts:8, src/modal.ts:9" },
+    { "rule": "claim/region.outlet", "subject": "modal-footer", "messageContains": "at src/modal.ts:8, src/modal.ts:9" }
   ]
 }
 ```

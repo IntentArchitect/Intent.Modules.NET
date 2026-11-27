@@ -394,6 +394,198 @@ const title = 'Cart';
 }
 ```
 
+## vue-lazy-route-through-path-alias
+
+A route record's lazy `component: () => import('@/pages/AboutPage.vue')` loads its page through the `@/*` alias `tsconfig.json`'s `paths` declare, which the lazy import resolves as an `import` statement does. So `AboutPage` is the page at `/about`, and the model's `/info` is contradicted.
+
+```json case
+{ "phase": "later", "kinds": ["page.route"], "requirements": ["R2", "R10", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "pages", "type": "Folder", "name": "pages", "children": [
+            { "id": "home-page", "type": "Page", "name": "HomePage", "stereotypes": { "Page": { "Route": "/" } } },
+            { "id": "about-page", "type": "Page", "name": "AboutPage", "stereotypes": { "Page": { "Route": "/info" } } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json file tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] }
+  }
+}
+```
+
+```typescript file src/router.ts
+import type { RouteRecordRaw } from 'vue-router';
+
+export const routes: RouteRecordRaw[] = [
+    { path: '/', component: () => import('@/pages/HomePage.vue') },
+    { path: '/about', component: () => import('@/pages/AboutPage.vue') },
+];
+```
+
+```vue file src/pages/HomePage.vue
+<script setup lang="ts">
+const title = 'Home';
+</script>
+```
+
+```vue file src/pages/AboutPage.vue
+<script setup lang="ts">
+const title = 'About';
+</script>
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "page.route", "element": "home-page", "outcome": "verified", "at": "src/router.ts:4" },
+    { "kind": "page.route", "element": "about-page", "outcome": "contradicted", "expected": "info", "actual": "about", "at": "src/router.ts:5" }
+  ],
+  "findings": [
+    { "rule": "claim/page.route", "severity": "error", "subject": "about-page" }
+  ]
+}
+```
+
+## angular-lazy-routes-through-path-aliases
+
+Angular's lazy routes loaded through the path aliases `tsconfig.json` declares: `loadComponent: () => import('@features/dashboard/dashboard')` loads the `Dashboard` page, and `loadChildren: () => import('@features/users/users.routes')` loads a routes file whose routes are joined under `users`, with the loading route's guard. Each lazy import resolves through the aliases as an `import` statement does. So `UserDetail` is at `/users/{id}`, and the model's `/user/{id}` is contradicted.
+
+```json case
+{ "phase": "later", "kinds": ["page.route", "component.kind"], "requirements": ["R2", "R10", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "shell", "type": "Layout", "name": "App" },
+          { "id": "dashboard", "type": "Page", "name": "Dashboard", "stereotypes": { "Page": { "Route": "/dashboard" } } },
+          { "id": "user-list", "type": "Page", "name": "UserList", "stereotypes": { "Page": { "Route": "/users" } } },
+          { "id": "user-detail", "type": "Page", "name": "UserDetail", "stereotypes": { "Page": { "Route": "/user/{id}" } } }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json file tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": { "@features/*": ["src/features/*"], "@core/*": ["src/core/*"] }
+  }
+}
+```
+
+```typescript file src/main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { App } from './app/app';
+import { routes } from './app/app.routes';
+
+bootstrapApplication(App, { providers: [provideRouter(routes)] });
+```
+
+```typescript file src/app/app.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({ selector: 'app-root', imports: [RouterOutlet], template: `<router-outlet />` })
+export class App {}
+```
+
+```typescript file src/app/app.routes.ts
+import { Routes } from '@angular/router';
+import { authGuard } from '@core/auth-guard';
+
+export const routes: Routes = [
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: 'dashboard', loadComponent: () => import('@features/dashboard/dashboard').then((m) => m.Dashboard) },
+    { path: 'users', canActivate: [authGuard], loadChildren: () => import('@features/users/users.routes').then((m) => m.USER_ROUTES) },
+];
+```
+
+```typescript file src/core/auth-guard.ts
+import { CanActivateFn } from '@angular/router';
+
+export const authGuard: CanActivateFn = () => true;
+```
+
+```typescript file src/features/users/users.routes.ts
+import { Routes } from '@angular/router';
+
+export const USER_ROUTES: Routes = [
+    { path: '', loadComponent: () => import('./user-list').then((m) => m.UserList) },
+    { path: ':id', loadComponent: () => import('@features/users/user-detail').then((m) => m.UserDetail) },
+];
+```
+
+```typescript file src/features/dashboard/dashboard.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-dashboard', template: `<h1>Dashboard</h1>` })
+export class Dashboard {}
+```
+
+```typescript file src/features/users/user-list.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-user-list', template: `<h1>Users</h1>` })
+export class UserList {}
+```
+
+```typescript file src/features/users/user-detail.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-user-detail', template: `<h1>User</h1>` })
+export class UserDetail {}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "dashboard", "outcome": "verified", "actual": "Page" },
+    { "kind": "component.kind", "element": "user-list", "outcome": "verified", "actual": "Page" },
+    { "kind": "component.kind", "element": "user-detail", "outcome": "verified", "actual": "Page" },
+    { "kind": "page.route", "element": "dashboard", "outcome": "verified", "actual": "dashboard", "at": "src/app/app.routes.ts:6" },
+    { "kind": "page.route", "element": "user-list", "outcome": "verified", "actual": "users" },
+    { "kind": "page.route", "element": "user-detail", "outcome": "contradicted", "expected": "user/{id}", "actual": "users/{id}", "at": "src/features/users/users.routes.ts:5" }
+  ],
+  "findings": [
+    { "rule": "claim/component.kind", "count": 0 },
+    { "rule": "claim/page.route", "severity": "error", "subject": "user-detail" }
+  ]
+}
+```
+
 ## react-standard-page
 
 The standard User Interface designer (2.0.0) read against react-router's route objects by the stock React reader. A child route's path is joined to its parent's, an index route has its parent's path, and a route mounts a component through its `element` or its `Component`. `/products/:id` reads as `products/{id}`; the cart page is at `/cart`, not the modelled `/basket`.

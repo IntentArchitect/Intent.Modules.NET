@@ -2463,7 +2463,8 @@ public class BadgeView : Grid
 ```json expect
 {
   "findings": [
-    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Shop/Views/CatalogView.xaml.cs:6", "messageContains": "`CatalogView.BrandId` is a public property of `CatalogView`" }
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/Shop/Views/CatalogView.xaml.cs:6", "messageContains": "`CatalogView.BrandId` is a public property of `CatalogView`" },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 1 nullability claims (User Interface 1)", "note": "The project doesn't turn nullable reference types on" }
   ],
   "noOtherFindings": true
 }
@@ -2567,6 +2568,102 @@ export default ActivityDetails;
     { "rule": "optin/unmodelled.member", "subject": "src/stores/rootStore.ts:4", "count": 0, "note": "A store it creates: a Uses" },
     { "rule": "optin/unmodelled.member", "subject": "src/ActivityDetails.tsx:4", "count": 0, "note": "The router's props" },
     { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/stores/activityStore.ts:13", "messageContains": "`ActivityStore.selected`" }
+  ]
+}
+```
+
+## angular-component-state-and-store-getters
+
+An Angular component's Properties and Event Emitters are its bindings (`input()`, `output()`, `model()`, `@Input`, `@Output`): what else it holds is its own state, written in code, as a Blazor component's non-parameters are. So `Login`'s signal, form and computed value aren't asked for, while its method `handleSubmit`, which a Component Operation can state, is. A Store's Properties are its state and it has no getters, so what a signal store derives from its state (a signal's `asReadonly()` view, a `computed(...)`, a get-only accessor) isn't asked for, while its unmodelled state `lastError` is, and its method isn't (a Store states only Properties).
+
+```json case
+{ "phase": 6, "cases": ["optin/unmodelled.member"], "requirements": ["R49"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "login", "type": "Component", "name": "Login", "children": [
+            { "id": "login-title", "type": "Property", "name": "title", "typeRef": { "type": "string" } },
+            { "id": "login-submitted", "type": "Event Emitter", "name": "submitted", "typeRef": { "type": "string" } }
+          ] },
+          { "id": "auth-service", "type": "Store", "name": "AuthService", "children": [
+            { "id": "auth-service-current-user", "type": "Property", "name": "currentUser", "typeRef": { "type": "string", "nullable": true } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": {
+          "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] },
+          "Drift Check": { "Opt-in Rules": [ { "Rule": "optin/unmodelled.member" } ] }
+        } }]
+    }
+  }
+}
+```
+
+```typescript file src/login.ts
+import { Component, computed, inject, input, output, signal } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { AuthService } from './auth-service';
+
+@Component({ selector: 'app-login', template: `<h1>{{ title() }}</h1>` })
+export class Login {
+    readonly title = input<string>('Sign in');
+    readonly submitted = output<string>();
+    isSubmitting = signal(false);
+    form = new FormGroup({});
+    errors = computed(() => [] as string[]);
+    private auth = inject(AuthService);
+
+    handleSubmit(): void {
+        this.submitted.emit('done');
+    }
+}
+```
+
+```typescript file src/auth-service.ts
+import { Injectable, computed, signal } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+    private currentUser = signal<string | null>(null);
+    user = this.currentUser.asReadonly();
+    isAuthenticated = computed(() => !!this.currentUser());
+    lastError = signal<string | null>(null);
+
+    get displayName(): string {
+        return this.currentUser() ?? '';
+    }
+
+    login(name: string): void {
+        this.currentUser.set(name);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "login-title", "outcome": "verified" },
+    { "kind": "member.exists", "element": "auth-service-current-user", "outcome": "verified", "at": "src/auth-service.ts:5" }
+  ],
+  "findings": [
+    { "rule": "optin/unmodelled.member", "subject": "src/login.ts:9", "count": 0, "note": "A signal: the component's own state" },
+    { "rule": "optin/unmodelled.member", "subject": "src/login.ts:10", "count": 0, "note": "A form: the component's own state" },
+    { "rule": "optin/unmodelled.member", "subject": "src/login.ts:11", "count": 0, "note": "A computed value: the component's own state" },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/login.ts:14", "messageContains": "`Login.handleSubmit`" },
+    { "rule": "optin/unmodelled.member", "subject": "src/auth-service.ts:6", "count": 0, "note": "A read-only view of the state: a getter" },
+    { "rule": "optin/unmodelled.member", "subject": "src/auth-service.ts:7", "count": 0, "note": "A computed value: a getter" },
+    { "rule": "optin/unmodelled.member", "subject": "src/auth-service.ts:10", "count": 0, "note": "A get-only accessor: a getter" },
+    { "rule": "optin/unmodelled.member", "subject": "src/auth-service.ts:14", "count": 0, "note": "A Store states no methods" },
+    { "rule": "optin/unmodelled.member", "severity": "error", "subject": "src/auth-service.ts:8", "messageContains": "`AuthService.lastError`" }
   ]
 }
 ```

@@ -1285,3 +1285,175 @@ class StockItem:
   ]
 }
 ```
+
+## ui-typescript-properties
+
+The User Interface designer's Properties state their Is Nullable as the Domain's attributes do, against TypeScript under `strict`: an optional member (`avatar?: string`) or a union with `null` or `undefined` may be missing, anything else may not. A Contract's `avatar` is optional where the model says it isn't, so it is contradicted; a React component's optional prop `note` is nullable in the model too.
+
+```json case
+{ "phase": "later", "kinds": ["member.nullable"], "requirements": ["R1", "R11", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "user", "type": "Contract", "name": "User", "children": [
+            { "id": "user-id", "type": "Property", "name": "id", "typeRef": { "type": "string" } },
+            { "id": "user-nickname", "type": "Property", "name": "nickname", "typeRef": { "type": "string", "nullable": true } },
+            { "id": "user-avatar", "type": "Property", "name": "avatar", "typeRef": { "type": "string" } }
+          ] },
+          { "id": "user-card", "type": "Component", "name": "UserCard", "children": [
+            { "id": "user-card-name", "type": "Property", "name": "name", "typeRef": { "type": "string" } },
+            { "id": "user-card-note", "type": "Property", "name": "note", "typeRef": { "type": "string", "nullable": true } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json file tsconfig.json
+{ "compilerOptions": { "strict": true } }
+```
+
+```typescript file src/user.ts
+export interface User {
+    id: string;
+    nickname: string | null;
+    avatar?: string;
+}
+```
+
+```tsx file src/UserCard.tsx
+export function UserCard({ name, note }: { name: string; note?: string }) {
+    return <p>{name} {note}</p>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "user-id", "outcome": "verified", "actual": "false" },
+    { "kind": "member.nullable", "element": "user-nickname", "outcome": "verified", "actual": "true" },
+    { "kind": "member.nullable", "element": "user-avatar", "outcome": "contradicted", "expected": "false", "actual": "true", "at": "src/user.ts:4" },
+    { "kind": "member.nullable", "element": "user-card-name", "outcome": "verified", "actual": "false" },
+    { "kind": "member.nullable", "element": "user-card-note", "outcome": "verified", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "user-avatar" },
+    { "rule": "engine/notStated", "count": 0 }
+  ]
+}
+```
+
+## ui-angular-signals
+
+An Angular component's inputs and a signal store's state leave the property's own type to inference and state the value's type as the signal API's type argument, which is read as the Property's type. An optional `input<string>()` given no initial value is a `string` or `undefined`, so `title` is nullable where the model says it isn't; `input.required<string>()` and an input given an initial value never are. A signal's value is as nullable as its type argument says (`signal<string | null>(null)`). With no type argument (`input(0)`), TypeScript infers the type, so nothing is read: can't verify, with no finding.
+
+```json case
+{ "phase": "later", "kinds": ["member.type", "member.nullable"], "requirements": ["R1", "R11", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "card", "type": "Component", "name": "Card", "children": [
+            { "id": "card-title", "type": "Property", "name": "title", "typeRef": { "type": "string" } },
+            { "id": "card-label", "type": "Property", "name": "label", "typeRef": { "type": "string" } },
+            { "id": "card-size", "type": "Property", "name": "size", "typeRef": { "type": "string" } },
+            { "id": "card-count", "type": "Property", "name": "count", "typeRef": { "type": "int" } }
+          ] },
+          { "id": "session", "type": "Store", "name": "Session", "children": [
+            { "id": "session-user", "type": "Property", "name": "user", "typeRef": { "type": "string", "nullable": true } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json file tsconfig.json
+{ "compilerOptions": { "strict": true } }
+```
+
+```typescript file src/card.ts
+import { Component, input } from '@angular/core';
+
+@Component({ selector: 'app-card', template: `<h2>{{ title() }}</h2>` })
+export class Card {
+    readonly title = input<string>();
+    readonly label = input.required<string>();
+    readonly size = input<'small' | 'large'>('small');
+    readonly count = input(0);
+}
+```
+
+```typescript file src/session.ts
+import { Injectable, signal } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class Session {
+    readonly user = signal<string | null>(null);
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "card-title", "outcome": "verified", "actual": "string" },
+    { "kind": "member.nullable", "element": "card-title", "outcome": "contradicted", "expected": "false", "actual": "true", "at": "src/card.ts:5" },
+    { "kind": "member.nullable", "element": "card-label", "outcome": "verified", "actual": "false" },
+    { "kind": "member.type", "element": "card-size", "outcome": "verified" },
+    { "kind": "member.nullable", "element": "card-size", "outcome": "verified", "actual": "false" },
+    { "kind": "member.type", "element": "card-count", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.nullable", "element": "card-count", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.nullable", "element": "session-user", "outcome": "verified", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "card-title" },
+    { "rule": "claim/member.type", "count": 0 }
+  ]
+}
+```
+
+## ui-typescript-properties-not-strict
+
+The same code where `tsconfig.json` turns on neither `strict` nor `strictNullChecks`: every TypeScript type admits `null`, so the code doesn't state whether a Property may be missing. Each claim is can't verify, `unresolved`, with no finding of its own, and one `engine/notStated` note lists them.
+
+```json case
+{ "phase": "later", "base": "ui-typescript-properties", "kinds": ["member.nullable"], "requirements": ["R1", "R11", "R35"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json file tsconfig.json
+{ "compilerOptions": { "target": "es2022" } }
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "user-avatar", "outcome": "cantVerify", "reason": "unresolved" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "count": 0 },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 5 nullability claims (User Interface 5)" }
+  ]
+}
+```

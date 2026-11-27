@@ -556,6 +556,12 @@ public sealed class AttributeValueNode
 
     /// <summary>An annotation given as the value.</summary>
     public AttributeNode? Annotation { get; init; }
+
+    /// <summary>
+    /// Where the value is written, for a reader that reads inside it (an Angular component's inline <c>template</c>); null
+    /// where the language doesn't give it.
+    /// </summary>
+    public Span? At { get; init; }
 }
 
 /// <summary>A parameter as written; a record, equal only to itself, as <see cref="MemberNode"/> is.</summary>
@@ -646,6 +652,12 @@ public sealed class TypeNode
 
     /// <summary>The types it derives from or implements, as written, from every part of the type.</summary>
     public List<TypeRefNode> BaseTypes { get; } = [];
+
+    /// <summary>
+    /// The markup the type writes in its own code rather than in a file of its own, at the top level: an Angular component's
+    /// inline <c>template</c>. <see cref="CodeGraph.MarkupOf"/> gives it with its files' markup.
+    /// </summary>
+    public List<MarkupNode> Markup { get; } = [];
 
     private string? _text;
 
@@ -994,11 +1006,12 @@ public sealed class CodeGraph
 
     /// <summary>
     /// Every markup element written in a type's files, depth first, in the order they are written: a Razor component's
-    /// markup, a Vue component's template's.
+    /// markup, a Vue component's template's; then the markup it writes in its own code (<see cref="TypeNode.Markup"/>, an
+    /// Angular component's inline template).
     /// </summary>
     public IEnumerable<MarkupNode> MarkupOf(TypeNode type) =>
         // JSX is read with its code, after its file is in the graph, so whether a file has markup is looked at here, not indexed.
-        Index.FilesAt(type.Files).Where(x => x.Markup.Count > 0).SelectMany(x => x.Markup).SelectMany(x => x.DescendantsAndSelf());
+        Index.FilesAt(type.Files).Where(x => x.Markup.Count > 0).SelectMany(x => x.Markup).Concat(type.Markup).SelectMany(x => x.DescendantsAndSelf());
 
     /// <summary>
     /// A file's code can name a namespace's types unqualified: the file imports it, or declares it or a namespace inside it.

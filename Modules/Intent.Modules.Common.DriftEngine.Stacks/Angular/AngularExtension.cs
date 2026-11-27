@@ -22,10 +22,10 @@ public sealed class AngularExtension : IDriftExtension
 
     public IEnumerable<ILanguage> Languages { get; } = [new AngularTemplates()];
 
-    public IEnumerable<ICodeReader> Readers { get; } = [new AngularMembers()];
+    public IEnumerable<ICodeReader> Readers { get; } = [new AngularInlineTemplates(), new AngularMembers()];
 
     // Asked from the end: dialogs before the shared links, which read a Show Dialog as a tag.
-    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new AngularLinks(), new AngularDialogs(), new AngularComponents(), new AngularInputs()];
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new AngularLinks(), new AngularDialogs(), new AngularComponents(), new AngularInputs(), new AngularRegions()];
 }
 
 /// <summary>A route guard as a route lists it: its name, and a guard factory's arguments (<c>roleGuard(ROLES.ADMIN)</c>).</summary>
@@ -88,9 +88,6 @@ internal sealed class AngularSite
 
     /// <summary>The router binds route parameters, query parameters and data to a routed component's inputs (<c>withComponentInputBinding()</c>).</summary>
     public bool BindsInputs { get; private set; }
-
-    /// <summary>Each component's inline <c>template</c>, read as markup.</summary>
-    public Dictionary<TypeNode, IReadOnlyList<MarkupNode>> Inline { get; } = [];
 
     public static AngularSite Read(CodeGraph code)
     {
@@ -214,7 +211,7 @@ internal sealed class AngularSite
     /// <summary>The route table <c>loadChildren: () =&gt; import('./admin.routes').then((m) =&gt; m.ADMIN_ROUTES)</c> loads: the named constant, else the file's default export.</summary>
     private static ValueNode? Loaded(CodeGraph code, string from, string text)
     {
-        if (Lazy.Match(text) is not { Success: true } match || AngularCode.FileLoaded(code, from, match.Groups[1].Value) is not { } file)
+        if (Lazy.Match(text) is not { Success: true } match || UiCode.FileLoaded(code, from, match.Groups[1].Value) is not { } file)
         {
             return null;
         }
@@ -227,7 +224,7 @@ internal sealed class AngularSite
     /// <summary>The component <c>loadComponent: () =&gt; import('./cart-page').then((m) =&gt; m.CartPage)</c> loads.</summary>
     private static TypeNode? LoadedComponent(CodeGraph code, string from, string text)
     {
-        if (Lazy.Match(text) is not { Success: true } match || AngularCode.FileLoaded(code, from, match.Groups[1].Value) is not { } file)
+        if (Lazy.Match(text) is not { Success: true } match || UiCode.FileLoaded(code, from, match.Groups[1].Value) is not { } file)
         {
             return null;
         }
@@ -250,6 +247,15 @@ internal static class AngularCode
     /// <summary>An Angular component: a class the TypeScript language read whose <c>@Component</c> decorator declares one.</summary>
     public static bool IsAngular(TypeNode? type) => type is { Kind: "component" } && UiCode.IsTypeScript(type) && type.Attributes.Any(x => x.Name == "Component");
 
+    /// <summary>
+    /// A member a parent binds: an <c>input()</c>, <c>output()</c> or <c>model()</c> (<c>input.required()</c> and
+    /// <c>model.required()</c> included), an <c>outputFromObservable()</c>, or an <c>@Input</c> or <c>@Output</c>.
+    /// </summary>
+    public static bool IsBinding(MemberNode member) =>
+        member.Attributes.Any(x => x.Name is "Input" or "Output")
+        || member.Value?.Call is { } call
+        && (call.Name == "required" ? call.Receiver : string.IsNullOrEmpty(call.Receiver) ? call.Name : null) is "input" or "output" or "model" or "outputFromObservable";
+
     /// <summary>The component's decorator argument, as written: its <c>selector</c>, <c>templateUrl</c> or <c>template</c>.</summary>
     public static string? Decorated(TypeNode type, string name) =>
         type.Attributes.FirstOrDefault(x => x.Name == "Component")?.Named.GetValueOrDefault(name) is { Length: > 0 } value ? value : null;
@@ -261,36 +267,14 @@ internal static class AngularCode
     /// <summary>The component's selectors, a comma-separated list read one by one: <c>rw-header</c>, <c>tr[rw-admin-order-row]</c>.</summary>
     public static IEnumerable<CssSelector> Selectors(TypeNode type) => Decorated(type, "selector") is { } selector ? CssSelector.ParseList(selector) : [];
 
-    /// <summary>The markup the component renders, every element at any depth: its template file's, or its inline template's.</summary>
-    public static IReadOnlyList<MarkupNode> Markup(CodeGraph code, TypeNode component)
-    {
-        if (TemplateOf(component) is { } template && UiCode.FileOf(code, template) is { } file)
-        {
-            return UiCode.Markup(file).ToList();
-        }
-
-        var site = AngularRoutes.Site(code);
-        if (!site.Inline.TryGetValue(component, out var inline))
-        {
-            var decorator = component.Attributes.First(x => x.Name == "Component");
-            inline = Decorated(component, "template") is { } text
-                ? VueTemplate.ReadDocument(component.At.File, text, new AngularDialect(code), decorator.At.Line, decorator.At.Column ?? 1)
-                : [];
-            site.Inline[component] = inline;
-        }
-
-        return inline.SelectMany(x => x.DescendantsAndSelf()).ToList();
-    }
+    /// <summary>
+    /// The markup the component renders, every element at any depth: its template file's, which joined its files
+    /// (<see cref="AngularTemplates"/>), or its inline template's (<see cref="AngularInlineTemplates"/>).
+    /// </summary>
+    public static IReadOnlyList<MarkupNode> Markup(CodeGraph code, TypeNode component) => code.MarkupOf(component).ToList();
 
     /// <summary>The component's own code: its members' bodies and its fields' initializers (<see cref="UiCode.MemberUnits"/>).</summary>
     public static IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> Units(TypeNode component) => UiCode.MemberUnits(component).ToList();
-
-    /// <summary>The file an <c>import('./x')</c> from a file loads: the TypeScript file at that module path.</summary>
-    public static string? FileLoaded(CodeGraph code, string from, string specifier)
-    {
-        var module = UiCode.Resolve(from, specifier);
-        return code.Files.Select(x => x.Path).FirstOrDefault(x => x == module || UiCode.IsTypeScript(x) && Regex.Replace(x, @"\.(ts|tsx|js|jsx|mjs|cjs|mts|cts)$", "") == module);
-    }
 
     /// <summary>The value of a constant a file names: its own module's, else the one it imports of that name.</summary>
     public static ValueNode? Constant(CodeGraph code, string file, string name)
@@ -422,9 +406,37 @@ internal sealed class AngularTemplates : IClaimingLanguage
 }
 
 /// <summary>
+/// Each component's inline <c>template</c>, read as markup in Angular's dialect where the template is written (from the
+/// character after its opening quote) and kept on the component (<see cref="TypeNode.Markup"/>), so every reader of its markup,
+/// a house module's included, reads it with <see cref="CodeGraph.MarkupOf"/>, as it reads a <c>templateUrl</c> file's.
+/// </summary>
+internal sealed class AngularInlineTemplates : ICodeReader
+{
+    public void Read(CodeGraph graph)
+    {
+        var dialect = new AngularDialect(graph);
+        foreach (var component in graph.Types.Where(AngularCode.IsAngular))
+        {
+            var decorator = component.Attributes.First(x => x.Name == "Component");
+            if (AngularCode.TemplateOf(component) is null && AngularCode.Decorated(component, "template") is { } text)
+            {
+                var at = decorator.Values.FirstOrDefault(x => x.Name == "template")?.At;
+                component.Markup.AddRange(at is null
+                    ? VueTemplate.ReadDocument(component.At.File, text, dialect, decorator.At.Line, decorator.At.Column ?? 1)
+                    : VueTemplate.ReadDocument(component.At.File, text, dialect, at.Line, (at.Column ?? 0) + 1));
+            }
+        }
+    }
+}
+
+/// <summary>
 /// What a component's members are to the designer, so <c>unmodelled.member</c> asks only for those it can state: Angular's
-/// lifecycle hooks are Angular's (<see cref="CodeGraph.Unmodellable"/>), and a field an injector gives
-/// (<c>private readonly auth = inject(Auth)</c>) is its <c>Uses</c> of that service (<see cref="CodeGraph.StatedByLink"/>).
+/// lifecycle hooks are Angular's (<see cref="CodeGraph.Unmodellable"/>), a field an injector gives
+/// (<c>private readonly auth = inject(Auth)</c>) is its <c>Uses</c> of that service (<see cref="CodeGraph.StatedByLink"/>), and
+/// a component's property that is no binding a parent sets or handles (an <c>input()</c>, <c>output()</c> or <c>model()</c>, or
+/// an <c>@Input</c> or <c>@Output</c>) is its own state, written in code: a signal, a computed value, a form, a field its template
+/// reads. The designer states a component's Properties and Event Emitters only for its bindings, and a Page's only for its
+/// route and query values, as it does a Blazor component's only for its parameters.
 /// </summary>
 internal sealed class AngularMembers : ICodeReader
 {
@@ -435,6 +447,7 @@ internal sealed class AngularMembers : ICodeReader
     {
         foreach (var type in graph.Types.Where(x => UiCode.IsTypeScript(x) && x.Attributes.Any(a => a.Name is "Component" or "Directive" or "Injectable" or "Pipe")))
         {
+            var component = AngularCode.IsAngular(type);
             foreach (var member in type.Members)
             {
                 if (member.Kind == "method" && Lifecycle.Contains(member.Name))
@@ -444,6 +457,10 @@ internal sealed class AngularMembers : ICodeReader
                 else if (member.Kind is "property" or "field" && member.Value?.Call?.Name is "inject" or "injectAsync")
                 {
                     graph.StatedByLink[member] = "Uses";
+                }
+                else if (component && member.Kind is "property" or "field" && !member.IsStatic && !AngularCode.IsBinding(member) && !graph.StatedByLink.ContainsKey(member))
+                {
+                    graph.Unmodellable[member] = "it is no input, output or model(), so a parent can't bind it";
                 }
             }
         }
@@ -493,8 +510,15 @@ internal sealed class AngularComponents : IClaimReader
                     return ClaimReading.Compared("Layout", outlet?.At ?? records[0].At, context.Expected == "Layout");
                 }
 
-                return site.Opened.TryGetValue(type!, out var opened)
-                    ? ClaimReading.Compared("Dialog", opened[0].At, context.Expected == "Dialog")
+                if (site.Opened.TryGetValue(type!, out var opened))
+                {
+                    return ClaimReading.Compared("Dialog", opened[0].At, context.Expected == "Dialog");
+                }
+
+                // A dialog shown otherwise, such as rendered behind a flag (<app-modal [isOpen]="...">), says so nowhere in its own
+                // code, as a React or Vue one doesn't.
+                return context.Expected == "Dialog"
+                    ? ClaimReading.CantVerify("noRule", "An Angular component's own code doesn't say whether it is a dialog: only one a dialog service opens (CDK's Dialog, Material's MatDialog) is read as one.", type!.At)
                     : ClaimReading.Absent(type!.At, "Component");
             }
             case "page.route":
@@ -546,11 +570,13 @@ internal sealed class AngularComponents : IClaimReader
 /// <c>xChange</c> output); a route parameter when the router binds it from its route (<c>withComponentInputBinding()</c>, an input
 /// named like a <c>:param</c>) or the code reads it from the <c>ActivatedRoute</c>; a query parameter when the router binds it
 /// from the query string (an input of a routed component that is no route parameter and no route <c>data</c>) or the code reads
-/// it from the route's query parameters.
+/// it from the route's query parameters. A page's Property the code reads from the <c>ActivatedRoute</c> without a member of its
+/// own (<c>userId = signal(this.route.snapshot.paramMap.get('id'))</c> for the model's <c>id</c>) is where it is read, and its type
+/// is the <c>string</c> the router gives (<see cref="UiCode.RouterGivenType"/>), as a React page's <c>useParams()</c> value is.
 /// </summary>
 internal sealed class AngularInputs : IClaimReader
 {
-    public IReadOnlyCollection<string> Kinds { get; } = ["property.query", "property.route", "property.bindable"];
+    public IReadOnlyCollection<string> Kinds { get; } = ["member.exists", "member.type", "member.nullable", "property.query", "property.route", "property.bindable"];
 
     public ClaimReading? Read(ClaimContext context)
     {
@@ -571,6 +597,23 @@ internal sealed class AngularInputs : IClaimReader
         var bound = site.BindsInputs && routes.Count > 0 && isInput;
         switch (context.Kind)
         {
+            case "member.exists":
+                // A member of the Property's name is the engine's own rule to find; what it can't is a value the code only reads.
+                return member is null && UiCode.Bound(context, "Property") is not null && Given(owner!, name) is { } read ? ClaimReading.Found(read, read) : null;
+            case "member.type":
+                return member is null && Given(owner!, name) is { } given ? UiCode.RouterGivenType(context, owner!.Name, given) : null;
+            case "member.nullable":
+            {
+                if (member is not null)
+                {
+                    return null;
+                }
+
+                var paths = routes.Select(x => x.Path).ToList();
+                return Read(owner!, name, "paramMap", "params") is { } parameter ? UiCode.RouterGivenNullable(context, owner!.Name, parameter, false, paths)
+                    : Read(owner!, name, "queryParamMap", "queryParams") is { } value ? UiCode.RouterGivenNullable(context, owner!.Name, value, true, paths)
+                    : null;
+            }
             case "property.bindable":
             {
                 var change = owner!.Members.Any(x => x.Name == name + "Change" && (x.Value?.Call?.Name == "output" || x.Attributes.Any(a => a.Name == "Output")));
@@ -593,6 +636,9 @@ internal sealed class AngularInputs : IClaimReader
 
     private static IEnumerable<string> Parameters(string path) =>
         path.Split('/', StringSplitOptions.RemoveEmptyEntries).Where(x => x.StartsWith(':')).Select(x => x[1..].TrimEnd('?'));
+
+    /// <summary>Where the component reads a route or query value of the name from its <c>ActivatedRoute</c>.</summary>
+    private static Span? Given(TypeNode component, string name) => Read(component, name, "paramMap", "params") ?? Read(component, name, "queryParamMap", "queryParams");
 
     /// <summary>
     /// Where the component reads a value of the name from its <c>ActivatedRoute</c>: <c>paramMap.get('id')</c> (or the query's
@@ -620,9 +666,60 @@ internal sealed class AngularInputs : IClaimReader
 }
 
 /// <summary>
+/// An Angular component's placement points (<see cref="MarkupRegions"/>): its template's <c>&lt;ng-content&gt;</c>, named by
+/// what its <c>select</c> names (<c>[slot=footer]</c> and <c>.footer</c> are <c>footer</c>, <c>[actions]</c> is <c>actions</c>,
+/// <c>app-card-title</c> is <c>app-card-title</c>), and its <c>&lt;router-outlet&gt;</c>, named by its <c>name</c>. A bare
+/// <c>&lt;ng-content /&gt;</c> or <c>&lt;router-outlet /&gt;</c> is the one the template doesn't name.
+/// </summary>
+internal sealed class AngularRegions : MarkupRegions
+{
+    protected override string Written => "<ng-content select=\"[{0}]\" />";
+
+    protected override bool Answers(TypeNode type) => AngularCode.IsAngular(type);
+
+    protected override IReadOnlyList<Outlet> Outlets(CodeGraph code, TypeNode type)
+    {
+        var outlets = new List<Outlet>();
+        foreach (var node in AngularCode.Markup(code, type))
+        {
+            if (node.Tag == "ng-content")
+            {
+                var select = node.Attributes.FirstOrDefault(x => x is { Directive: null, Name: "select" })?.Value;
+                if (string.IsNullOrWhiteSpace(select))
+                {
+                    outlets.Add(new Outlet(null, node.At));
+                    continue;
+                }
+
+                // A select this doesn't read names its placement point no Region can be compared with.
+                var selectors = CssSelector.ParseList(select).ToList();
+                outlets.AddRange(selectors.Count == 0
+                    ? [new Outlet(UiCode.Hole.ToString(), node.At)]
+                    : selectors.Select(x => new Outlet(Named(x) ?? UiCode.Hole.ToString(), node.At)));
+            }
+            else if (node.Tag == "router-outlet")
+            {
+                var name = node.Attributes.FirstOrDefault(x => x is { Directive: null, Name: "name" })?.Value;
+                outlets.Add(new Outlet(node.Attributes.Any(x => x is { Directive: "bind", Argument: "name" }) ? UiCode.Hole.ToString() : string.IsNullOrWhiteSpace(name) ? null : name, node.At));
+            }
+        }
+
+        return outlets;
+    }
+
+    /// <summary>What a <c>select</c> names: an attribute's value (<c>[slot=footer]</c>), else the attribute (<c>[footer]</c>), a class, an id or the tag.</summary>
+    private static string? Named(CssSelector selector) =>
+        selector.Attributes.Count > 0
+            ? selector.Attributes[0].Value is { Length: > 0 } value ? value : selector.Attributes[0].Name
+            : selector.Classes.FirstOrDefault() ?? selector.Id ?? selector.Tag;
+}
+
+/// <summary>
 /// A Show Dialog from Angular code: a call of a dialog service's <c>open</c> with the dialog's component
 /// (<c>this.dialog.open(ConfirmDialog, { data })</c>, CDK's <c>Dialog</c> or Material's <c>MatDialog</c>), in the source's own
-/// code or the code's own functions it calls. A dialog is opened, never rendered by a tag.
+/// code or the code's own functions it calls. Where the source opens it with no service, the dialog is shown where the source
+/// renders its tag (<c>&lt;app-modal [isOpen]="showDeleteModal()"&gt;</c>), which the shared reading reads
+/// (<see cref="AngularLinks"/>), as it does a Vue or React dialog.
 /// </summary>
 internal sealed class AngularDialogs : IClaimReader
 {
@@ -644,7 +741,7 @@ internal sealed class AngularDialogs : IClaimReader
             return ClaimReading.Found(call, call.At);
         }
 
-        return AngularCode.IsAngular(located.Type) ? ClaimReading.Absent(located.Type.At) : null;
+        return null;
     }
 }
 

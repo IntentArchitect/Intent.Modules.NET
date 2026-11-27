@@ -1584,7 +1584,7 @@ export function ProductCard({ productId, onSelected }) {
   ],
   "findings": [
     { "rule": "claim/member.type", "count": 0 },
-    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 3 claims on types their code leaves out (User Interface 3). Their code leaves the type out" }
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 5 claims on types their code leaves out (User Interface 5). Their code leaves the type out", "note": "The three types, and the two Properties' nullability, which an untyped member doesn't state either" }
   ]
 }
 ```
@@ -1619,7 +1619,7 @@ export function ProductCard({ sku, onSelected }) {
   ],
   "findings": [
     { "rule": "claim/member.exists", "severity": "error", "subject": "product-card-product-id" },
-    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 claims on types their code leaves out (User Interface 2)" }
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 3 claims on types their code leaves out (User Interface 3)", "note": "Two types, and the quantity's nullability" }
   ]
 }
 ```
@@ -1677,7 +1677,13 @@ public class UserNameField : ValidatableObject<string>
   "claims": [
     { "kind": "member.type", "element": "validatable-value", "outcome": "verified", "expected": "object", "actual": "T" },
     { "kind": "member.type", "element": "validatable-errors", "outcome": "verified", "actual": "List<T>" },
-    { "kind": "member.type", "element": "user-name-value", "outcome": "verified", "expected": "string", "actual": "string" }
+    { "kind": "member.type", "element": "user-name-value", "outcome": "verified", "expected": "string", "actual": "string" },
+    { "kind": "member.nullable", "element": "validatable-value", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.nullable", "element": "validatable-errors", "outcome": "cantVerify", "reason": "unresolved" },
+    { "kind": "member.nullable", "element": "user-name-value", "outcome": "cantVerify", "reason": "unresolved" }
+  ],
+  "findings": [
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 3 nullability claims (User Interface 3)", "note": "The code is outside a nullable context" }
   ],
   "others": "verified",
   "noOtherFindings": true
@@ -1724,7 +1730,8 @@ A planted drift in the model: the generic class's `Value` is modelled as a `stri
     { "kind": "member.type", "element": "user-name-value", "outcome": "verified" }
   ],
   "findings": [
-    { "rule": "claim/member.type", "severity": "error", "subject": "validatable-value" }
+    { "rule": "claim/member.type", "severity": "error", "subject": "validatable-value" },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 3 nullability claims (User Interface 3)", "note": "The code is outside a nullable context" }
   ],
   "noOtherFindings": true
 }
@@ -1759,7 +1766,8 @@ public class UserNameField : ValidatableObject<int>
     { "kind": "member.type", "element": "user-name-value", "outcome": "contradicted", "expected": "string", "actual": "int" }
   ],
   "findings": [
-    { "rule": "claim/member.type", "severity": "error", "subject": "user-name-value" }
+    { "rule": "claim/member.type", "severity": "error", "subject": "user-name-value" },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 2 nullability claims (User Interface 2)", "note": "The code is outside a nullable context; the int the derived class binds is never null" }
   ],
   "noOtherFindings": true
 }

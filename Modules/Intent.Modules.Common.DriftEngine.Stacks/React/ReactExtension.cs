@@ -567,7 +567,7 @@ internal sealed class Components : IClaimReader
 /// </summary>
 internal sealed class Members : IClaimReader
 {
-    public IReadOnlyCollection<string> Kinds { get; } = ["member.exists", "property.query", "property.route", "property.bindable"];
+    public IReadOnlyCollection<string> Kinds { get; } = ["member.exists", "member.type", "member.nullable", "property.query", "property.route", "property.bindable"];
 
     public ClaimReading? Read(ClaimContext context)
     {
@@ -584,6 +584,28 @@ internal sealed class Members : IClaimReader
         // An Event Emitter is a callback prop: Selected or OnSelected is onSelected.
         var member = context.Member ?? owner!.Members.Where(x => x.Kind != "constructor" && (UiCode.Words(x.Name) == words || kind == "event" && UiCode.Words(x.Name) == "on" + words))
             .OrderByDescending(x => Fits(code, owner!, x, kind)).ThenByDescending(x => x.Name == element.Name).FirstOrDefault();
+        if (context.Kind == "member.type")
+        {
+            // A declared member's type is the engine's own rule; a Property found where the page reads it from its route is a string.
+            return context.Member is null && member is null && (Route(owner!, element.Name) ?? Query(owner!, element.Name)) is { } given
+                ? UiCode.RouterGivenType(context, owner!.Name, given)
+                : null;
+        }
+
+        if (context.Kind == "member.nullable")
+        {
+            // A route parameter is missing where a route showing the page lacks it; a query value may always be.
+            if (context.Member is not null || member is not null)
+            {
+                return null;
+            }
+
+            var paths = ReactCode.Records(code).Where(x => x.Component == owner).Select(x => x.Path).ToList();
+            return Route(owner!, element.Name) is { } parameter ? UiCode.RouterGivenNullable(context, owner!.Name, parameter, false, paths)
+                : Query(owner!, element.Name) is { } value ? UiCode.RouterGivenNullable(context, owner!.Name, value, true, paths)
+                : null;
+        }
+
         switch (context.Kind)
         {
             case "member.exists":

@@ -140,6 +140,97 @@ export function ClearCartDialog() {
 }
 ```
 
+## angular-dialog-rendered-behind-a-flag
+
+An Angular component that shows a dialog by rendering it behind a flag, with no dialog service: the user list renders `<app-modal [isOpen]="showDeleteModal()">`, which the stock Angular reader reads by the modal's `selector`, as it reads a React or Vue dialog's tag. The dashboard renders no modal, so its Show Dialog is contradicted. Nothing in the modal's own code says it is a dialog (only a dialog service's `open` does), so its kind can't be verified, as a React or Vue dialog's can't.
+
+```json case
+{ "phase": "later", "kinds": ["intent.opens", "component.kind"], "requirements": ["R2", "R8", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "user-list", "type": "Component", "name": "UserList" },
+          { "id": "dashboard", "type": "Component", "name": "Dashboard" },
+          { "id": "modal", "type": "Dialog", "name": "Modal" }
+        ]
+      }],
+      "associations": [
+        { "id": "user-list-opens-modal", "type": "Show Dialog", "source": { "element": "user-list" }, "target": { "element": "modal" } },
+        { "id": "dashboard-opens-modal", "type": "Show Dialog", "source": { "element": "dashboard" }, "target": { "element": "modal" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/modal.ts
+import { Component, input, output } from '@angular/core';
+
+@Component({
+    selector: 'app-modal',
+    template: `
+        @if (isOpen()) {
+            <div class="backdrop">
+                <div role="dialog" aria-modal="true"><ng-content /></div>
+            </div>
+        }
+    `,
+})
+export class Modal {
+    readonly isOpen = input.required<boolean>();
+    readonly closed = output<void>();
+}
+```
+
+```typescript file src/user-list.ts
+import { Component, signal } from '@angular/core';
+import { Modal } from './modal';
+
+@Component({
+    selector: 'app-user-list',
+    imports: [Modal],
+    template: `
+        <button (click)="showDeleteModal.set(true)">Delete</button>
+        <app-modal [isOpen]="showDeleteModal()" (closed)="showDeleteModal.set(false)">
+            <p>Delete this user?</p>
+        </app-modal>
+    `,
+})
+export class UserList {
+    readonly showDeleteModal = signal(false);
+}
+```
+
+```typescript file src/dashboard.ts
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-dashboard', template: `<h1>Dashboard</h1>` })
+export class Dashboard {}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.opens", "element": "user-list-opens-modal", "outcome": "verified", "at": "src/user-list.ts:9" },
+    { "kind": "intent.opens", "element": "dashboard-opens-modal", "outcome": "contradicted" },
+    { "kind": "component.kind", "element": "modal", "outcome": "cantVerify", "reason": "noRule" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.opens", "severity": "error", "subject": "dashboard-opens-modal" }
+  ]
+}
+```
+
 ## contradicted-not-opened
 
 The cart page now removes items without asking, and the model's Show Dialog still says it opens the dialog. The page is found and nothing in it opens the dialog, so its silence says `absent`.

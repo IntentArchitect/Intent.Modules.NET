@@ -1323,13 +1323,17 @@ public sealed partial class DriftEngine
                     break;
                 }
 
-                if (member.Type?.Nullable is null or "unknown")
+                // A member typed by a type parameter is as nullable as what the element's type binds it to, as member.type reads it:
+                // ValueChangedMessage<int>'s T Value is an int, never null.
+                var owner = Owner(claim.Source) is { } parent ? TypeOf(claim.Designer, parent) : null;
+                var type = (member.Type is null ? null : TypeParameters.Bound(_graph, owner, member)?.Bound) ?? member.Type;
+                if (type?.Nullable is null or "unknown")
                 {
-                    Cant(claim, "unresolved", new Reading { At = member.At, Value = "unknown", Detail = $"{member.At.File} doesn't state whether `{member.Type?.Text}` is nullable." });
+                    Cant(claim, "unresolved", new Reading { At = member.At, Value = "unknown", Detail = $"{member.At.File} doesn't state whether `{type?.Text}` is nullable." });
                     break;
                 }
 
-                Compare(claim, member.Type.Nullable, member.At, "code", member.Type.Nullable == claim.Expected);
+                Compare(claim, type.Nullable, member.At, "code", type.Nullable == claim.Expected);
                 break;
             }
             case "member.static":

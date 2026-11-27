@@ -196,6 +196,254 @@ export default function OrderPage({ note }: { note?: string }) {
 }
 ```
 
+## react-route-parameter-type
+
+A Property the page reads from `useParams()` has no declaration of its own to type it: the router gives every route value as text, so it is a `string`. The order page's `Id` is modelled as a `string`, and its `Line` as an `int`, which the code reads as given.
+
+```json case
+{ "phase": "later", "kinds": ["member.exists", "member.type", "property.route"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "order-page", "type": "Page", "name": "OrderPage", "stereotypes": { "Page": { "Route": "/orders/{id}/lines/{line}" } },
+            "children": [
+              { "id": "order-page-id", "type": "Property", "name": "Id", "typeRef": { "type": "string" }, "stereotypes": { "Route Parameter": {} } },
+              { "id": "order-page-line", "type": "Property", "name": "Line", "typeRef": { "type": "int" }, "stereotypes": { "Route Parameter": {} } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/OrderPage.tsx
+import { useParams } from 'react-router-dom';
+
+export default function OrderPage() {
+    const { id, line } = useParams();
+    return <h1>Order {id}, line {line}</h1>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "order-page-id", "outcome": "verified", "at": "src/OrderPage.tsx:4" },
+    { "kind": "member.type", "element": "order-page-id", "outcome": "verified", "actual": "string", "at": "src/OrderPage.tsx:4" },
+    { "kind": "member.type", "element": "order-page-line", "outcome": "contradicted", "actual": "string" },
+    { "kind": "property.route", "element": "order-page-line", "outcome": "verified", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "order-page-line" }
+  ]
+}
+```
+
+## angular-route-parameter-nullability
+
+A value a page reads from its route may be missing wherever the router can show the page without it. `UserForm` is shown at `users/create` and at `users/:id/edit`, so the `id` it reads with `paramMap.get('id')` is missing at `users/create`, and the model's non-nullable `id` is contradicted. `UserDetail` is shown only at `users/:id`, so its `id` is always there. A query value can always be left out of the URL, so `mode` is nullable.
+
+```json case
+{ "phase": "later", "kinds": ["member.nullable"], "requirements": ["R2", "R11", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "user-detail", "type": "Page", "name": "UserDetail", "stereotypes": { "Page": { "Route": "/users/{id}" } }, "children": [
+            { "id": "user-detail-id", "type": "Property", "name": "id", "typeRef": { "type": "string" }, "stereotypes": { "Route Parameter": {} } }
+          ] },
+          { "id": "user-form", "type": "Page", "name": "UserForm", "stereotypes": { "Page": { "Route": "/users/create, /users/{id}/edit" } }, "children": [
+            { "id": "user-form-id", "type": "Property", "name": "id", "typeRef": { "type": "string" }, "stereotypes": { "Route Parameter": {} } },
+            { "id": "user-form-mode", "type": "Property", "name": "mode", "typeRef": { "type": "string", "nullable": true }, "stereotypes": { "Query Parameter": {} } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { provideRouter, RouterOutlet } from '@angular/router';
+import { UserDetail } from './user-detail';
+import { UserForm } from './user-form';
+
+@Component({ selector: 'app-root', imports: [RouterOutlet], template: `<router-outlet />` })
+export class App {}
+
+bootstrapApplication(App, {
+    providers: [provideRouter([
+        { path: 'users/create', component: UserForm },
+        { path: 'users/:id', component: UserDetail },
+        { path: 'users/:id/edit', component: UserForm },
+    ])],
+});
+```
+
+```typescript file src/user-detail.ts
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({ selector: 'app-user-detail', template: `<h1>User</h1>` })
+export class UserDetail {
+    private route = inject(ActivatedRoute);
+
+    load(): void {
+        console.log(this.route.snapshot.paramMap.get('id'));
+    }
+}
+```
+
+```typescript file src/user-form.ts
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({ selector: 'app-user-form', template: `<form></form>` })
+export class UserForm {
+    private route = inject(ActivatedRoute);
+
+    load(): void {
+        console.log(this.route.snapshot.paramMap.get('id'), this.route.snapshot.queryParamMap.get('mode'));
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.nullable", "element": "user-detail-id", "outcome": "verified", "actual": "false" },
+    { "kind": "member.nullable", "element": "user-form-id", "outcome": "contradicted", "expected": "false", "actual": "true" },
+    { "kind": "member.nullable", "element": "user-form-mode", "outcome": "verified", "actual": "true" }
+  ],
+  "findings": [
+    { "rule": "claim/member.nullable", "severity": "error", "subject": "user-form-id", "messageContains": "the page is also shown at `/users/create`, which has no `:id`" }
+  ]
+}
+```
+
+## angular-route-parameters-read-from-the-activated-route
+
+An Angular page that reads its route's parameters from the injected `ActivatedRoute` rather than binding them to inputs: `UserDetail` keeps `paramMap.get('id')` in a signal of another name, `userId`, and `UserForm` reads it into a local. So the model's `id` is where the page reads it: it exists there, it is a route parameter, and it is the `string` the router gives. `UserForm`'s `id` is modelled as an `int`, which the code reads as given, and its `mode`, a query value, is read from `queryParamMap`. `UserDetail`'s `tab` is read nowhere.
+
+```json case
+{ "phase": "later", "kinds": ["member.exists", "member.type", "property.route", "property.query"], "requirements": ["R2", "R3", "R28", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "app", "name": "App", "type": "User Interface Package",
+        "elements": [
+          { "id": "user-detail", "type": "Page", "name": "UserDetail", "stereotypes": { "Page": { "Route": "/users/{id}" } }, "children": [
+            { "id": "user-detail-id", "type": "Property", "name": "id", "typeRef": { "type": "string" }, "stereotypes": { "Route Parameter": {} } },
+            { "id": "user-detail-tab", "type": "Property", "name": "tab", "typeRef": { "type": "string" }, "stereotypes": { "Query Parameter": {} } }
+          ] },
+          { "id": "user-form", "type": "Page", "name": "UserForm", "stereotypes": { "Page": { "Route": "/users/{id}/edit" } }, "children": [
+            { "id": "user-form-id", "type": "Property", "name": "id", "typeRef": { "type": "int" }, "stereotypes": { "Route Parameter": {} } },
+            { "id": "user-form-mode", "type": "Property", "name": "mode", "typeRef": { "type": "string" }, "stereotypes": { "Query Parameter": {} } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { provideRouter, RouterOutlet } from '@angular/router';
+import { UserDetail } from './user-detail';
+import { UserForm } from './user-form';
+
+@Component({ selector: 'app-root', imports: [RouterOutlet], template: `<router-outlet />` })
+export class App {}
+
+bootstrapApplication(App, {
+    providers: [provideRouter([
+        { path: 'users/:id', component: UserDetail },
+        { path: 'users/:id/edit', component: UserForm },
+    ])],
+});
+```
+
+```typescript file src/user-detail.ts
+import { Component, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({ selector: 'app-user-detail', template: `<h1>{{ userId() }}</h1>` })
+export class UserDetail {
+    private route = inject(ActivatedRoute);
+
+    userId = signal(this.route.snapshot.paramMap.get('id'));
+}
+```
+
+```typescript file src/user-form.ts
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({ selector: 'app-user-form', template: `<form></form>` })
+export class UserForm implements OnInit {
+    private route = inject(ActivatedRoute);
+
+    ngOnInit(): void {
+        const id = this.route.snapshot.paramMap.get('id');
+        const mode = this.route.snapshot.queryParamMap.get('mode');
+        console.log(id, mode);
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "user-detail-id", "outcome": "verified", "at": "src/user-detail.ts:8" },
+    { "kind": "member.type", "element": "user-detail-id", "outcome": "verified", "actual": "string" },
+    { "kind": "property.route", "element": "user-detail-id", "outcome": "verified", "actual": "true", "at": "src/user-detail.ts:8" },
+    { "kind": "member.exists", "element": "user-detail-tab", "outcome": "contradicted" },
+    { "kind": "member.exists", "element": "user-form-id", "outcome": "verified", "at": "src/user-form.ts:9" },
+    { "kind": "member.type", "element": "user-form-id", "outcome": "contradicted", "actual": "string", "at": "src/user-form.ts:9" },
+    { "kind": "property.route", "element": "user-form-id", "outcome": "verified", "actual": "true" },
+    { "kind": "member.exists", "element": "user-form-mode", "outcome": "verified", "at": "src/user-form.ts:10" },
+    { "kind": "property.query", "element": "user-form-mode", "outcome": "verified", "actual": "true" },
+    { "kind": "property.route", "element": "user-form-mode", "outcome": "verified", "expected": "false" }
+  ],
+  "findings": [
+    { "rule": "claim/member.exists", "severity": "error", "subject": "user-detail-tab" },
+    { "rule": "claim/member.type", "severity": "error", "subject": "user-form-id" }
+  ]
+}
+```
+
 ## react-router-5-match-params
 
 react-router 5 gives the component a route mounts, or `withRouter` wraps, its `match`, so a class component reads a route parameter as `this.props.match.params.accountId`. The account page keeps it in its state; `Note`, a prop it is given, isn't from the route, which the code states by saying nothing.
@@ -320,7 +568,8 @@ public partial class OrderDetailView : ContentPage
     { "kind": "property.query", "element": "order-tab", "outcome": "verified" }
   ],
   "findings": [
-    { "rule": "claim/property.route", "severity": "error", "subject": "order-number", "messageContains": "MAUI Shell has no route parameters: a page receives navigation values as query parameters. Remove [Route Parameter]." }
+    { "rule": "claim/property.route", "severity": "error", "subject": "order-number", "messageContains": "MAUI Shell has no route parameters: a page receives navigation values as query parameters. Remove [Route Parameter]." },
+    { "rule": "engine/notStated", "severity": "info", "messageContains": "Not checked: 1 nullability claims (User Interface 1)", "note": "The project doesn't turn nullable reference types on" }
   ],
   "noOtherFindings": true
 }

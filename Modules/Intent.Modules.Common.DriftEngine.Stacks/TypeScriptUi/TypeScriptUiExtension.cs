@@ -18,7 +18,7 @@ public sealed class TypeScriptUiExtension : IDriftExtension
 
     public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Modules(), new StoreMembers(), new ModuleLinks(), new Requests(), new BaseUrls(), new PersistedStores()];
 
-    public IEnumerable<ICodeReader> Readers { get; } = [new ClassDependencies()];
+    public IEnumerable<ICodeReader> Readers { get; } = [new ClassDependencies(), new StoreGetters()];
 }
 
 /// <summary>
@@ -46,6 +46,25 @@ internal sealed class ClassDependencies : ICodeReader
             }
         }
     }
+}
+
+/// <summary>
+/// What a TypeScript store derives from its state can't be one of a Store's Properties (<see cref="CodeGraph.Unstatable"/>):
+/// the designer states a Store's state and gives it no getters ("Don't model actions or getters; describe them in its
+/// comment"), so <c>unmodelled.member</c> doesn't ask for a get-only accessor (a MobX store's <c>get total()</c>), a
+/// <c>computed(...)</c> (<c>isAdmin = computed(() =&gt; this.currentUser()?.role === 'admin')</c>) or a signal's read-only view
+/// (<c>user = this.currentUser.asReadonly()</c>). The state they read is the Store's Properties.
+/// </summary>
+internal sealed class StoreGetters : ICodeReader
+{
+    public void Read(CodeGraph graph) => graph.Unstatable.Add((elementType, type, member) =>
+        elementType == "Store" && UiCode.IsTypeScript(type) && Derives(member)
+            ? "it derives its value from the store's state, and the designer states a Store's state, not its getters"
+            : null);
+
+    private static bool Derives(MemberNode member) =>
+        member.Kind == "property" && member.Modifiers.Contains("get") && !member.Modifiers.Contains("set")
+        || member.Value?.Call is { } call && (call is { Name: "computed", Receiver: null or "" } || call is { Name: "asReadonly", Arguments.Count: 0 });
 }
 
 /// <summary>

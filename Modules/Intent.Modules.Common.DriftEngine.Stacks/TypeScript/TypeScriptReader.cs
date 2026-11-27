@@ -89,6 +89,7 @@ internal static class TypeScriptReader
         graph.Set(syntax);
         var configs = new Dictionary<string, object?>(StringComparer.Ordinal);
         var modules = new Dictionary<string, Module>(StringComparer.Ordinal);
+        syntax.Resolver = (from, specifier) => modules.TryGetValue(from, out var importing) ? Resolve(importing, specifier, modules).File : null;
         foreach (var file in parsed)
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -590,7 +591,7 @@ internal static class TypeScriptReader
                             extra: function.Has("AsyncKeyword") ? ["async"] : []), function, type);
                         break;
                     case "PropertyDeclaration":
-                        type.Members.Add(Member(member, "property", Typed(member["type"], member), member.List("modifiers"), value: member["initializer"]));
+                        type.Members.Add(Member(member, "property", Typed(member["type"], member) ?? SignalValue(member["initializer"]), member.List("modifiers"), value: member["initializer"]));
                         break;
                     case "MethodDeclaration":
                         Body(Member(member, "method", Returns(member), member.List("modifiers"), Parameters(member), TypeParameters(member)), member, type);
@@ -996,6 +997,38 @@ internal static class TypeScriptReader
             }
 
             return written;
+        }
+
+        /// <summary>
+        /// The value a signal holds, for a property whose own type is left to inference and whose signal states its value's type as
+        /// a type argument: Angular's <c>input&lt;string&gt;()</c>, <c>model&lt;T&gt;()</c>, their <c>required</c> forms,
+        /// <c>signal&lt;User | null&gt;(null)</c> and <c>computed&lt;T&gt;(...)</c>, as <c>useState&lt;number&gt;(0)</c> types a React
+        /// component's state. An optional input or model given no initial value is the type or <c>undefined</c>, as Angular declares
+        /// it, so nullable where the file states nullability. With no type argument, TypeScript infers the type: none is read.
+        /// </summary>
+        private TypeRefNode? SignalValue(TypeScriptNode? initializer)
+        {
+            if (initializer is null || Unwrapped(initializer) is not { Kind: "CallExpression" } call || call.List("typeArguments").FirstOrDefault() is not { } argument)
+            {
+                return null;
+            }
+
+            var callee = Unwrapped(call["expression"]!);
+            var (api, required) = callee.Is("Identifier")
+                ? (callee.Value, false)
+                : callee.Is("PropertyAccessExpression") && callee["name"]?.Value == "required" ? (callee["expression"]?.Value, true) : (null, false);
+            if (api is not ("input" or "model" or "signal" or "computed"))
+            {
+                return null;
+            }
+
+            var value = TypeRef(argument, module.Strict);
+            if (api is "input" or "model" && !required && call.List("arguments").Count == 0 && module.Strict is true)
+            {
+                value.Nullable = "true";
+            }
+
+            return value;
         }
 
         /// <summary>A function declared in the module: a method of the module, or of a component's script, or a React component.</summary>
@@ -1523,6 +1556,7 @@ internal static class TypeScriptReader
         Name = name,
         Text = value.Canonical,
         Literal = TypeScriptBody.LiteralOf(value, null)?.Value,
-        Items = value.Is("ArrayLiteralExpression") ? value.List("elements").Select(x => AttributeValue(x, null)).ToList() : []
+        Items = value.Is("ArrayLiteralExpression") ? value.List("elements").Select(x => AttributeValue(x, null)).ToList() : [],
+        At = value.Span
     };
 }
