@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Wolverine;
 using Wolverine.AspNetCore.Controllers.Application;
 using Wolverine.AspNetCore.Controllers.Application.Common.Pagination;
 using Wolverine.AspNetCore.Controllers.Application.CreateOrder;
