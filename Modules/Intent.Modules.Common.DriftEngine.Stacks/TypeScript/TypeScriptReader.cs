@@ -389,7 +389,7 @@ internal static class TypeScriptReader
                 // As written, with what it takes: a callback prop's (file: Blob) => void hands its caller a Blob.
                 return new TypeRefNode
                 {
-                    Text = text, Name = text, QualifiedName = text, Nullable = stated, Language = TypeScriptLanguage.LanguageName,
+                    Text = text, Name = text, QualifiedName = text, Nullable = stated, Language = TypeScriptLanguage.LanguageName, IsFunction = true,
                     Parameters = type.List("parameters").Select(x => new TypeMemberNode(x["name"] is { } name ? NameOf(name) : "", x["type"] is { } typed ? TypeRef(typed, strict, defaults) : null)).ToList()
                 };
             case "TypeOperator" when type.Operator == "KeyOfKeyword":

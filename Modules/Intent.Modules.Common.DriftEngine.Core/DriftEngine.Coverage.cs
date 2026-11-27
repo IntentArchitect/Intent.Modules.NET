@@ -1,5 +1,6 @@
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Extensions;
 
@@ -215,22 +216,36 @@ public sealed partial class DriftEngine
         }
     }
 
-    /// <summary>A stereotype's properties set away from their defaults, by name: a checkbox left unticked or a box left empty isn't one.</summary>
-    private static IEnumerable<(string Name, string Value)> SetProperties(IStereotype stereotype)
+    /// <summary>
+    /// A stereotype's properties set away from their defaults, by name: a checkbox left unticked or a box left empty isn't one.
+    /// None when the application doesn't have the stereotype's definition (its module isn't installed), as Intent gives no list
+    /// of its properties then (<see cref="StereotypeProperties"/>): whether anything reads them can't be told.
+    /// </summary>
+    private static IReadOnlyList<(string Name, string Value)> SetProperties(IStereotype stereotype)
     {
-        var definitions = stereotype.Definition?.Properties ?? [];
-        foreach (var property in stereotype.Properties ?? [])
+        try
         {
-            var definition = definitions.FirstOrDefault(x => x.Id == property.PropertyDefinitionId);
-            var name = definition?.Name ?? property.Key;
-            var value = property.Value?.Trim() ?? "";
-            var fallback = definition?.DefaultValue?.Trim() ?? "";
-            if (value.Length == 0 || value == fallback || fallback.Length == 0 && value == "false")
+            var definitions = (stereotype.Definition?.Properties ?? []).ToList();
+            var set = new List<(string Name, string Value)>();
+            foreach (var property in stereotype.Properties ?? [])
             {
-                continue;
+                var definition = definitions.FirstOrDefault(x => x.Id == property.PropertyDefinitionId);
+                var name = definition?.Name ?? property.Key;
+                var value = property.Value?.Trim() ?? "";
+                var fallback = definition?.DefaultValue?.Trim() ?? "";
+                if (value.Length == 0 || value == fallback || fallback.Length == 0 && value == "false")
+                {
+                    continue;
+                }
+
+                set.Add((name, value));
             }
 
-            yield return (name, value);
+            return set;
+        }
+        catch (ElementException)
+        {
+            return [];
         }
     }
 

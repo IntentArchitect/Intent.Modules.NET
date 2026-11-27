@@ -1075,3 +1075,157 @@ public class CatalogViewModel(INavigationService navigation)
   ]
 }
 ```
+
+## react-links-from-a-constant-array
+
+A React header renders its links from a constant array of `{ title, path }` literals: `links.map(({ title, path }) => <NavLink to={path} />)`. The callback's `path` stands for each item's `path`, so the header links to each of them, as a footer does through `footerLinks.map((link) => <Link to={link.path} />)`.
+
+```json case
+{ "phase": 6, "kinds": ["intent.navigates"], "requirements": ["R2", "R3", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "header", "type": "Component", "name": "Header" },
+          { "id": "footer", "type": "Component", "name": "Footer" },
+          { "id": "catalog-page", "type": "Page", "name": "CatalogPage", "stereotypes": { "Page": { "Route": "/catalog" } } },
+          { "id": "about-page", "type": "Page", "name": "AboutPage", "stereotypes": { "Page": { "Route": "/about" } } },
+          { "id": "contact-page", "type": "Page", "name": "ContactPage", "stereotypes": { "Page": { "Route": "/contact" } } }
+        ]
+      }],
+      "associations": [
+        { "id": "header-to-catalog", "type": "Navigation", "source": { "element": "header" }, "target": { "element": "catalog-page" } },
+        { "id": "header-to-about", "type": "Navigation", "source": { "element": "header" }, "target": { "element": "about-page" } },
+        { "id": "footer-to-contact", "type": "Navigation", "source": { "element": "footer" }, "target": { "element": "contact-page" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/router.tsx
+import { createBrowserRouter } from 'react-router-dom';
+import CatalogPage from './pages/CatalogPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+
+export const router = createBrowserRouter([
+    { path: '/catalog', element: <CatalogPage /> },
+    { path: '/about', element: <AboutPage /> },
+    { path: '/contact', element: <ContactPage /> },
+]);
+```
+
+```tsx file src/layout/Header.tsx
+import { NavLink } from 'react-router-dom';
+
+const links = [
+    { title: 'catalog', path: '/catalog' },
+    { title: 'about', path: '/about' },
+];
+
+export default function Header() {
+    return (
+        <nav>
+            {links.map(({ title, path }) => (
+                <NavLink to={path} key={path}>{title}</NavLink>
+            ))}
+        </nav>
+    );
+}
+```
+
+```tsx file src/layout/Footer.tsx
+import { Link } from 'react-router-dom';
+
+const footerLinks = [{ title: 'contact', path: '/contact' }];
+
+export default function Footer() {
+    return (
+        <footer>
+            {footerLinks.map((link) => (
+                <Link to={link.path} key={link.title}>{link.title}</Link>
+            ))}
+        </footer>
+    );
+}
+```
+
+```tsx file src/pages/CatalogPage.tsx
+export default function CatalogPage() {
+    return <h1>Catalog</h1>;
+}
+```
+
+```tsx file src/pages/AboutPage.tsx
+export default function AboutPage() {
+    return <h1>About</h1>;
+}
+```
+
+```tsx file src/pages/ContactPage.tsx
+export default function ContactPage() {
+    return <h1>Contact</h1>;
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "header-to-catalog", "outcome": "verified", "at": "src/layout/Header.tsx:12" },
+    { "kind": "intent.navigates", "element": "header-to-about", "outcome": "verified", "at": "src/layout/Header.tsx:12" },
+    { "kind": "intent.navigates", "element": "footer-to-contact", "outcome": "verified", "at": "src/layout/Footer.tsx:9" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "count": 0 }
+  ]
+}
+```
+
+## react-links-from-a-constant-array-contradicted
+
+The header's array no longer has the about page's path, so its Navigation to it is contradicted.
+
+```json case
+{ "phase": 6, "base": "react-links-from-a-constant-array", "kinds": ["intent.navigates"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```tsx file src/layout/Header.tsx
+import { NavLink } from 'react-router-dom';
+
+const links = [
+    { title: 'catalog', path: '/catalog' },
+    { title: 'about', path: '/about-us' },
+];
+
+export default function Header() {
+    return (
+        <nav>
+            {links.map(({ title, path }) => (
+                <NavLink to={path} key={path}>{title}</NavLink>
+            ))}
+        </nav>
+    );
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.navigates", "element": "header-to-catalog", "outcome": "verified", "at": "src/layout/Header.tsx:12" },
+    { "kind": "intent.navigates", "element": "header-to-about", "outcome": "contradicted", "expected": "present" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "header-to-about" }
+  ]
+}
+```

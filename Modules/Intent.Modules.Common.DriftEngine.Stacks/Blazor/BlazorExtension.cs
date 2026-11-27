@@ -553,7 +553,7 @@ internal sealed class Links : IClaimReader
     /// </summary>
     private static ClaimReading Navigates(ClaimContext context, IElement target, IReadOnlyList<MarkupNode> markup, IReadOnlyList<CallNode> calls, TypeNode type)
     {
-        var routes = (target.Stereotypes ?? []).FirstOrDefault(x => x.Name == "Page")?.Properties.FirstOrDefault(x => x.Key == "Route")?.Value?.Split(',') ?? [];
+        var routes = (target.Stereotypes ?? []).FirstOrDefault(x => x.Name == "Page")?.Property("Route")?.Value?.Split(',') ?? [];
         var patterns = routes.Select(x => x.Trim().Trim('/'))
             .Select(x => new Regex("^" + string.Join("/", x.Split('/').Select(s => s.StartsWith('{') ? "[^/]+" : Regex.Escape(s))) + "$", RegexOptions.IgnoreCase))
             .ToList();

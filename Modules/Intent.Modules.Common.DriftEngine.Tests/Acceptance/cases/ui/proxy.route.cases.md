@@ -531,3 +531,171 @@ public class CatalogService(HttpClient httpClient)
   ]
 }
 ```
+
+## react-axios-default-base-path
+
+A React front end sets axios's default base URL once, `axios.defaults.baseURL = 'http://localhost:5000/api/'`, and its proxies send relative paths through it. axios joins a relative path onto the base URL, a leading `/` included (`/products/${id}` is under it too), so each request's route is the base URL's path, `api`, then the path the call gives: `api/products` and `api/products/{id}`.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route", "proxy.baseUrl"], "requirements": ["R2", "R10", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog", "type": "Proxy", "name": "catalog",
+            "stereotypes": { "Base URL": { "Url": "http://localhost:5000/api/" }, "Implementation": { "Path": "src/api/agent.ts" } },
+            "children": [
+              { "id": "list", "type": "Proxy Operation", "name": "list",
+                "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/products" } } },
+              { "id": "details", "type": "Proxy Operation", "name": "details",
+                "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/products/{id}" } },
+                "children": [
+                  { "id": "details-id", "type": "Parameter", "name": "id", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/api/agent.ts
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:5000/api/';
+
+const requests = {
+    get: (url: string) => axios.get(url).then((x) => x.data),
+};
+
+export const catalog = {
+    list: () => requests.get('products'),
+    details: (id: number) => requests.get(`/products/${id}`),
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.baseUrl", "element": "catalog", "outcome": "verified" },
+    { "kind": "proxy.route", "element": "list", "outcome": "verified", "actual": "api/products", "at": "src/api/agent.ts:10" },
+    { "kind": "proxy.route", "element": "details", "outcome": "verified", "actual": "api/products/{id}", "at": "src/api/agent.ts:11" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "count": 0 },
+    { "rule": "claim/proxy.baseUrl", "count": 0 }
+  ]
+}
+```
+
+## react-axios-default-base-path-contradicted
+
+The default base URL moves to `/v2/`, so every request's route does, and the routes the model states contradict them.
+
+```json case
+{ "phase": "later", "base": "react-axios-default-base-path", "kinds": ["proxy.route"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```typescript file src/api/agent.ts
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:5000/v2/';
+
+const requests = {
+    get: (url: string) => axios.get(url).then((x) => x.data),
+};
+
+export const catalog = {
+    list: () => requests.get('products'),
+    details: (id: number) => requests.get(`/products/${id}`),
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "list", "outcome": "contradicted", "expected": "api/products", "actual": "v2/products", "at": "src/api/agent.ts:10" },
+    { "kind": "proxy.route", "element": "details", "outcome": "contradicted", "expected": "api/products/{id}", "actual": "v2/products/{id}", "at": "src/api/agent.ts:11" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "list" },
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "details" }
+  ]
+}
+```
+
+## called-operation-of-another-application-without-its-modules
+
+A front end's application calls the backend application's Operations, whose Http Settings are a module the front end's application needn't install. Intent can't load a stereotype's typed properties there without its definition, but its stored values are still there: the called Operation's route is read from them, and the run goes on.
+
+```json case
+{ "phase": "later", "kinds": ["proxy.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "storefront", "name": "Storefront", "type": "User Interface Package",
+        "elements": [
+          { "id": "catalog", "type": "Proxy", "name": "catalog", "children": [
+            { "id": "list", "type": "Proxy Operation", "name": "list" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "list-calls-get-products", "type": "Call Service Operation Action", "source": { "element": "list" }, "target": { "element": "get-products" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  },
+  "references": {
+    "Services": {
+      "packages": [{
+        "id": "api", "name": "Shop.Api", "stereotypeDefinitions": false,
+        "elements": [
+          { "id": "products", "type": "Service", "name": "ProductsController",
+            "stereotypes": { "Http Service Settings": { "Route": "api/products" } },
+            "children": [
+              { "id": "get-products", "type": "Operation", "name": "GetProducts",
+                "stereotypes": { "Http Settings": { "Verb": "GET" } } }
+            ] }
+        ]
+      }]
+    }
+  }
+}
+```
+
+```typescript file src/api/catalog.ts
+import axios from 'axios';
+
+export const catalog = {
+    list: () => axios.get('/api/products').then((x) => x.data),
+};
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "proxy.route", "element": "list-calls-get-products", "outcome": "verified", "expected": "api/products", "actual": "api/products", "at": "src/api/catalog.ts:4" }
+  ],
+  "findings": [
+    { "rule": "claim/proxy.route", "count": 0 }
+  ]
+}
+```

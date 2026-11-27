@@ -431,7 +431,8 @@ internal sealed class StoreMembers : IClaimReader
 /// <c>axios.create()</c> instance, Angular's <c>HttpClient</c>, ky, ofetch), in its method or in the code's own helper it
 /// calls, whose URL and verb are read with the helper's parameters bound to what the operation passes
 /// (<c>request('GET', `/api/products/${id}`)</c> into <c>fetch(`${baseUrl}${path}`, { method })</c>). A base URL before the
-/// path isn't part of the route. Any framework's proxy code is read alike.
+/// path isn't part of the route, but the path of a base URL the client joins a relative URL onto is. Any framework's proxy
+/// code is read alike.
 /// </summary>
 internal sealed class Requests : IClaimReader
 {
@@ -472,7 +473,7 @@ internal sealed class Requests : IClaimReader
                     : ClaimReading.CantVerify("unreadable", "The request's method is computed.", request.At);
             case "proxy.route":
             {
-                if (request.Url is not { } url || Route(url) is not { } route)
+                if (request.Url is not { } url || Route(url) is not { } written)
                 {
                     return ClaimReading.CantVerify("unreadable", "The request's URL is computed.", request.At);
                 }
@@ -480,20 +481,23 @@ internal sealed class Requests : IClaimReader
                 // A base URL the code doesn't state (an environment variable's, as axios.defaults.baseURL = process.env.REACT_APP_API_URL
                 // gives it) may carry the route's start, so the code states only what follows it: the model's route verifies when it
                 // ends with the code's.
+                var (route, under) = UnderBase(code, request, url, written);
                 var same = UiCode.Matches(route.Path, context.Expected)
                            || Configured(code, request, url) && context.Expected.Trim('/').Split('/', StringSplitOptions.RemoveEmptyEntries) is var segments
                            && Enumerable.Range(1, Math.Max(segments.Length - 1, 0)).Any(skip => UiCode.Matches(route.Path, string.Join("/", segments.Skip(skip))));
-                return ClaimReading.Compared(route.Shown, request.At, same);
+                var reading = ClaimReading.Compared(route.Shown, request.At, same);
+                return under is { } at ? reading.Through([at]) : reading;
             }
             case "proxy.version":
             {
                 // The version the request names where the called route has v{version}, or its api-version query. The model may
                 // allow several versions; the request sends one of them.
-                if (request.Url is not { } url || Route(url) is not { } route)
+                if (request.Url is not { } url || Route(url) is not { } written)
                 {
                     return ClaimReading.CantVerify("unreadable", "The request's URL is computed.", request.At);
                 }
 
+                var route = UnderBase(code, request, url, written).Route;
                 var query = UiCode.Text(url) is { } text && text.IndexOf('?') is var at and >= 0 ? text[at..] : "";
                 var called = context.ClaimOn(context.Element, "proxy.route")?.Expected ?? "";
                 return Http.HttpExtension.VersionIn(called, route.Path + query) is { } version
@@ -524,6 +528,27 @@ internal sealed class Requests : IClaimReader
         var target = $"{client}.defaults.baseURL";
         return code.Files.Select(x => x.TopLevel).OfType<FunctionNode>().Concat(code.Types.SelectMany(x => x.Members).Select(x => x.Body).OfType<FunctionNode>())
             .SelectMany(x => x.Assignments).FirstOrDefault(x => x.Target == target)?.Value;
+    }
+
+    /// <summary>
+    /// The route a relative URL is sent to under the base URL its client joins it onto (<see cref="BaseUrlOf"/>), when the code
+    /// states that base: the base's path, then the URL. axios joins <c>products</c>, and <c>/products</c> too, onto
+    /// <c>http://localhost:5000/api/</c> as <c>http://localhost:5000/api/products</c>, so the route is <c>api/products</c>; ky's
+    /// <c>prefixUrl</c> is joined the same way. An absolute URL, one that starts with a value, and a base whose text the code
+    /// doesn't give stay as written. <paramref name="Base"/> is where the joined base is given.
+    /// </summary>
+    private static ((string Path, string Shown) Route, Span? Base) UnderBase(CodeGraph code, Sent request, LiteralNode url, (string Path, string Shown) route)
+    {
+        if (UiCode.Text(url) is not { Length: > 0 } text || text[0] == UiCode.Hole || Regex.IsMatch(text, @"^([a-z][a-z\d+\-.]*:)?//", RegexOptions.IgnoreCase)
+            || BaseUrlOf(code, request) is not { } baseUrl || code.StringOf(baseUrl) is not { Kind: "string", Value: { } stated })
+        {
+            return (route, null);
+        }
+
+        var path = (Uri.TryCreate(stated, UriKind.Absolute, out var uri) && uri.Scheme is "http" or "https" ? uri.AbsolutePath : stated).Trim('/');
+        return path.Length == 0
+            ? (route, null)
+            : (($"/{path}/{route.Path.TrimStart('/')}", $"{path}/{route.Shown.TrimStart('/')}"), baseUrl.At);
     }
 
     /// <summary>

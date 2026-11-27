@@ -1919,3 +1919,101 @@ export default PhotoUpload;
   ]
 }
 ```
+
+## react-callback-prop-emitter-no-arguments
+
+A callback prop that takes nothing, `handleThemeChange: () => void`, is an event that passes nothing, whatever it is named: the component hands it to its switch's `onChange`. An Event Emitter with no type, or typed `void`, states that.
+
+```json case
+{ "phase": 6, "kinds": ["member.type"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "client", "name": "client-app", "type": "User Interface Package",
+        "elements": [
+          { "id": "header", "type": "Component", "name": "Header", "children": [
+            { "id": "header-dark-mode", "type": "Property", "name": "darkMode", "typeRef": { "type": "bool" } },
+            { "id": "header-theme-change", "type": "Event Emitter", "name": "handleThemeChange" },
+            { "id": "header-menu-toggle", "type": "Event Emitter", "name": "onMenuToggle", "typeRef": { "type": "void" } }
+          ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "client-app", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```tsx file src/layout/Header.tsx
+interface Props {
+    darkMode: boolean;
+    handleThemeChange: () => void;
+    onMenuToggle: () => void;
+}
+
+export default function Header({ darkMode, handleThemeChange, onMenuToggle }: Props) {
+    return (
+        <header>
+            <button onClick={onMenuToggle}>Menu</button>
+            <input type="checkbox" checked={darkMode} onChange={handleThemeChange} />
+        </header>
+    );
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.exists", "element": "header-theme-change", "outcome": "verified" },
+    { "kind": "member.type", "element": "header-theme-change", "outcome": "verified", "actual": "none", "at": "src/layout/Header.tsx:3" },
+    { "kind": "member.type", "element": "header-menu-toggle", "outcome": "verified", "actual": "none", "at": "src/layout/Header.tsx:4" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "count": 0 }
+  ]
+}
+```
+
+## react-callback-prop-emitter-no-arguments-contradicted
+
+The callback now passes the new mode, which an Event Emitter with no type doesn't state.
+
+```json case
+{ "phase": 6, "base": "react-callback-prop-emitter-no-arguments", "kinds": ["member.type"], "requirements": ["R14"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```tsx file src/layout/Header.tsx
+interface Props {
+    darkMode: boolean;
+    handleThemeChange: (dark: boolean) => void;
+    onMenuToggle: () => void;
+}
+
+export default function Header({ darkMode, handleThemeChange, onMenuToggle }: Props) {
+    return (
+        <header>
+            <button onClick={onMenuToggle}>Menu</button>
+            <input type="checkbox" checked={darkMode} onChange={() => handleThemeChange(!darkMode)} />
+        </header>
+    );
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "member.type", "element": "header-theme-change", "outcome": "contradicted", "actual": "boolean", "at": "src/layout/Header.tsx:3" },
+    { "kind": "member.type", "element": "header-menu-toggle", "outcome": "verified", "actual": "none" }
+  ],
+  "findings": [
+    { "rule": "claim/member.type", "severity": "error", "subject": "header-theme-change", "messageContains": "passes nothing" }
+  ]
+}
+```

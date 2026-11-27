@@ -299,7 +299,7 @@ internal sealed partial class EfCoreClaims
             return bound;
         }
 
-        var property = context.Element.Stereotypes?.FirstOrDefault(x => x.Name == "References")?.Properties.FirstOrDefault(x => x.Key == "Target");
+        var property = context.Element.Stereotypes?.FirstOrDefault(x => x.Name == "References")?.Property("Target");
         return (property as IStereotypeProperty<IElement>)?.Value?.Name
                ?? (property?.Value is { Length: > 0 } id ? context.Model.Elements(context.Claim.Designer).FirstOrDefault(x => x.Id == id)?.Name : null);
     }

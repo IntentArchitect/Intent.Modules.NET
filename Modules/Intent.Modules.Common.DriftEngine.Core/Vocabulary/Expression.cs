@@ -1,6 +1,7 @@
 using System.Collections;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Code;
+using Intent.Modules.Common.DriftEngine.Extensions;
 
 namespace Intent.Modules.Common.DriftEngine.Vocabulary;
 
@@ -329,7 +330,7 @@ internal sealed class Expression
         // A property holding an element gives the element (a Foreign Key's Association is its association end), and one
         // holding several the elements (Secured's Security Roles). An item list gives its rows, each read as a stereotype
         // (Implementation's Owned Files: item.Path).
-        IStereotype stereotype => stereotype.Properties.FirstOrDefault(x => x.Key == name) switch
+        IStereotype stereotype => stereotype.Property(name) switch
         {
             IStereotypeProperty<IElement> { Value: { } element } => element,
             IStereotypeProperty<IElement[]> { Value: { } elements } => elements,

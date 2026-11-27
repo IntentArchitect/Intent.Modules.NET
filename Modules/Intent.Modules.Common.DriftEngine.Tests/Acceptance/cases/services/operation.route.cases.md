@@ -921,3 +921,47 @@ public class Startup
   ]
 }
 ```
+
+## verified-without-stereotype-definitions
+
+The application no longer installs the module the Http Settings come from (it was uninstalled), so Intent can't load the stereotypes' typed properties, though their stored values are still on the elements. The route is read from those values, and every check, coverage's included, runs on.
+
+```json case
+{ "phase": 4, "base": "verified", "kinds": ["operation.route"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Ordering.API", "stereotypeDefinitions": false,
+        "elements": [
+          { "id": "orders-api", "type": "Service", "name": "OrdersApi",
+            "stereotypes": { "Http Service Settings": { "Route": "api/orders" } },
+            "children": [
+              { "id": "get-order", "type": "Operation", "name": "GetOrderAsync",
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "{orderId}" } },
+                "children": [
+                  { "id": "get-order-order-id", "type": "Parameter", "name": "orderId", "typeRef": { "type": "int" } }
+                ] }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "Ordering", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "get-order", "outcome": "verified", "expected": "{orderId}", "actual": "{orderId}",
+      "at": "src/Ordering.API/Apis/OrdersApi.cs:9" }
+  ]
+}
+```

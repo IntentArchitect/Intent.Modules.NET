@@ -374,3 +374,123 @@ public class OrdersController {
   ]
 }
 ```
+
+## top-level-statements
+
+Minimal API endpoints mapped in C# top-level statements belong to the `Program` class the compiler makes of them, which the code never declares. A Service named `Program` is that class, and its Operation `Root` the lambda `.WithName("Root")` names, read as any router's endpoint is: its verb, its route and what the lambda returns.
+
+```json case
+{ "phase": 4, "kinds": ["type.exists", "member.exists", "endpoint.exists", "operation.verb", "operation.route", "operation.returns"], "requirements": ["R2", "R10"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```json model
+{
+  "designers": {
+    "Services": {
+      "packages": [{
+        "id": "services", "name": "Shop.Api",
+        "elements": [
+          { "id": "program", "type": "Service", "name": "Program",
+            "children": [
+              { "id": "root", "type": "Operation", "name": "Root", "typeRef": { "type": "string" },
+                "stereotypes": { "Http Settings": { "Verb": "GET", "Route": "/" } } }
+            ] }
+        ]
+      }]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root-folder", "name": "Shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```csharp file src/Shop.Api/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapControllers();
+
+app.MapGet("/", () => "Hello World!")
+    .WithName("Root");
+
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "program", "outcome": "verified", "at": "src/Shop.Api/Program.cs:1" },
+    { "kind": "member.exists", "element": "root", "outcome": "verified", "at": "src/Shop.Api/Program.cs:6" },
+    { "kind": "endpoint.exists", "element": "root", "outcome": "verified", "at": "src/Shop.Api/Program.cs:6" },
+    { "kind": "operation.verb", "element": "root", "outcome": "verified", "actual": "GET" },
+    { "kind": "operation.route", "element": "root", "outcome": "verified", "actual": "" },
+    { "kind": "operation.returns", "element": "root", "outcome": "verified" }
+  ],
+  "findings": [
+    { "rule": "claim/type.exists", "count": 0 },
+    { "rule": "claim/operation.route", "count": 0 }
+  ]
+}
+```
+
+## top-level-statements-contradicted
+
+The top-level `MapGet` moves to `/hello`, which the Operation's route contradicts.
+
+```json case
+{ "phase": 4, "base": "top-level-statements", "kinds": ["operation.route"], "requirements": ["R14"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Shop.Api/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapControllers();
+
+app.MapGet("/hello", () => "Hello World!")
+    .WithName("Root");
+
+app.Run();
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "operation.route", "element": "root", "outcome": "contradicted", "actual": "hello", "at": "src/Shop.Api/Program.cs:6" }
+  ],
+  "findings": [
+    { "rule": "claim/operation.route", "severity": "error", "subject": "root" }
+  ]
+}
+```
+
+## top-level-statements-with-partial-program
+
+A test project's `WebApplicationFactory<Program>` needs `Program` public, so the code adds `public partial class Program { }` to its top-level statements: the endpoints are that declared class's.
+
+```json case
+{ "phase": 4, "base": "top-level-statements", "kinds": ["type.exists", "endpoint.exists"], "requirements": ["R2"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
+```
+
+```csharp file src/Shop.Api/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", () => "Hello World!")
+    .WithName("Root");
+
+app.Run();
+
+public partial class Program { }
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "type.exists", "element": "program", "outcome": "verified", "at": "src/Shop.Api/Program.cs:9" },
+    { "kind": "endpoint.exists", "element": "root", "outcome": "verified", "at": "src/Shop.Api/Program.cs:4" }
+  ]
+}
+```

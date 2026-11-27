@@ -143,7 +143,7 @@ internal sealed class ForeignKeys : IClaimSource
         // is handed over as the element, or as its id, as Intent stores it.
         IAssociationEnd? Association(IElement attribute)
         {
-            var property = attribute.Stereotypes?.FirstOrDefault(x => x.Name == "Foreign Key")?.Properties.FirstOrDefault(x => x.Key == "Association");
+            var property = attribute.Stereotypes?.FirstOrDefault(x => x.Name == "Foreign Key")?.Property("Association");
             var named = (property as IStereotypeProperty<IElement>)?.Value as IAssociationEnd
                         ?? (property?.Value is { Length: > 0 } id ? ends.GetValueOrDefault(id) : null);
             return named is null ? null : named.IsTargetEnd() ? named : named.OtherEnd();

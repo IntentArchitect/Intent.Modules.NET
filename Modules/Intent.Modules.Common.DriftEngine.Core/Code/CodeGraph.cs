@@ -57,6 +57,9 @@ public sealed class TypeRefNode
     /// </summary>
     public IReadOnlyList<TypeMemberNode> Parameters { get; init; } = [];
 
+    /// <summary>A function type written in place, as TypeScript's <c>() =&gt; void</c>: <see cref="Parameters"/> are what it takes, none here.</summary>
+    public bool IsFunction { get; init; }
+
     /// <summary>
     /// The language it is written in, as its reader says: it is compared under that language's profile, so one run reads
     /// several languages. Null: the run's primary language.

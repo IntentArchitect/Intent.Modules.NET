@@ -125,18 +125,19 @@ internal sealed class MinimalApiReader : ICodeReader
 
         var model = new MinimalApiModel();
         var mappers = new Dictionary<string, string>(StringComparer.Ordinal);
+        var topLevel = new List<(string File, CompilationUnitSyntax Unit)>();
         foreach (var (file, tree) in csharp.Trees)
         {
             foreach (var call in tree.GetRoot().DescendantNodes().OfType<InvocationExpressionSyntax>())
             {
-                if (call.Expression is not MemberAccessExpressionSyntax access || call.FirstAncestorOrSelf<BaseTypeDeclarationSyntax>() is not { } router)
+                if (call.Expression is not MemberAccessExpressionSyntax access || RouterOf(call) is not { } router)
                 {
                     continue;
                 }
 
                 if (access.Name.Identifier.Text is "MapGroup" or "MapMethods" || Verbs.ContainsKey(access.Name.Identifier.Text))
                 {
-                    model.Routers.Add(router.Identifier.Text);
+                    model.Routers.Add(router);
                 }
 
                 // MapMethods("/x", ["PUT"], handler) maps the verbs it lists; several are joined, and the endpoint serves each.
@@ -174,7 +175,7 @@ internal sealed class MinimalApiReader : ICodeReader
                 var group = Group(access.Expression, file);
                 var chained = Chained(call, file);
                 var (pattern, written) = template is LiteralExpressionSyntax literal ? (literal.Token.ValueText, false) : (template.ToString(), true);
-                model.Endpoints.Add(new MinimalEndpoint(router.Identifier.Text, name, verb, pattern, SpanOf(call, file),
+                model.Endpoints.Add(new MinimalEndpoint(router, name, verb, pattern, SpanOf(call, file),
                     group.Prefix, group.At, chained.Authorization, group.Authorization, lambda is null ? null : Method(lambda, name ?? $"{verb} {pattern}", file, graph), written, group.Written)
                 {
                     GroupVersions = group.Versions,
@@ -187,9 +188,27 @@ internal sealed class MinimalApiReader : ICodeReader
 
                 if (call.FirstAncestorOrSelf<MethodDeclarationSyntax>() is { } mapper)
                 {
-                    mappers[mapper.Identifier.Text] = router.Identifier.Text;
+                    mappers[mapper.Identifier.Text] = router;
+                }
+                else if (call.FirstAncestorOrSelf<GlobalStatementSyntax>()?.Parent is CompilationUnitSyntax unit && topLevel.All(x => x.Unit != unit))
+                {
+                    topLevel.Add((file, unit));
                 }
             }
+        }
+
+        // Endpoints mapped in top-level statements are the Program class the compiler makes of them, which only code that adds to
+        // it (public partial class Program { }) declares: the graph is given it, declared where the statements are. As the C#
+        // reader keys a type by its name across the output folder, several projects' top-level statements are one Program.
+        if (topLevel is [var (programFile, statements), ..] && !graph.TypesNamed(TopLevelProgram).Any(x => x.Namespace.Length == 0))
+        {
+            var globals = statements.Members.OfType<GlobalStatementSyntax>().ToList();
+            var program = new TypeNode
+            {
+                Name = TopLevelProgram, Namespace = "", Kind = "class", At = SpanOf(globals[0], globals[^1], programFile), IsStatic = true, Access = "internal"
+            };
+            program.Files.AddRange(topLevel.Select(x => x.File));
+            graph.Types.Add(program);
         }
 
         foreach (var (file, tree) in csharp.Trees)
@@ -216,6 +235,20 @@ internal sealed class MinimalApiReader : ICodeReader
 
         graph.Set(model);
     }
+
+    /// <summary>The class C# compiles top-level statements into.</summary>
+    private const string TopLevelProgram = "Program";
+
+    /// <summary>The router a mapping call is made in: the type declaring it, or for a top-level statement the compiler's <c>Program</c>.</summary>
+    private static string? RouterOf(SyntaxNode call) =>
+        call.FirstAncestorOrSelf<BaseTypeDeclarationSyntax>()?.Identifier.Text ?? (call.FirstAncestorOrSelf<GlobalStatementSyntax>() is not null ? TopLevelProgram : null);
+
+    /// <summary>
+    /// Where the locals a mapping call may use are declared: its member, or for a top-level statement every top-level statement
+    /// of its file, as they are one method's.
+    /// </summary>
+    private static SyntaxNode? LocalScope(SyntaxNode node) =>
+        node.FirstAncestorOrSelf<MemberDeclarationSyntax>() is { } member ? member is GlobalStatementSyntax { Parent: CompilationUnitSyntax unit } ? unit : member : null;
 
     private static string? Handler(ExpressionSyntax handler) => handler switch
     {
@@ -260,7 +293,7 @@ internal sealed class MinimalApiReader : ICodeReader
             // A lambda's own attributes are its endpoint's metadata, as a method group's are: [ExcludeFromDescription], [EndpointName].
             Attributes = lambda is LambdaExpressionSyntax { AttributeLists: { Count: > 0 } lists } ? CSharpReader.AttributesOf(lists, file) : [],
             At = at,
-            Body = graph.Types.SelectMany(x => x.Members).SelectMany(x => x.Calls).SelectMany(x => x.Arguments)
+            Body = MinimalApiClaims.AllCalls(graph).SelectMany(x => x.Arguments)
                 .Select(x => x.Function).FirstOrDefault(x => x is not null && x.At.File == at.File && x.At.Line == at.Line && x.At.Column == at.Column)
         };
     }
@@ -312,7 +345,7 @@ internal sealed class MinimalApiReader : ICodeReader
                 current = access.Expression;
             }
             else if (current is IdentifierNameSyntax variable && seen.Add(variable.Identifier.Text)
-                     && current.FirstAncestorOrSelf<MemberDeclarationSyntax>() is { } scope
+                     && LocalScope(current) is { } scope
                      && scope.DescendantNodes().OfType<VariableDeclaratorSyntax>()
                          .FirstOrDefault(x => x.Identifier.Text == variable.Identifier.Text)?.Initializer?.Value is { } initializer)
             {
@@ -341,7 +374,7 @@ internal sealed class MinimalApiReader : ICodeReader
     /// <c>ExcludeFromDescription()</c> through no <c>Map*</c> call (<c>api.MapGet(...).ExcludeFromDescription()</c> excludes that
     /// endpoint, and <c>api.MapGroup(...)</c> another group).
     /// </summary>
-    private static Span? ExcludedByStatement(MemberDeclarationSyntax scope, string variable, string file)
+    private static Span? ExcludedByStatement(SyntaxNode scope, string variable, string file)
     {
         foreach (var call in scope.DescendantNodes().OfType<InvocationExpressionSyntax>().Where(Excludes))
         {

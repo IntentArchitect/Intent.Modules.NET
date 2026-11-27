@@ -548,8 +548,8 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
 
     /// <summary>
     /// The values it stands for: what a local is given before the use (with any other change as a value whose text isn't
-    /// known), a conditional's branches, both sides of <c>??</c> and <c>||</c>, what <c>x.toString()</c>, <c>String(x)</c> and
-    /// <c>new URL(x)</c> are made from.
+    /// known), each item of the array an array method's callback is handed (<see cref="Iterated"/>), a conditional's branches,
+    /// both sides of <c>??</c> and <c>||</c>, what <c>x.toString()</c>, <c>String(x)</c> and <c>new URL(x)</c> are made from.
     /// </summary>
     private IReadOnlyList<ValueNode> Given(TypeScriptNode bare)
     {
@@ -578,6 +578,8 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
 
                 return values;
             }
+            case "Identifier" or "PropertyAccessExpression" when Iterated(bare) is { Count: > 0 } items:
+                return items;
             case "ConditionalExpression":
                 return [Value(bare["whenTrue"]!), Value(bare["whenFalse"]!)];
             case "BinaryExpression" when bare["operatorToken"]?.Kind is "QuestionQuestionToken" or "BarBarToken":
@@ -592,6 +594,76 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
                 return [];
         }
     }
+
+    /// <summary>The array methods that hand their callback each item of the array, as its first parameter.</summary>
+    private static readonly HashSet<string> ItemCallbacks = ["map", "flatMap", "forEach", "filter", "find", "findLast", "some", "every"];
+
+    /// <summary>
+    /// What a name an array method's callback is handed stands for, or a member read off it: each item of the array the method
+    /// is called on, where the code gives the items. Over <c>const links = [{ title: 'about', path: '/about' }, ...]</c>,
+    /// <c>path</c> in <c>links.map(({ title, path }) =&gt; ...)</c> and <c>link.path</c> in <c>links.map((link) =&gt; ...)</c> are each
+    /// item's <c>path</c>. Empty for anything else, and when an item doesn't give the member.
+    /// </summary>
+    private IReadOnlyList<ValueNode> Iterated(TypeScriptNode bare)
+    {
+        var members = new List<string>();
+        var named = bare;
+        while (named.Is("PropertyAccessExpression") && named["name"]?.Value is { } member)
+        {
+            members.Insert(0, member);
+            named = TypeScriptReader.Unwrapped(named["expression"]!);
+        }
+
+        if (!named.Is("Identifier") || named.Value is not { } name)
+        {
+            return [];
+        }
+
+        // The nearest function that binds the name: an array method's callback, binding it from its first parameter.
+        foreach (var function in named.Ancestors().Where(x => Functions.Contains(x.Kind)))
+        {
+            var parameters = function.List("parameters");
+            var bound = parameters.Select(x => x["name"] is { } binding ? BindingPath(binding, name, []) : null).ToList();
+            if (bound.All(x => x is null))
+            {
+                continue;
+            }
+
+            if (bound[0] is not { } path || function.Kind is not ("ArrowFunction" or "FunctionExpression")
+                || Enclosing(function) is not { Kind: "CallExpression" } call || call.List("arguments").FirstOrDefault() is not { } first
+                || TypeScriptReader.Unwrapped(first) != function
+                || TypeScriptReader.Unwrapped(call["expression"]!) is not { Kind: "PropertyAccessExpression" } method || !ItemCallbacks.Contains(method["name"]?.Value ?? ""))
+            {
+                return [];
+            }
+
+            return ItemsOf(Value(method["expression"]!), 0)
+                .Select(item => path.Concat(members).Aggregate((ValueNode?)item, (value, key) => value?.Members.FirstOrDefault(x => x.Member == key)?.Value))
+                .OfType<ValueNode>()
+                .ToList();
+        }
+
+        return [];
+
+        static TypeScriptNode? Enclosing(TypeScriptNode node)
+        {
+            var parent = node.Parent;
+            while (parent is { Kind: "ParenthesizedExpression" })
+            {
+                parent = parent.Parent;
+            }
+
+            return parent;
+        }
+    }
+
+    /// <summary>The items of the array a value is, as the code gives them: an array literal's, or a constant's or a local's that holds one.</summary>
+    private static IReadOnlyList<ValueNode> ItemsOf(ValueNode value, int depth) =>
+        value.Items.Count > 0 ? value.Items
+        : depth >= MaxDepth ? []
+        : value.Field?.Member.Value is { } held ? ItemsOf(held, depth + 1)
+        : value.Given is [var only] ? ItemsOf(only, depth + 1)
+        : [];
 
     /// <summary>The parameter of the function being read, or of an arrow function in it, that a name is, as the unit's own node.</summary>
     private ParameterNode? ParameterOf(TypeScriptNode identifier)
@@ -780,38 +852,43 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
         foreach (var declaration in _inside.Where(x => x.Is("VariableDeclaration") && x.Start < before && x["name"] is { Kind: "ObjectBindingPattern" } && x["initializer"] is not null
                                                        && x.Ancestors().Any(a => Functions.Contains(a.Kind))).Reverse())
         {
-            if (Bound(declaration["name"]!, []) is { } path)
+            if (BindingPath(declaration["name"]!, name, []) is { Count: > 0 } path)
             {
                 return (declaration["initializer"]!, path);
             }
         }
 
         return null;
+    }
 
-        IReadOnlyList<string>? Bound(TypeScriptNode pattern, IReadOnlyList<string> path)
+    /// <summary>
+    /// The members a binding takes a name from, along <paramref name="path"/>: none for the name itself, <c>[a]</c> for
+    /// <c>{ a: name }</c> or <c>{ name }</c> (as <c>[name]</c>), <c>[modal, open]</c> for <c>{ modal: { open } }</c>; null when it
+    /// doesn't bind the name. A rest element binds none.
+    /// </summary>
+    private static IReadOnlyList<string>? BindingPath(TypeScriptNode binding, string name, IReadOnlyList<string> path)
+    {
+        if (binding.Is("Identifier"))
         {
-            foreach (var element in pattern.List("elements").Where(x => x["dotDotDotToken"] is null))
-            {
-                var target = element["name"]!;
-                var member = element["propertyName"] is { } renamed ? TypeScriptReader.NameOf(renamed) : target.Is("Identifier") ? target.Value : null;
-                if (member is null)
-                {
-                    continue;
-                }
+            return binding.Value == name ? path : null;
+        }
 
-                if (target.Is("Identifier") && target.Value == name)
-                {
-                    return [.. path, member];
-                }
-
-                if (target.Is("ObjectBindingPattern") && Bound(target, [.. path, member]) is { } nested)
-                {
-                    return nested;
-                }
-            }
-
+        if (!binding.Is("ObjectBindingPattern"))
+        {
             return null;
         }
+
+        foreach (var element in binding.List("elements").Where(x => x["dotDotDotToken"] is null))
+        {
+            var target = element["name"]!;
+            var member = element["propertyName"] is { } renamed ? TypeScriptReader.NameOf(renamed) : target.Is("Identifier") ? target.Value : null;
+            if (member is not null && BindingPath(target, name, [.. path, member]) is { } bound)
+            {
+                return bound;
+            }
+        }
+
+        return null;
     }
 
     /// <summary>

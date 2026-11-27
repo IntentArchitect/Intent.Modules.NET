@@ -310,7 +310,7 @@ public sealed class ModelContext
 
     /// <summary>A stereotype property's value, by their names; null when the element hasn't the stereotype.</summary>
     public string? Stereotype(IElement element, string stereotype, string property) =>
-        (element.Stereotypes ?? []).FirstOrDefault(x => x.Name == stereotype)?.Properties?.FirstOrDefault(x => x.Key == property)?.Value;
+        (element.Stereotypes ?? []).FirstOrDefault(x => x.Name == stereotype)?.Property(property)?.Value;
 
     private static bool IsTarget(IAssociationEnd end) =>
         end.Association is { } association && (ReferenceEquals(association.TargetEnd, end) || association.TargetEnd?.Id == end.Id && association.SourceEnd?.Id != end.Id);

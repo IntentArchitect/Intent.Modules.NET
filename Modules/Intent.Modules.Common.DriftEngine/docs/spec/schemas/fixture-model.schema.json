@@ -38,6 +38,7 @@
         "type": { "type": "string", "description": "The package's specialization, such as Root Folder; defaults to the designer's package type" },
         "application": { "type": "string", "minLength": 1, "description": "The application the package belongs to; defaults to the application being checked" },
         "referenced": { "type": "boolean", "description": "true: a package referenced from another application (application names it)" },
+        "stereotypeDefinitions": { "type": "boolean", "description": "false: the application being checked doesn't have the definitions of this package's stereotypes (their module isn't installed in it), so Intent gives only their stored values, and reading their typed properties throws" },
         "stereotypes": { "$ref": "#/$defs/stereotypes" },
         "elements": { "type": "array", "items": { "$ref": "#/$defs/element" } }
       }

@@ -1,4 +1,5 @@
 using System.Text.Json.Nodes;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using NSubstitute;
 
@@ -21,6 +22,9 @@ internal sealed class FixtureModel
     private readonly List<(IStereotypeProperty<IElement> Property, string Id)> _lookups = [];
 
     private readonly List<(IStereotypeProperty<IElement[]> Property, IReadOnlyList<string> Ids)> _multiLookups = [];
+
+    // The package being built has "stereotypeDefinitions": false: its stereotypes are built as Intent gives them without their definitions.
+    private bool _withoutDefinitions;
 
     public static IReadOnlyDictionary<string, IReadOnlyList<IPackage>> Build(JsonNode model) => Build(model, out _);
 
@@ -134,8 +138,10 @@ internal sealed class FixtureModel
     {
         // A substitute is never created inside another's Returns(), so every value is built first.
         var package = Substitute.For<IPackage>();
+        _withoutDefinitions = data["stereotypeDefinitions"]?.GetValue<bool>() == false;
         var stereotypes = Stereotypes(data);
         var elements = data.Items("elements").Select(x => Element(x, null, package)).ToList();
+        _withoutDefinitions = false;
         package.Id.Returns(data.Text("id"));
         package.Name.Returns(data.Text("name"));
         package.SpecializationType.Returns(data.Text("type") ?? "Package");
@@ -227,7 +233,31 @@ internal sealed class FixtureModel
         var values = properties.Select(x => Property(x.Key, x.Value)).ToList();
         var stereotype = Substitute.For<IStereotype>();
         stereotype.Name.Returns(name);
-        stereotype.Properties.Returns(values);
+        if (!_withoutDefinitions)
+        {
+            stereotype.Properties.Returns(values);
+            return stereotype;
+        }
+
+        // Without its definition, as in an application that doesn't install the stereotype's module, Intent throws on its
+        // typed properties and gives each stored value as text through TryGetProperty.
+        var owner = Substitute.For<ICanBeReferencedType>();
+        var missing = new ElementException(owner, $"Stereotype Definition \"{name}\" could not be found.");
+        var stored = properties.Select(x => (x.Key, Text: x.Value?.ToString())).Select(x =>
+        {
+            var property = Substitute.For<IStereotypeProperty>();
+            property.Key.Returns(x.Key);
+            property.Value.Returns(x.Text);
+            return property;
+        }).ToList();
+        stereotype.Properties.Returns(_ => throw missing);
+        stereotype.Definition.Returns(_ => throw missing);
+        stereotype.TryGetProperty(Arg.Any<string>(), out Arg.Any<IStereotypeProperty>()!).Returns(call =>
+        {
+            var property = stored.FirstOrDefault(x => x.Key == (string)call[0]);
+            call[1] = property;
+            return property is not null;
+        });
         return stereotype;
     }
 

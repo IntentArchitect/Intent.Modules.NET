@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using Intent.Metadata.Models;
 using Intent.Modules.Common.DriftEngine.Code;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
@@ -18,32 +19,46 @@ public sealed class ReactExtension : IDriftExtension
 {
     public string Id => "intent.react";
 
-    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new ReactLinks(), new ContextStores()];
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Components(), new Members(), new CallbackProps(), new ReactLinks(), new ContextStores()];
 
     public IEnumerable<ICodeReader> Readers { get; } = [new ComponentMembers()];
-
-    public IEnumerable<IMemberRefiner> Refiners { get; } = [new CallbackProps()];
 }
 
 /// <summary>
 /// An Event Emitter is a callback prop, and what it emits is what the component hands the callback: <c>uploadPhoto: (file: Blob)
-/// =&gt; void</c> emits a <c>Blob</c>. So the emitter's type is read as the callback's one parameter's, not as the whole
-/// function type. A callback taking none or several is left as written.
+/// =&gt; void</c> emits a <c>Blob</c>, and <c>handleThemeChange: () =&gt; void</c> nothing, which an Event Emitter with no type,
+/// or typed <c>void</c>, states. So the emitter's type is read as the callback's one parameter's, or as none, not as the whole
+/// function type. A callback taking several is left to the engine's own comparison, as written.
 /// </summary>
-internal sealed class CallbackProps : IMemberRefiner
+internal sealed class CallbackProps : IClaimReader
 {
     public IReadOnlyCollection<string> Kinds { get; } = ["member.type"];
 
-    public MemberNode? Refine(ClaimContext context)
+    public ClaimReading? Read(ClaimContext context)
     {
-        if (context.Member is not { Type.Parameters: [{ Type: { } emitted }] } member
+        if (context.Member is not { Type: { IsFunction: true, Parameters: { Count: < 2 } parameters } } member
             || context.ClaimOn(context.Element, "member.exists")?.Bindings?.ContainsKey("Event") != true
             || context.Code.Types.FirstOrDefault(x => x.Members.Contains(member)) is not { } owner || !ReactCode.IsReact(owner))
         {
             return null;
         }
 
-        return member with { Type = emitted };
+        var emitted = parameters.FirstOrDefault();
+        if (emitted is { Type: null })
+        {
+            return null; // what it passes isn't typed: the engine's own rule says so
+        }
+
+        var name = $"`{owner.Name}.{member.Name}`";
+        var passed = emitted?.Type;
+        if (context.ExpectedValue is ITypeReference { Element.Name: not "void" } model)
+        {
+            return ClaimReading.Compared(passed?.Text ?? "none", member.At, passed is not null && context.TypeMatches(model, passed), passed is not null ? null :
+                $"{name} type: model `{context.Expected}`, code passes nothing: the callback, `{member.Type.Text}`, takes no argument. Hand the callback the `{context.Expected}` it emits, or give the Event Emitter no type.");
+        }
+
+        return ClaimReading.Compared(passed?.Text ?? "none", member.At, passed is null, passed is null ? null :
+            $"{name} type: the model's Event Emitter has no type, so it passes nothing, and the code's callback, `{member.Type.Text}`, passes a `{passed.Text}`. Give the Event Emitter the type its callback passes, or take the argument off the callback.");
     }
 }
 
@@ -611,11 +626,13 @@ internal sealed class Members : IClaimReader
 
     /// <summary>
     /// A Property is a prop or state, an operation a function the component declares, an Event Emitter a callback prop: an
-    /// <c>on...</c> one, or one the component calls or hands to an event of its markup (<c>onClick={handleChangeNavDrawer}</c>).
+    /// <c>on...</c> one, one typed as a function (<c>handleThemeChange: () =&gt; void</c>), or one the component calls or hands to
+    /// an event of its markup (<c>onClick={handleChangeNavDrawer}</c>).
     /// </summary>
     private static bool Fits(CodeGraph code, TypeNode owner, MemberNode member, string kind) => kind switch
     {
-        "event" => member.Kind == "property" && member.Access == "public" && (Regex.IsMatch(member.Name, "^on[A-Z]") || Called(code, owner, member.Name)),
+        "event" => member.Kind == "property" && member.Access == "public"
+                   && (Regex.IsMatch(member.Name, "^on[A-Z]") || member.Type is { IsFunction: true } || Called(code, owner, member.Name)),
         "method" => member.Kind is "method",
         _ => member.Kind is "property" or "field"
     };
@@ -698,11 +715,15 @@ internal sealed class ReactLinks : ScriptLinks
     {
         foreach (var attribute in markup.SelectMany(x => x.Attributes).Where(x => x.Name is "to" or "href"))
         {
-            // to="/cart", to={`/orders/${id}`}, to={target}, to={{ pathname: '/cart' }}.
+            // to="/cart", to={`/orders/${id}`}, to={target}, to={{ pathname: '/cart' }}. Each value a conditional, a local or an
+            // array method's callback stands for is a link of its own: to={path} in links.map(({ path }) => ...) is each item's.
             if (attribute.Literal is { Kind: "interpolated", Parts: [{ Literal: null } only] })
             {
-                var path = only.Members.FirstOrDefault(x => x.Member is "pathname" or "path")?.Value ?? only;
-                yield return (UiCode.Text(code.StringOf(path)), attribute.At);
+                foreach (var value in only.Items.Count == 0 && only.Literal is null && only.Given.Count > 0 ? only.Given : [only])
+                {
+                    var path = value.Members.FirstOrDefault(x => x.Member is "pathname" or "path")?.Value ?? value;
+                    yield return (UiCode.Text(code.StringOf(path)), attribute.At);
+                }
             }
             else
             {
