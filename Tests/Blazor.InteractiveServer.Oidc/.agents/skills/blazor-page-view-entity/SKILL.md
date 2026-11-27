@@ -8,7 +8,7 @@ paths:
 - "**/ux-tokens.css"
 - "**/ux-base.css"
 - "**/ux-components.css"
-contentHash: AF05EE3DE4CB25D6B1B6399B78C4A2E3837911C49BE79E9573135DD50DA3196C
+contentHash: E0BC7E7A42DA41F193A9F978803070C1297115EF97EAB2E21DF74CBD7972E762
 ---
 # View-entity page (MudBlazor)
 
@@ -18,7 +18,7 @@ For read-only view or detail pages. Not for add or edit forms, search pages, or 
 
 1. `view-entity-sample.razor` and `view-entity-sample.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
 2. The target `.razor` and `.razor.cs`, and the DTOs and enums they use.
-3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
+3. `wwwroot/ux-tokens.css`, for the real token names. Missing it doesn't block.
 
 ## 2. The `.razor.cs` is the source of truth
 

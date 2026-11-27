@@ -8,7 +8,7 @@ paths:
 - "**/ux-tokens.css"
 - "**/ux-base.css"
 - "**/ux-components.css"
-contentHash: 1CDCB98D4321848B57637C4AD4774A4134B937FD0EEAEA1A65AF2F6C85089575
+contentHash: FC340034CE1711168CB4C7980947CA601F931770D41F92170A0B3F0E3DB9FF63
 ---
 # Edit-entity page (MudBlazor)
 
@@ -18,7 +18,7 @@ For edit or update pages. Not for search, add or view pages, or dialogs.
 
 1. `edit-entity-sample.razor` and `edit-entity-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
 2. The target `.razor` and `.razor.cs`, and the models, enums, lookups and services they use.
-3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
+3. `wwwroot/ux-tokens.css`, for the real token names. Missing it doesn't block.
 
 ## 2. Classify the `.razor.cs`
 

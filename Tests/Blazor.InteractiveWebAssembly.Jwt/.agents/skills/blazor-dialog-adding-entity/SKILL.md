@@ -8,7 +8,7 @@ paths:
   - "**/ux-tokens.css"
   - "**/ux-base.css"
   - "**/ux-components.css"
-contentHash: 433EE19C3A8FEDE2D1796C047385CA4635C8771586F035054C516C2C3ADE99C5
+contentHash: FC000960881CCB8E75D66E76A56051E5746E89588A022B40908D4A8A97BA35E0
 ---
 # Add-entity dialog (MudBlazor)
 
@@ -18,7 +18,7 @@ For add or create dialogs. Not for pages or edit dialogs. A dialog closes throug
 
 1. `add-entity-dialog-sample.razor` and `add-entity-dialog-sample.razor.cs`, in this skill's folder. If either can't be read, stop and say which; don't work from memory.
 2. The target `.razor` and `.razor.cs`, and the models, enums, lookups and services they use.
-3. If present: `design.md` (anywhere in the project) and `wwwroot/ux-tokens.css`, `ux-base.css`, `ux-components.css`. Missing ones don't block.
+3. `wwwroot/ux-tokens.css`, for the real token names. Missing it doesn't block.
 
 ## 2. Classify the `.razor.cs`
 

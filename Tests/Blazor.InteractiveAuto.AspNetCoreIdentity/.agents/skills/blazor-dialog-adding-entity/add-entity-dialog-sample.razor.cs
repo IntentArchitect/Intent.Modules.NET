@@ -70,19 +70,14 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
 
         private async Task OnCategoryChanged(Guid? id)
         {
-            if (id != null && id.Value != Guid.Empty)
+            Model.CategoryId = id;
+            Model.SubCategoryId = null;
+            SubCategoryLookup = null;
+            if (id is not null && id.Value != Guid.Empty)
             {
-                Model.CategoryId = id.Value;
-                await FindSubCategories(id.Value);
-                Model.SubCategoryId = null;
-                StateHasChanged();
+                await GetSubCategories(id.Value);
             }
-            else
-            {
-                Model.CategoryId = id.Value;
-                Model.SubCategoryId = null;
-                StateHasChanged();
-            }
+            StateHasChanged();
         }
 
         private async Task CreateCustomer()

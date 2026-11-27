@@ -25,14 +25,13 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
         public IMudDialogInstance Dialog { get; set; }
 
         private MudForm? _form;
-        private bool _isLoading = false;
+        // The markup binds _isSaving on both dialog action buttons; it must exist here.
+        private bool _isSaving;
         private bool _showAtLeastOneDeliveryMessage = false;
 
         protected override async Task OnInitializedAsync()
         {
-            _isLoading = true;
             await LoadCustomerById(CustomerId);
-            _isLoading = false;
         }
 
         private async Task UpdateCustomer()
@@ -81,6 +80,35 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
             {
                 var customerDto = await Mediator.Send(new GetCustomerByIdQuery(
                     id: id));
+                Model = new UpdateCustomerModel
+                {
+                    Id = customerDto.Id,
+                    Name = customerDto.Name,
+                    Email = customerDto.Email,
+                    IsActive = customerDto.IsActive,
+                    Preference = new UpdateCustomerPreferenceModel
+                    {
+                        Id = customerDto.Preference.Id,
+                        NewsLetter = customerDto.Preference.NewsLetter
+                    },
+                    Loyalty = customerDto.Loyalty is not null
+                    ? new UpdateCustomerCommandLoyaltyModel
+                    {
+                        Id = customerDto.Loyalty.Id,
+                        LoyaltyNo = customerDto.Loyalty.LoyaltyNo,
+                        Points = customerDto.Loyalty.Points
+                    }
+                    : null,
+                    Addresses = customerDto.Addresses
+                        .Select(a => new UpdateCustomerCommandAddressesModel
+                        {
+                            Id = a.Id,
+                            Line1 = a.Line1,
+                            Line2 = a.Line2,
+                            AddressType = a.AddressType
+                        })
+                        .ToList()
+                };
             }
             catch (Exception e)
             {
@@ -136,9 +164,17 @@ namespace UI.AI.Samples.Api.Components.Pages.Dialogs.Customers
                 }
             }
             await _form.Validate();
-            if (_form.IsValid && !_showAtLeastOneDeliveryMessage)
+            if (!_form.IsValid || _showAtLeastOneDeliveryMessage)
+                return;
+
+            _isSaving = true;
+            try
             {
                 await UpdateCustomer();
+            }
+            finally
+            {
+                _isSaving = false;
             }
         }
 
