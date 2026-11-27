@@ -287,7 +287,7 @@ public sealed partial class DriftEngine
             .Concat(_extensions.SelectMany(x => x.OptInRules.Select(r => (Extension: x.Id, Rule: r))))
             .GroupBy(x => $"optin/{x.Rule.Id}")
             .ToDictionary(x => x.Key, x => x.Last());
-        var findings = CheckFindings(rules.Keys.ToList());
+        var findings = CheckFindings([.. rules.Keys, UnreadRule]);
         var context = new RuleContext(this, _graph, _codeScope, _claims);
         foreach (var (id, (extension, rule)) in rules.OrderBy(x => x.Key, StringComparer.Ordinal))
         {
@@ -358,6 +358,52 @@ public sealed partial class DriftEngine
     }
 
     private Anchor Root => _check.Host is null ? new Anchor(Text: CodebaseStructure) : new Anchor(Element: _check.Host);
+
+    /// <summary>The rule of an in-scope file no reader reads; the Drift Check's exceptions apply to it as to the opt-in rules.</summary>
+    internal const string UnreadRule = "scope/unread";
+
+    /// <summary>
+    /// <c>scope/unread</c>: each checked file no language reads, by its extension or a framework's claim (code-reader.md,
+    /// Claimed files), as nothing in it is checked. The AI sees it and builds a house rule that reads it; code that isn't to
+    /// be checked is taken out of the Drift Scope, or excepted with a reason. A Context row's code is read, not checked.
+    /// </summary>
+    private List<Finding> UnreadFiles()
+    {
+        var findings = new List<Finding>();
+        var matched = new HashSet<(ExceptionRow, string)>();
+        var claimers = _languages.Select(x => x.Language).OfType<IClaimingLanguage>().ToList();
+        foreach (var path in _files.Where(x => _codeScope.Checks(x.Path) && LanguageOf(x.Path) is null).Select(x => x.Path).OrderBy(x => x, StringComparer.Ordinal))
+        {
+            if (_check.Exceptions.LastOrDefault(x => x.Rule == UnreadRule && x.Matches(path, path, null)) is { } exception)
+            {
+                matched.Add((exception, exception.MatchOf(path, path, null)!));
+                continue;
+            }
+
+            var extension = Path.GetExtension(path) is { Length: > 0 } written ? $"`{written}` files" : "files like it";
+            var could = claimers.Where(x => x.MayClaim(path)).Select(x => x.Title).Distinct().Order(StringComparer.Ordinal).ToList();
+            var why = could.Count > 0
+                ? $"the {string.Join(" and ", could)} {(could.Count == 1 ? "reader reads" : "readers read")} {extension} only where their code names one or a folder they declare holds it, and no code does for this one"
+                : $"no installed language reads {extension}";
+            findings.Add(new Finding(UnreadRule, ScopeArea, "Code", "error",
+                $"Nothing reads `{path}`: {why}, so nothing in it is checked. Build a house rule that reads it, take it out of the Drift Scope with a reason, or add an exception with a reason to the Root Folder's Drift Check.",
+                new Anchor(File: path, Line: 1)));
+        }
+
+        foreach (var exception in _check.Exceptions.Where(x => x.Rule == UnreadRule))
+        {
+            foreach (var entry in exception.Entries.Where(x => !matched.Contains((exception, x))))
+            {
+                findings.Add(new Finding("optin/staleException", ScopeArea, "Code", "warning",
+                    $"Exception row {exception.Number} of the Drift Check ({UnreadRule}, `{entry}`) matches nothing. Remove it, or correct its Match.", Root)
+                {
+                    Corrections = _check.Host is { } host ? [new ModelCorrection(ModelCorrection.RemoveException, host) { Row = exception.Number, Entry = entry }] : []
+                });
+            }
+        }
+
+        return findings;
+    }
 
     /// <summary>The Drift Check's own rows: each needs a reason, a known rule, and an override a severity the report has.</summary>
     private List<Finding> CheckFindings(IReadOnlyList<string> optInRules)

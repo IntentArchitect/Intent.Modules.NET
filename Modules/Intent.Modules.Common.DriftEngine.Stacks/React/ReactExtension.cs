@@ -107,9 +107,13 @@ internal sealed class ContextStores : IClaimReader
 /// <summary>What the React readers share: what a React component is, its markup and units, and react-router's routes.</summary>
 internal static class ReactCode
 {
-    /// <summary>A React component: a component the TypeScript language read from a TypeScript or JavaScript file, not a Vue one.</summary>
+    /// <summary>
+    /// A React component: a component the TypeScript language read from a TypeScript or JavaScript file, not a Vue one, nor an
+    /// Angular one (a class its <c>@Component</c> decorator declares).
+    /// </summary>
     public static bool IsReact(TypeNode? type) =>
-        type is { Kind: "component" } && UiCode.IsTypeScript(type) && !type.Files.Any(x => x.EndsWith(".vue", StringComparison.OrdinalIgnoreCase));
+        type is { Kind: "component" } && UiCode.IsTypeScript(type) && !type.Files.Any(x => x.EndsWith(".vue", StringComparison.OrdinalIgnoreCase))
+        && !type.Attributes.Any(x => x.Name == "Component");
 
     /// <summary>A class component: it extends React's <c>Component</c> or <c>PureComponent</c>.</summary>
     public static bool IsClassComponent(TypeNode type) => IsReact(type) && type.BaseTypes.Any(x => x.Name is "Component" or "PureComponent");

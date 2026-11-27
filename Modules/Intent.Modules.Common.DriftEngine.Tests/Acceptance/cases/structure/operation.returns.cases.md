@@ -976,7 +976,7 @@ The model says `GetTemplate` returns a collection of strings, which the file's `
 
 ## action-result-body-values
 
-What an action's success carries is read as the code types it. A literal is its own type: `Ok("Cache Cleared")` a `string`, `Ok($"…")` too, `Ok(true)` a `bool`. A `Select` projects to what its lambda returns, so `notifications.Select(x => new NotificationDTO { … })` is a sequence of `NotificationDTO`. Of `BidTypes.Get`'s overloads, the one whose parameter the argument's enum fits, `Get(BidTypeGroup)`, is the one called. And C#'s `dynamic` is the model's `object`.
+What an action's success carries is read as the code types it. A literal is its own type: `Ok("Cache Cleared")` a `string`, `Ok($"…")` too, `Ok(true)` a `bool`. A `Select` projects to what its lambda returns, so `notifications.Select(x => new NotificationDTO { … })` is a sequence of `NotificationDTO`. Of `BidTypes.Get`'s overloads, the one whose parameter the argument's enum fits, `Get(BidTypeGroup)`, is the one called. The model's `object` is any type, so an action the model says returns `object` is verified by its declared `IActionResult` alone: less precise than the code, but true.
 
 ```json case
 { "phase": 4, "kinds": ["operation.returns"], "requirements": ["R2", "R41", "R42"], "packs": ["intent.core", "intent.services", "intent.aspnetcore"], "language": "csharp" }
@@ -1127,7 +1127,7 @@ public class FeatureController : ControllerBase
     { "kind": "operation.returns", "element": "feature-is-enabled", "outcome": "verified", "actual": "IActionResult with bool" },
     { "kind": "operation.returns", "element": "feature-get-notifications", "outcome": "verified", "actual": "IActionResult with IEnumerable<NotificationDTO>" },
     { "kind": "operation.returns", "element": "feature-get-bid-types", "outcome": "verified", "actual": "IActionResult with List<BidTypeDTO>" },
-    { "kind": "operation.returns", "element": "feature-get-open-bids-count", "outcome": "verified", "actual": "IActionResult with dynamic" }
+    { "kind": "operation.returns", "element": "feature-get-open-bids-count", "outcome": "verified", "actual": "IActionResult" }
   ],
   "findings": [
     { "rule": "claim/operation.returns", "count": 0 }
@@ -1213,7 +1213,7 @@ public class FeatureController : ControllerBase
 
 More of what an action's success carries is read as the code types it:
 
-- An anonymous object is the modelled type of its shape, its members by name with case aside: `new { Id = id }` is `IdResult`'s one `Id`. Against the model's `object` it is any shape: `new { Success = success, Message = $"…" }`.
+- An anonymous object is the modelled type of its shape, its members by name with case aside: `new { Id = id }` is `IdResult`'s one `Id`. The model's `object` is any type, so `AddRole`'s declared `IActionResult` verifies it before its body is read.
 - A `GroupBy(...).Select(x => new { x.Key.Region }).ToList()` is a list of that anonymous shape, `RegionDTO`'s.
 - A deserializer's or a mapper's type argument is what it gives: `JsonConvert.DeserializeObject<AnalysisDTO>(json)`, `Mapper.Map<BidDTO>(bid)`. The fallback `Ok()` beside a body returns nothing of its type, not another type.
 - A `DateTime`'s `ToLocalTime()` is a `DateTime`.
@@ -1409,7 +1409,7 @@ public class ShapesController : ControllerBase
 {
   "claims": [
     { "kind": "operation.returns", "element": "shapes-add-member", "outcome": "verified", "actual": "IActionResult with new { Id }" },
-    { "kind": "operation.returns", "element": "shapes-add-role", "outcome": "verified", "actual": "IActionResult with new { Success, Message }" },
+    { "kind": "operation.returns", "element": "shapes-add-role", "outcome": "verified", "actual": "IActionResult" },
     { "kind": "operation.returns", "element": "shapes-get-regions", "outcome": "verified", "actual": "IActionResult with List<new { region }>" },
     { "kind": "operation.returns", "element": "shapes-analyze", "outcome": "verified", "actual": "IActionResult with AnalysisDTO" },
     { "kind": "operation.returns", "element": "shapes-create-bid", "outcome": "verified", "actual": "IActionResult with BidDTO" },

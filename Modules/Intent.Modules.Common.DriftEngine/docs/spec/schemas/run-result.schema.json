@@ -25,7 +25,11 @@
         "type": "object",
         "required": ["path", "reader"],
         "additionalProperties": false,
-        "properties": { "path": { "type": "string" }, "reader": { "type": "string" } }
+        "properties": {
+          "path": { "type": "string" },
+          "reader": { "type": "string" },
+          "claimed": { "type": "string", "description": "Why a framework's language reads a file of an extension several share: the code's evidence, and how a tie was broken" }
+        }
       }
     },
     "graph": { "$ref": "code-graph.schema.json", "description": "The code graph, for reader cases" }

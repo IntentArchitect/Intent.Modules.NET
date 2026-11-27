@@ -26,7 +26,8 @@
         "binary": ["Uint8Array", "ArrayBuffer", "Blob"]
       },
       "collections": ["T[]", "Array<T>", "ReadonlyArray<T>", "Set<T>", "ReadonlySet<T>", "Iterable<T>"],
-      "async": [{ "wrapper": "Promise<T>" }, { "wrapper": "PromiseLike<T>" }],
+      "async": [{ "wrapper": "Promise<T>" }, { "wrapper": "PromiseLike<T>" }, { "wrapper": "Observable<T>" }],
+      "literals": { "string": "string", "number": "number", "boolean": "boolean" },
       "nullable": {
         "unionMembers": ["null", "undefined"],
         "notStated": "Their tsconfig.json doesn't turn on strict or strictNullChecks, so their types don't state whether they are nullable; turn it on to check them."

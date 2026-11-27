@@ -30,7 +30,36 @@ internal static class VueTemplate
     /// <param name="path">The file, for each node's place.</param>
     /// <param name="text">The file as written.</param>
     /// <returns>The elements at the template's top level; empty when it has no template Vue would parse as HTML.</returns>
-    public static IReadOnlyList<MarkupNode> Read(string path, string text) => new Parser(path, text).Template();
+    public static IReadOnlyList<MarkupNode> Read(string path, string text) => new Parser(path, text, VueDialect.Instance).Template();
+
+    /// <summary>
+    /// A whole file, or a template string, as HTML in another framework's dialect: its elements at the top level, read by the
+    /// same rules as a Vue template's, with the dialect's components and directives (an Angular component template).
+    /// </summary>
+    public static IReadOnlyList<MarkupNode> ReadDocument(string path, string text, MarkupDialect dialect, int line = 1, int column = 1) =>
+        new Parser(path, text, dialect, line, column).Document();
+
+    /// <summary>What a framework's HTML templates write differently: how a tag names a component, and how an attribute is a directive.</summary>
+    internal abstract class MarkupDialect
+    {
+        /// <summary>The component an element renders, given its tag and plain attributes; null for an element.</summary>
+        public abstract TypeRefNode? ComponentOf(MarkupNode element);
+
+        /// <summary>The directive an attribute's name is, its argument and modifiers; a null directive for a plain attribute.</summary>
+        public abstract (string? Directive, string? Argument, List<string> Modifiers) Split(string name);
+
+        /// <summary>A plain attribute's value holds <c>{{ }}</c> values (Angular's interpolation), not only text.</summary>
+        public virtual bool Interpolates => false;
+    }
+
+    private sealed class VueDialect : MarkupDialect
+    {
+        public static readonly VueDialect Instance = new();
+
+        public override TypeRefNode? ComponentOf(MarkupNode element) => VueComponentOf(element.Tag);
+
+        public override (string? Directive, string? Argument, List<string> Modifiers) Split(string name) => VueSplit(name);
+    }
 
     private abstract record Node(int Start, int End);
 
@@ -56,9 +85,12 @@ internal static class VueTemplate
         public Element Close(int? end) => new(Tag, Start, end ?? (Children.Count > 0 ? Children[^1].End : Start), Attributes, Children);
     }
 
-    private sealed class Parser(string path, string text)
+    private sealed class Parser(string path, string text, MarkupDialect dialect, int firstLine = 1, int firstColumn = 1)
     {
         private int _i;
+
+        /// <summary>Every element of the text, as the top level of one document.</summary>
+        public IReadOnlyList<MarkupNode> Document() => Children(new Open("", 0, [])).Children.OfType<Element>().Select(Markup).ToList();
 
         public IReadOnlyList<MarkupNode> Template()
         {
@@ -347,89 +379,74 @@ internal static class VueTemplate
 
         private bool At(string what) => string.CompareOrdinal(text, _i, what, 0, what.Length) == 0;
 
-        private MarkupNode Markup(Element element) => new()
+        private MarkupNode Markup(Element element)
+        {
+            var attributes = element.Attributes.Select(AttributeOf).ToList();
+            var at = SpanAt(element.Start, element.End);
+            return Markup(element, attributes, dialect.ComponentOf(new MarkupNode { Tag = element.Tag, Attributes = attributes, At = at }), at);
+        }
+
+        private MarkupNode Markup(Element element, IReadOnlyList<MarkupAttributeNode> attributes, TypeRefNode? component, Span at) => new()
         {
             Tag = element.Tag,
-            Component = ComponentOf(element.Tag),
-            Attributes = element.Attributes.Select(AttributeOf).ToList(),
+            Component = component,
+            Attributes = attributes,
             Children = element.Children.OfType<Element>().Select(Markup).ToList(),
             Content = element.Children.Any(x => x is Element)
                 ? null
                 : MarkupParts.Content(element.Children.Select(x => x is Interpolation interpolation
                     ? new MarkupParts.Part(true, interpolation.Code, SpanAt(x.Start, x.End))
                     : new MarkupParts.Part(false, text[x.Start..x.End], SpanAt(x.Start, x.End))).ToList()),
-            At = SpanAt(element.Start, element.End),
+            At = at,
             TextOf = () => CanonicalText.OfMarkup(text[element.Start..element.End])
         };
 
-        /// <summary>
-        /// The component a tag names: by its PascalCase name (<c>stock-pill</c> is <c>StockPill</c>), or as written when it is
-        /// one of the script's names and a member of it (<c>ui.Badge</c>). Null for an element, and for <c>&lt;component
-        /// :is&gt;</c>, which names none.
-        /// </summary>
-        private static TypeRefNode? ComponentOf(string tag)
-        {
-            if (tag is "slot" or "component" or "template" || !char.IsUpper(tag[0]) && Native.Contains(tag))
-            {
-                return null;
-            }
-
-            var name = tag.Contains('.') ? tag : Pascal(tag);
-            return new TypeRefNode { Text = tag, Name = name[(name.LastIndexOf('.') + 1)..], QualifiedName = name, Language = TypeScriptLanguage.LanguageName };
-        }
-
-        private static string Pascal(string name) => string.Concat(name.Split('-', StringSplitOptions.RemoveEmptyEntries).Select(x => char.ToUpperInvariant(x[0]) + x[1..]));
-
-        /// <summary>
-        /// An attribute, its directive split as Vue splits it: <c>v-model:title.trim</c> is <c>model</c>, <c>title</c> and
-        /// <c>trim</c>; <c>:to</c> is <c>bind</c> and <c>to</c>, <c>@click</c> <c>on</c> and <c>click</c>, <c>#item</c>
-        /// <c>slot</c> and <c>item</c>, and <c>.value</c> <c>bind</c> and <c>value</c> with <c>prop</c>.
-        /// </summary>
+        /// <summary>An attribute, its directive split as the dialect splits it.</summary>
         private MarkupAttributeNode AttributeOf(Attribute attribute)
         {
-            var name = attribute.Name;
-            string? directive = null;
-            var rest = "";
-            List<string> modifiers = [];
-            if (name.Length > 2 && name.StartsWith("v-", StringComparison.Ordinal))
-            {
-                var end = name.IndexOfAny([':', '.'], 2);
-                directive = end < 0 ? name[2..] : name[2..end];
-                rest = end < 0 ? "" : name[end..];
-            }
-            else if (name.Length > 0 && name[0] is ':' or '@' or '#' or '.')
-            {
-                directive = name[0] switch { '@' => "on", '#' => "slot", _ => "bind" };
-                rest = ":" + name[1..];
-                if (name[0] == '.')
-                {
-                    modifiers.Add("prop");
-                }
-            }
-
-            string? argument = null;
-            if (rest.StartsWith(':'))
-            {
-                // A dynamic argument (:[key]) is written in brackets, which may hold dots.
-                var close = rest.Length > 1 && rest[1] == '[' ? rest.IndexOf(']') : -1;
-                var end = rest.IndexOf('.', close < 0 ? 1 : close);
-                argument = end < 0 ? rest[1..] : rest[1..end];
-                rest = end < 0 ? "" : rest[end..];
-            }
-
-            modifiers.AddRange(rest.Split('.', StringSplitOptions.RemoveEmptyEntries));
+            var (directive, argument, modifiers) = dialect.Split(attribute.Name);
             return new MarkupAttributeNode
             {
-                Name = name,
+                Name = attribute.Name,
                 Directive = directive,
                 Argument = argument is "" ? null : argument,
                 Modifiers = modifiers,
                 Value = attribute.Value,
-                Literal = directive is null && attribute.Value is { } value
-                    ? MarkupParts.Value([new MarkupParts.Part(false, value, SpanAt(attribute.ValueStart, attribute.ValueStart + value.Length))])
-                    : null,
+                Literal = directive is null && attribute.Value is { } value ? MarkupParts.Value(ValueParts(value, attribute.ValueStart)) : null,
                 At = SpanAt(attribute.Start, attribute.End)
             };
+        }
+
+        /// <summary>A plain attribute's value: its text, with each <c>{{ }}</c> value as code where the dialect interpolates.</summary>
+        private List<MarkupParts.Part> ValueParts(string value, int start)
+        {
+            if (!dialect.Interpolates)
+            {
+                return [new MarkupParts.Part(false, value, SpanAt(start, start + value.Length))];
+            }
+
+            var parts = new List<MarkupParts.Part>();
+            var at = 0;
+            while (at < value.Length)
+            {
+                var open = value.IndexOf("{{", at, StringComparison.Ordinal);
+                var close = open < 0 ? -1 : value.IndexOf("}}", open + 2, StringComparison.Ordinal);
+                if (close < 0)
+                {
+                    parts.Add(new MarkupParts.Part(false, value[at..], SpanAt(start + at, start + value.Length)));
+                    break;
+                }
+
+                if (open > at)
+                {
+                    parts.Add(new MarkupParts.Part(false, value[at..open], SpanAt(start + at, start + open)));
+                }
+
+                parts.Add(new MarkupParts.Part(true, value[(open + 2)..close].Trim(), SpanAt(start + open, start + close + 2)));
+                at = close + 2;
+            }
+
+            return parts;
         }
 
         private Span SpanAt(int start, int end)
@@ -439,6 +456,7 @@ internal static class VueTemplate
             return new Span(path, line, column, endLine, endColumn);
         }
 
+        /// <summary>A position in the file: a template string's text starts at <c>firstLine</c> and <c>firstColumn</c> of its file.</summary>
         private (int Line, int Column) Position(int index)
         {
             var line = 1;
@@ -452,7 +470,65 @@ internal static class VueTemplate
                 }
             }
 
-            return (line, index - lineStart + 1);
+            return (firstLine + line - 1, line == 1 ? firstColumn + index : index - lineStart + 1);
         }
+    }
+
+    /// <summary>
+    /// The component a Vue tag names: by its PascalCase name (<c>stock-pill</c> is <c>StockPill</c>), or as written when it is
+    /// one of the script's names and a member of it (<c>ui.Badge</c>). Null for an element, and for <c>&lt;component
+    /// :is&gt;</c>, which names none.
+    /// </summary>
+    private static TypeRefNode? VueComponentOf(string tag)
+    {
+        if (tag is "slot" or "component" or "template" || !char.IsUpper(tag[0]) && Native.Contains(tag))
+        {
+            return null;
+        }
+
+        var name = tag.Contains('.') ? tag : Pascal(tag);
+        return new TypeRefNode { Text = tag, Name = name[(name.LastIndexOf('.') + 1)..], QualifiedName = name, Language = TypeScriptLanguage.LanguageName };
+    }
+
+    private static string Pascal(string name) => string.Concat(name.Split('-', StringSplitOptions.RemoveEmptyEntries).Select(x => char.ToUpperInvariant(x[0]) + x[1..]));
+
+    /// <summary>
+    /// An attribute's directive split as Vue splits it: <c>v-model:title.trim</c> is <c>model</c>, <c>title</c> and
+    /// <c>trim</c>; <c>:to</c> is <c>bind</c> and <c>to</c>, <c>@click</c> <c>on</c> and <c>click</c>, <c>#item</c>
+    /// <c>slot</c> and <c>item</c>, and <c>.value</c> <c>bind</c> and <c>value</c> with <c>prop</c>.
+    /// </summary>
+    private static (string? Directive, string? Argument, List<string> Modifiers) VueSplit(string name)
+    {
+        string? directive = null;
+        var rest = "";
+        List<string> modifiers = [];
+        if (name.Length > 2 && name.StartsWith("v-", StringComparison.Ordinal))
+        {
+            var end = name.IndexOfAny([':', '.'], 2);
+            directive = end < 0 ? name[2..] : name[2..end];
+            rest = end < 0 ? "" : name[end..];
+        }
+        else if (name.Length > 0 && name[0] is ':' or '@' or '#' or '.')
+        {
+            directive = name[0] switch { '@' => "on", '#' => "slot", _ => "bind" };
+            rest = ":" + name[1..];
+            if (name[0] == '.')
+            {
+                modifiers.Add("prop");
+            }
+        }
+
+        string? argument = null;
+        if (rest.StartsWith(':'))
+        {
+            // A dynamic argument (:[key]) is written in brackets, which may hold dots.
+            var close = rest.Length > 1 && rest[1] == '[' ? rest.IndexOf(']') : -1;
+            var end = rest.IndexOf('.', close < 0 ? 1 : close);
+            argument = end < 0 ? rest[1..] : rest[1..end];
+            rest = end < 0 ? "" : rest[end..];
+        }
+
+        modifiers.AddRange(rest.Split('.', StringSplitOptions.RemoveEmptyEntries));
+        return (directive, argument, modifiers);
     }
 }

@@ -333,35 +333,49 @@ internal static class TypeScriptReader
 
     /// <summary>A type as written (code-reader.md, Type references), its nullability as the file's <c>tsconfig.json</c> says.</summary>
     /// <param name="strict">Whether <c>strict</c> or <c>strictNullChecks</c> is on; null when the file has neither, so nullability is unknown.</param>
-    internal static TypeRefNode TypeRef(TypeScriptNode type, bool? strict)
+    internal static TypeRefNode TypeRef(TypeScriptNode type, bool? strict) => TypeRef(type, strict, null);
+
+    /// <param name="type">The type as written.</param>
+    /// <param name="strict">Whether <c>strict</c> or <c>strictNullChecks</c> is on.</param>
+    /// <param name="defaults">
+    /// Type parameters read as their defaults, as a call that fixes none of them gets them: <c>T</c> in
+    /// <c>getOrders&lt;T = Order&gt;(page: number): Page&lt;T&gt;</c>, which <c>getOrders(1)</c> calls as <c>Page&lt;Order&gt;</c>.
+    /// </param>
+    private static TypeRefNode TypeRef(TypeScriptNode type, bool? strict, IReadOnlyDictionary<string, TypeScriptNode>? defaults)
     {
         var text = type.Canonical;
         var stated = strict is null ? "unknown" : "false";
         switch (type.Kind)
         {
             case "ParenthesizedType":
-                return TypeRef(type["type"]!, strict);
+                return TypeRef(type["type"]!, strict, defaults);
             case "TypeOperator" when type.Operator == "ReadonlyKeyword":
                 // readonly string[] is a string[] the code doesn't change.
-                return TypeRef(type["type"]!, strict);
+                return TypeRef(type["type"]!, strict, defaults);
             case "ArrayType":
             {
-                var item = TypeRef(type["elementType"]!, strict);
-                return new TypeRefNode { Text = text, Name = item.Name, QualifiedName = item.QualifiedName, Arguments = [item], IsArray = true, Nullable = stated, Language = TypeScriptLanguage.LanguageName };
+                var item = TypeRef(type["elementType"]!, strict, defaults);
+                return new TypeRefNode { Text = defaults is null ? text : $"{item.Text}[]", Name = item.Name, QualifiedName = item.QualifiedName, Arguments = [item], IsArray = true, Nullable = stated, Language = TypeScriptLanguage.LanguageName };
             }
+            case "TypeReference" when defaults is not null && type.List("typeArguments").Count == 0 && type["typeName"] is { Kind: "Identifier", Value: { } parameter }
+                                      && defaults.TryGetValue(parameter, out var given):
+                return TypeRef(given, strict);
             case "TypeReference" or "ExpressionWithTypeArguments":
             {
                 var name = type["typeName"] ?? type["expression"]!;
                 var qualified = name.Canonical;
+                var arguments = type.List("typeArguments").Select(x => TypeRef(x, strict, defaults)).ToList();
                 return new TypeRefNode
                 {
-                    Text = text, Name = qualified[(qualified.LastIndexOf('.') + 1)..], QualifiedName = qualified,
-                    Arguments = type.List("typeArguments").Select(x => TypeRef(x, strict)).ToList(), Nullable = stated, Language = TypeScriptLanguage.LanguageName
+                    Text = defaults is null || arguments.Count == 0 ? text : $"{qualified}<{string.Join(",", arguments.Select(x => x.Text))}>",
+                    Name = qualified[(qualified.LastIndexOf('.') + 1)..], QualifiedName = qualified,
+                    Arguments = arguments, Nullable = stated, Language = TypeScriptLanguage.LanguageName
                 };
             }
             case "UnionType":
             {
-                var members = type.List("types").Select(x => TypeRef(x, strict)).ToList();
+                var members = type.List("types").Select(x => TypeRef(x, strict, defaults)).ToList();
+                text = defaults is null ? text : string.Join("|", members.Select(x => x.Text));
                 return new TypeRefNode
                 {
                     Text = text, Name = text, QualifiedName = text, Union = members,
@@ -541,7 +555,9 @@ internal static class TypeScriptReader
             // A React class component: one that extends Component or PureComponent, whose props are its first type argument's.
             var react = _vue ? null : declaration.List("heritageClauses").SelectMany(x => x.List("types"))
                 .FirstOrDefault(x => x["expression"]?.Canonical is "Component" or "PureComponent" or "React.Component" or "React.PureComponent");
-            var type = Declare(declaration, ns, react is null ? "class" : "component");
+            // An Angular component: a class its @Component decorator declares one, with its selector and template.
+            var angular = Decorators(declaration).Any(x => x.Name == "Component");
+            var type = Declare(declaration, ns, react is null && !angular ? "class" : "component");
             foreach (var clause in declaration.List("heritageClauses"))
             {
                 type.BaseTypes.AddRange(clause.List("types").Select(x => TypeRef(x, module.Strict)));
@@ -739,6 +755,11 @@ internal static class TypeScriptReader
                 }
             }
 
+            if (aliased.Is("UnionType") && aliased.List("types").Where(x => !IsNullish(x)).ToList() is { Count: > 1 } branches && branches.All(x => x.Is("TypeLiteral")))
+            {
+                UnionMembers(type, branches);
+            }
+
             // A union of literals is an enum written as a type: each literal a member named by its value.
             foreach (var literal in LiteralsOf(aliased, 0) ?? [])
             {
@@ -766,8 +787,9 @@ internal static class TypeScriptReader
                     return type["literal"] is { Kind: "StringLiteral" or "NumericLiteral" or "NoSubstitutionTemplateLiteral" } literal ? [literal] : null;
                 case "UnionType":
                 {
+                    // 'success' | 'error' | null is the enum's literals and nullable: null and undefined name no literal.
                     var literals = new List<TypeScriptNode>();
-                    foreach (var part in type.List("types"))
+                    foreach (var part in type.List("types").Where(x => !IsNullish(x)))
                     {
                         if (LiteralsOf(part, depth + 1) is not { } found)
                         {
@@ -816,6 +838,14 @@ internal static class TypeScriptReader
                         return values.All(x => x.Is("ArrayLiteralExpression")) ? values.SelectMany(x => x.List("elements")).Select(Unconst).ToList() : null;
                     }
 
+                    // (typeof ROLES)[keyof typeof ROLES] over const ROLES = { ADMIN: 'ADMIN', ... } as const: each property's value.
+                    if (index is { Kind: "TypeOperator", Operator: "KeyOfKeyword" } && Queried(index["type"]) is { } keyed && keyed == Queried(type["objectType"]))
+                    {
+                        return values.All(x => x.Is("ObjectLiteralExpression") && x.List("properties").All(p => p.Is("PropertyAssignment")))
+                            ? values.SelectMany(x => x.List("properties")).Select(x => Unconst(x["initializer"]!)).ToList()
+                            : null;
+                    }
+
                     if (index is { Kind: "LiteralType" } && index["literal"] is { Kind: "StringLiteral", Value: { } key })
                     {
                         var properties = values.Select(x => x.Is("ObjectLiteralExpression")
@@ -830,6 +860,48 @@ internal static class TypeScriptReader
                     return null;
             }
         }
+
+        /// <summary>
+        /// The properties a union of object types has, as TypeScript gives the union them (a discriminated union,
+        /// <c>{ valid: true; code: string } | { valid: false; message: string }</c>): each property of a branch, typed as the union
+        /// of its branches' types (<c>true | false</c> is <c>boolean</c>), and optional where a branch lacks it or marks it so.
+        /// </summary>
+        private void UnionMembers(TypeNode type, IReadOnlyList<TypeScriptNode> branches)
+        {
+            var properties = branches.Select(x => x.List("members").Where(m => m.Is("PropertySignature")).ToList()).ToList();
+            foreach (var name in properties.SelectMany(x => x).Select(x => NameOf(x["name"]!)).Distinct(StringComparer.Ordinal))
+            {
+                var found = properties.Select(x => x.FirstOrDefault(m => NameOf(m["name"]!) == name)).ToList();
+                var present = found.OfType<TypeScriptNode>().ToList();
+                var types = present.Select(x => x["type"]).OfType<TypeScriptNode>().Select(x => TypeRef(x, module.Strict)).GroupBy(x => x.Text).Select(x => x.First()).ToList();
+                var optional = found.Any(x => x is null) || present.Any(x => x["questionToken"] is not null);
+                var typed = types.Count switch
+                {
+                    0 => null,
+                    1 => types[0],
+                    _ when types.All(x => x.Text is "true" or "false") => new TypeRefNode { Text = "boolean", Name = "boolean", QualifiedName = "boolean", Language = TypeScriptLanguage.LanguageName },
+                    _ => new TypeRefNode { Text = string.Join("|", types.Select(x => x.Text)), Name = string.Join("|", types.Select(x => x.Text)), QualifiedName = string.Join("|", types.Select(x => x.Text)), Union = types, Language = TypeScriptLanguage.LanguageName }
+                };
+                if (typed is not null)
+                {
+                    typed.Nullable = module.Strict is null ? "unknown" : optional ? "true" : "false";
+                }
+
+                type.Members.Add(Member(present[0], "property", typed, present[0].List("modifiers"), access: "public"));
+            }
+        }
+
+        /// <summary>The constant a type query names, past parentheses: <c>ROLES</c> for <c>(typeof ROLES)</c>.</summary>
+        private static string? Queried(TypeScriptNode? type) => type switch
+        {
+            { Kind: "ParenthesizedType" } => Queried(type["type"]),
+            { Kind: "TypeQuery" } when type["exprName"] is { Kind: "Identifier", Value: { } name } => name,
+            _ => null
+        };
+
+        /// <summary><c>null</c> or <c>undefined</c> in a type: what makes it nullable, never a value of its own.</summary>
+        private static bool IsNullish(TypeScriptNode type) =>
+            type.Is("UndefinedKeyword") || type.Is("NullKeyword") || type is { Kind: "LiteralType" } && type["literal"]?.Kind is "NullKeyword";
 
         /// <summary>The initializer of the module's <c>const</c> of this name, past <c>as const</c> and <c>satisfies</c>.</summary>
         private TypeScriptNode? ConstantOf(string name) =>
@@ -1338,8 +1410,28 @@ internal static class TypeScriptReader
             return member;
         }
 
-        /// <summary>A function's return type as written; null when it leaves TypeScript to infer it.</summary>
-        private TypeRefNode? Returns(TypeScriptNode function) => function["type"] is { } type ? TypeRef(type, module.Strict) : null;
+        /// <summary>
+        /// A function's return type as written, as a call that passes no type arguments gets it: a type parameter with a default
+        /// that none of its parameters is typed by is its default (<c>getOrders&lt;T = Order&gt;(page: number): Page&lt;T&gt;</c>
+        /// returns <c>Page&lt;Order&gt;</c>), as no argument can fix it. Null when it leaves TypeScript to infer it.
+        /// </summary>
+        private TypeRefNode? Returns(TypeScriptNode function)
+        {
+            if (function["type"] is not { } type)
+            {
+                return null;
+            }
+
+            var typed = function.List("parameters").Select(x => x["type"]).OfType<TypeScriptNode>()
+                .SelectMany(x => x.Descendants().Prepend(x))
+                .Where(x => x.Is("TypeReference") && x["typeName"] is { Kind: "Identifier" })
+                .Select(x => x["typeName"]!.Value)
+                .ToHashSet(StringComparer.Ordinal);
+            var defaults = function.List("typeParameters")
+                .Where(x => x["name"]?.Value is { } name && x["default"] is not null && !typed.Contains(name))
+                .ToDictionary(x => x["name"]!.Value!, x => x["default"]!, StringComparer.Ordinal);
+            return TypeRef(type, module.Strict, defaults.Count > 0 ? defaults : null);
+        }
 
         private IReadOnlyList<ParameterNode> Parameters(TypeScriptNode function) => ParametersOf(function.List("parameters"));
 

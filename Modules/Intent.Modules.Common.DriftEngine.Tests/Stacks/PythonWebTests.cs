@@ -1,5 +1,6 @@
 using System.Text.Json.Nodes;
 using Intent.Modules.Common.DriftEngine.Code;
+using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Packs;
 using Intent.Modules.Common.DriftEngine.Stacks;
 using Intent.Modules.Common.DriftEngine.Stacks.Jinja;
@@ -416,7 +417,7 @@ public class PythonWebTests
                   "Drift Check": { "Opt-in Rules": [
                     { "Rule": "optin/unmodelled.member", "Glob": "app/models.py" },
                     { "Rule": "optin/unmodelled.value", "Glob": "app/models.py\napp/api/**" }
-                  ] }
+                  ], "Exceptions": [ { "Rule": "scope/unread", "Match": "app/static/*.html", "Reason": "Static pages the app serves as they are" } ] }
                 } }]
             }
           }
@@ -527,14 +528,43 @@ public class PythonWebTests
     }
 
     [Fact]
-    public void Only_html_the_python_renders_with_jinja_is_a_template()
+    public void Only_html_in_the_templates_folder_the_python_declares_is_a_template()
     {
         var graph = Read();
 
         graph.Types.Where(x => x.Kind == "component").Select(x => x.Name).Order().ShouldBe(["base", "index", "order"]);
 
-        var withoutRendering = Read(Code.Where(x => !x.Key.StartsWith("app/web/", StringComparison.Ordinal)).ToDictionary());
-        withoutRendering.Types.ShouldNotContain(x => x.Kind == "component");
+        // base.html no code renders by name is Jinja's because the folder Jinja2Templates declares holds it.
+        var claims = Claims(Code);
+        claims.Single(x => x.Path == "app/templates/base.html").Evidence.ShouldBe(ClaimEvidence.Folder);
+        claims.Single(x => x.Path == "app/templates/index.html").Evidence.ShouldBe(ClaimEvidence.Named);
+        claims.ShouldNotContain(x => x.Path == "app/static/help.html");
+
+        var withoutTemplates = Read(Code.Where(x => !x.Key.StartsWith("app/web/", StringComparison.Ordinal)).ToDictionary());
+        withoutTemplates.Types.ShouldNotContain(x => x.Kind == "component");
+    }
+
+    [Fact]
+    public void A_template_named_like_another_frameworks_page_is_looked_up_in_the_declared_folder()
+    {
+        // An Angular app's src/index.html beside the Python app: render_template("index.html") is the templates folder's.
+        var code = new Dictionary<string, string>(Code) { ["src/index.html"] = "<!doctype html><html><body><app-root></app-root></body></html>" };
+
+        Claims(code).Select(x => x.Path).ShouldNotContain("src/index.html");
+    }
+
+    [Fact]
+    public void Html_nothing_claims_is_unread_unless_excepted()
+    {
+        var model = Model.Replace("""], "Exceptions": [ { "Rule": "scope/unread", "Match": "app/static/*.html", "Reason": "Static pages the app serves as they are" } ] }""", "] }");
+        model.ShouldNotBe(Model);
+
+        var result = Run(Code, model);
+
+        var unread = result.Findings.Single(x => x.Rule == "scope/unread");
+        unread.Subject.File.ShouldBe("app/static/help.html");
+        unread.Message.ShouldBe("Nothing reads `app/static/help.html`: the Angular and Jinja readers read `.html` files only where their code names one or a folder they declare holds it, and no code does for this one, so nothing in it is checked. Build a house rule that reads it, take it out of the Drift Scope with a reason, or add an exception with a reason to the Root Folder's Drift Check.");
+        Errors(Run(Code)).ShouldBeEmpty();
     }
 
     // ------------------------------------------------------------------ harness
@@ -558,8 +588,27 @@ public class PythonWebTests
         {
             var graph = new CodeGraph();
             new PythonExtension().Languages.Single().Read(root, code.Keys.Where(x => x.EndsWith(".py", StringComparison.Ordinal)).Order(StringComparer.Ordinal).ToList(), graph, TestContext.Current.CancellationToken);
-            new JinjaExtension().Languages.Single().Read(root, code.Keys.Where(x => x.EndsWith(".html", StringComparison.Ordinal)).Order(StringComparer.Ordinal).ToList(), graph, TestContext.Current.CancellationToken);
+            var jinja = (IClaimingLanguage)new JinjaExtension().Languages.Single();
+            var claimed = jinja.Claim(root, code.Keys.Where(jinja.MayClaim).Order(StringComparer.Ordinal).ToList(), graph).Select(x => x.Path).Order(StringComparer.Ordinal).ToList();
+            jinja.Read(root, claimed, graph, TestContext.Current.CancellationToken);
             return graph;
+        }
+        finally
+        {
+            Directory.Delete(root, recursive: true);
+        }
+    }
+
+    /// <summary>The files the Jinja language claims, after Python has read.</summary>
+    private static List<FileClaim> Claims(IReadOnlyDictionary<string, string> code)
+    {
+        var root = Write(code);
+        try
+        {
+            var graph = new CodeGraph();
+            new PythonExtension().Languages.Single().Read(root, code.Keys.Where(x => x.EndsWith(".py", StringComparison.Ordinal)).Order(StringComparer.Ordinal).ToList(), graph, TestContext.Current.CancellationToken);
+            var jinja = (IClaimingLanguage)new JinjaExtension().Languages.Single();
+            return jinja.Claim(root, code.Keys.Where(jinja.MayClaim).Order(StringComparer.Ordinal).ToList(), graph).ToList();
         }
         finally
         {
@@ -580,12 +629,12 @@ public class PythonWebTests
         return root;
     }
 
-    private static RunResult Run(IReadOnlyDictionary<string, string> code)
+    private static RunResult Run(IReadOnlyDictionary<string, string> code, string? model = null)
     {
         var root = Write(code);
         try
         {
-            var designers = FixtureModel.Build(JsonNode.Parse(Model)!, out var references);
+            var designers = FixtureModel.Build(JsonNode.Parse(model ?? Model)!, out var references);
             var packs = new[] { "intent.core", "intent.domain", "intent.services", "intent.ui" }.Select(x => Pack.Stock(x)!).ToList();
             return DriftEngine.Run(new DriftInput(designers, root, packs, StockExtensions.All) { References = references });
         }

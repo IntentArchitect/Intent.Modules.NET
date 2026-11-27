@@ -114,6 +114,8 @@ The rules a plug-in must follow:
 
 By principle 1, code the model doesn't mention is never drift. A team that wants some kind of code always modelled turns a rule on in the model's `Drift Check` stereotype ([scope.md](scope.md#the-drift-check-stereotype)). Each rule applies within scope only, and each finding can be excepted, with a reason ([R49](requirements.md)).
 
+The Drift Check's exceptions also take `scope/unread`, which is always on: an in-scope file no reader reads ([code-reader.md](code-reader.md#claimed-files)), whose Match is the file's path or a glob.
+
 | Rule                     | Reports                                                                                                                      | Replaces                                 |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | `unmodelled.type`        | An in-scope type under the row's Glob (`Acme.Data/Model/Entities/**`) that no claim located                                  | Common.Drift's `own` conventions         |

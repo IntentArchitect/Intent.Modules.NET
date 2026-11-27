@@ -1,0 +1,816 @@
+using System.Text.RegularExpressions;
+using Intent.Metadata.Models;
+using Intent.Modules.Common.DriftEngine.Code;
+using Intent.Modules.Common.DriftEngine.Extensions;
+using Intent.Modules.Common.DriftEngine.Stacks.Markup;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScript;
+using Intent.Modules.Common.DriftEngine.Stacks.TypeScriptUi;
+
+namespace Intent.Modules.Common.DriftEngine.Stacks.Angular;
+
+/// <summary>
+/// Reads the User Interface claims (the <c>intent.ui</c> pack's kinds) of an Angular front end: its components (classes an
+/// <c>@Component</c> decorator declares, which the TypeScript language reads as components), their templates (the files a
+/// <c>templateUrl</c> names, claimed for Angular file by file, or an inline <c>template</c>), and the router's route tables. It
+/// reads the claims, never the designer, and answers only for Angular components; stores, services and proxies, which any
+/// TypeScript front end writes alike, are <c>intent.typescript.ui</c>'s. Which route guards secure a route is the house's to
+/// say: Angular has no standard one, so a house reader reads <c>security</c> from <see cref="AngularRoutes"/>' guards.
+/// </summary>
+public sealed class AngularExtension : IDriftExtension
+{
+    public string Id => "intent.angular";
+
+    public IEnumerable<ILanguage> Languages { get; } = [new AngularTemplates()];
+
+    public IEnumerable<ICodeReader> Readers { get; } = [new AngularMembers()];
+
+    // Asked from the end: dialogs before the shared links, which read a Show Dialog as a tag.
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new AngularLinks(), new AngularDialogs(), new AngularComponents(), new AngularInputs()];
+}
+
+/// <summary>A route guard as a route lists it: its name, and a guard factory's arguments (<c>roleGuard(ROLES.ADMIN)</c>).</summary>
+public sealed record AngularGuard(string Name, IReadOnlyList<ValueNode> Arguments, Span At);
+
+/// <summary>
+/// A route that shows a component, with what it inherits from the routes above it.
+/// </summary>
+/// <param name="Path">The full path, its parents' joined, as the router writes it: <c>/pizzerias/:id</c>.</param>
+/// <param name="Component">The component it shows, when the code names one in scope.</param>
+/// <param name="Title">Its <c>title</c>, when a string; <see cref="UiCode.Hole"/> when the code computes it (a resolver).</param>
+/// <param name="Guards">Its guards and its parents', <c>canMatch</c>, <c>canActivate</c> and <c>canActivateChild</c>.</param>
+/// <param name="Data">The keys of its <c>data</c>.</param>
+/// <param name="Parent">It has child routes (<c>children</c>, <c>loadChildren</c>), so what it shows hosts theirs.</param>
+public sealed record AngularRoute(string Path, TypeNode? Component, string? Title, IReadOnlyList<AngularGuard> Guards, IReadOnlyList<string> Data, bool Parent, Span At);
+
+/// <summary>
+/// An Angular application's routes as its code states them, read once per run: the route tables <c>provideRouter</c> and
+/// <c>RouterModule.forRoot</c> are given, following <c>children</c> and <c>loadChildren</c> into the files they load, and a
+/// route table nothing reaches from them as a root of its own. Public, so a house reader can read the guards it names.
+/// </summary>
+public static class AngularRoutes
+{
+    /// <summary>Every route that shows a component.</summary>
+    public static IReadOnlyList<AngularRoute> Of(CodeGraph code) => Site(code).Routes;
+
+    /// <summary>The routes that show the component.</summary>
+    public static IReadOnlyList<AngularRoute> Of(CodeGraph code, TypeNode component) => Site(code).Routes.Where(x => x.Component == component).ToList();
+
+    /// <summary>The static redirects: a full path to the full path it redirects to.</summary>
+    public static IReadOnlyDictionary<string, string> Redirects(CodeGraph code) => Site(code).Redirects;
+
+    internal static AngularSite Site(CodeGraph code)
+    {
+        if (code.Get<AngularSite>() is { } cached)
+        {
+            return cached;
+        }
+
+        var site = AngularSite.Read(code);
+        code.Set(site);
+        return site;
+    }
+}
+
+/// <summary>What the Angular readers share, read once per run.</summary>
+internal sealed class AngularSite
+{
+    private static readonly Regex Lazy = new(@"import\(\s*['""`]([^'""`]+)['""`]\s*\)(?:\s*\.then\(\s*\(?\s*(\w+)\s*\)?\s*=>\s*\2\s*\.\s*(\w+))?", RegexOptions.Compiled);
+
+    public List<AngularRoute> Routes { get; } = [];
+
+    public Dictionary<string, string> Redirects { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>The components <c>bootstrapApplication</c> or an NgModule's <c>bootstrap</c> starts the app with.</summary>
+    public HashSet<TypeNode> Bootstrapped { get; } = [];
+
+    /// <summary>Each component a dialog service opens (<c>dialog.open(ConfirmDialog, ...)</c>), with the calls that open it.</summary>
+    public Dictionary<TypeNode, List<CallNode>> Opened { get; } = [];
+
+    /// <summary>The router binds route parameters, query parameters and data to a routed component's inputs (<c>withComponentInputBinding()</c>).</summary>
+    public bool BindsInputs { get; private set; }
+
+    /// <summary>Each component's inline <c>template</c>, read as markup.</summary>
+    public Dictionary<TypeNode, IReadOnlyList<MarkupNode>> Inline { get; } = [];
+
+    public static AngularSite Read(CodeGraph code)
+    {
+        var site = new AngularSite();
+        var calls = AngularCode.Calls(code).ToList();
+        site.BindsInputs = calls.Any(x => x.Name == "withComponentInputBinding")
+                           || calls.Any(x => x.Name == "forRoot" && x.Arguments.ElementAtOrDefault(1)?.Members.Any(m => m.Member == "bindToComponentInputs" && m.Value.Literal?.Value == "true") == true);
+
+        foreach (var call in calls.Where(x => x is { Name: "bootstrapApplication", Arguments.Count: > 0 }))
+        {
+            if (UiCode.ComponentNamed(code, call.At.File, call.Arguments[0].Text) is { } component)
+            {
+                site.Bootstrapped.Add(component);
+            }
+        }
+
+        foreach (var module in code.Types.Where(x => UiCode.IsTypeScript(x) && x.Attributes.Any(a => a.Name == "NgModule")))
+        {
+            var bootstrap = module.Attributes.First(a => a.Name == "NgModule").Values.FirstOrDefault(x => x.Name == "bootstrap");
+            foreach (var item in bootstrap?.Items ?? [])
+            {
+                if (UiCode.ComponentNamed(code, module.At.File, item.Text) is { } component)
+                {
+                    site.Bootstrapped.Add(component);
+                }
+            }
+        }
+
+        foreach (var call in calls.Where(x => x is { Name: "open", Arguments.Count: > 0 } && IsDialogService(x)))
+        {
+            if (UiCode.ComponentNamed(code, call.At.File, call.Arguments[0].Text) is { } dialog)
+            {
+                (site.Opened.TryGetValue(dialog, out var list) ? list : site.Opened[dialog] = []).Add(call);
+            }
+        }
+
+        site.ReadRoutes(code, calls);
+        return site;
+    }
+
+    /// <summary>A call made on Angular CDK's <c>Dialog</c> or Material's <c>MatDialog</c>: typed as one, or injected as one.</summary>
+    private static bool IsDialogService(CallNode call) => call.ReceiverType?.Name is "Dialog" or "MatDialog";
+
+    private void ReadRoutes(CodeGraph code, IReadOnlyList<CallNode> calls)
+    {
+        var reached = new HashSet<ValueNode>(ReferenceEqualityComparer.Instance);
+        var roots = calls.Where(x => x.Name is "provideRouter" or "forRoot" or "forChild" && x.Arguments.Count > 0)
+            .Select(x => Table(code, x.At.File, x.Arguments[0]))
+            .OfType<ValueNode>()
+            .ToList();
+        foreach (var root in roots)
+        {
+            Walk(code, root, "", [], reached, 0);
+        }
+
+        // A route table nothing reaches from the router's: a root of its own, as the code may provide its router out of scope.
+        foreach (var table in code.Types.Where(UiCode.IsTypeScript).SelectMany(x => x.Members).Select(x => x.Value).OfType<ValueNode>().Where(IsTable).ToList())
+        {
+            if (!reached.Contains(table))
+            {
+                Walk(code, table, "", [], reached, 0);
+            }
+        }
+    }
+
+    /// <summary>An array of route objects: an item with a <c>path</c> and what it shows, redirects to or loads.</summary>
+    private static bool IsTable(ValueNode value) =>
+        value.Items.Any(x => x.Members.Any(m => m.Member == "path") && x.Members.Any(m => m.Member is "component" or "loadComponent" or "redirectTo" or "children" or "loadChildren"));
+
+    /// <summary>The route table a value is: an array written in place, or the constant it names, in its file or imported.</summary>
+    private static ValueNode? Table(CodeGraph code, string file, ValueNode value) =>
+        value.Items.Count > 0 ? value : value.Field?.Member.Value is { } field && IsTable(field) ? field : AngularCode.Constant(code, file, value.Text) is { } named && IsTable(named) ? named : null;
+
+    private void Walk(CodeGraph code, ValueNode table, string prefix, IReadOnlyList<AngularGuard> inherited, HashSet<ValueNode> reached, int depth)
+    {
+        if (depth > 12 || !reached.Add(table))
+        {
+            return;
+        }
+
+        foreach (var route in table.Items.Where(x => x.Members.Count > 0))
+        {
+            ValueNode? Member(string name) => route.Members.FirstOrDefault(x => x.Member == name)?.Value;
+
+            var path = Member("path") is { } written ? UiCode.Text(code.StringOf(written)) ?? UiCode.Hole.ToString() : null;
+            var full = Join(prefix, path ?? "");
+            var guards = inherited.Concat(new[] { "canMatch", "canActivate", "canActivateChild" }.SelectMany(x => Guards(Member(x)))).ToList();
+            if (Member("redirectTo") is { } redirect && UiCode.Text(code.StringOf(redirect)) is { } to && !to.Contains(UiCode.Hole))
+            {
+                Redirects[full] = to.StartsWith('/') ? Join("", to) : Join(prefix, to);
+            }
+
+            var children = Member("children") is { } nested ? Table(code, route.At.File, nested) : null;
+            var loaded = Member("loadChildren") is { } load ? Loaded(code, route.At.File, load.Text) : null;
+            var file = route.At.File;
+            var component = Member("component") is { } shown ? UiCode.ComponentNamed(code, file, shown.Text)
+                : Member("loadComponent") is { } lazy ? LoadedComponent(code, file, lazy.Text) : null;
+            if (component is not null || Member("component") is not null || Member("loadComponent") is not null)
+            {
+                var title = Member("title") is { } titled ? UiCode.Text(code.StringOf(titled)) ?? UiCode.Hole.ToString() : null;
+                var data = Member("data")?.Members.Select(x => x.Member).ToList() ?? [];
+                Routes.Add(new AngularRoute(full, component, title, guards, data, children is not null || loaded is not null, route.At));
+            }
+
+            if (children is not null)
+            {
+                Walk(code, children, full, guards, reached, depth + 1);
+            }
+
+            if (loaded is not null)
+            {
+                Walk(code, loaded, full, guards, reached, depth + 1);
+            }
+        }
+    }
+
+    /// <summary>A route's guards: each function named, or a guard factory called (<c>roleGuard(ROLES.ADMIN)</c>) with its arguments.</summary>
+    private static IEnumerable<AngularGuard> Guards(ValueNode? list) =>
+        list?.Items.Select(x => x.Call is { } call ? new AngularGuard(call.Name, call.Arguments, x.At) : new AngularGuard(x.Text[(x.Text.LastIndexOf('.') + 1)..], [], x.At)) ?? [];
+
+    /// <summary>The route table <c>loadChildren: () =&gt; import('./admin.routes').then((m) =&gt; m.ADMIN_ROUTES)</c> loads: the named constant, else the file's default export.</summary>
+    private static ValueNode? Loaded(CodeGraph code, string from, string text)
+    {
+        if (Lazy.Match(text) is not { Success: true } match || AngularCode.FileLoaded(code, from, match.Groups[1].Value) is not { } file)
+        {
+            return null;
+        }
+
+        var members = code.Types.Where(x => x.Files.Contains(file)).SelectMany(x => x.Members).Where(x => x.Value is not null).ToList();
+        var named = match.Groups[3].Success ? members.FirstOrDefault(x => x.Name == match.Groups[3].Value) : members.FirstOrDefault(x => x.Name == "default") ?? members.FirstOrDefault(x => IsTable(x.Value!));
+        return named?.Value is { } value && IsTable(value) ? value : null;
+    }
+
+    /// <summary>The component <c>loadComponent: () =&gt; import('./cart-page').then((m) =&gt; m.CartPage)</c> loads.</summary>
+    private static TypeNode? LoadedComponent(CodeGraph code, string from, string text)
+    {
+        if (Lazy.Match(text) is not { Success: true } match || AngularCode.FileLoaded(code, from, match.Groups[1].Value) is not { } file)
+        {
+            return null;
+        }
+
+        var components = code.Types.Where(x => x.Kind == "component" && x.Files.Contains(file)).ToList();
+        return match.Groups[3].Success ? components.FirstOrDefault(x => x.Name == match.Groups[3].Value) : components.Count == 1 ? components[0] : null;
+    }
+
+    /// <summary>A child path under its parent's, as the router joins them: <c>/pizzerias</c> and <c>:id</c> are <c>/pizzerias/:id</c>.</summary>
+    internal static string Join(string prefix, string path)
+    {
+        var segments = prefix.Split('/', StringSplitOptions.RemoveEmptyEntries).Concat(path.Split('/', StringSplitOptions.RemoveEmptyEntries));
+        return "/" + string.Join("/", segments);
+    }
+}
+
+/// <summary>What Angular's readers share: what an Angular component is, its template's markup and units.</summary>
+internal static class AngularCode
+{
+    /// <summary>An Angular component: a class the TypeScript language read whose <c>@Component</c> decorator declares one.</summary>
+    public static bool IsAngular(TypeNode? type) => type is { Kind: "component" } && UiCode.IsTypeScript(type) && type.Attributes.Any(x => x.Name == "Component");
+
+    /// <summary>The component's decorator argument, as written: its <c>selector</c>, <c>templateUrl</c> or <c>template</c>.</summary>
+    public static string? Decorated(TypeNode type, string name) =>
+        type.Attributes.FirstOrDefault(x => x.Name == "Component")?.Named.GetValueOrDefault(name) is { Length: > 0 } value ? value : null;
+
+    /// <summary>The template file a component's <c>templateUrl</c> names, from its TypeScript file.</summary>
+    public static string? TemplateOf(TypeNode type) =>
+        Decorated(type, "templateUrl") is { } url && type.Files.FirstOrDefault(UiCode.IsTypeScript) is { } file ? UiCode.Resolve(file, url) : null;
+
+    /// <summary>The component's selectors, a comma-separated list read one by one: <c>rw-header</c>, <c>tr[rw-admin-order-row]</c>.</summary>
+    public static IEnumerable<CssSelector> Selectors(TypeNode type) => Decorated(type, "selector") is { } selector ? CssSelector.ParseList(selector) : [];
+
+    /// <summary>The markup the component renders, every element at any depth: its template file's, or its inline template's.</summary>
+    public static IReadOnlyList<MarkupNode> Markup(CodeGraph code, TypeNode component)
+    {
+        if (TemplateOf(component) is { } template && UiCode.FileOf(code, template) is { } file)
+        {
+            return UiCode.Markup(file).ToList();
+        }
+
+        var site = AngularRoutes.Site(code);
+        if (!site.Inline.TryGetValue(component, out var inline))
+        {
+            var decorator = component.Attributes.First(x => x.Name == "Component");
+            inline = Decorated(component, "template") is { } text
+                ? VueTemplate.ReadDocument(component.At.File, text, new AngularDialect(code), decorator.At.Line, decorator.At.Column ?? 1)
+                : [];
+            site.Inline[component] = inline;
+        }
+
+        return inline.SelectMany(x => x.DescendantsAndSelf()).ToList();
+    }
+
+    /// <summary>The component's own code: its members' bodies and its fields' initializers (<see cref="UiCode.MemberUnits"/>).</summary>
+    public static IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> Units(TypeNode component) => UiCode.MemberUnits(component).ToList();
+
+    /// <summary>The file an <c>import('./x')</c> from a file loads: the TypeScript file at that module path.</summary>
+    public static string? FileLoaded(CodeGraph code, string from, string specifier)
+    {
+        var module = UiCode.Resolve(from, specifier);
+        return code.Files.Select(x => x.Path).FirstOrDefault(x => x == module || UiCode.IsTypeScript(x) && Regex.Replace(x, @"\.(ts|tsx|js|jsx|mjs|cjs|mts|cts)$", "") == module);
+    }
+
+    /// <summary>The value of a constant a file names: its own module's, else the one it imports of that name.</summary>
+    public static ValueNode? Constant(CodeGraph code, string file, string name)
+    {
+        if (!Regex.IsMatch(name, @"^\w+$"))
+        {
+            return null;
+        }
+
+        if (code.Types.Where(x => x.Files.Contains(file)).SelectMany(x => x.Members).FirstOrDefault(x => x.Name == name && x.Value is not null) is { } own)
+        {
+            return own.Value;
+        }
+
+        var import = UiCode.FileOf(code, file)?.Imports.FirstOrDefault(x => x.Alias == name || x.Alias is null && x.Target.EndsWith("." + name, StringComparison.Ordinal));
+        var exported = import?.Target[(import.Target.LastIndexOf('.') + 1)..];
+        return import?.File is { } imported
+            ? code.Types.Where(x => x.Files.Contains(imported)).SelectMany(x => x.Members).FirstOrDefault(x => x.Name == exported && x.Value is not null)?.Value
+            : null;
+    }
+
+    /// <summary>Every call in the TypeScript code: in bodies, top-level code and the values its members are given, at any depth.</summary>
+    public static IEnumerable<CallNode> Calls(CodeGraph code)
+    {
+        var seen = new HashSet<CallNode>(ReferenceEqualityComparer.Instance);
+        var types = code.Types.Where(UiCode.IsTypeScript).ToList();
+        var units = types.SelectMany(x => x.Members).Select(x => x.Body).OfType<FunctionNode>()
+            .Concat(code.Files.Where(x => UiCode.IsTypeScript(x.Path)).Select(x => x.TopLevel).OfType<FunctionNode>());
+        foreach (var call in units.SelectMany(x => x.Calls))
+        {
+            if (seen.Add(call))
+            {
+                yield return call;
+            }
+        }
+
+        foreach (var value in types.SelectMany(x => x.Members).Select(x => x.Value).OfType<ValueNode>())
+        {
+            foreach (var call in UiCode.CallsIn(value))
+            {
+                if (seen.Add(call))
+                {
+                    yield return call;
+                }
+            }
+        }
+    }
+}
+
+/// <summary>
+/// Angular's template syntax: a tag or attribute a component's <c>selector</c> matches is that component
+/// (<c>&lt;rw-header /&gt;</c>, <c>&lt;tr rw-admin-order-row&gt;</c>); <c>[x]</c> binds, <c>(x)</c> listens, <c>[(x)]</c> binds both
+/// ways, <c>*x</c> is a structural directive and <c>#x</c> a reference, as are their <c>bind-</c>, <c>on-</c>, <c>bindon-</c> and
+/// <c>ref-</c> forms; and a plain attribute's value interpolates <c>{{ }}</c>.
+/// </summary>
+internal sealed class AngularDialect(CodeGraph code) : VueTemplate.MarkupDialect
+{
+    private readonly List<(CssSelector Selector, TypeNode Type)> _selectors =
+        code.Types.Where(AngularCode.IsAngular).SelectMany(x => AngularCode.Selectors(x).Select(s => (s, x))).ToList();
+
+    public override bool Interpolates => true;
+
+    public override TypeRefNode? ComponentOf(MarkupNode element) =>
+        _selectors.FirstOrDefault(x => x.Selector.Matches(element)).Type is { } type
+            ? new TypeRefNode { Text = element.Tag, Name = type.Name, QualifiedName = type.Namespace.Length == 0 ? type.Name : $"{type.Namespace}.{type.Name}", Language = TypeScriptLanguage.LanguageName }
+            : null;
+
+    public override (string? Directive, string? Argument, List<string> Modifiers) Split(string name) => name switch
+    {
+        _ when name.StartsWith("[(", StringComparison.Ordinal) && name.EndsWith(")]", StringComparison.Ordinal) => ("model", name[2..^2], []),
+        _ when name.StartsWith('[') && name.EndsWith(']') => ("bind", name[1..^1], []),
+        _ when name.StartsWith('(') && name.EndsWith(')') => ("on", name[1..^1], []),
+        _ when name.StartsWith('*') => ("structural", name[1..], []),
+        _ when name.StartsWith('#') => ("ref", name[1..], []),
+        _ when name.StartsWith("bindon-", StringComparison.Ordinal) => ("model", name[7..], []),
+        _ when name.StartsWith("bind-", StringComparison.Ordinal) => ("bind", name[5..], []),
+        _ when name.StartsWith("on-", StringComparison.Ordinal) => ("on", name[3..], []),
+        _ when name.StartsWith("ref-", StringComparison.Ordinal) => ("ref", name[4..], []),
+        _ => (null, null, [])
+    };
+}
+
+/// <summary>
+/// Angular component templates: an <c>.html</c> file is Angular's when a component's <c>templateUrl</c> names it (code-reader.md,
+/// Claimed files). Each is read as markup in Angular's dialect and joins its component's files, as a view joins its code-behind,
+/// so the template is the located component's code.
+/// </summary>
+internal sealed class AngularTemplates : IClaimingLanguage
+{
+    private static readonly Regex Syntax = new(@"@(if|for|switch|defer|let)\b|\*ng[A-Z]\w*=|\[\(?[\w.\-]+\)?\]=|\(\w[\w.]*\)=", RegexOptions.Compiled);
+
+    public string Name => "angular";
+
+    public string Title => "Angular";
+
+    public bool Reads(string path) => false;
+
+    public bool MayClaim(string path) => path.EndsWith(".html", StringComparison.OrdinalIgnoreCase);
+
+    public bool WrittenIn(string text) => Syntax.IsMatch(text);
+
+    public IEnumerable<FileClaim> Claim(string root, IReadOnlyList<string> files, CodeGraph graph)
+    {
+        var offered = files.ToHashSet(StringComparer.Ordinal);
+        foreach (var component in graph.Types.Where(AngularCode.IsAngular))
+        {
+            if (AngularCode.TemplateOf(component) is { } template && offered.Contains(template))
+            {
+                yield return new FileClaim(template, ClaimEvidence.Named, $"the templateUrl of `{component.Name}` ({component.At.File}:{component.At.Line})");
+            }
+        }
+    }
+
+    public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken)
+    {
+        var dialect = new AngularDialect(graph);
+        var owners = graph.Types.Where(AngularCode.IsAngular).Select(x => (Type: x, Template: AngularCode.TemplateOf(x))).Where(x => x.Template is not null).ToList();
+        foreach (var file in files)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            var text = File.ReadAllText(Path.Combine(root, file));
+            graph.Files.Add(new FileNode { Path = file, Language = Name, Markup = VueTemplate.ReadDocument(file, text, dialect) });
+            foreach (var (component, _) in owners.Where(x => x.Template == file))
+            {
+                component.Files.Add(file);
+            }
+        }
+    }
+}
+
+/// <summary>
+/// What a component's members are to the designer, so <c>unmodelled.member</c> asks only for those it can state: Angular's
+/// lifecycle hooks are Angular's (<see cref="CodeGraph.Unmodellable"/>), and a field an injector gives
+/// (<c>private readonly auth = inject(Auth)</c>) is its <c>Uses</c> of that service (<see cref="CodeGraph.StatedByLink"/>).
+/// </summary>
+internal sealed class AngularMembers : ICodeReader
+{
+    private static readonly HashSet<string> Lifecycle =
+        ["ngOnChanges", "ngOnInit", "ngDoCheck", "ngAfterContentInit", "ngAfterContentChecked", "ngAfterViewInit", "ngAfterViewChecked", "ngOnDestroy"];
+
+    public void Read(CodeGraph graph)
+    {
+        foreach (var type in graph.Types.Where(x => UiCode.IsTypeScript(x) && x.Attributes.Any(a => a.Name is "Component" or "Directive" or "Injectable" or "Pipe")))
+        {
+            foreach (var member in type.Members)
+            {
+                if (member.Kind == "method" && Lifecycle.Contains(member.Name))
+                {
+                    graph.Unmodellable[member] = "Angular calls it for every component: no designer states it";
+                }
+                else if (member.Kind is "property" or "field" && member.Value?.Call?.Name is "inject" or "injectAsync")
+                {
+                    graph.StatedByLink[member] = "Uses";
+                }
+            }
+        }
+    }
+}
+
+/// <summary>
+/// What an Angular component is (a page a route shows, a layout hosting a <c>&lt;router-outlet&gt;</c>, a dialog a dialog
+/// service opens), a page's routes and title, and its security as far as Angular states it.
+/// </summary>
+internal sealed class AngularComponents : IClaimReader
+{
+    public IReadOnlyCollection<string> Kinds { get; } = ["component.kind", "page.route", "page.title", "security", "security.roles", "security.policy"];
+
+    private const string Unsecured = "Angular has no standard way to say which route guards secure a route; a house reader names them (AngularRoutes gives each route's guards).";
+
+    public ClaimReading? Read(ClaimContext context)
+    {
+        var type = context.Type ?? context.TypeOf(context.Element);
+        if (!AngularCode.IsAngular(type))
+        {
+            return null;
+        }
+
+        var code = context.Code;
+        var site = AngularRoutes.Site(code);
+        var records = site.Routes.Where(x => x.Component == type).ToList();
+        // A route with child routes is theirs as much as its own, so a route without any says best what the component is.
+        var pages = records.Where(x => !x.Parent).ToList() is { Count: > 0 } leaves ? leaves : records;
+        switch (context.Kind)
+        {
+            case "component.kind":
+            {
+                var outlet = AngularCode.Markup(code, type!).FirstOrDefault(x => x.Tag == "router-outlet");
+                if (site.Bootstrapped.Contains(type!))
+                {
+                    return ClaimReading.Compared("Layout", outlet?.At ?? type!.At, context.Expected == "Layout");
+                }
+
+                if (records.Any(x => !x.Parent) || records.Count > 0 && outlet is null)
+                {
+                    return ClaimReading.Compared("Page", pages[0].At, context.Expected == "Page");
+                }
+
+                if (records.Count > 0 || outlet is not null)
+                {
+                    return ClaimReading.Compared("Layout", outlet?.At ?? records[0].At, context.Expected == "Layout");
+                }
+
+                return site.Opened.TryGetValue(type!, out var opened)
+                    ? ClaimReading.Compared("Dialog", opened[0].At, context.Expected == "Dialog")
+                    : ClaimReading.Absent(type!.At, "Component");
+            }
+            case "page.route":
+                if (pages.FirstOrDefault(x => x.Path.Contains(UiCode.Hole)) is { } computed)
+                {
+                    return ClaimReading.CantVerify("unreadable", "A route's path is computed.", computed.At);
+                }
+
+                return pages.Count == 0
+                    ? ClaimReading.Absent(type!.At)
+                    : ClaimReading.Stated(string.Join(", ", pages.Select(x => UiCode.ModelRoute(x.Path)).Distinct().Order(StringComparer.Ordinal)), pages[0].At);
+            case "page.title":
+                return Title(context, code, type!, pages);
+            case "security":
+                // A component no guard is on states None by saying nothing; which guards secure a route is the house's to say.
+                return context.Expected == "None" && records.All(x => x.Guards.Count == 0)
+                    ? ClaimReading.Absent(records.FirstOrDefault()?.At ?? type!.At, "None")
+                    : ClaimReading.CantVerify("noRule", Unsecured, records.FirstOrDefault()?.At ?? type!.At);
+            default:
+                return ClaimReading.CantVerify("noRule", Unsecured, records.FirstOrDefault()?.At ?? type!.At);
+        }
+    }
+
+    /// <summary>A page's title: its route's <c>title</c> (the one the model names, when its routes differ), else one its code sets with the <c>Title</c> service.</summary>
+    private static ClaimReading Title(ClaimContext context, CodeGraph code, TypeNode type, IReadOnlyList<AngularRoute> pages)
+    {
+        var titled = pages.Where(x => x.Title is not null).ToList();
+        if ((titled.FirstOrDefault(x => x.Title == context.Expected) ?? titled.FirstOrDefault()) is { } route)
+        {
+            return route.Title!.Contains(UiCode.Hole) ? ClaimReading.CantVerify("unreadable", "The page's title is computed (a title resolver).", route.At) : ClaimReading.Stated(route.Title, route.At);
+        }
+
+        foreach (var (_, _, unit) in AngularCode.Units(type))
+        {
+            if (unit.Calls.FirstOrDefault(x => x is { Name: "setTitle", Arguments.Count: > 0 } && (x.ReceiverType?.Name == "Title" || x.Receiver?.EndsWith("title", StringComparison.OrdinalIgnoreCase) == true)) is { } call)
+            {
+                return code.StringOf(call.Arguments[0]) is { Kind: "string", Value: { } text }
+                    ? ClaimReading.Stated(text, call.At)
+                    : ClaimReading.CantVerify("unreadable", "The page's title is computed.", call.At);
+            }
+        }
+
+        return ClaimReading.Absent(pages.FirstOrDefault()?.At ?? type.At);
+    }
+}
+
+/// <summary>
+/// What an Angular component's Property is to its page: <c>[Bindable]</c> when two-way (<c>model()</c>, or an input with an
+/// <c>xChange</c> output); a route parameter when the router binds it from its route (<c>withComponentInputBinding()</c>, an input
+/// named like a <c>:param</c>) or the code reads it from the <c>ActivatedRoute</c>; a query parameter when the router binds it
+/// from the query string (an input of a routed component that is no route parameter and no route <c>data</c>) or the code reads
+/// it from the route's query parameters.
+/// </summary>
+internal sealed class AngularInputs : IClaimReader
+{
+    public IReadOnlyCollection<string> Kinds { get; } = ["property.query", "property.route", "property.bindable"];
+
+    public ClaimReading? Read(ClaimContext context)
+    {
+        var owner = context.Type ?? (context.Element.ParentElement is { } parent ? context.TypeOf(parent) : null);
+        if (!AngularCode.IsAngular(owner))
+        {
+            return null;
+        }
+
+        var code = context.Code;
+        var member = context.Member ?? owner!.Members.FirstOrDefault(x => x.Kind is "property" or "field" && UiCode.Words(x.Name) == UiCode.Words(context.Element.Name));
+        var name = member?.Name ?? UiCode.Camel(context.Element.Name);
+        var function = member?.Value?.Call is { } call ? call.Name is "required" ? call.Receiver : call.Name : null;
+        var decorated = member?.Attributes.Any(x => x.Name == "Input") == true;
+        var isInput = function is "input" or "model" || decorated;
+        var site = AngularRoutes.Site(code);
+        var routes = site.Routes.Where(x => x.Component == owner).ToList();
+        var bound = site.BindsInputs && routes.Count > 0 && isInput;
+        switch (context.Kind)
+        {
+            case "property.bindable":
+            {
+                var change = owner!.Members.Any(x => x.Name == name + "Change" && (x.Value?.Call?.Name == "output" || x.Attributes.Any(a => a.Name == "Output")));
+                return function == "model" || decorated && change
+                    ? ClaimReading.Compared("true", member!.At, context.Expected == "true")
+                    : ClaimReading.Absent(member?.At ?? owner.At, "false");
+            }
+            case "property.route":
+            {
+                var at = bound && routes.Any(r => Parameters(r.Path).Contains(name)) ? member!.At : Read(owner!, name, "paramMap", "params");
+                return at is { } found ? ClaimReading.Compared("true", found, context.Expected == "true") : ClaimReading.Absent(member?.At ?? owner!.At, "false");
+            }
+            default:
+            {
+                var at = bound && !routes.Any(r => Parameters(r.Path).Contains(name) || r.Data.Contains(name)) ? member!.At : Read(owner!, name, "queryParamMap", "queryParams");
+                return at is { } found ? ClaimReading.Compared("true", found, context.Expected == "true") : ClaimReading.Absent(member?.At ?? owner!.At, "false");
+            }
+        }
+    }
+
+    private static IEnumerable<string> Parameters(string path) =>
+        path.Split('/', StringSplitOptions.RemoveEmptyEntries).Where(x => x.StartsWith(':')).Select(x => x[1..].TrimEnd('?'));
+
+    /// <summary>
+    /// Where the component reads a value of the name from its <c>ActivatedRoute</c>: <c>paramMap.get('id')</c> (or the query's
+    /// <c>queryParamMap</c>), <c>params['id']</c> or <c>params.id</c>, also through its <c>snapshot</c>.
+    /// </summary>
+    private static Span? Read(TypeNode component, string name, string map, string record)
+    {
+        var escaped = Regex.Escape(name);
+        foreach (var (_, _, unit) in AngularCode.Units(component))
+        {
+            if (unit.Calls.FirstOrDefault(x => x is { Name: "get", Arguments.Count: > 0 } && x.Receiver?.EndsWith(map, StringComparison.Ordinal) == true
+                                               && string.Equals(x.Arguments[0].Literal?.Value, name, StringComparison.Ordinal)) is { } call)
+            {
+                return call.At;
+            }
+
+            if (Regex.IsMatch(unit.Text, $@"\b{record}\s*(?:\[\s*['""]{escaped}['""]\s*\]|\.\s*{escaped}\b)"))
+            {
+                return unit.At;
+            }
+        }
+
+        return null;
+    }
+}
+
+/// <summary>
+/// A Show Dialog from Angular code: a call of a dialog service's <c>open</c> with the dialog's component
+/// (<c>this.dialog.open(ConfirmDialog, { data })</c>, CDK's <c>Dialog</c> or Material's <c>MatDialog</c>), in the source's own
+/// code or the code's own functions it calls. A dialog is opened, never rendered by a tag.
+/// </summary>
+internal sealed class AngularDialogs : IClaimReader
+{
+    public IReadOnlyCollection<string> Kinds { get; } = ["intent.opens"];
+
+    public ClaimReading? Read(ClaimContext context)
+    {
+        if (context.Element is not IAssociationEnd end || context.Owner(end) is not { } source || end.TypeReference?.Element is not IElement target
+            || UiCode.CodeOf(context, source) is not { } located || !UiCode.IsTypeScript(located.Type) || context.TypeOf(target) is not { } dialog
+            || !AngularCode.IsAngular(dialog))
+        {
+            return null;
+        }
+
+        var opened = AngularRoutes.Site(context.Code).Opened.GetValueOrDefault(dialog) ?? [];
+        var own = UiCode.MemberUnits(located.Type).Select(x => x.Unit).ToList();
+        if (opened.FirstOrDefault(x => own.Any(u => u.Calls.Contains(x)) || located.Type.Files.Contains(x.At.File) && located.Type.Kind != "component") is { } call)
+        {
+            return ClaimReading.Found(call, call.At);
+        }
+
+        return AngularCode.IsAngular(located.Type) ? ClaimReading.Absent(located.Type.At) : null;
+    }
+}
+
+/// <summary>
+/// What an Angular component uses, navigates to and calls: a child component's tag in its template (by the child's
+/// <c>selector</c>), an import of a service or store, a <c>routerLink</c> or <c>href</c>, a router's <c>navigate</c> or
+/// <c>navigateByUrl</c>, relative links from its own route and static redirects followed, and what its code calls
+/// (<see cref="ScriptLinks"/>).
+/// </summary>
+internal sealed class AngularLinks : ScriptLinks
+{
+    protected override bool Answers(TypeNode type) => AngularCode.IsAngular(type);
+
+    protected override IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> Units(CodeGraph code, FileNode file, TypeNode type) => AngularCode.Units(type);
+
+    protected override IReadOnlyList<MarkupNode> Markup(CodeGraph code, FileNode file, TypeNode type) => AngularCode.Markup(code, type);
+
+    protected override Span Start(FileNode file, TypeNode type) => type.At;
+
+    protected override bool Tagged(MarkupNode tag, string name) => tag.Component?.Name == name;
+
+    protected override bool UsesByImport => true;
+
+    protected override string Resolve(CodeGraph code, TypeNode type, string path)
+    {
+        var redirects = AngularRoutes.Redirects(code);
+        if (!path.StartsWith('/'))
+        {
+            var from = AngularRoutes.Of(code, type).FirstOrDefault()?.Path ?? "/";
+            var segments = from.Split('/', StringSplitOptions.RemoveEmptyEntries).ToList();
+            foreach (var part in path.Split('/', StringSplitOptions.RemoveEmptyEntries))
+            {
+                if (part == "..")
+                {
+                    if (segments.Count > 0)
+                    {
+                        segments.RemoveAt(segments.Count - 1);
+                    }
+                }
+                else if (part != ".")
+                {
+                    segments.Add(part);
+                }
+            }
+
+            path = "/" + string.Join("/", segments);
+        }
+
+        for (var hop = 0; hop < 5 && !path.Contains(UiCode.Hole) && redirects.TryGetValue(AngularSite.Join("", path), out var to); hop++)
+        {
+            path = to;
+        }
+
+        return path;
+    }
+
+    protected override IEnumerable<(string? Path, Span At)> MarkupLinks(CodeGraph code, IReadOnlyList<MarkupNode> markup)
+    {
+        foreach (var attribute in markup.SelectMany(x => x.Attributes))
+        {
+            if (attribute is { Directive: null, Name: "routerLink" } || attribute is { Directive: null, Name: "href" } && attribute.Value?.StartsWith('/') == true)
+            {
+                yield return (UiCode.Text(attribute.Literal), attribute.At);
+            }
+            else if (attribute is { Directive: "bind", Argument: "routerLink" or "href" } && attribute.Value is { } expression)
+            {
+                foreach (var branch in Branches(expression))
+                {
+                    yield return (Link(branch), attribute.At);
+                }
+            }
+        }
+    }
+
+    /// <summary>Both branches of <c>cond ? a : b</c>, outside quotes and brackets; the expression itself otherwise.</summary>
+    private static IEnumerable<string> Branches(string expression)
+    {
+        var (question, colon) = (-1, -1);
+        var depth = 0;
+        char? quote = null;
+        for (var i = 0; i < expression.Length; i++)
+        {
+            var c = expression[i];
+            if (quote is not null)
+            {
+                quote = c == quote ? null : quote;
+            }
+            else if (c is '\'' or '"' or '`')
+            {
+                quote = c;
+            }
+            else if (c is '[' or '(' or '{')
+            {
+                depth++;
+            }
+            else if (c is ']' or ')' or '}')
+            {
+                depth--;
+            }
+            else if (depth == 0 && c == '?' && question < 0 && (i + 1 >= expression.Length || expression[i + 1] is not ('.' or '?')))
+            {
+                question = i;
+            }
+            else if (depth == 0 && c == ':' && question >= 0)
+            {
+                colon = i;
+                break;
+            }
+        }
+
+        return question >= 0 && colon > question ? [expression[(question + 1)..colon].Trim(), expression[(colon + 1)..].Trim()] : [expression.Trim()];
+    }
+
+    /// <summary>
+    /// A bound link as a path: <c>'/cart'</c>, or a commands array (<c>['/pizzerias', pizzeria.id]</c>), each quoted segment as
+    /// written and each value a hole; null for a link the code computes whole.
+    /// </summary>
+    private static string? Link(string expression)
+    {
+        if (UiCode.Written(expression) is { } written)
+        {
+            return written;
+        }
+
+        if (!expression.StartsWith('[') || !expression.EndsWith(']'))
+        {
+            return null;
+        }
+
+        var items = new List<string>();
+        var (start, depth) = (1, 0);
+        char? quote = null;
+        for (var i = 1; i < expression.Length - 1; i++)
+        {
+            var c = expression[i];
+            if (quote is not null)
+            {
+                quote = c == quote ? null : quote;
+            }
+            else if (c is '\'' or '"' or '`')
+            {
+                quote = c;
+            }
+            else if (c is '[' or '(' or '{')
+            {
+                depth++;
+            }
+            else if (c is ']' or ')' or '}')
+            {
+                depth--;
+            }
+            else if (c == ',' && depth == 0)
+            {
+                items.Add(expression[start..i]);
+                start = i + 1;
+            }
+        }
+
+        items.Add(expression[start..^1]);
+        var parts = items.Select(x => x.Trim()).Where(x => x.Length > 0).Select(x => UiCode.Written(x) is { } text && !text.Contains(UiCode.Hole) ? text : UiCode.Hole.ToString()).ToList();
+        if (parts.Count == 0)
+        {
+            return null;
+        }
+
+        var joined = string.Join("/", parts.Select((x, i) => i == 0 ? x.TrimEnd('/') : x.Trim('/')));
+        return joined.Length == 0 ? "/" : joined;
+    }
+}

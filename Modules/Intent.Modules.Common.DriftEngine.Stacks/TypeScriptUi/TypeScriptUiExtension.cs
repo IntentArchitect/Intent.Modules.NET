@@ -16,7 +16,74 @@ public sealed class TypeScriptUiExtension : IDriftExtension
 {
     public string Id => "intent.typescript.ui";
 
-    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Modules(), new StoreMembers(), new ModuleLinks(), new Requests(), new PersistedStores()];
+    public IEnumerable<IClaimReader> ClaimReaders { get; } = [new Modules(), new StoreMembers(), new ModuleLinks(), new Requests(), new BaseUrls(), new PersistedStores()];
+}
+
+/// <summary>
+/// <c>proxy.baseUrl</c>: the absolute URL a TypeScript proxy's requests start with, before each operation's route. It is the
+/// first part of a request's URL the code joins it from, when that is an absolute URL (<c>this.baseUrl + '/api'</c>,
+/// <c>`${environment.apiUrl}/orders`</c>), else the scheme and host of a URL written whole, else the <c>baseURL</c> or
+/// <c>prefixUrl</c> of the client instance it is sent with (<c>axios.create({ baseURL })</c>). Requests with no absolute URL
+/// state none; requests starting with different ones can't be verified.
+/// </summary>
+internal sealed class BaseUrls : IClaimReader
+{
+    public IReadOnlyCollection<string> Kinds { get; } = ["proxy.baseUrl"];
+
+    public ClaimReading? Read(ClaimContext context)
+    {
+        if ((context.Type ?? context.TypeOf(context.Element)) is not { } type || !UiCode.IsTypeScript(type))
+        {
+            return null;
+        }
+
+        var code = context.Code;
+        var requests = Requests.RequestsOf(code, type).ToList();
+        if (requests.Count == 0)
+        {
+            return ClaimReading.CantVerify("notFound", $"`{type.Name}` sends no request the engine reads (a fetch, or an HTTP client's verb method).", type.At);
+        }
+
+        var bases = requests.Select(x => (Url: BaseOf(code, x.Request), x.Request.At)).Where(x => x.Url is not null).ToList();
+        if (bases.Count == 0)
+        {
+            return ClaimReading.Absent(requests[0].Request.At);
+        }
+
+        if (bases.Select(x => x.Url!.TrimEnd('/')).Distinct(StringComparer.OrdinalIgnoreCase).Count() > 1)
+        {
+            return ClaimReading.CantVerify("ambiguous", $"`{type.Name}`'s requests start with different base URLs.", bases[0].At);
+        }
+
+        var found = bases[0].Url!.TrimEnd('/');
+        return ClaimReading.Compared(found, bases[0].At, string.Equals(found, context.Expected.Trim().TrimEnd('/'), StringComparison.OrdinalIgnoreCase));
+    }
+
+    /// <summary>The absolute URL a request starts with, as described on the class; null when it starts with none.</summary>
+    private static string? BaseOf(CodeGraph code, Requests.Sent request)
+    {
+        if (request.Value is { } value)
+        {
+            // The first part the URL is joined from: a + chain's first operand, or a template's first value before any text.
+            var first = value.Joined.FirstOrDefault()
+                        ?? (value.Literal is { Kind: "interpolated", Parts: [{ Literal: null } leading, ..] } ? leading : null);
+            if (first is not null && Absolute(UiCode.Text(code.StringOf(first))) is { } joined)
+            {
+                return joined;
+            }
+        }
+
+        if (UiCode.Text(request.Url) is { } whole && Uri.TryCreate(whole.Replace(UiCode.Hole, 'x'), UriKind.Absolute, out var uri) && uri.Scheme is "http" or "https")
+        {
+            return $"{uri.Scheme}://{uri.Authority}";
+        }
+
+        var configured = request.Instance?.Value?.Call?.Arguments.FirstOrDefault()?.Members.FirstOrDefault(x => x.Member is "baseURL" or "prefixUrl")?.Value;
+        return configured is null ? null : Absolute(UiCode.Text(code.StringOf(configured)));
+    }
+
+    private static string? Absolute(string? text) =>
+        text is not null && !text.Contains(UiCode.Hole) && Uri.TryCreate(text, UriKind.Absolute, out var uri) && uri.Scheme is "http" or "https" ? text : null;
 }
 
 /// <summary>
@@ -373,7 +440,7 @@ internal sealed class Requests : IClaimReader
     }
 
     /// <summary>The first request the method sends, nearest first, following the code's own functions with the calls that lead into them.</summary>
-    private static Sent? Request(CodeGraph code, TypeNode type, MemberNode method)
+    internal static Sent? Request(CodeGraph code, TypeNode type, MemberNode method)
     {
         var seen = new HashSet<FunctionNode> { method.Body! };
         var queue = new Queue<(TypeNode Type, FunctionNode Unit, IReadOnlyList<CallNode> Through)>([(type, method.Body!, [])]);
@@ -409,8 +476,11 @@ internal sealed class Requests : IClaimReader
         return sent is null || through.Count == 0 ? sent : sent with { At = through[0].At };
     }
 
-    /// <summary>A request a call sends, read through the calls that lead to it: its verb and URL, and where it is.</summary>
-    internal sealed record Sent(string? Verb, LiteralNode? Url, Span At);
+    /// <summary>
+    /// A request a call sends, read through the calls that lead to it: its verb and URL, where it is, the URL's value as written,
+    /// and the client instance it is sent with (<c>axios.create({ baseURL })</c>), when it is.
+    /// </summary>
+    internal sealed record Sent(string? Verb, LiteralNode? Url, Span At, ValueNode? Value = null, MemberNode? Instance = null);
 
     internal static Sent? Sends(CodeGraph code, CallNode call, IReadOnlyList<CallNode> through)
     {
@@ -421,22 +491,38 @@ internal sealed class Requests : IClaimReader
         {
             var init = call.Arguments.ElementAtOrDefault(1);
             var verb = init?.Members.FirstOrDefault(x => x.Member == "method")?.Value is { } method ? Literal(method) : init is null || init.Members.Count > 0 ? "GET" : null;
-            return new Sent(verb?.ToUpperInvariant(), code.StringOf(call.Arguments[0], through), call.At);
+            return new Sent(verb?.ToUpperInvariant(), code.StringOf(call.Arguments[0], through), call.At, call.Arguments[0]);
+        }
+
+        // Angular's httpResource(() => url) and httpResource(() => ({ url, method, params })), and its text, blob and
+        // arrayBuffer forms: a resource a signal's change sends again; GET when no method is given.
+        if (call.Target is null && (call is { Name: "httpResource", Receiver: null } || call is { Name: "text" or "blob" or "arrayBuffer", Receiver: "httpResource" })
+            && call.Arguments.FirstOrDefault() is { } resource)
+        {
+            if ((resource.Function is { } function ? function.Returns.FirstOrDefault() : resource) is not { } request)
+            {
+                return null;
+            }
+
+            var url = request.Members.Count > 0 ? request.Members.FirstOrDefault(x => x.Member == "url")?.Value : request;
+            var verb = request.Members.FirstOrDefault(x => x.Member == "method")?.Value is { } method ? Literal(method) : "GET";
+            return new Sent(verb?.ToUpperInvariant(), url is null ? null : code.StringOf(url, through), call.At, url);
         }
 
         // axios.get(url), http.post<T>(url, body), and axios({ method, url }) or client.request({ method, url }).
-        if (call.Target is null && call.Receiver is { } receiver && (Client.IsMatch(receiver) || IsInstance(code, receiver)))
+        if (call.Target is null && call.Receiver is { } receiver && (Client.IsMatch(receiver) || Instance(code, receiver) is not null))
         {
+            var instance = Instance(code, receiver);
             if (Verbs.Contains(call.Name) && call.Arguments.Count > 0)
             {
-                return new Sent(call.Name.ToUpperInvariant(), code.StringOf(call.Arguments[0], through), call.At);
+                return new Sent(call.Name.ToUpperInvariant(), code.StringOf(call.Arguments[0], through), call.At, call.Arguments[0], instance);
             }
 
             if (call.Name == "request" && call.Arguments.FirstOrDefault() is { Members.Count: > 0 } config)
             {
                 var verb = config.Members.FirstOrDefault(x => x.Member == "method")?.Value is { } method ? Literal(method) : "GET";
                 var url = config.Members.FirstOrDefault(x => x.Member == "url")?.Value;
-                return new Sent(verb?.ToUpperInvariant(), url is null ? null : code.StringOf(url, through), call.At);
+                return new Sent(verb?.ToUpperInvariant(), url is null ? null : code.StringOf(url, through), call.At, url, instance);
             }
         }
 
@@ -447,12 +533,17 @@ internal sealed class Requests : IClaimReader
     /// A client the code makes from one: a variable given <c>axios.create(...)</c>, <c>ky.create(...)</c> or
     /// <c>ky.extend(...)</c>, whatever it is named (<c>const catalogApi = axios.create({ baseURL })</c>).
     /// </summary>
-    private static bool IsInstance(CodeGraph code, string receiver)
+    private static MemberNode? Instance(CodeGraph code, string receiver)
     {
         var name = receiver[(receiver.LastIndexOf('.') + 1)..];
         return code.Types.Where(x => x.Kind is "module" or "object" or "class" && UiCode.IsTypeScript(x)).SelectMany(x => x.Members)
-            .Any(x => x.Kind is "field" or "property" && x.Name == name && x.Value?.Call is { Name: "create" or "extend", Receiver: { } made } && Client.IsMatch(made));
+            .FirstOrDefault(x => x.Kind is "field" or "property" && x.Name == name && x.Value?.Call is { Name: "create" or "extend", Receiver: { } made } && Client.IsMatch(made));
     }
+
+    /// <summary>The requests a proxy's methods send, the first of each, with the method.</summary>
+    internal static IEnumerable<(MemberNode Method, Sent Request)> RequestsOf(CodeGraph code, TypeNode type) =>
+        type.Members.Where(x => x.Kind == "method" && x.Body is not null).Select(x => (Method: x, Request: Request(code, type, x)))
+            .Where(x => x.Request is not null).Select(x => (x.Method, x.Request!));
 
     /// <summary>
     /// A URL as a route: from its first <c>/</c> after a base URL (a value before the path, or a scheme and host), without its

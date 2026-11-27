@@ -85,21 +85,74 @@ internal static class UiCode
         return null;
     }
 
-    /// <summary>Every unit of code in a file: its types' members, and what it runs when it loads (a component's <c>&lt;script setup&gt;</c>).</summary>
+    /// <summary>
+    /// Every unit of code in a file: its types' members, their field initializers, and what it runs when it loads (a
+    /// component's <c>&lt;script setup&gt;</c>).
+    /// </summary>
     public static IEnumerable<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> Units(CodeGraph code, FileNode file)
     {
         var owner = code.Types.FirstOrDefault(x => x.Files.Contains(file.Path) && x.Kind is "component" or "module");
         foreach (var type in code.Types.Where(x => x.Files.Contains(file.Path)))
         {
-            foreach (var member in type.Members.Where(x => x.Body is not null))
+            foreach (var unit in MemberUnits(type))
             {
-                yield return (type, member, member.Body!);
+                yield return unit;
             }
         }
 
         if (file.TopLevel is { } top && owner is not null)
         {
             yield return (owner, null, top);
+        }
+    }
+
+    /// <summary>
+    /// A type's own code: each member's body, and each field's initializer as a unit of its own, as the class runs it when it is
+    /// made (<c>ordersResource = this.api.getOrdersResource(page)</c>, <c>form = form(model, { action: async () =&gt; ... })</c>):
+    /// the calls it makes, the ones in the functions it is given included.
+    /// </summary>
+    public static IEnumerable<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> MemberUnits(TypeNode type)
+    {
+        foreach (var member in type.Members)
+        {
+            if (member.Body is not null)
+            {
+                yield return (type, member, member.Body);
+            }
+            else if (member is { Kind: "field" or "property", Value: { } value } && CallsIn(value).ToList() is { Count: > 0 } calls)
+            {
+                yield return (type, member, new FunctionNode { Calls = calls, Text = value.Text, At = value.At });
+            }
+        }
+    }
+
+    /// <summary>The calls a value makes, at any depth: its own, its arguments', its members' and items', and those of a function it is.</summary>
+    public static IEnumerable<CallNode> CallsIn(ValueNode value) => CallsIn(value, 0).Distinct();
+
+    private static IEnumerable<CallNode> CallsIn(ValueNode value, int depth)
+    {
+        if (depth > 16)
+        {
+            yield break;
+        }
+
+        if (value.Call is { } call)
+        {
+            yield return call;
+            foreach (var inner in call.Arguments.SelectMany(x => CallsIn(x, depth + 1)))
+            {
+                yield return inner;
+            }
+        }
+
+        foreach (var inner in value.Function?.Calls ?? [])
+        {
+            yield return inner;
+        }
+
+        foreach (var inner in value.Members.Select(x => x.Value).Concat(value.Items).SelectMany(x => CallsIn(x, depth + 1)))
+        {
+            yield return inner;
         }
     }
 
@@ -272,6 +325,17 @@ internal static class UiCode
     private static bool IsParameter(string segment) => segment.StartsWith('{') || segment.StartsWith(':') || segment.Contains(Hole);
 
     private static List<string> Segments(string path) => path.Split('?', '#')[0].Split('/', StringSplitOptions.RemoveEmptyEntries).ToList();
+
+    /// <summary>
+    /// A router's commands as a path (Angular's <c>['/pizzerias', pizzeria.id, 'edit']</c>): each segment's text joined by
+    /// <c>/</c>, a value the code computes a <see cref="Hole"/>, a segment holding slashes as written.
+    /// </summary>
+    public static string Commands(CodeGraph code, IReadOnlyList<ValueNode> segments)
+    {
+        var parts = segments.Select(x => Text(code.StringOf(x)) is { } text && !text.Contains(Hole) ? text : Hole.ToString()).ToList();
+        var joined = string.Join("/", parts.Select((x, i) => i == 0 ? x.TrimEnd('/') : x.Trim('/')));
+        return joined.Length == 0 ? "/" : joined;
+    }
 
     /// <summary>A string value as text, each value the code computes a <see cref="Hole"/>; null when it isn't a string.</summary>
     public static string? Text(LiteralNode? literal) => literal switch

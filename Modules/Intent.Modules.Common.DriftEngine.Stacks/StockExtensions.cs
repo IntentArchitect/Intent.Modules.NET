@@ -1,6 +1,7 @@
 using System.Text.Json.Nodes;
 using Intent.Modules.Common.DriftEngine.Extensions;
 using Intent.Modules.Common.DriftEngine.Packs;
+using Intent.Modules.Common.DriftEngine.Stacks.Angular;
 using Intent.Modules.Common.DriftEngine.Stacks.AspNetCore;
 using Intent.Modules.Common.DriftEngine.Stacks.BeanValidation;
 using Intent.Modules.Common.DriftEngine.Stacks.Blazor;
@@ -86,6 +87,7 @@ public static class StockExtensions
         new TypeScriptUiExtension(),
         new VueExtension(),
         new ReactExtension(),
+        new AngularExtension(),
         new ProxiesExtension()
     ];
 

@@ -72,15 +72,22 @@ internal static class TypeComparer
             return false;
         }
 
+        // Any value is an object: the model's object is less precise than whatever the code says, but true, so it isn't drift.
+        if (element is { SpecializationType: "Type-Definition", Name: "object" })
+        {
+            return true;
+        }
+
         if (code.IsAnonymous)
         {
             return Shaped(model, element, code, profile);
         }
 
-        // A primitive is a type definition the profile maps; a modelled element compares by name, unresolved.
+        // A primitive is a type definition the profile maps; a modelled element compares by name, unresolved. A literal type, or
+        // a union of them, is the primitive its values are (TypeScript's 'en' is a string), less precise but true.
         if (Written(model, profile) is { } written)
         {
-            return written.Contains(code.QualifiedName) || written.Contains(code.Text);
+            return written.Contains(code.QualifiedName) || written.Contains(code.Text) || Widened(code, profile) is { } widened && written.Contains(widened);
         }
 
         if (IsWrittenAs(model, code, profile))
@@ -133,6 +140,23 @@ internal static class TypeComparer
     private static bool IsWrittenAs(ITypeReference model, TypeRefNode code, JsonNode profile) =>
         model.Element is { SpecializationType: "Type-Definition" } element && element.Name.IndexOfAny(['<', '[', '?']) >= 0 && Written(model, profile) is null
         && element.Name.Replace(" ", "") == code.Text.Replace(" ", "");
+
+    /// <summary>
+    /// The primitive a literal type's values are, as the profile's <c>literals</c> writes it (TypeScript's <c>'en'</c> is a
+    /// <c>string</c>, <c>4</c> a <c>number</c>): a literal's, or a union's whose members are all literals of one primitive,
+    /// nulls aside (<c>'SIZE' | 'TOPPING'</c>). Null for any other type.
+    /// </summary>
+    private static string? Widened(TypeRefNode code, JsonNode profile)
+    {
+        if (code.Literal is { Kind: var kind })
+        {
+            return profile["literals"]?[kind]?.GetValue<string>();
+        }
+
+        var nulls = (profile["nullable"]?["unionMembers"] as JsonArray)?.Select(x => x!.GetValue<string>()).ToHashSet() ?? [];
+        var widened = code.Union.Where(x => !nulls.Contains(x.Text)).Select(x => x.Literal is null ? null : Widened(x, profile)).Distinct().ToList();
+        return widened is [{ } only] ? only : null;
+    }
 
     /// <summary>How the profile writes the model's type, when it's a primitive (a type definition the profile maps).</summary>
     private static IReadOnlyList<string>? Written(ITypeReference model, JsonNode profile) =>

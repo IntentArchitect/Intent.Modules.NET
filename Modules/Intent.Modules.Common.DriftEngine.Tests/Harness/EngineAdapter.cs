@@ -73,8 +73,8 @@ internal sealed class DriftEngineAdapter : IDriftEngineAdapter
         // User Interface vocabulary, and a case with a house designer's pack names intent.vue or intent.react to have that stack
         // read its claims. The TypeScript modules, stores and proxies any front end writes come with either.
         // A house extension comes last, as a module's is registered after the stock ones, so its readers are asked first.
-        var ui = input.StockPacks.Contains("intent.ui") ? ["intent.blazor", "intent.mvc", "intent.mvvmtoolkit", "intent.maui", "intent.typescript.ui", "intent.vue", "intent.react"]
-            : input.StockPacks.Any(x => x is "intent.vue" or "intent.react") ? new[] { "intent.typescript.ui" } : [];
+        var ui = input.StockPacks.Contains("intent.ui") ? ["intent.blazor", "intent.mvc", "intent.mvvmtoolkit", "intent.maui", "intent.typescript.ui", "intent.vue", "intent.react", "intent.angular"]
+            : input.StockPacks.Any(x => x is "intent.vue" or "intent.react" or "intent.angular") ? new[] { "intent.typescript.ui" } : [];
         var extensions = StockExtensions.All.Where(x => !x.ClaimReaders.Any() || x.Id is "intent.serialization" or "intent.proxies")
             .Concat(ui.Select(StockExtensions.Find).OfType<IDriftExtension>())
             .Concat(input.StockPacks.Select(StockExtensions.Find).OfType<IDriftExtension>())

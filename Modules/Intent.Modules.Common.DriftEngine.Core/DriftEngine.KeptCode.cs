@@ -20,7 +20,8 @@ internal sealed record KeptRead(
     IReadOnlyList<(TypeNode Type, ScopeRow Row)> ExcludedTypes,
     IReadOnlyDictionary<string, int> Read,
     CodeGraph Graph,
-    IReadOnlyCollection<Type> Stored);
+    IReadOnlyCollection<Type> Stored,
+    Dictionary<string, (string Language, string Why)> Claimed);
 
 public sealed partial class DriftEngine
 {
@@ -97,7 +98,7 @@ public sealed partial class DriftEngine
         _graph.KeepOnly(_stored);
         lock (Kept)
         {
-            Kept[Path.GetFullPath(_input.OutputFolder)] = new KeptRead(_readKey, _scope, _files.ToList(), _codeScope, _excludedTypes.ToList(), _readCounts, _graph, _stored);
+            Kept[Path.GetFullPath(_input.OutputFolder)] = new KeptRead(_readKey, _scope, _files.ToList(), _codeScope, _excludedTypes.ToList(), _readCounts, _graph, _stored, _claimed);
         }
     }
 

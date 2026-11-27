@@ -981,6 +981,16 @@
       "phase": "later"
     },
     {
+      "kind": "proxy.baseUrl",
+      "label": "proxy base URL",
+      "area": "ui",
+      "valueType": "text",
+      "comparer": "exact",
+      "stated": "whenSet",
+      "existence": false,
+      "phase": "later"
+    },
+    {
       "kind": "proxy.version",
       "label": "proxy API version",
       "area": "ui",

@@ -596,6 +596,8 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
                 return Named(expression, before, depth);
             case "NewExpression":
                 return Created(expression) is { } created ? ([created], true) : Unknown;
+            case "CallExpression" when Injected(expression) is { } injected:
+                return ([injected], true);
             case "CallExpression" when depth < MaxDepth:
                 return Returned(expression, depth);
             case "AwaitExpression":
@@ -729,6 +731,16 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
             _ => Unknown
         };
 
+    /// <summary>
+    /// What a dependency injector's <c>inject(Token)</c> gives: an instance of the class it names, as Angular declares it
+    /// (<c>inject&lt;T&gt;(token: ProviderToken&lt;T&gt;): T</c>), so <c>private readonly auth = inject(Auth)</c> is an
+    /// <c>Auth</c> and <c>this.auth.login()</c> reaches <c>Auth.login</c>. Null for any other call.
+    /// </summary>
+    internal static TypeRefNode? Injected(TypeScriptNode call) =>
+        TypeScriptReader.Unwrapped(call["expression"]!) is { Kind: "Identifier", Value: "inject" } && call.List("arguments").FirstOrDefault() is { Kind: "Identifier" or "PropertyAccessExpression" } token
+            ? new TypeRefNode { Text = token.Canonical, Name = token.Canonical[(token.Canonical.LastIndexOf('.') + 1)..], QualifiedName = token.Canonical, Language = TypeScriptLanguage.LanguageName }
+            : null;
+
     /// <summary>A reference to an in-scope type by its full name, which the graph resolves to it.</summary>
     private static TypeRefNode RefTo(TypeNode type) => new()
     {
@@ -750,6 +762,7 @@ internal sealed class TypeScriptBody(TypeScriptReader.Module module, TypeNode ow
         {
             "NewExpression" => CreatedType(unwrapped, strict),
             "AsExpression" or "TypeAssertionExpression" when unwrapped["type"]!.Canonical != "const" => TypeScriptReader.TypeRef(unwrapped["type"]!, strict),
+            "CallExpression" => Injected(unwrapped),
             _ => null
         };
         return new ValueNode

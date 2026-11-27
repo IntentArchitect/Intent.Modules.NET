@@ -212,7 +212,14 @@ public sealed record Coverage(IReadOnlyList<CoverageRow> Rows, IReadOnlyDictiona
 
 public sealed record PackRef(string Id, string Version);
 
-public sealed record FileRead(string Path, string Reader);
+public sealed record FileRead(string Path, string Reader)
+{
+    /// <summary>
+    /// Why a framework's language reads a file of an extension several share (<see cref="Extensions.IClaimingLanguage"/>):
+    /// the code's evidence, and how a tie between frameworks was broken. Null for a file its extension gives a language.
+    /// </summary>
+    public string? Claimed { get; init; }
+}
 
 /// <summary>What one run produces (run-result.schema.json).</summary>
 public sealed record RunResult(IReadOnlyList<Claim> Claims, IReadOnlyList<Finding> Findings, Coverage Coverage, IReadOnlyList<PackRef> Packs, IReadOnlyList<FileRead> Files)

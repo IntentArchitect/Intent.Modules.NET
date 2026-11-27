@@ -50,13 +50,14 @@ internal sealed class JinjaSite
 
 /// <summary>
 /// Jinja templates: each is a component type named by its file without the extension, as the User Interface designer names
-/// Pages and Layouts. An HTML file is a template only because the app's Python renders it with Jinja: a file Jinja's own
-/// extension names (<c>.jinja</c>, <c>.j2</c>) is one, and an <c>.html</c> file is one when it is in a templates folder, the folder a
-/// template the Python code renders by name (<c>templates.TemplateResponse(request, "index.html", ...)</c>, Flask's
-/// <c>render_template</c>, <c>env.get_template</c>) is found in. Other HTML, a Vue app's <c>index.html</c> or a static page, is
-/// no template. The Python language reads first (its extension comes first), so its syntax is on the graph.
+/// Pages and Layouts. A file Jinja's own extension names (<c>.jinja</c>, <c>.j2</c>) is a template. An HTML file is one only
+/// where the Python code says so (code-reader.md, Claimed files): it is in a folder the code declares as its templates
+/// folder (<c>Jinja2Templates(directory="templates")</c>, Flask's <c>template_folder</c> or its default <c>templates</c>
+/// beside the app, a <c>FileSystemLoader</c> or <c>PackageLoader</c>), or a render call names it
+/// (<c>templates.TemplateResponse(request, "index.html", ...)</c>, <c>render_template</c>, <c>env.get_template</c>), looked up
+/// in those folders. Other HTML, a static page or another framework's template, isn't Jinja's.
 /// </summary>
-internal sealed class JinjaLanguage : ILanguage
+internal sealed class JinjaLanguage : IClaimingLanguage
 {
     /// <summary>The calls that render a template by its name, in Starlette, FastAPI, Flask and Jinja's own environment.</summary>
     private static readonly HashSet<string> Renderers = ["TemplateResponse", "render_template", "render_template_string", "stream_template", "get_template", "select_template"];
@@ -65,14 +66,48 @@ internal sealed class JinjaLanguage : ILanguage
 
     public string Title => "Jinja";
 
-    public bool Reads(string path) =>
-        path.EndsWith(".html", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".htm", StringComparison.OrdinalIgnoreCase) || JinjaTemplate.IsJinjaFile(path);
+    public bool Reads(string path) => JinjaTemplate.IsJinjaFile(path);
+
+    public bool MayClaim(string path) => path.EndsWith(".html", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".htm", StringComparison.OrdinalIgnoreCase);
+
+    /// <summary>Jinja's own statements and comments; its <c>{{ }}</c> is no evidence, as other template languages write it too.</summary>
+    public bool WrittenIn(string text) => text.Contains("{%", StringComparison.Ordinal) || text.Contains("{#", StringComparison.Ordinal);
+
+    public IEnumerable<FileClaim> Claim(string root, IReadOnlyList<string> files, CodeGraph graph)
+    {
+        if (PythonSyntax.Of(graph) is not { } syntax)
+        {
+            yield break;
+        }
+
+        var folders = TemplateFolders(syntax, files);
+        var claimed = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var (file, call) in Rendered(syntax))
+        {
+            // A rendered name is looked up in the declared folders; with none the code declares, wherever it is.
+            var relative = call.Name.TrimStart('/');
+            foreach (var match in files.Where(x => folders.Count > 0 ? folders.Any(f => x == f.Folder + relative) : x == relative || x.EndsWith("/" + relative, StringComparison.Ordinal)))
+            {
+                if (claimed.Add(match))
+                {
+                    yield return new FileClaim(match, ClaimEvidence.Named, $"rendered as `{call.Name}` in {file}:{call.Line}");
+                }
+            }
+        }
+
+        foreach (var file in files.Where(x => !claimed.Contains(x)))
+        {
+            if (folders.FirstOrDefault(f => file.StartsWith(f.Folder, StringComparison.Ordinal)) is { Folder: not null } folder)
+            {
+                yield return new FileClaim(file, ClaimEvidence.Folder, $"in the templates folder {folder.Why}");
+            }
+        }
+    }
 
     public void Read(string root, IReadOnlyList<string> files, CodeGraph graph, CancellationToken cancellationToken)
     {
-        var folders = TemplateFolders(graph, files);
         var site = new JinjaSite();
-        foreach (var file in files.Where(x => JinjaTemplate.IsJinjaFile(x) || folders.Any(f => x.StartsWith(f, StringComparison.Ordinal))))
+        foreach (var file in files)
         {
             cancellationToken.ThrowIfCancellationRequested();
             var text = File.ReadAllText(Path.Combine(root, file));
@@ -98,42 +133,91 @@ internal sealed class JinjaLanguage : ILanguage
         }
     }
 
-    /// <summary>
-    /// The folders, with a trailing <c>/</c>, the Python code renders templates from: for each template name a renderer is given
-    /// as a string (<c>"index.html"</c>, <c>"projects/list.html"</c>), the folder of the in-scope file at that path.
-    /// </summary>
-    private static HashSet<string> TemplateFolders(CodeGraph graph, IReadOnlyList<string> files)
+    /// <summary>The template names the Python code renders, as strings it gives a renderer, with where.</summary>
+    private static IEnumerable<(string File, (string Name, int Line) Call)> Rendered(PythonSyntax syntax)
     {
-        var folders = new HashSet<string>(StringComparer.Ordinal);
-        if (PythonSyntax.Of(graph) is not { } syntax)
+        foreach (var (file, module) in syntax.Trees)
         {
-            return folders;
-        }
-
-        foreach (var call in syntax.Trees.Values.SelectMany(x => x.Descendants()).OfType<PythonCall>())
-        {
-            var name = call.Function switch
+            foreach (var call in module.Descendants().OfType<PythonCall>().Where(x => Renderers.Contains(CalleeName(x) ?? "")))
             {
-                PythonName named => named.Id,
-                PythonAttribute attribute => attribute.Name,
-                _ => null
-            };
-            if (name is null || !Renderers.Contains(name))
-            {
-                continue;
-            }
-
-            foreach (var rendered in call.Arguments.Where(x => x.Name is null or "name" or "template_name" or "template_name_or_list").Select(x => x.Value).OfType<PythonString>().Select(x => x.Value).OfType<string>())
-            {
-                var relative = rendered.TrimStart('/');
-                foreach (var file in files.Where(x => x == relative || x.EndsWith("/" + relative, StringComparison.Ordinal)))
+                foreach (var rendered in call.Arguments.Where(x => x.Name is null or "name" or "template_name" or "template_name_or_list").Select(x => x.Value).OfType<PythonString>().Select(x => x.Value).OfType<string>())
                 {
-                    folders.Add(file[..^relative.Length]);
+                    yield return (file, (rendered, PythonSyntax.SpanOf(call, file).Line));
+                }
+            }
+        }
+    }
+
+    private static string? CalleeName(PythonCall call) => call.Function switch
+    {
+        PythonName named => named.Id,
+        PythonAttribute attribute => attribute.Name,
+        _ => null
+    };
+
+    /// <summary>
+    /// The folders, each with a trailing <c>/</c>, the Python code declares as its templates folders, with where: Starlette's and
+    /// FastAPI's <c>Jinja2Templates(directory=...)</c>, Jinja's <c>FileSystemLoader(...)</c> (one folder or a list) and
+    /// <c>PackageLoader(package, folder)</c> (<c>templates</c> by default), and Flask's <c>Flask(...)</c> or <c>Blueprint(...)</c>
+    /// <c>template_folder</c> beside the module that makes it (<c>templates</c> by default for <c>Flask</c>). A folder the code
+    /// builds (<c>BASE_DIR / "templates"</c>, <c>os.path.join(BASE_DIR, "templates")</c>) is its last part written. A folder is
+    /// the in-scope folder at that path from the output folder, else beside the module, else any ending with it.
+    /// </summary>
+    private static List<(string Folder, string Why)> TemplateFolders(PythonSyntax syntax, IReadOnlyList<string> files)
+    {
+        var folders = new List<(string Folder, string Why)>();
+        var directories = files.Select(x => x.Contains('/') ? x[..(x.LastIndexOf('/') + 1)] : "").Distinct().ToList();
+        foreach (var (file, module) in syntax.Trees)
+        {
+            foreach (var call in module.Descendants().OfType<PythonCall>())
+            {
+                var callee = CalleeName(call);
+                var declared = callee switch
+                {
+                    "Jinja2Templates" => Argument(call, "directory", 0) is { } directory ? Paths(directory) : [],
+                    "FileSystemLoader" => Argument(call, "searchpath", 0) is { } search ? Paths(search) : [],
+                    "PackageLoader" => [Argument(call, "package_path", 1) is { } package ? Last(package) ?? "templates" : "templates"],
+                    "Flask" => [Argument(call, "template_folder", -1) is { } folder ? Last(folder) ?? "templates" : "templates"],
+                    "Blueprint" => Argument(call, "template_folder", -1) is { } folder && Last(folder) is { } blueprint ? [blueprint] : [],
+                    _ => []
+                };
+                foreach (var path in declared)
+                {
+                    var line = PythonSyntax.SpanOf(call, file).Line;
+                    var relative = path.Trim().Replace('\\', '/').Trim('/') + "/";
+                    var beside = (file.Contains('/') ? file[..(file.LastIndexOf('/') + 1)] : "") + relative;
+                    // Starlette's and Jinja's file loaders take a path from where the app runs; Flask's and a package's are its module's.
+                    var (first, second) = callee is "Flask" or "Blueprint" or "PackageLoader" ? (beside, relative) : (relative, beside);
+                    var found = directories.Any(x => x.StartsWith(first, StringComparison.Ordinal)) ? first
+                        : directories.Any(x => x.StartsWith(second, StringComparison.Ordinal)) ? second
+                        : directories.Where(x => x.EndsWith("/" + relative, StringComparison.Ordinal)).Select(x => x).OrderBy(x => x.Length).FirstOrDefault()
+                          ?? directories.Select(x => x.IndexOf("/" + relative, StringComparison.Ordinal) is var at and >= 0 ? x[..(at + relative.Length + 1)] : null).OfType<string>().FirstOrDefault();
+                    if (found is not null && folders.All(x => x.Folder != found))
+                    {
+                        folders.Add((found, $"`{found.TrimEnd('/')}` that {callee} declares in {file}:{line}"));
+                    }
                 }
             }
         }
 
         return folders;
+
+        static PythonExpression? Argument(PythonCall call, string name, int position) =>
+            call.Arguments.FirstOrDefault(x => x.Name == name)?.Value
+            ?? (position >= 0 ? call.Arguments.Where(x => x.Name is null && x.Stars == 0).ElementAtOrDefault(position)?.Value : null);
+
+        // One folder, or a list of them.
+        static IReadOnlyList<string> Paths(PythonExpression value) =>
+            value is PythonSequence list ? list.Items.Select(Last).OfType<string>().ToList() : Last(value) is { } one ? [one] : [];
+
+        // The folder a path names: a string, or the last string a path the code builds is joined from.
+        static string? Last(PythonExpression value) => value switch
+        {
+            PythonString { Value: { } text } => text,
+            PythonBinary { Operator: "/" } joined => Last(joined.Right),
+            PythonCall { Arguments.Count: > 0 } call when CalleeName(call) is "join" or "Path" => Last(call.Arguments[^1].Value),
+            _ => null
+        };
     }
 }
 

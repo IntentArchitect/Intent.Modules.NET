@@ -191,6 +191,7 @@ public sealed partial class DriftEngine
 
             Timed("rules", () => findings.AddRange(Rules()));
             Timed("optin", () => findings.AddRange(OptIn(findings)));
+            Timed("unread files", () => findings.AddRange(UnreadFiles()));
             Timed("unread", () => findings.AddRange(Unread()));
         }
 
@@ -371,7 +372,7 @@ public sealed partial class DriftEngine
         _readKey = _input.KeepCode ? ReadKey(walked, _scope) : null;
         if (_readKey is not null && TakeKept(_readKey) is { } kept)
         {
-            (_scope, _codeScope, _graph, _stored, _readCounts) = (kept.Scope, kept.CodeScope, kept.Graph, kept.Stored, kept.Read);
+            (_scope, _codeScope, _graph, _stored, _readCounts, _claimed) = (kept.Scope, kept.CodeScope, kept.Graph, kept.Stored, kept.Read, kept.Claimed);
             _files.AddRange(kept.Files);
             _excludedTypes.AddRange(kept.ExcludedTypes);
             _graph.KeepOnly(_stored);
@@ -390,29 +391,20 @@ public sealed partial class DriftEngine
         _codeScope = new CodeScope(_files.Select(x => (x.Path, x.Decision)));
         _timings.Add(new Timing("code files", Stopwatch.GetElapsedTime(walk).TotalMilliseconds, _files.Count));
 
-        // Each language reads its in-scope files; a file no language reads isn't read.
+        // Each language reads its in-scope files by their extension; then the frameworks' languages claim, from what the code
+        // read so far says, the files of an extension several share (code-reader.md, Claimed files), and read them with their
+        // own. A file nothing reads is a scope/unread finding.
         var failures = _extensionFailures.Count;
         var read = new Dictionary<string, int>();
-        foreach (var (extension, language) in _languages)
+        foreach (var (extension, language) in _languages.Where(x => x.Language is not IClaimingLanguage))
         {
-            var files = _files.Where(x => x.Decision.In && LanguageOf(x.Path) == language).Select(x => x.Path).OrderBy(x => x, StringComparer.Ordinal).ToList();
-            if (files.Count == 0)
-            {
-                continue;
-            }
+            ReadLanguage(extension, language, InScope(language), read);
+        }
 
-            _input.CancellationToken.ThrowIfCancellationRequested();
-            try
-            {
-                Timed($"code {language.Name}", () => language.Read(_input.OutputFolder, files, _graph, _input.CancellationToken), files.Count);
-                read[language.Name] = files.Count;
-            }
-            catch (Exception e) when (e is not OperationCanceledException)
-            {
-                Failed(extension, language, e);
-            }
-
-            TimedParts($"code {language.Name}");
+        Claim();
+        foreach (var (extension, language) in _languages.Where(x => x.Language is IClaimingLanguage))
+        {
+            ReadLanguage(extension, language, InScope(language), read);
         }
 
         _readCounts = read;
@@ -479,9 +471,104 @@ public sealed partial class DriftEngine
 
     private readonly Dictionary<string, ILanguage?> _languageOf = new(StringComparer.Ordinal);
 
-    /// <summary>The language that reads a file; null when none does.</summary>
+    /// <summary>The language that reads a file: its extension's, else the framework's that claimed it; null when none does.</summary>
     private ILanguage? LanguageOf(string path) =>
-        _languageOf.TryGetValue(path, out var language) ? language : _languageOf[path] = _languages.Select(x => x.Language).FirstOrDefault(x => x.Reads(path));
+        _languageOf.TryGetValue(path, out var language) ? language
+        : _languageOf[path] = _claimed.TryGetValue(path, out var claimed) ? _languages.Select(x => x.Language).FirstOrDefault(x => x.Name == claimed.Language)
+            : _languages.Select(x => x.Language).FirstOrDefault(x => x.Reads(path));
+
+    /// <summary>
+    /// The files a framework's language claimed (<see cref="IClaimingLanguage"/>), each with the language's name and why, kept
+    /// with the read: a kept read's languages are the next run's extensions', of the same names.
+    /// </summary>
+    private Dictionary<string, (string Language, string Why)> _claimed = new(StringComparer.Ordinal);
+
+    /// <summary>The in-scope files the language reads, in order.</summary>
+    private List<string> InScope(ILanguage language) =>
+        _files.Where(x => x.Decision.In && LanguageOf(x.Path) == language).Select(x => x.Path).OrderBy(x => x, StringComparer.Ordinal).ToList();
+
+    private void ReadLanguage(string extension, ILanguage language, List<string> files, Dictionary<string, int> read)
+    {
+        if (files.Count == 0)
+        {
+            return;
+        }
+
+        _input.CancellationToken.ThrowIfCancellationRequested();
+        try
+        {
+            Timed($"code {language.Name}", () => language.Read(_input.OutputFolder, files, _graph, _input.CancellationToken), files.Count);
+            read[language.Name] = files.Count;
+        }
+        catch (Exception e) when (e is not OperationCanceledException)
+        {
+            Failed(extension, language, e);
+        }
+
+        TimedParts($"code {language.Name}");
+    }
+
+    /// <summary>
+    /// Each in-scope file no language reads by its extension goes to the framework whose code claims it (code-reader.md,
+    /// Claimed files): the strongest evidence; on equal evidence, the one whose syntax the file is written in; then the
+    /// higher priority; then the extension registered last.
+    /// </summary>
+    private void Claim()
+    {
+        var claimers = _languages.Select((x, i) => (x.Extension, Language: x.Language as IClaimingLanguage, Order: i)).Where(x => x.Language is not null).ToList();
+        if (claimers.Count == 0)
+        {
+            return;
+        }
+
+        var unread = _files.Where(x => x.Decision.In && LanguageOf(x.Path) is null).Select(x => x.Path).OrderBy(x => x, StringComparer.Ordinal).ToList();
+        var claims = new List<(FileClaim Claim, IClaimingLanguage Language, int Order)>();
+        foreach (var (extension, language, order) in claimers)
+        {
+            var files = unread.Where(language!.MayClaim).ToList();
+            if (files.Count == 0)
+            {
+                continue;
+            }
+
+            try
+            {
+                var offered = files.ToHashSet(StringComparer.Ordinal);
+                claims.AddRange(language.Claim(_input.OutputFolder, files, _graph).Where(x => offered.Contains(x.Path)).DistinctBy(x => x.Path).Select(x => (x, language, order)));
+            }
+            catch (Exception e) when (e is not OperationCanceledException)
+            {
+                Failed(extension, language, e);
+            }
+        }
+
+        foreach (var file in claims.GroupBy(x => x.Claim.Path, StringComparer.Ordinal))
+        {
+            var strongest = file.Max(x => x.Claim.Evidence);
+            var candidates = file.Where(x => x.Claim.Evidence == strongest).ToList();
+            var decided = "evidence";
+            if (candidates.Count > 1)
+            {
+                var text = File.ReadAllText(Path.Combine(_input.OutputFolder, file.Key));
+                var written = candidates.Where(x => x.Language.WrittenIn(text)).ToList();
+                if (written.Count > 0 && written.Count < candidates.Count)
+                {
+                    candidates = written;
+                    decided = "its syntax";
+                }
+
+                if (candidates.Count > 1)
+                {
+                    decided = "priority";
+                }
+            }
+
+            var winner = candidates.OrderByDescending(x => x.Language.Priority).ThenByDescending(x => x.Order).First();
+            var others = file.Where(x => x.Language != winner.Language).Select(x => x.Language.Title).Distinct().ToList();
+            _claimed[file.Key] = (winner.Language.Name, others.Count == 0 ? winner.Claim.Why : $"{winner.Claim.Why}; also claimed by {string.Join(", ", others)}, decided by {decided}");
+            _languageOf.Remove(file.Key);
+        }
+    }
 
     /// <summary>
     /// The in-scope types named as each one's own language names something (<paramref name="nameIn"/>, given its profile), in
@@ -534,7 +621,7 @@ public sealed partial class DriftEngine
 
     private IReadOnlyList<FileRead> FilesRead() =>
         _files.Where(x => x.Decision.In).Select(x => (x.Path, Language: LanguageOf(x.Path))).Where(x => x.Language is not null)
-            .Select(x => new FileRead(x.Path, x.Language!.Name)).ToList();
+            .Select(x => new FileRead(x.Path, x.Language!.Name) { Claimed = _claimed.TryGetValue(x.Path, out var claimed) ? claimed.Why : null }).ToList();
 
     private Coverage Coverage()
     {

@@ -1170,3 +1170,440 @@ public partial class OrdersPage
   ]
 }
 ```
+
+## angular-standard-designer
+
+The standard User Interface designer (2.0.0) read against an Angular front end by the stock Angular reader (`intent.angular`). A component is a class its `@Component` decorator declares; its template is the `.html` file its `templateUrl` names, which Angular claims file by file (code-reader.md, Claimed files), or its inline `template`. A tag a component's `selector` matches renders it. The router's tables are read from `provideRouter`, following `loadChildren` into the file it loads, so `OrderPage` is at `/orders/{id}`, and a static redirect sends the footer's `/` link on to `/cart`. `App` is bootstrapped and hosts a `<router-outlet>`: a Layout. A component a dialog service opens (`inject(Dialog).open(ConfirmDialog)`) is a Dialog. With `withComponentInputBinding()`, an input named like a `:param` is a route parameter and any other input of a routed component a query parameter; `model()` is two-way. A field `inject(X)` initializes is an `X`, so `this.orderApi.getOrdersResource()` in a field initializer calls the proxy. A proxy's `httpResource(() => '/api/orders')` is a GET, an `Observable<T>` return is `T`, a method's `<T = Order>` with no parameter to fix it is `Order`, and the absolute URL its requests start with is its Base URL. Security has no standard Angular reading: `None` holds from silence where no guard is on the route.
+
+```json case
+{ "phase": "later", "kinds": ["component.kind", "page.route", "page.title", "intent.uses", "intent.target", "intent.navigates", "intent.invokes", "intent.opens", "property.bindable", "property.route", "property.query", "proxy.verb", "proxy.route", "proxy.baseUrl", "operation.returns", "security"], "requirements": ["R2", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```json model
+{
+  "designers": {
+    "User Interface": {
+      "packages": [{
+        "id": "shop", "name": "Shop", "type": "User Interface Package",
+        "elements": [
+          { "id": "app", "type": "Layout", "name": "App" },
+          { "id": "footer", "type": "Component", "name": "Footer" },
+          { "id": "cart-page", "type": "Page", "name": "CartPage", "stereotypes": { "Page": { "Route": "/cart", "Title": "Cart" } } },
+          { "id": "cart-line", "type": "Component", "name": "CartLine", "children": [
+            { "id": "cart-line-label", "type": "Property", "name": "label", "typeRef": { "type": "string" } },
+            { "id": "cart-line-quantity", "type": "Property", "name": "quantity", "typeRef": { "type": "int" }, "stereotypes": { "Bindable": {} } }
+          ] },
+          { "id": "order-page", "type": "Page", "name": "OrderPage", "stereotypes": { "Page": { "Route": "/orders/{id}", "Title": "Order" } }, "children": [
+            { "id": "order-page-id", "type": "Property", "name": "id", "typeRef": { "type": "string" }, "stereotypes": { "Route Parameter": {} } },
+            { "id": "order-page-tab", "type": "Property", "name": "tab", "typeRef": { "type": "string" }, "stereotypes": { "Query Parameter": {} } }
+          ] },
+          { "id": "confirm-dialog", "type": "Dialog", "name": "ConfirmDialog" },
+          { "id": "cart-store", "type": "Store", "name": "CartStore", "stereotypes": { "Implementation": { "Path": "app/cart.store.ts" } } },
+          { "id": "order-api", "type": "Proxy", "name": "OrderApi", "stereotypes": { "Implementation": { "Path": "app/order-api.ts" } }, "children": [
+            { "id": "get-orders-resource", "type": "Proxy Operation", "name": "getOrdersResource", "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/orders" } } },
+            { "id": "get-orders", "type": "Proxy Operation", "name": "getOrders", "typeRef": { "element": "order", "collection": true }, "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/orders/all" } } },
+            { "id": "get-order", "type": "Proxy Operation", "name": "getOrder", "typeRef": { "element": "order" }, "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api/orders/{id}" } }, "children": [
+              { "id": "get-order-id", "type": "Parameter", "name": "id", "typeRef": { "type": "string" } }
+            ] }
+          ] },
+          { "id": "photon-api", "type": "Proxy", "name": "PhotonApi", "stereotypes": { "Implementation": { "Path": "app/photon-api.ts" }, "Base URL": { "Url": "https://photon.example.com" } }, "children": [
+            { "id": "photon-search", "type": "Proxy Operation", "name": "search", "stereotypes": { "HTTP Request": { "Verb": "GET", "Route": "api" } }, "children": [
+              { "id": "photon-search-q", "type": "Parameter", "name": "q", "typeRef": { "type": "string" } }
+            ] }
+          ] },
+          { "id": "order", "type": "Contract", "name": "Order", "children": [
+            { "id": "order-id", "type": "Property", "name": "id", "typeRef": { "type": "string" } },
+            { "id": "order-status", "type": "Property", "name": "status", "typeRef": { "element": "order-status-enum", "nullable": true } },
+            { "id": "order-lang", "type": "Property", "name": "lang", "typeRef": { "type": "string" } }
+          ] },
+          { "id": "coupon-check", "type": "Contract", "name": "CouponCheck", "children": [
+            { "id": "coupon-check-valid", "type": "Property", "name": "valid", "typeRef": { "type": "bool" } },
+            { "id": "coupon-check-message", "type": "Property", "name": "message", "typeRef": { "type": "string", "nullable": true } }
+          ] },
+          { "id": "order-status-enum", "type": "Enum", "name": "OrderStatus", "children": [
+            { "id": "order-status-open", "type": "Enum-Literal", "name": "open" },
+            { "id": "order-status-shipped", "type": "Enum-Literal", "name": "shipped" }
+          ] },
+          { "id": "role", "type": "Enum", "name": "Role", "children": [
+            { "id": "role-customer", "type": "Enum-Literal", "name": "CUSTOMER" },
+            { "id": "role-admin", "type": "Enum-Literal", "name": "ADMIN" }
+          ] }
+        ]
+      }],
+      "associations": [
+        { "id": "app-footer", "type": "Composition", "source": { "element": "app" }, "target": { "element": "footer" } },
+        { "id": "footer-home", "type": "Navigation", "source": { "element": "footer" }, "target": { "element": "cart-page" } },
+        { "id": "cart-lines", "type": "Composition", "source": { "element": "cart-page" }, "target": { "element": "cart-line" } },
+        { "id": "cart-orders", "type": "Navigation", "source": { "element": "cart-page" }, "target": { "element": "order-page" } },
+        { "id": "cart-confirm", "type": "Show Dialog", "source": { "element": "cart-page" }, "target": { "element": "confirm-dialog" } },
+        { "id": "cart-store-use", "type": "Uses", "source": { "element": "cart-page" }, "target": { "element": "cart-store" } },
+        { "id": "cart-calls-orders", "type": "Call Service Operation Action", "source": { "element": "cart-page" }, "target": { "element": "get-orders-resource" } },
+        { "id": "order-calls-order", "type": "Call Service Operation Action", "source": { "element": "order-page" }, "target": { "element": "get-order" } }
+      ]
+    },
+    "Codebase Structure": {
+      "packages": [{ "id": "root", "name": "shop", "type": "Root Folder",
+        "stereotypes": { "Drift Scope": { "Entries": [ { "Glob": "src/**", "Scope": "In" } ] } } }]
+    }
+  }
+}
+```
+
+```typescript file src/main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { App } from './app/app';
+import { appConfig } from './app/app.config';
+
+bootstrapApplication(App, appConfig);
+```
+
+```typescript file src/app/app.config.ts
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+    providers: [provideRouter(routes, withComponentInputBinding())],
+};
+```
+
+```typescript file src/app/app.routes.ts
+import { Routes } from '@angular/router';
+import { CartPage } from './cart/cart-page';
+
+export const routes: Routes = [
+    { path: '', pathMatch: 'full', redirectTo: 'cart' },
+    { path: 'cart', title: 'Cart', component: CartPage },
+    { path: 'orders', loadChildren: () => import('./orders/orders.routes').then((m) => m.ORDER_ROUTES) },
+];
+```
+
+```typescript file src/app/orders/orders.routes.ts
+import { Routes } from '@angular/router';
+
+export const ORDER_ROUTES: Routes = [
+    { path: ':id', title: 'Order', loadComponent: () => import('./order-page').then((m) => m.OrderPage) },
+];
+```
+
+```typescript file src/app/app.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Footer } from './footer';
+
+@Component({ selector: 'app-root', imports: [RouterOutlet, Footer], templateUrl: './app.html' })
+export class App {}
+```
+
+```html file src/app/app.html
+<main>
+  <router-outlet />
+</main>
+<app-footer />
+```
+
+```typescript file src/app/footer.ts
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+@Component({ selector: 'app-footer', imports: [RouterLink], template: `<footer><a routerLink="/">Home</a></footer>` })
+export class Footer {}
+```
+
+```typescript file src/app/cart/cart-page.ts
+import { Component, inject } from '@angular/core';
+import { Dialog } from '@angular/cdk/dialog';
+import { RouterLink } from '@angular/router';
+import { CartLine } from './cart-line';
+import { CartStore } from '../cart.store';
+import { OrderApi } from '../order-api';
+import { ConfirmDialog } from '../confirm-dialog';
+
+@Component({ selector: 'app-cart-page', imports: [CartLine, RouterLink], templateUrl: './cart-page.html' })
+export class CartPage {
+    private readonly dialog = inject(Dialog);
+    private readonly orderApi = inject(OrderApi);
+    protected readonly store = inject(CartStore);
+    protected readonly orders = this.orderApi.getOrdersResource();
+
+    protected clear(): void {
+        this.dialog.open(ConfirmDialog, { data: { message: 'Clear the cart?' } });
+    }
+}
+```
+
+```html file src/app/cart/cart-page.html
+<h1>Cart</h1>
+@for (line of store.lines(); track line.id) {
+  <app-cart-line [label]="line.name" [(quantity)]="line.quantity" />
+}
+@if (orders.value(); as list) {
+  @for (order of list; track order.id) {
+    <a [routerLink]="['/orders', order.id]">{{ order.id }}</a>
+  }
+}
+<button (click)="clear()">Clear</button>
+```
+
+```typescript file src/app/cart/cart-line.ts
+import { Component, input, model } from '@angular/core';
+
+@Component({ selector: 'app-cart-line', template: `<span>{{ label() }}</span><input type="number" [value]="quantity()" />` })
+export class CartLine {
+    readonly label = input.required<string>();
+    readonly quantity = model(1);
+}
+```
+
+```typescript file src/app/orders/order-page.ts
+import { Component, inject, input } from '@angular/core';
+import { OrderApi } from '../order-api';
+
+@Component({ selector: 'app-order-page', templateUrl: './order-page.html' })
+export class OrderPage {
+    private readonly api = inject(OrderApi);
+    readonly id = input.required<string>();
+    readonly tab = input<string>('summary');
+
+    protected load() {
+        return this.api.getOrder(this.id());
+    }
+}
+```
+
+```html file src/app/orders/order-page.html
+<h1>Order {{ id() }}</h1>
+```
+
+```typescript file src/app/confirm-dialog.ts
+import { Component, inject } from '@angular/core';
+import { DialogRef } from '@angular/cdk/dialog';
+
+@Component({ selector: 'app-confirm-dialog', template: `<p>Sure?</p><button (click)="ref.close()">OK</button>` })
+export class ConfirmDialog {
+    protected readonly ref = inject(DialogRef);
+}
+```
+
+```typescript file src/app/cart.store.ts
+import { Injectable, signal } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class CartStore {
+    readonly lines = signal<{ id: string; name: string; quantity: number }[]>([]);
+}
+```
+
+```typescript file src/app/order-api.ts
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, httpResource } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Order } from './order.models';
+
+@Injectable({ providedIn: 'root' })
+export class OrderApi {
+    private readonly http = inject(HttpClient);
+
+    getOrdersResource() {
+        return httpResource<Order[]>(() => '/api/orders');
+    }
+
+    getOrders<T = Order>(): Observable<T[]> {
+        return this.http.get<T[]>('/api/orders/all');
+    }
+
+    getOrder(id: string): Observable<Order> {
+        return this.http.get<Order>(`/api/orders/${id}`);
+    }
+}
+```
+
+```typescript file src/app/photon-api.ts
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class PhotonApi {
+    private readonly http = inject(HttpClient);
+    private readonly baseUrl = 'https://photon.example.com';
+
+    search(q: string): Observable<unknown> {
+        return this.http.get(this.baseUrl + '/api', { params: { q } });
+    }
+}
+```
+
+```typescript file src/app/order.models.ts
+export type OrderStatus = 'open' | 'shipped' | null;
+
+export const ROLES = { CUSTOMER: 'CUSTOMER', ADMIN: 'ADMIN' } as const;
+
+export type Role = (typeof ROLES)[keyof typeof ROLES];
+
+export interface Order {
+    id: string;
+    status: OrderStatus;
+    lang: 'en';
+}
+
+export type CouponCheck = { valid: true; code: string } | { valid: false; message: string };
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "component.kind", "element": "app", "outcome": "verified", "expected": "Layout", "actual": "Layout" },
+    { "kind": "component.kind", "element": "cart-page", "outcome": "verified", "expected": "Page", "actual": "Page" },
+    { "kind": "component.kind", "element": "order-page", "outcome": "verified", "expected": "Page", "actual": "Page" },
+    { "kind": "component.kind", "element": "confirm-dialog", "outcome": "verified", "expected": "Dialog", "actual": "Dialog" },
+    { "kind": "component.kind", "element": "cart-line", "outcome": "verified", "expected": "Component" },
+    { "kind": "page.route", "element": "order-page", "outcome": "verified", "actual": "orders/{id}" },
+    { "kind": "page.title", "element": "cart-page", "outcome": "verified", "actual": "Cart" },
+    { "kind": "intent.uses", "element": "app-footer", "outcome": "verified", "at": "src/app/app.html:4" },
+    { "kind": "intent.target", "element": "cart-lines", "outcome": "verified" },
+    { "kind": "intent.navigates", "element": "footer-home", "outcome": "verified" },
+    { "kind": "intent.navigates", "element": "cart-orders", "outcome": "verified", "at": "src/app/cart/cart-page.html:7" },
+    { "kind": "intent.opens", "element": "cart-confirm", "outcome": "verified", "at": "src/app/cart/cart-page.ts:17" },
+    { "kind": "intent.uses", "element": "cart-store-use", "outcome": "verified" },
+    { "kind": "intent.invokes", "element": "cart-calls-orders", "outcome": "verified", "at": "src/app/cart/cart-page.ts:14" },
+    { "kind": "intent.invokes", "element": "order-calls-order", "outcome": "verified" },
+    { "kind": "property.bindable", "element": "cart-line-quantity", "outcome": "verified", "actual": "true" },
+    { "kind": "property.bindable", "element": "cart-line-label", "outcome": "verified", "expected": "false" },
+    { "kind": "property.route", "element": "order-page-id", "outcome": "verified", "actual": "true" },
+    { "kind": "property.query", "element": "order-page-tab", "outcome": "verified", "actual": "true" },
+    { "kind": "property.query", "element": "order-page-id", "outcome": "verified", "expected": "false" },
+    { "kind": "proxy.verb", "element": "get-orders-resource", "outcome": "verified", "actual": "GET" },
+    { "kind": "proxy.route", "element": "get-orders-resource", "outcome": "verified" },
+    { "kind": "proxy.route", "element": "get-order", "outcome": "verified" },
+    { "kind": "proxy.route", "element": "photon-search", "outcome": "verified" },
+    { "kind": "proxy.baseUrl", "element": "photon-api", "outcome": "verified", "actual": "https://photon.example.com" },
+    { "kind": "operation.returns", "element": "get-order", "outcome": "verified" },
+    { "kind": "operation.returns", "element": "get-orders", "outcome": "verified" },
+    { "kind": "enum.literals", "element": "order-status-enum", "outcome": "verified" },
+    { "kind": "enum.literals", "element": "role", "outcome": "verified" },
+    { "kind": "member.exists", "element": "coupon-check-message", "outcome": "verified" },
+    { "kind": "member.type", "element": "coupon-check-message", "outcome": "verified" },
+    { "kind": "member.type", "element": "order-lang", "outcome": "verified" },
+    { "kind": "security", "element": "cart-page", "outcome": "verified", "expected": "None" }
+  ],
+  "findings": [
+    { "rule": "claim/component.kind", "count": 0 },
+    { "rule": "claim/intent.navigates", "count": 0 },
+    { "rule": "claim/intent.invokes", "count": 0 },
+    { "rule": "scope/unread", "count": 0 }
+  ]
+}
+```
+
+## angular-planted-breaks
+
+The same app with a break in each reading: the footer's tag is gone from `app.html`, the cart links to `/order/...`, the dialog is no longer opened, `quantity` is a one-way `input()`, the proxy asks `/api/order`, and the Photon base URL is another host. Each is one finding of its kind.
+
+```json case
+{ "phase": "later", "base": "angular-standard-designer", "kinds": ["intent.uses", "intent.navigates", "intent.opens", "property.bindable", "proxy.route", "proxy.baseUrl"], "requirements": ["R1", "R14", "R38"], "packs": ["intent.core", "intent.ui"], "language": "typescript" }
+```
+
+```html file src/app/app.html
+<main>
+  <router-outlet />
+</main>
+```
+
+```html file src/app/cart/cart-page.html
+<h1>Cart</h1>
+@for (line of store.lines(); track line.id) {
+  <app-cart-line [label]="line.name" [quantity]="line.quantity" />
+}
+@if (orders.value(); as list) {
+  @for (order of list; track order.id) {
+    <a [routerLink]="['/order', order.id]">{{ order.id }}</a>
+  }
+}
+```
+
+```typescript file src/app/cart/cart-page.ts
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CartLine } from './cart-line';
+import { CartStore } from '../cart.store';
+import { OrderApi } from '../order-api';
+
+@Component({ selector: 'app-cart-page', imports: [CartLine, RouterLink], templateUrl: './cart-page.html' })
+export class CartPage {
+    private readonly orderApi = inject(OrderApi);
+    protected readonly store = inject(CartStore);
+    protected readonly orders = this.orderApi.getOrdersResource();
+}
+```
+
+```typescript file src/app/cart/cart-line.ts
+import { Component, input } from '@angular/core';
+
+@Component({ selector: 'app-cart-line', template: `<span>{{ label() }}</span>` })
+export class CartLine {
+    readonly label = input.required<string>();
+    readonly quantity = input(1);
+}
+```
+
+```typescript file src/app/order-api.ts
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, httpResource } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Order } from './order.models';
+
+@Injectable({ providedIn: 'root' })
+export class OrderApi {
+    private readonly http = inject(HttpClient);
+
+    getOrdersResource() {
+        return httpResource<Order[]>(() => '/api/order');
+    }
+
+    getOrders<T = Order>(): Observable<T[]> {
+        return this.http.get<T[]>('/api/orders/all');
+    }
+
+    getOrder(id: string): Observable<Order> {
+        return this.http.get<Order>(`/api/orders/${id}`);
+    }
+}
+```
+
+```typescript file src/app/photon-api.ts
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class PhotonApi {
+    private readonly http = inject(HttpClient);
+    private readonly baseUrl = 'https://maps.example.org';
+
+    search(q: string): Observable<unknown> {
+        return this.http.get(this.baseUrl + '/api', { params: { q } });
+    }
+}
+```
+
+```json expect
+{
+  "claims": [
+    { "kind": "intent.uses", "element": "app-footer", "outcome": "contradicted" },
+    { "kind": "intent.navigates", "element": "cart-orders", "outcome": "contradicted" },
+    { "kind": "intent.opens", "element": "cart-confirm", "outcome": "contradicted" },
+    { "kind": "property.bindable", "element": "cart-line-quantity", "outcome": "contradicted", "actual": "false" },
+    { "kind": "proxy.route", "element": "get-orders-resource", "outcome": "contradicted" },
+    { "kind": "proxy.baseUrl", "element": "photon-api", "outcome": "contradicted", "actual": "https://maps.example.org" }
+  ],
+  "findings": [
+    { "rule": "claim/intent.uses", "severity": "error", "subject": "app-footer" },
+    { "rule": "claim/intent.navigates", "severity": "error", "subject": "cart-orders" },
+    { "rule": "claim/intent.opens", "severity": "error", "subject": "cart-confirm" },
+    { "rule": "claim/property.bindable", "severity": "error", "subject": "cart-line-quantity" },
+    { "rule": "claim/proxy.route", "severity": "error", "subject": "get-orders-resource" },
+    { "rule": "claim/proxy.baseUrl", "severity": "error", "subject": "photon-api" }
+  ]
+}
+```

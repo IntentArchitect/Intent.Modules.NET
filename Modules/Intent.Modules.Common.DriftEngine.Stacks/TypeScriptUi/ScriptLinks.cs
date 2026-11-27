@@ -24,6 +24,15 @@ internal abstract class ScriptLinks : IClaimReader
     /// <summary>The markup the type renders, every element at any depth; none for code that renders nothing.</summary>
     protected virtual IReadOnlyList<MarkupNode> Markup(FileNode file, TypeNode type) => [];
 
+    /// <summary>The markup the type renders, where it can be another file's (an Angular component's <c>templateUrl</c>).</summary>
+    protected virtual IReadOnlyList<MarkupNode> Markup(CodeGraph code, FileNode file, TypeNode type) => Markup(file, type);
+
+    /// <summary>
+    /// A link's path as the router resolves it from the type's code: a relative path from the component's own route, and a
+    /// path a static redirect sends on, followed. As written by default.
+    /// </summary>
+    protected virtual string Resolve(CodeGraph code, TypeNode type, string path) => path;
+
     /// <summary>Where a link the code doesn't make is reported.</summary>
     protected virtual Span Start(FileNode file, TypeNode type) => new(file.Path, 1);
 
@@ -53,7 +62,7 @@ internal abstract class ScriptLinks : IClaimReader
         var (holder, type) = located;
         var code = context.Code;
         var start = Start(file, type);
-        var markup = Markup(file, type);
+        var markup = Markup(code, file, type);
         // From one of a component's operations, only that function's code is read.
         var units = Units(code, file, type);
         if (holder != source && units.FirstOrDefault(x => x.Member is { } member && UiCode.Words(member.Name) == UiCode.Words(source.Name)) is { Member: not null } operation)
@@ -96,7 +105,7 @@ internal abstract class ScriptLinks : IClaimReader
                     : ClaimReading.Absent(start);
             }
             case "intent.navigates":
-                return Navigates(context, code, markup, units, target, start);
+                return Navigates(context, code, type, markup, units, target, start);
             case "intent.target":
                 return Target(context, code, file, type, markup, units, target);
             default:
@@ -199,7 +208,7 @@ internal abstract class ScriptLinks : IClaimReader
     /// <c>redirect(...)</c>. A computed part of a link stands for a parameter; a link the code computes whole, where none
     /// matches, can't be verified.
     /// </summary>
-    private ClaimReading Navigates(ClaimContext context, CodeGraph code, IReadOnlyList<MarkupNode> markup, IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> units, IElement target, Span start)
+    private ClaimReading Navigates(ClaimContext context, CodeGraph code, TypeNode type, IReadOnlyList<MarkupNode> markup, IReadOnlyList<(TypeNode Type, MemberNode? Member, FunctionNode Unit)> units, IElement target, Span start)
     {
         // A route is shown without its slashes, so the root route is the empty one.
         var claimed = context.ClaimOn(target, "page.route")?.Expected ?? context.Claim.Bindings?.GetValueOrDefault("Route");
@@ -213,14 +222,26 @@ internal abstract class ScriptLinks : IClaimReader
         var links = MarkupLinks(code, markup).ToList();
         foreach (var call in units.SelectMany(x => x.Unit.Calls).Where(IsNavigation))
         {
-            var argument = call.Arguments[0];
-            var path = argument.Members.FirstOrDefault(x => x.Member is "path" or "pathname")?.Value ?? argument;
-            links.Add((UiCode.Text(code.StringOf(path)), call.At));
+            // Each value a conditional or a local stands for is a link of its own: navigate(admin ? ['/admin'] : ['/']).
+            var given = call.Arguments[0];
+            foreach (var argument in given.Items.Count == 0 && given.Literal is null && given.Given.Count > 0 ? given.Given : [given])
+            {
+                // A router's commands, Angular's navigate(['/orders', id]): its segments, each value a hole.
+                if (argument.Items.Count > 0)
+                {
+                    links.Add((UiCode.Commands(code, argument.Items), call.At));
+                    continue;
+                }
+
+                var path = argument.Members.FirstOrDefault(x => x.Member is "path" or "pathname")?.Value ?? argument;
+                links.Add((UiCode.Text(code.StringOf(path)), call.At));
+            }
         }
 
         Span? computed = null;
-        foreach (var (path, at) in links)
+        foreach (var (written, at) in links)
         {
+            var path = written is null ? null : Resolve(code, type, written);
             // A link the code computes whole (:to="target") can't be read; one with values in it (`/orders/${id}`) can.
             if (path is null || path.Contains(UiCode.Hole) && path.Replace("/", "").All(x => x == UiCode.Hole))
             {
@@ -242,7 +263,7 @@ internal abstract class ScriptLinks : IClaimReader
     private static bool IsNavigation(CallNode call) => call.Arguments.Count > 0 && (
         call.Name is "push" or "replace" && call.Receiver is { } receiver && Router.IsMatch(receiver)
         || call is { Name: "navigate" or "redirect", Receiver: null }
-        || call is { Name: "navigate", Receiver: { } on } && Router.IsMatch(on));
+        || call is { Name: "navigate" or "navigateByUrl", Receiver: { } on } && Router.IsMatch(on));
 
     /// <summary>
     /// The call of the target operation the code makes, nearest first: in its own code, then in the code's own functions it

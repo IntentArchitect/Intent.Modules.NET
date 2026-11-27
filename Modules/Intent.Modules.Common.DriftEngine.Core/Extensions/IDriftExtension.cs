@@ -154,6 +154,52 @@ public interface ILanguage
 }
 
 /// <summary>
+/// A framework's language for files of an extension several frameworks share, such as <c>.html</c>: a file is its own only
+/// where the code already read says so, file by file, never by its extension alone (code-reader.md, Claimed files). A file
+/// its own extension names (<see cref="ILanguage.Reads"/>, such as <c>.jinja</c>) is its own as any language's is.
+/// <para>
+/// The engine asks it once every language that reads by extension has read, so the code it needs is on the graph, and
+/// gives each file to one framework: the strongest evidence wins; on equal evidence, the one whose syntax the file is
+/// written in (<see cref="WrittenIn"/>); then the higher <see cref="Priority"/>; then the extension registered last, as a
+/// module's language replaces a stock one. It then reads its own files and the ones it was given in one
+/// <see cref="ILanguage.Read"/>. An in-scope file nothing reads is a <c>scope/unread</c> finding.
+/// </para>
+/// </summary>
+public interface IClaimingLanguage : ILanguage
+{
+    /// <summary>Breaks a tie between frameworks with equally strong evidence for a file: the higher one reads it. 0 by default.</summary>
+    int Priority => 0;
+
+    /// <summary>A file of this kind can be its own, when the code says so: <c>.html</c> for a template language.</summary>
+    bool MayClaim(string path);
+
+    /// <summary>
+    /// The files its code says are its own, of <paramref name="files"/>: the in-scope files no language reads by extension
+    /// that it <see cref="MayClaim"/>, relative to <paramref name="root"/>, each with its evidence.
+    /// </summary>
+    IEnumerable<FileClaim> Claim(string root, IReadOnlyList<string> files, CodeGraph graph);
+
+    /// <summary>
+    /// The file's own text is written in its syntax (Jinja's <c>{% %}</c>, Angular's <c>@if</c> or <c>[binding]</c>). It only
+    /// breaks a tie between frameworks whose code claims the file alike; it never claims a file on its own. False by default.
+    /// </summary>
+    bool WrittenIn(string text) => false;
+}
+
+/// <summary>How strongly the code says a file is a framework's: a folder it declares holds it, or it names the file itself.</summary>
+public enum ClaimEvidence
+{
+    /// <summary>A folder the framework's code declares as its own holds it: <c>Jinja2Templates(directory="templates")</c>.</summary>
+    Folder = 1,
+
+    /// <summary>The code names the file itself: <c>templateUrl: './cart.html'</c>, <c>TemplateResponse(request, "cart.html")</c>.</summary>
+    Named = 2
+}
+
+/// <summary>A file a framework's code claims, the evidence, and where it is, as the run result reports it: <c>templateUrl of CartPage</c>.</summary>
+public sealed record FileClaim(string Path, ClaimEvidence Evidence, string Why);
+
+/// <summary>
 /// States claims about the model in code: for each element it checks, what the code must say. The claims are evaluated
 /// like a pack's: a claim reader reads the code's value, the kind's comparer compares, and the finding is reported.
 /// </summary>

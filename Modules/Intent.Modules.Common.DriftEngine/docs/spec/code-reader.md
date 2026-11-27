@@ -124,8 +124,21 @@ Rules compare canonical text, so layout and comments never change a reading.
 | TypeScript         | later | `.ts`, `.tsx`, `.mts`, `.cts`, `.js`, `.jsx`, `.mjs`, `.cjs` (JSX as markup), `.vue` (its `<script>` blocks, and its `<template>` as markup), `tsconfig.json`, `jsconfig.json` | declared |
 | Protobuf           | later | `.proto` (proto2, proto3 and editions)                                       | declared   |
 | XAML               | later | `.xaml` with an `x:Class` (a view's file and markup, no type)                | declared   |
+| Jinja              | later | `.jinja`, `.j2`; `.html` it claims (below)                                   | declared   |
+| Angular templates  | later | `.html` it claims (below), as markup joined to its component                 | declared   |
 
 A reader is a plug-in like any other ([rules.md](rules.md#plug-ins)); the C# and text readers ship in the engine's own pack, the others in their stack packs ([packs.md](packs.md#stock-packs)).
+
+### Claimed files
+
+An extension several frameworks share, such as `.html`, says nothing of which framework a file is, so no language reads such a file by its extension (user decision, 2026-11-27). A framework's language (`IClaimingLanguage`) claims a file only where the code already read says it is the framework's, file by file:
+
+- **Named**: the code names the file itself. An Angular component's `templateUrl`; a template name a Python render call is given (`TemplateResponse(request, "index.html")`), looked up in the templates folders the code declares.
+- **Folder**: a folder the framework's code declares as its own holds it. Jinja's `Jinja2Templates(directory=...)`, `FileSystemLoader`, `PackageLoader`, and Flask's `template_folder` (by default `templates` beside the app).
+
+No framework claims a file because it is the only one in use, or because the file merely looks like its syntax: a static page beside a Jinja app, and an Angular app's `index.html`, aren't templates. The engine asks the frameworks' languages after every other language has read, so the code they need is on the graph, and gives each file to one of them: the strongest evidence; on equal evidence, the one whose syntax the file is written in (Jinja's `{% %}`, Angular's `@if` or `[binding]`), which only breaks a tie and never claims a file alone; then the higher `Priority`; then the extension registered last, as a module's language replaces a stock one. The run result's `files` says, for each claimed file, the evidence and how a tie was broken.
+
+An in-scope, checked file nothing reads, by its extension or a claim, is a `scope/unread` error: nothing in it is checked, so the AI sees it and builds a house rule that reads it, or the file is taken out of the Drift Scope with a reason, or excepted in the Drift Check with a reason. A Context row's file is read, not checked, so it isn't reported.
 
 ### Razor components
 
